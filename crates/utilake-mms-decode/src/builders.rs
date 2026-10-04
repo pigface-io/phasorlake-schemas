@@ -7,7 +7,7 @@ use arrow_array::builder::{
 };
 use arrow_schema::DataType;
 use nemlake_core::{nemtime, num};
-use nemlake_schema::Cast;
+use nemlake_registry::Cast;
 
 use crate::error::RowError;
 

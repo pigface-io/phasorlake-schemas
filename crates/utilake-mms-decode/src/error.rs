@@ -3,7 +3,7 @@
 use nemlake_core::nemtime::TimestampError;
 use nemlake_core::num::NumberError;
 use nemlake_core::{Category, Diagnose, Diagnostic};
-use nemlake_schema::ResolveError;
+use nemlake_registry::ResolveError;
 
 /// Where in the file something happened.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]

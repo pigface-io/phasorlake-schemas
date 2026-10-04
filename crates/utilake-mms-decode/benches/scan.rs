@@ -6,10 +6,10 @@ use std::hint::black_box;
 
 use criterion::{Criterion, Throughput, criterion_group, criterion_main};
 use nemlake_core::IRow;
-use nemlake_mms::arrow_sink::{ArrowSink, BatchSink, BlockBatch};
-use nemlake_mms::scan::{Flow, Pos, ScanOptions, Sink, scan};
-use nemlake_mms::{Row, RowError, RowFailure, SinkError};
-use nemlake_schema::{Registry, ResolveOptions, TypeOptions};
+use nemlake_decode::arrow_sink::{ArrowSink, BatchSink, BlockBatch};
+use nemlake_decode::scan::{Flow, Pos, ScanOptions, Sink, scan};
+use nemlake_decode::{Row, RowError, RowFailure, SinkError};
+use nemlake_registry::{Registry, ResolveOptions, TypeOptions};
 
 const TARGET_BYTES: usize = 64 << 20;
 

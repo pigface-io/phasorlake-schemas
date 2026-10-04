@@ -2,7 +2,7 @@
 
 use arrow_array::RecordBatch;
 use nemlake_core::{Category, Diagnostic, Fingerprint, IRow};
-use nemlake_schema::{Registry, ResolveOptions, Resolved, SchemaVersion, TableId};
+use nemlake_registry::{Registry, ResolveOptions, Resolved, SchemaVersion, TableId};
 
 use crate::builders::{ColumnBuilder, Parsed, parse_field};
 use crate::error::{RowError, RowFailure, SinkError};
@@ -367,7 +367,7 @@ mod tests {
     use std::sync::Arc;
 
     use arrow_array::{Array, Float64Array, StringArray, TimestampNanosecondArray};
-    use nemlake_schema::{Mode, TypeOptions};
+    use nemlake_registry::{Mode, TypeOptions};
 
     use super::*;
     use crate::scan::ScanOptions;
@@ -486,7 +486,7 @@ mod tests {
             matches!(
                 e,
                 crate::error::ScanError::Sink(SinkError::Resolve(
-                    nemlake_schema::ResolveError::UnknownTable { .. }
+                    nemlake_registry::ResolveError::UnknownTable { .. }
                 ))
             ),
             "{e}"

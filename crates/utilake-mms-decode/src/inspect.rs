@@ -1,8 +1,8 @@
 //! Summarising a file without building batches: what `nemlake inspect` shows.
 
 use nemlake_core::{Fingerprint, IRow};
-use nemlake_schema::infer::Sampler;
-use nemlake_schema::{Registry, ResolveOptions};
+use nemlake_registry::infer::Sampler;
+use nemlake_registry::{Registry, ResolveOptions};
 
 use crate::arrow_sink::PREFIX_FIELDS;
 use crate::error::{RowError, RowFailure, SinkError};
@@ -122,7 +122,7 @@ impl Sink for InspectSink<'_> {
 
 #[cfg(test)]
 mod tests {
-    use nemlake_schema::{Mode, TypeOptions};
+    use nemlake_registry::{Mode, TypeOptions};
 
     use super::*;
     use crate::scan::{ScanOptions, scan};
@@ -175,10 +175,10 @@ mod tests {
         assert_eq!(unknown.sampler.rows, 2);
         assert_eq!(
             unknown.sampler.column_type(0),
-            nemlake_schema::ColumnType::Timestamp
+            nemlake_registry::ColumnType::Timestamp
         );
-        let draft = nemlake_schema::infer::draft_table(
-            nemlake_schema::Market::Nem,
+        let draft = nemlake_registry::infer::draft_table(
+            nemlake_registry::Market::Nem,
             &IRow {
                 report_type: &unknown.report_type,
                 report_subtype: &unknown.report_subtype,
