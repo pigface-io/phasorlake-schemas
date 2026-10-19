@@ -3,7 +3,7 @@
 use std::io::Read;
 
 use memchr::memchr;
-use nemlake_core::{IRow, IRowScratch};
+use utilake_core::{IRow, IRowScratch};
 
 use crate::error::{RowError, RowFailure, ScanError, SinkError};
 use crate::fields::{Row, Splitter};

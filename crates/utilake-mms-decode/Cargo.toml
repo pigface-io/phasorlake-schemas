@@ -1,5 +1,5 @@
 [package]
-name = "nemlake-decode"
+name = "utilake-decode"
 description = "The MMS C/I/D row format: scanner, field splitter, zip walking. Knows no registry."
 version.workspace = true
 edition.workspace = true
@@ -12,7 +12,7 @@ publish.workspace = true
 workspace = true
 
 [dependencies]
-nemlake-core.workspace = true
+utilake-core.workspace = true
 memchr.workspace = true
 serde_json.workspace = true
 tempfile.workspace = true

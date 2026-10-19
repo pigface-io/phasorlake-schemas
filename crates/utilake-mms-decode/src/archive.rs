@@ -5,7 +5,7 @@ use std::fs::File;
 use std::io::{BufReader, Read, Seek, Write as _};
 use std::path::Path;
 
-use nemlake_core::{Category, Diagnose, Diagnostic};
+use utilake_core::{Category, Diagnose, Diagnostic};
 
 /// Zips nested deeper than this are refused.
 pub const MAX_DEPTH: u8 = 2;
@@ -442,7 +442,7 @@ pub(crate) mod tests {
             "{e}"
         );
         assert_eq!(
-            nemlake_core::Diagnose::diagnostic(&ArchiveError::NoCsv { path: "p".into() }).code,
+            utilake_core::Diagnose::diagnostic(&ArchiveError::NoCsv { path: "p".into() }).code,
             "zip.no_csv"
         );
         // Depth: zip in zip in zip.
@@ -469,7 +469,7 @@ pub(crate) mod tests {
             ),
             "{e}"
         );
-        let d = nemlake_core::Diagnose::diagnostic(&ArchiveError::TooDeep {
+        let d = utilake_core::Diagnose::diagnostic(&ArchiveError::TooDeep {
             path: "p".into(),
             entry: "e".into(),
             depth: 3,
@@ -502,7 +502,7 @@ pub(crate) mod tests {
             WalkError::Archive(ArchiveError::Entry { .. })
         ));
         assert_eq!(
-            nemlake_core::Diagnose::diagnostic(&ArchiveError::Entry {
+            utilake_core::Diagnose::diagnostic(&ArchiveError::Entry {
                 path: "p".into(),
                 entry: "e".into(),
                 message: "m".into()
@@ -511,7 +511,7 @@ pub(crate) mod tests {
             "zip.bad_entry"
         );
         assert_eq!(
-            nemlake_core::Diagnose::diagnostic(&ArchiveError::Open {
+            utilake_core::Diagnose::diagnostic(&ArchiveError::Open {
                 path: "p".into(),
                 message: "m".into()
             })
@@ -525,7 +525,7 @@ pub(crate) mod tests {
             source: std::io::Error::other("x"),
         };
         assert_eq!(
-            nemlake_core::Diagnose::diagnostic(&e).code,
+            utilake_core::Diagnose::diagnostic(&e).code,
             "zip.spool_failed"
         );
     }

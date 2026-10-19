@@ -13,7 +13,7 @@
 //! fields, untyped. [`archive`] walks zips, including zips inside zips.
 //!
 //! Decode knows no registry: what a shape means, and how its text becomes
-//! typed columns, is `nemlake-conform`'s business.
+//! typed columns, is `utilake-conform`'s business.
 
 pub mod archive;
 pub mod error;

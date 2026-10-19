@@ -1,8 +1,8 @@
 //! Errors of scanning, parsing and sinking MMS rows.
 
-use nemlake_core::nemtime::TimestampError;
-use nemlake_core::num::NumberError;
-use nemlake_core::{Category, Diagnose, Diagnostic};
+use utilake_core::nemtime::TimestampError;
+use utilake_core::num::NumberError;
+use utilake_core::{Category, Diagnose, Diagnostic};
 
 /// Where in the file something happened.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -99,7 +99,7 @@ pub enum RowError {
 /// words of what was expected and what was found: a whole number was
 /// declared and the file has a fraction, not just "not an integer".
 fn number_fault(value: &str, source: &NumberError) -> String {
-    let is_number = nemlake_core::num::parse_f64(value.as_bytes()).is_ok();
+    let is_number = utilake_core::num::parse_f64(value.as_bytes()).is_ok();
     match source {
         NumberError::Integer if is_number && value.contains(['.', 'e', 'E']) => {
             "is a number with a fraction or exponent, but the column is declared a whole number (Int64)".to_owned()

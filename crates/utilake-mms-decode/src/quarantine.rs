@@ -5,7 +5,7 @@ use std::fs::File;
 use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 
-use nemlake_core::Diagnostic;
+use utilake_core::Diagnostic;
 
 /// Appends quarantined rows to `{dir}/{table}/{source_stem}.jsonl`.
 #[derive(Debug)]
@@ -69,7 +69,7 @@ impl QuarantineWriter {
 
 #[cfg(test)]
 mod tests {
-    use nemlake_core::Category;
+    use utilake_core::Category;
 
     use super::*;
 
