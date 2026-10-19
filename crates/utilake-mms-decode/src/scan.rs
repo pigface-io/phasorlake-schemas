@@ -2,8 +2,8 @@
 
 use std::io::Read;
 
+use crate::irow::{IRow, IRowScratch};
 use memchr::memchr;
-use utilake_core::{IRow, IRowScratch};
 
 use crate::error::{RowError, RowFailure, ScanError, SinkError};
 use crate::fields::{Row, Splitter};

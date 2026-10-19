@@ -14,12 +14,15 @@
 //! `utilake-kit`'s `container`.
 //!
 //! Decode knows no registry: what a shape means, and how its text becomes
-//! typed columns, is `utilake-conform`'s business.
+//! typed columns, is `utilake-mms-conform`'s business.
 
 pub mod error;
 pub mod fields;
+pub mod irow;
+pub mod mmstime;
 pub mod scan;
 
 pub use error::{RowError, RowFailure, ScanError, SinkError};
 pub use fields::{PREFIX_FIELDS, Row};
+pub use irow::{IRow, IRowError, IRowScratch, parse_version};
 pub use scan::{Pos, ScanOptions, ScanStats, Sink, scan};

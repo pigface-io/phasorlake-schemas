@@ -1,6 +1,6 @@
 //! Errors of scanning, parsing and sinking MMS rows.
 
-use utilake_core::nemtime::TimestampError;
+use crate::mmstime::TimestampError;
 use utilake_core::num::NumberError;
 use utilake_core::{Category, Diagnose, Diagnostic};
 
