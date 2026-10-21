@@ -644,6 +644,12 @@
   "name": "P5MIN_INTERSENSITIVITIES",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "P5MIN",
+      "INTERSENSITIVITIES"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

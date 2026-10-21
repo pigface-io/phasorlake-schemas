@@ -86,6 +86,12 @@
     "PRUDENTIAL_DATE",
     "PRUDENTIAL_RUNNO"
   ],
+  "report_pairs": [
+    [
+      "IRAUCTION",
+      "SRA_PRUDENTIAL_RUN"
+    ]
+  ],
   "temporal": {
     "entity": [
       "PRUDENTIAL_RUNNO"

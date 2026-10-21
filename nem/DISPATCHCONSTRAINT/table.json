@@ -513,6 +513,12 @@
     "DISPATCHINTERVAL",
     "INTERVENTION"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "CONSTRAINT"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

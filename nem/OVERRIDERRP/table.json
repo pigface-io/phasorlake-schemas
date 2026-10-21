@@ -185,6 +185,12 @@
     "STARTDATE",
     "STARTPERIOD"
   ],
+  "report_pairs": [
+    [
+      "FORCE_MAJEURE",
+      "OVERRIDERRP"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

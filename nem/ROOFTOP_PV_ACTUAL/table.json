@@ -223,6 +223,12 @@
     "REGIONID",
     "TYPE"
   ],
+  "report_pairs": [
+    [
+      "ROOFTOP",
+      "ACTUAL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

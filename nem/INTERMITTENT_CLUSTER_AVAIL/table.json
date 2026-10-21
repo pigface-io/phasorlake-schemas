@@ -152,6 +152,12 @@
     "CLUSTERID",
     "PERIODID"
   ],
+  "report_pairs": [
+    [
+      "DEMAND",
+      "INTERMITTENT_CLUSTER_AVAIL"
+    ]
+  ],
   "temporal": {
     "cutoff": "OFFERDATETIME",
     "entity": [

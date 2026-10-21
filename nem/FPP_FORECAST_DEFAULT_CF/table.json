@@ -188,6 +188,12 @@
   "name": "FPP_FORECAST_DEFAULT_CF",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "FPP",
+      "FORECAST_DEFAULT_CF"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

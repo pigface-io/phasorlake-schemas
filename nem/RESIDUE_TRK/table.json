@@ -183,6 +183,12 @@
     "VERSIONNO",
     "AUCTIONID"
   ],
+  "report_pairs": [
+    [
+      "IRAUCTION",
+      "RESIDUE_TRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

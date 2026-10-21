@@ -601,6 +601,12 @@
   "primary_key": [
     "RUN_DATETIME"
   ],
+  "report_pairs": [
+    [
+      "P5MIN",
+      "CASESOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

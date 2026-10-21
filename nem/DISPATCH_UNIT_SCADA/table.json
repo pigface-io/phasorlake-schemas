@@ -175,6 +175,12 @@
     "SETTLEMENTDATE",
     "DUID"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "UNIT_SCADA"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -117,6 +117,12 @@
   "name": "P5MIN_SCENARIODEMAND",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "P5MIN",
+      "SCENARIODEMAND"
+    ]
+  ],
   "temporal": {
     "entity": [],
     "order": [

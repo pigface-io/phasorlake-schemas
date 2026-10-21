@@ -543,6 +543,12 @@
     "PARTICIPANTID",
     "LINKID"
   ],
+  "report_pairs": [
+    [
+      "BIDS",
+      "MNSP_DAYOFFER"
+    ]
+  ],
   "temporal": {
     "cutoff": "OFFERDATE",
     "entity": [

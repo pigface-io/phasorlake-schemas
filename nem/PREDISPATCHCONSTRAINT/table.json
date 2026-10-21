@@ -526,6 +526,12 @@
     "CONSTRAINTID",
     "DATETIME"
   ],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "CONSTRAINT_SOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

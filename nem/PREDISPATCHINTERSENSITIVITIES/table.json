@@ -674,6 +674,12 @@
     "INTERCONNECTORID",
     "DATETIME"
   ],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "INTERCONNECTR_SENS"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

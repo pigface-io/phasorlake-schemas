@@ -1688,6 +1688,12 @@
     "EFFECTIVEDATE",
     "VERSIONNO"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "DUDETAIL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

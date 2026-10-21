@@ -176,6 +176,12 @@
   "name": "FPP_HIST_PERFORMANCE",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "FPP",
+      "HIST_PERFORMANCE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

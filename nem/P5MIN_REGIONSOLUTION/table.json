@@ -8649,6 +8649,12 @@
     "INTERVAL_DATETIME",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "P5MIN",
+      "REGIONSOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

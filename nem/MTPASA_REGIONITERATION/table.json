@@ -207,6 +207,12 @@
     "REGIONID",
     "USE_ITERATION_ID"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "REGIONITERATION"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

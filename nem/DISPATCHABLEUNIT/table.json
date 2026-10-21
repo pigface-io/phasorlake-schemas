@@ -109,6 +109,12 @@
   "primary_key": [
     "DUID"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "DISPATCHABLEUNIT"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

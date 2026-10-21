@@ -112,6 +112,12 @@
     "EFFECTIVEDATE",
     "VERSION_DATETIME"
   ],
+  "report_pairs": [
+    [
+      "BILLING_CONFIG",
+      "SECDEPOSIT_INTEREST_RATE"
+    ]
+  ],
   "temporal": {
     "cutoff": "VERSION_DATETIME",
     "entity": [

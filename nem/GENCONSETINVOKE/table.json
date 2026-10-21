@@ -357,6 +357,12 @@
   "primary_key": [
     "INVOCATION_ID"
   ],
+  "report_pairs": [
+    [
+      "GENERIC_CONSTRAINT",
+      "GENCONSETINVOKE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

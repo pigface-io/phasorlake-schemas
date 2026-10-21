@@ -105,6 +105,12 @@
   "name": "P5MIN_SCENARIODEMANDTRK",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "P5MIN",
+      "SCENARIODEMANDTRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

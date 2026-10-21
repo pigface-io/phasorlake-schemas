@@ -329,6 +329,12 @@
     "VERSIONNO",
     "INTERCONNECTORID"
   ],
+  "report_pairs": [
+    [
+      "MARKET_CONFIG",
+      "INTERCONNECTORCONSTRAINT"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

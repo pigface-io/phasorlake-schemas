@@ -165,6 +165,12 @@
   "name": "PDPASA_CONSTRAINTSOLUTION",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "PDPASA",
+      "CONSTRAINTSOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

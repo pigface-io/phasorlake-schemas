@@ -127,6 +127,12 @@
     "STATIONID",
     "VERSIONNO"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "STATIONOWNER"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

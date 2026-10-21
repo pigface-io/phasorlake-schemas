@@ -193,6 +193,12 @@
   "primary_key": [
     "STATIONID"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "STATION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

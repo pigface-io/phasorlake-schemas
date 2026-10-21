@@ -6202,6 +6202,12 @@
     "REGIONID",
     "DATETIME"
   ],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "REGION_SOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

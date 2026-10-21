@@ -187,6 +187,12 @@
     "VERSIONNO",
     "BIDTYPE"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "BIDDUIDDETAILS"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -21006,6 +21006,12 @@
     "INTERVAL_DATETIME",
     "CONSTRAINTID"
   ],
+  "report_pairs": [
+    [
+      "P5MIN",
+      "CONSTRAINTSOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

@@ -329,6 +329,12 @@
     "INTERCONNECTORID",
     "FROMREGIONID"
   ],
+  "report_pairs": [
+    [
+      "IRAUCTION_CONFIG",
+      "AUCTION_IC_ALLOCATIONS"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

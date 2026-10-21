@@ -127,6 +127,12 @@
     "VERSIONNO",
     "PARTICIPANTID"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "MNSP_PARTICIPANT"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

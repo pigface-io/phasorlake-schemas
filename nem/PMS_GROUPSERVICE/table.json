@@ -248,6 +248,12 @@
   "name": "PMS_GROUPSERVICE",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "PMS_GROUPSERVICE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

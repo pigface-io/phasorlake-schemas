@@ -150,6 +150,12 @@
     "INTERCONNECTORID",
     "PERIODID"
   ],
+  "report_pairs": [
+    [
+      "METERDATA",
+      "INTERCONNECTOR"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

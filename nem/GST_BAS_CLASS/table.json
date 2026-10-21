@@ -97,6 +97,12 @@
   "primary_key": [
     "BAS_CLASS"
   ],
+  "report_pairs": [
+    [
+      "BILLING_CONFIG",
+      "GST_BAS_CLASS"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

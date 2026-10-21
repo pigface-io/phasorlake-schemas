@@ -182,6 +182,12 @@
     "RUN_DATETIME",
     "VERSION_DATETIME"
   ],
+  "report_pairs": [
+    [
+      "VOLTAGE_INSTRUCTION",
+      "TRACK"
+    ]
+  ],
   "temporal": {
     "entity": [],
     "order": [

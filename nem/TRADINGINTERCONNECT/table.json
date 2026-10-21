@@ -193,6 +193,12 @@
     "INTERCONNECTORID",
     "PERIODID"
   ],
+  "report_pairs": [
+    [
+      "TRADING",
+      "INTERCONNECTORRES"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

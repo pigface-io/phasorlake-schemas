@@ -188,6 +188,12 @@
   "name": "FPP_RESIDUAL_CF",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "FPP",
+      "RESIDUAL_CF"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

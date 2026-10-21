@@ -137,6 +137,12 @@
     "DUID",
     "BIDTYPE"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "OFFERTRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

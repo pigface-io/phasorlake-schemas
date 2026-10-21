@@ -351,6 +351,12 @@
     "SETTLEMENTDATE",
     "RUNNO"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "CASE_SOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

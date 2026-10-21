@@ -212,6 +212,12 @@
   "name": "SET_ENERGY_REGION_SUMMARY",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "SETTLEMENTS",
+      "ENERGY_REGION_SUMMARY"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

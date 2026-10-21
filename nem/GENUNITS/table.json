@@ -493,6 +493,12 @@
   "primary_key": [
     "GENSETID"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "GENUNITS"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

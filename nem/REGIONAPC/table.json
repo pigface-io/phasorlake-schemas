@@ -137,6 +137,12 @@
     "EFFECTIVEDATE",
     "VERSIONNO"
   ],
+  "report_pairs": [
+    [
+      "AP",
+      "REGIONAPC"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -126,6 +126,12 @@
     "LOCALAREAID",
     "TNI"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENTS",
+      "LOCALAREATNI"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

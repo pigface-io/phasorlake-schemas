@@ -244,6 +244,12 @@
     "NRM_DATETIME",
     "DIRECTIONAL_INTERCONNECTORID"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "NEGATIVE_RESIDUE"
+    ]
+  ],
   "temporal": {
     "entity": [
       "NRM_DATETIME",

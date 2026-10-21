@@ -487,6 +487,12 @@
     "APEVENTID",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "AP",
+      "APEVENTREGION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

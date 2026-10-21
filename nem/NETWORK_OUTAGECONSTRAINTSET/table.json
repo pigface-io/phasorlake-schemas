@@ -110,6 +110,12 @@
     "OUTAGEID",
     "GENCONSETID"
   ],
+  "report_pairs": [
+    [
+      "NETWORK",
+      "OUTAGECONSTRAINTSET"
+    ]
+  ],
   "temporal": {
     "entity": [
       "OUTAGEID",

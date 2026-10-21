@@ -1253,6 +1253,12 @@
     "OFFERDATETIME",
     "PERIODID"
   ],
+  "report_pairs": [
+    [
+      "BIDS",
+      "BIDOFFERPERIOD"
+    ]
+  ],
   "temporal": {
     "cutoff": "OFFERDATETIME",
     "entity": [

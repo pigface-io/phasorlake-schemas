@@ -971,6 +971,12 @@
     "SETTLEMENTDATE",
     "OFFERDATE"
   ],
+  "report_pairs": [
+    [
+      "BIDS",
+      "BIDDAYOFFER"
+    ]
+  ],
   "temporal": {
     "cutoff": "OFFERDATE",
     "entity": [

@@ -140,6 +140,12 @@
   "name": "FPP_RESIDUAL_PERFORMANCE",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "FPP",
+      "RESIDUAL_PERFORMANCE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

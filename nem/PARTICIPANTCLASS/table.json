@@ -97,6 +97,12 @@
   "primary_key": [
     "PARTICIPANTCLASSID"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "PARTICIPANTCLASS"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

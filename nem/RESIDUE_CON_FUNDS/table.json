@@ -197,6 +197,12 @@
     "INTERCONNECTORID",
     "FROMREGIONID"
   ],
+  "report_pairs": [
+    [
+      "IRAUCTION",
+      "RESIDUE_CON_FUNDS"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

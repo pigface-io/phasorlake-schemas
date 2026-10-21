@@ -282,6 +282,12 @@
     "CONTRACTYEAR",
     "WEEKNO"
   ],
+  "report_pairs": [
+    [
+      "BILLING_CONFIG",
+      "BILLINGCALENDAR"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

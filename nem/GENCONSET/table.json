@@ -180,6 +180,16 @@
     "VERSIONNO",
     "GENCONID"
   ],
+  "report_pairs": [
+    [
+      "GENCONSET",
+      ""
+    ],
+    [
+      "GENCONSET",
+      "NULL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

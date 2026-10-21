@@ -125,6 +125,12 @@
     "MARKETFEEVERSIONNO",
     "EFFECTIVEDATE"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENT_CONFIG",
+      "MARKETFEEDATA"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

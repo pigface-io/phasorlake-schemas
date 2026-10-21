@@ -962,6 +962,12 @@
     "DUID",
     "START_DATE"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "DUDETAILSUMMARY"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

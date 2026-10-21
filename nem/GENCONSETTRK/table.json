@@ -310,6 +310,16 @@
     "EFFECTIVEDATE",
     "VERSIONNO"
   ],
+  "report_pairs": [
+    [
+      "GENCONSETTRK",
+      ""
+    ],
+    [
+      "GENCONSETTRK",
+      "NULL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

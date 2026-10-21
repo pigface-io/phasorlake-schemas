@@ -213,6 +213,12 @@
     "DAY",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "LOLPRESULT"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

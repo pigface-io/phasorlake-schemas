@@ -356,6 +356,12 @@
     "REGIONID",
     "PERIODID"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENTS",
+      "FCASREGIONRECOVERY"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -152,6 +152,12 @@
   "name": "FPP_REGION_FREQ_MEASURE",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "FPP",
+      "REGION_FREQ_MEASURE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

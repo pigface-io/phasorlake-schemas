@@ -224,6 +224,12 @@
     "PARTICIPANTID",
     "VERSIONNO"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "STATIONOWNERTRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

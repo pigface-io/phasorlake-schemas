@@ -433,6 +433,12 @@
     "PERIOD_ENDING",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "REGIONSUMMARY"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

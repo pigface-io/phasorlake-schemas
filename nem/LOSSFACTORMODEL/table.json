@@ -139,6 +139,12 @@
     "INTERCONNECTORID",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "MARKET_CONFIG",
+      "LOSSFACTORMODEL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -314,6 +314,12 @@
     "CONTRACTYEAR",
     "QUARTER"
   ],
+  "report_pairs": [
+    [
+      "IRAUCTION_CONFIG",
+      "AUCTION_CALENDAR"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

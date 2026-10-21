@@ -190,6 +190,12 @@
     "CONTRACTID",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "BILLING",
+      "NMAS_TST_RECVRY_RBF"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

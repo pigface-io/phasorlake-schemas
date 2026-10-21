@@ -134,6 +134,12 @@
     "INTERVAL_DATETIME",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "OPERATIONAL_DEMAND",
+      "ACTUAL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

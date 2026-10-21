@@ -137,6 +137,12 @@
     "VERSION_DATETIME",
     "RESERVELIMITID"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "RESERVELIMIT"
+    ]
+  ],
   "temporal": {
     "cutoff": "VERSION_DATETIME",
     "entity": [

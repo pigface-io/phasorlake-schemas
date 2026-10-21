@@ -260,6 +260,12 @@
   "name": "PD_FCAS_REQ_CONSTRAINT",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "FCAS_REQ_CONSTRAINT"
+    ]
+  ],
   "temporal": {
     "entity": [],
     "order": [

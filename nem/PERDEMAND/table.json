@@ -201,6 +201,12 @@
     "PERIODID",
     "VERSIONNO"
   ],
+  "report_pairs": [
+    [
+      "DEMAND",
+      "PERIOD"
+    ]
+  ],
   "temporal": {
     "cutoff": "OFFERDATE",
     "entity": [

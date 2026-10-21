@@ -127,6 +127,12 @@
     "SCENARIO",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "SCENARIO_DEMAND"
+    ]
+  ],
   "temporal": {
     "entity": [
       "SCENARIO",

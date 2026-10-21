@@ -531,6 +531,12 @@
     "DISPATCHINTERVAL",
     "INTERVENTION"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "INTERCONNECTORRES"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

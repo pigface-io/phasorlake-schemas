@@ -173,6 +173,12 @@
     "EFFECTIVEDATE",
     "VERSIONNO"
   ],
+  "report_pairs": [
+    [
+      "MARKET_CONFIG",
+      "BIDTYPES"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

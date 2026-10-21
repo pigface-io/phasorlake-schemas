@@ -104,6 +104,12 @@
   "name": "SSM_ENABLEMENT_COSTS",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "SSM",
+      "ENABLEMENT_COSTS"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

@@ -190,6 +190,12 @@
     "ORIGIN",
     "FORECAST_PRIORITY"
   ],
+  "report_pairs": [
+    [
+      "DEMAND",
+      "INTERMITTENT_DS_PRED"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

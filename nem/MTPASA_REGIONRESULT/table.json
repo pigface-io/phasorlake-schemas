@@ -826,6 +826,12 @@
     "DAY",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "REGIONRESULT"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

@@ -1641,6 +1641,12 @@
     "DISPATCHINTERVAL",
     "INTERVENTION"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "PRICE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

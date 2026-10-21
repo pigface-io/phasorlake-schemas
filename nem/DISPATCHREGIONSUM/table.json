@@ -5454,6 +5454,12 @@
     "DISPATCHINTERVAL",
     "INTERVENTION"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "REGIONSUM"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

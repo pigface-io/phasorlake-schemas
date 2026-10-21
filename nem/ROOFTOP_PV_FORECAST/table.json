@@ -161,6 +161,12 @@
     "REGIONID",
     "INTERVAL_DATETIME"
   ],
+  "report_pairs": [
+    [
+      "ROOFTOP",
+      "FORECAST"
+    ]
+  ],
   "temporal": {
     "cutoff": "VERSION_DATETIME",
     "entity": [

@@ -224,6 +224,12 @@
     "ORIGIN",
     "FORECAST_PRIORITY"
   ],
+  "report_pairs": [
+    [
+      "DEMAND",
+      "INTERMITTENT_DS_RUN"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

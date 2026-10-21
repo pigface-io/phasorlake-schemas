@@ -1161,6 +1161,12 @@
     "BIDTYPE",
     "INTERVAL_DATETIME"
   ],
+  "report_pairs": [
+    [
+      "BID",
+      "BIDPEROFFER_D"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

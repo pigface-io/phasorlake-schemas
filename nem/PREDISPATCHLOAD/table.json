@@ -2498,6 +2498,12 @@
     "DUID",
     "DATETIME"
   ],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "UNIT_SOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -124,6 +124,12 @@
     "INTERVAL_DATETIME",
     "DUID"
   ],
+  "report_pairs": [
+    [
+      "P5MIN",
+      "LOCAL_PRICE"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

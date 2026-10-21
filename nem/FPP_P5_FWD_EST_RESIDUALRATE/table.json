@@ -152,6 +152,12 @@
   "name": "FPP_P5_FWD_EST_RESIDUALRATE",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "FPP",
+      "P5_FWD_EST_RESIDUALRATE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

@@ -161,6 +161,12 @@
     "VERSIONNO",
     "PERIODID"
   ],
+  "report_pairs": [
+    [
+      "FORCE_MAJEURE",
+      "IRFMAMOUNT"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

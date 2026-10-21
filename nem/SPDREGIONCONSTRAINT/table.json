@@ -152,6 +152,12 @@
     "GENCONID",
     "BIDTYPE"
   ],
+  "report_pairs": [
+    [
+      "SPDRC",
+      "NULL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

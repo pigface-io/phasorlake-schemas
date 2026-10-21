@@ -303,6 +303,12 @@
     "PREDISPATCHSEQNO",
     "RUNNO"
   ],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "CASE_SOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

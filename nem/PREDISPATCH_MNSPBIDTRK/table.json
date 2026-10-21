@@ -173,6 +173,12 @@
     "LINKID",
     "PERIODID"
   ],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "MNSPBIDTRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

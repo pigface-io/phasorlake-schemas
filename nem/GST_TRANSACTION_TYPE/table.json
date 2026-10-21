@@ -121,6 +121,12 @@
   "primary_key": [
     "TRANSACTION_TYPE"
   ],
+  "report_pairs": [
+    [
+      "BILLING_CONFIG",
+      "GST_TRANSACTION_TYPE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

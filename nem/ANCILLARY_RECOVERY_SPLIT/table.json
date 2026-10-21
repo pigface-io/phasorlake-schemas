@@ -264,6 +264,12 @@
     "SERVICE",
     "PAYMENTTYPE"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENT_CONFIG",
+      "ANCILLARY_RECOVERY_SPLIT"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

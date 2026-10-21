@@ -163,6 +163,12 @@
     "PARTICIPANTID",
     "LINKID"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "MNSPBIDTRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

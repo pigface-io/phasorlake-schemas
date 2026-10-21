@@ -122,6 +122,12 @@
     "SETTLEMENTDATE",
     "DUID"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "INTERMITTENT_FORECAST_TRK"
+    ]
+  ],
   "temporal": {
     "entity": [
       "DUID"

@@ -134,6 +134,12 @@
     "SUSPENSION_ID",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "FORCE_MAJEURE",
+      "MARKET_SUSPEND_REGION_SUM"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

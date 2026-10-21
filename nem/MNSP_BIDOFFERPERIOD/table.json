@@ -644,6 +644,12 @@
     "LINKID",
     "PERIODID"
   ],
+  "report_pairs": [
+    [
+      "BIDS",
+      "MNSP_BIDOFFERPERIOD"
+    ]
+  ],
   "temporal": {
     "cutoff": "OFFERDATETIME",
     "entity": [

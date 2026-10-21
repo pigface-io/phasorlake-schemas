@@ -541,6 +541,12 @@
     "INTERCONNECTORID",
     "DATETIME"
   ],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "INTERCONNECTOR_SOLN"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

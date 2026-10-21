@@ -248,6 +248,12 @@
   "name": "DISPATCH_FCAS_REQ_CONSTRAINT",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "FCAS_REQ_CONSTRAINT"
+    ]
+  ],
   "temporal": {
     "entity": [],
     "order": [

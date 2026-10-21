@@ -289,6 +289,12 @@
   "primary_key": [
     "RUN_DATETIME"
   ],
+  "report_pairs": [
+    [
+      "PDPASA",
+      "CASESOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

@@ -289,6 +289,12 @@
   "primary_key": [
     "RUN_DATETIME"
   ],
+  "report_pairs": [
+    [
+      "STPASA",
+      "CASESOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

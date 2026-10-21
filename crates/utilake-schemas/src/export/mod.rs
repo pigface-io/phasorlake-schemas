@@ -223,6 +223,7 @@ impl Export {
             "description": description,
             "package": decl.and_then(|d| d.package.as_deref()),
             "primary_key": decl.map(|d| &d.primary_key),
+            "report_pairs": decl.map(|d| &d.report_pairs),
             "time_column": decl.and_then(|d| d.time_column.as_deref()),
             "temporal": decl.map(|d| serde_json::to_value(&d.temporal).unwrap_or(Value::Null)),
             "load_mode": decl.map(|d| d.load_mode),

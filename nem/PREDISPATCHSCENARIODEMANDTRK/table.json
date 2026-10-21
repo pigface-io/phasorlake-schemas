@@ -123,6 +123,12 @@
     "EFFECTIVEDATE",
     "VERSIONNO"
   ],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "SCENARIO_DEMAND_TRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

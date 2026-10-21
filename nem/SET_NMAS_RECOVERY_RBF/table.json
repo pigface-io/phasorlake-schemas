@@ -204,6 +204,12 @@
     "PAYMENTTYPE",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENTS",
+      "NMAS_RECOVERY_RBF"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

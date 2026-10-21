@@ -658,6 +658,12 @@
     "DUID",
     "BIDTYPE"
   ],
+  "report_pairs": [
+    [
+      "BID",
+      "BIDDAYOFFER_D"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

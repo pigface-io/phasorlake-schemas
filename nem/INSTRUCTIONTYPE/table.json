@@ -109,6 +109,12 @@
   "primary_key": [
     "INSTRUCTIONTYPEID"
   ],
+  "report_pairs": [
+    [
+      "GD_INSTRUCT",
+      "INSTRUCTIONTYPE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

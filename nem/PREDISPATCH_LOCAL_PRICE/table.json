@@ -146,6 +146,12 @@
     "DATETIME",
     "DUID"
   ],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "LOCAL_PRICE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

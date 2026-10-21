@@ -123,6 +123,12 @@
     "PRUDENTIAL_DATE",
     "RUNNO"
   ],
+  "report_pairs": [
+    [
+      "PRUDENTIAL",
+      "RUNTRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

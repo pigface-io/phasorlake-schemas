@@ -263,6 +263,12 @@
     "REGIONID",
     "BIDTYPE"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "FCAS_REQ"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

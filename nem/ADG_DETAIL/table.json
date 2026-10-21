@@ -141,6 +141,12 @@
   "name": "ADG_DETAIL",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "ADG_DETAIL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

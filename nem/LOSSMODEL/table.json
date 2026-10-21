@@ -163,6 +163,12 @@
     "INTERCONNECTORID",
     "LOSSSEGMENT"
   ],
+  "report_pairs": [
+    [
+      "MARKET_CONFIG",
+      "LOSSMODEL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

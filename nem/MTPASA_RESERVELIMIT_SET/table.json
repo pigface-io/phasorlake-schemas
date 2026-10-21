@@ -147,6 +147,12 @@
     "EFFECTIVEDATE",
     "VERSION_DATETIME"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "RESERVELIMIT_SET"
+    ]
+  ],
   "temporal": {
     "cutoff": "VERSION_DATETIME",
     "entity": [],

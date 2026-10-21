@@ -125,6 +125,12 @@
     "VERSIONNO",
     "BAS_CLASS"
   ],
+  "report_pairs": [
+    [
+      "BILLING_CONFIG",
+      "GST_RATE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

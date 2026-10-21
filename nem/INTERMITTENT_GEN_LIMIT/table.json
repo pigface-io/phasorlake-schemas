@@ -126,6 +126,12 @@
     "OFFERDATETIME",
     "PERIODID"
   ],
+  "report_pairs": [
+    [
+      "DEMAND",
+      "INTERMITTENT_GEN_LIMIT"
+    ]
+  ],
   "temporal": {
     "cutoff": "OFFERDATETIME",
     "entity": [

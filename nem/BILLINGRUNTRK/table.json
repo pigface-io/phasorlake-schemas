@@ -257,6 +257,12 @@
     "WEEKNO",
     "BILLRUNNO"
   ],
+  "report_pairs": [
+    [
+      "BILLING",
+      "RUNTRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

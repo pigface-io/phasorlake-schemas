@@ -644,6 +644,12 @@
   "name": "P5MIN_PRICESENSITIVITIES",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "P5MIN",
+      "PRICESENSITIVITIES"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

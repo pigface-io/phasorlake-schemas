@@ -163,6 +163,12 @@
     "SETTLEMENTDATE",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "BILLING",
+      "BILLING_CO2E_PUBLICATION"
+    ]
+  ],
   "temporal": {
     "entity": [
       "CONTRACTYEAR",

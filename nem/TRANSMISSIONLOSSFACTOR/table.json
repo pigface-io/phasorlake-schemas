@@ -233,6 +233,12 @@
     "VERSIONNO",
     "CONNECTIONPOINTID"
   ],
+  "report_pairs": [
+    [
+      "MARKET_CONFIG",
+      "TRANSMISSIONLOSSFACTOR"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

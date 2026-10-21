@@ -222,6 +222,12 @@
     "VERSIONNO",
     "UNIT_GROUPING_LABEL"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "GENUNITS_UNIT"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

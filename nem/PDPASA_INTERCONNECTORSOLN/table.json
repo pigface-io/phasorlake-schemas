@@ -213,6 +213,12 @@
   "name": "PDPASA_INTERCONNECTORSOLN",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "PDPASA",
+      "INTERCONNECTORSOLN"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

@@ -139,6 +139,12 @@
     "RESERVELIMITID",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "RESERVELIMIT_REGION"
+    ]
+  ],
   "temporal": {
     "cutoff": "VERSION_DATETIME",
     "entity": [

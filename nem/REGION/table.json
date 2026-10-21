@@ -109,6 +109,12 @@
   "primary_key": [
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "MARKET_CONFIG",
+      "REGION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

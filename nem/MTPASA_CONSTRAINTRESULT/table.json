@@ -251,6 +251,12 @@
     "DAY",
     "CONSTRAINTID"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "CONSTRAINTRESULT"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

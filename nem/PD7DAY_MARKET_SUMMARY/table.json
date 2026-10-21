@@ -92,6 +92,12 @@
   "name": "PD7DAY_MARKET_SUMMARY",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "PD7DAY",
+      "MARKET_SUMMARY"
+    ]
+  ],
   "temporal": {
     "entity": [],
     "order": [

@@ -111,6 +111,12 @@
     "RUN_DATETIME",
     "CONSTRAINTID"
   ],
+  "report_pairs": [
+    [
+      "MCC",
+      "CONSTRAINTSOLUTION"
+    ]
+  ],
   "temporal": {
     "entity": [
       "CONSTRAINTID"

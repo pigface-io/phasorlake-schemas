@@ -160,6 +160,12 @@
     "VERSIONNO",
     "CONTRACTYEAR"
   ],
+  "report_pairs": [
+    [
+      "BILLING_CONFIG",
+      "BILLSMELTERRATE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

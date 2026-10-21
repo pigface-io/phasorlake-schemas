@@ -163,6 +163,12 @@
     "BIDTYPE",
     "PERIODID"
   ],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "OFFERTRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

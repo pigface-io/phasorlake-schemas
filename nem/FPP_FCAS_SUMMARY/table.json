@@ -379,6 +379,12 @@
   "name": "FPP_FCAS_SUMMARY",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "FPP",
+      "FCAS_SUMMARY"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

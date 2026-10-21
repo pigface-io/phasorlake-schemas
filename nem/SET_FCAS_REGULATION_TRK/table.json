@@ -669,6 +669,12 @@
     "INTERVAL_DATETIME",
     "CONSTRAINTID"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENTS",
+      "SET_FCAS_REGULATION_TRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

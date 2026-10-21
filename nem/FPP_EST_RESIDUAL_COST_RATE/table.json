@@ -152,6 +152,12 @@
   "name": "FPP_EST_RESIDUAL_COST_RATE",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "FPP",
+      "EST_RESIDUAL_COST_RATE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

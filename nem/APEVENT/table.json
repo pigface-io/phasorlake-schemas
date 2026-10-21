@@ -169,6 +169,12 @@
   "primary_key": [
     "APEVENTID"
   ],
+  "report_pairs": [
+    [
+      "AP",
+      "APEVENT"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -145,6 +145,12 @@
   "primary_key": [
     "PARTICIPANTID"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "PARTICIPANT"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

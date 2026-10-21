@@ -139,6 +139,12 @@
     "BILLRUNNO",
     "SETTLEMENTDATE"
   ],
+  "report_pairs": [
+    [
+      "BILLING",
+      "DAYTRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

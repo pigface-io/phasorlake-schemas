@@ -148,6 +148,12 @@
     "DUID",
     "OFFERDATETIME"
   ],
+  "report_pairs": [
+    [
+      "DEMAND",
+      "INTERMITTENT_GEN_LIMIT_DAY"
+    ]
+  ],
   "temporal": {
     "cutoff": "OFFERDATETIME",
     "entity": [

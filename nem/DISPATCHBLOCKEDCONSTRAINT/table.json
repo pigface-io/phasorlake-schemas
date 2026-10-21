@@ -100,6 +100,12 @@
     "RUNNO",
     "CONSTRAINTID"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "BLOCKED_CONSTRAINTS"
+    ]
+  ],
   "temporal": {
     "entity": [
       "CONSTRAINTID"

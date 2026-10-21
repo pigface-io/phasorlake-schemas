@@ -92,6 +92,12 @@
   "name": "PD7DAY_CASESOLUTION",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "PD7DAY",
+      "CASESOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

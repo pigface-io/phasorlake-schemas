@@ -1806,6 +1806,12 @@
     "REGIONID",
     "RUNTYPE"
   ],
+  "report_pairs": [
+    [
+      "PDPASA",
+      "REGIONSOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

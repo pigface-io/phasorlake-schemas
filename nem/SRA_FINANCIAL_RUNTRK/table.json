@@ -172,6 +172,12 @@
     "SRA_QUARTER",
     "SRA_RUNNO"
   ],
+  "report_pairs": [
+    [
+      "IRAUCTION",
+      "SRA_FINANCIAL_RUNTRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

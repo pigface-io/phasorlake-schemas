@@ -296,6 +296,12 @@
     "EQUIPMENTID",
     "STARTTIME"
   ],
+  "report_pairs": [
+    [
+      "NETWORK",
+      "OUTAGEDETAIL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

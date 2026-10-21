@@ -92,6 +92,12 @@
   "name": "P5MIN_FCAS_REQ_RUN",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "P5MIN",
+      "FCAS_REQ_RUN"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

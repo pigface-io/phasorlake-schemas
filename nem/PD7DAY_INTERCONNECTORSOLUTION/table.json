@@ -308,6 +308,12 @@
   "name": "PD7DAY_INTERCONNECTORSOLUTION",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "PD7DAY",
+      "INTERCONNECTORSOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

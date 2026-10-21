@@ -138,6 +138,12 @@
     "CONSTRAINTID",
     "VERSIONNO"
   ],
+  "report_pairs": [
+    [
+      "PRICELOAD",
+      "CONSTRAINTRELAXATION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

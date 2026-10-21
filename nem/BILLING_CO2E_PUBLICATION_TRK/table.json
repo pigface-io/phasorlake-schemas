@@ -111,6 +111,12 @@
     "CONTRACTYEAR",
     "WEEKNO"
   ],
+  "report_pairs": [
+    [
+      "BILLING",
+      "BILLING_CO2E_PUBLICATION_TRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

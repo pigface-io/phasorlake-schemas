@@ -168,6 +168,16 @@
     "VERSIONNO",
     "GENCONID"
   ],
+  "report_pairs": [
+    [
+      "SPDICC",
+      ""
+    ],
+    [
+      "SPDICC",
+      "NULL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

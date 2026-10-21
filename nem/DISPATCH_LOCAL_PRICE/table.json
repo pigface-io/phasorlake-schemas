@@ -110,6 +110,12 @@
     "SETTLEMENTDATE",
     "DUID"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "LOCAL_PRICE"
+    ]
+  ],
   "temporal": {
     "entity": [
       "DUID"

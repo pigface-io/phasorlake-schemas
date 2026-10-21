@@ -235,6 +235,12 @@
     "PERIODID",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENTS",
+      "GENDATAREGION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

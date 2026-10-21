@@ -73,6 +73,12 @@
   "primary_key": [
     "RUN_DATETIME"
   ],
+  "report_pairs": [
+    [
+      "MCC",
+      "CASESOLUTION"
+    ]
+  ],
   "temporal": {
     "entity": [],
     "order": [],

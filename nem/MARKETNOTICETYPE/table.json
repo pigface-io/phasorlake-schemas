@@ -109,6 +109,12 @@
   "primary_key": [
     "TYPEID"
   ],
+  "report_pairs": [
+    [
+      "MARKET_NOTICE",
+      "MARKETNOTICETYPE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

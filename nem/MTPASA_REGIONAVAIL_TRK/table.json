@@ -108,6 +108,12 @@
   "primary_key": [
     "PUBLISH_DATETIME"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "REGIONAVAILTRK"
+    ]
+  ],
   "temporal": {
     "entity": [],
     "order": [],

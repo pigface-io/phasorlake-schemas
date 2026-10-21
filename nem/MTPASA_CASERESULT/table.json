@@ -111,6 +111,12 @@
     "RUN_DATETIME",
     "RUN_NO"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "CASERESULT"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

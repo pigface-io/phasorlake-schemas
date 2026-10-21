@@ -153,6 +153,12 @@
     "PARTICIPANTCATEGORYID",
     "CONNECTIONPOINTID"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENT_CONFIG",
+      "SETCFG_PARTICIPANT_MPF"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

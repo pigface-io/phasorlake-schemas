@@ -323,6 +323,12 @@
     "PERIODID",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENTS",
+      "INTRAREGIONRESIDUES"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -178,6 +178,12 @@
     "APPLICATIONID",
     "VALIDFROM"
   ],
+  "report_pairs": [
+    [
+      "NETWORK",
+      "STATICRATING"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

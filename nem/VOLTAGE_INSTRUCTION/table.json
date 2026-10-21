@@ -220,6 +220,12 @@
     "EMS_ID",
     "VERSION_DATETIME"
   ],
+  "report_pairs": [
+    [
+      "VOLTAGE_INSTRUCTION",
+      "INSTRUCTION"
+    ]
+  ],
   "temporal": {
     "entity": [
       "EMS_ID"

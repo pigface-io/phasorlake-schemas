@@ -175,6 +175,12 @@
     "VERSIONNO",
     "PERIODID"
   ],
+  "report_pairs": [
+    [
+      "AP",
+      "REGIONAPCINTERVALS"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

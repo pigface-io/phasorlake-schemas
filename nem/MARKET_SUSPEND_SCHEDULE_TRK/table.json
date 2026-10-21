@@ -132,6 +132,12 @@
   "primary_key": [
     "EFFECTIVEDATE"
   ],
+  "report_pairs": [
+    [
+      "FORCE_MAJEURE",
+      "MARKET_SUSPEND_SCHEDULE_TRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

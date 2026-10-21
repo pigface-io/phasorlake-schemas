@@ -97,6 +97,12 @@
   "primary_key": [
     "PARTICIPANTCATEGORYID"
   ],
+  "report_pairs": [
+    [
+      "PARTICIPANT_REGISTRATION",
+      "PARTICIPANTCATEGORY"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

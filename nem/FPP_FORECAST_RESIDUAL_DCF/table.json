@@ -152,6 +152,12 @@
   "name": "FPP_FORECAST_RESIDUAL_DCF",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "FPP",
+      "FORECAST_RESIDUAL_DCF"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

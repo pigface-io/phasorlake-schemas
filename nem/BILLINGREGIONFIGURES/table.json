@@ -431,6 +431,12 @@
     "BILLRUNNO",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "BILLING",
+      "REGIONFIGURES"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

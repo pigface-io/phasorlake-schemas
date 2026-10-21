@@ -211,6 +211,12 @@
     "PERIODID",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENTS",
+      "CPDATAREGION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

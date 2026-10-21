@@ -272,6 +272,12 @@
     "CONSTRAINTID",
     "RUNTYPE"
   ],
+  "report_pairs": [
+    [
+      "STPASA",
+      "CONSTRAINTSOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

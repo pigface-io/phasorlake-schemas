@@ -137,6 +137,12 @@
     "EFFECTIVEDATE",
     "VERSIONNO"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENT_CONFIG",
+      "SETCFG_PARTICIPANT_MPFTRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

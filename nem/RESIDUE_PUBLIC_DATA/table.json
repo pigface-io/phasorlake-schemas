@@ -175,6 +175,12 @@
     "INTERCONNECTORID",
     "FROMREGIONID"
   ],
+  "report_pairs": [
+    [
+      "IRAUCTION",
+      "RESIDUE_PUBLIC_DATA"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

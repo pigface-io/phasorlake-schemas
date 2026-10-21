@@ -2958,6 +2958,12 @@
     "INTERVAL_DATETIME",
     "DUID"
   ],
+  "report_pairs": [
+    [
+      "P5MIN",
+      "UNITSOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

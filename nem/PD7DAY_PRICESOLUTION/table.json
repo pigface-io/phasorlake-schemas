@@ -415,6 +415,12 @@
   "name": "PD7DAY_PRICESOLUTION",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "PD7DAY",
+      "PRICESOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

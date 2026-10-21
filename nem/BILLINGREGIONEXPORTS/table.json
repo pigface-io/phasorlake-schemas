@@ -189,6 +189,12 @@
     "REGIONID",
     "EXPORTTO"
   ],
+  "report_pairs": [
+    [
+      "BILLING",
+      "REGIONEXPORTS"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

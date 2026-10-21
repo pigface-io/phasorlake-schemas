@@ -283,6 +283,12 @@
     "BIDTYPE",
     "DATETIME"
   ],
+  "report_pairs": [
+    [
+      "PREDISPATCH",
+      "REGIONFCASREQUIREMENT"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

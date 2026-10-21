@@ -164,6 +164,12 @@
   "name": "PD7DAY_CONSTRAINTSOLUTION",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "PD7DAY",
+      "CONSTRAINTSOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

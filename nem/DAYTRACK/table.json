@@ -428,6 +428,12 @@
     "SETTLEMENTDATE",
     "EXPOSTRUNNO"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENTS",
+      "DAYTRACK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

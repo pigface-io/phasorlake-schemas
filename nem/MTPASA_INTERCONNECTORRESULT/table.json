@@ -251,6 +251,12 @@
     "DAY",
     "INTERCONNECTORID"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "INTERCONNECTORRESULT"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

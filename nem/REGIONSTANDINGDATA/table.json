@@ -185,6 +185,12 @@
     "VERSIONNO",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "MARKET_CONFIG",
+      "REGIONSTANDINGDATA"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

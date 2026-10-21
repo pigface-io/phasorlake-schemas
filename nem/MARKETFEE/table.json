@@ -307,6 +307,12 @@
   "primary_key": [
     "MARKETFEEID"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENT_CONFIG",
+      "MARKETFEE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

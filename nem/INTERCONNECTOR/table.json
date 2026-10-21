@@ -133,6 +133,12 @@
   "primary_key": [
     "INTERCONNECTORID"
   ],
+  "report_pairs": [
+    [
+      "MARKET_CONFIG",
+      "INTERCONNECTOR"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -134,6 +134,12 @@
     "PERIODDATE",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "TRADING",
+      "AVERAGEPRICE30"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

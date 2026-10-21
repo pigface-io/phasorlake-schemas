@@ -169,6 +169,12 @@
   "primary_key": [
     "SUSPENSIONID"
   ],
+  "report_pairs": [
+    [
+      "FORCE_MAJEURE",
+      "MARKETSUSPENSION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

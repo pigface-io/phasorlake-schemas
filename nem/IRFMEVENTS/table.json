@@ -133,6 +133,12 @@
   "primary_key": [
     "IRFMID"
   ],
+  "report_pairs": [
+    [
+      "FORCE_MAJEURE",
+      "IRFMEVENTS"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

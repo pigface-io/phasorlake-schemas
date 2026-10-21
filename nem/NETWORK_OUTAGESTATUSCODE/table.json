@@ -96,6 +96,12 @@
   "primary_key": [
     "OUTAGESTATUSCODE"
   ],
+  "report_pairs": [
+    [
+      "NETWORK",
+      "OUTAGESTATUSCODE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -264,6 +264,16 @@
     "VERSIONNO",
     "TERMID"
   ],
+  "report_pairs": [
+    [
+      "GEQRHS",
+      ""
+    ],
+    [
+      "GEQRHS",
+      "NULL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

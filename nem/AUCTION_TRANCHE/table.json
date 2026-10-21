@@ -187,6 +187,12 @@
     "VERSIONNO",
     "TRANCHE"
   ],
+  "report_pairs": [
+    [
+      "IRAUCTION_CONFIG",
+      "AUCTION_TRANCHE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -123,6 +123,12 @@
     "SPD_ID",
     "SPD_TYPE"
   ],
+  "report_pairs": [
+    [
+      "GENERIC_CONSTRAINT",
+      "EMSMASTER"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

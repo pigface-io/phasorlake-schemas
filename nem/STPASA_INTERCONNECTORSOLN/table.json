@@ -344,6 +344,12 @@
     "INTERCONNECTORID",
     "RUNTYPE"
   ],
+  "report_pairs": [
+    [
+      "STPASA",
+      "INTERCONNECTORSOLN"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

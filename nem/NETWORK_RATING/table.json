@@ -182,6 +182,12 @@
     "SPD_ID",
     "VALIDFROM"
   ],
+  "report_pairs": [
+    [
+      "NETWORK",
+      "RATING"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

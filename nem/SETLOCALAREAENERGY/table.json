@@ -186,6 +186,12 @@
     "LOCALAREAID",
     "PERIODID"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENTS",
+      "LOCALAREAENERGY"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

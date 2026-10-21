@@ -320,6 +320,12 @@
     "DIRECTION_ID",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "BILLING",
+      "BILLING_DIRECTION_RECON_OTHER"
+    ]
+  ],
   "temporal": {
     "entity": [
       "CONTRACTYEAR",

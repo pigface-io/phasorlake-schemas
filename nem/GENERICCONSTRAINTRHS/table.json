@@ -278,6 +278,16 @@
     "SCOPE",
     "TERMID"
   ],
+  "report_pairs": [
+    [
+      "GCRHS",
+      ""
+    ],
+    [
+      "GCRHS",
+      "NULL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

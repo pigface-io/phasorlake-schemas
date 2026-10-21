@@ -651,6 +651,12 @@
     "INTERCONNECTORID",
     "INTERVAL_DATETIME"
   ],
+  "report_pairs": [
+    [
+      "P5MIN",
+      "INTERCONNECTORSOLN"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

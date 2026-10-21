@@ -123,6 +123,12 @@
     "MARKETFEEVERSIONNO",
     "EFFECTIVEDATE"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENT_CONFIG",
+      "MARKETFEETRK"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

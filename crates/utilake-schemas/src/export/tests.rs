@@ -140,6 +140,7 @@ fn table_json_describes_the_table_and_holds_its_history() {
             "name",
             "package",
             "primary_key",
+            "report_pairs",
             "temporal",
             "time_column",
             "visibility",
@@ -154,6 +155,7 @@ fn table_json_describes_the_table_and_holds_its_history() {
     );
     assert_eq!(t["package"], "DISPATCH");
     assert_eq!(t["primary_key"], json!(["SETTLEMENTDATE", "DUID"]));
+    assert_eq!(t["report_pairs"], json!([["DISPATCH", "UNIT_SCADA"]]));
     assert_eq!(t["time_column"], "SETTLEMENTDATE");
     assert_eq!(t["load_mode"], "append");
     assert_eq!(t["visibility"], "PUBLIC");
@@ -343,6 +345,7 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
     for k in [
         "description",
         "primary_key",
+        "report_pairs",
         "time_column",
         "temporal",
         "load_mode",

@@ -315,6 +315,12 @@
     "INTERCONNECTORID",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "SETTLEMENTS",
+      "IRSURPLUS"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -182,6 +182,16 @@
     "GENCONID",
     "BIDTYPE"
   ],
+  "report_pairs": [
+    [
+      "SPDCPC",
+      ""
+    ],
+    [
+      "SPDCPC",
+      "NULL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

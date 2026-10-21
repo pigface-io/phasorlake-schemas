@@ -280,6 +280,12 @@
     "DAY",
     "REGIONID"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "REGIONAVAILABILITY"
+    ]
+  ],
   "temporal": {
     "cutoff": "PUBLISH_DATETIME",
     "entity": [

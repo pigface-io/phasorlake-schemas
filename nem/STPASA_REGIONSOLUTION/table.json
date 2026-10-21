@@ -1513,6 +1513,12 @@
     "REGIONID",
     "RUNTYPE"
   ],
+  "report_pairs": [
+    [
+      "STPASA",
+      "REGIONSOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

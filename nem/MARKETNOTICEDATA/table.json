@@ -144,6 +144,12 @@
   "primary_key": [
     "NOTICEID"
   ],
+  "report_pairs": [
+    [
+      "MARKET_NOTICE",
+      "MARKETNOTICEDATA"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

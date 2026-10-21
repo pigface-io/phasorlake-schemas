@@ -169,6 +169,12 @@
   "primary_key": [
     "AUCTIONID"
   ],
+  "report_pairs": [
+    [
+      "IRAUCTION_CONFIG",
+      "AUCTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

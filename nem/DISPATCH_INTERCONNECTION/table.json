@@ -212,6 +212,12 @@
     "FROM_REGIONID",
     "TO_REGIONID"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "INTERCONNECTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -3065,6 +3065,12 @@
     "DUID",
     "INTERVENTION"
   ],
+  "report_pairs": [
+    [
+      "DISPATCH",
+      "UNIT_SOLUTION"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

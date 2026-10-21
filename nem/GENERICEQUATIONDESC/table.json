@@ -198,6 +198,16 @@
   "primary_key": [
     "EQUATIONID"
   ],
+  "report_pairs": [
+    [
+      "GEQDESC",
+      ""
+    ],
+    [
+      "GEQDESC",
+      "NULL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

@@ -176,6 +176,12 @@
   "name": "MTPASA_DUIDAVAILABILITY",
   "package": null,
   "primary_key": [],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "DUIDAVAILABILITY"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [],

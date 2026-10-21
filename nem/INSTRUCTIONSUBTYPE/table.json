@@ -111,6 +111,12 @@
     "INSTRUCTIONTYPEID",
     "INSTRUCTIONSUBTYPEID"
   ],
+  "report_pairs": [
+    [
+      "GD_INSTRUCT",
+      "INSTRUCTIONSUBTYPE"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

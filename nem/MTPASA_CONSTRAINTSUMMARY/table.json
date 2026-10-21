@@ -321,6 +321,12 @@
     "CONSTRAINTID",
     "AGGREGATION_PERIOD"
   ],
+  "report_pairs": [
+    [
+      "MTPASA",
+      "CONSTRAINTSUMMARY"
+    ]
+  ],
   "temporal": {
     "cutoff": "RUN_DATETIME",
     "entity": [

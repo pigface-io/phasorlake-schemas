@@ -790,6 +790,16 @@
     "VERSIONNO",
     "GENCONID"
   ],
+  "report_pairs": [
+    [
+      "GENCONDATA",
+      ""
+    ],
+    [
+      "GENCONDATA",
+      "NULL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [

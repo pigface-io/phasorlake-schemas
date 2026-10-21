@@ -146,6 +146,12 @@
     "SUBSTATIONID",
     "VALIDFROM"
   ],
+  "report_pairs": [
+    [
+      "NETWORK",
+      "SUBSTATIONDETAIL"
+    ]
+  ],
   "temporal": {
     "cutoff": "LASTCHANGED",
     "entity": [
