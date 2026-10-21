@@ -9,7 +9,7 @@
 #   xtask        repository gates: coverage floors and their ratchet.
 [workspace]
 resolver = "3"
-members = ["crates/xtask"]
+members = ["crates/nem-iceberg", "crates/xtask"]
 
 [workspace.package]
 version = "0.1.0"
@@ -44,7 +44,11 @@ explicit_iter_loop = "deny"
 uninlined_format_args = "deny"
 
 [workspace.dependencies]
+nem-iceberg = { path = "crates/nem-iceberg" }
+
 anyhow = "1"
 clap = { version = "4.6", features = ["derive", "wrap_help"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+sha2 = "0.11"
+thiserror = "2"
