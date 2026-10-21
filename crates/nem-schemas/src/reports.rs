@@ -56,6 +56,18 @@ pub struct Tally {
     pub first_csv: String,
     /// The last CSV, by name.
     pub last_csv: String,
+    /// The file AEMO published the first CSV in (the CSV, or its zip).
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub first_file: String,
+    /// Its SHA-256.
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub first_sha256: String,
+    /// The file the last CSV was published in.
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub last_file: String,
+    /// Its SHA-256.
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub last_sha256: String,
     /// Their blocks as one: rows summed, span and profiles merged.
     #[serde(flatten)]
     pub block: BlockRecord,
@@ -183,6 +195,9 @@ struct Acc {
     csvs: u64,
     first_csv: String,
     last_csv: String,
+    /// The files the first and last CSV were read out of.
+    first_path: PathBuf,
+    last_path: PathBuf,
     merged: BlockShape,
 }
 
@@ -210,7 +225,7 @@ fn continues(a: &Acc, b: &BlockShape) -> bool {
 }
 
 impl Gather {
-    fn add(&mut self, month: YearMonth, csv: &str, b: BlockShape) {
+    fn add(&mut self, month: YearMonth, csv: &str, path: &Path, b: BlockShape) {
         let key = (b.shape.report_type.clone(), b.shape.report_subtype.clone());
         let open = self.open.get(&key).copied();
         let Some(i) = open.filter(|i| continues(&self.runs[*i], &b)) else {
@@ -220,6 +235,8 @@ impl Gather {
                 csvs: 1,
                 first_csv: csv.to_owned(),
                 last_csv: csv.to_owned(),
+                first_path: path.to_path_buf(),
+                last_path: path.to_path_buf(),
                 merged: b,
             });
             return;
@@ -228,9 +245,11 @@ impl Gather {
         a.csvs += 1;
         if csv < a.first_csv.as_str() {
             csv.clone_into(&mut a.first_csv);
+            path.clone_into(&mut a.first_path);
         }
         if csv > a.last_csv.as_str() {
             csv.clone_into(&mut a.last_csv);
+            path.clone_into(&mut a.last_path);
         }
         let m = &mut a.merged;
         m.rows += b.rows;
@@ -278,7 +297,7 @@ pub fn census_folder(
                 let c = ctls.for_month(month);
                 for raw in blocks {
                     let b = block_shape(catalog, c, None, raw);
-                    g.add(month, base(csv), b);
+                    g.add(month, base(csv), path, b);
                 }
                 Ok(())
             };
@@ -325,10 +344,22 @@ pub fn census_folder(
             error: format!("{} CSV(s) whose month no name gives", g.undated),
         });
     }
+    // A run's first and last files are hashed, for the marks that name
+    // them; the files between are counted, not hashed.
+    let hash = |p: &Path| {
+        std::fs::File::open(p)
+            .and_then(crate::files::sha256_of)
+            .map(|(sha, _)| sha)
+            .unwrap_or_default()
+    };
     for a in g.runs {
         g.census.blocks.push(Tally {
             month: a.month,
             csvs: a.csvs,
+            first_file: base(&a.first_path.to_string_lossy()).to_owned(),
+            first_sha256: hash(&a.first_path),
+            last_file: base(&a.last_path.to_string_lossy()).to_owned(),
+            last_sha256: hash(&a.last_path),
             first_csv: a.first_csv,
             last_csv: a.last_csv,
             block: BlockRecord::of(&a.merged),
@@ -650,6 +681,9 @@ mod tests {
             "PUBLIC_DISPATCHSCADA_202608010005_0000000001.CSV"
         );
         assert_eq!(aug.last_csv, "PUBLIC_DISPATCHSCADA_202610200005_1.CSV");
+        assert_eq!(aug.first_sha256.len(), 64, "the run's first file is hashed");
+        assert_eq!(aug.last_sha256.len(), 64);
+        assert!(!aug.first_file.is_empty() && !aug.last_file.is_empty());
         // The CSVs' blocks are one record: rows summed, values merged.
         assert_eq!(aug.block.nulls, [0, 0, 0]);
         assert_eq!(aug.block.max[2], "3.5");

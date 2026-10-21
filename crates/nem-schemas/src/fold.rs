@@ -171,8 +171,8 @@ pub fn observe(root: &Path, catalog: &Catalog) -> Result<Observations, CensusErr
     for root_name in ROOTS {
         for rel in recorded_folders(root, root_name)? {
             let census = read_folder(root, root_name, &rel)?.unwrap_or_default();
-            // A folder's CSVs are not hashed one by one: its runs' marks
-            // carry no SHA-256.
+            // A folder's files are not hashed one by one: a run's marks
+            // name its first and last file, with theirs.
             let file = FileRecord {
                 source: format!("Reports/{root_name}/{rel}"),
                 sha256: String::new(),
@@ -183,7 +183,23 @@ pub fn observe(root: &Path, catalog: &Catalog) -> Result<Observations, CensusErr
             for t in &census.blocks {
                 let b = &t.block;
                 let table = catalog.table_of(&b.report.0, &b.report.1);
-                let files = (t.first_csv.as_str(), t.last_csv.as_str(), t.csvs);
+                // Records from before the files were hashed name the CSVs.
+                let named = |file: &str, csv: &'_ str| {
+                    if file.is_empty() {
+                        csv.to_owned()
+                    } else {
+                        file.to_owned()
+                    }
+                };
+                let (first, last) = (
+                    named(&t.first_file, &t.first_csv),
+                    named(&t.last_file, &t.last_csv),
+                );
+                let files = (
+                    (first.as_str(), t.first_sha256.as_str()),
+                    (last.as_str(), t.last_sha256.as_str()),
+                    t.csvs,
+                );
                 obs.run(&table, t.month, files, &file, b);
             }
         }

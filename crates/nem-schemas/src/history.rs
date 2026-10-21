@@ -170,16 +170,17 @@ impl Observations {
         f: &FileRecord,
         b: &BlockRecord,
     ) {
+        let file = (file, f.sha256.as_str());
         self.take(table, month, (file, file, 1, index), f, b);
     }
 
     /// Takes in a run of `files` report files of one shape, from the file
-    /// named `first` to the one named `last`.
+    /// named `first` to the one named `last`, each with its SHA-256.
     pub fn run(
         &mut self,
         table: &str,
         month: YearMonth,
-        (first, last, files): (&str, &str, u64),
+        (first, last, files): ((&str, &str), (&str, &str), u64),
         f: &FileRecord,
         b: &BlockRecord,
     ) {
@@ -190,15 +191,15 @@ impl Observations {
         &mut self,
         table: &str,
         month: YearMonth,
-        (first, last, files, index): (&str, &str, u64, u32),
+        (first, last, files, index): ((&str, &str), (&str, &str), u64, u32),
         f: &FileRecord,
         b: &BlockRecord,
     ) {
         let start = b.first.as_deref().and_then(crate::fold::market_time);
         let end = b.last.as_deref().and_then(crate::fold::market_time);
-        let mark = |file: &str, data_time: Option<String>| Mark {
+        let mark = |(file, sha256): (&str, &str), data_time: Option<String>| Mark {
             file: file.to_owned(),
-            sha256: f.sha256.clone(),
+            sha256: sha256.to_owned(),
             release: month.to_string(),
             data_time,
         };
@@ -209,7 +210,7 @@ impl Observations {
         let n = b.columns.len();
         let profiles: Vec<_> = (0..n).map(|j| b.profile_of(j)).collect();
         self.tables.entry(table.to_owned()).or_default().push(Obs {
-            key: (month, ends_at, first.to_owned(), index),
+            key: (month, ends_at, first.0.to_owned(), index),
             month,
             report: [b.report.0.clone(), b.report.1.clone()],
             version: b.version,

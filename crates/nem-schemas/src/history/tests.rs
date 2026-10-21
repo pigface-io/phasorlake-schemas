@@ -258,7 +258,7 @@ fn observations_go_in_data_order_and_overlaps_are_marked() {
         &[T, R, X, P],
     );
     let reports = record("reports/current");
-    let csvs = ("PUBLIC_1.CSV", "PUBLIC_9.CSV", 9);
+    let csvs = (("PUBLIC_1.zip", "f1"), ("PUBLIC_9.CSV", "f9"), 9);
     h.run("DISPATCHPRICE", feb, csvs, &reports, &r);
     let t = h.finish(&decl(), &BTreeMap::new()).unwrap();
     let t = &t["DISPATCHPRICE"];
@@ -270,8 +270,9 @@ fn observations_go_in_data_order_and_overlaps_are_marked() {
     assert_eq!(t.runs[1].files, 10);
     assert_eq!(t.runs[1].kinds, ["dvd", "reports/current"]);
     assert_eq!(
-        t.runs[1].to.file, "PUBLIC_9.CSV",
-        "the report run ends last"
+        (t.runs[1].to.file.as_str(), t.runs[1].to.sha256.as_str()),
+        ("PUBLIC_9.CSV", "f9"),
+        "the report run ends last, with its file's hash"
     );
     assert_eq!(t.runs[1].to.release, "2024-02");
 }

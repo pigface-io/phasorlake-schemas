@@ -65,6 +65,10 @@ fn repo() -> (tempfile::TempDir, Catalog) {
         csvs: 4,
         first_csv: format!("{csv}_1.CSV"),
         last_csv: format!("{csv}_4.CSV"),
+        first_file: format!("{csv}_1.zip"),
+        first_sha256: "a1".into(),
+        last_file: String::new(),
+        last_sha256: String::new(),
         block: BlockRecord {
             last: Some("2026/08/01 00:30:00".into()),
             ..scada_block("2026-08", 2)
