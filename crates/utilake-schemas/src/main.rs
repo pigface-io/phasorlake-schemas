@@ -8,7 +8,7 @@
 //! ```text
 //! utilake-schemas fetch --month 2024-01 --dir mirror/MMSDM_2024_01 [--interval-ms 1000] [--root .]
 //! utilake-schemas census --month 2024-01 --dir mirror/MMSDM_2024_01 [--root .]
-//! utilake-schemas reports --dir mirror/Reports [--mmsdm mirror] [--root .]
+//! utilake-schemas reports --dir mirror/Reports [--mmsdm mirror] [--mirror ~/.nemweb-mirror] [--root .]
 //! utilake-schemas models --month 2025-10 --dir mirror/MMSDM_2025_10 [--root .]
 //! utilake-schemas fold [--check] [--root .]
 //! utilake-schemas export [--check] [--base-url URL] [--root .]
@@ -84,6 +84,10 @@ enum Cmd {
         /// control files type the blocks; without it nothing is typed.
         #[arg(long)]
         mmsdm: Option<PathBuf>,
+        /// The nemweb-mirror home whose `mirror/journal/` notes each
+        /// folder's listings, counted for the files rewritten in place.
+        #[arg(long)]
+        mirror: Option<PathBuf>,
         /// The repository root, whose `tables/` declares the tables.
         #[arg(long, default_value = ".")]
         root: PathBuf,
@@ -354,15 +358,18 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         Cmd::Reports {
             dir,
             mmsdm,
+            mirror,
             root,
             jobs,
         } => {
+            use utilake_schemas::reports;
             let cat = catalog(&root)?;
             let tmp = scratch()?;
-            let taken = utilake_schemas::reports::census_reports(
+            let journals = mirror.as_deref().map(reports::journals);
+            let taken = reports::census_reports(
                 &cat,
                 &dir,
-                mmsdm.as_deref(),
+                (mmsdm.as_deref(), journals.as_deref()),
                 &root,
                 tmp.path(),
                 jobs,

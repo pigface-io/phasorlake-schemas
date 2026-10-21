@@ -38,7 +38,14 @@ utilake-schemas export                                             # nem/, manif
 
 `fetch` downloads one month of the MMSDM archive, one request at a time.
 `reports` reads a local copy of nemweb's `Reports/ARCHIVE` and
-`Reports/CURRENT`. `fold` keeps every history to the one `nem/` last
+`Reports/CURRENT`. A file nemweb rewrote in place is kept by nemweb-mirror
+as `{name}@{listed time}` beside the first version; each such file is listed
+under `[[rewritten]]`, every version classed `first`, `data` (new data),
+`report_time` (only AEMO's report time changed) or `reverted` (an earlier
+version's data again). With `--mirror` (the nemweb-mirror home), it also
+counts from the mirror's journal how often the file was listed again with
+the same bytes (`relisted`) or as a zip of the same entries (`repacked`).
+`fold` keeps every history to the one `nem/` last
 published: a field keeps its id, name and type, a schema its id, and
 data a field's type cannot hold gets a new field, recorded as breaking.
 Each step has a `just` recipe of the same name.
