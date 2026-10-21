@@ -124,6 +124,21 @@ pub enum HistoryError {
         /// The first file whose values it cannot hold.
         file: String,
     },
+    /// A block the lake would read with another schema than its run's.
+    #[error(
+        "In {table}, {file} is under schema {schema}, but its report pair, version, columns and month resolve to {}, with other fields; the lake would read it with the wrong schema.",
+        resolved.map_or_else(|| "no schema".to_owned(), |s| format!("schema {s}"))
+    )]
+    Unresolved {
+        /// The table.
+        table: String,
+        /// The block's file.
+        file: String,
+        /// The schema the fold gave it.
+        schema: u32,
+        /// The schema it resolves to.
+        resolved: Option<u32>,
+    },
     /// A fold that breaks what the published history promised.
     #[error(
         "The history of {table} breaks what nem/{table}/table.json published: {}.",
@@ -135,6 +150,32 @@ pub enum HistoryError {
         /// Every broken promise.
         violations: Vec<Violation>,
     },
+}
+
+/// Fails at the first observation that [`History::resolve`] gives a schema
+/// with other fields than the one the fold gave it (`schemas`, one per
+/// observation): the lake reads a block with the schema it resolves to. A
+/// schema that differs only in which fields are required (a key column
+/// that took a null later in the month) reads the block the same.
+fn unresolved(h: &History, obs: &[Obs], schemas: &[u32]) -> Result<(), HistoryError> {
+    let ids = |s: Option<u32>| {
+        s.and_then(|s| h.schema(s))
+            .map(|s| s.fields.iter().map(|f| f.id).collect::<Vec<_>>())
+    };
+    for (o, &schema) in obs.iter().zip(schemas) {
+        let columns: Vec<&str> = o.columns.iter().map(String::as_str).collect();
+        let report = [o.report[0].as_str(), o.report[1].as_str()];
+        let resolved = h.resolve(report, o.version, &columns, &o.month.to_string());
+        if ids(resolved) != ids(Some(schema)) {
+            return Err(HistoryError::Unresolved {
+                table: h.table.clone(),
+                file: o.from.file.clone(),
+                schema,
+                resolved,
+            });
+        }
+    }
+    Ok(())
 }
 
 /// One observation: a block, or a run of report files of one shape.
@@ -251,7 +292,8 @@ impl Observations {
                 overrides: d.overrides.get(&table).unwrap_or(&none),
                 published: published.get(&table),
             };
-            let h = fold_table(&table, &rules, d, &obs)?;
+            let (h, schemas) = fold_table(&table, &rules, d, &obs)?;
+            unresolved(&h, &obs, &schemas)?;
             if let Some(old) = rules.published {
                 let violations = check(old, &h);
                 if !violations.is_empty() {
@@ -421,7 +463,7 @@ fn fold_table(
     rules: &Rules<'_>,
     d: &Declarations,
     obs: &[Obs],
-) -> Result<History, HistoryError> {
+) -> Result<(History, Vec<u32>), HistoryError> {
     let key = rules.key;
     // Each column's observations, and where its values turn to text.
     let mut columns: BTreeMap<&str, Column> = BTreeMap::new();
@@ -459,6 +501,7 @@ fn fold_table(
         .collect();
     let mut required: BTreeMap<u32, bool> = BTreeMap::new();
     let mut last_id = 0u32;
+    let mut schemas = Vec::with_capacity(obs.len());
     let mut out = History {
         table: table.to_owned(),
         format_version: 3,
@@ -541,8 +584,9 @@ fn fold_table(
             }
         };
         extend(&mut out, id, o);
+        schemas.push(id);
     }
-    Ok(out)
+    Ok((out, schemas))
 }
 
 /// The type of a new lineage of column `name`, `occ[from..to]` of `c`: its

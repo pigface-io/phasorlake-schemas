@@ -655,3 +655,43 @@ fn an_override_types_the_column_and_must_hold_its_values() {
     );
     assert!(matches!(e, Err(HistoryError::Override { .. })));
 }
+
+#[test]
+fn every_block_resolves_to_its_runs_fields() {
+    // A key column that takes a null later in the month makes a schema
+    // with the same names and fields: the block before still resolves to
+    // fields it reads the same with.
+    let nulled: Col<'static> = ("REGIONID", Kind::Text, 0, 0, 1);
+    let h = months(&[
+        ("2024-06", 1, "dvd", &[T, R, P]),
+        ("2024-06", 1, "dvd", &[T, nulled, P]),
+    ]);
+    assert_eq!(schemas_of(&h), [0, 1]);
+    // A column that turns to text within the month is a new field under
+    // the same names: the block before it would be read with that field.
+    let text: Col<'static> = ("RRP", Kind::Text, 0, 0, 0);
+    let e = fold_with(
+        &[
+            ("2024-06", 1, "dvd", &[T, R, P]),
+            ("2024-06", 1, "dvd", &[T, R, text]),
+        ],
+        &decl(),
+        None,
+    )
+    .unwrap_err();
+    assert!(matches!(
+        &e,
+        HistoryError::Unresolved { file, schema: 0, resolved: Some(1), .. } if file == "F0.zip"
+    ));
+    assert!(
+        e.to_string()
+            .contains("resolve to schema 1, with other fields")
+    );
+    let none = HistoryError::Unresolved {
+        table: "T".into(),
+        file: "F".into(),
+        schema: 0,
+        resolved: None,
+    };
+    assert!(none.to_string().contains("resolve to no schema"));
+}

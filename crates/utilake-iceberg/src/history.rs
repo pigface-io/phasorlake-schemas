@@ -167,6 +167,45 @@ impl History {
         }
         out
     }
+
+    /// The schema a block of report pair `report`, AEMO version `version`
+    /// and columns `columns` (in file order), released in `release`
+    /// (`YYYY-MM`), is read with.
+    ///
+    /// A run fits the block when its report pair is the block's and its
+    /// schema's fields are the block's columns, in order. Of the runs that
+    /// fit, those of the block's version are preferred; of those, the last
+    /// released by `release`, else the first. A block no run fits has no
+    /// schema.
+    pub fn resolve(
+        &self,
+        report: [&str; 2],
+        version: u16,
+        columns: &[&str],
+        release: &str,
+    ) -> Option<u32> {
+        let fits = |r: &&Run| {
+            r.report == report
+                && self.schema(r.schema_id).is_some_and(|s| {
+                    s.fields.len() == columns.len()
+                        && s.fields.iter().zip(columns).all(|(f, c)| f.name == *c)
+                })
+        };
+        let pick = |same: bool| {
+            let fit: Vec<&Run> = self
+                .runs
+                .iter()
+                .filter(fits)
+                .filter(|r| !same || r.version == version)
+                .collect();
+            fit.iter()
+                .rev()
+                .find(|r| r.from.release.as_str() <= release)
+                .or(fit.first())
+                .copied()
+        };
+        pick(true).or_else(|| pick(false)).map(|r| r.schema_id)
+    }
 }
 
 #[cfg(test)]
@@ -223,5 +262,38 @@ pub(crate) mod tests {
         assert!(h.schema(7).is_none());
         let ids: Vec<u32> = h.fields().iter().map(|f| f.id).collect();
         assert_eq!(ids, [1, 2, 3]);
+    }
+
+    #[test]
+    fn a_block_resolves_to_the_run_its_columns_and_release_fit() {
+        let mut h: History = serde_json::from_value(sample()).unwrap();
+        let pair = ["DISPATCH", "UNIT_SCADA"];
+        let old = ["SETTLEMENTDATE", "SCADAVALUE"];
+        let new = ["SETTLEMENTDATE", "FLAG", "SCADAVALUE"];
+        assert_eq!(h.resolve(pair, 1, &old, "2024-08"), Some(0));
+        assert_eq!(h.resolve(pair, 2, &new, "2024-08"), Some(1));
+        // An unseen version reads with the columns' schema.
+        assert_eq!(h.resolve(pair, 9, &new, "2030-01"), Some(1));
+        // Before every fitting run, the first.
+        assert_eq!(h.resolve(pair, 1, &old, "2001-01"), Some(0));
+        // No run fits: another pair, other columns, other order.
+        assert_eq!(h.resolve(["DISPATCH", "PRICE"], 1, &old, "2024-08"), None);
+        assert_eq!(h.resolve(pair, 1, &old[..1], "2024-08"), None);
+        assert_eq!(
+            h.resolve(pair, 1, &["SCADAVALUE", "SETTLEMENTDATE"], "2024-08"),
+            None
+        );
+        // A run whose schema is missing fits nothing.
+        h.runs[0].schema_id = 7;
+        assert_eq!(h.resolve(pair, 1, &old, "2024-08"), None);
+        // Two runs of the same columns: the last released by the month.
+        let mut h: History = serde_json::from_value(sample()).unwrap();
+        let mut later = h.runs[0].clone();
+        later.schema_id = 1;
+        later.from.release = "2025-01".into();
+        h.schemas[1].fields = h.schemas[0].fields.clone();
+        h.runs.push(later);
+        assert_eq!(h.resolve(pair, 1, &old, "2024-12"), Some(0));
+        assert_eq!(h.resolve(pair, 1, &old, "2025-01"), Some(1));
     }
 }
