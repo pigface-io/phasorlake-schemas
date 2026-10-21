@@ -1,5 +1,6 @@
 # The declaration of APEVENTREGION: kept by hand.
 name = "APEVENTREGION"
+package = "FORCE_MAJEURE"
 report_pairs = [["AP", "APEVENTREGION"]]
 primary_key = ["APEVENTID", "REGIONID"]
 time_column = "LASTCHANGED"

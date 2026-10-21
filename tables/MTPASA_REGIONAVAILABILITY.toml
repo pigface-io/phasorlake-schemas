@@ -1,5 +1,6 @@
 # The declaration of MTPASA_REGIONAVAILABILITY: kept by hand.
 name = "MTPASA_REGIONAVAILABILITY"
+package = "MTPASA"
 report_pairs = [["MTPASA", "REGIONAVAILABILITY"]]
 primary_key = ["PUBLISH_DATETIME", "DAY", "REGIONID"]
 time_column = "DAY"

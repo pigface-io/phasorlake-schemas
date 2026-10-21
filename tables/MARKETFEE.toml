@@ -1,5 +1,6 @@
 # The declaration of MARKETFEE: kept by hand.
 name = "MARKETFEE"
+package = "SETTLEMENT_CONFIG"
 report_pairs = [["SETTLEMENT_CONFIG", "MARKETFEE"]]
 primary_key = ["MARKETFEEID"]
 load_mode = "snapshot"

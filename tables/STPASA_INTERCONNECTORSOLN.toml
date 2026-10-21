@@ -1,5 +1,6 @@
 # The declaration of STPASA_INTERCONNECTORSOLN: kept by hand.
 name = "STPASA_INTERCONNECTORSOLN"
+package = "STPASA_SOLUTION"
 report_pairs = [["STPASA", "INTERCONNECTORSOLN"]]
 primary_key = ["RUN_DATETIME", "INTERVAL_DATETIME", "INTERCONNECTORID", "RUNTYPE"]
 time_column = "INTERVAL_DATETIME"

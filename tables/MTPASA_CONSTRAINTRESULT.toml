@@ -1,5 +1,6 @@
 # The declaration of MTPASA_CONSTRAINTRESULT: kept by hand.
 name = "MTPASA_CONSTRAINTRESULT"
+package = "MTPASA"
 report_pairs = [["MTPASA", "CONSTRAINTRESULT"]]
 primary_key = ["RUN_DATETIME", "RUN_NO", "RUNTYPE", "DEMAND_POE_TYPE", "DAY", "CONSTRAINTID"]
 time_column = "RUN_DATETIME"

@@ -1,5 +1,6 @@
 # The declaration of BILLINGREGIONFIGURES: kept by hand.
 name = "BILLINGREGIONFIGURES"
+package = "BILLING_RUN"
 report_pairs = [["BILLING", "REGIONFIGURES"]]
 primary_key = ["CONTRACTYEAR", "WEEKNO", "BILLRUNNO", "REGIONID"]
 time_column = "LASTCHANGED"

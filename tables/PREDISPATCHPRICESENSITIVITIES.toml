@@ -1,5 +1,6 @@
 # The declaration of PREDISPATCHPRICESENSITIVITIES: kept by hand.
 name = "PREDISPATCHPRICESENSITIVITIES"
+package = "PRE_DISPATCH"
 report_pairs = [["PREDISPATCH", "PRICESENSITIVITIES"]]
 primary_key = ["REGIONID", "DATETIME"]
 time_column = "DATETIME"

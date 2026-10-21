@@ -1,5 +1,6 @@
 # The declaration of BIDDUIDDETAILS: kept by hand.
 name = "BIDDUIDDETAILS"
+package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "BIDDUIDDETAILS"]]
 primary_key = ["DUID", "EFFECTIVEDATE", "VERSIONNO", "BIDTYPE"]
 load_mode = "snapshot"

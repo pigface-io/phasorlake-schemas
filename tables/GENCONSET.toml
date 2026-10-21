@@ -1,5 +1,6 @@
 # The declaration of GENCONSET: kept by hand.
 name = "GENCONSET"
+package = "GENERIC_CONSTRAINT"
 report_pairs = [["GENCONSET", ""], ["GENCONSET", "NULL"]]
 primary_key = ["GENCONSETID", "EFFECTIVEDATE", "VERSIONNO", "GENCONID"]
 time_column = "EFFECTIVEDATE"

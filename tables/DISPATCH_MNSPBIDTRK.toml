@@ -1,5 +1,6 @@
 # The declaration of DISPATCH_MNSPBIDTRK: kept by hand.
 name = "DISPATCH_MNSPBIDTRK"
+package = "DISPATCH"
 report_pairs = [["DISPATCH", "MNSPBIDTRK"]]
 primary_key = ["SETTLEMENTDATE", "RUNNO", "PARTICIPANTID", "LINKID"]
 time_column = "SETTLEMENTDATE"

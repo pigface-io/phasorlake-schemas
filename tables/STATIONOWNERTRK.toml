@@ -1,5 +1,6 @@
 # The declaration of STATIONOWNERTRK: kept by hand.
 name = "STATIONOWNERTRK"
+package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "STATIONOWNERTRK"]]
 primary_key = ["EFFECTIVEDATE", "PARTICIPANTID", "VERSIONNO"]
 load_mode = "snapshot"

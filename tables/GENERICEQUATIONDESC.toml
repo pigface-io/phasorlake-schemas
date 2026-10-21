@@ -1,5 +1,6 @@
 # The declaration of GENERICEQUATIONDESC: kept by hand.
 name = "GENERICEQUATIONDESC"
+package = "GENERIC_CONSTRAINT"
 report_pairs = [["GEQDESC", ""], ["GEQDESC", "NULL"]]
 primary_key = ["EQUATIONID"]
 load_mode = "snapshot"

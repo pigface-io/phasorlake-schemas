@@ -1,5 +1,6 @@
 # The declaration of INTERMITTENT_DS_RUN: kept by hand.
 name = "INTERMITTENT_DS_RUN"
+package = "DEMAND_FORECASTS"
 report_pairs = [["DEMAND", "INTERMITTENT_DS_RUN"]]
 primary_key = ["RUN_DATETIME", "DUID", "OFFERDATETIME", "ORIGIN", "FORECAST_PRIORITY"]
 time_column = "RUN_DATETIME"

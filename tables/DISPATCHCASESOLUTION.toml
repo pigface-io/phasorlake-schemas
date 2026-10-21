@@ -1,5 +1,6 @@
 # The declaration of DISPATCHCASESOLUTION: kept by hand.
 name = "DISPATCHCASESOLUTION"
+package = "DISPATCH"
 report_pairs = [["DISPATCH", "CASE_SOLUTION"]]
 primary_key = ["SETTLEMENTDATE", "RUNNO"]
 time_column = "SETTLEMENTDATE"

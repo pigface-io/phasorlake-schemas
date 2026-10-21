@@ -1,5 +1,6 @@
 # The declaration of GENCONSETINVOKE: kept by hand.
 name = "GENCONSETINVOKE"
+package = "GENERIC_CONSTRAINT"
 report_pairs = [["GENERIC_CONSTRAINT", "GENCONSETINVOKE"]]
 primary_key = ["INVOCATION_ID"]
 time_column = "LASTCHANGED"

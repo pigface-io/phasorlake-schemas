@@ -1,5 +1,6 @@
 # The declaration of CONSTRAINTRELAXATION_OCD: kept by hand.
 name = "CONSTRAINTRELAXATION_OCD"
+package = "DISPATCH"
 report_pairs = [["PRICELOAD", "CONSTRAINTRELAXATION"]]
 primary_key = ["SETTLEMENTDATE", "RUNNO", "CONSTRAINTID", "VERSIONNO"]
 time_column = "SETTLEMENTDATE"

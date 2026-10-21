@@ -1,5 +1,6 @@
 # The declaration of MTPASA_CASERESULT: kept by hand.
 name = "MTPASA_CASERESULT"
+package = "MTPASA"
 report_pairs = [["MTPASA", "CASERESULT"]]
 primary_key = ["RUN_DATETIME", "RUN_NO"]
 time_column = "RUN_DATETIME"

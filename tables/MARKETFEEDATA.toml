@@ -1,5 +1,6 @@
 # The declaration of MARKETFEEDATA: kept by hand.
 name = "MARKETFEEDATA"
+package = "SETTLEMENT_CONFIG"
 report_pairs = [["SETTLEMENT_CONFIG", "MARKETFEEDATA"]]
 primary_key = ["MARKETFEEID", "MARKETFEEVERSIONNO", "EFFECTIVEDATE"]
 load_mode = "snapshot"

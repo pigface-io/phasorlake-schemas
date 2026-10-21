@@ -1,5 +1,6 @@
 # The declaration of BIDDAYOFFER: kept by hand.
 name = "BIDDAYOFFER"
+package = "BIDS"
 report_pairs = [["BIDS", "BIDDAYOFFER"]]
 primary_key = ["DUID", "BIDTYPE", "SETTLEMENTDATE", "OFFERDATE"]
 time_column = "SETTLEMENTDATE"

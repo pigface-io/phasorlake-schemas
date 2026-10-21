@@ -1,5 +1,6 @@
 # The declaration of GENERICCONSTRAINTRHS: kept by hand.
 name = "GENERICCONSTRAINTRHS"
+package = "GENERIC_CONSTRAINT"
 report_pairs = [["GCRHS", ""], ["GCRHS", "NULL"]]
 primary_key = ["GENCONID", "EFFECTIVEDATE", "VERSIONNO", "SCOPE", "TERMID"]
 time_column = "EFFECTIVEDATE"

@@ -1,5 +1,6 @@
 # The declaration of STATIONOPERATINGSTATUS: kept by hand.
 name = "STATIONOPERATINGSTATUS"
+package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "STATIONOPERATINGSTATUS"]]
 primary_key = ["EFFECTIVEDATE", "STATIONID", "VERSIONNO"]
 load_mode = "snapshot"

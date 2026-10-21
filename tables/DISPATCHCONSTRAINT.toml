@@ -1,5 +1,6 @@
 # The declaration of DISPATCHCONSTRAINT: kept by hand.
 name = "DISPATCHCONSTRAINT"
+package = "DISPATCH"
 report_pairs = [["DISPATCH", "CONSTRAINT"]]
 primary_key = ["SETTLEMENTDATE", "RUNNO", "CONSTRAINTID", "DISPATCHINTERVAL", "INTERVENTION"]
 time_column = "SETTLEMENTDATE"

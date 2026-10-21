@@ -1,5 +1,6 @@
 # The declaration of INTERMITTENT_CLUSTER_AVAIL: kept by hand.
 name = "INTERMITTENT_CLUSTER_AVAIL"
+package = "DEMAND_FORECASTS"
 report_pairs = [["DEMAND", "INTERMITTENT_CLUSTER_AVAIL"]]
 primary_key = ["TRADINGDATE", "DUID", "OFFERDATETIME", "CLUSTERID", "PERIODID"]
 time_column = "TRADINGDATE"

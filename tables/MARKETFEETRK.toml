@@ -1,5 +1,6 @@
 # The declaration of MARKETFEETRK: kept by hand.
 name = "MARKETFEETRK"
+package = "SETTLEMENT_CONFIG"
 report_pairs = [["SETTLEMENT_CONFIG", "MARKETFEETRK"]]
 primary_key = ["MARKETFEEVERSIONNO", "EFFECTIVEDATE"]
 load_mode = "snapshot"

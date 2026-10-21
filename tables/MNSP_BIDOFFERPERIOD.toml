@@ -1,5 +1,6 @@
 # The declaration of MNSP_BIDOFFERPERIOD: kept by hand.
 name = "MNSP_BIDOFFERPERIOD"
+package = "BIDS"
 report_pairs = [["BIDS", "MNSP_BIDOFFERPERIOD"]]
 primary_key = ["TRADINGDATE", "OFFERDATETIME", "LINKID", "PERIODID"]
 time_column = "TRADINGDATE"

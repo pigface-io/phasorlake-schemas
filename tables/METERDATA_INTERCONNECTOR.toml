@@ -1,5 +1,6 @@
 # The declaration of METERDATA_INTERCONNECTOR: kept by hand.
 name = "METERDATA_INTERCONNECTOR"
+package = "METER_DATA"
 report_pairs = [["METERDATA", "INTERCONNECTOR"]]
 primary_key = ["CASE_ID", "SETTLEMENTDATE", "INTERCONNECTORID", "PERIODID"]
 time_column = "SETTLEMENTDATE"

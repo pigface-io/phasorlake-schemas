@@ -1,5 +1,6 @@
 # The declaration of PREDISPATCH_LOCAL_PRICE: kept by hand.
 name = "PREDISPATCH_LOCAL_PRICE"
+package = "PRE_DISPATCH"
 report_pairs = [["PREDISPATCH", "LOCAL_PRICE"]]
 primary_key = ["DATETIME", "DUID"]
 time_column = "DATETIME"

@@ -1,5 +1,6 @@
 # The declaration of SECDEPOSIT_INTEREST_RATE: kept by hand.
 name = "SECDEPOSIT_INTEREST_RATE"
+package = "BILLING_CONFIG"
 report_pairs = [["BILLING_CONFIG", "SECDEPOSIT_INTEREST_RATE"]]
 primary_key = ["INTEREST_ACCT_ID", "EFFECTIVEDATE", "VERSION_DATETIME"]
 time_column = "EFFECTIVEDATE"

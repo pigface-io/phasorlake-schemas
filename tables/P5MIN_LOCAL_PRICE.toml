@@ -1,5 +1,6 @@
 # The declaration of P5MIN_LOCAL_PRICE: kept by hand.
 name = "P5MIN_LOCAL_PRICE"
+package = "P5MIN"
 report_pairs = [["P5MIN", "LOCAL_PRICE"]]
 primary_key = ["RUN_DATETIME", "INTERVAL_DATETIME", "DUID"]
 time_column = "INTERVAL_DATETIME"

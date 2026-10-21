@@ -1,5 +1,6 @@
 # The declaration of BILLINGREGIONEXPORTS: kept by hand.
 name = "BILLINGREGIONEXPORTS"
+package = "BILLING_RUN"
 report_pairs = [["BILLING", "REGIONEXPORTS"]]
 primary_key = ["CONTRACTYEAR", "WEEKNO", "BILLRUNNO", "REGIONID", "EXPORTTO"]
 time_column = "LASTCHANGED"

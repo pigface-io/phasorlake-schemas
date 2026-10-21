@@ -1,5 +1,6 @@
 # The declaration of TRADINGPRICE: kept by hand.
 name = "TRADINGPRICE"
+package = "TRADING_DATA"
 report_pairs = [["TRADING", "PRICE"]]
 primary_key = ["SETTLEMENTDATE", "RUNNO", "REGIONID", "PERIODID"]
 time_column = "SETTLEMENTDATE"

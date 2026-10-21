@@ -1,5 +1,6 @@
 # The declaration of TRANSMISSIONLOSSFACTOR: kept by hand.
 name = "TRANSMISSIONLOSSFACTOR"
+package = "MARKET_CONFIG"
 report_pairs = [["MARKET_CONFIG", "TRANSMISSIONLOSSFACTOR"]]
 primary_key = ["EFFECTIVEDATE", "VERSIONNO", "CONNECTIONPOINTID"]
 time_column = "EFFECTIVEDATE"

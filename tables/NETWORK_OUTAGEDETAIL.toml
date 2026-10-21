@@ -1,5 +1,6 @@
 # The declaration of NETWORK_OUTAGEDETAIL: kept by hand.
 name = "NETWORK_OUTAGEDETAIL"
+package = "NETWORK"
 report_pairs = [["NETWORK", "OUTAGEDETAIL"]]
 primary_key = ["OUTAGEID", "SUBSTATIONID", "EQUIPMENTTYPE", "EQUIPMENTID", "STARTTIME"]
 time_column = "LASTCHANGED"

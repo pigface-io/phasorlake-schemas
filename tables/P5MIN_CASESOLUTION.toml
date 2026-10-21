@@ -1,5 +1,6 @@
 # The declaration of P5MIN_CASESOLUTION: kept by hand.
 name = "P5MIN_CASESOLUTION"
+package = "P5MIN"
 report_pairs = [["P5MIN", "CASESOLUTION"]]
 primary_key = ["RUN_DATETIME"]
 time_column = "RUN_DATETIME"

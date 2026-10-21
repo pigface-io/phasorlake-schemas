@@ -1,5 +1,6 @@
 # The declaration of INTERMITTENT_DS_PRED: kept by hand.
 name = "INTERMITTENT_DS_PRED"
+package = "DEMAND_FORECASTS"
 report_pairs = [["DEMAND", "INTERMITTENT_DS_PRED"]]
 primary_key = ["RUN_DATETIME", "DUID", "OFFERDATETIME", "INTERVAL_DATETIME", "ORIGIN", "FORECAST_PRIORITY"]
 time_column = "INTERVAL_DATETIME"

@@ -1,5 +1,6 @@
 # The declaration of SETGENDATAREGION: kept by hand.
 name = "SETGENDATAREGION"
+package = "SETTLEMENT_DATA"
 report_pairs = [["SETTLEMENTS", "GENDATAREGION"]]
 primary_key = ["SETTLEMENTDATE", "VERSIONNO", "PERIODID", "REGIONID"]
 time_column = "SETTLEMENTDATE"

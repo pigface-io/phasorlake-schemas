@@ -1,5 +1,6 @@
 # The declaration of GENCONDATA: kept by hand.
 name = "GENCONDATA"
+package = "GENERIC_CONSTRAINT"
 report_pairs = [["GENCONDATA", ""], ["GENCONDATA", "NULL"]]
 primary_key = ["EFFECTIVEDATE", "VERSIONNO", "GENCONID"]
 time_column = "EFFECTIVEDATE"

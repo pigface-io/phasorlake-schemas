@@ -1,5 +1,6 @@
 # The declaration of SRA_FINANCIAL_RUNTRK: kept by hand.
 name = "SRA_FINANCIAL_RUNTRK"
+package = "IRAUCTION"
 report_pairs = [["IRAUCTION", "SRA_FINANCIAL_RUNTRK"]]
 primary_key = ["SRA_YEAR", "SRA_QUARTER", "SRA_RUNNO"]
 time_column = "LASTCHANGED"

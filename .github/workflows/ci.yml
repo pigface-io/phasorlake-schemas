@@ -25,6 +25,7 @@ env:
   PREK_VERSION: "0.5.4"
   CARGO_LLVM_COV_VERSION: "0.9.1"
   CARGO_AUDIT_VERSION: "0.22.2"
+  UV_VERSION: "0.13.1"
 
 jobs:
   # Every git hook of both stages on every file.
@@ -52,8 +53,32 @@ jobs:
       - run: SKIP=ratchet just check
       - run: just ratchet origin/main
         if: github.event_name == 'pull_request'
+      - name: Export twice, the same bytes each time
+        run: |
+          just export-check
+          just export-check
+      - run: just compat origin/main
+        if: github.event_name == 'pull_request'
+      - name: Summarise what nem/ adds to main
+        if: github.event_name == 'pull_request'
+        run: just diff origin/main >> "$GITHUB_STEP_SUMMARY"
       - name: Scan the whole history for secrets
         run: just secrets
+
+  # Every history as an Iceberg table without data, read back by pyiceberg.
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
+        with:
+          version: ${{ env.UV_VERSION }}
+      - run: just iceberg target/iceberg
+      - run: just replay target/iceberg
 
   # Known vulnerabilities in the Rust crates, against the lock file.
   audit:

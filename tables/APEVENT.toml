@@ -1,5 +1,6 @@
 # The declaration of APEVENT: kept by hand.
 name = "APEVENT"
+package = "FORCE_MAJEURE"
 report_pairs = [["AP", "APEVENT"]]
 primary_key = ["APEVENTID"]
 time_column = "LASTCHANGED"

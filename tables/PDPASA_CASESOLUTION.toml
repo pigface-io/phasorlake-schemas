@@ -1,5 +1,6 @@
 # The declaration of PDPASA_CASESOLUTION: kept by hand.
 name = "PDPASA_CASESOLUTION"
+package = "PDPASA"
 report_pairs = [["PDPASA", "CASESOLUTION"]]
 primary_key = ["RUN_DATETIME"]
 time_column = "RUN_DATETIME"

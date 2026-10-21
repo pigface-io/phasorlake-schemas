@@ -1,5 +1,6 @@
 # The declaration of DISPATCH_FCAS_REQ: kept by hand.
 name = "DISPATCH_FCAS_REQ"
+package = "DISPATCH"
 report_pairs = [["DISPATCH", "FCAS_REQ"]]
 primary_key = ["SETTLEMENTDATE", "RUNNO", "INTERVENTION", "GENCONID", "REGIONID", "BIDTYPE"]
 time_column = "SETTLEMENTDATE"

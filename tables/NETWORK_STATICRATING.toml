@@ -1,5 +1,6 @@
 # The declaration of NETWORK_STATICRATING: kept by hand.
 name = "NETWORK_STATICRATING"
+package = "NETWORK"
 report_pairs = [["NETWORK", "STATICRATING"]]
 primary_key = ["SUBSTATIONID", "EQUIPMENTTYPE", "EQUIPMENTID", "RATINGLEVEL", "APPLICATIONID", "VALIDFROM"]
 time_column = "LASTCHANGED"

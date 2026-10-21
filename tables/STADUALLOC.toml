@@ -1,5 +1,6 @@
 # The declaration of STADUALLOC: kept by hand.
 name = "STADUALLOC"
+package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "STADUALLOC"]]
 primary_key = ["DUID", "EFFECTIVEDATE", "STATIONID", "VERSIONNO"]
 load_mode = "snapshot"

@@ -1,5 +1,6 @@
 # The declaration of SETLOCALAREAENERGY: kept by hand.
 name = "SETLOCALAREAENERGY"
+package = "SETTLEMENT_DATA"
 report_pairs = [["SETTLEMENTS", "LOCALAREAENERGY"]]
 primary_key = ["SETTLEMENTDATE", "SETTLEMENTRUNNO", "LOCALAREAID", "PERIODID"]
 time_column = "SETTLEMENTDATE"

@@ -1,5 +1,6 @@
 # The declaration of MTPASA_RESERVELIMIT: kept by hand.
 name = "MTPASA_RESERVELIMIT"
+package = "RESERVE_DATA"
 report_pairs = [["MTPASA", "RESERVELIMIT"]]
 primary_key = ["EFFECTIVEDATE", "VERSION_DATETIME", "RESERVELIMITID"]
 time_column = "EFFECTIVEDATE"

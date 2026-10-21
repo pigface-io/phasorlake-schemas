@@ -1,5 +1,6 @@
 # The declaration of RESIDUE_CON_FUNDS: kept by hand.
 name = "RESIDUE_CON_FUNDS"
+package = "IRAUCTION"
 report_pairs = [["IRAUCTION", "RESIDUE_CON_FUNDS"]]
 primary_key = ["CONTRACTID", "INTERCONNECTORID", "FROMREGIONID"]
 time_column = "LASTCHANGED"

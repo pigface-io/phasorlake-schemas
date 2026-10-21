@@ -73,6 +73,38 @@ fold:
 fold-check:
     cargo run -q -p nem-schemas -- fold --check
 
+# ── export ───────────────────────────────────────────────────────────────────
+
+# write nem/ and manifest.json from every history
+export:
+    cargo run -q -p nem-schemas -- export
+
+# fail if exporting again would change any file, listing each
+export-check:
+    cargo run -q -p nem-schemas -- export --check
+
+# fail if nem/ breaks a promise a revision published
+compat base="origin/main":
+    #!/usr/bin/env zsh
+    set -eu
+    if git rev-parse -q --verify "{{ base }}^{commit}" >/dev/null; then
+      cargo run -q -p nem-schemas -- compat --base {{ base }}
+    else
+      echo "compat: {{ base }} does not exist yet; nothing was published to hold to"
+    fi
+
+# what nem/ adds to a revision, per table, as Markdown
+diff base="origin/main":
+    cargo run -q -p nem-schemas -- diff --base {{ base }}
+
+# write every history as an Iceberg table without data
+iceberg out="target/iceberg":
+    cargo run -q -p nem-schemas -- iceberg --out {{ out }}
+
+# read every table under a directory with pyiceberg, held to its history
+replay dir="target/iceberg":
+    uv run --with pyiceberg python scripts/replay.py {{ dir }}
+
 # ── secrets ──────────────────────────────────────────────────────────────────
 
 # gitleaks over the staged changes

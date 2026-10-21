@@ -1,5 +1,6 @@
 # The declaration of NEGATIVE_RESIDUE: kept by hand.
 name = "NEGATIVE_RESIDUE"
+package = "DISPATCH"
 report_pairs = [["DISPATCH", "NEGATIVE_RESIDUE"]]
 primary_key = ["SETTLEMENTDATE", "NRM_DATETIME", "DIRECTIONAL_INTERCONNECTORID"]
 time_column = "SETTLEMENTDATE"

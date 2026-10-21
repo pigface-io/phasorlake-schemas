@@ -1,5 +1,6 @@
 # The declaration of INSTRUCTIONSUBTYPE: kept by hand.
 name = "INSTRUCTIONSUBTYPE"
+package = "GD_INSTRUCT"
 report_pairs = [["GD_INSTRUCT", "INSTRUCTIONSUBTYPE"]]
 primary_key = ["INSTRUCTIONTYPEID", "INSTRUCTIONSUBTYPEID"]
 load_mode = "snapshot"

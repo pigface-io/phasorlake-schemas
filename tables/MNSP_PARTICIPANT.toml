@@ -1,5 +1,6 @@
 # The declaration of MNSP_PARTICIPANT: kept by hand.
 name = "MNSP_PARTICIPANT"
+package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "MNSP_PARTICIPANT"]]
 primary_key = ["INTERCONNECTORID", "EFFECTIVEDATE", "VERSIONNO", "PARTICIPANTID"]
 load_mode = "snapshot"

@@ -94,3 +94,21 @@ entry = "just ratchet"
 stages = ["pre-push"]
 files = '^coverage\.json$'
 pass_filenames = false
+
+[[repos.hooks]]
+id = "export-check"
+name = "export: nem/ is what the evidence exports"
+language = "system"
+entry = "just export-check"
+stages = ["pre-push"]
+files = '^(evidence|tables|crates)/'
+pass_filenames = false
+
+[[repos.hooks]]
+id = "compat"
+name = "export: nem/ keeps what origin/main published"
+language = "system"
+entry = "just compat"
+stages = ["pre-push"]
+files = '^nem/'
+pass_filenames = false

@@ -1,5 +1,6 @@
 # The declaration of INTERCONNECTORCONSTRAINT: kept by hand.
 name = "INTERCONNECTORCONSTRAINT"
+package = "MARKET_CONFIG"
 report_pairs = [["MARKET_CONFIG", "INTERCONNECTORCONSTRAINT"]]
 primary_key = ["EFFECTIVEDATE", "VERSIONNO", "INTERCONNECTORID"]
 load_mode = "snapshot"

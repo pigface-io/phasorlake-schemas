@@ -1,5 +1,6 @@
 # The declaration of SETIRSURPLUS: kept by hand.
 name = "SETIRSURPLUS"
+package = "SETTLEMENT_DATA"
 report_pairs = [["SETTLEMENTS", "IRSURPLUS"]]
 primary_key = ["SETTLEMENTDATE", "SETTLEMENTRUNNO", "PERIODID", "INTERCONNECTORID", "REGIONID"]
 time_column = "SETTLEMENTDATE"

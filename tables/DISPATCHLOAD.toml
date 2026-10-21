@@ -1,5 +1,6 @@
 # The declaration of DISPATCHLOAD: kept by hand.
 name = "DISPATCHLOAD"
+package = "DISPATCH"
 report_pairs = [["DISPATCH", "UNIT_SOLUTION"]]
 primary_key = ["SETTLEMENTDATE", "RUNNO", "DUID", "INTERVENTION"]
 time_column = "SETTLEMENTDATE"

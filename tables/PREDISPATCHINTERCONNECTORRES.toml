@@ -1,5 +1,6 @@
 # The declaration of PREDISPATCHINTERCONNECTORRES: kept by hand.
 name = "PREDISPATCHINTERCONNECTORRES"
+package = "PRE_DISPATCH"
 report_pairs = [["PREDISPATCH", "INTERCONNECTOR_SOLN"]]
 primary_key = ["INTERCONNECTORID", "DATETIME"]
 time_column = "DATETIME"

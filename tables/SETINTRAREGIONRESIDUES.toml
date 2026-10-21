@@ -1,5 +1,6 @@
 # The declaration of SETINTRAREGIONRESIDUES: kept by hand.
 name = "SETINTRAREGIONRESIDUES"
+package = "SETTLEMENT_DATA"
 report_pairs = [["SETTLEMENTS", "INTRAREGIONRESIDUES"]]
 primary_key = ["SETTLEMENTDATE", "RUNNO", "PERIODID", "REGIONID"]
 time_column = "SETTLEMENTDATE"

@@ -1,5 +1,6 @@
 # The declaration of MTPASA_INTERCONNECTORRESULT: kept by hand.
 name = "MTPASA_INTERCONNECTORRESULT"
+package = "MTPASA"
 report_pairs = [["MTPASA", "INTERCONNECTORRESULT"]]
 primary_key = ["RUN_DATETIME", "RUN_NO", "RUNTYPE", "DEMAND_POE_TYPE", "DAY", "INTERCONNECTORID"]
 time_column = "RUN_DATETIME"

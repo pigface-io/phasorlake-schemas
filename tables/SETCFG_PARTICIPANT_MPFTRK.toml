@@ -1,5 +1,6 @@
 # The declaration of SETCFG_PARTICIPANT_MPFTRK: kept by hand.
 name = "SETCFG_PARTICIPANT_MPFTRK"
+package = "SETTLEMENT_CONFIG"
 report_pairs = [["SETTLEMENT_CONFIG", "SETCFG_PARTICIPANT_MPFTRK"]]
 primary_key = ["PARTICIPANTID", "EFFECTIVEDATE", "VERSIONNO"]
 time_column = "EFFECTIVEDATE"

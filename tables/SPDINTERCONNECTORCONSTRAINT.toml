@@ -1,5 +1,6 @@
 # The declaration of SPDINTERCONNECTORCONSTRAINT: kept by hand.
 name = "SPDINTERCONNECTORCONSTRAINT"
+package = "GENERIC_CONSTRAINT"
 report_pairs = [["SPDICC", ""], ["SPDICC", "NULL"]]
 primary_key = ["INTERCONNECTORID", "EFFECTIVEDATE", "VERSIONNO", "GENCONID"]
 time_column = "EFFECTIVEDATE"

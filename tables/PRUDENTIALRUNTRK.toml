@@ -1,5 +1,6 @@
 # The declaration of PRUDENTIALRUNTRK: kept by hand.
 name = "PRUDENTIALRUNTRK"
+package = "PRUDENTIALS"
 report_pairs = [["PRUDENTIAL", "RUNTRK"]]
 primary_key = ["PRUDENTIAL_DATE", "RUNNO"]
 time_column = "LASTCHANGED"

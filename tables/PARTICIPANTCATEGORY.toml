@@ -1,5 +1,6 @@
 # The declaration of PARTICIPANTCATEGORY: kept by hand.
 name = "PARTICIPANTCATEGORY"
+package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "PARTICIPANTCATEGORY"]]
 primary_key = ["PARTICIPANTCATEGORYID"]
 load_mode = "snapshot"

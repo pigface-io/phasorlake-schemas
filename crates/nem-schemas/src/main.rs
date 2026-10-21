@@ -1,7 +1,9 @@
 //! `nem-schemas`: fetch a month of AEMO's archive, take its census, take
 //! the census of the report folders, record a month's data-model releases,
-//! fold every census into each table's history; and, once, write the table
-//! declarations from utilake's table files.
+//! fold every census into each table's history, export the histories as
+//! the documents under `nem/`, hold them to a git revision, plan a read of
+//! a table, write the histories as Iceberg tables; and, once, write the
+//! table declarations from utilake's table files.
 //!
 //! ```text
 //! nem-schemas fetch --month 2024-01 --dir mirror/MMSDM_2024_01 [--interval-ms 1000] [--root .]
@@ -9,6 +11,11 @@
 //! nem-schemas reports --dir mirror/Reports [--mmsdm mirror] [--root .]
 //! nem-schemas models --month 2025-10 --dir mirror/MMSDM_2025_10 [--root .]
 //! nem-schemas fold [--check] [--root .]
+//! nem-schemas export [--check] [--base-url URL] [--root .]
+//! nem-schemas compat --base origin/main [--root .]
+//! nem-schemas diff --base origin/main [--root .]
+//! nem-schemas sql DISPATCHPRICE --files files.json --from 2024-08-01 --to 2024-08-02 [--as-of 0] [--root .]
+//! nem-schemas iceberg --out target/iceberg [--root .]
 //! nem-schemas tables-from-utilake --from ../utilake/schemas/nem --out tables
 //! ```
 
@@ -104,6 +111,71 @@ enum Cmd {
         #[arg(long, default_value = ".")]
         root: PathBuf,
     },
+    /// Write every history as `{root}/nem/{TABLE}/table.json` and
+    /// `schema-{hash}.json`, and `{root}/manifest.json`; remove every other
+    /// file under `{root}/nem/`.
+    Export {
+        /// Write nothing; exit 3 if any file would change, listing each.
+        #[arg(long)]
+        check: bool,
+        /// Where the documents are published.
+        #[arg(long, default_value = nem_schemas::export::DEFAULT_BASE_URL)]
+        base_url: String,
+        /// The repository root.
+        #[arg(long, default_value = ".")]
+        root: PathBuf,
+    },
+    /// Hold every table under `{root}/nem/` to what a git revision
+    /// published; exit 1 with one line per broken promise.
+    Compat {
+        /// The revision.
+        #[arg(long)]
+        base: String,
+        /// The repository root.
+        #[arg(long, default_value = ".")]
+        root: PathBuf,
+    },
+    /// Summarise what `{root}/nem/` adds to a git revision, per table, as
+    /// Markdown.
+    Diff {
+        /// The revision.
+        #[arg(long)]
+        base: String,
+        /// The repository root.
+        #[arg(long, default_value = ".")]
+        root: PathBuf,
+    },
+    /// Print the DuckDB query that reads an interval of a table's files
+    /// across its schemas.
+    Sql {
+        /// The table.
+        table: String,
+        /// The data files, `[{path, schema_id, min_us, max_us}]`.
+        #[arg(long)]
+        files: PathBuf,
+        /// The interval's start: RFC 3339, or a day in market time.
+        #[arg(long)]
+        from: String,
+        /// Its end, not included.
+        #[arg(long)]
+        to: String,
+        /// The schema to read as; the latest when not given.
+        #[arg(long)]
+        as_of: Option<u32>,
+        /// The repository root.
+        #[arg(long, default_value = ".")]
+        root: PathBuf,
+    },
+    /// Write every history as an Iceberg table without data under
+    /// `{out}/{TABLE}`.
+    Iceberg {
+        /// Where the tables go.
+        #[arg(long)]
+        out: PathBuf,
+        /// The repository root.
+        #[arg(long, default_value = ".")]
+        root: PathBuf,
+    },
     /// Write `tables/*.toml` from utilake's table files, once.
     TablesFromUtilake {
         /// utilake's `schemas/nem`.
@@ -137,6 +209,61 @@ impl Http for Ureq {
             body: Box::new(r.into_body().into_reader()),
         })
     }
+}
+
+/// The git command line, run in the repository root.
+struct GitCli<'a>(&'a Path);
+
+impl GitCli<'_> {
+    fn run(&self, args: &[&str]) -> std::io::Result<Vec<u8>> {
+        // The repository of the root, not one a git hook running us names.
+        let out = std::process::Command::new("git")
+            .env_remove("GIT_DIR")
+            .env_remove("GIT_WORK_TREE")
+            .env_remove("GIT_INDEX_FILE")
+            .arg("-C")
+            .arg(self.0)
+            .args(args)
+            .output()?;
+        if !out.status.success() {
+            let err = String::from_utf8_lossy(&out.stderr);
+            return Err(std::io::Error::other(err.trim().to_owned()));
+        }
+        Ok(out.stdout)
+    }
+}
+
+impl nem_schemas::published::Git for GitCli<'_> {
+    fn list(&self, rev: &str, dir: &str) -> std::io::Result<Vec<String>> {
+        // Paths relative to the root, as the root's own files are named.
+        let out = self.run(&["ls-tree", "-r", "--name-only", "-z", rev, "--", dir])?;
+        Ok(out
+            .split(|b| *b == 0)
+            .filter(|p| !p.is_empty())
+            .map(|p| String::from_utf8_lossy(p).into_owned())
+            .collect())
+    }
+
+    fn show(&self, rev: &str, path: &str) -> std::io::Result<Vec<u8>> {
+        self.run(&["show", &format!("{rev}:./{path}")])
+    }
+}
+
+/// What `rev` published and what the working tree holds.
+fn published(
+    root: &Path,
+    rev: &str,
+) -> Result<
+    (
+        nem_schemas::published::Published,
+        nem_schemas::published::Published,
+    ),
+    ExitCode,
+> {
+    use nem_schemas::published::Published;
+    let base = Published::at(&GitCli(root), rev).map_err(|e| fail(&e))?;
+    let now = Published::read(root).map_err(|e| fail(&e))?;
+    Ok((base, now))
 }
 
 /// An error and its causes, as one line each.
@@ -266,6 +393,75 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             if check && f.changed > 0 {
                 return Ok(ExitCode::from(3));
             }
+        }
+        Cmd::Export {
+            check,
+            base_url,
+            root,
+        } => {
+            use nem_schemas::export;
+            let r = export::Export::load(&root, &base_url)
+                .map_err(|e| fail(&e))?
+                .render();
+            if check {
+                let stale = export::check(&root, &r).map_err(|e| fail(&e))?;
+                for s in &stale {
+                    eprintln!("stale: {s}");
+                }
+                println!(
+                    "{} table(s), {} schema(s); {} file(s) would change",
+                    r.tables,
+                    r.schemas,
+                    stale.len()
+                );
+                if !stale.is_empty() {
+                    return Ok(ExitCode::from(3));
+                }
+            } else {
+                let w = export::write(&root, &r).map_err(|e| fail(&e))?;
+                println!(
+                    "{} table(s), {} schema(s); {} file(s) written, {} kept, {} removed",
+                    r.tables, r.schemas, w.written, w.kept, w.removed
+                );
+            }
+        }
+        Cmd::Compat { base, root } => {
+            let (old, now) = published(&root, &base)?;
+            if old.tables.is_empty() && old.schemas.is_empty() {
+                println!("compat: {base} has no nem/; nothing to hold to");
+                return Ok(ExitCode::SUCCESS);
+            }
+            let c = nem_schemas::compat::compat(&base, &old, &now);
+            for v in &c.violations {
+                println!("{v}");
+            }
+            if !c.violations.is_empty() {
+                return Ok(ExitCode::FAILURE);
+            }
+            println!(
+                "compat: the {} table(s) and {} schema document(s) {base} published hold",
+                c.tables, c.schemas
+            );
+        }
+        Cmd::Diff { base, root } => {
+            let (old, now) = published(&root, &base)?;
+            print!("{}", nem_schemas::diff::diff(&base, &old, &now));
+        }
+        Cmd::Sql {
+            table,
+            files,
+            from,
+            to,
+            as_of,
+            root,
+        } => {
+            let q = nem_schemas::sql::sql(&root, &table, &files, (&from, &to), as_of)
+                .map_err(|e| fail(&e))?;
+            print!("{q}");
+        }
+        Cmd::Iceberg { out, root } => {
+            let n = nem_schemas::iceberg::write_tables(&root, &out).map_err(|e| fail(&e))?;
+            println!("{n} table(s) written under {}", out.display());
         }
         Cmd::TablesFromUtilake { from, out } => {
             let cat = nem_schemas::catalog::from_utilake(&from).map_err(|e| fail(&e))?;

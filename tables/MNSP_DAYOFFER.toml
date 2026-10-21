@@ -1,5 +1,6 @@
 # The declaration of MNSP_DAYOFFER: kept by hand.
 name = "MNSP_DAYOFFER"
+package = "BIDS"
 report_pairs = [["BIDS", "MNSP_DAYOFFER"]]
 primary_key = ["SETTLEMENTDATE", "OFFERDATE", "VERSIONNO", "PARTICIPANTID", "LINKID"]
 time_column = "SETTLEMENTDATE"

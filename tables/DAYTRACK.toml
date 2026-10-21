@@ -1,5 +1,6 @@
 # The declaration of DAYTRACK: kept by hand.
 name = "DAYTRACK"
+package = "SETTLEMENT_DATA"
 report_pairs = [["SETTLEMENTS", "DAYTRACK"]]
 primary_key = ["SETTLEMENTDATE", "EXPOSTRUNNO"]
 time_column = "SETTLEMENTDATE"

@@ -1,5 +1,6 @@
 # The declaration of BIDTYPES: kept by hand.
 name = "BIDTYPES"
+package = "MARKET_CONFIG"
 report_pairs = [["MARKET_CONFIG", "BIDTYPES"]]
 primary_key = ["BIDTYPE", "EFFECTIVEDATE", "VERSIONNO"]
 load_mode = "snapshot"

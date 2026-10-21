@@ -1,5 +1,6 @@
 # The declaration of PREDISPATCHCASESOLUTION: kept by hand.
 name = "PREDISPATCHCASESOLUTION"
+package = "PRE_DISPATCH"
 report_pairs = [["PREDISPATCH", "CASE_SOLUTION"]]
 primary_key = ["PREDISPATCHSEQNO", "RUNNO"]
 time_column = "LASTCHANGED"

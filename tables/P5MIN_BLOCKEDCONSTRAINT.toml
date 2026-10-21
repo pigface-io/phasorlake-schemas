@@ -1,5 +1,6 @@
 # The declaration of P5MIN_BLOCKEDCONSTRAINT: kept by hand.
 name = "P5MIN_BLOCKEDCONSTRAINT"
+package = "P5MIN"
 report_pairs = [["P5MIN", "BLOCKED_CONSTRAINTS"]]
 primary_key = ["RUN_DATETIME", "CONSTRAINTID"]
 time_column = "RUN_DATETIME"

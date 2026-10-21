@@ -1,5 +1,6 @@
 # The declaration of ROOFTOP_PV_FORECAST: kept by hand.
 name = "ROOFTOP_PV_FORECAST"
+package = "DEMAND_FORECASTS"
 report_pairs = [["ROOFTOP", "FORECAST"]]
 primary_key = ["VERSION_DATETIME", "REGIONID", "INTERVAL_DATETIME"]
 time_column = "INTERVAL_DATETIME"

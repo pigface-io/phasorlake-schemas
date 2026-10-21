@@ -1,5 +1,6 @@
 # The declaration of INTERCONNECTOR: kept by hand.
 name = "INTERCONNECTOR"
+package = "MARKET_CONFIG"
 report_pairs = [["MARKET_CONFIG", "INTERCONNECTOR"]]
 primary_key = ["INTERCONNECTORID"]
 load_mode = "snapshot"

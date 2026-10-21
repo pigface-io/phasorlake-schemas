@@ -1,5 +1,6 @@
 # The declaration of BIDOFFERPERIOD: kept by hand.
 name = "BIDOFFERPERIOD"
+package = "BIDS"
 report_pairs = [["BIDS", "BIDOFFERPERIOD"]]
 primary_key = ["DUID", "BIDTYPE", "TRADINGDATE", "OFFERDATETIME", "PERIODID"]
 time_column = "TRADINGDATE"

@@ -1,5 +1,6 @@
 # The declaration of DUDETAILSUMMARY: kept by hand.
 name = "DUDETAILSUMMARY"
+package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "DUDETAILSUMMARY"]]
 primary_key = ["DUID", "START_DATE"]
 load_mode = "snapshot"

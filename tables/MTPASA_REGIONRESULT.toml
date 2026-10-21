@@ -1,5 +1,6 @@
 # The declaration of MTPASA_REGIONRESULT: kept by hand.
 name = "MTPASA_REGIONRESULT"
+package = "MTPASA"
 report_pairs = [["MTPASA", "REGIONRESULT"]]
 primary_key = ["RUN_DATETIME", "RUN_NO", "RUNTYPE", "DEMAND_POE_TYPE", "DAY", "REGIONID"]
 time_column = "RUN_DATETIME"

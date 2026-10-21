@@ -1,5 +1,6 @@
 # The declaration of IRFMEVENTS: kept by hand.
 name = "IRFMEVENTS"
+package = "FORCE_MAJEURE"
 report_pairs = [["FORCE_MAJEURE", "IRFMEVENTS"]]
 primary_key = ["IRFMID"]
 load_mode = "snapshot"

@@ -1,5 +1,6 @@
 # The declaration of GST_TRANSACTION_TYPE: kept by hand.
 name = "GST_TRANSACTION_TYPE"
+package = "BILLING_CONFIG"
 report_pairs = [["BILLING_CONFIG", "GST_TRANSACTION_TYPE"]]
 primary_key = ["TRANSACTION_TYPE"]
 load_mode = "snapshot"

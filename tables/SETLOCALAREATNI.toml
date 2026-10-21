@@ -1,5 +1,6 @@
 # The declaration of SETLOCALAREATNI: kept by hand.
 name = "SETLOCALAREATNI"
+package = "SETTLEMENT_DATA"
 report_pairs = [["SETTLEMENTS", "LOCALAREATNI"]]
 primary_key = ["SETTLEMENTDATE", "SETTLEMENTRUNNO", "LOCALAREAID", "TNI"]
 time_column = "SETTLEMENTDATE"

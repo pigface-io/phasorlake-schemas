@@ -1,5 +1,6 @@
 # The declaration of MTPASA_CONSTRAINTSUMMARY: kept by hand.
 name = "MTPASA_CONSTRAINTSUMMARY"
+package = "MTPASA"
 report_pairs = [["MTPASA", "CONSTRAINTSUMMARY"]]
 primary_key = ["RUN_DATETIME", "RUN_NO", "RUNTYPE", "DEMAND_POE_TYPE", "DAY", "CONSTRAINTID", "AGGREGATION_PERIOD"]
 time_column = "RUN_DATETIME"

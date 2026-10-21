@@ -8,17 +8,122 @@ schemas are derived from what AEMO's files hold, file by file, and the
 code that derives them is here, so anyone can check the result or improve
 it.
 
-The code is Rust (`crates/`), licensed under Apache-2.0. The data is
-derived from AEMO's and is attributed to AEMO; see `LICENCE-DATA.md`.
+## Layout
 
-## Working on it
+| Path                  | What it holds                                                                                                                                |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tables/`             | One hand-kept declaration per table: its report pairs, key, time column, temporal roles, load mode, visibility and any column typed by hand. |
+| `sources/`            | Every file fetched, per month: its URL, SHA-256, size and the time the server says it was published.                                         |
+| `evidence/census/`    | For every block of every file AEMO published: its header, row count, data span and a profile of each column's values. No row is copied.      |
+| `evidence/ctl/`       | AEMO's control files, byte for byte, named by their SHA-256.                                                                                 |
+| `evidence/models/`    | The data-model create scripts the monthly archives ship: each release's tables, columns, types and comments.                                 |
+| `evidence/histories/` | Each table's history as an Iceberg table, folded from all of the above.                                                                      |
+| `nem/`                | The published documents: `nem/{TABLE}/table.json` and one `schema-{hash}.json` per schema; `manifest.json` names each with its SHA-256.      |
+| `crates/`             | `nem-iceberg`, the Iceberg contract (no I/O); `nem-schemas`, the tool; `xtask`, the repository's gates.                                      |
 
-Install [just](https://just.systems), [prek](https://prek.j178.dev) and
-`cargo-llvm-cov`, then:
+## The pipeline
+
+Each step reads the one before and writes the same bytes from the same
+input: no clock, no network after `fetch`, and no order of work shows in
+the output.
 
 ```sh
-just hooks   # the git hooks
-just check   # every gate, as CI runs them
+nem-schemas fetch --month 2026-09 --dir mirror/MMSDM_2026_09   # sources/2026-09.tsv
+nem-schemas census --month 2026-09 --dir mirror/MMSDM_2026_09  # evidence/census/2026-09.toml, evidence/ctl/
+nem-schemas reports --dir mirror/Reports --mmsdm mirror        # evidence/census/reports/
+nem-schemas models --month 2026-09 --dir mirror/MMSDM_2026_09  # evidence/models/
+nem-schemas fold                                               # evidence/histories/
+nem-schemas export                                             # nem/, manifest.json
 ```
 
-See `CONTRIBUTING.md`.
+`fetch` downloads one month of the MMSDM archive, one request at a time.
+`reports` reads a local copy of nemweb's `Reports/ARCHIVE` and
+`Reports/CURRENT`. `fold` keeps every history to the one `nem/` last
+published: a field keeps its id, name and type, a schema its id, and
+data a field's type cannot hold gets a new field, recorded as breaking.
+Each step has a `just` recipe of the same name.
+
+## Checking it from AEMO's files
+
+Every file the evidence was taken from is named in `sources/` with its
+SHA-256, and every census entry carries the SHA-256 of the file it read.
+To check a month, fetch it, take its census again, and compare
+(`sources/` may differ only in the publication times the server sends):
+
+```sh
+just fetch 2026-09 mirror/MMSDM_2026_09
+just census 2026-09 mirror/MMSDM_2026_09
+just models 2026-09 mirror/MMSDM_2026_09
+git diff --exit-code evidence/            # the same bytes
+just fold-check                           # the histories follow from the evidence
+just export-check                         # nem/ follows from the histories
+```
+
+## Reading a table
+
+`nem/{TABLE}/table.json` holds the table's declaration, each column's
+comment and model type from the latest data-model release that has it,
+and its history (`iceberg`): schemas, runs, the updates between them and
+the breaking columns. Each `schema-{hash}.json` is a JSON Schema of a row
+under one Iceberg schema; its name is a hash of its fields and key, so a
+published document never changes.
+
+To read the histories with an Iceberg library, write them as tables
+without data:
+
+```sh
+nem-schemas iceberg --out target/iceberg   # target/iceberg/{TABLE}/metadata/
+just replay                                # every table read back by pyiceberg
+```
+
+```python
+from pyiceberg.table import StaticTable
+t = StaticTable.from_metadata("target/iceberg/DISPATCHPRICE/metadata/v1.metadata.json")
+print(t.schemas())
+```
+
+```sql
+-- DuckDB, with the iceberg extension: the columns, no rows
+DESCRIBE SELECT * FROM iceberg_scan('target/iceberg/DISPATCHPRICE');
+```
+
+To read an interval of a table's Parquet files written under different
+schemas, list them and plan the read; the output is one DuckDB query that
+projects every file onto one schema by field id:
+
+```sh
+# files.json: [{"path": "…parquet", "schema_id": 0, "min_us": …, "max_us": …}]
+nem-schemas sql DISPATCHPRICE --files files.json --from 2024-08-01 --to 2024-09-01 [--as-of 0]
+```
+
+A time is RFC 3339, or a day, which is its midnight in market time
+(+10:00).
+
+## Contributing
+
+A table's types come from its evidence by a rule, so a change is one of
+two kinds:
+
+- **An override**: a `[[override]]` in the table's file under `tables/`,
+  setting a column's type, with a `reason` that cites the evidence (the
+  census month, file or data-model release that shows it).
+- **A rule change**: a change to the code under `crates/`, with a test
+  that shows the case it fixes.
+
+Run `just fold` and `just export`, and commit the evidence, histories and
+`nem/` together. CI proves the effect: `just export-check` that `nem/` is
+what the evidence exports, `just compat origin/main` that nothing
+published changed meaning, and `just diff origin/main` summarises, per
+table, the schemas, runs, fields and breaks added. See `CONTRIBUTING.md`
+for commits and gates; install [just](https://just.systems),
+[prek](https://prek.j178.dev) and `cargo-llvm-cov`, then `just hooks` and
+`just check`.
+
+## Licences
+
+The code under `crates/` is licensed under Apache-2.0 (`LICENSE`). The
+files under `evidence/`, `sources/`, `nem/` and `testdata/`, and
+`manifest.json`, are derived from information AEMO publishes and are
+attributed to AEMO; they are not covered by that licence. See
+`LICENCE-DATA.md` and `NOTICE`. This repository is not produced or
+endorsed by AEMO.

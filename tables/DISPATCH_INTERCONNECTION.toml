@@ -1,5 +1,6 @@
 # The declaration of DISPATCH_INTERCONNECTION: kept by hand.
 name = "DISPATCH_INTERCONNECTION"
+package = "DISPATCH"
 report_pairs = [["DISPATCH", "INTERCONNECTION"]]
 primary_key = ["SETTLEMENTDATE", "RUNNO", "INTERVENTION", "FROM_REGIONID", "TO_REGIONID"]
 time_column = "SETTLEMENTDATE"

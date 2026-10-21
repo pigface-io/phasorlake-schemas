@@ -97,6 +97,10 @@ impl Override {
 pub struct TableDecl {
     /// The table.
     pub name: String,
+    /// The package of AEMO's data model it is in (`DISPATCH`), as the
+    /// MMS Data Model Report places it.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub package: Option<String>,
     /// The report pairs (type, subtype) its blocks are published under.
     pub report_pairs: Vec<[String; 2]>,
     /// Its key, in order; empty for none.
@@ -325,6 +329,7 @@ pub fn from_utilake(from: &Path) -> Result<Catalog, CatalogError> {
             .ok_or_else(|| invalid("no control file of the table states its visibility".into()))?;
         let t = TableDecl {
             name: u.name,
+            package: None,
             report_pairs: u.report_pairs,
             primary_key: u.primary_key,
             time_column: u.time_column,
@@ -346,6 +351,7 @@ pub(crate) mod tests {
     pub(crate) fn decl(name: &str, pair: (&str, &str), time: Option<&str>) -> TableDecl {
         TableDecl {
             name: name.into(),
+            package: None,
             report_pairs: vec![[pair.0.into(), pair.1.into()]],
             primary_key: vec!["SETTLEMENTDATE".into()],
             time_column: time.map(str::to_owned),

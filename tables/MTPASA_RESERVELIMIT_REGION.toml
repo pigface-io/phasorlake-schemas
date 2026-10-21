@@ -1,5 +1,6 @@
 # The declaration of MTPASA_RESERVELIMIT_REGION: kept by hand.
 name = "MTPASA_RESERVELIMIT_REGION"
+package = "RESERVE_DATA"
 report_pairs = [["MTPASA", "RESERVELIMIT_REGION"]]
 primary_key = ["EFFECTIVEDATE", "VERSION_DATETIME", "RESERVELIMITID", "REGIONID"]
 time_column = "EFFECTIVEDATE"

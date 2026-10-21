@@ -1,5 +1,6 @@
 # The declaration of RESIDUE_CONTRACTS: kept by hand.
 name = "RESIDUE_CONTRACTS"
+package = "IRAUCTION"
 report_pairs = [["IRAUCTION", "RESIDUE_CONTRACTS"]]
 primary_key = ["CONTRACTYEAR", "QUARTER", "TRANCHE"]
 time_column = "LASTCHANGED"

@@ -1,5 +1,6 @@
 # The declaration of GST_TRANSACTION_CLASS: kept by hand.
 name = "GST_TRANSACTION_CLASS"
+package = "BILLING_CONFIG"
 report_pairs = [["BILLING_CONFIG", "GST_TRANSACTION_CLASS"]]
 primary_key = ["EFFECTIVEDATE", "VERSIONNO", "TRANSACTION_TYPE", "BAS_CLASS"]
 load_mode = "snapshot"

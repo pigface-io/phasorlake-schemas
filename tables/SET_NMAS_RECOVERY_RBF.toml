@@ -1,5 +1,6 @@
 # The declaration of SET_NMAS_RECOVERY_RBF: kept by hand.
 name = "SET_NMAS_RECOVERY_RBF"
+package = "SETTLEMENT_DATA"
 report_pairs = [["SETTLEMENTS", "NMAS_RECOVERY_RBF"]]
 primary_key = ["SETTLEMENTDATE", "VERSIONNO", "PERIODID", "SERVICE", "CONTRACTID", "PAYMENTTYPE", "REGIONID"]
 time_column = "SETTLEMENTDATE"

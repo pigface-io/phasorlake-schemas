@@ -1,5 +1,6 @@
 # The declaration of GST_BAS_CLASS: kept by hand.
 name = "GST_BAS_CLASS"
+package = "BILLING_CONFIG"
 report_pairs = [["BILLING_CONFIG", "GST_BAS_CLASS"]]
 primary_key = ["BAS_CLASS"]
 load_mode = "snapshot"

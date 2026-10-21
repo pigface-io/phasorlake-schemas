@@ -1,5 +1,6 @@
 # The declaration of PREDISPATCHOFFERTRK: kept by hand.
 name = "PREDISPATCHOFFERTRK"
+package = "PRE_DISPATCH"
 report_pairs = [["PREDISPATCH", "OFFERTRK"]]
 primary_key = ["PREDISPATCHSEQNO", "DUID", "BIDTYPE", "PERIODID"]
 time_column = "DATETIME"

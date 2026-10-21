@@ -1,5 +1,6 @@
 # The declaration of NETWORK_EQUIPMENTDETAIL: kept by hand.
 name = "NETWORK_EQUIPMENTDETAIL"
+package = "NETWORK"
 report_pairs = [["NETWORK", "EQUIPMENTDETAIL"]]
 primary_key = ["SUBSTATIONID", "EQUIPMENTTYPE", "EQUIPMENTID", "VALIDFROM"]
 time_column = "LASTCHANGED"

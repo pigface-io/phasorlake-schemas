@@ -1,5 +1,6 @@
 # The declaration of RESDEMANDTRK: kept by hand.
 name = "RESDEMANDTRK"
+package = "DEMAND_FORECASTS"
 report_pairs = [["DEMAND", "TRK"]]
 primary_key = ["EFFECTIVEDATE", "REGIONID", "OFFERDATE", "VERSIONNO"]
 time_column = "EFFECTIVEDATE"

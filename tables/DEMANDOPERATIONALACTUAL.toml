@@ -1,5 +1,6 @@
 # The declaration of DEMANDOPERATIONALACTUAL: kept by hand.
 name = "DEMANDOPERATIONALACTUAL"
+package = "DEMAND_FORECASTS"
 report_pairs = [["OPERATIONAL_DEMAND", "ACTUAL"]]
 primary_key = ["INTERVAL_DATETIME", "REGIONID"]
 time_column = "INTERVAL_DATETIME"

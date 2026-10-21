@@ -1,5 +1,6 @@
 # The declaration of SET_ANCILLARY_SUMMARY: kept by hand.
 name = "SET_ANCILLARY_SUMMARY"
+package = "SETTLEMENT_DATA"
 report_pairs = [["SETTLEMENTS", "ANCILLARY_SUMMARY"]]
 primary_key = ["SETTLEMENTDATE", "VERSIONNO", "SERVICE", "PAYMENTTYPE", "REGIONID", "PERIODID"]
 time_column = "SETTLEMENTDATE"

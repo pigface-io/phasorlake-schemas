@@ -1,5 +1,6 @@
 # The declaration of BILLINGDAYTRK: kept by hand.
 name = "BILLINGDAYTRK"
+package = "BILLING_RUN"
 report_pairs = [["BILLING", "DAYTRK"]]
 primary_key = ["CONTRACTYEAR", "WEEKNO", "BILLRUNNO", "SETTLEMENTDATE"]
 time_column = "SETTLEMENTDATE"

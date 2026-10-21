@@ -1,5 +1,6 @@
 # The declaration of BILLING_NMAS_TST_RECVRY_RBF: kept by hand.
 name = "BILLING_NMAS_TST_RECVRY_RBF"
+package = "BILLING_RUN"
 report_pairs = [["BILLING", "NMAS_TST_RECVRY_RBF"]]
 primary_key = ["CONTRACTYEAR", "WEEKNO", "BILLRUNNO", "SERVICE", "CONTRACTID", "REGIONID"]
 time_column = "LASTCHANGED"

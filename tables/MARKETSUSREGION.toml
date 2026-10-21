@@ -1,5 +1,6 @@
 # The declaration of MARKETSUSREGION: kept by hand.
 name = "MARKETSUSREGION"
+package = "HISTORICAL TABLES"
 report_pairs = [["FORCE_MAJEURE", "MARKETSUSREGION"]]
 primary_key = ["SUSPENSIONID", "REGIONID"]
 load_mode = "snapshot"

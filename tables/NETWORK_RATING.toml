@@ -1,5 +1,6 @@
 # The declaration of NETWORK_RATING: kept by hand.
 name = "NETWORK_RATING"
+package = "NETWORK"
 report_pairs = [["NETWORK", "RATING"]]
 primary_key = ["SPD_ID", "VALIDFROM"]
 time_column = "LASTCHANGED"
