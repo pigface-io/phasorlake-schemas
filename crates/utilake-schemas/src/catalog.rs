@@ -10,11 +10,8 @@
 //! (`[[override]]`, applied by the fold). The census asks it for the table
 //! of a report pair and for that table's time column; a pair no table
 //! declares is recorded under `{TYPE}_{SUBTYPE}`.
-//!
-//! The first files were written from utilake's table files
-//! ([`from_utilake`]); from then on they are kept by hand.
 
-use std::collections::{BTreeMap, HashMap};
+use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 
 use serde::{Deserialize, Serialize};
@@ -277,72 +274,6 @@ fn toml_files(dir: &Path) -> Result<Vec<PathBuf>, CatalogError> {
     Ok(out)
 }
 
-/// What a utilake table file says that a declaration keeps.
-#[derive(Deserialize)]
-struct UtilakeTable {
-    name: String,
-    report_pairs: Vec<[String; 2]>,
-    primary_key: Vec<String>,
-    time_column: Option<String>,
-    load_mode: LoadMode,
-    temporal: toml::Table,
-}
-
-/// The visibility the last control file of a utilake table directory
-/// states (`-- Visibility Id : PUBLIC`).
-fn utilake_visibility(dir: &Path) -> Option<String> {
-    let mut ctls: Vec<PathBuf> = std::fs::read_dir(dir.join("ctl"))
-        .ok()?
-        .filter_map(Result::ok)
-        .map(|e| e.path())
-        .filter(|p| p.extension().is_some_and(|x| x == "ctl"))
-        .collect();
-    ctls.sort();
-    let text = std::fs::read_to_string(ctls.last()?).ok()?;
-    text.lines()
-        .find_map(|l| l.split_once("Visibility Id")?.1.split_once(':'))
-        .map(|(_, v)| v.trim().to_owned())
-        .filter(|v| !v.is_empty())
-}
-
-/// The declarations of utilake's table files: every `{T}/table.toml`
-/// under `from` (its `schemas/nem`), with the visibility of the table's
-/// last control file.
-pub fn from_utilake(from: &Path) -> Result<Catalog, CatalogError> {
-    let mut dirs = BTreeMap::new();
-    for e in std::fs::read_dir(from).map_err(|e| read_error(from, &e))? {
-        let dir = e.map_err(|e| read_error(from, &e))?.path();
-        let file = dir.join("table.toml");
-        if file.is_file() {
-            dirs.insert(dir, file);
-        }
-    }
-    let mut tables = Vec::new();
-    for (dir, file) in dirs {
-        let text = std::fs::read_to_string(&file).map_err(|e| read_error(&file, &e))?;
-        let invalid = |message: String| CatalogError::Invalid {
-            path: file.display().to_string(),
-            message,
-        };
-        let u: UtilakeTable = toml::from_str(&text).map_err(|e| invalid(e.to_string()))?;
-        let visibility = utilake_visibility(&dir)
-            .ok_or_else(|| invalid("no control file of the table states its visibility".into()))?;
-        let t = TableDecl {
-            name: u.name,
-            package: None,
-            report_pairs: u.report_pairs,
-            primary_key: u.primary_key,
-            time_column: u.time_column,
-            load_mode: u.load_mode,
-            visibility,
-            temporal: u.temporal,
-            overrides: Vec::new(),
-        };
-        tables.push((file, t));
-    }
-    Catalog::new(tables)
-}
-
 #[cfg(test)]
 pub(crate) mod tests {
     use super::*;
@@ -488,96 +419,5 @@ reason = "Six places are what AEMO measures."
             e.contains("DISPATCH_UNIT_SCADA.toml could not be written"),
             "{e}"
         );
-    }
-
-    /// A utilake table file, reduced to what a declaration keeps.
-    const UTILAKE: &str = r#"# Our schema of DISPATCH_UNIT_SCADA.
-schema_format = 3
-name = "DISPATCH_UNIT_SCADA"
-description = "Unit MW."
-report_pairs = [["DISPATCH", "UNIT_SCADA"]]
-load_mode = "append"
-primary_key = ["SETTLEMENTDATE", "DUID"]
-time_column = "SETTLEMENTDATE"
-next_column_id = 5
-
-column = [
-    { id = 1, name = "SETTLEMENTDATE", type = "timestamp", nullable = false },
-]
-
-[temporal]
-origin = "derived"
-entity = ["DUID"]
-valid = { kind = "interval_end", column = "SETTLEMENTDATE" }
-order = ["LASTCHANGED"]
-cutoff = "LASTCHANGED"
-
-[[increment]]
-n = 1
-from = "2015-01"
-"#;
-
-    #[test]
-    fn utilake_table_files_become_declarations() {
-        let dir = tempfile::tempdir().unwrap();
-        let from = dir.path().join("nem");
-        let t = from.join("DISPATCH_UNIT_SCADA");
-        std::fs::create_dir_all(t.join("ctl")).unwrap();
-        std::fs::write(t.join("table.toml"), UTILAKE).unwrap();
-        std::fs::write(t.join("ctl/001.ctl"), "-- Visibility Id : PRIVATE\n").unwrap();
-        std::fs::write(
-            t.join("ctl/002.ctl"),
-            "-- Title: x\n-- Visibility Id : PUBLIC \n",
-        )
-        .unwrap();
-        std::fs::write(t.join("ctl/notes.txt"), "-- Visibility Id : NONE\n").unwrap();
-        std::fs::create_dir_all(from.join("census")).unwrap();
-        std::fs::write(from.join("market.toml"), "market = \"nem\"").unwrap();
-        let c = from_utilake(&from).unwrap();
-        let out = dir.path().join("tables");
-        assert_eq!(c.write(&out).unwrap(), 1);
-        let back = Catalog::read(&out).unwrap();
-        let d = &back.tables()[0];
-        assert_eq!(d.visibility, "PUBLIC", "the last control file's");
-        assert_eq!(d.load_mode, LoadMode::Append);
-        assert_eq!(d.report_pairs, [["DISPATCH", "UNIT_SCADA"]]);
-        assert_eq!(
-            d.temporal["valid"]["kind"].as_str(),
-            Some("interval_end"),
-            "{:?}",
-            d.temporal
-        );
-        assert!(d.overrides.is_empty());
-        // Twice gives the same bytes.
-        let first = std::fs::read(out.join("DISPATCH_UNIT_SCADA.toml")).unwrap();
-        from_utilake(&from).unwrap().write(&out).unwrap();
-        assert_eq!(
-            std::fs::read(out.join("DISPATCH_UNIT_SCADA.toml")).unwrap(),
-            first
-        );
-
-        // No visibility, a table file that is not one, no directory.
-        std::fs::write(t.join("ctl/003.ctl"), "-- Visibility Id :\n").unwrap();
-        let e = from_utilake(&from).unwrap_err().to_string();
-        assert!(
-            e.contains("table.toml is not valid: no control file"),
-            "{e}"
-        );
-        std::fs::write(t.join("table.toml"), "name = 1").unwrap();
-        assert!(
-            from_utilake(&from)
-                .unwrap_err()
-                .to_string()
-                .contains("table.toml")
-        );
-        std::fs::write(t.join("table.toml"), [0xff]).unwrap();
-        assert!(matches!(
-            from_utilake(&from).unwrap_err(),
-            CatalogError::Read { .. }
-        ));
-        assert!(matches!(
-            from_utilake(&dir.path().join("none")).unwrap_err(),
-            CatalogError::Read { .. }
-        ));
     }
 }

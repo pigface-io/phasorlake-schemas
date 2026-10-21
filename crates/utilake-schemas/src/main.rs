@@ -16,7 +16,6 @@
 //! utilake-schemas diff --base origin/main [--root .]
 //! utilake-schemas sql DISPATCHPRICE --files files.json --from 2024-08-01 --to 2024-08-02 [--as-of 0] [--root .]
 //! utilake-schemas iceberg --out target/iceberg [--root .]
-//! utilake-schemas tables-from-utilake --from ../utilake/schemas/nem --out tables
 //! ```
 
 use std::path::{Path, PathBuf};
@@ -187,15 +186,6 @@ enum Cmd {
         /// The repository root.
         #[arg(long, default_value = ".")]
         root: PathBuf,
-    },
-    /// Write `tables/*.toml` from utilake's table files, once.
-    TablesFromUtilake {
-        /// utilake's `schemas/nem`.
-        #[arg(long)]
-        from: PathBuf,
-        /// Where the declarations go.
-        #[arg(long)]
-        out: PathBuf,
     },
 }
 
@@ -489,11 +479,6 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         Cmd::Iceberg { out, root } => {
             let n = utilake_schemas::iceberg::write_tables(&root, &out).map_err(|e| fail(&e))?;
             println!("{n} table(s) written under {}", out.display());
-        }
-        Cmd::TablesFromUtilake { from, out } => {
-            let cat = utilake_schemas::catalog::from_utilake(&from).map_err(|e| fail(&e))?;
-            let n = cat.write(&out).map_err(|e| fail(&e))?;
-            println!("{n} table declaration(s) written to {}", out.display());
         }
     }
     Ok(ExitCode::SUCCESS)
