@@ -40,6 +40,9 @@ pub struct Mark {
     pub file: String,
     /// Its SHA-256.
     pub sha256: String,
+    /// The month AEMO released it in, `YYYY-MM`: the monthly archive it
+    /// belongs to, or a report file's month. Runs are in release order.
+    pub release: String,
     /// Where its data starts (at a run's start) or ends (at its end), in
     /// the market's time, RFC 3339; none when its rows carry no time.
     pub data_time: Option<String>,
@@ -174,8 +177,7 @@ pub(crate) mod tests {
 
     /// A history of two schemas and two runs, as the export writes it.
     pub fn sample() -> serde_json::Value {
-        let mark =
-            |file: &str, t: Option<&str>| json!({"file": file, "sha256": "ab", "data-time": t});
+        let mark = |file: &str, t: Option<&str>| json!({"file": file, "sha256": "ab", "release": "2024-08", "data-time": t});
         json!({
             "table": "UNIT",
             "format-version": 3,

@@ -1,0 +1,707 @@
+//! Each table's history as an Iceberg table, folded from every census
+//! record: its schemas, and the runs of AEMO files written under them.
+//!
+//! Every block the census recorded is one observation. A table's
+//! observations are taken in the order AEMO released them: the month of
+//! the release (the MMSDM archive month a file belongs to, a report CSV's
+//! month), then where the block's data ends (its last time value, as an
+//! instant), then the file's name, then the block's place in it. This is
+//! the order an Iceberg table commits them in. It is also the only order
+//! that holds the history still when files restate the past: each month's
+//! `FPP_USAGE` file holds every interval since 2024-12-09, and the
+//! `FPP_CONTRIBUTION_FACTOR` files of 2026-05 on restate 2025 in a new
+//! layout; by data alone those interleave with the files before them. A
+//! file's publication time cannot order them either: it is when the server
+//! last touched the file, and AEMO touched most of the archive again in
+//! 2026-04. Each run keeps the exact span of its data. Each observation is
+//! given the schema its columns need:
+//!
+//! - **One field per lineage.** A column's lineage is its observations
+//!   until its values turn from a number or a date to text (or between the
+//!   two). The lineage is one field: its id is never minted twice, also
+//!   across files that leave the column out, so a table that alternates
+//!   between two column lists keeps two schemas, not a new one per file. A
+//!   new lineage is a new field, recorded as breaking with its file and
+//!   time.
+//! - **One type per field.** A field's type is [`choose`] over everything
+//!   its lineage holds and the widest that the control files and data-model
+//!   releases of its months declare. Choosing it from the values seen so far
+//!   instead would re-type a column whose first months were all null, and
+//!   would turn more digits after the point into a new field (Iceberg
+//!   cannot widen a scale); nulls fit any type, and a column's values are
+//!   all known when the census is folded.
+//! - **A key column is required** until a file holds a row without it, and
+//!   optional from then on.
+//! - **Schemas are interned:** one with the same columns, order and key as
+//!   an earlier one is that one, with its id.
+//!
+//! Consecutive observations with the same schema, report version and
+//! report pair fold into a run, with the kinds of file it came in (the
+//! same data published as archive and DVD files is one run, not one per
+//! file). A run says what changed at its start (`schema`, `version`,
+//! `report`), the Iceberg updates from the run before it, and whether its
+//! data overlaps the run before. Nothing in a run is merged away: its
+//! first and last file, files and rows are kept, so every change has the
+//! file and the time it happened at.
+//!
+//! Two things set a type beyond the rule:
+//!
+//! - **A published history is kept.** Every field of the history last
+//!   published keeps its id, name and type, every schema its id, and its
+//!   runs stay a prefix of the new ones. A lineage that continues a
+//!   published field keeps the published type; at the first block that
+//!   type cannot hold ([`holds`]), the column gets a new field, recorded as
+//!   breaking with that block's file and time: a split, never a retype. A
+//!   fold that cannot keep the promise ([`nem_iceberg::compat::check`]) is
+//!   an error.
+//! - **An override** (`[[override]]` in the table's declaration) is the
+//!   type of each of the column's lineages that no published field sets,
+//!   and the column's lineage does not end where its values turn to text.
+//!   An override that cannot hold a block's values is an error.
+//!
+//! With no published history and no override, the fold is utilake's.
+
+use std::collections::BTreeMap;
+
+use nem_iceberg::compat::{Violation, check};
+use nem_iceberg::history::{Break, Change, Mark, Run, Update};
+use nem_iceberg::{Declared, Evidence, Field, History, IcebergType, Kind, Schema, choose, holds};
+
+use crate::census::{BlockRecord, FileRecord};
+use crate::month::YearMonth;
+use crate::shape::TypeClass;
+
+/// What a data-model release declares of a table's numeric columns:
+/// precision and scale by column name.
+pub type Numeric = BTreeMap<String, (u8, u8)>;
+
+/// What is declared beyond the control files: each table's key and
+/// overrides, and the numeric columns of every data-model release by the
+/// month it appeared.
+#[derive(Debug, Clone, Default)]
+pub struct Declarations {
+    /// Key columns by table.
+    pub keys: BTreeMap<String, Vec<String>>,
+    /// Columns typed by hand, by table.
+    pub overrides: BTreeMap<String, BTreeMap<String, IcebergType>>,
+    /// Releases in the order they appeared: their first month and their
+    /// tables' numeric columns.
+    pub releases: Vec<(YearMonth, BTreeMap<String, Numeric>)>,
+}
+
+impl Declarations {
+    /// The numeric columns of `table` in the newest release out by `month`
+    /// that declares it, else the first release that does.
+    fn numeric(&self, table: &str, month: YearMonth) -> Option<&Numeric> {
+        let declaring = || {
+            self.releases
+                .iter()
+                .filter_map(|(m, t)| Some((*m, t.get(table)?)))
+        };
+        declaring()
+            .rfind(|(m, _)| *m <= month)
+            .or_else(|| declaring().next())
+            .map(|(_, n)| n)
+    }
+}
+
+/// Why a table's history cannot be folded.
+#[derive(Debug, thiserror::Error)]
+pub enum HistoryError {
+    /// An override whose type cannot hold a block's values.
+    #[error(
+        "The override of {column} in {table} as {ty} cannot hold the values of {file}; tables/{table}.toml needs another type."
+    )]
+    Override {
+        /// The table.
+        table: String,
+        /// The column.
+        column: String,
+        /// The type it is forced to.
+        ty: IcebergType,
+        /// The first file whose values it cannot hold.
+        file: String,
+    },
+    /// A fold that breaks what the published history promised.
+    #[error(
+        "The history of {table} breaks what nem/{table}/table.json published: {}.",
+        violations.iter().map(ToString::to_string).collect::<Vec<_>>().join("; ")
+    )]
+    Broken {
+        /// The table.
+        table: String,
+        /// Every broken promise.
+        violations: Vec<Violation>,
+    },
+}
+
+/// One observation: a block, or a run of report files of one shape.
+#[derive(Debug, Clone)]
+struct Obs {
+    /// Release month, data end in seconds, file, block.
+    key: (YearMonth, i64, String, u32),
+    month: YearMonth,
+    report: [String; 2],
+    version: u16,
+    kind: String,
+    from: Mark,
+    to: Mark,
+    files: u64,
+    rows: u64,
+    columns: Vec<String>,
+    ctl: Vec<TypeClass>,
+    evidence: Vec<Evidence>,
+    nulls: Vec<u64>,
+}
+
+/// Every observation of every table, gathering.
+#[derive(Debug, Default)]
+pub struct Observations {
+    tables: BTreeMap<String, Vec<Obs>>,
+}
+
+impl Observations {
+    /// Takes in block `index` of `file` of the census of `month`.
+    pub fn block(
+        &mut self,
+        table: &str,
+        month: YearMonth,
+        (file, index): (&str, u32),
+        f: &FileRecord,
+        b: &BlockRecord,
+    ) {
+        self.take(table, month, (file, file, 1, index), f, b);
+    }
+
+    /// Takes in a run of `files` report files of one shape, from the file
+    /// named `first` to the one named `last`.
+    pub fn run(
+        &mut self,
+        table: &str,
+        month: YearMonth,
+        (first, last, files): (&str, &str, u64),
+        f: &FileRecord,
+        b: &BlockRecord,
+    ) {
+        self.take(table, month, (first, last, files, 0), f, b);
+    }
+
+    fn take(
+        &mut self,
+        table: &str,
+        month: YearMonth,
+        (first, last, files, index): (&str, &str, u64, u32),
+        f: &FileRecord,
+        b: &BlockRecord,
+    ) {
+        let start = b.first.as_deref().and_then(crate::fold::market_time);
+        let end = b.last.as_deref().and_then(crate::fold::market_time);
+        let mark = |file: &str, data_time: Option<String>| Mark {
+            file: file.to_owned(),
+            sha256: f.sha256.clone(),
+            release: month.to_string(),
+            data_time,
+        };
+        // Blocks without a time sort at the start of their month.
+        let ends_at = instant(end.as_deref())
+            .or_else(|| instant(Some(&format!("{month}-01T00:00:00+10:00"))))
+            .unwrap_or_default();
+        let n = b.columns.len();
+        let profiles: Vec<_> = (0..n).map(|j| b.profile_of(j)).collect();
+        self.tables.entry(table.to_owned()).or_default().push(Obs {
+            key: (month, ends_at, first.to_owned(), index),
+            month,
+            report: [b.report.0.clone(), b.report.1.clone()],
+            version: b.version,
+            kind: f.kind.clone(),
+            from: mark(first, start),
+            to: mark(last, end),
+            files,
+            rows: b.rows,
+            columns: b.columns.clone(),
+            ctl: (0..n).map(|j| b.ctl_of(j)).collect(),
+            evidence: profiles
+                .iter()
+                .map(crate::profile::ColumnProfile::evidence)
+                .collect(),
+            nulls: profiles.iter().map(|p| p.nulls).collect(),
+        });
+    }
+
+    /// Every table's history: of every table observed, and of every table
+    /// `published` holds, each kept to what was published.
+    pub fn finish(
+        self,
+        d: &Declarations,
+        published: &BTreeMap<String, History>,
+    ) -> Result<BTreeMap<String, History>, HistoryError> {
+        let mut tables = self.tables;
+        for t in published.keys() {
+            tables.entry(t.clone()).or_default();
+        }
+        let none = BTreeMap::new();
+        let mut out = BTreeMap::new();
+        for (table, mut obs) in tables {
+            obs.sort_by(|a, b| a.key.cmp(&b.key));
+            let rules = Rules {
+                key: d.keys.get(&table).map_or(&[][..], Vec::as_slice),
+                overrides: d.overrides.get(&table).unwrap_or(&none),
+                published: published.get(&table),
+            };
+            let h = fold_table(&table, &rules, d, &obs)?;
+            if let Some(old) = rules.published {
+                let violations = check(old, &h);
+                if !violations.is_empty() {
+                    return Err(HistoryError::Broken { table, violations });
+                }
+            }
+            out.insert(table, h);
+        }
+        Ok(out)
+    }
+}
+
+/// An RFC 3339 time (`YYYY-MM-DDTHH:MM:SS[.f]` and `Z` or `±HH:MM`) as
+/// whole seconds since 1970.
+fn instant(text: Option<&str>) -> Option<i64> {
+    let t = text?;
+    let n = |at: usize, len: usize| -> Option<i64> {
+        let s = t.get(at..at + len)?;
+        s.bytes()
+            .all(|c| c.is_ascii_digit())
+            .then(|| s.parse().ok())?
+    };
+    let at = |i: usize, c: u8| t.as_bytes().get(i) == Some(&c);
+    if !(at(4, b'-') && at(7, b'-') && at(10, b'T') && at(13, b':') && at(16, b':')) {
+        return None;
+    }
+    let (y, mo, d) = (n(0, 4)?, n(5, 2)?, n(8, 2)?);
+    let (h, mi, s) = (n(11, 2)?, n(14, 2)?, n(17, 2)?);
+    let mut rest = &t[19..];
+    if let Some(f) = rest.strip_prefix('.') {
+        let digits = f.bytes().take_while(u8::is_ascii_digit).count();
+        rest = &f[digits..];
+        if digits == 0 {
+            return None;
+        }
+    }
+    let offset = match rest.as_bytes().first() {
+        Some(b'Z') if rest.len() == 1 => 0,
+        Some(&sign @ (b'+' | b'-')) if rest.len() == 6 && rest.as_bytes()[3] == b':' => {
+            let (oh, om) = (n(t.len() - 5, 2)?, n(t.len() - 2, 2)?);
+            let o = if oh < 24 && om < 60 {
+                oh * 3600 + om * 60
+            } else {
+                return None;
+            };
+            if sign == b'-' { -o } else { o }
+        }
+        _ => return None,
+    };
+    let leap = y % 4 == 0 && (y % 100 != 0 || y % 400 == 0);
+    let days_in = [
+        31,
+        if leap { 29 } else { 28 },
+        31,
+        30,
+        31,
+        30,
+        31,
+        31,
+        30,
+        31,
+        30,
+        31,
+    ];
+    let month_days = usize::try_from(mo - 1).ok().and_then(|i| days_in.get(i));
+    if !month_days.is_some_and(|&m| (1..=m).contains(&d)) || h > 23 || mi > 59 || s > 59 {
+        return None;
+    }
+    // Days from 1970-01-01 to the date, counted in 400-year eras from
+    // March 1st.
+    let ya = if mo <= 2 { y - 1 } else { y };
+    let era = ya.div_euclid(400);
+    let yoe = ya - era * 400;
+    let doy = (153 * ((mo + 9) % 12) + 2) / 5 + d - 1;
+    let days = era * 146_097 + yoe * 365 + yoe / 4 - yoe / 100 + doy - 719_468;
+    Some(days * 86_400 + h * 3600 + mi * 60 + s - offset)
+}
+
+fn declared(ctl: TypeClass, numeric: Option<(u8, u8)>, key: bool) -> Declared {
+    let (precision, scale) = numeric.map_or((None, None), |(p, s)| (Some(p), Some(s)));
+    Declared {
+        whole: scale == Some(0) || ctl == TypeClass::Integer,
+        fractional: scale.is_some_and(|s| s > 0) || ctl == TypeClass::Number,
+        precision,
+        scale,
+        fallback: fallback(precision, scale),
+        key,
+    }
+}
+
+fn fallback(precision: Option<u8>, scale: Option<u8>) -> Option<IcebergType> {
+    match (precision, scale) {
+        (Some(_), Some(0)) => Some(IcebergType::Long),
+        (Some(p), Some(s)) if p <= 18 => IcebergType::decimal(p, s),
+        _ => None,
+    }
+}
+
+/// The widest of two declarations: whole only if never declared with a
+/// fraction, the larger precision and scale.
+fn widest(a: Declared, b: Declared) -> Declared {
+    let precision = a.precision.max(b.precision);
+    let scale = a.scale.max(b.scale);
+    let fractional = a.fractional || b.fractional;
+    Declared {
+        whole: (a.whole || b.whole) && !fractional,
+        fractional,
+        precision,
+        scale,
+        fallback: fallback(precision, scale).or(b.fallback).or(a.fallback),
+        key: a.key || b.key,
+    }
+}
+
+/// Whether values of kind `new` end a lineage of kind `old`: a number or a
+/// date (or the other) that turns to text.
+fn ends(old: Kind, new: Kind) -> bool {
+    old != Kind::Empty && new != Kind::Empty && old != Kind::Text && old.join(new) == Kind::Text
+}
+
+/// What sets a table's types beyond the rule.
+struct Rules<'a> {
+    key: &'a [String],
+    overrides: &'a BTreeMap<String, IcebergType>,
+    published: Option<&'a History>,
+}
+
+/// One column in one observation.
+#[derive(Debug, Clone, Copy)]
+struct Occ {
+    /// The observation.
+    obs: usize,
+    evidence: Evidence,
+    declared: Declared,
+}
+
+/// A column over every observation, folding.
+#[derive(Debug, Default)]
+struct Column {
+    /// Every observation of it, in order.
+    occ: Vec<Occ>,
+    /// Where in `occ` its values turned to text: each starts a lineage.
+    turns: Vec<usize>,
+    /// The kind of every value since the last turn.
+    kind: Kind,
+    /// The next of `occ` to fold.
+    next: usize,
+    /// The field of its current lineage, its type, whether that is a
+    /// published field's, and where in `occ` the lineage ends.
+    field: Option<(u32, IcebergType, bool, usize)>,
+}
+
+impl Column {
+    /// The joined evidence and widest declaration of `occ[from..to]`.
+    fn over(&self, from: usize, to: usize) -> (Evidence, Declared) {
+        let first = self.occ[from];
+        self.occ[from + 1..to]
+            .iter()
+            .fold((first.evidence, first.declared), |(e, d), o| {
+                (e.join(o.evidence), widest(d, o.declared))
+            })
+    }
+}
+
+fn fold_table(
+    table: &str,
+    rules: &Rules<'_>,
+    d: &Declarations,
+    obs: &[Obs],
+) -> Result<History, HistoryError> {
+    let key = rules.key;
+    // Each column's observations, and where its values turn to text.
+    let mut columns: BTreeMap<&str, Column> = BTreeMap::new();
+    for (i, o) in obs.iter().enumerate() {
+        let numeric = d.numeric(table, o.month);
+        for (j, name) in o.columns.iter().enumerate() {
+            let declared = declared(
+                o.ctl[j],
+                numeric.and_then(|n| n.get(name)).copied(),
+                key.contains(name),
+            );
+            let c = columns.entry(name).or_default();
+            let seen = o.evidence[j];
+            if ends(c.kind, seen.kind) && !rules.overrides.contains_key(name) {
+                c.turns.push(c.occ.len());
+                c.kind = seen.kind;
+            } else {
+                c.kind = c.kind.join(seen.kind);
+            }
+            c.occ.push(Occ {
+                obs: i,
+                evidence: seen,
+                declared,
+            });
+        }
+    }
+    // The published fields: a lineage minted with one's id and name
+    // continues it.
+    let published: BTreeMap<u32, (&str, IcebergType)> = rules
+        .published
+        .map(History::fields)
+        .unwrap_or_default()
+        .into_iter()
+        .map(|f| (f.id, (f.name.as_str(), f.ty)))
+        .collect();
+    let mut required: BTreeMap<u32, bool> = BTreeMap::new();
+    let mut last_id = 0u32;
+    let mut out = History {
+        table: table.to_owned(),
+        format_version: 3,
+        schemas: Vec::new(),
+        runs: Vec::new(),
+        breaking: Vec::new(),
+    };
+    for o in obs {
+        let mut fields = Vec::with_capacity(o.columns.len());
+        for (j, name) in o.columns.iter().enumerate() {
+            let c = columns
+                .get_mut(name.as_str())
+                .expect("every column was gathered");
+            let p = c.next;
+            c.next += 1;
+            let seen = c.occ[p].evidence;
+            // A lineage starts at the column's first observation, where
+            // its values turn to text, and where a published type no
+            // longer holds them.
+            while c
+                .field
+                .is_none_or(|(_, ty, pinned, end)| p == end || (pinned && !holds(ty, seen)))
+            {
+                let end = c
+                    .turns
+                    .iter()
+                    .copied()
+                    .find(|&t| t > p)
+                    .unwrap_or(c.occ.len());
+                last_id += 1;
+                let ty = match published.get(&last_id).filter(|f| f.0 == name) {
+                    Some(&(_, ty)) => (ty, true),
+                    None => (lineage_type(table, name, rules, c, obs, (p, end))?, false),
+                };
+                if let Some((old_id, old_type, ..)) = c.field {
+                    out.breaking.push(Break {
+                        column: name.clone(),
+                        old_field_id: old_id,
+                        old_type: old_type.name(),
+                        new_field_id: last_id,
+                        new_type: ty.0.name(),
+                        at: o.from.clone(),
+                    });
+                }
+                c.field = Some((last_id, ty.0, ty.1, end));
+            }
+            let (id, ty, ..) = c.field.expect("a lineage was started");
+            let req = required.entry(id).or_insert_with(|| key.contains(name));
+            *req &= o.nulls[j] == 0;
+            fields.push(Field {
+                id,
+                name: name.clone(),
+                ty,
+                required: *req,
+                doc: None,
+            });
+        }
+        // Iceberg's identifier fields are required; a key column that took
+        // a null leaves the key until the schema says otherwise.
+        let identifier_field_ids = key
+            .iter()
+            .filter_map(|c| fields.iter().find(|f| &f.name == c && f.required))
+            .map(|f| f.id)
+            .collect();
+        let schema = Schema {
+            schema_id: 0,
+            fields,
+            identifier_field_ids,
+            last_column_id: last_id,
+        };
+        let id = match out.schemas.iter().find(|s| s.same_as(&schema)) {
+            Some(s) => s.schema_id,
+            None => {
+                let id = u32::try_from(out.schemas.len()).unwrap_or(u32::MAX);
+                out.schemas.push(Schema {
+                    schema_id: id,
+                    ..schema
+                });
+                id
+            }
+        };
+        extend(&mut out, id, o);
+    }
+    Ok(out)
+}
+
+/// The type of a new lineage of column `name`, `occ[from..to]` of `c`: its
+/// override, which must hold every block of it, else the rule's.
+fn lineage_type(
+    table: &str,
+    name: &str,
+    rules: &Rules<'_>,
+    c: &Column,
+    obs: &[Obs],
+    (from, to): (usize, usize),
+) -> Result<IcebergType, HistoryError> {
+    let Some(&ty) = rules.overrides.get(name) else {
+        let (e, d) = c.over(from, to);
+        return Ok(choose(e, d).ty);
+    };
+    match c.occ[from..to].iter().find(|o| !holds(ty, o.evidence)) {
+        None => Ok(ty),
+        Some(o) => Err(HistoryError::Override {
+            table: table.to_owned(),
+            column: name.to_owned(),
+            ty,
+            file: obs[o.obs].from.file.clone(),
+        }),
+    }
+}
+
+/// Adds `o`, under schema `id`, to the last run or as a new one.
+fn extend(out: &mut History, id: u32, o: &Obs) {
+    if let Some(r) = out.runs.last_mut()
+        && r.schema_id == id
+        && r.version == o.version
+        && r.report == o.report
+    {
+        if let Err(at) = r.kinds.binary_search(&o.kind) {
+            r.kinds.insert(at, o.kind.clone());
+        }
+        // The run ends where its latest data ends (no time sorts first).
+        if o.to.data_time >= r.to.data_time {
+            r.to = o.to.clone();
+        }
+        r.files += o.files;
+        r.rows += o.rows;
+        return;
+    }
+    let (changes, updates, overlaps) = match out.runs.last() {
+        None => (vec![Change::First], Vec::new(), false),
+        Some(r) => {
+            let mut changes = Vec::new();
+            if r.schema_id != id {
+                changes.push(Change::Schema);
+            }
+            if r.version != o.version {
+                changes.push(Change::Version);
+            }
+            if r.report != o.report {
+                changes.push(Change::Report);
+            }
+            let before = &out.schemas[r.schema_id as usize];
+            let earlier: Vec<&Schema> = out
+                .runs
+                .iter()
+                .map(|r| &out.schemas[r.schema_id as usize])
+                .collect();
+            let updates = updates(before, &out.schemas[id as usize], &earlier);
+            let overlaps = match (&r.to.data_time, &o.from.data_time) {
+                (Some(end), Some(start)) => start < end,
+                _ => false,
+            };
+            (changes, updates, overlaps)
+        }
+    };
+    out.runs.push(Run {
+        schema_id: id,
+        report: o.report.clone(),
+        version: o.version,
+        kinds: vec![o.kind.clone()],
+        from: o.from.clone(),
+        to: o.to.clone(),
+        files: o.files,
+        rows: o.rows,
+        changes,
+        updates,
+        overlaps,
+    });
+}
+
+/// The positions, in `seq`, outside one longest increasing subsequence:
+/// the fewest elements that moved.
+fn outside_lis(seq: &[usize]) -> Vec<bool> {
+    let mut tails: Vec<usize> = Vec::new();
+    let mut back = vec![usize::MAX; seq.len()];
+    for (i, v) in seq.iter().enumerate() {
+        let k = tails.partition_point(|&t| seq[t] < *v);
+        if k > 0 {
+            back[i] = tails[k - 1];
+        }
+        if k == tails.len() {
+            tails.push(i);
+        } else {
+            tails[k] = i;
+        }
+    }
+    let mut outside = vec![true; seq.len()];
+    let mut i = tails.last().copied().unwrap_or(usize::MAX);
+    while i != usize::MAX {
+        outside[i] = false;
+        i = back[i];
+    }
+    outside
+}
+
+/// The updates that take `a` to `b`; `earlier` holds the schemas of every
+/// run so far, so a field back from one of them is a restore, not an add.
+pub fn updates(a: &Schema, b: &Schema, earlier: &[&Schema]) -> Vec<Update> {
+    let mut out = Vec::new();
+    for f in &a.fields {
+        if b.field(f.id).is_none() {
+            out.push(Update::Delete { field_id: f.id });
+        }
+    }
+    for f in &b.fields {
+        match a.field(f.id) {
+            None if earlier.iter().any(|s| s.field(f.id).is_some()) => {
+                out.push(Update::Restore { field_id: f.id });
+            }
+            None => out.push(Update::Add { field_id: f.id }),
+            Some(old) => {
+                if old.required && !f.required {
+                    out.push(Update::MakeOptional { field_id: f.id });
+                }
+            }
+        }
+    }
+    let shared: Vec<u32> = b
+        .fields
+        .iter()
+        .filter(|f| a.field(f.id).is_some())
+        .map(|f| f.id)
+        .collect();
+    let positions: Vec<usize> = shared
+        .iter()
+        .filter_map(|id| a.fields.iter().position(|f| f.id == *id))
+        .collect();
+    for (id, moved) in shared.iter().zip(outside_lis(&positions)) {
+        if moved {
+            out.push(Update::Move { field_id: *id });
+        }
+    }
+    let (mut ka, mut kb) = (
+        a.identifier_field_ids.clone(),
+        b.identifier_field_ids.clone(),
+    );
+    ka.sort_unstable();
+    kb.sort_unstable();
+    if ka != kb {
+        out.push(Update::SetIdentifierFields {
+            field_ids: b.identifier_field_ids.clone(),
+        });
+    }
+    out
+}
+
+#[cfg(test)]
+mod tests;

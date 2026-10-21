@@ -190,6 +190,33 @@ pub fn choose(e: Evidence, d: Declared) -> Choice {
     Choice { ty, observed: true }
 }
 
+/// Whether a column of type `ty` holds every value `e` saw, without a new
+/// field: `e`'s kind is at or below the kind the type holds on the lattice
+/// ([`Kind::join`]), and its digits fit.
+///
+/// - `string` holds anything; `boolean` only a column never seen with a
+///   value, since no kind is boolean;
+/// - `long` holds whole numbers of at most 18 digits;
+/// - `decimal(P, S)` holds numbers of at most S digits after the point and
+///   P - S before it;
+/// - `double` holds any number;
+/// - `date` holds days, `timestamptz` days and times.
+pub fn holds(ty: IcebergType, e: Evidence) -> bool {
+    let (top, fits) = match ty {
+        IcebergType::Boolean => (Kind::Empty, true),
+        IcebergType::Long => (Kind::Integer, e.int_digits <= LONG_DIGITS),
+        IcebergType::Double => (Kind::Decimal, true),
+        IcebergType::Decimal { precision, scale } => (
+            Kind::Decimal,
+            e.scale <= scale && e.int_digits <= precision.saturating_sub(scale),
+        ),
+        IcebergType::Date => (Kind::Date, true),
+        IcebergType::Timestamptz => (Kind::Timestamp, true),
+        IcebergType::String => (Kind::Text, true),
+    };
+    fits && e.kind.join(top) == top
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -362,5 +389,79 @@ mod tests {
             choose(Evidence::default(), Declared::default()).ty,
             IcebergType::String
         );
+    }
+
+    #[test]
+    fn a_type_holds_what_is_below_it_and_fits() {
+        use IcebergType as T;
+        let d = |p, s| IcebergType::decimal(p, s).unwrap();
+        let empty = Evidence::default();
+        for t in [
+            T::Boolean,
+            T::Long,
+            T::Double,
+            d(5, 2),
+            T::Date,
+            T::Timestamptz,
+            T::String,
+        ] {
+            assert!(holds(t, empty), "{t} holds a column never seen");
+        }
+        let int = ev(Kind::Integer, 3, 0);
+        let dec = ev(Kind::Decimal, 3, 2);
+        assert!(!holds(T::Boolean, int));
+        assert!(holds(T::Long, int) && !holds(T::Long, dec));
+        assert!(holds(T::Long, ev(Kind::Integer, 18, 0)));
+        assert!(!holds(T::Long, ev(Kind::Integer, 19, 0)));
+        assert!(holds(T::Double, int) && holds(T::Double, ev(Kind::Decimal, 30, 9)));
+        assert!(holds(d(5, 2), dec) && holds(d(5, 2), int));
+        assert!(
+            !holds(d(5, 2), ev(Kind::Decimal, 4, 2)),
+            "one digit too many before"
+        );
+        assert!(
+            !holds(d(5, 2), ev(Kind::Decimal, 1, 3)),
+            "one too many after"
+        );
+        assert!(!holds(d(5, 2), ev(Kind::Date, 0, 0)));
+        let odd = T::Decimal {
+            precision: 2,
+            scale: 3,
+        };
+        assert!(!holds(odd, ev(Kind::Integer, 1, 0)));
+        assert!(holds(T::Date, ev(Kind::Date, 0, 0)));
+        assert!(!holds(T::Date, ev(Kind::Timestamp, 0, 0)));
+        assert!(holds(T::Timestamptz, ev(Kind::Date, 0, 0)));
+        assert!(holds(T::Timestamptz, ev(Kind::Timestamp, 0, 0)));
+        assert!(!holds(T::Timestamptz, int));
+        assert!(holds(T::String, ev(Kind::Text, 0, 0)));
+        assert!(!holds(d(18, 2), ev(Kind::Text, 0, 0)));
+        // What the rule chooses holds what it was chosen from.
+        for k in Kind::ALL {
+            for (i, s) in [(0, 0), (3, 2), (12, 9), (20, 0), (4, 17)] {
+                let e = Evidence {
+                    kind: k,
+                    int_digits: i,
+                    scale: s,
+                    sig_digits: i + s,
+                };
+                for key in [false, true] {
+                    let decl = Declared {
+                        whole: true,
+                        key,
+                        ..Declared::default()
+                    };
+                    for decl in [
+                        decl,
+                        Declared {
+                            key,
+                            ..Declared::default()
+                        },
+                    ] {
+                        assert!(holds(choose(e, decl).ty, e), "{e:?} {decl:?}");
+                    }
+                }
+            }
+        }
     }
 }

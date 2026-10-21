@@ -1,11 +1,14 @@
 //! `nem-schemas`: fetch a month of AEMO's archive, take its census, take
-//! the census of the report folders; and, once, write the table
+//! the census of the report folders, record a month's data-model releases,
+//! fold every census into each table's history; and, once, write the table
 //! declarations from utilake's table files.
 //!
 //! ```text
 //! nem-schemas fetch --month 2024-01 --dir mirror/MMSDM_2024_01 [--interval-ms 1000] [--root .]
 //! nem-schemas census --month 2024-01 --dir mirror/MMSDM_2024_01 [--root .]
 //! nem-schemas reports --dir mirror/Reports [--mmsdm mirror] [--root .]
+//! nem-schemas models --month 2025-10 --dir mirror/MMSDM_2025_10 [--root .]
+//! nem-schemas fold [--check] [--root .]
 //! nem-schemas tables-from-utilake --from ../utilake/schemas/nem --out tables
 //! ```
 
@@ -70,6 +73,33 @@ enum Cmd {
         /// control files type the blocks; without it nothing is typed.
         #[arg(long)]
         mmsdm: Option<PathBuf>,
+        /// The repository root, whose `tables/` declares the tables.
+        #[arg(long, default_value = ".")]
+        root: PathBuf,
+    },
+    /// Record the data-model create scripts a month's archive carries
+    /// (`DOCUMENTATION/MMS Data Model/v5.x/MMSDM_create_v5.x.zip`, from
+    /// 2022-10 on) in `{root}/evidence/models/{version}.toml`, one file per
+    /// release with the months it shipped in, and `months.toml`. A version
+    /// already recorded only widens its months.
+    Models {
+        /// The month, `YYYY-MM`.
+        #[arg(long)]
+        month: YearMonth,
+        /// The month's directory.
+        #[arg(long)]
+        dir: PathBuf,
+        /// The repository root.
+        #[arg(long, default_value = ".")]
+        root: PathBuf,
+    },
+    /// Fold every census into each table's history, kept to the history
+    /// `{root}/nem/{TABLE}/table.json` published, and write
+    /// `{root}/evidence/histories/{TABLE}.json`.
+    Fold {
+        /// Write nothing; exit 3 if any history file would change.
+        #[arg(long)]
+        check: bool,
         /// The repository root, whose `tables/` declares the tables.
         #[arg(long, default_value = ".")]
         root: PathBuf,
@@ -201,6 +231,39 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             let runs: usize = taken.iter().map(|t| t.census.blocks.len()).sum();
             println!("{} folder(s), {runs} run(s), {unread} unread", taken.len());
             if unread > 0 {
+                return Ok(ExitCode::from(3));
+            }
+        }
+        Cmd::Models { month, dir, root } => {
+            let files = nem_schemas::census::files_under(&dir).map_err(|e| fail(&e))?;
+            let zips = nem_schemas::models::model_zips(&files);
+            let r = nem_schemas::models::record(&root, month, &zips).map_err(|e| fail(&e))?;
+            for p in &r.problems {
+                eprintln!("error: {p}");
+            }
+            println!(
+                "{month}: {} model zip(s), versions [{}], {} new",
+                zips.len(),
+                r.versions.join(", "),
+                r.new_versions.len()
+            );
+            if !r.problems.is_empty() {
+                return Ok(ExitCode::from(3));
+            }
+        }
+        Cmd::Fold { check, root } => {
+            let cat = catalog(&root)?;
+            let f = nem_schemas::fold::fold(&root, &cat, check).map_err(|e| fail(&e))?;
+            println!(
+                "{} table(s), {} schema(s), {} run(s), {} break(s); {} file(s) {}",
+                f.tables,
+                f.schemas,
+                f.runs,
+                f.breaks,
+                f.changed,
+                if check { "would change" } else { "changed" }
+            );
+            if check && f.changed > 0 {
                 return Ok(ExitCode::from(3));
             }
         }

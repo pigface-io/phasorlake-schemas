@@ -61,6 +61,18 @@ census month dir:
 reports dir mmsdm="":
     cargo run -q -p nem-schemas -- reports --dir {{ dir }} {{ if mmsdm == "" { "" } else { "--mmsdm " + mmsdm } }}
 
+# record the data-model releases a month's directory carries under evidence/models/
+models month dir:
+    cargo run -q -p nem-schemas -- models --month {{ month }} --dir {{ dir }}
+
+# fold every census into each table's history under evidence/histories/
+fold:
+    cargo run -q -p nem-schemas -- fold
+
+# fail if folding again would change any history
+fold-check:
+    cargo run -q -p nem-schemas -- fold --check
+
 # ── secrets ──────────────────────────────────────────────────────────────────
 
 # gitleaks over the staged changes
