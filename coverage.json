@@ -1,6 +1,10 @@
 {
-  "exclude": ["crates/xtask/", "crates/nem-census/src/main.rs"],
+  "exclude": [
+    "crates/xtask/",
+    "crates/nem-census/src/main.rs"
+  ],
   "floors": {
+    "crates/nem-census/src": 100,
     "crates/nem-iceberg/src": 100
   }
 }
