@@ -1,0 +1,15 @@
+# The declaration of MARKETNOTICETYPE: kept by hand.
+name = "MARKETNOTICETYPE"
+report_pairs = [["MARKET_NOTICE", "MARKETNOTICETYPE"]]
+primary_key = ["TYPEID"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["TYPEID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

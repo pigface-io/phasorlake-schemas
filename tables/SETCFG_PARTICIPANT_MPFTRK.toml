@@ -1,0 +1,17 @@
+# The declaration of SETCFG_PARTICIPANT_MPFTRK: kept by hand.
+name = "SETCFG_PARTICIPANT_MPFTRK"
+report_pairs = [["SETTLEMENT_CONFIG", "SETCFG_PARTICIPANT_MPFTRK"]]
+primary_key = ["PARTICIPANTID", "EFFECTIVEDATE", "VERSIONNO"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["PARTICIPANTID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

@@ -1,0 +1,16 @@
+# The declaration of NEGATIVE_RESIDUE: kept by hand.
+name = "NEGATIVE_RESIDUE"
+report_pairs = [["DISPATCH", "NEGATIVE_RESIDUE"]]
+primary_key = ["SETTLEMENTDATE", "NRM_DATETIME", "DIRECTIONAL_INTERCONNECTORID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = ["NRM_DATETIME", "DIRECTIONAL_INTERCONNECTORID"]
+order = ["PREDISPATCHSEQNO"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

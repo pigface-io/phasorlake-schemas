@@ -1,0 +1,17 @@
+# The declaration of DISPATCHREGIONSUM: kept by hand.
+name = "DISPATCHREGIONSUM"
+report_pairs = [["DISPATCH", "REGIONSUM"]]
+primary_key = ["SETTLEMENTDATE", "RUNNO", "REGIONID", "DISPATCHINTERVAL", "INTERVENTION"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["REGIONID", "DISPATCHINTERVAL", "INTERVENTION"]
+order = ["RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

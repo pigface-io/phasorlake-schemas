@@ -1,0 +1,16 @@
+# The declaration of MTPASA_CASESOLUTION: kept by hand.
+name = "MTPASA_CASESOLUTION"
+report_pairs = [["MTPASA", "CASESOLUTION"]]
+primary_key = []
+time_column = "RUN_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["RUN_DATETIME", "RUN_NO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

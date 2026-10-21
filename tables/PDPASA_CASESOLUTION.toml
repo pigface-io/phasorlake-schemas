@@ -1,0 +1,17 @@
+# The declaration of PDPASA_CASESOLUTION: kept by hand.
+name = "PDPASA_CASESOLUTION"
+report_pairs = [["PDPASA", "CASESOLUTION"]]
+primary_key = ["RUN_DATETIME"]
+time_column = "RUN_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "RUN_DATETIME"
+kind = "instant"

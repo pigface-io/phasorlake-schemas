@@ -1,0 +1,16 @@
+# The declaration of PREDISPATCH_MNSPBIDTRK: kept by hand.
+name = "PREDISPATCH_MNSPBIDTRK"
+report_pairs = [["PREDISPATCH", "MNSPBIDTRK"]]
+primary_key = ["PREDISPATCHSEQNO", "LINKID", "PERIODID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["LINKID", "PERIODID"]
+order = ["PREDISPATCHSEQNO", "OFFERDATE", "VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

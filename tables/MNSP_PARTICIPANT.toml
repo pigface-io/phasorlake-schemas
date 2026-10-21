@@ -1,0 +1,16 @@
+# The declaration of MNSP_PARTICIPANT: kept by hand.
+name = "MNSP_PARTICIPANT"
+report_pairs = [["PARTICIPANT_REGISTRATION", "MNSP_PARTICIPANT"]]
+primary_key = ["INTERCONNECTORID", "EFFECTIVEDATE", "VERSIONNO", "PARTICIPANTID"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERCONNECTORID", "PARTICIPANTID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

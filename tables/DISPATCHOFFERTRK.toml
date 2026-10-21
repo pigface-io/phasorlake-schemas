@@ -1,0 +1,17 @@
+# The declaration of DISPATCHOFFERTRK: kept by hand.
+name = "DISPATCHOFFERTRK"
+report_pairs = [["DISPATCH", "OFFERTRK"]]
+primary_key = ["SETTLEMENTDATE", "DUID", "BIDTYPE"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["DUID", "BIDTYPE"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

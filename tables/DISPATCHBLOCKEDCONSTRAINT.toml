@@ -1,0 +1,16 @@
+# The declaration of DISPATCHBLOCKEDCONSTRAINT: kept by hand.
+name = "DISPATCHBLOCKEDCONSTRAINT"
+report_pairs = [["DISPATCH", "BLOCKED_CONSTRAINTS"]]
+primary_key = ["SETTLEMENTDATE", "RUNNO", "CONSTRAINTID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = ["CONSTRAINTID"]
+order = ["RUNNO"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

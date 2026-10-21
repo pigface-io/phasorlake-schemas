@@ -1,0 +1,15 @@
+# The declaration of PD7DAY_MARKET_SUMMARY: kept by hand.
+name = "PD7DAY_MARKET_SUMMARY"
+report_pairs = [["PD7DAY", "MARKET_SUMMARY"]]
+primary_key = []
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = []
+order = ["RUN_DATETIME"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

@@ -1,0 +1,17 @@
+# The declaration of STPASA_CONSTRAINTSOLUTION: kept by hand.
+name = "STPASA_CONSTRAINTSOLUTION"
+report_pairs = [["STPASA", "CONSTRAINTSOLUTION"]]
+primary_key = ["RUN_DATETIME", "INTERVAL_DATETIME", "CONSTRAINTID", "RUNTYPE"]
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "RUN_DATETIME"
+entity = ["CONSTRAINTID", "RUNTYPE"]
+order = ["RUN_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "INTERVAL_DATETIME"
+kind = "interval_end"

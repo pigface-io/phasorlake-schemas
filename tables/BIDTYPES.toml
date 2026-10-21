@@ -1,0 +1,16 @@
+# The declaration of BIDTYPES: kept by hand.
+name = "BIDTYPES"
+report_pairs = [["MARKET_CONFIG", "BIDTYPES"]]
+primary_key = ["BIDTYPE", "EFFECTIVEDATE", "VERSIONNO"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["BIDTYPE"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

@@ -1,0 +1,17 @@
+# The declaration of DISPATCH_UNIT_SCADA: kept by hand.
+name = "DISPATCH_UNIT_SCADA"
+report_pairs = [["DISPATCH", "UNIT_SCADA"]]
+primary_key = ["SETTLEMENTDATE", "DUID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["DUID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

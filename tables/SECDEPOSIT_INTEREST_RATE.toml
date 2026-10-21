@@ -1,0 +1,17 @@
+# The declaration of SECDEPOSIT_INTEREST_RATE: kept by hand.
+name = "SECDEPOSIT_INTEREST_RATE"
+report_pairs = [["BILLING_CONFIG", "SECDEPOSIT_INTEREST_RATE"]]
+primary_key = ["INTEREST_ACCT_ID", "EFFECTIVEDATE", "VERSION_DATETIME"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "VERSION_DATETIME"
+entity = ["INTEREST_ACCT_ID"]
+order = ["VERSION_DATETIME"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

@@ -1,0 +1,17 @@
+# The declaration of DISPATCH_MNSPBIDTRK: kept by hand.
+name = "DISPATCH_MNSPBIDTRK"
+report_pairs = [["DISPATCH", "MNSPBIDTRK"]]
+primary_key = ["SETTLEMENTDATE", "RUNNO", "PARTICIPANTID", "LINKID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["PARTICIPANTID", "LINKID"]
+order = ["RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

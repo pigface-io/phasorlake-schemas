@@ -47,6 +47,20 @@ cover:
 ratchet base="origin/main":
     cargo run -q -p xtask -- ratchet --base {{ base }}
 
+# ── census ───────────────────────────────────────────────────────────────────
+
+# download one month of the archive into a directory, one request a second
+fetch month dir:
+    cargo run -q -p nem-census -- fetch --month {{ month }} --dir {{ dir }}
+
+# record every block of every file of a month's directory under evidence/census/
+census month dir:
+    cargo run -q -p nem-census -- census --month {{ month }} --dir {{ dir }}
+
+# record every folder of the report roots under evidence/census/reports/
+reports dir mmsdm="":
+    cargo run -q -p nem-census -- reports --dir {{ dir }} {{ if mmsdm == "" { "" } else { "--mmsdm " + mmsdm } }}
+
 # ── secrets ──────────────────────────────────────────────────────────────────
 
 # gitleaks over the staged changes

@@ -1,0 +1,17 @@
+# The declaration of DISPATCHLOAD: kept by hand.
+name = "DISPATCHLOAD"
+report_pairs = [["DISPATCH", "UNIT_SOLUTION"]]
+primary_key = ["SETTLEMENTDATE", "RUNNO", "DUID", "INTERVENTION"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["DUID", "INTERVENTION"]
+order = ["RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

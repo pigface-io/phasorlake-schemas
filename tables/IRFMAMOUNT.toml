@@ -1,0 +1,15 @@
+# The declaration of IRFMAMOUNT: kept by hand.
+name = "IRFMAMOUNT"
+report_pairs = [["FORCE_MAJEURE", "IRFMAMOUNT"]]
+primary_key = ["IRFMID", "VERSIONNO", "PERIODID"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["IRFMID", "PERIODID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

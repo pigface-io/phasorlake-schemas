@@ -1,0 +1,16 @@
+# The declaration of FPP_RESIDUAL_PERFORMANCE: kept by hand.
+name = "FPP_RESIDUAL_PERFORMANCE"
+report_pairs = [["FPP", "RESIDUAL_PERFORMANCE"]]
+primary_key = []
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

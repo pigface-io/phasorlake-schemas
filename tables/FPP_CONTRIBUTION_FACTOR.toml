@@ -1,0 +1,16 @@
+# The declaration of FPP_CONTRIBUTION_FACTOR: kept by hand.
+name = "FPP_CONTRIBUTION_FACTOR"
+report_pairs = [["FPP", "CONTRIBUTION_FACTOR"]]
+primary_key = []
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

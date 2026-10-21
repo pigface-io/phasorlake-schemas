@@ -1,0 +1,16 @@
+# The declaration of GENUNITS: kept by hand.
+name = "GENUNITS"
+report_pairs = [["PARTICIPANT_REGISTRATION", "GENUNITS"]]
+primary_key = ["GENSETID"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["GENSETID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

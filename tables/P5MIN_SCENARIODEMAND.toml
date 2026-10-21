@@ -1,0 +1,15 @@
+# The declaration of P5MIN_SCENARIODEMAND: kept by hand.
+name = "P5MIN_SCENARIODEMAND"
+report_pairs = [["P5MIN", "SCENARIODEMAND"]]
+primary_key = []
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = []
+order = ["VERSION_DATETIME"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

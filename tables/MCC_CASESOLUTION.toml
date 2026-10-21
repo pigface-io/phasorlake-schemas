@@ -1,0 +1,16 @@
+# The declaration of MCC_CASESOLUTION: kept by hand.
+name = "MCC_CASESOLUTION"
+report_pairs = [["MCC", "CASESOLUTION"]]
+primary_key = ["RUN_DATETIME"]
+time_column = "RUN_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = []
+order = []
+origin = "derived"
+
+[temporal.valid]
+column = "RUN_DATETIME"
+kind = "instant"

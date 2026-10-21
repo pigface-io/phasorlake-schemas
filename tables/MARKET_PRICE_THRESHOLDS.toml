@@ -1,0 +1,16 @@
+# The declaration of MARKET_PRICE_THRESHOLDS: kept by hand.
+name = "MARKET_PRICE_THRESHOLDS"
+report_pairs = [["MARKET_CONFIG", "MARKET_PRICE_THRESHOLDS"]]
+primary_key = ["EFFECTIVEDATE", "VERSIONNO"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

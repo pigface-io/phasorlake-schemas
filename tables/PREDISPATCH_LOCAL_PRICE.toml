@@ -1,0 +1,17 @@
+# The declaration of PREDISPATCH_LOCAL_PRICE: kept by hand.
+name = "PREDISPATCH_LOCAL_PRICE"
+report_pairs = [["PREDISPATCH", "LOCAL_PRICE"]]
+primary_key = ["DATETIME", "DUID"]
+time_column = "DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["DUID"]
+order = ["PREDISPATCHSEQNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "DATETIME"
+kind = "interval_end"

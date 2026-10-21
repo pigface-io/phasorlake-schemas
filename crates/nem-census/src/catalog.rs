@@ -1,0 +1,577 @@
+//! The tables this repository declares, one hand-kept file each.
+//!
+//! ```text
+//! tables/DISPATCH_UNIT_SCADA.toml
+//! ```
+//!
+//! A declaration says which report pairs a table is published under, its
+//! key and time column, its temporal roles (copied as they are), how it is
+//! loaded, its visibility, and any column whose type is set by hand
+//! (`[[override]]`, applied by the fold). The census asks it for the table
+//! of a report pair and for that table's time column; a pair no table
+//! declares is recorded under `{TYPE}_{SUBTYPE}`.
+//!
+//! The first files were written from utilake's table files
+//! ([`from_utilake`]); from then on they are kept by hand.
+
+use std::collections::{BTreeMap, HashMap};
+use std::path::{Path, PathBuf};
+
+use nem_iceberg::IcebergType;
+use serde::{Deserialize, Serialize};
+
+/// Why the declarations cannot be read or written.
+#[derive(Debug, thiserror::Error)]
+pub enum CatalogError {
+    /// A file or directory that cannot be read.
+    #[error("The table declarations at {path} cannot be read: {message}")]
+    Read {
+        /// The file or directory.
+        path: String,
+        /// What is wrong.
+        message: String,
+    },
+    /// A file that is not a declaration.
+    #[error("The table declaration {path} is not valid: {message}")]
+    Invalid {
+        /// The file.
+        path: String,
+        /// What is wrong.
+        message: String,
+    },
+    /// A report pair two tables declare.
+    #[error("The report pair {pair} is declared by both {first} and {second}.")]
+    Duplicate {
+        /// The pair, `TYPE/SUBTYPE`.
+        pair: String,
+        /// The file that declared it first.
+        first: String,
+        /// The file that declared it again.
+        second: String,
+    },
+    /// A file that cannot be written.
+    #[error("The table declaration {path} could not be written.")]
+    Write {
+        /// The file.
+        path: String,
+        /// Cause.
+        #[source]
+        source: std::io::Error,
+    },
+}
+
+/// How a table's files are loaded.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum LoadMode {
+    /// Every file adds rows.
+    Append,
+    /// Every file is the whole table as of its time.
+    Snapshot,
+}
+
+/// A column whose type is set by hand, whatever its values say.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Override {
+    /// The column.
+    pub column: String,
+    /// Its Iceberg type, as Iceberg writes it (`long`, `decimal(16, 6)`).
+    #[serde(rename = "type")]
+    pub ty: String,
+    /// Why.
+    pub reason: String,
+}
+
+impl Override {
+    /// The type; `None` when it is not one (a file that holds such an
+    /// override is refused by [`Catalog::read`]).
+    pub fn iceberg_type(&self) -> Option<IcebergType> {
+        IcebergType::parse(&self.ty)
+    }
+}
+
+/// One table's declaration, as written in `tables/{name}.toml`.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct TableDecl {
+    /// The table.
+    pub name: String,
+    /// The report pairs (type, subtype) its blocks are published under.
+    pub report_pairs: Vec<[String; 2]>,
+    /// Its key, in order; empty for none.
+    pub primary_key: Vec<String>,
+    /// The column a block's time span is of.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub time_column: Option<String>,
+    /// How its files are loaded.
+    pub load_mode: LoadMode,
+    /// Who may see it, as AEMO's control files say (`PUBLIC`).
+    pub visibility: String,
+    /// Its temporal roles (`valid`, `entity`, `order`, `cutoff`,
+    /// `origin`), as written.
+    pub temporal: toml::Table,
+    /// Columns typed by hand.
+    #[serde(default, rename = "override", skip_serializing_if = "Vec::is_empty")]
+    pub overrides: Vec<Override>,
+}
+
+impl TableDecl {
+    /// What is wrong with the declaration on its own, if anything.
+    fn problem(&self) -> Option<String> {
+        if self.name.is_empty() || self.report_pairs.is_empty() {
+            return Some("it needs a name and at least one report pair".into());
+        }
+        let mut seen = Vec::new();
+        for o in &self.overrides {
+            if o.iceberg_type().is_none() {
+                return Some(format!(
+                    "the override of {} has type {:?}, which is not an Iceberg type",
+                    o.column, o.ty
+                ));
+            }
+            if o.reason.trim().is_empty() || seen.contains(&&o.column) {
+                return Some(format!(
+                    "the override of {} needs a reason and may appear once",
+                    o.column
+                ));
+            }
+            seen.push(&o.column);
+        }
+        None
+    }
+
+    /// The declaration as its file holds it.
+    pub fn to_toml(&self) -> String {
+        format!(
+            "# The declaration of {}: kept by hand.\n{}",
+            self.name,
+            toml::to_string(self).expect("a declaration serialises")
+        )
+    }
+}
+
+/// Every declared table, by name, and the table of each report pair.
+#[derive(Debug, Clone, Default)]
+pub struct Catalog {
+    tables: Vec<TableDecl>,
+    by_pair: HashMap<(String, String), usize>,
+}
+
+impl Catalog {
+    /// The declarations, each with the file it came from (for an error),
+    /// in name order. A pair two tables declare is refused.
+    pub fn new(tables: Vec<(PathBuf, TableDecl)>) -> Result<Self, CatalogError> {
+        let mut tables = tables;
+        tables.sort_by(|a, b| a.1.name.cmp(&b.1.name));
+        let mut by_pair = HashMap::new();
+        let mut from: HashMap<(String, String), &Path> = HashMap::new();
+        for (i, (path, t)) in tables.iter().enumerate() {
+            for [a, b] in &t.report_pairs {
+                let key = (a.clone(), b.clone());
+                if let Some(first) = from.insert(key.clone(), path) {
+                    return Err(CatalogError::Duplicate {
+                        pair: format!("{a}/{b}"),
+                        first: first.display().to_string(),
+                        second: path.display().to_string(),
+                    });
+                }
+                by_pair.insert(key, i);
+            }
+        }
+        Ok(Self {
+            tables: tables.into_iter().map(|(_, t)| t).collect(),
+            by_pair,
+        })
+    }
+
+    /// Every `*.toml` file of `dir`, in name order. A file must be named
+    /// for its table.
+    pub fn read(dir: &Path) -> Result<Self, CatalogError> {
+        let mut tables = Vec::new();
+        for path in toml_files(dir)? {
+            let text = std::fs::read_to_string(&path).map_err(|e| read_error(&path, &e))?;
+            let invalid = |message: String| CatalogError::Invalid {
+                path: path.display().to_string(),
+                message,
+            };
+            let t: TableDecl = toml::from_str(&text).map_err(|e| invalid(e.to_string()))?;
+            let stem = path.file_stem().map(|s| s.to_string_lossy().into_owned());
+            if stem.as_deref() != Some(t.name.as_str()) {
+                return Err(invalid(format!(
+                    "it declares {}, not its file name",
+                    t.name
+                )));
+            }
+            if let Some(p) = t.problem() {
+                return Err(invalid(p));
+            }
+            tables.push((path, t));
+        }
+        Self::new(tables)
+    }
+
+    /// Every table, in name order.
+    pub fn tables(&self) -> &[TableDecl] {
+        &self.tables
+    }
+
+    /// The table of this name.
+    pub fn table(&self, name: &str) -> Option<&TableDecl> {
+        self.tables.iter().find(|t| t.name == name)
+    }
+
+    /// The table that declares a report pair.
+    pub fn declared_by_pair(&self, report_type: &str, report_subtype: &str) -> Option<&TableDecl> {
+        self.by_pair
+            .get(&(report_type.to_owned(), report_subtype.to_owned()))
+            .map(|&i| &self.tables[i])
+    }
+
+    /// The table a block of this report pair is recorded under: the one
+    /// declared for the pair, else `{TYPE}_{SUBTYPE}`.
+    pub fn table_of(&self, report_type: &str, report_subtype: &str) -> String {
+        self.declared_by_pair(report_type, report_subtype)
+            .map_or_else(
+                || format!("{report_type}_{report_subtype}"),
+                |t| t.name.clone(),
+            )
+    }
+
+    /// Writes each declaration to `dir/{name}.toml`; returns how many.
+    pub fn write(&self, dir: &Path) -> Result<usize, CatalogError> {
+        for t in &self.tables {
+            let path = dir.join(format!("{}.toml", t.name));
+            crate::files::write_atomic(&path, t.to_toml().as_bytes()).map_err(|source| {
+                CatalogError::Write {
+                    path: path.display().to_string(),
+                    source,
+                }
+            })?;
+        }
+        Ok(self.tables.len())
+    }
+}
+
+fn read_error(path: &Path, e: &std::io::Error) -> CatalogError {
+    CatalogError::Read {
+        path: path.display().to_string(),
+        message: e.to_string(),
+    }
+}
+
+/// The `*.toml` files directly in `dir`, in name order.
+fn toml_files(dir: &Path) -> Result<Vec<PathBuf>, CatalogError> {
+    let mut out = Vec::new();
+    for e in std::fs::read_dir(dir).map_err(|e| read_error(dir, &e))? {
+        let p = e.map_err(|e| read_error(dir, &e))?.path();
+        if p.is_file() && p.extension().is_some_and(|x| x == "toml") {
+            out.push(p);
+        }
+    }
+    out.sort();
+    Ok(out)
+}
+
+/// What a utilake table file says that a declaration keeps.
+#[derive(Deserialize)]
+struct UtilakeTable {
+    name: String,
+    report_pairs: Vec<[String; 2]>,
+    primary_key: Vec<String>,
+    time_column: Option<String>,
+    load_mode: LoadMode,
+    temporal: toml::Table,
+}
+
+/// The visibility the last control file of a utilake table directory
+/// states (`-- Visibility Id : PUBLIC`).
+fn utilake_visibility(dir: &Path) -> Option<String> {
+    let mut ctls: Vec<PathBuf> = std::fs::read_dir(dir.join("ctl"))
+        .ok()?
+        .filter_map(Result::ok)
+        .map(|e| e.path())
+        .filter(|p| p.extension().is_some_and(|x| x == "ctl"))
+        .collect();
+    ctls.sort();
+    let text = std::fs::read_to_string(ctls.last()?).ok()?;
+    text.lines()
+        .find_map(|l| l.split_once("Visibility Id")?.1.split_once(':'))
+        .map(|(_, v)| v.trim().to_owned())
+        .filter(|v| !v.is_empty())
+}
+
+/// The declarations of utilake's table files: every `{T}/table.toml`
+/// under `from` (its `schemas/nem`), with the visibility of the table's
+/// last control file.
+pub fn from_utilake(from: &Path) -> Result<Catalog, CatalogError> {
+    let mut dirs = BTreeMap::new();
+    for e in std::fs::read_dir(from).map_err(|e| read_error(from, &e))? {
+        let dir = e.map_err(|e| read_error(from, &e))?.path();
+        let file = dir.join("table.toml");
+        if file.is_file() {
+            dirs.insert(dir, file);
+        }
+    }
+    let mut tables = Vec::new();
+    for (dir, file) in dirs {
+        let text = std::fs::read_to_string(&file).map_err(|e| read_error(&file, &e))?;
+        let invalid = |message: String| CatalogError::Invalid {
+            path: file.display().to_string(),
+            message,
+        };
+        let u: UtilakeTable = toml::from_str(&text).map_err(|e| invalid(e.to_string()))?;
+        let visibility = utilake_visibility(&dir)
+            .ok_or_else(|| invalid("no control file of the table states its visibility".into()))?;
+        let t = TableDecl {
+            name: u.name,
+            report_pairs: u.report_pairs,
+            primary_key: u.primary_key,
+            time_column: u.time_column,
+            load_mode: u.load_mode,
+            visibility,
+            temporal: u.temporal,
+            overrides: Vec::new(),
+        };
+        tables.push((file, t));
+    }
+    Catalog::new(tables)
+}
+
+#[cfg(test)]
+pub(crate) mod tests {
+    use super::*;
+
+    /// A declaration of `name` for one pair.
+    pub(crate) fn decl(name: &str, pair: (&str, &str), time: Option<&str>) -> TableDecl {
+        TableDecl {
+            name: name.into(),
+            report_pairs: vec![[pair.0.into(), pair.1.into()]],
+            primary_key: vec!["SETTLEMENTDATE".into()],
+            time_column: time.map(str::to_owned),
+            load_mode: LoadMode::Append,
+            visibility: "PUBLIC".into(),
+            temporal: toml::Table::new(),
+            overrides: Vec::new(),
+        }
+    }
+
+    /// The catalog of one table: DISPATCH_UNIT_SCADA, timed by
+    /// SETTLEMENTDATE.
+    pub(crate) fn scada() -> Catalog {
+        Catalog::new(vec![(
+            "DISPATCH_UNIT_SCADA.toml".into(),
+            decl(
+                "DISPATCH_UNIT_SCADA",
+                ("DISPATCH", "UNIT_SCADA"),
+                Some("SETTLEMENTDATE"),
+            ),
+        )])
+        .unwrap()
+    }
+
+    const SCADA: &str = r#"
+name = "DISPATCH_UNIT_SCADA"
+report_pairs = [["DISPATCH", "UNIT_SCADA"]]
+primary_key = ["SETTLEMENTDATE", "DUID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+origin = "derived"
+entity = ["DUID"]
+valid = { kind = "interval_end", column = "SETTLEMENTDATE" }
+order = ["LASTCHANGED"]
+cutoff = "LASTCHANGED"
+
+[[override]]
+column = "SCADAVALUE"
+type = "decimal(16, 6)"
+reason = "Six places are what AEMO measures."
+"#;
+
+    #[test]
+    fn declarations_are_read_and_answer_for_their_pairs() {
+        let dir = tempfile::tempdir().unwrap();
+        std::fs::write(dir.path().join("DISPATCH_UNIT_SCADA.toml"), SCADA).unwrap();
+        let price = decl("DISPATCHPRICE", ("DISPATCH", "PRICE"), None);
+        std::fs::write(dir.path().join("DISPATCHPRICE.toml"), price.to_toml()).unwrap();
+        std::fs::write(dir.path().join("README.md"), "not a table").unwrap();
+        std::fs::create_dir(dir.path().join("sub.toml")).unwrap();
+        let c = Catalog::read(dir.path()).unwrap();
+        assert_eq!(c.tables().len(), 2);
+        let t = c.declared_by_pair("DISPATCH", "UNIT_SCADA").unwrap();
+        assert_eq!(t.time_column.as_deref(), Some("SETTLEMENTDATE"));
+        assert_eq!(t.primary_key, ["SETTLEMENTDATE", "DUID"]);
+        assert_eq!(t.temporal["cutoff"].as_str(), Some("LASTCHANGED"));
+        assert_eq!(
+            t.overrides[0].iceberg_type(),
+            IcebergType::decimal(16, 6),
+            "{:?}",
+            t.overrides
+        );
+        assert_eq!(c.table("DISPATCHPRICE"), Some(&price));
+        assert!(c.table("NOBODY").is_none());
+        assert_eq!(c.table_of("DISPATCH", "PRICE"), "DISPATCHPRICE");
+        assert_eq!(c.table_of("DISPATCH", "OTHER"), "DISPATCH_OTHER");
+        // Written back, a declaration reads as it was.
+        let out = dir.path().join("out");
+        assert_eq!(c.write(&out).unwrap(), 2);
+        let again = Catalog::read(&out).unwrap();
+        assert_eq!(again.tables(), c.tables());
+        let text = std::fs::read_to_string(out.join("DISPATCH_UNIT_SCADA.toml")).unwrap();
+        assert!(
+            text.starts_with("# The declaration of DISPATCH_UNIT_SCADA"),
+            "{text}"
+        );
+        assert!(text.contains("[[override]]"), "{text}");
+    }
+
+    #[test]
+    fn a_bad_declaration_names_its_file() {
+        let dir = tempfile::tempdir().unwrap();
+        let err = |name: &str, text: &str| {
+            let d = dir.path().join(name.replace('.', "_"));
+            std::fs::create_dir_all(&d).unwrap();
+            std::fs::write(d.join(name), text).unwrap();
+            Catalog::read(&d).unwrap_err().to_string()
+        };
+        let e = err("X.toml", "name = 1");
+        assert!(e.contains("X.toml is not valid"), "{e}");
+        let e = err("Y.toml", &SCADA.replace("DISPATCH_UNIT_SCADA\"", "Z\""));
+        assert!(e.contains("it declares Z, not its file name"), "{e}");
+        let named = |s: &str| s.replace("\"DISPATCH_UNIT_SCADA\"", "\"T\"");
+        let e = err("T.toml", &named(SCADA).replace("decimal(16, 6)", "money"));
+        assert!(e.contains("\"money\", which is not an Iceberg type"), "{e}");
+        let e = err(
+            "T.toml",
+            &named(SCADA).replace("Six places are what AEMO measures.", " "),
+        );
+        assert!(e.contains("needs a reason"), "{e}");
+        let twice = format!(
+            "{}\n[[override]]\ncolumn = \"SCADAVALUE\"\ntype = \"long\"\nreason = \"r\"\n",
+            named(SCADA)
+        );
+        assert!(err("T.toml", &twice).contains("may appear once"));
+        let e = err(
+            "T.toml",
+            &named(SCADA).replace("[[\"DISPATCH\", \"UNIT_SCADA\"]]", "[]"),
+        );
+        assert!(e.contains("at least one report pair"), "{e}");
+        let e = Catalog::read(&dir.path().join("none")).unwrap_err();
+        assert!(matches!(e, CatalogError::Read { .. }), "{e}");
+        let unreadable = dir.path().join("bad");
+        std::fs::create_dir_all(&unreadable).unwrap();
+        std::fs::write(unreadable.join("A.toml"), [0xff, 0xfe]).unwrap();
+        let e = Catalog::read(&unreadable).unwrap_err().to_string();
+        assert!(e.contains("A.toml cannot be read"), "{e}");
+        let e = Catalog::new(vec![
+            ("a.toml".into(), decl("A", ("P", "Q"), None)),
+            ("b.toml".into(), decl("B", ("P", "Q"), None)),
+        ])
+        .unwrap_err();
+        assert_eq!(
+            e.to_string(),
+            "The report pair P/Q is declared by both a.toml and b.toml."
+        );
+        let blocked = dir.path().join("blocked");
+        std::fs::write(&blocked, "a file").unwrap();
+        let e = scada().write(&blocked).unwrap_err().to_string();
+        assert!(
+            e.contains("DISPATCH_UNIT_SCADA.toml could not be written"),
+            "{e}"
+        );
+    }
+
+    /// A utilake table file, reduced to what a declaration keeps.
+    const UTILAKE: &str = r#"# Our schema of DISPATCH_UNIT_SCADA.
+schema_format = 3
+name = "DISPATCH_UNIT_SCADA"
+description = "Unit MW."
+report_pairs = [["DISPATCH", "UNIT_SCADA"]]
+load_mode = "append"
+primary_key = ["SETTLEMENTDATE", "DUID"]
+time_column = "SETTLEMENTDATE"
+next_column_id = 5
+
+column = [
+    { id = 1, name = "SETTLEMENTDATE", type = "timestamp", nullable = false },
+]
+
+[temporal]
+origin = "derived"
+entity = ["DUID"]
+valid = { kind = "interval_end", column = "SETTLEMENTDATE" }
+order = ["LASTCHANGED"]
+cutoff = "LASTCHANGED"
+
+[[increment]]
+n = 1
+from = "2015-01"
+"#;
+
+    #[test]
+    fn utilake_table_files_become_declarations() {
+        let dir = tempfile::tempdir().unwrap();
+        let from = dir.path().join("nem");
+        let t = from.join("DISPATCH_UNIT_SCADA");
+        std::fs::create_dir_all(t.join("ctl")).unwrap();
+        std::fs::write(t.join("table.toml"), UTILAKE).unwrap();
+        std::fs::write(t.join("ctl/001.ctl"), "-- Visibility Id : PRIVATE\n").unwrap();
+        std::fs::write(
+            t.join("ctl/002.ctl"),
+            "-- Title: x\n-- Visibility Id : PUBLIC \n",
+        )
+        .unwrap();
+        std::fs::write(t.join("ctl/notes.txt"), "-- Visibility Id : NONE\n").unwrap();
+        std::fs::create_dir_all(from.join("census")).unwrap();
+        std::fs::write(from.join("market.toml"), "market = \"nem\"").unwrap();
+        let c = from_utilake(&from).unwrap();
+        let out = dir.path().join("tables");
+        assert_eq!(c.write(&out).unwrap(), 1);
+        let back = Catalog::read(&out).unwrap();
+        let d = &back.tables()[0];
+        assert_eq!(d.visibility, "PUBLIC", "the last control file's");
+        assert_eq!(d.load_mode, LoadMode::Append);
+        assert_eq!(d.report_pairs, [["DISPATCH", "UNIT_SCADA"]]);
+        assert_eq!(
+            d.temporal["valid"]["kind"].as_str(),
+            Some("interval_end"),
+            "{:?}",
+            d.temporal
+        );
+        assert!(d.overrides.is_empty());
+        // Twice gives the same bytes.
+        let first = std::fs::read(out.join("DISPATCH_UNIT_SCADA.toml")).unwrap();
+        from_utilake(&from).unwrap().write(&out).unwrap();
+        assert_eq!(
+            std::fs::read(out.join("DISPATCH_UNIT_SCADA.toml")).unwrap(),
+            first
+        );
+
+        // No visibility, a table file that is not one, no directory.
+        std::fs::write(t.join("ctl/003.ctl"), "-- Visibility Id :\n").unwrap();
+        let e = from_utilake(&from).unwrap_err().to_string();
+        assert!(
+            e.contains("table.toml is not valid: no control file"),
+            "{e}"
+        );
+        std::fs::write(t.join("table.toml"), "name = 1").unwrap();
+        assert!(
+            from_utilake(&from)
+                .unwrap_err()
+                .to_string()
+                .contains("table.toml")
+        );
+        std::fs::write(t.join("table.toml"), [0xff]).unwrap();
+        assert!(matches!(
+            from_utilake(&from).unwrap_err(),
+            CatalogError::Read { .. }
+        ));
+        assert!(matches!(
+            from_utilake(&dir.path().join("none")).unwrap_err(),
+            CatalogError::Read { .. }
+        ));
+    }
+}

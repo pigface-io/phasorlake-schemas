@@ -24,13 +24,7 @@ use crate::shape::TypeClass;
 /// keeps the file under.
 pub fn sha256(bytes: &[u8]) -> String {
     use sha2::Digest as _;
-    use std::fmt::Write as _;
-    sha2::Sha256::digest(bytes)
-        .iter()
-        .fold(String::with_capacity(64), |mut s, b| {
-            let _ = write!(s, "{b:02x}");
-            s
-        })
+    crate::files::hex(&sha2::Sha256::digest(bytes))
 }
 
 /// A SQL*Loader column datatype.

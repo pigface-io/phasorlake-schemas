@@ -1,0 +1,15 @@
+# The declaration of DISPATCHABLEUNIT: kept by hand.
+name = "DISPATCHABLEUNIT"
+report_pairs = [["PARTICIPANT_REGISTRATION", "DISPATCHABLEUNIT"]]
+primary_key = ["DUID"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["DUID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

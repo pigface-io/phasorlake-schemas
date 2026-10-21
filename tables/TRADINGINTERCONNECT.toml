@@ -1,0 +1,17 @@
+# The declaration of TRADINGINTERCONNECT: kept by hand.
+name = "TRADINGINTERCONNECT"
+report_pairs = [["TRADING", "INTERCONNECTORRES"]]
+primary_key = ["SETTLEMENTDATE", "RUNNO", "INTERCONNECTORID", "PERIODID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERCONNECTORID", "PERIODID"]
+order = ["RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

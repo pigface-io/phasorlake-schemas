@@ -1,0 +1,16 @@
+# The declaration of SRA_PRUDENTIAL_RUN: kept by hand.
+name = "SRA_PRUDENTIAL_RUN"
+report_pairs = [["IRAUCTION", "SRA_PRUDENTIAL_RUN"]]
+primary_key = ["PRUDENTIAL_DATE", "PRUDENTIAL_RUNNO"]
+time_column = "PRUDENTIAL_DATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = ["PRUDENTIAL_RUNNO"]
+order = []
+origin = "derived"
+
+[temporal.valid]
+column = "PRUDENTIAL_DATE"
+kind = "instant"

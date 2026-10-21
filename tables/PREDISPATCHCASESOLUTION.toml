@@ -1,0 +1,16 @@
+# The declaration of PREDISPATCHCASESOLUTION: kept by hand.
+name = "PREDISPATCHCASESOLUTION"
+report_pairs = [["PREDISPATCH", "CASE_SOLUTION"]]
+primary_key = ["PREDISPATCHSEQNO", "RUNNO"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERVENTION"]
+order = ["PREDISPATCHSEQNO", "RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

@@ -1,0 +1,15 @@
+# The declaration of BILLING_DIRECTION_RECON_OTHER: kept by hand.
+name = "BILLING_DIRECTION_RECON_OTHER"
+report_pairs = [["BILLING", "BILLING_DIRECTION_RECON_OTHER"]]
+primary_key = ["CONTRACTYEAR", "WEEKNO", "BILLRUNNO", "DIRECTION_ID", "REGIONID"]
+time_column = "DIRECTION_START_DATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = ["CONTRACTYEAR", "WEEKNO", "DIRECTION_ID", "REGIONID"]
+order = ["BILLRUNNO"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

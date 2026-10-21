@@ -1,0 +1,17 @@
+# The declaration of P5MIN_CASESOLUTION: kept by hand.
+name = "P5MIN_CASESOLUTION"
+report_pairs = [["P5MIN", "CASESOLUTION"]]
+primary_key = ["RUN_DATETIME"]
+time_column = "RUN_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERVENTION"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "RUN_DATETIME"
+kind = "instant"

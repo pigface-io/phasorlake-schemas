@@ -1,0 +1,16 @@
+# The declaration of AUCTION_IC_ALLOCATIONS: kept by hand.
+name = "AUCTION_IC_ALLOCATIONS"
+report_pairs = [["IRAUCTION_CONFIG", "AUCTION_IC_ALLOCATIONS"]]
+primary_key = ["CONTRACTYEAR", "QUARTER", "VERSIONNO", "INTERCONNECTORID", "FROMREGIONID"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["CONTRACTYEAR", "QUARTER", "INTERCONNECTORID", "FROMREGIONID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

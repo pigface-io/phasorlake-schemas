@@ -1,0 +1,17 @@
+# The declaration of NETWORK_OUTAGEDETAIL: kept by hand.
+name = "NETWORK_OUTAGEDETAIL"
+report_pairs = [["NETWORK", "OUTAGEDETAIL"]]
+primary_key = ["OUTAGEID", "SUBSTATIONID", "EQUIPMENTTYPE", "EQUIPMENTID", "STARTTIME"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["OUTAGEID", "SUBSTATIONID", "EQUIPMENTTYPE", "EQUIPMENTID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "STARTTIME"
+kind = "instant"

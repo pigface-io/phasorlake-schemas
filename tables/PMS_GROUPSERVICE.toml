@@ -1,0 +1,16 @@
+# The declaration of PMS_GROUPSERVICE: kept by hand.
+name = "PMS_GROUPSERVICE"
+report_pairs = [["PARTICIPANT_REGISTRATION", "PMS_GROUPSERVICE"]]
+primary_key = []
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

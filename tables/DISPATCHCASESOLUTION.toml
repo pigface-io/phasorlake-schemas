@@ -1,0 +1,17 @@
+# The declaration of DISPATCHCASESOLUTION: kept by hand.
+name = "DISPATCHCASESOLUTION"
+report_pairs = [["DISPATCH", "CASE_SOLUTION"]]
+primary_key = ["SETTLEMENTDATE", "RUNNO"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERVENTION"]
+order = ["RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

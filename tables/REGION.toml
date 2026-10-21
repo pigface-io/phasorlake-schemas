@@ -1,0 +1,15 @@
+# The declaration of REGION: kept by hand.
+name = "REGION"
+report_pairs = [["MARKET_CONFIG", "REGION"]]
+primary_key = ["REGIONID"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["REGIONID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

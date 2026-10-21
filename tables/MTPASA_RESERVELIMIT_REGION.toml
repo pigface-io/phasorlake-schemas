@@ -1,0 +1,17 @@
+# The declaration of MTPASA_RESERVELIMIT_REGION: kept by hand.
+name = "MTPASA_RESERVELIMIT_REGION"
+report_pairs = [["MTPASA", "RESERVELIMIT_REGION"]]
+primary_key = ["EFFECTIVEDATE", "VERSION_DATETIME", "RESERVELIMITID", "REGIONID"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "VERSION_DATETIME"
+entity = ["RESERVELIMITID", "REGIONID"]
+order = ["VERSION_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

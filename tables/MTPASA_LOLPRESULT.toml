@@ -1,0 +1,17 @@
+# The declaration of MTPASA_LOLPRESULT: kept by hand.
+name = "MTPASA_LOLPRESULT"
+report_pairs = [["MTPASA", "LOLPRESULT"]]
+primary_key = ["RUN_DATETIME", "RUN_NO", "RUNTYPE", "DAY", "REGIONID"]
+time_column = "RUN_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "RUN_DATETIME"
+entity = ["RUNTYPE", "REGIONID"]
+order = ["RUN_DATETIME", "RUN_NO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "DAY"
+kind = "instant"

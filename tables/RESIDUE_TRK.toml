@@ -1,0 +1,16 @@
+# The declaration of RESIDUE_TRK: kept by hand.
+name = "RESIDUE_TRK"
+report_pairs = [["IRAUCTION", "RESIDUE_TRK"]]
+primary_key = ["VERSIONNO", "AUCTIONID"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["AUCTIONID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

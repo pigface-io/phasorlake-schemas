@@ -1,0 +1,17 @@
+# The declaration of ROOFTOP_PV_ACTUAL: kept by hand.
+name = "ROOFTOP_PV_ACTUAL"
+report_pairs = [["ROOFTOP", "ACTUAL"]]
+primary_key = ["INTERVAL_DATETIME", "REGIONID", "TYPE"]
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["REGIONID", "TYPE"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "INTERVAL_DATETIME"
+kind = "interval_end"

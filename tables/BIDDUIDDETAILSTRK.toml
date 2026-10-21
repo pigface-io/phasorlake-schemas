@@ -1,0 +1,16 @@
+# The declaration of BIDDUIDDETAILSTRK: kept by hand.
+name = "BIDDUIDDETAILSTRK"
+report_pairs = [["PARTICIPANT_REGISTRATION", "BIDDUIDDETAILSTRK"]]
+primary_key = ["DUID", "EFFECTIVEDATE", "VERSIONNO"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["DUID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

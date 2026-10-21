@@ -1,0 +1,17 @@
+# The declaration of MARKET_SUSPEND_SCHEDULE: kept by hand.
+name = "MARKET_SUSPEND_SCHEDULE"
+report_pairs = [["FORCE_MAJEURE", "MARKET_SUSPEND_SCHEDULE"]]
+primary_key = ["EFFECTIVEDATE", "DAY_TYPE", "REGIONID", "PERIODID"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["DAY_TYPE", "REGIONID", "PERIODID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

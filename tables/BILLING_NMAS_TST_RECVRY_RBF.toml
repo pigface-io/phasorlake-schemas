@@ -1,0 +1,16 @@
+# The declaration of BILLING_NMAS_TST_RECVRY_RBF: kept by hand.
+name = "BILLING_NMAS_TST_RECVRY_RBF"
+report_pairs = [["BILLING", "NMAS_TST_RECVRY_RBF"]]
+primary_key = ["CONTRACTYEAR", "WEEKNO", "BILLRUNNO", "SERVICE", "CONTRACTID", "REGIONID"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["CONTRACTYEAR", "WEEKNO", "SERVICE", "CONTRACTID", "REGIONID"]
+order = ["BILLRUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

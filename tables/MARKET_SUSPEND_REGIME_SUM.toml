@@ -1,0 +1,17 @@
+# The declaration of MARKET_SUSPEND_REGIME_SUM: kept by hand.
+name = "MARKET_SUSPEND_REGIME_SUM"
+report_pairs = [["FORCE_MAJEURE", "MARKET_SUSPEND_REGIME_SUM"]]
+primary_key = ["SUSPENSION_ID", "REGIONID", "START_INTERVAL"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["SUSPENSION_ID", "REGIONID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "START_INTERVAL"
+kind = "instant"

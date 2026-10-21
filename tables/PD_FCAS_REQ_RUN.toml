@@ -1,0 +1,16 @@
+# The declaration of PD_FCAS_REQ_RUN: kept by hand.
+name = "PD_FCAS_REQ_RUN"
+report_pairs = [["PREDISPATCH", "FCAS_REQ_RUN"]]
+primary_key = []
+time_column = "RUN_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["RUN_DATETIME", "PREDISPATCHSEQNO", "RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

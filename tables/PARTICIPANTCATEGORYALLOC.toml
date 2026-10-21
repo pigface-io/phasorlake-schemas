@@ -1,0 +1,15 @@
+# The declaration of PARTICIPANTCATEGORYALLOC: kept by hand.
+name = "PARTICIPANTCATEGORYALLOC"
+report_pairs = [["PARTICIPANT_REGISTRATION", "PARTICIPANTCATEGORYALLOC"]]
+primary_key = ["PARTICIPANTCATEGORYID", "PARTICIPANTID"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["PARTICIPANTCATEGORYID", "PARTICIPANTID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

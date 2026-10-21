@@ -1,0 +1,17 @@
+# The declaration of P5MIN_REGIONSOLUTION: kept by hand.
+name = "P5MIN_REGIONSOLUTION"
+report_pairs = [["P5MIN", "REGIONSOLUTION"]]
+primary_key = ["RUN_DATETIME", "INTERVAL_DATETIME", "REGIONID"]
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "RUN_DATETIME"
+entity = ["REGIONID", "INTERVENTION"]
+order = ["RUN_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "INTERVAL_DATETIME"
+kind = "interval_end"

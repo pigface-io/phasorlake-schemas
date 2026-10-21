@@ -1,0 +1,17 @@
+# The declaration of SETFCASREGIONRECOVERY: kept by hand.
+name = "SETFCASREGIONRECOVERY"
+report_pairs = [["SETTLEMENTS", "FCASREGIONRECOVERY"]]
+primary_key = ["SETTLEMENTDATE", "VERSIONNO", "BIDTYPE", "REGIONID", "PERIODID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["BIDTYPE", "REGIONID", "PERIODID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

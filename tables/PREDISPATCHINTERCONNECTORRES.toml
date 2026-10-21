@@ -1,0 +1,17 @@
+# The declaration of PREDISPATCHINTERCONNECTORRES: kept by hand.
+name = "PREDISPATCHINTERCONNECTORRES"
+report_pairs = [["PREDISPATCH", "INTERCONNECTOR_SOLN"]]
+primary_key = ["INTERCONNECTORID", "DATETIME"]
+time_column = "DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERCONNECTORID", "INTERVENTION"]
+order = ["PREDISPATCHSEQNO", "RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "DATETIME"
+kind = "interval_end"

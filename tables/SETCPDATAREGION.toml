@@ -1,0 +1,17 @@
+# The declaration of SETCPDATAREGION: kept by hand.
+name = "SETCPDATAREGION"
+report_pairs = [["SETTLEMENTS", "CPDATAREGION"]]
+primary_key = ["SETTLEMENTDATE", "VERSIONNO", "PERIODID", "REGIONID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["PERIODID", "REGIONID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

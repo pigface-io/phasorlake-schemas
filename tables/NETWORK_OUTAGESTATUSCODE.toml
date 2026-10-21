@@ -1,0 +1,16 @@
+# The declaration of NETWORK_OUTAGESTATUSCODE: kept by hand.
+name = "NETWORK_OUTAGESTATUSCODE"
+report_pairs = [["NETWORK", "OUTAGESTATUSCODE"]]
+primary_key = ["OUTAGESTATUSCODE"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["OUTAGESTATUSCODE"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

@@ -1,0 +1,16 @@
+# The declaration of DISPATCH_LOCAL_PRICE: kept by hand.
+name = "DISPATCH_LOCAL_PRICE"
+report_pairs = [["DISPATCH", "LOCAL_PRICE"]]
+primary_key = ["SETTLEMENTDATE", "DUID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = ["DUID"]
+order = []
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

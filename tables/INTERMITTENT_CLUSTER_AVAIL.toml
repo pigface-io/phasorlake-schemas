@@ -1,0 +1,17 @@
+# The declaration of INTERMITTENT_CLUSTER_AVAIL: kept by hand.
+name = "INTERMITTENT_CLUSTER_AVAIL"
+report_pairs = [["DEMAND", "INTERMITTENT_CLUSTER_AVAIL"]]
+primary_key = ["TRADINGDATE", "DUID", "OFFERDATETIME", "CLUSTERID", "PERIODID"]
+time_column = "TRADINGDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "OFFERDATETIME"
+entity = ["DUID", "CLUSTERID", "PERIODID"]
+order = ["OFFERDATETIME"]
+origin = "derived"
+
+[temporal.valid]
+column = "TRADINGDATE"
+kind = "instant"

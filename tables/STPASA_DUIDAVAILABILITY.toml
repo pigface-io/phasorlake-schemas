@@ -1,0 +1,16 @@
+# The declaration of STPASA_DUIDAVAILABILITY: kept by hand.
+name = "STPASA_DUIDAVAILABILITY"
+report_pairs = [["STPASA", "DUIDAVAILABILITY"]]
+primary_key = []
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["RUN_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

@@ -1,0 +1,15 @@
+# The declaration of NETWORK_OUTAGECONSTRAINTSET: kept by hand.
+name = "NETWORK_OUTAGECONSTRAINTSET"
+report_pairs = [["NETWORK", "OUTAGECONSTRAINTSET"]]
+primary_key = ["OUTAGEID", "GENCONSETID"]
+time_column = "STARTINTERVAL"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = ["OUTAGEID", "GENCONSETID"]
+order = []
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

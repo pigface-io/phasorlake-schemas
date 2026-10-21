@@ -1,0 +1,17 @@
+# The declaration of BIDOFFERPERIOD: kept by hand.
+name = "BIDOFFERPERIOD"
+report_pairs = [["BIDS", "BIDOFFERPERIOD"]]
+primary_key = ["DUID", "BIDTYPE", "TRADINGDATE", "OFFERDATETIME", "PERIODID"]
+time_column = "TRADINGDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "OFFERDATETIME"
+entity = ["DUID", "BIDTYPE", "PERIODID"]
+order = ["OFFERDATETIME"]
+origin = "derived"
+
+[temporal.valid]
+column = "TRADINGDATE"
+kind = "instant"

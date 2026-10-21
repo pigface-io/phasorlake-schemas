@@ -1,0 +1,17 @@
+# The declaration of SPDCONNECTIONPOINTCONSTRAINT: kept by hand.
+name = "SPDCONNECTIONPOINTCONSTRAINT"
+report_pairs = [["SPDCPC", ""], ["SPDCPC", "NULL"]]
+primary_key = ["CONNECTIONPOINTID", "EFFECTIVEDATE", "VERSIONNO", "GENCONID", "BIDTYPE"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["CONNECTIONPOINTID", "GENCONID", "BIDTYPE"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

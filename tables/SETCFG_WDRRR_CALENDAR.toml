@@ -1,0 +1,16 @@
+# The declaration of SETCFG_WDRRR_CALENDAR: kept by hand.
+name = "SETCFG_WDRRR_CALENDAR"
+report_pairs = [["SETTLEMENTS_CONFIG", "WDRRR_CALENDAR"]]
+primary_key = []
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["VERSION_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

@@ -1,0 +1,17 @@
+# The declaration of INTERMITTENT_DS_PRED: kept by hand.
+name = "INTERMITTENT_DS_PRED"
+report_pairs = [["DEMAND", "INTERMITTENT_DS_PRED"]]
+primary_key = ["RUN_DATETIME", "DUID", "OFFERDATETIME", "INTERVAL_DATETIME", "ORIGIN", "FORECAST_PRIORITY"]
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "RUN_DATETIME"
+entity = ["DUID", "ORIGIN", "FORECAST_PRIORITY"]
+order = ["RUN_DATETIME", "OFFERDATETIME"]
+origin = "derived"
+
+[temporal.valid]
+column = "INTERVAL_DATETIME"
+kind = "interval_end"

@@ -1,0 +1,15 @@
+# The declaration of MARKETFEE: kept by hand.
+name = "MARKETFEE"
+report_pairs = [["SETTLEMENT_CONFIG", "MARKETFEE"]]
+primary_key = ["MARKETFEEID"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["MARKETFEEID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

@@ -1,0 +1,16 @@
+# The declaration of BILLING_CO2E_PUBLICATION_TRK: kept by hand.
+name = "BILLING_CO2E_PUBLICATION_TRK"
+report_pairs = [["BILLING", "BILLING_CO2E_PUBLICATION_TRK"]]
+primary_key = ["CONTRACTYEAR", "WEEKNO"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["CONTRACTYEAR", "WEEKNO"]
+order = ["BILLRUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

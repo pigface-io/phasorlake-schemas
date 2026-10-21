@@ -1,0 +1,16 @@
+# The declaration of PD7DAY_CONSTRAINTSOLUTION: kept by hand.
+name = "PD7DAY_CONSTRAINTSOLUTION"
+report_pairs = [["PD7DAY", "CONSTRAINTSOLUTION"]]
+primary_key = []
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERVENTION"]
+order = ["RUN_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

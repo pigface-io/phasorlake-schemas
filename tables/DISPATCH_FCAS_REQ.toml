@@ -1,0 +1,17 @@
+# The declaration of DISPATCH_FCAS_REQ: kept by hand.
+name = "DISPATCH_FCAS_REQ"
+report_pairs = [["DISPATCH", "FCAS_REQ"]]
+primary_key = ["SETTLEMENTDATE", "RUNNO", "INTERVENTION", "GENCONID", "REGIONID", "BIDTYPE"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERVENTION", "GENCONID", "REGIONID", "BIDTYPE"]
+order = ["RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

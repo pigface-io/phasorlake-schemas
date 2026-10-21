@@ -1,0 +1,17 @@
+# The declaration of PRUDENTIALRUNTRK: kept by hand.
+name = "PRUDENTIALRUNTRK"
+report_pairs = [["PRUDENTIAL", "RUNTRK"]]
+primary_key = ["PRUDENTIAL_DATE", "RUNNO"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "PRUDENTIAL_DATE"
+kind = "instant"

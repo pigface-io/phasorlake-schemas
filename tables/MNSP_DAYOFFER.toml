@@ -1,0 +1,17 @@
+# The declaration of MNSP_DAYOFFER: kept by hand.
+name = "MNSP_DAYOFFER"
+report_pairs = [["BIDS", "MNSP_DAYOFFER"]]
+primary_key = ["SETTLEMENTDATE", "OFFERDATE", "VERSIONNO", "PARTICIPANTID", "LINKID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "OFFERDATE"
+entity = ["PARTICIPANTID", "LINKID"]
+order = ["OFFERDATE", "VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

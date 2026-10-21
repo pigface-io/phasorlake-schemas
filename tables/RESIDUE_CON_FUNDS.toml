@@ -1,0 +1,16 @@
+# The declaration of RESIDUE_CON_FUNDS: kept by hand.
+name = "RESIDUE_CON_FUNDS"
+report_pairs = [["IRAUCTION", "RESIDUE_CON_FUNDS"]]
+primary_key = ["CONTRACTID", "INTERCONNECTORID", "FROMREGIONID"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["CONTRACTID", "INTERCONNECTORID", "FROMREGIONID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

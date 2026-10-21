@@ -1,0 +1,17 @@
+# The declaration of RESDEMANDTRK: kept by hand.
+name = "RESDEMANDTRK"
+report_pairs = [["DEMAND", "TRK"]]
+primary_key = ["EFFECTIVEDATE", "REGIONID", "OFFERDATE", "VERSIONNO"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "OFFERDATE"
+entity = ["REGIONID"]
+order = ["OFFERDATE", "VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

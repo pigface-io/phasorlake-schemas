@@ -1,0 +1,17 @@
+# The declaration of GENERICCONSTRAINTRHS: kept by hand.
+name = "GENERICCONSTRAINTRHS"
+report_pairs = [["GCRHS", ""], ["GCRHS", "NULL"]]
+primary_key = ["GENCONID", "EFFECTIVEDATE", "VERSIONNO", "SCOPE", "TERMID"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["GENCONID", "SCOPE", "TERMID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

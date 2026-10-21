@@ -1,0 +1,17 @@
+# The declaration of SET_ANCILLARY_SUMMARY: kept by hand.
+name = "SET_ANCILLARY_SUMMARY"
+report_pairs = [["SETTLEMENTS", "ANCILLARY_SUMMARY"]]
+primary_key = ["SETTLEMENTDATE", "VERSIONNO", "SERVICE", "PAYMENTTYPE", "REGIONID", "PERIODID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["SERVICE", "PAYMENTTYPE", "REGIONID", "PERIODID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

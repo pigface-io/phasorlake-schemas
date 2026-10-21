@@ -1,0 +1,17 @@
+# The declaration of NETWORK_RATING: kept by hand.
+name = "NETWORK_RATING"
+report_pairs = [["NETWORK", "RATING"]]
+primary_key = ["SPD_ID", "VALIDFROM"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["SPD_ID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "VALIDFROM"
+kind = "from"

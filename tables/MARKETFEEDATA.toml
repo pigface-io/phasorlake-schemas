@@ -1,0 +1,16 @@
+# The declaration of MARKETFEEDATA: kept by hand.
+name = "MARKETFEEDATA"
+report_pairs = [["SETTLEMENT_CONFIG", "MARKETFEEDATA"]]
+primary_key = ["MARKETFEEID", "MARKETFEEVERSIONNO", "EFFECTIVEDATE"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["MARKETFEEID", "MARKETFEEVERSIONNO"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

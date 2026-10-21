@@ -1,0 +1,17 @@
+# The declaration of MTPASA_CONSTRAINTRESULT: kept by hand.
+name = "MTPASA_CONSTRAINTRESULT"
+report_pairs = [["MTPASA", "CONSTRAINTRESULT"]]
+primary_key = ["RUN_DATETIME", "RUN_NO", "RUNTYPE", "DEMAND_POE_TYPE", "DAY", "CONSTRAINTID"]
+time_column = "RUN_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "RUN_DATETIME"
+entity = ["RUNTYPE", "DEMAND_POE_TYPE", "CONSTRAINTID"]
+order = ["RUN_DATETIME", "RUN_NO", "VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "DAY"
+kind = "instant"

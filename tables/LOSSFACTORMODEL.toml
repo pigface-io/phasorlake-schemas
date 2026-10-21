@@ -1,0 +1,16 @@
+# The declaration of LOSSFACTORMODEL: kept by hand.
+name = "LOSSFACTORMODEL"
+report_pairs = [["MARKET_CONFIG", "LOSSFACTORMODEL"]]
+primary_key = ["EFFECTIVEDATE", "VERSIONNO", "INTERCONNECTORID", "REGIONID"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERCONNECTORID", "REGIONID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

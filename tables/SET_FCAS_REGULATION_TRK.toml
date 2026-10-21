@@ -1,0 +1,17 @@
+# The declaration of SET_FCAS_REGULATION_TRK: kept by hand.
+name = "SET_FCAS_REGULATION_TRK"
+report_pairs = [["SETTLEMENTS", "SET_FCAS_REGULATION_TRK"]]
+primary_key = ["SETTLEMENTDATE", "VERSIONNO", "INTERVAL_DATETIME", "CONSTRAINTID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERVAL_DATETIME", "CONSTRAINTID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

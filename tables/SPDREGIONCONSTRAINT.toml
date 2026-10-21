@@ -1,0 +1,17 @@
+# The declaration of SPDREGIONCONSTRAINT: kept by hand.
+name = "SPDREGIONCONSTRAINT"
+report_pairs = [["SPDRC", "NULL"]]
+primary_key = ["REGIONID", "EFFECTIVEDATE", "VERSIONNO", "GENCONID", "BIDTYPE"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["REGIONID", "GENCONID", "BIDTYPE"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

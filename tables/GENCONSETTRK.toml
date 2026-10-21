@@ -1,0 +1,17 @@
+# The declaration of GENCONSETTRK: kept by hand.
+name = "GENCONSETTRK"
+report_pairs = [["GENCONSETTRK", ""], ["GENCONSETTRK", "NULL"]]
+primary_key = ["GENCONSETID", "EFFECTIVEDATE", "VERSIONNO"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["GENCONSETID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

@@ -1,0 +1,16 @@
+# The declaration of LOSSMODEL: kept by hand.
+name = "LOSSMODEL"
+report_pairs = [["MARKET_CONFIG", "LOSSMODEL"]]
+primary_key = ["EFFECTIVEDATE", "VERSIONNO", "INTERCONNECTORID", "LOSSSEGMENT"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERCONNECTORID", "LOSSSEGMENT"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

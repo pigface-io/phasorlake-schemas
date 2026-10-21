@@ -1,0 +1,17 @@
+# The declaration of MARKET_SUSPEND_SCHEDULE_TRK: kept by hand.
+name = "MARKET_SUSPEND_SCHEDULE_TRK"
+report_pairs = [["FORCE_MAJEURE", "MARKET_SUSPEND_SCHEDULE_TRK"]]
+primary_key = ["EFFECTIVEDATE"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

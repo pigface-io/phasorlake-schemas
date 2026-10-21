@@ -1,0 +1,16 @@
+# The declaration of DUDETAILSUMMARY: kept by hand.
+name = "DUDETAILSUMMARY"
+report_pairs = [["PARTICIPANT_REGISTRATION", "DUDETAILSUMMARY"]]
+primary_key = ["DUID", "START_DATE"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["DUID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "START_DATE"
+kind = "from"

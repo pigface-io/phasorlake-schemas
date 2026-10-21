@@ -1,24 +1,36 @@
 //! The census of AEMO's MMS archive: which shape every block of every file
 //! of every month had.
 //!
-//! The readers it is built on:
+//! - [`fetch`] downloads one month of the archive, politely, and records
+//!   where each file came from;
+//! - [`census`] reads every file of a month's directory into its census;
+//!   [`reports`] does the same for the report folders, as runs;
+//! - [`catalog`] is the hand-kept declaration of each table: the table of
+//!   a report pair, its key and its time column.
+//!
+//! The readers they are built on:
 //!
 //! - [`zip`] walks an archived zip, zips inside zips included, and hands
 //!   each `.CSV` entry over as a stream;
 //! - [`mms`] scans a CSV's C, I and D rows into a [`mms::Sink`];
+//! - [`profile`] says what each column's values were;
 //! - [`ctl`] parses the SQL*Loader control file that says what type AEMO
 //!   loads each column as;
 //! - [`names`] reads a table and [`month::YearMonth`] out of an archive
 //!   file name;
 //! - [`shape`] gives a block's report pair and columns a content-addressed
 //!   [`shape::ShapeId`], the same id utilake gives it.
-//!
-//! Std, serde, SHA-256, xxh3 and the zip reader only.
 
+pub mod catalog;
+pub mod census;
 pub mod ctl;
+pub mod fetch;
+pub mod files;
 pub mod mms;
 pub mod month;
 pub mod names;
+pub mod profile;
+pub mod reports;
 pub mod shape;
 pub mod text;
 pub mod zip;

@@ -1,0 +1,16 @@
+# The declaration of DUDETAIL: kept by hand.
+name = "DUDETAIL"
+report_pairs = [["PARTICIPANT_REGISTRATION", "DUDETAIL"]]
+primary_key = ["DUID", "EFFECTIVEDATE", "VERSIONNO"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["DUID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

@@ -1,0 +1,16 @@
+# The declaration of REGIONSTANDINGDATA: kept by hand.
+name = "REGIONSTANDINGDATA"
+report_pairs = [["MARKET_CONFIG", "REGIONSTANDINGDATA"]]
+primary_key = ["EFFECTIVEDATE", "VERSIONNO", "REGIONID"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["REGIONID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

@@ -1,0 +1,17 @@
+# The declaration of SETIRSURPLUS: kept by hand.
+name = "SETIRSURPLUS"
+report_pairs = [["SETTLEMENTS", "IRSURPLUS"]]
+primary_key = ["SETTLEMENTDATE", "SETTLEMENTRUNNO", "PERIODID", "INTERCONNECTORID", "REGIONID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["SETTLEMENTRUNNO", "PERIODID", "INTERCONNECTORID", "REGIONID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

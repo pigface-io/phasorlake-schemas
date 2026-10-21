@@ -1,0 +1,16 @@
+# The declaration of FPP_HIST_REGION_PERFORMANCE: kept by hand.
+name = "FPP_HIST_REGION_PERFORMANCE"
+report_pairs = [["FPP", "HIST_REGION_PERFORMANCE"]]
+primary_key = []
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

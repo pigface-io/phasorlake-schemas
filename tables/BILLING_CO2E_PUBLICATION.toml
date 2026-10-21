@@ -1,0 +1,16 @@
+# The declaration of BILLING_CO2E_PUBLICATION: kept by hand.
+name = "BILLING_CO2E_PUBLICATION"
+report_pairs = [["BILLING", "BILLING_CO2E_PUBLICATION"]]
+primary_key = ["CONTRACTYEAR", "WEEKNO", "SETTLEMENTDATE", "REGIONID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = ["CONTRACTYEAR", "WEEKNO", "REGIONID"]
+order = ["BILLRUNNO"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

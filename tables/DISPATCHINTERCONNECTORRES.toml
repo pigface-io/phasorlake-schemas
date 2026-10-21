@@ -1,0 +1,17 @@
+# The declaration of DISPATCHINTERCONNECTORRES: kept by hand.
+name = "DISPATCHINTERCONNECTORRES"
+report_pairs = [["DISPATCH", "INTERCONNECTORRES"]]
+primary_key = ["SETTLEMENTDATE", "RUNNO", "INTERCONNECTORID", "DISPATCHINTERVAL", "INTERVENTION"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERCONNECTORID", "DISPATCHINTERVAL", "INTERVENTION"]
+order = ["RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

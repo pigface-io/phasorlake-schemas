@@ -1,0 +1,16 @@
+# The declaration of APEVENT: kept by hand.
+name = "APEVENT"
+report_pairs = [["AP", "APEVENT"]]
+primary_key = ["APEVENTID"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["APEVENTID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

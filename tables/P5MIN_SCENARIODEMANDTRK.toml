@@ -1,0 +1,16 @@
+# The declaration of P5MIN_SCENARIODEMANDTRK: kept by hand.
+name = "P5MIN_SCENARIODEMANDTRK"
+report_pairs = [["P5MIN", "SCENARIODEMANDTRK"]]
+primary_key = []
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["VERSION_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

@@ -1,0 +1,17 @@
+# The declaration of NETWORK_SUBSTATIONDETAIL: kept by hand.
+name = "NETWORK_SUBSTATIONDETAIL"
+report_pairs = [["NETWORK", "SUBSTATIONDETAIL"]]
+primary_key = ["SUBSTATIONID", "VALIDFROM"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["SUBSTATIONID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "VALIDFROM"
+kind = "from"

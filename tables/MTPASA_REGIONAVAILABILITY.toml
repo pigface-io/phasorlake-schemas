@@ -1,0 +1,17 @@
+# The declaration of MTPASA_REGIONAVAILABILITY: kept by hand.
+name = "MTPASA_REGIONAVAILABILITY"
+report_pairs = [["MTPASA", "REGIONAVAILABILITY"]]
+primary_key = ["PUBLISH_DATETIME", "DAY", "REGIONID"]
+time_column = "DAY"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "PUBLISH_DATETIME"
+entity = ["REGIONID"]
+order = ["PUBLISH_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "DAY"
+kind = "instant"

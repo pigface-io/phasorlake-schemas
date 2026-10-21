@@ -1,0 +1,15 @@
+# The declaration of PARTICIPANT: kept by hand.
+name = "PARTICIPANT"
+report_pairs = [["PARTICIPANT_REGISTRATION", "PARTICIPANT"]]
+primary_key = ["PARTICIPANTID"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["PARTICIPANTID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

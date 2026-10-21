@@ -1,0 +1,16 @@
+# The declaration of AUCTION: kept by hand.
+name = "AUCTION"
+report_pairs = [["IRAUCTION_CONFIG", "AUCTION"]]
+primary_key = ["AUCTIONID"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["AUCTIONID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

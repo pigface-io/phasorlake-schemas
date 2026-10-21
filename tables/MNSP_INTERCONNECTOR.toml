@@ -1,0 +1,16 @@
+# The declaration of MNSP_INTERCONNECTOR: kept by hand.
+name = "MNSP_INTERCONNECTOR"
+report_pairs = [["PARTICIPANT_REGISTRATION", "MNSP_INTERCONNECTOR"]]
+primary_key = ["LINKID", "EFFECTIVEDATE", "VERSIONNO"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["LINKID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

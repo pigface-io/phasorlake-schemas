@@ -1,0 +1,16 @@
+# The declaration of INTERMITTENT_FORECAST_TRK: kept by hand.
+name = "INTERMITTENT_FORECAST_TRK"
+report_pairs = [["DISPATCH", "INTERMITTENT_FORECAST_TRK"]]
+primary_key = ["SETTLEMENTDATE", "DUID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = ["DUID"]
+order = ["OFFERDATETIME"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

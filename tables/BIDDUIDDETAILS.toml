@@ -1,0 +1,16 @@
+# The declaration of BIDDUIDDETAILS: kept by hand.
+name = "BIDDUIDDETAILS"
+report_pairs = [["PARTICIPANT_REGISTRATION", "BIDDUIDDETAILS"]]
+primary_key = ["DUID", "EFFECTIVEDATE", "VERSIONNO", "BIDTYPE"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["DUID", "BIDTYPE"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

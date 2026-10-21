@@ -1,0 +1,15 @@
+# The declaration of MARKETSUSREGION: kept by hand.
+name = "MARKETSUSREGION"
+report_pairs = [["FORCE_MAJEURE", "MARKETSUSREGION"]]
+primary_key = ["SUSPENSIONID", "REGIONID"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["SUSPENSIONID", "REGIONID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

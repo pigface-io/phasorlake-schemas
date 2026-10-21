@@ -1,0 +1,16 @@
+# The declaration of APEVENTREGION: kept by hand.
+name = "APEVENTREGION"
+report_pairs = [["AP", "APEVENTREGION"]]
+primary_key = ["APEVENTID", "REGIONID"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["APEVENTID", "REGIONID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

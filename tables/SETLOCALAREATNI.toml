@@ -1,0 +1,17 @@
+# The declaration of SETLOCALAREATNI: kept by hand.
+name = "SETLOCALAREATNI"
+report_pairs = [["SETTLEMENTS", "LOCALAREATNI"]]
+primary_key = ["SETTLEMENTDATE", "SETTLEMENTRUNNO", "LOCALAREAID", "TNI"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["SETTLEMENTRUNNO", "LOCALAREAID", "TNI"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

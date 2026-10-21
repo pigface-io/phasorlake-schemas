@@ -1,0 +1,17 @@
+# The declaration of CONSTRAINTRELAXATION_OCD: kept by hand.
+name = "CONSTRAINTRELAXATION_OCD"
+report_pairs = [["PRICELOAD", "CONSTRAINTRELAXATION"]]
+primary_key = ["SETTLEMENTDATE", "RUNNO", "CONSTRAINTID", "VERSIONNO"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["CONSTRAINTID"]
+order = ["RUNNO", "VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

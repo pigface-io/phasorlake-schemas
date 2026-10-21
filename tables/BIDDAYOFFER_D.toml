@@ -1,0 +1,17 @@
+# The declaration of BIDDAYOFFER_D: kept by hand.
+name = "BIDDAYOFFER_D"
+report_pairs = [["BID", "BIDDAYOFFER_D"]]
+primary_key = ["SETTLEMENTDATE", "DUID", "BIDTYPE"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["DUID", "BIDTYPE"]
+order = ["OFFERDATE", "VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

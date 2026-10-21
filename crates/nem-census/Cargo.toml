@@ -11,13 +11,21 @@ publish.workspace = true
 [lints]
 workspace = true
 
+[[bin]]
+name = "nem-census"
+path = "src/main.rs"
+
 [dependencies]
+nem-iceberg.workspace = true
+clap.workspace = true
 flate2.workspace = true
 memchr.workspace = true
 serde.workspace = true
 sha2.workspace = true
 tempfile.workspace = true
 thiserror.workspace = true
+toml.workspace = true
+ureq.workspace = true
 xxhash-rust.workspace = true
 zip.workspace = true
 

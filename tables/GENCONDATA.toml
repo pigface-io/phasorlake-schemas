@@ -1,0 +1,17 @@
+# The declaration of GENCONDATA: kept by hand.
+name = "GENCONDATA"
+report_pairs = [["GENCONDATA", ""], ["GENCONDATA", "NULL"]]
+primary_key = ["EFFECTIVEDATE", "VERSIONNO", "GENCONID"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["GENCONID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

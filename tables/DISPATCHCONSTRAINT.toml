@@ -1,0 +1,17 @@
+# The declaration of DISPATCHCONSTRAINT: kept by hand.
+name = "DISPATCHCONSTRAINT"
+report_pairs = [["DISPATCH", "CONSTRAINT"]]
+primary_key = ["SETTLEMENTDATE", "RUNNO", "CONSTRAINTID", "DISPATCHINTERVAL", "INTERVENTION"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["CONSTRAINTID", "DISPATCHINTERVAL", "INTERVENTION"]
+order = ["RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

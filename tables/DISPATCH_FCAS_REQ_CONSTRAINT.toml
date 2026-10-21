@@ -1,0 +1,15 @@
+# The declaration of DISPATCH_FCAS_REQ_CONSTRAINT: kept by hand.
+name = "DISPATCH_FCAS_REQ_CONSTRAINT"
+report_pairs = [["DISPATCH", "FCAS_REQ_CONSTRAINT"]]
+primary_key = []
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = []
+order = ["RUN_DATETIME", "RUNNO"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

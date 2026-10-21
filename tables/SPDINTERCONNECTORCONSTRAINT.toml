@@ -1,0 +1,17 @@
+# The declaration of SPDINTERCONNECTORCONSTRAINT: kept by hand.
+name = "SPDINTERCONNECTORCONSTRAINT"
+report_pairs = [["SPDICC", ""], ["SPDICC", "NULL"]]
+primary_key = ["INTERCONNECTORID", "EFFECTIVEDATE", "VERSIONNO", "GENCONID"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["INTERCONNECTORID", "GENCONID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

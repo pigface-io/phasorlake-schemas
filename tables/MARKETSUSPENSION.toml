@@ -1,0 +1,15 @@
+# The declaration of MARKETSUSPENSION: kept by hand.
+name = "MARKETSUSPENSION"
+report_pairs = [["FORCE_MAJEURE", "MARKETSUSPENSION"]]
+primary_key = ["SUSPENSIONID"]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["SUSPENSIONID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

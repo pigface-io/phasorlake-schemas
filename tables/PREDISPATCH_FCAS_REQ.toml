@@ -1,0 +1,17 @@
+# The declaration of PREDISPATCH_FCAS_REQ: kept by hand.
+name = "PREDISPATCH_FCAS_REQ"
+report_pairs = [["PREDISPATCH", "REGIONFCASREQUIREMENT"]]
+primary_key = ["GENCONID", "REGIONID", "BIDTYPE", "DATETIME"]
+time_column = "DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["GENCONID", "REGIONID", "BIDTYPE", "INTERVENTION"]
+order = ["PREDISPATCHSEQNO", "RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "DATETIME"
+kind = "interval_end"

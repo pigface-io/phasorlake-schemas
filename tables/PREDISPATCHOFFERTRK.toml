@@ -1,0 +1,16 @@
+# The declaration of PREDISPATCHOFFERTRK: kept by hand.
+name = "PREDISPATCHOFFERTRK"
+report_pairs = [["PREDISPATCH", "OFFERTRK"]]
+primary_key = ["PREDISPATCHSEQNO", "DUID", "BIDTYPE", "PERIODID"]
+time_column = "DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["DUID", "BIDTYPE", "PERIODID"]
+order = ["PREDISPATCHSEQNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

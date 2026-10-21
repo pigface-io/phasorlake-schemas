@@ -1,0 +1,16 @@
+# The declaration of INTERMITTENT_GEN_SCADA: kept by hand.
+name = "INTERMITTENT_GEN_SCADA"
+report_pairs = [["DEMAND", "INTERMITTENT_GEN_SCADA"]]
+primary_key = []
+time_column = "RUN_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["RUN_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

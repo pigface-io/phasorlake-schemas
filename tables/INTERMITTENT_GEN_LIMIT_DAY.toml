@@ -1,0 +1,17 @@
+# The declaration of INTERMITTENT_GEN_LIMIT_DAY: kept by hand.
+name = "INTERMITTENT_GEN_LIMIT_DAY"
+report_pairs = [["DEMAND", "INTERMITTENT_GEN_LIMIT_DAY"]]
+primary_key = ["TRADINGDATE", "DUID", "OFFERDATETIME"]
+time_column = "TRADINGDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "OFFERDATETIME"
+entity = ["DUID"]
+order = ["OFFERDATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "TRADINGDATE"
+kind = "instant"

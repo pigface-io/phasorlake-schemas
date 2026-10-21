@@ -1,0 +1,16 @@
+# The declaration of RESIDUE_PUBLIC_DATA: kept by hand.
+name = "RESIDUE_PUBLIC_DATA"
+report_pairs = [["IRAUCTION", "RESIDUE_PUBLIC_DATA"]]
+primary_key = ["CONTRACTID", "VERSIONNO", "INTERCONNECTORID", "FROMREGIONID"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["CONTRACTID", "INTERCONNECTORID", "FROMREGIONID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

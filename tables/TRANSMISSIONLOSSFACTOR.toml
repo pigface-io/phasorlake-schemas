@@ -1,0 +1,17 @@
+# The declaration of TRANSMISSIONLOSSFACTOR: kept by hand.
+name = "TRANSMISSIONLOSSFACTOR"
+report_pairs = [["MARKET_CONFIG", "TRANSMISSIONLOSSFACTOR"]]
+primary_key = ["EFFECTIVEDATE", "VERSIONNO", "CONNECTIONPOINTID"]
+time_column = "EFFECTIVEDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["CONNECTIONPOINTID"]
+order = ["VERSIONNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "from"

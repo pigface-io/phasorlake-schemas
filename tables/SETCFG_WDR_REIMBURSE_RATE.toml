@@ -1,0 +1,16 @@
+# The declaration of SETCFG_WDR_REIMBURSE_RATE: kept by hand.
+name = "SETCFG_WDR_REIMBURSE_RATE"
+report_pairs = [["SETTLEMENTS_CONFIG", "WDR_REIMBURSE_RATE"]]
+primary_key = []
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = []
+order = ["VERSION_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

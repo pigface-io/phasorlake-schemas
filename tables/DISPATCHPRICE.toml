@@ -1,0 +1,17 @@
+# The declaration of DISPATCHPRICE: kept by hand.
+name = "DISPATCHPRICE"
+report_pairs = [["DISPATCH", "PRICE"]]
+primary_key = ["SETTLEMENTDATE", "RUNNO", "REGIONID", "DISPATCHINTERVAL", "INTERVENTION"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["REGIONID", "DISPATCHINTERVAL", "INTERVENTION"]
+order = ["RUNNO", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "SETTLEMENTDATE"
+kind = "interval_end"

@@ -1,0 +1,17 @@
+# The declaration of AVERAGEPRICE30: kept by hand.
+name = "AVERAGEPRICE30"
+report_pairs = [["TRADING", "AVERAGEPRICE30"]]
+primary_key = ["PERIODDATE", "REGIONID"]
+time_column = "LASTCHANGED"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["REGIONID"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "PERIODDATE"
+kind = "instant"
