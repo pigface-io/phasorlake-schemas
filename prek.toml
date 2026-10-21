@@ -23,7 +23,10 @@ hooks = [
     { id = "check-merge-conflict" },
     # The evidence is text that git compresses well: a census month and a
     # data-model release are larger than code ever is.
-    { id = "check-added-large-files", args = ["--maxkb=200"], exclude = '^evidence/(census|models)/' },
+    { id = "check-added-large-files", args = ["--maxkb=200"], exclude = '^(evidence/(census|models|histories)/|nem/)' },
+    # A history and its table.json grow with a table's runs: the five-minute
+    # predispatch tables have hundreds.
+    { id = "check-added-large-files", args = ["--maxkb=1024"], files = '^(evidence/histories/|nem/)' },
     { id = "detect-private-key" },
 ]
 
