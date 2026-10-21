@@ -1,0 +1,110 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/METERDATA_INTERCONNECTOR/schema-8cd7cc41008aafa7.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CASE_ID": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "EXPORTVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "IMPORTVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "INTERCONNECTORID": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PERIODID": {
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "CASE_ID",
+    "SETTLEMENTDATE",
+    "INTERCONNECTORID",
+    "PERIODID"
+  ],
+  "title": "METERDATA_INTERCONNECTOR, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CASE_ID",
+      "long"
+    ],
+    [
+      2,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "long"
+    ],
+    [
+      5,
+      "IMPORTVALUE",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "EXPORTVALUE",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "METERDATA_INTERCONNECTOR"
+  }
+}

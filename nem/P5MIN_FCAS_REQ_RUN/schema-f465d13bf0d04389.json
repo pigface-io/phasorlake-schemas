@@ -1,0 +1,60 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/P5MIN_FCAS_REQ_RUN/schema-f465d13bf0d04389.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "P5MIN_FCAS_REQ_RUN, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(5, 0)"
+    ],
+    [
+      3,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "P5MIN_FCAS_REQ_RUN"
+  }
+}

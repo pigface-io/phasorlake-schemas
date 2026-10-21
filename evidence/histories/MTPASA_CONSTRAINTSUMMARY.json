@@ -1,0 +1,236 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 75,
+      "from": {
+        "data-time": "2018-05-14T10:59:49+10:00",
+        "file": "PUBLIC_DVD_MTPASA_CONSTRAINTSUMMARY_201805010000.zip",
+        "release": "2018-05",
+        "sha256": "238cfa1d40b288bf5dbfe215c4026c8401328187eeedef791022d297544aed3d"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "MTPASA",
+        "CONSTRAINTSUMMARY"
+      ],
+      "rows": 35876262,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2024-07-29T02:00:00+10:00",
+        "file": "PUBLIC_DVD_MTPASA_CONSTRAINTSUMMARY_202407010000.zip",
+        "release": "2024-07",
+        "sha256": "4c3717b05c1049608c8b11cf1a1a991577be95e40bad516429f6578e4278d010"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2024-08-05T02:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MTPASA_CONSTRAINTSUMMARY#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "b1d96e30ace2fbdd27d2ab63ed1c0bc23e12aebcb2af4190e0ca4dcc7a73ca50"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "MTPASA",
+        "CONSTRAINTSUMMARY"
+      ],
+      "rows": 24382385,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-26T20:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MTPASA_CONSTRAINTSUMMARY#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "173802a0853ec53394afad50ebf7f6055c9684847a13e72ea36e41a327a8f1d4"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUN_NO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "RUNTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "DEMAND_POE_TYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "DAY",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "CONSTRAINTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "AGGREGATION_PERIOD",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "EFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 9,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 10,
+          "name": "CONSTRAINTHOURSBINDING",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 11,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUN_NO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "RUNTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "DEMAND_POE_TYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "DAY",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "CONSTRAINTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "EFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 9,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 7,
+          "name": "AGGREGATION_PERIOD",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "CONSTRAINTHOURSBINDING",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 11,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "table": "MTPASA_CONSTRAINTSUMMARY"
+}

@@ -1,0 +1,94 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 17,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_REGION_FREQ_MEASURE#FILE01#202412010000.zip",
+        "release": "2024-12",
+        "sha256": "325cb369453a8d693a7b0ecf4e7fb4003d3a67cef131bc3c390abc2db2db7f40"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "REGION_FREQ_MEASURE"
+      ],
+      "rows": 503196525,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-08T14:15:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_REGION_FREQ_MEASURE#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "4fcb67dc60db3933fcdce3c1308e79addaec10c07f6e239d21ebc37652db2861"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "MEASUREMENT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 5,
+          "name": "FREQ_DEVIATION_HZ",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 6,
+          "name": "HZ_QUALITY_FLAG",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 7,
+          "name": "FREQ_MEASURE_HZ",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 8,
+          "name": "FM_ALIGNMENT_FLAG",
+          "required": false,
+          "type": "decimal(5, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "FPP_REGION_FREQ_MEASURE"
+}

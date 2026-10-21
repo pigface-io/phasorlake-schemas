@@ -1,0 +1,101 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/IRFMEVENTS/schema-5a59f9c5377bc7c0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ENDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "ENDPERIOD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "IRFMID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "STARTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "STARTPERIOD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(3, 0)"
+    }
+  },
+  "required": [
+    "IRFMID"
+  ],
+  "title": "IRFMEVENTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "IRFMID",
+      "string"
+    ],
+    [
+      2,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "STARTPERIOD",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "ENDPERIOD",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "IRFMEVENTS"
+  }
+}

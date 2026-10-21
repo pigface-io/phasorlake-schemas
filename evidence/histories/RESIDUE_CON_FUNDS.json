@@ -1,0 +1,117 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 60,
+      "from": {
+        "data-time": "2009-09-02T15:18:19+10:00",
+        "file": "PUBLIC_DVD_RESIDUE_CON_FUNDS_200909010000.zip",
+        "release": "2009-09",
+        "sha256": "9cf326f7fabd7b91220c5950a2de3fdb28d9c7b97f1a4045f8075ad7b3abaaf5"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "IRAUCTION",
+        "RESIDUE_CON_FUNDS"
+      ],
+      "rows": 9816,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-01T00:00:06+10:00",
+        "file": "PUBLIC_ARCHIVE#RESIDUE_CON_FUNDS#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "e0277990ea08781debc8eeb218e220097ea914d1ca5f19faf187185367dfddbc"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CONTRACTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "INTERCONNECTORID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FROMREGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "DEFAULTUNITS",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 5,
+          "name": "ROLLOVERUNITS",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 6,
+          "name": "REALLOCATEDUNITS",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 7,
+          "name": "UNITSOFFERED",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 8,
+          "name": "MEANRESERVEPRICE",
+          "required": false,
+          "type": "decimal(9, 2)"
+        },
+        {
+          "id": 9,
+          "name": "SCALEFACTOR",
+          "required": false,
+          "type": "decimal(8, 5)"
+        },
+        {
+          "id": 10,
+          "name": "ACTUALRESERVEPRICE",
+          "required": false,
+          "type": "decimal(9, 2)"
+        },
+        {
+          "id": 11,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "RESIDUE_CON_FUNDS"
+}

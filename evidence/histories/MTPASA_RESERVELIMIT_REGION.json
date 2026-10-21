@@ -1,0 +1,88 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 192,
+      "from": {
+        "data-time": "2010-04-22T00:00:00+10:00",
+        "file": "PUBLIC_DVD_MTPASA_RESERVELIMIT_REGION_201005010000.zip",
+        "release": "2010-05",
+        "sha256": "34146e389a0c5fbeeeac6510f42613eb362de7acf71d579bda892b6ec1eeb564"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "MTPASA",
+        "RESERVELIMIT_REGION"
+      ],
+      "rows": 25168,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2013-05-29T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MTPASA_RESERVELIMIT_REGION#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "cfeb74eca286c453c3783d208a10c36c7d3eab35ec047e69438925949eecd173"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "VERSION_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "RESERVELIMITID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "COEF",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 6,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "MTPASA_RESERVELIMIT_REGION"
+}

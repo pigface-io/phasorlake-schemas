@@ -1,0 +1,185 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/AUCTION_CALENDAR/schema-c81d550d83cb36f9.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONTRACTYEAR": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "ENDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "FINALPROCEEDSSTMTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz"
+    },
+    "FINALPURCHASESTMTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "NOTIFYDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PAYMENTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PRELIMPROCEEDSSTMTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PRELIMPURCHASESTMTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "QUARTER": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    },
+    "RECONCILIATIONDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "STARTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "QUARTER"
+  ],
+  "title": "AUCTION_CALENDAR, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "QUARTER",
+      "long"
+    ],
+    [
+      3,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "NOTIFYDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "PAYMENTDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "RECONCILIATIONDATE",
+      "timestamptz"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      9,
+      "PRELIMPURCHASESTMTDATE",
+      "timestamptz"
+    ],
+    [
+      10,
+      "PRELIMPROCEEDSSTMTDATE",
+      "timestamptz"
+    ],
+    [
+      11,
+      "FINALPURCHASESTMTDATE",
+      "timestamptz"
+    ],
+    [
+      12,
+      "FINALPROCEEDSSTMTDATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "AUCTION_CALENDAR"
+  }
+}

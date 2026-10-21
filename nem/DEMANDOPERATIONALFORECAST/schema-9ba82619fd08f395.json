@@ -1,0 +1,113 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DEMANDOPERATIONALFORECAST/schema-9ba82619fd08f395.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOAD_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "OPERATIONAL_DEMAND_POE10": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(15, 2)"
+    },
+    "OPERATIONAL_DEMAND_POE50": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 2)"
+    },
+    "OPERATIONAL_DEMAND_POE90": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 2)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "INTERVAL_DATETIME",
+    "REGIONID"
+  ],
+  "title": "DEMANDOPERATIONALFORECAST, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "LOAD_DATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "OPERATIONAL_DEMAND_POE10",
+      "decimal(15, 2)"
+    ],
+    [
+      5,
+      "OPERATIONAL_DEMAND_POE50",
+      "decimal(15, 2)"
+    ],
+    [
+      6,
+      "OPERATIONAL_DEMAND_POE90",
+      "decimal(15, 2)"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "DEMANDOPERATIONALFORECAST"
+  }
+}

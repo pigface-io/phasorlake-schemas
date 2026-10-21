@@ -1,0 +1,64 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2024-04-23T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PD7DAY_MARKET_SUMMARY#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "859021b47528054218f41faf8de80dc042fabd2dedeb8f2408b969cc707d4f60"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "PD7DAY",
+        "MARKET_SUMMARY"
+      ],
+      "rows": 165139,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-14T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PD7DAY_MARKET_SUMMARY#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "4eea91ea2e175664b219fd72694dd11b223a1fa1115f446654b02c6c6d8e8ac1"
+      },
+      "updates": [],
+      "version": 2
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "GPG_FUEL_FORECAST_TJ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "PD7DAY_MARKET_SUMMARY"
+}

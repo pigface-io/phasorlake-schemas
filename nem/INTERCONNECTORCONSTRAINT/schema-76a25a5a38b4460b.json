@@ -1,0 +1,307 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/INTERCONNECTORCONSTRAINT/schema-76a25a5a38b4460b.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "AUTHORISEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DYNAMICRHS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string"
+    },
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "EMSMEASURAND": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string"
+    },
+    "EXPORTLIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "FCASSUPPORTUNAVAILABLE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "FROMREGIONLOSSSHARE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "ICTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "string"
+    },
+    "IMPORTLIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "INTERCONNECTORID": {
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOSSCONSTANT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 6)"
+    },
+    "LOSSFLOWCOEFFICIENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "double"
+    },
+    "MAXMWIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "MAXMWOUT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "NONPHYSICALLOSSFACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "OUTAGEDERATIONFACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "OVERLOADFACTOR60SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "OVERLOADFACTOR6SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RESERVEOVERALLLOADFACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "VERSIONNO": {
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "VERSIONNO",
+    "INTERCONNECTORID"
+  ],
+  "title": "INTERCONNECTORCONSTRAINT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RESERVEOVERALLLOADFACTOR",
+      "decimal(5, 2)"
+    ],
+    [
+      2,
+      "FROMREGIONLOSSSHARE",
+      "decimal(5, 2)"
+    ],
+    [
+      3,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      5,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      6,
+      "MAXMWIN",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "MAXMWOUT",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "LOSSCONSTANT",
+      "decimal(15, 6)"
+    ],
+    [
+      9,
+      "LOSSFLOWCOEFFICIENT",
+      "double"
+    ],
+    [
+      10,
+      "EMSMEASURAND",
+      "string"
+    ],
+    [
+      11,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      12,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      13,
+      "DYNAMICRHS",
+      "string"
+    ],
+    [
+      14,
+      "IMPORTLIMIT",
+      "decimal(6, 0)"
+    ],
+    [
+      15,
+      "EXPORTLIMIT",
+      "decimal(6, 0)"
+    ],
+    [
+      16,
+      "OUTAGEDERATIONFACTOR",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "NONPHYSICALLOSSFACTOR",
+      "decimal(15, 5)"
+    ],
+    [
+      18,
+      "OVERLOADFACTOR60SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      19,
+      "OVERLOADFACTOR6SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      20,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      21,
+      "FCASSUPPORTUNAVAILABLE",
+      "decimal(1, 0)"
+    ],
+    [
+      22,
+      "ICTYPE",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "INTERCONNECTORCONSTRAINT"
+  }
+}

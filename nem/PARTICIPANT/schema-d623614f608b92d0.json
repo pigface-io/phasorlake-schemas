@@ -1,0 +1,112 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PARTICIPANT/schema-d623614f608b92d0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ACN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "DESCRIPTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "PARTICIPANTCLASSID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "PARTICIPANTID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "PRIMARYBUSINESS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "PARTICIPANTID"
+  ],
+  "title": "PARTICIPANT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      2,
+      "PARTICIPANTCLASSID",
+      "string"
+    ],
+    [
+      3,
+      "NAME",
+      "string"
+    ],
+    [
+      4,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      5,
+      "ACN",
+      "string"
+    ],
+    [
+      6,
+      "PRIMARYBUSINESS",
+      "string"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PARTICIPANT"
+  }
+}

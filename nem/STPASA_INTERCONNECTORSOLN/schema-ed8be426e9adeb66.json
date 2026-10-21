@@ -1,0 +1,189 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/STPASA_INTERCONNECTORSOLN/schema-ed8be426e9adeb66.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CALCULATEDEXPORTLIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CALCULATEDIMPORTLIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CAPACITYMARGINALVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CAPACITYMWFLOW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CAPACITYVIOLATIONDEGREE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "EXPORTLIMITCONSTRAINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "IMPORTLIMITCONSTRAINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string"
+    },
+    "INTERCONNECTORID": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RUNTYPE": {
+      "type": "string",
+      "x-field-id": 10,
+      "x-iceberg-type": "string"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "STUDYREGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "INTERVAL_DATETIME",
+    "INTERCONNECTORID",
+    "RUNTYPE"
+  ],
+  "title": "STPASA_INTERCONNECTORSOLN, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      4,
+      "CAPACITYMWFLOW",
+      "decimal(12, 2)"
+    ],
+    [
+      5,
+      "CAPACITYMARGINALVALUE",
+      "decimal(12, 2)"
+    ],
+    [
+      6,
+      "CAPACITYVIOLATIONDEGREE",
+      "decimal(12, 2)"
+    ],
+    [
+      7,
+      "CALCULATEDEXPORTLIMIT",
+      "decimal(12, 2)"
+    ],
+    [
+      8,
+      "CALCULATEDIMPORTLIMIT",
+      "decimal(12, 2)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      10,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      11,
+      "EXPORTLIMITCONSTRAINTID",
+      "string"
+    ],
+    [
+      12,
+      "IMPORTLIMITCONSTRAINTID",
+      "string"
+    ],
+    [
+      13,
+      "STUDYREGIONID",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    10
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "STPASA_INTERCONNECTORSOLN"
+  }
+}

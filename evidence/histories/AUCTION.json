@@ -1,0 +1,103 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 126,
+      "from": {
+        "data-time": "2009-09-02T15:12:56+10:00",
+        "file": "PUBLIC_DVD_AUCTION_200909010000.zip",
+        "release": "2009-09",
+        "sha256": "9cf326f7fabd7b91220c5950a2de3fdb28d9c7b97f1a4045f8075ad7b3abaaf5"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "IRAUCTION_CONFIG",
+        "AUCTION"
+      ],
+      "rows": 197,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-01T00:00:06+10:00",
+        "file": "PUBLIC_ARCHIVE#AUCTION#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "1f45aa150edb441253205e7dc717de798b786400b7484ac43472115212e28e1b"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "AUCTIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "AUCTIONDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "NOTIFYDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "STARTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "ENDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "AUTHORISEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 8,
+          "name": "AUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "AUCTION"
+}

@@ -1,0 +1,124 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/STPASA_CONSTRAINTSOLUTION/schema-746f69f955de5753.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CAPACITYMARGINALVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CAPACITYRHS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CAPACITYVIOLATIONDEGREE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CONSTRAINTID": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RUNTYPE": {
+      "type": "string",
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "INTERVAL_DATETIME",
+    "CONSTRAINTID",
+    "RUNTYPE"
+  ],
+  "title": "STPASA_CONSTRAINTSOLUTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      4,
+      "CAPACITYRHS",
+      "decimal(12, 2)"
+    ],
+    [
+      5,
+      "CAPACITYMARGINALVALUE",
+      "decimal(12, 2)"
+    ],
+    [
+      6,
+      "CAPACITYVIOLATIONDEGREE",
+      "decimal(12, 2)"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      8,
+      "RUNTYPE",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    8
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "STPASA_CONSTRAINTSOLUTION"
+  }
+}

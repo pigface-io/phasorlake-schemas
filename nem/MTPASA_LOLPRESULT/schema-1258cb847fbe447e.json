@@ -1,0 +1,175 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_LOLPRESULT/schema-1258cb847fbe447e.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DAY": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOSSOFLOADMAGNITUDE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "LOSSOFLOADPROBABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "RUNTYPE": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RUN_NO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    },
+    "WORST_INTERVAL_DEMAND": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "WORST_INTERVAL_DSP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "WORST_INTERVAL_INTGEN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "WORST_INTERVAL_PERIODID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(3, 0)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "RUN_NO",
+    "RUNTYPE",
+    "DAY",
+    "REGIONID"
+  ],
+  "title": "MTPASA_LOLPRESULT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUN_NO",
+      "long"
+    ],
+    [
+      3,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      4,
+      "DAY",
+      "timestamptz"
+    ],
+    [
+      5,
+      "REGIONID",
+      "string"
+    ],
+    [
+      6,
+      "WORST_INTERVAL_PERIODID",
+      "decimal(3, 0)"
+    ],
+    [
+      7,
+      "WORST_INTERVAL_DEMAND",
+      "decimal(12, 2)"
+    ],
+    [
+      8,
+      "WORST_INTERVAL_INTGEN",
+      "decimal(12, 2)"
+    ],
+    [
+      9,
+      "WORST_INTERVAL_DSP",
+      "decimal(12, 2)"
+    ],
+    [
+      10,
+      "LOSSOFLOADPROBABILITY",
+      "decimal(8, 5)"
+    ],
+    [
+      11,
+      "LOSSOFLOADMAGNITUDE",
+      "string"
+    ],
+    [
+      12,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "MTPASA_LOLPRESULT"
+  }
+}

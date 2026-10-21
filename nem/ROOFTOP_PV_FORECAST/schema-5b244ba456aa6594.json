@@ -1,0 +1,125 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/ROOFTOP_PV_FORECAST/schema-5b244ba456aa6594.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "POWERMEAN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(12, 3)"
+    },
+    "POWERPOE50": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 3)"
+    },
+    "POWERPOEHIGH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(12, 3)"
+    },
+    "POWERPOELOW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(12, 3)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "VERSION_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "VERSION_DATETIME",
+    "REGIONID",
+    "INTERVAL_DATETIME"
+  ],
+  "title": "ROOFTOP_PV_FORECAST, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "POWERMEAN",
+      "decimal(12, 3)"
+    ],
+    [
+      5,
+      "POWERPOE50",
+      "decimal(12, 3)"
+    ],
+    [
+      6,
+      "POWERPOELOW",
+      "decimal(12, 3)"
+    ],
+    [
+      7,
+      "POWERPOEHIGH",
+      "decimal(12, 3)"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "ROOFTOP_PV_FORECAST"
+  }
+}

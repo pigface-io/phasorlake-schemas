@@ -1,0 +1,124 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/IRAUCTION_RESIDUE_PRICE_FUNDS_BID/schema-61348a7a2b2b6c1a.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUCTIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "BIDPRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 6)"
+    },
+    "CONTRACTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "FROMREGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "INTERCONNECTORID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LINKEDBIDFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "UNITS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(3, 0)"
+    }
+  },
+  "required": [],
+  "title": "IRAUCTION_RESIDUE_PRICE_FUNDS_BID, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTID",
+      "string"
+    ],
+    [
+      2,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      3,
+      "FROMREGIONID",
+      "string"
+    ],
+    [
+      4,
+      "UNITS",
+      "decimal(3, 0)"
+    ],
+    [
+      5,
+      "BIDPRICE",
+      "decimal(12, 6)"
+    ],
+    [
+      6,
+      "LINKEDBIDFLAG",
+      "decimal(6, 0)"
+    ],
+    [
+      7,
+      "AUCTIONID",
+      "string"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "IRAUCTION_RESIDUE_PRICE_FUNDS_BID"
+  }
+}

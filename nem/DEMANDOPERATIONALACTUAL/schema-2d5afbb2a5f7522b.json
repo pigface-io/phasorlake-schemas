@@ -1,0 +1,99 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DEMANDOPERATIONALACTUAL/schema-2d5afbb2a5f7522b.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "OPERATIONAL_DEMAND": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(10, 0)"
+    },
+    "OPERATIONAL_DEMAND_ADJUSTMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(10, 0)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "WDR_ESTIMATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(10, 0)"
+    }
+  },
+  "required": [
+    "INTERVAL_DATETIME",
+    "REGIONID"
+  ],
+  "title": "DEMANDOPERATIONALACTUAL, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "OPERATIONAL_DEMAND",
+      "decimal(10, 0)"
+    ],
+    [
+      4,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      5,
+      "OPERATIONAL_DEMAND_ADJUSTMENT",
+      "decimal(10, 0)"
+    ],
+    [
+      6,
+      "WDR_ESTIMATE",
+      "decimal(10, 0)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "DEMANDOPERATIONALACTUAL"
+  }
+}

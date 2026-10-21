@@ -1,0 +1,226 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCH_FCAS_REQ/schema-97490c438eb8238d.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADJUSTED_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "BASE_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "BIDTYPE": {
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "ESTIMATED_CMPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "ESTIMATED_CRMPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "GENCONEFFECTIVEDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "GENCONID": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "GENCONVERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "INTERVENTION": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MARGINALVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "RECOVERY_FACTOR_CMPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "RECOVERY_FACTOR_CRMPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "RUNNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "RUNNO",
+    "INTERVENTION",
+    "GENCONID",
+    "REGIONID",
+    "BIDTYPE"
+  ],
+  "title": "DISPATCH_FCAS_REQ, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "long"
+    ],
+    [
+      3,
+      "INTERVENTION",
+      "long"
+    ],
+    [
+      4,
+      "GENCONID",
+      "string"
+    ],
+    [
+      5,
+      "REGIONID",
+      "string"
+    ],
+    [
+      6,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      7,
+      "GENCONEFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      8,
+      "GENCONVERSIONNO",
+      "decimal(3, 0)"
+    ],
+    [
+      9,
+      "MARGINALVALUE",
+      "decimal(16, 6)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      11,
+      "BASE_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      12,
+      "ADJUSTED_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      13,
+      "ESTIMATED_CMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      14,
+      "ESTIMATED_CRMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      15,
+      "RECOVERY_FACTOR_CMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      16,
+      "RECOVERY_FACTOR_CRMPF",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "DISPATCH_FCAS_REQ"
+  }
+}

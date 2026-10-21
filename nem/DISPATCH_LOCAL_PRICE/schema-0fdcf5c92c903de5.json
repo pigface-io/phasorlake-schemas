@@ -1,0 +1,72 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCH_LOCAL_PRICE/schema-0fdcf5c92c903de5.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DUID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "LOCALLY_CONSTRAINED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOCAL_PRICE_ADJUSTMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(10, 2)"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "DUID"
+  ],
+  "title": "DISPATCH_LOCAL_PRICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      3,
+      "LOCAL_PRICE_ADJUSTMENT",
+      "decimal(10, 2)"
+    ],
+    [
+      4,
+      "LOCALLY_CONSTRAINED",
+      "decimal(1, 0)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "DISPATCH_LOCAL_PRICE"
+  }
+}

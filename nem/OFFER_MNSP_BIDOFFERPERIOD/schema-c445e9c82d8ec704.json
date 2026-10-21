@@ -1,0 +1,255 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/OFFER_MNSP_BIDOFFERPERIOD/schema-c445e9c82d8ec704.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BANDAVAIL1": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "BANDAVAIL10": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "BANDAVAIL2": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "BANDAVAIL3": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "BANDAVAIL4": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "BANDAVAIL5": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "BANDAVAIL6": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "BANDAVAIL7": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "BANDAVAIL8": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "BANDAVAIL9": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "FIXEDLOAD": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "string"
+    },
+    "LINKID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "MAXAVAIL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "OFFERDATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PASAAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "PERIODID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "RAMPUPRATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "TRADINGDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "OFFER_MNSP_BIDOFFERPERIOD, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRADINGDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "LINKID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "decimal(3, 0)"
+    ],
+    [
+      5,
+      "MAXAVAIL",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "BANDAVAIL1",
+      "decimal(1, 0)"
+    ],
+    [
+      7,
+      "BANDAVAIL2",
+      "decimal(1, 0)"
+    ],
+    [
+      8,
+      "BANDAVAIL3",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "BANDAVAIL4",
+      "decimal(3, 0)"
+    ],
+    [
+      10,
+      "BANDAVAIL5",
+      "decimal(1, 0)"
+    ],
+    [
+      11,
+      "BANDAVAIL6",
+      "decimal(1, 0)"
+    ],
+    [
+      12,
+      "BANDAVAIL7",
+      "decimal(1, 0)"
+    ],
+    [
+      13,
+      "BANDAVAIL8",
+      "decimal(1, 0)"
+    ],
+    [
+      14,
+      "BANDAVAIL9",
+      "decimal(1, 0)"
+    ],
+    [
+      15,
+      "BANDAVAIL10",
+      "decimal(3, 0)"
+    ],
+    [
+      16,
+      "FIXEDLOAD",
+      "string"
+    ],
+    [
+      17,
+      "RAMPUPRATE",
+      "decimal(3, 0)"
+    ],
+    [
+      18,
+      "PASAAVAILABILITY",
+      "decimal(3, 0)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "OFFER_MNSP_BIDOFFERPERIOD"
+  }
+}

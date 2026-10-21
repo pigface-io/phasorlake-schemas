@@ -1,0 +1,165 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/IRAUCTION_CONFIG_AUCTION_REVENUE_ESTIMATE/schema-c5023d28b6c75a5d.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONTRACTYEAR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "ENDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "FROMREGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "INTERCONNECTORID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MONTHNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "QUARTER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "REVENUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "STARTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VALUATIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "VERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)"
+    }
+  },
+  "required": [],
+  "title": "IRAUCTION_CONFIG_AUCTION_REVENUE_ESTIMATE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "decimal(4, 0)"
+    ],
+    [
+      2,
+      "QUARTER",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "VALUATIONID",
+      "string"
+    ],
+    [
+      4,
+      "VERSIONNO",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      6,
+      "FROMREGIONID",
+      "string"
+    ],
+    [
+      7,
+      "MONTHNO",
+      "decimal(1, 0)"
+    ],
+    [
+      8,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      9,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      10,
+      "REVENUE",
+      "decimal(1, 0)"
+    ],
+    [
+      11,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "IRAUCTION_CONFIG_AUCTION_REVENUE_ESTIMATE"
+  }
+}

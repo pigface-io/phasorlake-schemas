@@ -1,0 +1,85 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/EMSMASTER/schema-b0f8ad21803fbeab.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DESCRIPTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "GROUPING_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "SPD_ID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "SPD_TYPE": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "SPD_ID",
+    "SPD_TYPE"
+  ],
+  "title": "EMSMASTER, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SPD_ID",
+      "string"
+    ],
+    [
+      2,
+      "SPD_TYPE",
+      "string"
+    ],
+    [
+      3,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      4,
+      "GROUPING_ID",
+      "string"
+    ],
+    [
+      5,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "EMSMASTER"
+  }
+}

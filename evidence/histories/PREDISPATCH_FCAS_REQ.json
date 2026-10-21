@@ -1,0 +1,160 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 125,
+      "from": {
+        "data-time": "2009-07-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCH_FCAS_REQ1_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "REGIONFCASREQUIREMENT"
+      ],
+      "rows": 1852802825,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-06-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCH_FCAS_REQ#FILE01#202505010000.zip",
+        "release": "2025-05",
+        "sha256": "06b95dd5afa3348acd6f8c9dc8bc053c8f1d5902e71da5d2e06d293302344bca"
+      },
+      "updates": [],
+      "version": 2
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 4,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 5,
+          "name": "GENCONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "BIDTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "GENCONEFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 9,
+          "name": "GENCONVERSIONNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 10,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 11,
+          "name": "DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "BASE_COST",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 14,
+          "name": "ADJUSTED_COST",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 15,
+          "name": "ESTIMATED_CMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 16,
+          "name": "ESTIMATED_CRMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 17,
+          "name": "RECOVERY_FACTOR_CMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 18,
+          "name": "RECOVERY_FACTOR_CRMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [
+        5,
+        6,
+        7,
+        11
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "PREDISPATCH_FCAS_REQ"
+}

@@ -1,0 +1,140 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_RESERVELIMITSOLUTION/schema-fefb4d074c164e4b.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DAY": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "ENERGYBLOCK": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LDCBLOCK": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "MARGINALVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "RESERVELIMITID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "RUNTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RUN_NO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)"
+    }
+  },
+  "required": [],
+  "title": "MTPASA_RESERVELIMITSOLUTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUN_NO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      4,
+      "ENERGYBLOCK",
+      "timestamptz"
+    ],
+    [
+      5,
+      "DAY",
+      "timestamptz"
+    ],
+    [
+      6,
+      "LDCBLOCK",
+      "decimal(3, 0)"
+    ],
+    [
+      7,
+      "RESERVELIMITID",
+      "string"
+    ],
+    [
+      8,
+      "MARGINALVALUE",
+      "decimal(16, 6)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "MTPASA_RESERVELIMITSOLUTION"
+  }
+}

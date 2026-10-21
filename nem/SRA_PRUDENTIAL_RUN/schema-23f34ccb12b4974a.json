@@ -1,0 +1,46 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SRA_PRUDENTIAL_RUN/schema-23f34ccb12b4974a.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "PRUDENTIAL_DATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PRUDENTIAL_RUNNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "PRUDENTIAL_DATE",
+    "PRUDENTIAL_RUNNO"
+  ],
+  "title": "SRA_PRUDENTIAL_RUN, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PRUDENTIAL_DATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "PRUDENTIAL_RUNNO",
+      "long"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "SRA_PRUDENTIAL_RUN"
+  }
+}

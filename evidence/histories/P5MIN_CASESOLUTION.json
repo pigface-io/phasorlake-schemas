@@ -1,0 +1,473 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 113,
+      "from": {
+        "data-time": "2009-07-01T00:05:00+10:00",
+        "file": "PUBLIC_DVD_P5MIN_CASESOLUTION_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 992727,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2018-12-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_P5MIN_CASESOLUTION_201811010000.zip",
+        "release": "2018-11",
+        "sha256": "302ad9e72395debed4eff678ee49d87d81cc8ecb080d3922d9e610162e85e127"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 68,
+      "from": {
+        "data-time": "2018-12-01T00:05:00+10:00",
+        "file": "PUBLIC_DVD_P5MIN_CASESOLUTION_201812010000.zip",
+        "release": "2018-12",
+        "sha256": "9280bdeb356537d12ffa9ad36272bd9ff2fe388fc756dcdd7c2b35e6fb8b8208"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 596155,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2024-08-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_P5MIN_CASESOLUTION_202407010000.zip",
+        "release": "2024-07",
+        "sha256": "dd361b3862284b649bb7a51130e1e97370f025595dd6bbc654de004f2eccd612"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2024-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "c436afc0b14e984021c35d39425d60e45913014caf434f1021f41c37a2fbc939"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 183727,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "2ede3e6acb71b3e01abdd2c6043567cfdd23f5bfc41bf0c71a1224bd4f3fc611"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "STARTINTERVAL_DATETIME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "TOTALOBJECTIVE",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 4,
+          "name": "NONPHYSICALLOSSES",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "TOTALAREAGENVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "TOTALINTERCONNECTORVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "TOTALGENERICVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "TOTALRAMPRATEVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "TOTALUNITMWCAPACITYVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 10,
+          "name": "TOTAL5MINVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALREGVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "TOTAL6SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "TOTAL60SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "TOTALENERGYCONSTRVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "TOTALENERGYOFFERVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "TOTALASPROFILEVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "TOTALFASTSTARTVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 19,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 2,
+          "name": "STARTINTERVAL_DATETIME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "TOTALOBJECTIVE",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 4,
+          "name": "NONPHYSICALLOSSES",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "TOTALAREAGENVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "TOTALINTERCONNECTORVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "TOTALGENERICVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "TOTALRAMPRATEVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "TOTALUNITMWCAPACITYVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 10,
+          "name": "TOTAL5MINVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALREGVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "TOTAL6SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "TOTAL60SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "TOTALENERGYCONSTRVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "TOTALENERGYOFFERVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "TOTALASPROFILEVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "TOTALFASTSTARTVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "STARTINTERVAL_DATETIME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "TOTALOBJECTIVE",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 4,
+          "name": "NONPHYSICALLOSSES",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "TOTALAREAGENVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "TOTALINTERCONNECTORVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "TOTALGENERICVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "TOTALRAMPRATEVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "TOTALUNITMWCAPACITYVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 10,
+          "name": "TOTAL5MINVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALREGVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "TOTAL6SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "TOTAL60SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "TOTALENERGYCONSTRVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "TOTALENERGYOFFERVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "TOTALASPROFILEVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "TOTALFASTSTARTVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 19,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 2,
+      "type": "struct"
+    }
+  ],
+  "table": "P5MIN_CASESOLUTION"
+}

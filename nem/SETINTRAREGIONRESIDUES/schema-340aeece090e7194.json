@@ -1,0 +1,175 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SETINTRAREGIONRESIDUES/schema-340aeece090e7194.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ACE_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "ASOE_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "EC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "double"
+    },
+    "EP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "double"
+    },
+    "EXP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 8)"
+    },
+    "IRSS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 8)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PERIODID": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 8)"
+    },
+    "RUNNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "RUNNO",
+    "PERIODID",
+    "REGIONID"
+  ],
+  "title": "SETINTRAREGIONRESIDUES, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "long"
+    ],
+    [
+      3,
+      "PERIODID",
+      "long"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "EP",
+      "double"
+    ],
+    [
+      6,
+      "EC",
+      "double"
+    ],
+    [
+      7,
+      "RRP",
+      "decimal(15, 8)"
+    ],
+    [
+      8,
+      "EXP",
+      "decimal(15, 8)"
+    ],
+    [
+      9,
+      "IRSS",
+      "decimal(15, 8)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      11,
+      "ACE_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      12,
+      "ASOE_AMOUNT",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "SETINTRAREGIONRESIDUES"
+  }
+}

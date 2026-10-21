@@ -1,0 +1,110 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/ANCILLARY_RECOVERY_SPLIT/schema-5bc7b78bbcd93373.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ACE_PORTION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "CUSTOMER_PORTION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PAYMENTTYPE": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "SERVICE": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "VERSIONNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "VERSIONNO",
+    "SERVICE",
+    "PAYMENTTYPE"
+  ],
+  "title": "ANCILLARY_RECOVERY_SPLIT, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "SERVICE",
+      "string"
+    ],
+    [
+      4,
+      "PAYMENTTYPE",
+      "string"
+    ],
+    [
+      5,
+      "CUSTOMER_PORTION",
+      "decimal(8, 5)"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      7,
+      "ACE_PORTION",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "ANCILLARY_RECOVERY_SPLIT"
+  }
+}

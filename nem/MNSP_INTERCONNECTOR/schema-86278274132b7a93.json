@@ -1,0 +1,190 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MNSP_INTERCONNECTOR/schema-86278274132b7a93.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string"
+    },
+    "AUTHORISEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz"
+    },
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "FROMREGION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "INTERCONNECTORID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LHSFACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(12, 7)"
+    },
+    "LINKID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "MAXCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "METERFLOWCONSTANT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(12, 7)"
+    },
+    "TLF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 7)"
+    },
+    "TOREGION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "VERSIONNO": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "LINKID",
+    "EFFECTIVEDATE",
+    "VERSIONNO"
+  ],
+  "title": "MNSP_INTERCONNECTOR, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "LINKID",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      5,
+      "FROMREGION",
+      "string"
+    ],
+    [
+      6,
+      "TOREGION",
+      "string"
+    ],
+    [
+      7,
+      "MAXCAPACITY",
+      "decimal(5, 0)"
+    ],
+    [
+      8,
+      "TLF",
+      "decimal(12, 7)"
+    ],
+    [
+      9,
+      "LHSFACTOR",
+      "decimal(12, 7)"
+    ],
+    [
+      10,
+      "METERFLOWCONSTANT",
+      "decimal(12, 7)"
+    ],
+    [
+      11,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      12,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      13,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "MNSP_INTERCONNECTOR"
+  }
+}

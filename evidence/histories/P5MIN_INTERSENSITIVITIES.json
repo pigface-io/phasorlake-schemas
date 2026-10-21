@@ -1,0 +1,340 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2024-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERSENSITIVITIES#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "4d82483c6ed04dc4756b41a7a4f52885cbffb4740357e6557cd4f32581e9cad5"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "INTERSENSITIVITIES"
+      ],
+      "rows": 13228560,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERSENSITIVITIES#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "371bb8ee974163e34f2f706c93be7af7834ced4cf81415a09a8fe4fd95fbe261"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "INTERCONNECTORID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "INTERVENTION_ACTIVE",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "MWFLOW1",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "MWFLOW2",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "MWFLOW3",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "MWFLOW4",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 10,
+          "name": "MWFLOW5",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "MWFLOW6",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "MWFLOW7",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "MWFLOW8",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "MWFLOW9",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "MWFLOW10",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "MWFLOW11",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "MWFLOW12",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "MWFLOW13",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "MWFLOW14",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "MWFLOW15",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "MWFLOW16",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "MWFLOW17",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "MWFLOW18",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "MWFLOW19",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 25,
+          "name": "MWFLOW20",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 26,
+          "name": "MWFLOW21",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "MWFLOW22",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "MWFLOW23",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "MWFLOW24",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "MWFLOW25",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 31,
+          "name": "MWFLOW26",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "MWFLOW27",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "MWFLOW28",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 34,
+          "name": "MWFLOW29",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 35,
+          "name": "MWFLOW30",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 36,
+          "name": "MWFLOW31",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 37,
+          "name": "MWFLOW32",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 38,
+          "name": "MWFLOW33",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 39,
+          "name": "MWFLOW34",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 40,
+          "name": "MWFLOW35",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 41,
+          "name": "MWFLOW36",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 42,
+          "name": "MWFLOW37",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 43,
+          "name": "MWFLOW38",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 44,
+          "name": "MWFLOW39",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 45,
+          "name": "MWFLOW40",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 46,
+          "name": "MWFLOW41",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 47,
+          "name": "MWFLOW42",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 48,
+          "name": "MWFLOW43",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 49,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "P5MIN_INTERSENSITIVITIES"
+}

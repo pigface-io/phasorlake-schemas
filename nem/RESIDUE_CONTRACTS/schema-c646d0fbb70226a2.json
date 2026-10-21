@@ -1,0 +1,259 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/RESIDUE_CONTRACTS/schema-c646d0fbb70226a2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUCTIONDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "AUCTIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string"
+    },
+    "AUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "AUTHORISEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "CALCMETHOD": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string"
+    },
+    "CONTRACTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "CONTRACTYEAR": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "DESCRIPTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string"
+    },
+    "ENDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz"
+    },
+    "NOTIFYBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string"
+    },
+    "NOTIFYDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "NOTIFYPOSTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz"
+    },
+    "POSTDATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string"
+    },
+    "POSTEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string"
+    },
+    "QUARTER": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    },
+    "STARTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "TRANCHE": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "QUARTER",
+    "TRANCHE"
+  ],
+  "title": "RESIDUE_CONTRACTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "QUARTER",
+      "long"
+    ],
+    [
+      3,
+      "TRANCHE",
+      "long"
+    ],
+    [
+      4,
+      "CONTRACTID",
+      "string"
+    ],
+    [
+      5,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "NOTIFYDATE",
+      "timestamptz"
+    ],
+    [
+      8,
+      "AUCTIONDATE",
+      "timestamptz"
+    ],
+    [
+      9,
+      "CALCMETHOD",
+      "string"
+    ],
+    [
+      10,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      11,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      12,
+      "NOTIFYPOSTDATE",
+      "timestamptz"
+    ],
+    [
+      13,
+      "NOTIFYBY",
+      "string"
+    ],
+    [
+      14,
+      "POSTDATE",
+      "string"
+    ],
+    [
+      15,
+      "POSTEDBY",
+      "string"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      17,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      18,
+      "AUCTIONID",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "RESIDUE_CONTRACTS"
+  }
+}

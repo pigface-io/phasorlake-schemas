@@ -1,0 +1,93 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2024-01-14T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#METERDATA_INTERCONNECTOR#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "393533f074116b60c8a252ee5fea44b54b22f3e9aafb4bc7cd2eac46930ad6f4"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "METERDATA",
+        "INTERCONNECTOR"
+      ],
+      "rows": 3598560,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-25T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#METERDATA_INTERCONNECTOR#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "3dc30caf5363a2370511e282feec626e7e2ee729d674468dba4882316dedd320"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CASE_ID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "INTERCONNECTORID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PERIODID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 5,
+          "name": "IMPORTVALUE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 6,
+          "name": "EXPORTVALUE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 7,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "METERDATA_INTERCONNECTOR"
+}

@@ -1,0 +1,149 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BIDDUIDDETAILS/schema-3e2351d9ddf13a16.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "DUID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MAXCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "double"
+    },
+    "MAXENABLEMENTLEVEL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "double"
+    },
+    "MAXLOWERANGLE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "MAXUPPERANGLE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "MINENABLEMENTLEVEL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "double"
+    },
+    "VERSIONNO": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "DUID",
+    "EFFECTIVEDATE",
+    "VERSIONNO",
+    "BIDTYPE"
+  ],
+  "title": "BIDDUIDDETAILS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DUID",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      5,
+      "MAXCAPACITY",
+      "double"
+    ],
+    [
+      6,
+      "MINENABLEMENTLEVEL",
+      "double"
+    ],
+    [
+      7,
+      "MAXENABLEMENTLEVEL",
+      "double"
+    ],
+    [
+      8,
+      "MAXLOWERANGLE",
+      "decimal(3, 0)"
+    ],
+    [
+      9,
+      "MAXUPPERANGLE",
+      "decimal(3, 0)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "BIDDUIDDETAILS"
+  }
+}

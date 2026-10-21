@@ -1,0 +1,256 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/P5MIN_CASESOLUTION/schema-72dda7adba0736ed.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "timestamptz"
+    },
+    "NONPHYSICALLOSSES": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "STARTINTERVAL_DATETIME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "TOTAL5MINVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TOTAL60SECVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TOTAL6SECVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TOTALAREAGENVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TOTALASPROFILEVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TOTALENERGYCONSTRVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TOTALENERGYOFFERVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TOTALFASTSTARTVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TOTALGENERICVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TOTALINTERCONNECTORVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TOTALOBJECTIVE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "double"
+    },
+    "TOTALRAMPRATEVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TOTALREGVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TOTALUNITMWCAPACITYVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME"
+  ],
+  "title": "P5MIN_CASESOLUTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "STARTINTERVAL_DATETIME",
+      "string"
+    ],
+    [
+      3,
+      "TOTALOBJECTIVE",
+      "double"
+    ],
+    [
+      4,
+      "NONPHYSICALLOSSES",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "TOTALAREAGENVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      6,
+      "TOTALINTERCONNECTORVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "TOTALGENERICVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "TOTALRAMPRATEVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "TOTALUNITMWCAPACITYVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "TOTAL5MINVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "TOTALREGVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "TOTAL6SECVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "TOTAL60SECVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "TOTALENERGYCONSTRVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "TOTALENERGYOFFERVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "TOTALASPROFILEVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "TOTALFASTSTARTVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      18,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "P5MIN_CASESOLUTION"
+  }
+}

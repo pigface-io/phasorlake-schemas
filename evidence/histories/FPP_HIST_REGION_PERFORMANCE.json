@@ -1,0 +1,106 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 13,
+      "from": {
+        "data-time": "2025-05-11T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_HIST_REGION_PERFORMANCE#FILE01#202504010000.zip",
+        "release": "2025-04",
+        "sha256": "45a30e11d2f77a54a57c4bb4a14a38d00c1354b2a1789f443bca7fd523a32262"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "HIST_REGION_PERFORMANCE"
+      ],
+      "rows": 1795,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-10T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_HIST_REGION_PERFORMANCE#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "25ce631e12d40d6ca8a5ab3552528e70f8a8f3ecfde4ea4688970d9167f8f7c0"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "EFFECTIVE_START_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "EFFECTIVE_END_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 5,
+          "name": "HIST_PERIOD_START_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "HIST_PERIOD_END_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "REG_HIST_RAISE_PERFORMANCE",
+          "required": false,
+          "type": "decimal(18, 5)"
+        },
+        {
+          "id": 8,
+          "name": "REG_HIST_LOWER_PERFORMANCE",
+          "required": false,
+          "type": "decimal(18, 5)"
+        },
+        {
+          "id": 9,
+          "name": "FPP_HIST_RAISE_PERFORMANCE",
+          "required": false,
+          "type": "decimal(18, 5)"
+        },
+        {
+          "id": 10,
+          "name": "FPP_HIST_LOWER_PERFORMANCE",
+          "required": false,
+          "type": "decimal(18, 5)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "FPP_HIST_REGION_PERFORMANCE"
+}

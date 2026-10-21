@@ -1,0 +1,73 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/NETWORK_OUTAGECONSTRAINTSET/schema-ce455d35d6a7ae0b.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ENDINTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "GENCONSETID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "OUTAGEID": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "STARTINTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "OUTAGEID",
+    "GENCONSETID"
+  ],
+  "title": "NETWORK_OUTAGECONSTRAINTSET, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "OUTAGEID",
+      "long"
+    ],
+    [
+      2,
+      "GENCONSETID",
+      "string"
+    ],
+    [
+      3,
+      "STARTINTERVAL",
+      "timestamptz"
+    ],
+    [
+      4,
+      "ENDINTERVAL",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "NETWORK_OUTAGECONSTRAINTSET"
+  }
+}

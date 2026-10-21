@@ -1,0 +1,99 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SETCFG_WDR_REIMBURSE_RATE/schema-640da90ba183fda0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ISFIRM": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "VERSION_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "WDRRR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "WDRRRPERIOD": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "SETCFG_WDR_REIMBURSE_RATE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "WDRRRPERIOD",
+      "string"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "WDRRR",
+      "decimal(18, 8)"
+    ],
+    [
+      5,
+      "ISFIRM",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "SETCFG_WDR_REIMBURSE_RATE"
+  }
+}

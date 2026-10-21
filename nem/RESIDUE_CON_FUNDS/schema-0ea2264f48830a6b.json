@@ -1,0 +1,162 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/RESIDUE_CON_FUNDS/schema-0ea2264f48830a6b.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ACTUALRESERVEPRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(9, 2)"
+    },
+    "CONTRACTID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "DEFAULTUNITS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "FROMREGIONID": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "INTERCONNECTORID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MEANRESERVEPRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(9, 2)"
+    },
+    "REALLOCATEDUNITS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "ROLLOVERUNITS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "SCALEFACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "UNITSOFFERED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(5, 0)"
+    }
+  },
+  "required": [
+    "CONTRACTID",
+    "INTERCONNECTORID",
+    "FROMREGIONID"
+  ],
+  "title": "RESIDUE_CON_FUNDS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTID",
+      "string"
+    ],
+    [
+      2,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      3,
+      "FROMREGIONID",
+      "string"
+    ],
+    [
+      4,
+      "DEFAULTUNITS",
+      "decimal(5, 0)"
+    ],
+    [
+      5,
+      "ROLLOVERUNITS",
+      "decimal(5, 0)"
+    ],
+    [
+      6,
+      "REALLOCATEDUNITS",
+      "decimal(5, 0)"
+    ],
+    [
+      7,
+      "UNITSOFFERED",
+      "decimal(5, 0)"
+    ],
+    [
+      8,
+      "MEANRESERVEPRICE",
+      "decimal(9, 2)"
+    ],
+    [
+      9,
+      "SCALEFACTOR",
+      "decimal(8, 5)"
+    ],
+    [
+      10,
+      "ACTUALRESERVEPRICE",
+      "decimal(9, 2)"
+    ],
+    [
+      11,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "RESIDUE_CON_FUNDS"
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/P5MIN_FCAS_REQ_CONSTRAINT/schema-438e420ed7d3752d.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADJUSTED_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "BASE_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "BIDTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "CONSTRAINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "CONSTRAINT_ENABLEMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LHS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "MARGINALVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "P_REGULATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGIONAL_ENABLEMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "REGION_BASE_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "RHS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "P5MIN_FCAS_REQ_CONSTRAINT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(5, 0)"
+    ],
+    [
+      3,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      5,
+      "REGIONID",
+      "string"
+    ],
+    [
+      6,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      7,
+      "LHS",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "RHS",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "MARGINALVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "REGIONAL_ENABLEMENT",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "CONSTRAINT_ENABLEMENT",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "REGION_BASE_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      14,
+      "BASE_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      15,
+      "ADJUSTED_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      16,
+      "P_REGULATION",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "P5MIN_FCAS_REQ_CONSTRAINT"
+  }
+}

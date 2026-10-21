@@ -1,0 +1,98 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_RCR/schema-396d8377d4f9ee83.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "CONSTRAINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RCR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 5)"
+    },
+    "RCR_REASON_FLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "VERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(5, 0)"
+    }
+  },
+  "required": [],
+  "title": "FPP_RCR, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "decimal(5, 0)"
+    ],
+    [
+      4,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      5,
+      "RCR",
+      "decimal(18, 5)"
+    ],
+    [
+      6,
+      "RCR_REASON_FLAG",
+      "decimal(5, 0)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "FPP_RCR"
+  }
+}

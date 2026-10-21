@@ -1,0 +1,166 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_CONSTRAINTSOLUTION/schema-ebbb5fa8df3a96b5.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CAPACITYMARGINALVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CAPACITYRHS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CAPACITYVIOLATIONDEGREE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CONSTRAINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "DAY": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "ENERGYBLOCK": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LDCBLOCK": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "RUNTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RUN_NO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)"
+    }
+  },
+  "required": [],
+  "title": "MTPASA_CONSTRAINTSOLUTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUN_NO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "ENERGYBLOCK",
+      "timestamptz"
+    ],
+    [
+      4,
+      "DAY",
+      "timestamptz"
+    ],
+    [
+      5,
+      "LDCBLOCK",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      7,
+      "CAPACITYRHS",
+      "decimal(12, 2)"
+    ],
+    [
+      8,
+      "CAPACITYMARGINALVALUE",
+      "decimal(12, 2)"
+    ],
+    [
+      9,
+      "CAPACITYVIOLATIONDEGREE",
+      "decimal(12, 2)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      11,
+      "RUNTYPE",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "MTPASA_CONSTRAINTSOLUTION"
+  }
+}

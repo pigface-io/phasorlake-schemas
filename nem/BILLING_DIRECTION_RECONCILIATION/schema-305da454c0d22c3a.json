@@ -1,0 +1,230 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLING_DIRECTION_RECONCILIATION/schema-305da454c0d22c3a.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BILLRUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "COMPENSATION_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(9, 2)"
+    },
+    "CONTRACTYEAR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "CRA": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(13, 6)"
+    },
+    "DIRECTION_DESC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "DIRECTION_END_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DIRECTION_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "DIRECTION_START_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "GENERATOR_PERC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string"
+    },
+    "INDEPENDENT_EXPERT_FEE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "INTEREST_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(11, 6)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MKT_CUSTOMER_PERC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(6, 6)"
+    },
+    "NEM_FEE_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string"
+    },
+    "NEM_FIXED_FEE_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(11, 5)"
+    },
+    "WEEKNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(2, 0)"
+    }
+  },
+  "required": [],
+  "title": "BILLING_DIRECTION_RECONCILIATION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "decimal(4, 0)"
+    ],
+    [
+      2,
+      "WEEKNO",
+      "decimal(2, 0)"
+    ],
+    [
+      3,
+      "BILLRUNNO",
+      "decimal(1, 0)"
+    ],
+    [
+      4,
+      "DIRECTION_ID",
+      "string"
+    ],
+    [
+      5,
+      "DIRECTION_DESC",
+      "string"
+    ],
+    [
+      6,
+      "DIRECTION_START_DATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "DIRECTION_END_DATE",
+      "timestamptz"
+    ],
+    [
+      8,
+      "COMPENSATION_AMOUNT",
+      "decimal(9, 2)"
+    ],
+    [
+      9,
+      "INDEPENDENT_EXPERT_FEE",
+      "decimal(1, 0)"
+    ],
+    [
+      10,
+      "INTEREST_AMOUNT",
+      "decimal(11, 6)"
+    ],
+    [
+      11,
+      "CRA",
+      "decimal(13, 6)"
+    ],
+    [
+      12,
+      "NEM_FEE_ID",
+      "string"
+    ],
+    [
+      13,
+      "NEM_FIXED_FEE_AMOUNT",
+      "decimal(11, 5)"
+    ],
+    [
+      14,
+      "MKT_CUSTOMER_PERC",
+      "decimal(6, 6)"
+    ],
+    [
+      15,
+      "GENERATOR_PERC",
+      "string"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "BILLING_DIRECTION_RECONCILIATION"
+  }
+}

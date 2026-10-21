@@ -1,0 +1,787 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 335,
+      "from": {
+        "data-time": "2009-07-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHPRICE_D_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "REGION_PRICES"
+      ],
+      "rows": 72167880,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2023-07-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHPRICE_202306010000.zip",
+        "release": "2023-06",
+        "sha256": "c67bf7720238e27f7162164b282405652b2e6f39ac57bfe90d53f248627d2987"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 26,
+      "from": {
+        "data-time": "2023-07-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHPRICE_D_202307010000.zip",
+        "release": "2023-07",
+        "sha256": "a7146ec00e661f51d67cd4ebbed687e5d04d5eb236f63d715b741a1d5e059f4c"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "REGION_PRICES"
+      ],
+      "rows": 5382955,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2024-08-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHPRICE_202407010000.zip",
+        "release": "2024-07",
+        "sha256": "033e1192952fe41b1701cd32431fedd4b053248e8c53aee8ea69f132fd2775aa"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 34
+        },
+        {
+          "action": "add",
+          "field-id": 35
+        },
+        {
+          "action": "add",
+          "field-id": 36
+        },
+        {
+          "action": "add",
+          "field-id": 37
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 42,
+      "from": {
+        "data-time": "2024-08-01T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICE#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "f46352b2ac99fa6fee254a5f617b81189c8498348abd69199bb0bd9db3e1a13d"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "REGION_PRICES"
+      ],
+      "rows": 8650830,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-05-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICE#ALL#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "f12a153e47a6091108cb2c38b4d438a59a05a88f32fab7751599a0e6589fb29f"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 35
+        },
+        {
+          "action": "delete",
+          "field-id": 37
+        }
+      ],
+      "version": 2
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 6,
+          "name": "RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "EEP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "RRP1",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "EEP1",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 10,
+          "name": "RRP2",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "EEP2",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "RRP3",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "EEP3",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "RRP4",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "EEP4",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "RRP5",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "EEP5",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "RRP6",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "EEP6",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "RRP7",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "EEP7",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "RRP8",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "EEP8",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 25,
+          "name": "DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 26,
+          "name": "RAISE6SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "RAISE60SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "RAISE5MINRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "RAISEREGRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "LOWER6SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 31,
+          "name": "LOWER60SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "LOWER5MINRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "LOWERREGRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        }
+      ],
+      "identifier-field-ids": [
+        3,
+        25
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 6,
+          "name": "RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "EEP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "RRP1",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "EEP1",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 10,
+          "name": "RRP2",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "EEP2",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "RRP3",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "EEP3",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "RRP4",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "EEP4",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "RRP5",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "EEP5",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "RRP6",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "EEP6",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "RRP7",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "EEP7",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "RRP8",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "EEP8",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 25,
+          "name": "DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 26,
+          "name": "RAISE6SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "RAISE60SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "RAISE5MINRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "RAISEREGRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "LOWER6SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 31,
+          "name": "LOWER60SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "LOWER5MINRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "LOWERREGRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 34,
+          "name": "RAISE1SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 35,
+          "name": "RAISE1SECROP",
+          "required": false,
+          "type": "decimal(11, 5)"
+        },
+        {
+          "id": 36,
+          "name": "LOWER1SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 37,
+          "name": "LOWER1SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        }
+      ],
+      "identifier-field-ids": [
+        3,
+        25
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 6,
+          "name": "RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "EEP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "RRP1",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "EEP1",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 10,
+          "name": "RRP2",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "EEP2",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "RRP3",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "EEP3",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "RRP4",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "EEP4",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "RRP5",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "EEP5",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "RRP6",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "EEP6",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "RRP7",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "EEP7",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "RRP8",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "EEP8",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 25,
+          "name": "DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 26,
+          "name": "RAISE6SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "RAISE60SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "RAISE5MINRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "RAISEREGRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "LOWER6SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 31,
+          "name": "LOWER60SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "LOWER5MINRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "LOWERREGRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 34,
+          "name": "RAISE1SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 36,
+          "name": "LOWER1SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        }
+      ],
+      "identifier-field-ids": [
+        3,
+        25
+      ],
+      "schema-id": 2,
+      "type": "struct"
+    }
+  ],
+  "table": "PREDISPATCHPRICE"
+}

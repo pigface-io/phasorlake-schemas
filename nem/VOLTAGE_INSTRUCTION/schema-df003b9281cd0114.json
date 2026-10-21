@@ -1,0 +1,189 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/VOLTAGE_INSTRUCTION/schema-df003b9281cd0114.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADDITIONAL_NOTES": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string"
+    },
+    "CONFORMING": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "CONTROL_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "DEVICE_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "DEVICE_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "EMS_ID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "INSTRUCTION_SEQUENCE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "INSTRUCTION_SUMMARY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string"
+    },
+    "PARTICIPANTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "STATION_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "TARGET": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "double"
+    },
+    "VERSION_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "EMS_ID",
+    "VERSION_DATETIME"
+  ],
+  "title": "VOLTAGE_INSTRUCTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "EMS_ID",
+      "string"
+    ],
+    [
+      3,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      4,
+      "STATION_ID",
+      "string"
+    ],
+    [
+      5,
+      "DEVICE_ID",
+      "string"
+    ],
+    [
+      6,
+      "DEVICE_TYPE",
+      "string"
+    ],
+    [
+      7,
+      "CONTROL_TYPE",
+      "string"
+    ],
+    [
+      8,
+      "TARGET",
+      "double"
+    ],
+    [
+      9,
+      "CONFORMING",
+      "decimal(1, 0)"
+    ],
+    [
+      10,
+      "INSTRUCTION_SUMMARY",
+      "string"
+    ],
+    [
+      11,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      12,
+      "INSTRUCTION_SEQUENCE",
+      "decimal(4, 0)"
+    ],
+    [
+      13,
+      "ADDITIONAL_NOTES",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    11
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "VOLTAGE_INSTRUCTION"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PARTICIPANTCATEGORY/schema-a72897ae88cc4493.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DESCRIPTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PARTICIPANTCATEGORYID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "PARTICIPANTCATEGORYID"
+  ],
+  "title": "PARTICIPANTCATEGORY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PARTICIPANTCATEGORYID",
+      "string"
+    ],
+    [
+      2,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      3,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PARTICIPANTCATEGORY"
+  }
+}

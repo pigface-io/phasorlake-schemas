@@ -1,0 +1,281 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DUDETAIL/schema-0dcc26c3ceb454af.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGCCAPABILITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "AUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string"
+    },
+    "AUTHORISEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "timestamptz"
+    },
+    "CONNECTIONPOINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "DISPATCHTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "DUID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "INTERMITTENTFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MAXCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "double"
+    },
+    "MAXRATEOFCHANGEDOWN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MAXRATEOFCHANGEUP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "NORMALLYONFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "PHYSICALDETAILSFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string"
+    },
+    "REGISTEREDCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "double"
+    },
+    "SEMISCHEDULE_FLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string"
+    },
+    "SPINNINGRESERVEFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string"
+    },
+    "STARTTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string"
+    },
+    "VERSIONNO": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    },
+    "VOLTLEVEL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "DUID",
+    "VERSIONNO"
+  ],
+  "title": "DUDETAIL, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "CONNECTIONPOINTID",
+      "string"
+    ],
+    [
+      5,
+      "VOLTLEVEL",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "REGISTEREDCAPACITY",
+      "double"
+    ],
+    [
+      7,
+      "AGCCAPABILITY",
+      "string"
+    ],
+    [
+      8,
+      "DISPATCHTYPE",
+      "string"
+    ],
+    [
+      9,
+      "MAXCAPACITY",
+      "double"
+    ],
+    [
+      10,
+      "STARTTYPE",
+      "string"
+    ],
+    [
+      11,
+      "NORMALLYONFLAG",
+      "string"
+    ],
+    [
+      12,
+      "PHYSICALDETAILSFLAG",
+      "string"
+    ],
+    [
+      13,
+      "SPINNINGRESERVEFLAG",
+      "string"
+    ],
+    [
+      14,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      15,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      17,
+      "INTERMITTENTFLAG",
+      "string"
+    ],
+    [
+      18,
+      "SEMISCHEDULE_FLAG",
+      "string"
+    ],
+    [
+      19,
+      "MAXRATEOFCHANGEUP",
+      "decimal(6, 0)"
+    ],
+    [
+      20,
+      "MAXRATEOFCHANGEDOWN",
+      "decimal(6, 0)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    2,
+    1,
+    3
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "DUDETAIL"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCH_UNIT_SCADA/schema-2e75294ff617bace.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DUID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "SCADAVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "DUID"
+  ],
+  "title": "DISPATCH_UNIT_SCADA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      3,
+      "SCADAVALUE",
+      "decimal(16, 6)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "DISPATCH_UNIT_SCADA"
+  }
+}

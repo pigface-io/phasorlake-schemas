@@ -1,0 +1,450 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PREDISPATCHPRICE/schema-4441baaa1fb0f2a9.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 25,
+      "x-iceberg-type": "timestamptz"
+    },
+    "EEP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "EEP1": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "EEP2": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "EEP3": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "EEP4": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "EEP5": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "EEP6": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "EEP7": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "EEP8": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "INTERVENTION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOWER5MINRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWER60SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWER6SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWERREGRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "PERIODID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "PREDISPATCHSEQNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(10, 0)"
+    },
+    "RAISE5MINRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISE60SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISE6SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISEREGRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RRP1": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RRP2": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RRP3": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RRP4": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RRP5": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RRP6": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RRP7": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RRP8": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)"
+    }
+  },
+  "required": [
+    "REGIONID",
+    "DATETIME"
+  ],
+  "title": "PREDISPATCHPRICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PREDISPATCHSEQNO",
+      "decimal(10, 0)"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "decimal(2, 0)"
+    ],
+    [
+      5,
+      "INTERVENTION",
+      "decimal(2, 0)"
+    ],
+    [
+      6,
+      "RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "EEP",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "RRP1",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "EEP1",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "RRP2",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "EEP2",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "RRP3",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "EEP3",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "RRP4",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "EEP4",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "RRP5",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "EEP5",
+      "decimal(15, 5)"
+    ],
+    [
+      18,
+      "RRP6",
+      "decimal(15, 5)"
+    ],
+    [
+      19,
+      "EEP6",
+      "decimal(15, 5)"
+    ],
+    [
+      20,
+      "RRP7",
+      "decimal(15, 5)"
+    ],
+    [
+      21,
+      "EEP7",
+      "decimal(15, 5)"
+    ],
+    [
+      22,
+      "RRP8",
+      "decimal(15, 5)"
+    ],
+    [
+      23,
+      "EEP8",
+      "decimal(15, 5)"
+    ],
+    [
+      24,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      25,
+      "DATETIME",
+      "timestamptz"
+    ],
+    [
+      26,
+      "RAISE6SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      27,
+      "RAISE60SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      28,
+      "RAISE5MINRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      29,
+      "RAISEREGRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      30,
+      "LOWER6SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      31,
+      "LOWER60SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      32,
+      "LOWER5MINRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      33,
+      "LOWERREGRRP",
+      "decimal(15, 5)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    3,
+    25
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PREDISPATCHPRICE"
+  }
+}

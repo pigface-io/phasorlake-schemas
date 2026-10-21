@@ -1,0 +1,226 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLINGREGIONFIGURES/schema-37e5c77b2fef847c.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADMINPRICECOMPO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(16, 8)"
+    },
+    "ASPAYMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "double"
+    },
+    "BILLRUNNO": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    },
+    "CONTRACTYEAR": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "ENERGYOUT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(17, 10)"
+    },
+    "ENERGYPURCHASED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "double"
+    },
+    "EXCESSGEN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(16, 8)"
+    },
+    "INTCOMPO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(16, 8)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz"
+    },
+    "POOLFEES": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(16, 8)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "RESERVETRADING": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(16, 8)"
+    },
+    "SETTSURPLUS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "double"
+    },
+    "VALUEOUT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "double"
+    },
+    "VALUEPURCHASED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "double"
+    },
+    "WEEKNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "WEEKNO",
+    "BILLRUNNO",
+    "REGIONID"
+  ],
+  "title": "BILLINGREGIONFIGURES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "WEEKNO",
+      "long"
+    ],
+    [
+      3,
+      "BILLRUNNO",
+      "long"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "ENERGYOUT",
+      "decimal(17, 10)"
+    ],
+    [
+      6,
+      "VALUEOUT",
+      "double"
+    ],
+    [
+      7,
+      "ENERGYPURCHASED",
+      "double"
+    ],
+    [
+      8,
+      "VALUEPURCHASED",
+      "double"
+    ],
+    [
+      9,
+      "EXCESSGEN",
+      "decimal(16, 8)"
+    ],
+    [
+      10,
+      "RESERVETRADING",
+      "decimal(16, 8)"
+    ],
+    [
+      11,
+      "INTCOMPO",
+      "decimal(16, 8)"
+    ],
+    [
+      12,
+      "ADMINPRICECOMPO",
+      "decimal(16, 8)"
+    ],
+    [
+      13,
+      "SETTSURPLUS",
+      "double"
+    ],
+    [
+      14,
+      "ASPAYMENT",
+      "double"
+    ],
+    [
+      15,
+      "POOLFEES",
+      "decimal(16, 8)"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "BILLINGREGIONFIGURES"
+  }
+}

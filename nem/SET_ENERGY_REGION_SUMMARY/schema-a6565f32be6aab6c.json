@@ -1,0 +1,190 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SET_ENERGY_REGION_SUMMARY/schema-a6565f32be6aab6c.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ACE_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "ACE_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "ASOE_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "ASOE_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "CE_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PERIODID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "TOTAL_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "TOTAL_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "UFEA_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "VERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)"
+    }
+  },
+  "required": [],
+  "title": "SET_ENERGY_REGION_SUMMARY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "PERIODID",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "CE_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "UFEA_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "ACE_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      8,
+      "ASOE_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "ACE_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      10,
+      "ASOE_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      11,
+      "TOTAL_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      12,
+      "TOTAL_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      13,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "SET_ENERGY_REGION_SUMMARY"
+  }
+}

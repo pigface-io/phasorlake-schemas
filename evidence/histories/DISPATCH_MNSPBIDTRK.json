@@ -1,0 +1,100 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 202,
+      "from": {
+        "data-time": "2009-07-01T00:05:00+10:00",
+        "file": "PUBLIC_DVD_DISPATCH_MNSPBIDTRK_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "MNSPBIDTRK"
+      ],
+      "rows": 3544800,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCH_MNSPBIDTRK#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "5558aa124cf72b572af381a9e44a9ebc3d87d5781f0521741cf57a18835149a5"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "PARTICIPANTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "LINKID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "OFFERSETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "OFFEREFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "OFFERVERSIONNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 8,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DISPATCH_MNSPBIDTRK"
+}

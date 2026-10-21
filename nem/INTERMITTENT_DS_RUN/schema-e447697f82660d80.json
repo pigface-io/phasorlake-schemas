@@ -1,0 +1,189 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/INTERMITTENT_DS_RUN/schema-e447697f82660d80.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "COMMENTS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "DUID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "FORECAST_PRIORITY": {
+      "type": "integer",
+      "x-field-id": 5,
+      "x-iceberg-type": "long"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MODEL": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string"
+    },
+    "OFFERDATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "ORIGIN": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "PARTICIPANT_TIMESTAMP": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "SUPPRESSED_AEMO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "SUPPRESSED_PARTICIPANT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "TRANSACTION_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "DUID",
+    "OFFERDATETIME",
+    "ORIGIN",
+    "FORECAST_PRIORITY"
+  ],
+  "title": "INTERMITTENT_DS_RUN, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      3,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "ORIGIN",
+      "string"
+    ],
+    [
+      5,
+      "FORECAST_PRIORITY",
+      "long"
+    ],
+    [
+      6,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      7,
+      "COMMENTS",
+      "string"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      9,
+      "MODEL",
+      "string"
+    ],
+    [
+      10,
+      "PARTICIPANT_TIMESTAMP",
+      "timestamptz"
+    ],
+    [
+      11,
+      "SUPPRESSED_AEMO",
+      "decimal(1, 0)"
+    ],
+    [
+      12,
+      "SUPPRESSED_PARTICIPANT",
+      "decimal(1, 0)"
+    ],
+    [
+      13,
+      "TRANSACTION_ID",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "INTERMITTENT_DS_RUN"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SETCFG_WDRRR_CALENDAR/schema-3470fb92b71195a4.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ENDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "STARTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VERSION_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "WDRRRPERIOD": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "SETCFG_WDRRR_CALENDAR, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "WDRRRPERIOD",
+      "string"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "SETCFG_WDRRR_CALENDAR"
+  }
+}

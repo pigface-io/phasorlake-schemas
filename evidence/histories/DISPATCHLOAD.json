@@ -1,0 +1,2631 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 147,
+      "from": {
+        "data-time": "2009-07-01T00:05:00+10:00",
+        "file": "PUBLIC_DVD_DISPATCHLOAD_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "UNIT_SOLUTION"
+      ],
+      "rows": 351585776,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2021-10-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DISPATCHLOAD_202109010000.zip",
+        "release": "2021-09",
+        "sha256": "e84d364ea9e762a4b1c35a772d52773ee3be22c54f18f8bbb3c500142af63b6e"
+      },
+      "updates": [],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2021-10-01T00:05:00+10:00",
+        "file": "PUBLIC_DVD_DISPATCHLOAD_202110010000.zip",
+        "release": "2021-10",
+        "sha256": "b14e97868c9cda0536f5fbe3839a9833f5dc899f287ba4a8f0cdcd197c82807a"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "UNIT_SOLUTION"
+      ],
+      "rows": 79804269,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2023-07-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DISPATCHLOAD_202306010000.zip",
+        "release": "2023-06",
+        "sha256": "f6712cdd0588d6cc1184053c470e5a35775e1964ad01c9b4f358aa50bc1b7c9d"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 57
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 10,
+      "from": {
+        "data-time": "2023-07-01T00:05:00+10:00",
+        "file": "PUBLIC_DVD_DISPATCHLOAD_202307010000.zip",
+        "release": "2023-07",
+        "sha256": "14e0c281a00cff7ec619b8b140a906f43d80c9030ed0593626d71177bcf4673d"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "UNIT_SOLUTION"
+      ],
+      "rows": 41706340,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2024-05-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DISPATCHLOAD_202404010000.zip",
+        "release": "2024-04",
+        "sha256": "153191f97cf778d8b31e8a684b9b045ea55eb5328257776a494c01c66101cac0"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 58
+        },
+        {
+          "action": "add",
+          "field-id": 59
+        },
+        {
+          "action": "add",
+          "field-id": 60
+        },
+        {
+          "action": "add",
+          "field-id": 61
+        },
+        {
+          "action": "add",
+          "field-id": 62
+        },
+        {
+          "action": "add",
+          "field-id": 63
+        },
+        {
+          "action": "add",
+          "field-id": 64
+        },
+        {
+          "action": "add",
+          "field-id": 65
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2024-05-01T00:05:00+10:00",
+        "file": "PUBLIC_DVD_DISPATCHLOAD_202405010000.zip",
+        "release": "2024-05",
+        "sha256": "a27eed7051e483241c148642ef8c65f34b94d71229a365b954d4af003ffebd7a"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "UNIT_SOLUTION"
+      ],
+      "rows": 13077216,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2024-08-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DISPATCHLOAD_202407010000.zip",
+        "release": "2024-07",
+        "sha256": "064bfe51909ab23e62f2d69227efff80f55787bf491b19fee5236b94573289b2"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 66
+        },
+        {
+          "action": "add",
+          "field-id": 67
+        },
+        {
+          "action": "add",
+          "field-id": 68
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 15,
+      "from": {
+        "data-time": "2024-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHLOAD#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "f47b22263e6a6192be6bf7064effef0a90fa9e459f0c6105de8f009013600e90"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "UNIT_SOLUTION"
+      ],
+      "rows": 66489035,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHLOAD#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "3051ff9d2dcf916e1cc1283b9f7cf39f15f6764e03d7322a0f80a9c1e2181278"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 64
+        },
+        {
+          "action": "move",
+          "field-id": 65
+        },
+        {
+          "action": "move",
+          "field-id": 58
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 6,
+      "from": {
+        "data-time": "2025-11-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHLOAD#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "2149824ef45478ab5674e26150a7b134b2540daf050afebe3a7bbab649bbfb3e"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "UNIT_SOLUTION"
+      ],
+      "rows": 28533024,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHLOAD#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "506b256ba971022b55358fa3db70ad919389e8289acc29228bef42e2c89f490a"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 69
+        }
+      ],
+      "version": 6
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "TRADETYPE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "DISPATCHINTERVAL",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 6,
+          "name": "INTERVENTION",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHMODE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 9,
+          "name": "AGCSTATUS",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 10,
+          "name": "INITIALMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALCLEARED",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "RAMPDOWNRATE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "RAMPUPRATE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "LOWER5MIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "LOWER60SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "LOWER6SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "RAISE5MIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "RAISE60SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "RAISE6SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "DOWNEPF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "UPEPF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "MARGINAL5MINVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "MARGINAL60SECVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "MARGINAL6SECVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 25,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 26,
+          "name": "VIOLATION5MINDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "VIOLATION60SECDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "VIOLATION6SECDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 31,
+          "name": "LOWERREG",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "RAISEREG",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 34,
+          "name": "RAISE6SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 35,
+          "name": "RAISE60SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 36,
+          "name": "RAISE5MINFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 37,
+          "name": "RAISEREGFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 38,
+          "name": "LOWER6SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 39,
+          "name": "LOWER60SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 40,
+          "name": "LOWER5MINFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 41,
+          "name": "LOWERREGFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 42,
+          "name": "RAISEREGAVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 43,
+          "name": "RAISEREGENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 44,
+          "name": "RAISEREGENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 45,
+          "name": "LOWERREGAVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 46,
+          "name": "LOWERREGENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 47,
+          "name": "LOWERREGENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 48,
+          "name": "RAISE6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 49,
+          "name": "RAISE60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 50,
+          "name": "RAISE5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 51,
+          "name": "RAISEREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 52,
+          "name": "LOWER6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 53,
+          "name": "LOWER60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 54,
+          "name": "LOWER5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 55,
+          "name": "LOWERREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 56,
+          "name": "SEMIDISPATCHCAP",
+          "required": false,
+          "type": "decimal(3, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "TRADETYPE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "DISPATCHINTERVAL",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 6,
+          "name": "INTERVENTION",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHMODE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 9,
+          "name": "AGCSTATUS",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 10,
+          "name": "INITIALMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALCLEARED",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "RAMPDOWNRATE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "RAMPUPRATE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "LOWER5MIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "LOWER60SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "LOWER6SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "RAISE5MIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "RAISE60SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "RAISE6SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "DOWNEPF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "UPEPF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "MARGINAL5MINVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "MARGINAL60SECVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "MARGINAL6SECVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 25,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 26,
+          "name": "VIOLATION5MINDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "VIOLATION60SECDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "VIOLATION6SECDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 31,
+          "name": "LOWERREG",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "RAISEREG",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 34,
+          "name": "RAISE6SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 35,
+          "name": "RAISE60SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 36,
+          "name": "RAISE5MINFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 37,
+          "name": "RAISEREGFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 38,
+          "name": "LOWER6SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 39,
+          "name": "LOWER60SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 40,
+          "name": "LOWER5MINFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 41,
+          "name": "LOWERREGFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 42,
+          "name": "RAISEREGAVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 43,
+          "name": "RAISEREGENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 44,
+          "name": "RAISEREGENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 45,
+          "name": "LOWERREGAVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 46,
+          "name": "LOWERREGENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 47,
+          "name": "LOWERREGENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 48,
+          "name": "RAISE6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 49,
+          "name": "RAISE60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 50,
+          "name": "RAISE5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 51,
+          "name": "RAISEREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 52,
+          "name": "LOWER6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 53,
+          "name": "LOWER60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 54,
+          "name": "LOWER5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 55,
+          "name": "LOWERREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 56,
+          "name": "SEMIDISPATCHCAP",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 57,
+          "name": "DISPATCHMODETIME",
+          "required": false,
+          "type": "decimal(4, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "TRADETYPE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "DISPATCHINTERVAL",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 6,
+          "name": "INTERVENTION",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHMODE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 9,
+          "name": "AGCSTATUS",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 10,
+          "name": "INITIALMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALCLEARED",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "RAMPDOWNRATE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "RAMPUPRATE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "LOWER5MIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "LOWER60SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "LOWER6SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "RAISE5MIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "RAISE60SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "RAISE6SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "DOWNEPF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "UPEPF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "MARGINAL5MINVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "MARGINAL60SECVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "MARGINAL6SECVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 25,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 26,
+          "name": "VIOLATION5MINDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "VIOLATION60SECDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "VIOLATION6SECDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 31,
+          "name": "LOWERREG",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "RAISEREG",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 34,
+          "name": "RAISE6SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 35,
+          "name": "RAISE60SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 36,
+          "name": "RAISE5MINFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 37,
+          "name": "RAISEREGFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 38,
+          "name": "LOWER6SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 39,
+          "name": "LOWER60SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 40,
+          "name": "LOWER5MINFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 41,
+          "name": "LOWERREGFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 42,
+          "name": "RAISEREGAVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 43,
+          "name": "RAISEREGENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 44,
+          "name": "RAISEREGENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 45,
+          "name": "LOWERREGAVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 46,
+          "name": "LOWERREGENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 47,
+          "name": "LOWERREGENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 48,
+          "name": "RAISE6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 49,
+          "name": "RAISE60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 50,
+          "name": "RAISE5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 51,
+          "name": "RAISEREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 52,
+          "name": "LOWER6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 53,
+          "name": "LOWER60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 54,
+          "name": "LOWER5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 55,
+          "name": "LOWERREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 56,
+          "name": "SEMIDISPATCHCAP",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 57,
+          "name": "DISPATCHMODETIME",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 58,
+          "name": "LOWER1SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 59,
+          "name": "RAISE1SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 60,
+          "name": "RAISE1SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 61,
+          "name": "LOWER1SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 62,
+          "name": "RAISE1SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 63,
+          "name": "LOWER1SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 64,
+          "name": "CONFORMANCE_MODE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 65,
+          "name": "UIGF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "schema-id": 2,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "TRADETYPE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "DISPATCHINTERVAL",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 6,
+          "name": "INTERVENTION",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHMODE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 9,
+          "name": "AGCSTATUS",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 10,
+          "name": "INITIALMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALCLEARED",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "RAMPDOWNRATE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "RAMPUPRATE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "LOWER5MIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "LOWER60SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "LOWER6SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "RAISE5MIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "RAISE60SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "RAISE6SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "DOWNEPF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "UPEPF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "MARGINAL5MINVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "MARGINAL60SECVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "MARGINAL6SECVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 25,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 26,
+          "name": "VIOLATION5MINDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "VIOLATION60SECDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "VIOLATION6SECDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 31,
+          "name": "LOWERREG",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "RAISEREG",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 34,
+          "name": "RAISE6SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 35,
+          "name": "RAISE60SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 36,
+          "name": "RAISE5MINFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 37,
+          "name": "RAISEREGFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 38,
+          "name": "LOWER6SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 39,
+          "name": "LOWER60SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 40,
+          "name": "LOWER5MINFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 41,
+          "name": "LOWERREGFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 42,
+          "name": "RAISEREGAVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 43,
+          "name": "RAISEREGENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 44,
+          "name": "RAISEREGENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 45,
+          "name": "LOWERREGAVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 46,
+          "name": "LOWERREGENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 47,
+          "name": "LOWERREGENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 48,
+          "name": "RAISE6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 49,
+          "name": "RAISE60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 50,
+          "name": "RAISE5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 51,
+          "name": "RAISEREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 52,
+          "name": "LOWER6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 53,
+          "name": "LOWER60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 54,
+          "name": "LOWER5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 55,
+          "name": "LOWERREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 56,
+          "name": "SEMIDISPATCHCAP",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 57,
+          "name": "DISPATCHMODETIME",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 58,
+          "name": "LOWER1SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 59,
+          "name": "RAISE1SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 60,
+          "name": "RAISE1SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 61,
+          "name": "LOWER1SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 62,
+          "name": "RAISE1SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 63,
+          "name": "LOWER1SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 64,
+          "name": "CONFORMANCE_MODE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 65,
+          "name": "UIGF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 66,
+          "name": "INITIAL_ENERGY_STORAGE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 67,
+          "name": "ENERGY_STORAGE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 68,
+          "name": "MIN_AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "schema-id": 3,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "TRADETYPE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "DISPATCHINTERVAL",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 6,
+          "name": "INTERVENTION",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHMODE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 9,
+          "name": "AGCSTATUS",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 10,
+          "name": "INITIALMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALCLEARED",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "RAMPDOWNRATE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "RAMPUPRATE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "LOWER5MIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "LOWER60SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "LOWER6SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "RAISE5MIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "RAISE60SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "RAISE6SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "DOWNEPF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "UPEPF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "MARGINAL5MINVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "MARGINAL60SECVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "MARGINAL6SECVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 25,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 26,
+          "name": "VIOLATION5MINDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "VIOLATION60SECDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "VIOLATION6SECDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 31,
+          "name": "LOWERREG",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "RAISEREG",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 34,
+          "name": "RAISE6SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 35,
+          "name": "RAISE60SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 36,
+          "name": "RAISE5MINFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 37,
+          "name": "RAISEREGFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 38,
+          "name": "LOWER6SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 39,
+          "name": "LOWER60SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 40,
+          "name": "LOWER5MINFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 41,
+          "name": "LOWERREGFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 42,
+          "name": "RAISEREGAVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 43,
+          "name": "RAISEREGENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 44,
+          "name": "RAISEREGENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 45,
+          "name": "LOWERREGAVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 46,
+          "name": "LOWERREGENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 47,
+          "name": "LOWERREGENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 48,
+          "name": "RAISE6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 49,
+          "name": "RAISE60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 50,
+          "name": "RAISE5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 51,
+          "name": "RAISEREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 52,
+          "name": "LOWER6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 53,
+          "name": "LOWER60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 54,
+          "name": "LOWER5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 55,
+          "name": "LOWERREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 56,
+          "name": "SEMIDISPATCHCAP",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 57,
+          "name": "DISPATCHMODETIME",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 64,
+          "name": "CONFORMANCE_MODE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 65,
+          "name": "UIGF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 59,
+          "name": "RAISE1SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 60,
+          "name": "RAISE1SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 58,
+          "name": "LOWER1SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 61,
+          "name": "LOWER1SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 62,
+          "name": "RAISE1SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 63,
+          "name": "LOWER1SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 66,
+          "name": "INITIAL_ENERGY_STORAGE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 67,
+          "name": "ENERGY_STORAGE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 68,
+          "name": "MIN_AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "schema-id": 4,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "TRADETYPE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "DISPATCHINTERVAL",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 6,
+          "name": "INTERVENTION",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHMODE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 9,
+          "name": "AGCSTATUS",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 10,
+          "name": "INITIALMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALCLEARED",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "RAMPDOWNRATE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "RAMPUPRATE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "LOWER5MIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "LOWER60SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "LOWER6SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "RAISE5MIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "RAISE60SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "RAISE6SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "DOWNEPF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "UPEPF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "MARGINAL5MINVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "MARGINAL60SECVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "MARGINAL6SECVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 25,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 26,
+          "name": "VIOLATION5MINDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "VIOLATION60SECDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "VIOLATION6SECDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 31,
+          "name": "LOWERREG",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "RAISEREG",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 34,
+          "name": "RAISE6SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 35,
+          "name": "RAISE60SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 36,
+          "name": "RAISE5MINFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 37,
+          "name": "RAISEREGFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 38,
+          "name": "LOWER6SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 39,
+          "name": "LOWER60SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 40,
+          "name": "LOWER5MINFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 41,
+          "name": "LOWERREGFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 42,
+          "name": "RAISEREGAVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 43,
+          "name": "RAISEREGENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 44,
+          "name": "RAISEREGENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 45,
+          "name": "LOWERREGAVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 46,
+          "name": "LOWERREGENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 47,
+          "name": "LOWERREGENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 48,
+          "name": "RAISE6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 49,
+          "name": "RAISE60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 50,
+          "name": "RAISE5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 51,
+          "name": "RAISEREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 52,
+          "name": "LOWER6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 53,
+          "name": "LOWER60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 54,
+          "name": "LOWER5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 55,
+          "name": "LOWERREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 56,
+          "name": "SEMIDISPATCHCAP",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 57,
+          "name": "DISPATCHMODETIME",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 64,
+          "name": "CONFORMANCE_MODE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 65,
+          "name": "UIGF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 59,
+          "name": "RAISE1SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 60,
+          "name": "RAISE1SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 58,
+          "name": "LOWER1SEC",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 61,
+          "name": "LOWER1SECFLAGS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 62,
+          "name": "RAISE1SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 63,
+          "name": "LOWER1SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 66,
+          "name": "INITIAL_ENERGY_STORAGE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 67,
+          "name": "ENERGY_STORAGE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 68,
+          "name": "MIN_AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 69,
+          "name": "ELEMENT_CAP",
+          "required": false,
+          "type": "long"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "schema-id": 5,
+      "type": "struct"
+    }
+  ],
+  "table": "DISPATCHLOAD"
+}

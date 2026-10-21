@@ -1,0 +1,163 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 202,
+      "from": {
+        "data-time": "2009-07-01T00:30:00+10:00",
+        "file": "PUBLIC_DVD_PDPASA_CASESOLUTION_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "PDPASA",
+        "CASESOLUTION"
+      ],
+      "rows": 295426,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_CASESOLUTION#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "a0eb9a4f8216c9979ce64b54886866557796f18c9ad1dc5db83ec5f3f57a7b06"
+      },
+      "updates": [],
+      "version": 3
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "PASAVERSION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "RESERVECONDITION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 4,
+          "name": "LORCONDITION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "CAPACITYOBJFUNCTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 6,
+          "name": "CAPACITYOPTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 7,
+          "name": "MAXSURPLUSRESERVEOPTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 8,
+          "name": "MAXSPARECAPACITYOPTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 9,
+          "name": "INTERCONNECTORFLOWPENALTY",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 10,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 11,
+          "name": "RELIABILITYLRCDEMANDOPTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 12,
+          "name": "OUTAGELRCDEMANDOPTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 13,
+          "name": "LORDEMANDOPTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 14,
+          "name": "RELIABILITYLRCCAPACITYOPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "OUTAGELRCCAPACITYOPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 16,
+          "name": "LORCAPACITYOPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "LORUIGFOPTION",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 18,
+          "name": "RELIABILITYLRCUIGFOPTION",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 19,
+          "name": "OUTAGELRCUIGFOPTION",
+          "required": false,
+          "type": "decimal(3, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "PDPASA_CASESOLUTION"
+}

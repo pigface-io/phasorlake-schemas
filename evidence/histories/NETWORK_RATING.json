@@ -1,0 +1,109 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2007-07-09T12:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NETWORK_RATING#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "3c5168180570804fe66cff03e62dcf60c0f4ee62256bff5ade3fafd304e667fa"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "NETWORK",
+        "RATING"
+      ],
+      "rows": 68529,
+      "schema-id": 0,
+      "to": {
+        "data-time": "9999-12-31T17:10:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NETWORK_RATING#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "b5a26c7bea9f5a188ff8ba4a39702b3b5df7c093c0968609affde3dfea3b4f49"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SPD_ID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "VALIDFROM",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "VALIDTO",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "SUBSTATIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "EQUIPMENTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "EQUIPMENTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "RATINGLEVEL",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "ISDYNAMIC",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 10,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NETWORK_RATING"
+}

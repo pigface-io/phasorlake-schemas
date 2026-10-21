@@ -1,0 +1,154 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/VOLTAGE_INSTRUCTION_TRK/schema-60f03e3de7ff8868.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EST_EXPIRY": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "EST_NEXT_INSTRUCTION": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "FILE_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "OPERATING_MODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "OPERATING_STATUS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "SE_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "SOLUTION_CATEGORY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "SOLUTION_STATUS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "VERSION_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "VERSION_DATETIME"
+  ],
+  "title": "VOLTAGE_INSTRUCTION_TRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "FILE_TYPE",
+      "string"
+    ],
+    [
+      3,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "SE_DATETIME",
+      "timestamptz"
+    ],
+    [
+      5,
+      "SOLUTION_CATEGORY",
+      "string"
+    ],
+    [
+      6,
+      "SOLUTION_STATUS",
+      "string"
+    ],
+    [
+      7,
+      "OPERATING_MODE",
+      "string"
+    ],
+    [
+      8,
+      "OPERATING_STATUS",
+      "string"
+    ],
+    [
+      9,
+      "EST_EXPIRY",
+      "timestamptz"
+    ],
+    [
+      10,
+      "EST_NEXT_INSTRUCTION",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "VOLTAGE_INSTRUCTION_TRK"
+  }
+}

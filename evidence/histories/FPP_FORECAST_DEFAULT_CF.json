@@ -1,0 +1,112 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 17,
+      "from": {
+        "data-time": "2024-12-29T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FORECAST_DEFAULT_CF#FILE01#202412010000.zip",
+        "release": "2024-12",
+        "sha256": "98693dc48b2295ff9ecddd3c216becad2eeac269e7d6a3a91c1d9a5e0e681f17"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "FORECAST_DEFAULT_CF"
+      ],
+      "rows": 8443105,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-10T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FORECAST_DEFAULT_CF#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "2e3edd71269c27dcad5a773ed8909f14eb2e19c668c73a9a6b72c7d598951e11"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FPP_UNITID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "CONSTRAINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "EFFECTIVE_START_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "EFFECTIVE_END_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 6,
+          "name": "BIDTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DEFAULT_CONTRIBUTION_FACTOR",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 9,
+          "name": "DCF_REASON_FLAG",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 10,
+          "name": "DCF_ABS_NEGATIVE_PERF_TOTAL",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 11,
+          "name": "SETTLEMENTS_UNITID",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "FPP_FORECAST_DEFAULT_CF"
+}

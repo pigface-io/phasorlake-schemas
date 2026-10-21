@@ -1,0 +1,449 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PDPASA_REGIONSOLUTION/schema-85fd69d916560f6b.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGGREGATECAPACITYAVAILABLE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "AGGREGATEPASAAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(12, 0)"
+    },
+    "AGGREGATESCHEDULEDLOAD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CALCULATEDLOR1LEVEL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "CALCULATEDLOR2LEVEL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "CAPACITYREQ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CONSTRAINEDCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(12, 0)"
+    },
+    "DEMAND10": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "DEMAND50": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "DEMAND90": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "DEMAND_AND_NONSCHEDGEN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "ENERGYREQDEMAND10": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "ENERGYREQDEMAND50": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LORCONDITION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LORNETINTERCHANGEUNDERSCARCITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "LOR_SEMISCHEDULEDCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "MAXSPARECAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "MAXSURPLUSRESERVE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "MSRNETINTERCHANGEUNDERSCARCITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "NETINTERCHANGEUNDERSCARCITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "RESERVECONDITION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RESERVEREQ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "RUNTYPE": {
+      "type": "string",
+      "x-field-id": 23,
+      "x-iceberg-type": "string"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "SEMISCHEDULEDCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "SURPLUSCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "SURPLUSRESERVE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "TOTALINTERMITTENTGENERATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "UIGF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "UNCONSTRAINEDCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(12, 0)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "INTERVAL_DATETIME",
+    "REGIONID",
+    "RUNTYPE"
+  ],
+  "title": "PDPASA_REGIONSOLUTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "DEMAND10",
+      "decimal(12, 2)"
+    ],
+    [
+      5,
+      "DEMAND50",
+      "decimal(12, 2)"
+    ],
+    [
+      6,
+      "DEMAND90",
+      "decimal(12, 2)"
+    ],
+    [
+      7,
+      "RESERVEREQ",
+      "decimal(12, 2)"
+    ],
+    [
+      8,
+      "CAPACITYREQ",
+      "decimal(12, 2)"
+    ],
+    [
+      9,
+      "ENERGYREQDEMAND50",
+      "decimal(12, 2)"
+    ],
+    [
+      10,
+      "UNCONSTRAINEDCAPACITY",
+      "decimal(12, 0)"
+    ],
+    [
+      11,
+      "CONSTRAINEDCAPACITY",
+      "decimal(12, 0)"
+    ],
+    [
+      12,
+      "NETINTERCHANGEUNDERSCARCITY",
+      "decimal(12, 2)"
+    ],
+    [
+      13,
+      "SURPLUSCAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      14,
+      "SURPLUSRESERVE",
+      "decimal(12, 2)"
+    ],
+    [
+      15,
+      "RESERVECONDITION",
+      "decimal(1, 0)"
+    ],
+    [
+      16,
+      "MAXSURPLUSRESERVE",
+      "decimal(12, 2)"
+    ],
+    [
+      17,
+      "MAXSPARECAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      18,
+      "LORCONDITION",
+      "decimal(1, 0)"
+    ],
+    [
+      19,
+      "AGGREGATECAPACITYAVAILABLE",
+      "decimal(12, 2)"
+    ],
+    [
+      20,
+      "AGGREGATESCHEDULEDLOAD",
+      "decimal(12, 2)"
+    ],
+    [
+      21,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      22,
+      "AGGREGATEPASAAVAILABILITY",
+      "decimal(12, 0)"
+    ],
+    [
+      23,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      24,
+      "ENERGYREQDEMAND10",
+      "decimal(12, 2)"
+    ],
+    [
+      25,
+      "CALCULATEDLOR1LEVEL",
+      "decimal(16, 6)"
+    ],
+    [
+      26,
+      "CALCULATEDLOR2LEVEL",
+      "decimal(16, 6)"
+    ],
+    [
+      27,
+      "MSRNETINTERCHANGEUNDERSCARCITY",
+      "decimal(12, 2)"
+    ],
+    [
+      28,
+      "LORNETINTERCHANGEUNDERSCARCITY",
+      "decimal(12, 2)"
+    ],
+    [
+      29,
+      "TOTALINTERMITTENTGENERATION",
+      "decimal(15, 5)"
+    ],
+    [
+      30,
+      "DEMAND_AND_NONSCHEDGEN",
+      "decimal(15, 5)"
+    ],
+    [
+      31,
+      "UIGF",
+      "decimal(12, 2)"
+    ],
+    [
+      32,
+      "SEMISCHEDULEDCAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      33,
+      "LOR_SEMISCHEDULEDCAPACITY",
+      "decimal(12, 2)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    23
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PDPASA_REGIONSOLUTION"
+  }
+}

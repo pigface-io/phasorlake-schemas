@@ -1,0 +1,94 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 17,
+      "from": {
+        "data-time": "2024-12-29T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FORECAST_RESIDUAL_DCF#FILE01#202412010000.zip",
+        "release": "2024-12",
+        "sha256": "ebe5ef4b0d202a29529070e723337a8ad3dcb4c523884409f3e217041bfda55a"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "FORECAST_RESIDUAL_DCF"
+      ],
+      "rows": 21995,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-10T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FORECAST_RESIDUAL_DCF#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "0a706eb187dc5f2027cef65a6889c6cc014f1485d9b76e26c1ccf5f02e81d604"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CONSTRAINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "EFFECTIVE_START_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "EFFECTIVE_END_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 5,
+          "name": "BIDTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "RESIDUAL_DCF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 7,
+          "name": "RESIDUAL_DCF_REASON_FLAG",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 8,
+          "name": "DCF_ABS_NEGATIVE_PERF_TOTAL",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "FPP_FORECAST_RESIDUAL_DCF"
+}

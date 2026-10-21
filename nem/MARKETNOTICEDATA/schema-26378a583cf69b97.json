@@ -1,0 +1,113 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MARKETNOTICEDATA/schema-26378a583cf69b97.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "EXTERNALREFERENCE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "NOTICEID": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "NOTICETYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "REASON": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "TYPEID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "NOTICEID"
+  ],
+  "title": "MARKETNOTICEDATA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "NOTICEID",
+      "long"
+    ],
+    [
+      2,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "TYPEID",
+      "string"
+    ],
+    [
+      4,
+      "NOTICETYPE",
+      "string"
+    ],
+    [
+      5,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      6,
+      "REASON",
+      "string"
+    ],
+    [
+      7,
+      "EXTERNALREFERENCE",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "MARKETNOTICEDATA"
+  }
+}

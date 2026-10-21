@@ -1,0 +1,153 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_DUIDAVAILABILITY/schema-6b35e627a0c7a5d9.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CARRYOVERSTATUS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "DAY": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DUID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LATEST_OFFER_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PASAAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 0)"
+    },
+    "PASARECALLTIME": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "PASAUNITSTATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string"
+    },
+    "PUBLISH_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "MTPASA_DUIDAVAILABILITY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PUBLISH_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DAY",
+      "timestamptz"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "DUID",
+      "string"
+    ],
+    [
+      5,
+      "PASAAVAILABILITY",
+      "decimal(12, 0)"
+    ],
+    [
+      6,
+      "LATEST_OFFER_DATETIME",
+      "timestamptz"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      8,
+      "CARRYOVERSTATUS",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "PASAUNITSTATE",
+      "string"
+    ],
+    [
+      10,
+      "PASARECALLTIME",
+      "decimal(4, 0)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "MTPASA_DUIDAVAILABILITY"
+  }
+}

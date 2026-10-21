@@ -1,0 +1,92 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2024-08-02T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_GEN_LIMIT_DAY#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "38f4e65e21e1beaa458ab7a461f667e1ecf6ce0e49550b4221197604e1b709c6"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_GEN_LIMIT_DAY"
+      ],
+      "rows": 542315,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_GEN_LIMIT_DAY#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "ca417cd85f4256ff30481bbd682590d55048370093ed2ba6f59d9abc74689346"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADINGDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "OFFERDATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "PARTICIPANTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "AUTHORISEDBYUSER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "AUTHORISEDBYPARTICIPANTID",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "INTERMITTENT_GEN_LIMIT_DAY"
+}

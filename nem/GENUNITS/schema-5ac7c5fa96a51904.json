@@ -1,0 +1,307 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GENUNITS/schema-5ac7c5fa96a51904.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGCFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "CDINDICATOR": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "CO2E_DATA_SOURCE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "string"
+    },
+    "CO2E_EMISSIONS_FACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "CO2E_ENERGY_SOURCE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string"
+    },
+    "DISPATCHTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string"
+    },
+    "GENSETID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "GENSETNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string"
+    },
+    "GENSETTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MAXCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MAXSTORAGECAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "MINCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MKTGENERATORIND": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "NORMALSTATUS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string"
+    },
+    "REGISTEREDCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "REGISTEREDMINCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "SETLOSSFACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "SPINNINGFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "STARTTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string"
+    },
+    "STATIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "VOLTLEVEL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(6, 0)"
+    }
+  },
+  "required": [
+    "GENSETID"
+  ],
+  "title": "GENUNITS, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GENSETID",
+      "string"
+    ],
+    [
+      2,
+      "STATIONID",
+      "string"
+    ],
+    [
+      3,
+      "SETLOSSFACTOR",
+      "decimal(16, 6)"
+    ],
+    [
+      4,
+      "CDINDICATOR",
+      "string"
+    ],
+    [
+      5,
+      "AGCFLAG",
+      "string"
+    ],
+    [
+      6,
+      "SPINNINGFLAG",
+      "string"
+    ],
+    [
+      7,
+      "VOLTLEVEL",
+      "decimal(6, 0)"
+    ],
+    [
+      8,
+      "REGISTEREDCAPACITY",
+      "decimal(6, 0)"
+    ],
+    [
+      9,
+      "DISPATCHTYPE",
+      "string"
+    ],
+    [
+      10,
+      "STARTTYPE",
+      "string"
+    ],
+    [
+      11,
+      "MKTGENERATORIND",
+      "string"
+    ],
+    [
+      12,
+      "NORMALSTATUS",
+      "string"
+    ],
+    [
+      13,
+      "MAXCAPACITY",
+      "decimal(6, 0)"
+    ],
+    [
+      14,
+      "GENSETTYPE",
+      "string"
+    ],
+    [
+      15,
+      "GENSETNAME",
+      "string"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      17,
+      "CO2E_EMISSIONS_FACTOR",
+      "decimal(18, 8)"
+    ],
+    [
+      18,
+      "CO2E_ENERGY_SOURCE",
+      "string"
+    ],
+    [
+      19,
+      "CO2E_DATA_SOURCE",
+      "string"
+    ],
+    [
+      20,
+      "MINCAPACITY",
+      "decimal(6, 0)"
+    ],
+    [
+      21,
+      "REGISTEREDMINCAPACITY",
+      "decimal(6, 0)"
+    ],
+    [
+      22,
+      "MAXSTORAGECAPACITY",
+      "decimal(15, 5)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "GENUNITS"
+  }
+}

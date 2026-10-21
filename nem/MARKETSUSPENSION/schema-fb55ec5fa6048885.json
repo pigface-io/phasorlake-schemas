@@ -1,0 +1,140 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MARKETSUSPENSION/schema-fb55ec5fa6048885.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ENDAUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "ENDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "ENDPERIOD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "REASON": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "STARTAUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "STARTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "STARTPERIOD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "SUSPENSIONID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "SUSPENSIONID"
+  ],
+  "title": "MARKETSUSPENSION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SUSPENSIONID",
+      "string"
+    ],
+    [
+      2,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "STARTPERIOD",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "ENDPERIOD",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "REASON",
+      "string"
+    ],
+    [
+      7,
+      "STARTAUTHORISEDBY",
+      "string"
+    ],
+    [
+      8,
+      "ENDAUTHORISEDBY",
+      "string"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "MARKETSUSPENSION"
+  }
+}

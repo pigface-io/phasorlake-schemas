@@ -1,0 +1,76 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_REGIONAVAIL_TRK/schema-3153c3ccb04c4bbe.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ENDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LATEST_OFFER_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PUBLISH_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "STARTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "PUBLISH_DATETIME"
+  ],
+  "title": "MTPASA_REGIONAVAIL_TRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PUBLISH_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "LATEST_OFFER_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "MTPASA_REGIONAVAIL_TRK"
+  }
+}

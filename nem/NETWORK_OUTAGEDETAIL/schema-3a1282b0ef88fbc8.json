@@ -1,0 +1,269 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/NETWORK_OUTAGEDETAIL/schema-3a1282b0ef88fbc8.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ACTUAL_ENDTIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "timestamptz"
+    },
+    "ACTUAL_STARTTIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz"
+    },
+    "COMPANYREFCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string"
+    },
+    "ELEMENTID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(15, 0)"
+    },
+    "ENDTIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "EQUIPMENTID": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "EQUIPMENTTYPE": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "ISSECONDARY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "timestamptz"
+    },
+    "OUTAGEID": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "OUTAGESTATUSCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "REASON": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string"
+    },
+    "RECALLTIMEDAY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(10, 0)"
+    },
+    "RECALLTIMENIGHT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(10, 0)"
+    },
+    "RESUBMITOUTAGEID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 0)"
+    },
+    "RESUBMITREASON": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string"
+    },
+    "STARTTIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "SUBMITTEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "SUBSTATIONID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "OUTAGEID",
+    "SUBSTATIONID",
+    "EQUIPMENTTYPE",
+    "EQUIPMENTID",
+    "STARTTIME"
+  ],
+  "title": "NETWORK_OUTAGEDETAIL, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "OUTAGEID",
+      "long"
+    ],
+    [
+      2,
+      "SUBSTATIONID",
+      "string"
+    ],
+    [
+      3,
+      "EQUIPMENTTYPE",
+      "string"
+    ],
+    [
+      4,
+      "EQUIPMENTID",
+      "string"
+    ],
+    [
+      5,
+      "STARTTIME",
+      "timestamptz"
+    ],
+    [
+      6,
+      "ENDTIME",
+      "timestamptz"
+    ],
+    [
+      7,
+      "SUBMITTEDDATE",
+      "timestamptz"
+    ],
+    [
+      8,
+      "OUTAGESTATUSCODE",
+      "string"
+    ],
+    [
+      9,
+      "RESUBMITREASON",
+      "string"
+    ],
+    [
+      10,
+      "RESUBMITOUTAGEID",
+      "decimal(15, 0)"
+    ],
+    [
+      11,
+      "RECALLTIMEDAY",
+      "decimal(10, 0)"
+    ],
+    [
+      12,
+      "RECALLTIMENIGHT",
+      "decimal(10, 0)"
+    ],
+    [
+      13,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      14,
+      "REASON",
+      "string"
+    ],
+    [
+      15,
+      "ISSECONDARY",
+      "decimal(1, 0)"
+    ],
+    [
+      16,
+      "ACTUAL_STARTTIME",
+      "timestamptz"
+    ],
+    [
+      17,
+      "ACTUAL_ENDTIME",
+      "timestamptz"
+    ],
+    [
+      18,
+      "COMPANYREFCODE",
+      "string"
+    ],
+    [
+      19,
+      "ELEMENTID",
+      "decimal(15, 0)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "NETWORK_OUTAGEDETAIL"
+  }
+}

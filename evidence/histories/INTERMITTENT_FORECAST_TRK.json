@@ -1,0 +1,79 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2024-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_FORECAST_TRK#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "51abb2ce8bb72243265c7b9ec66a22408c029605b39d56bde660d6907e64b98d"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "INTERMITTENT_FORECAST_TRK"
+      ],
+      "rows": 34485209,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_FORECAST_TRK#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "dde761304d6e1b5d2b389d85be7bb2e6ea1d7466d8085b7c0aa33ed08ceee165"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "ORIGIN",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "FORECAST_PRIORITY",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 5,
+          "name": "OFFERDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "INTERMITTENT_FORECAST_TRK"
+}

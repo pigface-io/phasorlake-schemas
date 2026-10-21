@@ -1,0 +1,93 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 202,
+      "from": {
+        "data-time": "1998-10-25T00:00:00+10:00",
+        "file": "PUBLIC_DVD_STATIONOPERATINGSTATUS_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "PARTICIPANT_REGISTRATION",
+        "STATIONOPERATINGSTATUS"
+      ],
+      "rows": 229337,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-28T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STATIONOPERATINGSTATUS#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "f5b2e8b8cf446a1512948d22fce7de25371cf4f5d2d5d8fce90d8be9eea8ffaa"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "STATIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "STATUS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "AUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "AUTHORISEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STATIONOPERATINGSTATUS"
+}

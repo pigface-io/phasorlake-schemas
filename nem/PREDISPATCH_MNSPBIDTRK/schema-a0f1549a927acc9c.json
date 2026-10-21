@@ -1,0 +1,139 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PREDISPATCH_MNSPBIDTRK/schema-a0f1549a927acc9c.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LINKID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "OFFERDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PARTICIPANTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "PERIODID": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    },
+    "PREDISPATCHSEQNO": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(3, 0)"
+    }
+  },
+  "required": [
+    "PREDISPATCHSEQNO",
+    "LINKID",
+    "PERIODID"
+  ],
+  "title": "PREDISPATCH_MNSPBIDTRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PREDISPATCHSEQNO",
+      "long"
+    ],
+    [
+      2,
+      "LINKID",
+      "string"
+    ],
+    [
+      3,
+      "PERIODID",
+      "long"
+    ],
+    [
+      4,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      5,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "OFFERDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "VERSIONNO",
+      "decimal(3, 0)"
+    ],
+    [
+      8,
+      "DATETIME",
+      "timestamptz"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PREDISPATCH_MNSPBIDTRK"
+  }
+}

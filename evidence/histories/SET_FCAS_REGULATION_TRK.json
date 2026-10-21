@@ -1,0 +1,502 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 180,
+      "from": {
+        "data-time": "2009-01-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_SET_FCAS_REGULATION_TRK_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "SETTLEMENTS",
+        "SET_FCAS_REGULATION_TRK"
+      ],
+      "rows": 21684547,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2024-01-06T00:00:00+10:00",
+        "file": "PUBLIC_DVD_SET_FCAS_REGULATION_TRK_202407010000.zip",
+        "release": "2024-07",
+        "sha256": "e66e30a344b5b088a2337f39aa0133b230db2a8b2ff2d893053900649f04ced6"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 8,
+      "from": {
+        "data-time": "2023-12-31T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#SET_FCAS_REGULATION_TRK#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "10330908f68fe9bb7d7e24aee66c42d95009af441a7d4e7e657e381ed2f3de13"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SETTLEMENTS",
+        "SET_FCAS_REGULATION_TRK"
+      ],
+      "rows": 1667639,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-03-30T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#SET_FCAS_REGULATION_TRK#FILE01#202503010000.zip",
+        "release": "2025-03",
+        "sha256": "538f00993215881241366234d79f5a3df209f6ac00b2743bdaf1004190230480"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 10
+        },
+        {
+          "action": "add",
+          "field-id": 11
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-09-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#SET_FCAS_REGULATION_TRK#FILE01#202504010000.zip",
+        "release": "2025-04",
+        "sha256": "5eb7cdad6650c27646f1f919867c4a90b03dcd4eae2fb8438e4f7ee74ae73324"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SETTLEMENTS",
+        "SET_FCAS_REGULATION_TRK"
+      ],
+      "rows": 188544,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-04-29T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#SET_FCAS_REGULATION_TRK#FILE01#202504010000.zip",
+        "release": "2025-04",
+        "sha256": "5eb7cdad6650c27646f1f919867c4a90b03dcd4eae2fb8438e4f7ee74ae73324"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 12
+        },
+        {
+          "action": "add",
+          "field-id": 13
+        },
+        {
+          "action": "add",
+          "field-id": 14
+        },
+        {
+          "action": "add",
+          "field-id": 15
+        },
+        {
+          "action": "add",
+          "field-id": 16
+        },
+        {
+          "action": "add",
+          "field-id": 17
+        },
+        {
+          "action": "add",
+          "field-id": 18
+        },
+        {
+          "action": "add",
+          "field-id": 19
+        },
+        {
+          "action": "add",
+          "field-id": 20
+        },
+        {
+          "action": "add",
+          "field-id": 21
+        },
+        {
+          "action": "add",
+          "field-id": 22
+        },
+        {
+          "action": "add",
+          "field-id": 23
+        },
+        {
+          "action": "add",
+          "field-id": 24
+        },
+        {
+          "action": "add",
+          "field-id": 25
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "version"
+      ],
+      "files": 12,
+      "from": {
+        "data-time": "2024-09-29T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#SET_FCAS_REGULATION_TRK#FILE01#202505010000.zip",
+        "release": "2025-05",
+        "sha256": "ab82eab321e863ff3393305ebaeaabe44a63d6604b1e85733bfb8e9141a5cadc"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SETTLEMENTS",
+        "SET_FCAS_REGULATION_TRK"
+      ],
+      "rows": 2106531,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-04-29T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#SET_FCAS_REGULATION_TRK#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "578fc0e9886e344f0d915d837ac93930e171203b8b7bdb64eb9d35d1c71ff60b"
+      },
+      "updates": [],
+      "version": 3
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "CONSTRAINTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "CMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 6,
+          "name": "CRMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 7,
+          "name": "RECOVERY_FACTOR_CMPF",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 8,
+          "name": "RECOVERY_FACTOR_CRMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "CONSTRAINTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "CMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 6,
+          "name": "CRMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 7,
+          "name": "RECOVERY_FACTOR_CMPF",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 8,
+          "name": "RECOVERY_FACTOR_CRMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "USESUBSTITUTEDEMAND",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 11,
+          "name": "REQUIREMENTDEMAND",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "CONSTRAINTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "CMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 6,
+          "name": "CRMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 7,
+          "name": "RECOVERY_FACTOR_CMPF",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 8,
+          "name": "RECOVERY_FACTOR_CRMPF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "USESUBSTITUTEDEMAND",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 11,
+          "name": "REQUIREMENTDEMAND",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 12,
+          "name": "FPP_AMOUNT",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 13,
+          "name": "FPP_RESIDUAL_AMOUNT",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 14,
+          "name": "USED_AMOUNT",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 15,
+          "name": "USED_RESIDUAL_AMOUNT",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 16,
+          "name": "UNUSED_AMOUNT",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 17,
+          "name": "UNUSED_RESIDUAL_AMOUNT",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 18,
+          "name": "P_REGULATION",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 19,
+          "name": "TSFCAS",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 20,
+          "name": "RCR",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 21,
+          "name": "USAGE_VALUE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 22,
+          "name": "RCF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 23,
+          "name": "NRCF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 24,
+          "name": "DRCF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 25,
+          "name": "RESIDUALTOTAL_MWH",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "schema-id": 2,
+      "type": "struct"
+    }
+  ],
+  "table": "SET_FCAS_REGULATION_TRK"
+}

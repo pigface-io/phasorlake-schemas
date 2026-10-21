@@ -1,0 +1,138 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_UNIT_MW/schema-1eed093ba7b585ce.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DEVIATION_MW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 5)"
+    },
+    "FPP_UNITID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MEASURED_MW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "MEASUREMENT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MW_QUALITY_FLAG": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "long"
+    },
+    "PARTICIPANTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string"
+    },
+    "SCHEDULED_MW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 5)"
+    },
+    "VERSIONNO": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [],
+  "title": "FPP_UNIT_MW, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "MEASUREMENT_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "FPP_UNITID",
+      "string"
+    ],
+    [
+      4,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      5,
+      "MEASURED_MW",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "MW_QUALITY_FLAG",
+      "long"
+    ],
+    [
+      7,
+      "SCHEDULED_MW",
+      "decimal(18, 5)"
+    ],
+    [
+      8,
+      "DEVIATION_MW",
+      "decimal(18, 5)"
+    ],
+    [
+      9,
+      "PARTICIPANTID",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "FPP_UNIT_MW"
+  }
+}

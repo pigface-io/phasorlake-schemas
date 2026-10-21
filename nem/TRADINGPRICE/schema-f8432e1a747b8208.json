@@ -1,0 +1,357 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/TRADINGPRICE/schema-f8432e1a747b8208.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EEP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "INVALIDFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOWER5MINROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWER5MINRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWER60SECROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWER60SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWER6SECROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWER6SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWERREGROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWERREGRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "PERIODID": {
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long"
+    },
+    "PRICE_STATUS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MINROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISE5MINRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISE60SECROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISE60SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISE6SECROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISE6SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISEREGROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISEREGRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "ROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RUNNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "RUNNO",
+    "REGIONID",
+    "PERIODID"
+  ],
+  "title": "TRADINGPRICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "long"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "long"
+    ],
+    [
+      5,
+      "RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      6,
+      "EEP",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "INVALIDFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      9,
+      "ROP",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "RAISE6SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "RAISE6SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "RAISE60SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "RAISE60SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "RAISE5MINRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "RAISE5MINROP",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "RAISEREGRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "RAISEREGROP",
+      "decimal(15, 5)"
+    ],
+    [
+      18,
+      "LOWER6SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      19,
+      "LOWER6SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      20,
+      "LOWER60SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      21,
+      "LOWER60SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      22,
+      "LOWER5MINRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      23,
+      "LOWER5MINROP",
+      "decimal(15, 5)"
+    ],
+    [
+      24,
+      "LOWERREGRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      25,
+      "LOWERREGROP",
+      "decimal(15, 5)"
+    ],
+    [
+      26,
+      "PRICE_STATUS",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "TRADINGPRICE"
+  }
+}

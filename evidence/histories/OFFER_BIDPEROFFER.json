@@ -1,0 +1,208 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 139,
+      "from": {
+        "data-time": "2009-07-02T00:00:00+10:00",
+        "file": "PUBLIC_DVD_BIDPEROFFER_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "OFFER",
+        "BIDPEROFFER"
+      ],
+      "rows": 1526997792,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2021-03-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_BIDPEROFFER_202102010000.zip",
+        "release": "2021-02",
+        "sha256": "0ff2568f6546c7eb625d4d8939ff0cae87fbe7f446dcd7f0fe54101191568d4b"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "DUID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "BIDTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "OFFERDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 6,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 7,
+          "name": "MAXAVAIL",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 8,
+          "name": "FIXEDLOAD",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 9,
+          "name": "ROCUP",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 10,
+          "name": "ROCDOWN",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 11,
+          "name": "ENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 12,
+          "name": "ENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 13,
+          "name": "LOWBREAKPOINT",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 14,
+          "name": "HIGHBREAKPOINT",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 15,
+          "name": "BANDAVAIL1",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 16,
+          "name": "BANDAVAIL2",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 17,
+          "name": "BANDAVAIL3",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 18,
+          "name": "BANDAVAIL4",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 19,
+          "name": "BANDAVAIL5",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 20,
+          "name": "BANDAVAIL6",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 21,
+          "name": "BANDAVAIL7",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 22,
+          "name": "BANDAVAIL8",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 23,
+          "name": "BANDAVAIL9",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 24,
+          "name": "BANDAVAIL10",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 25,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 26,
+          "name": "PASAAVAILABILITY",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 27,
+          "name": "MR_CAPACITY",
+          "required": false,
+          "type": "decimal(3, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "OFFER_BIDPEROFFER"
+}

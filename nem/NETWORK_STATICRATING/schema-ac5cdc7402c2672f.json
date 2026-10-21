@@ -1,0 +1,135 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/NETWORK_STATICRATING/schema-ac5cdc7402c2672f.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APPLICATIONID": {
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "EQUIPMENTID": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "EQUIPMENTTYPE": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RATINGLEVEL": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "RATINGVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "SUBSTATIONID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "VALIDFROM": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VALIDTO": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "SUBSTATIONID",
+    "EQUIPMENTTYPE",
+    "EQUIPMENTID",
+    "RATINGLEVEL",
+    "APPLICATIONID",
+    "VALIDFROM"
+  ],
+  "title": "NETWORK_STATICRATING, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SUBSTATIONID",
+      "string"
+    ],
+    [
+      2,
+      "EQUIPMENTTYPE",
+      "string"
+    ],
+    [
+      3,
+      "EQUIPMENTID",
+      "string"
+    ],
+    [
+      4,
+      "RATINGLEVEL",
+      "string"
+    ],
+    [
+      5,
+      "APPLICATIONID",
+      "string"
+    ],
+    [
+      6,
+      "VALIDFROM",
+      "timestamptz"
+    ],
+    [
+      7,
+      "VALIDTO",
+      "timestamptz"
+    ],
+    [
+      8,
+      "RATINGVALUE",
+      "decimal(16, 6)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "NETWORK_STATICRATING"
+  }
+}

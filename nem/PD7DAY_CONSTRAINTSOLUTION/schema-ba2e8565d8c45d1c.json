@@ -1,0 +1,139 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PD7DAY_CONSTRAINTSOLUTION/schema-ba2e8565d8c45d1c.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONSTRAINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "INTERVENTION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LHS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "MARGINALVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RHS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VIOLATIONDEGREE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)"
+    }
+  },
+  "required": [],
+  "title": "PD7DAY_CONSTRAINTSOLUTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "INTERVENTION",
+      "decimal(2, 0)"
+    ],
+    [
+      3,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      5,
+      "RHS",
+      "decimal(15, 5)"
+    ],
+    [
+      6,
+      "MARGINALVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "VIOLATIONDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "LHS",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PD7DAY_CONSTRAINTSOLUTION"
+  }
+}

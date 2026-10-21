@@ -1,0 +1,72 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2024-08-01T09:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MTPASA_REGIONAVAIL_TRK#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "5732a6c0733ac188ab10fe2e0492cb9d804ea2d6394d3656a3562f9cdfa28ecf"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "MTPASA",
+        "REGIONAVAILTRK"
+      ],
+      "rows": 2233,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-30T18:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MTPASA_REGIONAVAIL_TRK#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "c0fdf90ba5b312be7f9007c5fec0e36b1dc95b844baf89fa6b9946cf51ffa376"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PUBLISH_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "STARTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "ENDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "LATEST_OFFER_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "MTPASA_REGIONAVAIL_TRK"
+}

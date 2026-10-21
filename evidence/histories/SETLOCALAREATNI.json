@@ -1,0 +1,81 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2023-12-31T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#SETLOCALAREATNI#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "6fcb0c48fe06a09515e2846e025d7951e81860d9d08a77fc231e76fadf614b48"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "SETTLEMENTS",
+        "LOCALAREATNI"
+      ],
+      "rows": 1960172,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-18T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#SETLOCALAREATNI#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "93bc5d5ba5ca2043b2deec3bee3b4c4e69d6ba87a9d4c7693e95fa6e656ba514"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "SETTLEMENTRUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "LOCALAREAID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "TNI",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "SETLOCALAREATNI"
+}

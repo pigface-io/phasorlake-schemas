@@ -1,0 +1,1464 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 16,
+      "from": {
+        "data-time": "1998-10-25T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DUDETAIL_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "PARTICIPANT_REGISTRATION",
+        "DUDETAIL"
+      ],
+      "rows": 40125,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2010-11-05T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DUDETAIL_201010010000.zip",
+        "release": "2010-10",
+        "sha256": "09e1f2f9cbdb22c443316804443e3d31757bd933cca50327f2b5e31840020808"
+      },
+      "updates": [],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 131,
+      "from": {
+        "data-time": "1998-10-25T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DUDETAIL_201011010000.zip",
+        "release": "2010-11",
+        "sha256": "5fb4a7ea3bc9c8ea4c926565c0ae2f91f6439a7810ad33752a1e3caf0f5d79c7"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PARTICIPANT_REGISTRATION",
+        "DUDETAIL"
+      ],
+      "rows": 400687,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2021-10-05T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DUDETAIL_202109010000.zip",
+        "release": "2021-09",
+        "sha256": "43f6d1e0408d0cd03ab1e7982b587d486e53782fd4d1d4654194453b90f6ab32"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 19
+        },
+        {
+          "action": "add",
+          "field-id": 20
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "1998-10-25T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DUDETAIL_202110010000.zip",
+        "release": "2021-10",
+        "sha256": "e1d1990ae69b9ad51c79a74bc52d1e9f10e86ff99bf4880c0aa80fee897bf029"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PARTICIPANT_REGISTRATION",
+        "DUDETAIL"
+      ],
+      "rows": 72523,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2023-06-27T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DUDETAIL_202306010000.zip",
+        "release": "2023-06",
+        "sha256": "7cc6d48c87792a773fed301f5422eedd62ee7f3f8297f901be654934f8f30df8"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 21
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 10,
+      "from": {
+        "data-time": "1998-10-25T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DUDETAIL_202307010000.zip",
+        "release": "2023-07",
+        "sha256": "26cca789257ef69d4337c69e22ede2b0525df7bf5fe2e9fa345b03412acc921c"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PARTICIPANT_REGISTRATION",
+        "DUDETAIL"
+      ],
+      "rows": 35938,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2024-05-07T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DUDETAIL_202404010000.zip",
+        "release": "2024-04",
+        "sha256": "27268854337fb37f58c514e9d2682c1eb470ead553157c8f5edfe68b19130c56"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 22
+        },
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "1998-10-25T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DUDETAIL_202405010000.zip",
+        "release": "2024-05",
+        "sha256": "f0c4683da1ee655039174fcf0bf856530fb584c533163ee2a98ecca66bb63dd2"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PARTICIPANT_REGISTRATION",
+        "DUDETAIL"
+      ],
+      "rows": 12358,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2024-08-06T00:00:00+10:00",
+        "file": "PUBLIC_DVD_DUDETAIL_202407010000.zip",
+        "release": "2024-07",
+        "sha256": "cd6cb41871e040855372b10e92925a1c232f1bc9654f75f260e12afa2896bbc1"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 23
+        },
+        {
+          "action": "add",
+          "field-id": 24
+        },
+        {
+          "action": "add",
+          "field-id": 25
+        },
+        {
+          "action": "add",
+          "field-id": 26
+        },
+        {
+          "action": "add",
+          "field-id": 27
+        },
+        {
+          "action": "add",
+          "field-id": 28
+        },
+        {
+          "action": "add",
+          "field-id": 29
+        },
+        {
+          "action": "add",
+          "field-id": 30
+        },
+        {
+          "action": "add",
+          "field-id": 31
+        },
+        {
+          "action": "add",
+          "field-id": 32
+        },
+        {
+          "action": "add",
+          "field-id": 33
+        }
+      ],
+      "version": 6
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "1998-10-25T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DUDETAIL#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "44c0cce6b61e1227b3a1419c739dbf689663cbf145ce9447baefaeb866d69832"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PARTICIPANT_REGISTRATION",
+        "DUDETAIL"
+      ],
+      "rows": 8397,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2024-10-10T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DUDETAIL#FILE01#202409010000.zip",
+        "release": "2024-09",
+        "sha256": "624a9399cb7018ef5680533caeb2624b50dbfecfdb62b52422644c2ca7337550"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 1
+        }
+      ],
+      "version": 6
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 19,
+      "from": {
+        "data-time": "1998-10-25T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DUDETAIL#FILE01#202410010000.zip",
+        "release": "2024-10",
+        "sha256": "360279545318f283889a5a8cf7fc01e38343d84af85743533f8133c54a3378c4"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PARTICIPANT_REGISTRATION",
+        "DUDETAIL"
+      ],
+      "rows": 82419,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2026-04-28T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DUDETAIL#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "73eded1e84aaad754c5b384fc06e0f8c5d63231528e12cd411d7ea9fef945749"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 34
+        }
+      ],
+      "version": 7
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "VOLTLEVEL",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 6,
+          "name": "REGISTEREDCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 7,
+          "name": "AGCCAPABILITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "MAXCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 10,
+          "name": "STARTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "NORMALLYONFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "PHYSICALDETAILSFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "SPINNINGRESERVEFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "AUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "AUTHORISEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 16,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 17,
+          "name": "INTERMITTENTFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "SEMISCHEDULE_FLAG",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [
+        2,
+        1,
+        3
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "VOLTLEVEL",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 6,
+          "name": "REGISTEREDCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 7,
+          "name": "AGCCAPABILITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "MAXCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 10,
+          "name": "STARTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "NORMALLYONFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "PHYSICALDETAILSFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "SPINNINGRESERVEFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "AUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "AUTHORISEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 16,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 17,
+          "name": "INTERMITTENTFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "SEMISCHEDULE_FLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "MAXRATEOFCHANGEUP",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 20,
+          "name": "MAXRATEOFCHANGEDOWN",
+          "required": false,
+          "type": "decimal(6, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        2,
+        1,
+        3
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "VOLTLEVEL",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 6,
+          "name": "REGISTEREDCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 7,
+          "name": "AGCCAPABILITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "MAXCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 10,
+          "name": "STARTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "NORMALLYONFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "PHYSICALDETAILSFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "SPINNINGRESERVEFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "AUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "AUTHORISEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 16,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 17,
+          "name": "INTERMITTENTFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "SEMISCHEDULE_FLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "MAXRATEOFCHANGEUP",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 20,
+          "name": "MAXRATEOFCHANGEDOWN",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 21,
+          "name": "DISPATCHSUBTYPE",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [
+        2,
+        1,
+        3
+      ],
+      "schema-id": 2,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "VOLTLEVEL",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 6,
+          "name": "REGISTEREDCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 7,
+          "name": "AGCCAPABILITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "MAXCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 10,
+          "name": "STARTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "NORMALLYONFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "PHYSICALDETAILSFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "SPINNINGRESERVEFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "AUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "AUTHORISEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 16,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 17,
+          "name": "INTERMITTENTFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "SEMISCHEDULE_FLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "MAXRATEOFCHANGEUP",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 20,
+          "name": "MAXRATEOFCHANGEDOWN",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 21,
+          "name": "DISPATCHSUBTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 22,
+          "name": "ADG_ID",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [
+        2,
+        1,
+        3
+      ],
+      "schema-id": 3,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "VOLTLEVEL",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 6,
+          "name": "REGISTEREDCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 7,
+          "name": "AGCCAPABILITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "MAXCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 10,
+          "name": "STARTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "NORMALLYONFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "PHYSICALDETAILSFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "SPINNINGRESERVEFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "AUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "AUTHORISEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 16,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 17,
+          "name": "INTERMITTENTFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "SEMISCHEDULE_FLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "MAXRATEOFCHANGEUP",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 20,
+          "name": "MAXRATEOFCHANGEDOWN",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 21,
+          "name": "DISPATCHSUBTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 22,
+          "name": "ADG_ID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 23,
+          "name": "MINCAPACITY",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 24,
+          "name": "REGISTEREDMINCAPACITY",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 25,
+          "name": "MAXRATEOFCHANGEUP_LOAD",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 26,
+          "name": "MAXRATEOFCHANGEDOWN_LOAD",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 27,
+          "name": "MAXSTORAGECAPACITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "STORAGEIMPORTEFFICIENCYFACTOR",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "STORAGEEXPORTEFFICIENCYFACTOR",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "MIN_RAMP_RATE_UP",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 31,
+          "name": "MIN_RAMP_RATE_DOWN",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 32,
+          "name": "LOAD_MIN_RAMP_RATE_UP",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 33,
+          "name": "LOAD_MIN_RAMP_RATE_DOWN",
+          "required": false,
+          "type": "decimal(6, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        2,
+        1,
+        3
+      ],
+      "schema-id": 4,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "VOLTLEVEL",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 6,
+          "name": "REGISTEREDCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 7,
+          "name": "AGCCAPABILITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "MAXCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 10,
+          "name": "STARTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "NORMALLYONFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "PHYSICALDETAILSFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "SPINNINGRESERVEFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "AUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "AUTHORISEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 16,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 17,
+          "name": "INTERMITTENTFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "SEMISCHEDULE_FLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "MAXRATEOFCHANGEUP",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 20,
+          "name": "MAXRATEOFCHANGEDOWN",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 21,
+          "name": "DISPATCHSUBTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 22,
+          "name": "ADG_ID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 23,
+          "name": "MINCAPACITY",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 24,
+          "name": "REGISTEREDMINCAPACITY",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 25,
+          "name": "MAXRATEOFCHANGEUP_LOAD",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 26,
+          "name": "MAXRATEOFCHANGEDOWN_LOAD",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 27,
+          "name": "MAXSTORAGECAPACITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "STORAGEIMPORTEFFICIENCYFACTOR",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "STORAGEEXPORTEFFICIENCYFACTOR",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "MIN_RAMP_RATE_UP",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 31,
+          "name": "MIN_RAMP_RATE_DOWN",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 32,
+          "name": "LOAD_MIN_RAMP_RATE_UP",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 33,
+          "name": "LOAD_MIN_RAMP_RATE_DOWN",
+          "required": false,
+          "type": "decimal(6, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        2,
+        1,
+        3
+      ],
+      "schema-id": 5,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "VOLTLEVEL",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 6,
+          "name": "REGISTEREDCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 7,
+          "name": "AGCCAPABILITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DISPATCHTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "MAXCAPACITY",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 10,
+          "name": "STARTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "NORMALLYONFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "PHYSICALDETAILSFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "SPINNINGRESERVEFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "AUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "AUTHORISEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 16,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 17,
+          "name": "INTERMITTENTFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "SEMISCHEDULE_FLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "MAXRATEOFCHANGEUP",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 20,
+          "name": "MAXRATEOFCHANGEDOWN",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 21,
+          "name": "DISPATCHSUBTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 22,
+          "name": "ADG_ID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 23,
+          "name": "MINCAPACITY",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 24,
+          "name": "REGISTEREDMINCAPACITY",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 25,
+          "name": "MAXRATEOFCHANGEUP_LOAD",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 26,
+          "name": "MAXRATEOFCHANGEDOWN_LOAD",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 27,
+          "name": "MAXSTORAGECAPACITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "STORAGEIMPORTEFFICIENCYFACTOR",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "STORAGEEXPORTEFFICIENCYFACTOR",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "MIN_RAMP_RATE_UP",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 31,
+          "name": "MIN_RAMP_RATE_DOWN",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 32,
+          "name": "LOAD_MIN_RAMP_RATE_UP",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 33,
+          "name": "LOAD_MIN_RAMP_RATE_DOWN",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 34,
+          "name": "AGGREGATED",
+          "required": false,
+          "type": "decimal(1, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        2,
+        1,
+        3
+      ],
+      "schema-id": 6,
+      "type": "struct"
+    }
+  ],
+  "table": "DUDETAIL"
+}

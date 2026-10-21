@@ -1,0 +1,73 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 202,
+      "from": {
+        "data-time": "1998-06-30T22:01:21+10:00",
+        "file": "PUBLIC_DVD_MARKETNOTICETYPE_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "MARKET_NOTICE",
+        "MARKETNOTICETYPE"
+      ],
+      "rows": 5926,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2024-04-16T11:16:38+10:00",
+        "file": "PUBLIC_ARCHIVE#MARKETNOTICETYPE#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "8b5b7c9c8f344484d293a3bd467c15e9300f07d599205dbb1940a85fccc24ab6"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TYPEID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "RAISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "MARKETNOTICETYPE"
+}

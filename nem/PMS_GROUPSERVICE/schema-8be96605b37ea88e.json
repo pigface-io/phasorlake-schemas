@@ -1,0 +1,233 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PMS_GROUPSERVICE/schema-8be96605b37ea88e.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APPROVEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "timestamptz"
+    },
+    "ENDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "ENTITYID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string"
+    },
+    "ENTITYTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string"
+    },
+    "GROUPID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "double"
+    },
+    "GROUPSERVICEID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "double"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MARKET": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "MAXIMUMRAMPRATEPERMIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(10, 0)"
+    },
+    "MRC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(10, 3)"
+    },
+    "MRCREASON": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string"
+    },
+    "REGION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string"
+    },
+    "SERVICETYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "STARTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VERSIONFROM": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VERSIONTO": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "PMS_GROUPSERVICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GROUPSERVICEID",
+      "double"
+    ],
+    [
+      2,
+      "GROUPID",
+      "double"
+    ],
+    [
+      3,
+      "VERSIONFROM",
+      "timestamptz"
+    ],
+    [
+      4,
+      "VERSIONTO",
+      "timestamptz"
+    ],
+    [
+      5,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "MARKET",
+      "string"
+    ],
+    [
+      8,
+      "SERVICETYPE",
+      "string"
+    ],
+    [
+      9,
+      "ENTITYTYPE",
+      "string"
+    ],
+    [
+      10,
+      "ENTITYID",
+      "string"
+    ],
+    [
+      11,
+      "MRC",
+      "decimal(10, 3)"
+    ],
+    [
+      12,
+      "MRCREASON",
+      "string"
+    ],
+    [
+      13,
+      "MAXIMUMRAMPRATEPERMIN",
+      "decimal(10, 0)"
+    ],
+    [
+      14,
+      "REGION",
+      "string"
+    ],
+    [
+      15,
+      "APPROVEDDATE",
+      "timestamptz"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PMS_GROUPSERVICE"
+  }
+}

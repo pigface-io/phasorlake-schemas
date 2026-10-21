@@ -1,0 +1,200 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SETFCASREGIONRECOVERY/schema-3a00839fd58fea26.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "CUSTOMERREGIONENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(16, 8)"
+    },
+    "GENERATORREGIONENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(16, 8)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PERIODID": {
+      "type": "integer",
+      "x-field-id": 5,
+      "x-iceberg-type": "long"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "REGIONRECOVERY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGIONRECOVERYAMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGIONRECOVERYAMOUNT_ACE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGIONRECOVERYAMOUNT_ASOE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGION_ACE_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGION_ASOE_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VERSIONNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "VERSIONNO",
+    "BIDTYPE",
+    "REGIONID",
+    "PERIODID"
+  ],
+  "title": "SETFCASREGIONRECOVERY, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "PERIODID",
+      "long"
+    ],
+    [
+      6,
+      "GENERATORREGIONENERGY",
+      "decimal(16, 8)"
+    ],
+    [
+      7,
+      "CUSTOMERREGIONENERGY",
+      "decimal(16, 8)"
+    ],
+    [
+      8,
+      "REGIONRECOVERY",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      10,
+      "REGION_ACE_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      11,
+      "REGION_ASOE_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      12,
+      "REGIONRECOVERYAMOUNT_ACE",
+      "decimal(18, 8)"
+    ],
+    [
+      13,
+      "REGIONRECOVERYAMOUNT_ASOE",
+      "decimal(18, 8)"
+    ],
+    [
+      14,
+      "REGIONRECOVERYAMOUNT",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "SETFCASREGIONRECOVERY"
+  }
+}

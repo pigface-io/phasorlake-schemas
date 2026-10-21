@@ -1,0 +1,163 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_RESIDUAL_CF/schema-28a666419aa5d4b5.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "CF_ABS_NEGATIVE_PERF_TOTAL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "CF_ABS_POSITIVE_PERF_TOTAL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "CONSTRAINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "NCF_ABS_NEGATIVE_PERF_TOTAL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "NEGATIVE_RESIDUAL_CF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "RESIDUAL_CF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "RESIDUAL_CF_REASON_FLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "RESIDUAL_DCF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "VERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(5, 0)"
+    }
+  },
+  "required": [],
+  "title": "FPP_RESIDUAL_CF, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "decimal(5, 0)"
+    ],
+    [
+      4,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      5,
+      "RESIDUAL_CF",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "NEGATIVE_RESIDUAL_CF",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "RESIDUAL_DCF",
+      "decimal(18, 8)"
+    ],
+    [
+      8,
+      "RESIDUAL_CF_REASON_FLAG",
+      "decimal(5, 0)"
+    ],
+    [
+      9,
+      "CF_ABS_POSITIVE_PERF_TOTAL",
+      "decimal(18, 8)"
+    ],
+    [
+      10,
+      "CF_ABS_NEGATIVE_PERF_TOTAL",
+      "decimal(18, 8)"
+    ],
+    [
+      11,
+      "NCF_ABS_NEGATIVE_PERF_TOTAL",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "FPP_RESIDUAL_CF"
+  }
+}

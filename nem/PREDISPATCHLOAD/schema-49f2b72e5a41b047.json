@@ -1,0 +1,788 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PREDISPATCHLOAD/schema-49f2b72e5a41b047.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGCSTATUS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "AVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "CONFORMANCE_MODE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 58,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "CONNECTIONPOINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 31,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DISPATCHMODE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "DOWNEPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "DUID": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "INITIALMW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "INTERVENTION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOWER1SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 52,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWER1SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 57,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "LOWER1SECFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 55,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "LOWER5MIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWER5MINACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 49,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "LOWER5MINFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 41,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "LOWER60SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWER60SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 48,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "LOWER60SECFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 40,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "LOWER6SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWER6SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 47,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "LOWER6SECFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 39,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "LOWERREG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LOWERREGACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 50,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "LOWERREGFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 42,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "MARGINAL5MINVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "MARGINAL60SECVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "MARGINAL6SECVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "MARGINALVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "PERIODID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "PREDISPATCHSEQNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(10, 0)"
+    },
+    "RAISE1SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 53,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISE1SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 56,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "RAISE1SECFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 54,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "RAISE5MIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISE5MINACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 45,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "RAISE5MINFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "RAISE60SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISE60SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 44,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "RAISE60SECFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "RAISE6SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISE6SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 43,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "RAISE6SECFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "RAISEREG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAISEREGACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 46,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "RAISEREGFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 38,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "RAMPDOWNRATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RAMPUPRATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "SEMIDISPATCHCAP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 51,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "TOTALCLEARED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "TRADETYPE": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "long"
+    },
+    "UIGF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 59,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "UPEPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "VIOLATION5MINDEGREE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "VIOLATION60SECDEGREE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "VIOLATION6SECDEGREE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "VIOLATIONDEGREE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(15, 5)"
+    }
+  },
+  "required": [
+    "DUID",
+    "DATETIME"
+  ],
+  "title": "PREDISPATCHLOAD, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PREDISPATCHSEQNO",
+      "decimal(10, 0)"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "DUID",
+      "string"
+    ],
+    [
+      4,
+      "TRADETYPE",
+      "long"
+    ],
+    [
+      5,
+      "PERIODID",
+      "decimal(2, 0)"
+    ],
+    [
+      6,
+      "INTERVENTION",
+      "decimal(2, 0)"
+    ],
+    [
+      7,
+      "CONNECTIONPOINTID",
+      "string"
+    ],
+    [
+      8,
+      "AGCSTATUS",
+      "decimal(2, 0)"
+    ],
+    [
+      9,
+      "DISPATCHMODE",
+      "decimal(2, 0)"
+    ],
+    [
+      10,
+      "INITIALMW",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "TOTALCLEARED",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "LOWER5MIN",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "LOWER60SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "LOWER6SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "RAISE5MIN",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "RAISE60SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "RAISE6SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      18,
+      "RAMPDOWNRATE",
+      "decimal(15, 5)"
+    ],
+    [
+      19,
+      "RAMPUPRATE",
+      "decimal(15, 5)"
+    ],
+    [
+      20,
+      "DOWNEPF",
+      "decimal(15, 5)"
+    ],
+    [
+      21,
+      "UPEPF",
+      "decimal(15, 5)"
+    ],
+    [
+      22,
+      "MARGINAL5MINVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      23,
+      "MARGINAL60SECVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      24,
+      "MARGINAL6SECVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      25,
+      "MARGINALVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      26,
+      "VIOLATION5MINDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      27,
+      "VIOLATION60SECDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      28,
+      "VIOLATION6SECDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      29,
+      "VIOLATIONDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      30,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      31,
+      "DATETIME",
+      "timestamptz"
+    ],
+    [
+      32,
+      "LOWERREG",
+      "decimal(15, 5)"
+    ],
+    [
+      33,
+      "RAISEREG",
+      "decimal(15, 5)"
+    ],
+    [
+      34,
+      "AVAILABILITY",
+      "decimal(15, 5)"
+    ],
+    [
+      35,
+      "RAISE6SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      36,
+      "RAISE60SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      37,
+      "RAISE5MINFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      38,
+      "RAISEREGFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      39,
+      "LOWER6SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      40,
+      "LOWER60SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      41,
+      "LOWER5MINFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      42,
+      "LOWERREGFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      43,
+      "RAISE6SECACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      44,
+      "RAISE60SECACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      45,
+      "RAISE5MINACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      46,
+      "RAISEREGACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      47,
+      "LOWER6SECACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      48,
+      "LOWER60SECACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      49,
+      "LOWER5MINACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      50,
+      "LOWERREGACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      51,
+      "SEMIDISPATCHCAP",
+      "decimal(3, 0)"
+    ],
+    [
+      52,
+      "LOWER1SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      53,
+      "RAISE1SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      54,
+      "RAISE1SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      55,
+      "LOWER1SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      56,
+      "RAISE1SECACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      57,
+      "LOWER1SECACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      58,
+      "CONFORMANCE_MODE",
+      "decimal(6, 0)"
+    ],
+    [
+      59,
+      "UIGF",
+      "decimal(15, 5)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    3,
+    31
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PREDISPATCHLOAD"
+  }
+}

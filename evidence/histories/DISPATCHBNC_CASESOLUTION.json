@@ -1,0 +1,184 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2009-07-01T07:35:00+10:00",
+        "file": "PUBLIC_DVD_DISPATCHCASESOLUTION_BNC_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCHBNC",
+        "CASESOLUTION"
+      ],
+      "rows": 8932,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2009-09-30T10:55:00+10:00",
+        "file": "PUBLIC_DVD_DISPATCHCASESOLUTION_BNC_200909010000.zip",
+        "release": "2009-09",
+        "sha256": "9cf326f7fabd7b91220c5950a2de3fdb28d9c7b97f1a4045f8075ad7b3abaaf5"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 4,
+          "name": "CASESUBTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "SOLUTIONSTATUS",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "SPDVERSION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "STARTPERIOD",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "NONPHYSICALLOSSES",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 9,
+          "name": "TOTALOBJECTIVE",
+          "required": false,
+          "type": "decimal(13, 3)"
+        },
+        {
+          "id": 10,
+          "name": "TOTALAREAGENVIOLATION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALINTERCONNECTORVIOLATION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 12,
+          "name": "TOTALGENERICVIOLATION",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 13,
+          "name": "TOTALRAMPRATEVIOLATION",
+          "required": false,
+          "type": "decimal(4, 3)"
+        },
+        {
+          "id": 14,
+          "name": "TOTALUNITMWCAPACITYVIOLATION",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 15,
+          "name": "TOTAL5MINVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 16,
+          "name": "TOTALREGVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "TOTAL6SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "TOTAL60SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "TOTALENERGYCONSTRVIOLATION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 20,
+          "name": "TOTALENERGYOFFERVIOLATION",
+          "required": false,
+          "type": "decimal(5, 3)"
+        },
+        {
+          "id": 21,
+          "name": "TOTALASPROFILEVIOLATION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 22,
+          "name": "TOTALFASTSTARTVIOLATION",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 23,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DISPATCHBNC_CASESOLUTION"
+}

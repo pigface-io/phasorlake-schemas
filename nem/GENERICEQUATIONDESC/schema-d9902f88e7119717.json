@@ -1,0 +1,138 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GENERICEQUATIONDESC/schema-d9902f88e7119717.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADDITIONALNOTES": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string"
+    },
+    "DESCRIPTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "EQUATIONID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "IMPACT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LIMITTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "MODIFICATIONS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "REASON": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "SOURCE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "EQUATIONID"
+  ],
+  "title": "GENERICEQUATIONDESC, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EQUATIONID",
+      "string"
+    ],
+    [
+      2,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      3,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      4,
+      "IMPACT",
+      "string"
+    ],
+    [
+      5,
+      "SOURCE",
+      "string"
+    ],
+    [
+      6,
+      "LIMITTYPE",
+      "string"
+    ],
+    [
+      7,
+      "REASON",
+      "string"
+    ],
+    [
+      8,
+      "MODIFICATIONS",
+      "string"
+    ],
+    [
+      9,
+      "ADDITIONALNOTES",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "GENERICEQUATIONDESC"
+  }
+}

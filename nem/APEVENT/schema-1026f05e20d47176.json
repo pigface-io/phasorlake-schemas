@@ -1,0 +1,142 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/APEVENT/schema-1026f05e20d47176.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APEVENTID": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "EFFECTIVEFROMINTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "EFFECTIVETOINTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "ENDAUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "ENDAUTHORISEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "REASON": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "STARTAUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "STARTAUTHORISEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "APEVENTID"
+  ],
+  "title": "APEVENT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "APEVENTID",
+      "long"
+    ],
+    [
+      2,
+      "EFFECTIVEFROMINTERVAL",
+      "timestamptz"
+    ],
+    [
+      3,
+      "EFFECTIVETOINTERVAL",
+      "timestamptz"
+    ],
+    [
+      4,
+      "REASON",
+      "string"
+    ],
+    [
+      5,
+      "STARTAUTHORISEDBY",
+      "string"
+    ],
+    [
+      6,
+      "STARTAUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "ENDAUTHORISEDBY",
+      "string"
+    ],
+    [
+      8,
+      "ENDAUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "APEVENT"
+  }
+}

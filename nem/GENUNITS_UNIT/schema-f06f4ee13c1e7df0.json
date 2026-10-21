@@ -1,0 +1,188 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GENUNITS_UNIT/schema-f06f4ee13c1e7df0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGGREGATION_FLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "GENSETID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MAXSTORAGECAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "REGISTEREDCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "REGISTEREDMINCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "UNITMINSIZE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "UNIT_COUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(10, 0)"
+    },
+    "UNIT_GROUPING_LABEL": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "UNIT_MAX_SIZE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "UNIT_SIZE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "VERSIONNO": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "GENSETID",
+    "EFFECTIVEDATE",
+    "VERSIONNO",
+    "UNIT_GROUPING_LABEL"
+  ],
+  "title": "GENUNITS_UNIT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GENSETID",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "UNIT_GROUPING_LABEL",
+      "string"
+    ],
+    [
+      5,
+      "UNIT_COUNT",
+      "decimal(10, 0)"
+    ],
+    [
+      6,
+      "UNIT_SIZE",
+      "decimal(8, 3)"
+    ],
+    [
+      7,
+      "UNIT_MAX_SIZE",
+      "decimal(8, 3)"
+    ],
+    [
+      8,
+      "AGGREGATION_FLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      10,
+      "UNITMINSIZE",
+      "decimal(8, 3)"
+    ],
+    [
+      11,
+      "MAXSTORAGECAPACITY",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "REGISTEREDCAPACITY",
+      "decimal(8, 3)"
+    ],
+    [
+      13,
+      "REGISTEREDMINCAPACITY",
+      "decimal(8, 3)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "GENUNITS_UNIT"
+  }
+}

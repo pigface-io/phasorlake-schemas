@@ -1,0 +1,218 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GD_INSTRUCT_GDINSTRUCT/schema-fa8efdf3aea32dcc.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "AUTHORISEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DUID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "INSTLEVEL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "INSTRUCTIONCLASSID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "INSTRUCTIONSUBTYPEID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "INSTRUCTIONTYPEID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "ISSUEDTIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PARTICIPANTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string"
+    },
+    "REASON": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "STATIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "TARGETTIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "GD_INSTRUCT_GDINSTRUCT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DUID",
+      "string"
+    ],
+    [
+      2,
+      "STATIONID",
+      "string"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "ID",
+      "decimal(6, 0)"
+    ],
+    [
+      5,
+      "INSTRUCTIONTYPEID",
+      "string"
+    ],
+    [
+      6,
+      "INSTRUCTIONSUBTYPEID",
+      "string"
+    ],
+    [
+      7,
+      "INSTRUCTIONCLASSID",
+      "string"
+    ],
+    [
+      8,
+      "REASON",
+      "string"
+    ],
+    [
+      9,
+      "INSTLEVEL",
+      "decimal(4, 0)"
+    ],
+    [
+      10,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      11,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      12,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      13,
+      "ISSUEDTIME",
+      "timestamptz"
+    ],
+    [
+      14,
+      "TARGETTIME",
+      "timestamptz"
+    ],
+    [
+      15,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "GD_INSTRUCT_GDINSTRUCT"
+  }
+}

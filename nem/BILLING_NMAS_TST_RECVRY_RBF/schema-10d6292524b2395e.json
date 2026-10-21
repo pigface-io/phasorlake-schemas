@@ -1,0 +1,146 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLING_NMAS_TST_RECVRY_RBF/schema-10d6292524b2395e.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BILLRUNNO": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    },
+    "CONTRACTID": {
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "CONTRACTYEAR": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PAYMENT_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "RBF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "RECOVERY_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "SERVICE": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "WEEKNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "WEEKNO",
+    "BILLRUNNO",
+    "SERVICE",
+    "CONTRACTID",
+    "REGIONID"
+  ],
+  "title": "BILLING_NMAS_TST_RECVRY_RBF, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "WEEKNO",
+      "long"
+    ],
+    [
+      3,
+      "BILLRUNNO",
+      "long"
+    ],
+    [
+      4,
+      "SERVICE",
+      "string"
+    ],
+    [
+      5,
+      "CONTRACTID",
+      "string"
+    ],
+    [
+      6,
+      "REGIONID",
+      "string"
+    ],
+    [
+      7,
+      "RBF",
+      "decimal(18, 8)"
+    ],
+    [
+      8,
+      "PAYMENT_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "RECOVERY_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "BILLING_NMAS_TST_RECVRY_RBF"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/RESDEMANDTRK/schema-d0df2d27343cefc6.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "AUTHORISEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "FILENAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "OFFERDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "VERSIONNO": {
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "REGIONID",
+    "OFFERDATE",
+    "VERSIONNO"
+  ],
+  "title": "RESDEMANDTRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "OFFERDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      5,
+      "FILENAME",
+      "string"
+    ],
+    [
+      6,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "RESDEMANDTRK"
+  }
+}

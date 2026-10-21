@@ -1,0 +1,175 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SETCPDATAREGION/schema-c7451b04ef41d874.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PERIODID": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "SUMEP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "double"
+    },
+    "SUMIGENERGY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "SUMINENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "double"
+    },
+    "SUMIPOWER": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "long"
+    },
+    "SUMXGENERGY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "SUMXNENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "double"
+    },
+    "SUMXPOWER": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "long"
+    },
+    "VERSIONNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "VERSIONNO",
+    "PERIODID",
+    "REGIONID"
+  ],
+  "title": "SETCPDATAREGION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "PERIODID",
+      "long"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "SUMIGENERGY",
+      "string"
+    ],
+    [
+      6,
+      "SUMXGENERGY",
+      "string"
+    ],
+    [
+      7,
+      "SUMINENERGY",
+      "double"
+    ],
+    [
+      8,
+      "SUMXNENERGY",
+      "double"
+    ],
+    [
+      9,
+      "SUMIPOWER",
+      "long"
+    ],
+    [
+      10,
+      "SUMXPOWER",
+      "long"
+    ],
+    [
+      11,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      12,
+      "SUMEP",
+      "double"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "SETCPDATAREGION"
+  }
+}

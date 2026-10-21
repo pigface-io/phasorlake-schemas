@@ -1,0 +1,73 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCHABLEUNIT/schema-ca413c18b4f8ea89.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DUID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "DUNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "UNITTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "DUID"
+  ],
+  "title": "DISPATCHABLEUNIT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DUID",
+      "string"
+    ],
+    [
+      2,
+      "DUNAME",
+      "string"
+    ],
+    [
+      3,
+      "UNITTYPE",
+      "string"
+    ],
+    [
+      4,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "DISPATCHABLEUNIT"
+  }
+}

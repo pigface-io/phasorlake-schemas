@@ -1,0 +1,87 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PRUDENTIALRUNTRK/schema-2b1247fbde8a39fc.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "AUTHORISEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PRUDENTIAL_DATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RUNNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "PRUDENTIAL_DATE",
+    "RUNNO"
+  ],
+  "title": "PRUDENTIALRUNTRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PRUDENTIAL_DATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "long"
+    ],
+    [
+      3,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      4,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PRUDENTIALRUNTRK"
+  }
+}

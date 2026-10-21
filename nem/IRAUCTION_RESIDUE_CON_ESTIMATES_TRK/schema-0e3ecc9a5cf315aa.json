@@ -1,0 +1,98 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/IRAUCTION_RESIDUE_CON_ESTIMATES_TRK/schema-0e3ecc9a5cf315aa.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONTRACTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "CONTRACTYEAR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "QUARTER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "VALUATIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "VERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(1, 0)"
+    }
+  },
+  "required": [],
+  "title": "IRAUCTION_RESIDUE_CON_ESTIMATES_TRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTID",
+      "string"
+    ],
+    [
+      2,
+      "CONTRACTYEAR",
+      "decimal(4, 0)"
+    ],
+    [
+      3,
+      "QUARTER",
+      "decimal(1, 0)"
+    ],
+    [
+      4,
+      "VALUATIONID",
+      "string"
+    ],
+    [
+      5,
+      "VERSIONNO",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "IRAUCTION_RESIDUE_CON_ESTIMATES_TRK"
+  }
+}

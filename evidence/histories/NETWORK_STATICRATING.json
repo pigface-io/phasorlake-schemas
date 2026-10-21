@@ -1,0 +1,107 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2007-08-08T11:25:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NETWORK_STATICRATING#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "48eb68e2e3609a92a137bc128a3bcd8127950def9d91251e2d1974d355a43f8c"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "NETWORK",
+        "STATICRATING"
+      ],
+      "rows": 5454941,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-29T14:10:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NETWORK_STATICRATING#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "f350694a4649347ace28ce238f9dfff6311ee81bc88e83727775dc035c57c02c"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SUBSTATIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "EQUIPMENTTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "EQUIPMENTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "RATINGLEVEL",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "APPLICATIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "VALIDFROM",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "VALIDTO",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 8,
+          "name": "RATINGVALUE",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NETWORK_STATICRATING"
+}

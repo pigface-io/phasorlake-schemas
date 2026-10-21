@@ -1,0 +1,254 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PREDISPATCH_FCAS_REQ/schema-0120adfb9847d531.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADJUSTED_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "BASE_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "BIDTYPE": {
+      "type": "string",
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz"
+    },
+    "ESTIMATED_CMPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "ESTIMATED_CRMPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "GENCONEFFECTIVEDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "GENCONID": {
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "GENCONVERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "INTERVENTION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MARGINALVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(16, 6)"
+    },
+    "PERIODID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(10, 0)"
+    },
+    "PREDISPATCHSEQNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(10, 0)"
+    },
+    "RECOVERY_FACTOR_CMPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "RECOVERY_FACTOR_CRMPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)"
+    }
+  },
+  "required": [
+    "GENCONID",
+    "REGIONID",
+    "BIDTYPE",
+    "DATETIME"
+  ],
+  "title": "PREDISPATCH_FCAS_REQ, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PREDISPATCHSEQNO",
+      "decimal(10, 0)"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "INTERVENTION",
+      "decimal(2, 0)"
+    ],
+    [
+      4,
+      "PERIODID",
+      "decimal(10, 0)"
+    ],
+    [
+      5,
+      "GENCONID",
+      "string"
+    ],
+    [
+      6,
+      "REGIONID",
+      "string"
+    ],
+    [
+      7,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      8,
+      "GENCONEFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      9,
+      "GENCONVERSIONNO",
+      "decimal(3, 0)"
+    ],
+    [
+      10,
+      "MARGINALVALUE",
+      "decimal(16, 6)"
+    ],
+    [
+      11,
+      "DATETIME",
+      "timestamptz"
+    ],
+    [
+      12,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      13,
+      "BASE_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      14,
+      "ADJUSTED_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      15,
+      "ESTIMATED_CMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      16,
+      "ESTIMATED_CRMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      17,
+      "RECOVERY_FACTOR_CMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      18,
+      "RECOVERY_FACTOR_CRMPF",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    5,
+    6,
+    7,
+    11
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PREDISPATCH_FCAS_REQ"
+  }
+}

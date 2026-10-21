@@ -1,0 +1,125 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCH_MNSPBIDTRK/schema-b1926d85a31d010d.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LINKID": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "OFFEREFFECTIVEDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "OFFERSETTLEMENTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "OFFERVERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "PARTICIPANTID": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "RUNNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "RUNNO",
+    "PARTICIPANTID",
+    "LINKID"
+  ],
+  "title": "DISPATCH_MNSPBIDTRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "long"
+    ],
+    [
+      3,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      4,
+      "LINKID",
+      "string"
+    ],
+    [
+      5,
+      "OFFERSETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "OFFEREFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "OFFERVERSIONNO",
+      "decimal(3, 0)"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "DISPATCH_MNSPBIDTRK"
+  }
+}

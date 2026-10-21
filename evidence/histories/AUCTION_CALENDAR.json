@@ -1,0 +1,228 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 35,
+      "from": {
+        "data-time": "2009-09-02T15:24:52+10:00",
+        "file": "PUBLIC_DVD_AUCTION_CALENDAR_200909010000.zip",
+        "release": "2009-09",
+        "sha256": "9cf326f7fabd7b91220c5950a2de3fdb28d9c7b97f1a4045f8075ad7b3abaaf5"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "IRAUCTION_CONFIG",
+        "AUCTION_CALENDAR"
+      ],
+      "rows": 234,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2016-04-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_AUCTION_CALENDAR_201604010000.zip",
+        "release": "2016-04",
+        "sha256": "493bc4ecd00aa3273c1a2c8c3e1bb56858be0504dd78b696e261d6e1090e6b78"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 52,
+      "from": {
+        "data-time": "2016-07-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_AUCTION_CALENDAR_201607010000.zip",
+        "release": "2016-07",
+        "sha256": "9c064436eacd744bc1ce3a9cabada5e22bcf21c3753baa15c619653107088f8c"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "IRAUCTION_CONFIG",
+        "AUCTION_CALENDAR"
+      ],
+      "rows": 93,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#AUCTION_CALENDAR#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "3a94f8d28598a0928961fad7fc16e2efc52b56687fcc36bc30b49ae6d0335f65"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 9
+        },
+        {
+          "action": "add",
+          "field-id": 10
+        },
+        {
+          "action": "add",
+          "field-id": 11
+        },
+        {
+          "action": "add",
+          "field-id": 12
+        }
+      ],
+      "version": 2
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CONTRACTYEAR",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "QUARTER",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "STARTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "ENDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "NOTIFYDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "PAYMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "RECONCILIATIONDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 8,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CONTRACTYEAR",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "QUARTER",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "STARTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "ENDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "NOTIFYDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "PAYMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "RECONCILIATIONDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 8,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 9,
+          "name": "PRELIMPURCHASESTMTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "PRELIMPROCEEDSSTMTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 11,
+          "name": "FINALPURCHASESTMTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "FINALPROCEEDSSTMTDATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "table": "AUCTION_CALENDAR"
+}

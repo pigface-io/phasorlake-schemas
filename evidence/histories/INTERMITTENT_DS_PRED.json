@@ -1,0 +1,113 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2024-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "d6db6fb9b823f0b3147274c68803f6ec572ee2d17415fa1257bf50677bc2c5d5"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 461742033,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "80495a23547bd670c436237b0994ee84789bce7d2fafa40777a25799e48a6df1"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "OFFERDATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "ORIGIN",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FORECAST_PRIORITY",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "FORECAST_MEAN",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 8,
+          "name": "FORECAST_POE10",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 9,
+          "name": "FORECAST_POE50",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 10,
+          "name": "FORECAST_POE90",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "INTERMITTENT_DS_PRED"
+}

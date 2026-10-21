@@ -1,0 +1,282 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DUDETAILSUMMARY/schema-02a3fe821ae141d4.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONNECTIONPOINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "DISPATCHTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "DISTRIBUTIONLOSSFACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 6)"
+    },
+    "DUID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "END_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "IS_AGGREGATED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MAXIMUM_ENERGY_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(9, 2)"
+    },
+    "MAX_RAMP_RATE_DOWN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MAX_RAMP_RATE_UP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MINIMUM_ENERGY_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(9, 2)"
+    },
+    "MIN_RAMP_RATE_DOWN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MIN_RAMP_RATE_UP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "PARTICIPANTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "SCHEDULE_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string"
+    },
+    "STARTTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "START_DATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "STATIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "TRANSMISSIONLOSSFACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 6)"
+    }
+  },
+  "required": [
+    "DUID",
+    "START_DATE"
+  ],
+  "title": "DUDETAILSUMMARY, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DUID",
+      "string"
+    ],
+    [
+      2,
+      "START_DATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "END_DATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "DISPATCHTYPE",
+      "string"
+    ],
+    [
+      5,
+      "CONNECTIONPOINTID",
+      "string"
+    ],
+    [
+      6,
+      "REGIONID",
+      "string"
+    ],
+    [
+      7,
+      "STATIONID",
+      "string"
+    ],
+    [
+      8,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      10,
+      "TRANSMISSIONLOSSFACTOR",
+      "decimal(15, 6)"
+    ],
+    [
+      11,
+      "STARTTYPE",
+      "string"
+    ],
+    [
+      12,
+      "DISTRIBUTIONLOSSFACTOR",
+      "decimal(15, 6)"
+    ],
+    [
+      13,
+      "MINIMUM_ENERGY_PRICE",
+      "decimal(9, 2)"
+    ],
+    [
+      14,
+      "MAXIMUM_ENERGY_PRICE",
+      "decimal(9, 2)"
+    ],
+    [
+      15,
+      "SCHEDULE_TYPE",
+      "string"
+    ],
+    [
+      16,
+      "MIN_RAMP_RATE_UP",
+      "decimal(6, 0)"
+    ],
+    [
+      17,
+      "MIN_RAMP_RATE_DOWN",
+      "decimal(6, 0)"
+    ],
+    [
+      18,
+      "MAX_RAMP_RATE_UP",
+      "decimal(6, 0)"
+    ],
+    [
+      19,
+      "MAX_RAMP_RATE_DOWN",
+      "decimal(6, 0)"
+    ],
+    [
+      20,
+      "IS_AGGREGATED",
+      "decimal(1, 0)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "DUDETAILSUMMARY"
+  }
+}

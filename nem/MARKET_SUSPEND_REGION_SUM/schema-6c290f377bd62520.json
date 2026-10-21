@@ -1,0 +1,101 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MARKET_SUSPEND_REGION_SUM/schema-6c290f377bd62520.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "END_REGION_INTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "END_SUSPENSION_INTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "INITIAL_INTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "SUSPENSION_ID": {
+      "type": "number",
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(13, 1)"
+    }
+  },
+  "required": [
+    "SUSPENSION_ID",
+    "REGIONID"
+  ],
+  "title": "MARKET_SUSPEND_REGION_SUM, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SUSPENSION_ID",
+      "decimal(13, 1)"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "INITIAL_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      4,
+      "END_REGION_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      5,
+      "END_SUSPENSION_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "MARKET_SUSPEND_REGION_SUM"
+  }
+}

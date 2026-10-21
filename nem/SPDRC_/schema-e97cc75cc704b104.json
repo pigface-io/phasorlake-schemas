@@ -1,0 +1,112 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SPDRC_/schema-e97cc75cc704b104.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "FACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "GENCONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "VERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(1, 0)"
+    }
+  },
+  "required": [],
+  "title": "SPDRC_, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "REGIONID",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "decimal(1, 0)"
+    ],
+    [
+      4,
+      "GENCONID",
+      "string"
+    ],
+    [
+      5,
+      "FACTOR",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      7,
+      "BIDTYPE",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "SPDRC_"
+  }
+}

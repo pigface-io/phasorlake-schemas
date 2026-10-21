@@ -1,0 +1,60 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PMS_GROUP/schema-14ae1555eff6aca8.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CREATEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "GROUPID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "double"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "PMS_GROUP, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GROUPID",
+      "double"
+    ],
+    [
+      2,
+      "CREATEDDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PMS_GROUP"
+  }
+}

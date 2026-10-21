@@ -1,0 +1,95 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 71,
+      "from": {
+        "data-time": "2009-09-14T14:19:22+10:00",
+        "file": "PUBLIC_DVD_RESIDUE_PRICE_FUNDS_BID_200909010000.zip",
+        "release": "2009-09",
+        "sha256": "9cf326f7fabd7b91220c5950a2de3fdb28d9c7b97f1a4045f8075ad7b3abaaf5"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "IRAUCTION",
+        "RESIDUE_PRICE_FUNDS_BID"
+      ],
+      "rows": 574058,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-03-16T14:00:06+10:00",
+        "file": "PUBLIC_ARCHIVE#RESIDUE_PRICE_FUNDS_BID#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "85accad6fcaf27d5b771ceaa18c4dbf01f7ed7a404aa6fbd8f98965c78d2118c"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CONTRACTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "INTERCONNECTORID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FROMREGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "UNITS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 5,
+          "name": "BIDPRICE",
+          "required": false,
+          "type": "decimal(12, 6)"
+        },
+        {
+          "id": 6,
+          "name": "LINKEDBIDFLAG",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 7,
+          "name": "AUCTIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "IRAUCTION_RESIDUE_PRICE_FUNDS_BID"
+}

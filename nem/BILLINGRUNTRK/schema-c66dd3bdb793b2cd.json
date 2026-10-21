@@ -1,0 +1,229 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLINGRUNTRK/schema-c66dd3bdb793b2cd.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADJ_CLEARED": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "AUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "AUTHORISEDDATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "BILLRUNNO": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    },
+    "CONTRACTYEAR": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MAKEUP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 8)"
+    },
+    "PAYMENTPOSTBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string"
+    },
+    "PAYMENTPOSTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "timestamptz"
+    },
+    "POSTBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string"
+    },
+    "POSTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RECEIPTPOSTBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string"
+    },
+    "RECEIPTPOSTDATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "SHORTFALL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(16, 8)"
+    },
+    "STATUS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "WEEKNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "WEEKNO",
+    "BILLRUNNO"
+  ],
+  "title": "BILLINGRUNTRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "WEEKNO",
+      "long"
+    ],
+    [
+      3,
+      "BILLRUNNO",
+      "long"
+    ],
+    [
+      4,
+      "STATUS",
+      "string"
+    ],
+    [
+      5,
+      "ADJ_CLEARED",
+      "string"
+    ],
+    [
+      6,
+      "AUTHORISEDDATE",
+      "string"
+    ],
+    [
+      7,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      8,
+      "POSTDATE",
+      "timestamptz"
+    ],
+    [
+      9,
+      "POSTBY",
+      "string"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      11,
+      "RECEIPTPOSTDATE",
+      "string"
+    ],
+    [
+      12,
+      "RECEIPTPOSTBY",
+      "string"
+    ],
+    [
+      13,
+      "PAYMENTPOSTDATE",
+      "timestamptz"
+    ],
+    [
+      14,
+      "PAYMENTPOSTBY",
+      "string"
+    ],
+    [
+      15,
+      "SHORTFALL",
+      "decimal(16, 8)"
+    ],
+    [
+      16,
+      "MAKEUP",
+      "decimal(15, 8)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "BILLINGRUNTRK"
+  }
+}

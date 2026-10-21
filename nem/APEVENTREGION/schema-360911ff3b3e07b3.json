@@ -1,0 +1,176 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/APEVENTREGION/schema-360911ff3b3e07b3.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APEVENTID": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "ENERGYAPFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOWER5MINAPFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOWER60SECAPFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOWER6SECAPFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOWERREGAPFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RAISE5MINAPFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RAISE60SECAPFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RAISE6SECAPFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RAISEREGAPFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "APEVENTID",
+    "REGIONID"
+  ],
+  "title": "APEVENTREGION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "APEVENTID",
+      "long"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      4,
+      "ENERGYAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "RAISE6SECAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "RAISE60SECAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      7,
+      "RAISE5MINAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      8,
+      "RAISEREGAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "LOWER6SECAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      10,
+      "LOWER60SECAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      11,
+      "LOWER5MINAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      12,
+      "LOWERREGAPFLAG",
+      "decimal(1, 0)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "APEVENTREGION"
+  }
+}

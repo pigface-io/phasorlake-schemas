@@ -1,0 +1,235 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 96,
+      "from": {
+        "data-time": "2018-05-14T10:59:49+10:00",
+        "file": "PUBLIC_DVD_MTPASA_REGIONSUMMARY_201805010000.zip",
+        "release": "2018-05",
+        "sha256": "50ef37b846d480516d53413a509720d8f5d85dee8d8a42231bb89b900dcc8c81"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "MTPASA",
+        "REGIONSUMMARY"
+      ],
+      "rows": 117340,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-26T20:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MTPASA_REGIONSUMMARY#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "0b09456b1292acf4bcde8abe415983bf59839b874a04423b863721e131fedebd"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUN_NO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "RUNTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "DEMAND_POE_TYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "AGGREGATION_PERIOD",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "PERIOD_ENDING",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "NATIVEDEMAND",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 9,
+          "name": "USE_PERCENTILE10",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 10,
+          "name": "USE_PERCENTILE20",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 11,
+          "name": "USE_PERCENTILE30",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 12,
+          "name": "USE_PERCENTILE40",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 13,
+          "name": "USE_PERCENTILE50",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 14,
+          "name": "USE_PERCENTILE60",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 15,
+          "name": "USE_PERCENTILE70",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 16,
+          "name": "USE_PERCENTILE80",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 17,
+          "name": "USE_PERCENTILE90",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 18,
+          "name": "USE_PERCENTILE100",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 19,
+          "name": "USE_AVERAGE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 20,
+          "name": "NUMBEROFITERATIONS",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 21,
+          "name": "USE_NUMBEROFITERATIONS",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 22,
+          "name": "USE_EVENT_MAX",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 23,
+          "name": "USE_EVENT_UPPERQUARTILE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 24,
+          "name": "USE_EVENT_MEDIAN",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 25,
+          "name": "USE_EVENT_LOWERQUARTILE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 26,
+          "name": "USE_EVENT_MIN",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 27,
+          "name": "WEIGHT",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 28,
+          "name": "USE_WEIGHTED_AVG",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 29,
+          "name": "LRC",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 30,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "MTPASA_REGIONSUMMARY"
+}

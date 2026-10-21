@@ -1,0 +1,100 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 17,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_CONSTRAINT_FREQ_MEASURE#FILE01#202412010000.zip",
+        "release": "2024-12",
+        "sha256": "97437695d1cd20bdb49c6eeb6b83d0e1d804722574abd85fc98b56cdb15339ce"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "CONSTRAINT_FREQ_MEASURE"
+      ],
+      "rows": 398642925,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-08T15:45:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_CONSTRAINT_FREQ_MEASURE#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "fa6ac9be63a066c6266cea42203fbeb752139f38c82dc44f3b22be4704edb264"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "MEASUREMENT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "CONSTRAINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 5,
+          "name": "BIDTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FM_RAISE_HZ",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 7,
+          "name": "FM_LOWER_HZ",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 8,
+          "name": "USED_IN_RCR_FLAG",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 9,
+          "name": "CORRELATION_FLAG",
+          "required": false,
+          "type": "decimal(5, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "FPP_CONSTRAINT_FREQ_MEASURE"
+}

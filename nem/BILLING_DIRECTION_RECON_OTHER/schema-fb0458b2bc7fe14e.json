@@ -1,0 +1,293 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLING_DIRECTION_RECON_OTHER/schema-fb0458b2bc7fe14e.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BILLRUNNO": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    },
+    "COMPENSATION_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "CONTRACTYEAR": {
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long"
+    },
+    "CRA": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "DIRECTION_DESC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "DIRECTION_END_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DIRECTION_END_INTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DIRECTION_ID": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "DIRECTION_SERVICE_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "string"
+    },
+    "DIRECTION_START_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DIRECTION_START_INTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DIRECTION_TYPE_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "INDEPENDENT_EXPERT_FEE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "INTEREST_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGIONAL_BENEFIT_FACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGIONAL_CUSTOMER_ENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGIONAL_GENERATOR_ENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "REGION_ACE_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "REGION_ASOE_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "WEEKNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "WEEKNO",
+    "BILLRUNNO",
+    "DIRECTION_ID",
+    "REGIONID"
+  ],
+  "title": "BILLING_DIRECTION_RECON_OTHER, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "WEEKNO",
+      "long"
+    ],
+    [
+      3,
+      "BILLRUNNO",
+      "long"
+    ],
+    [
+      4,
+      "DIRECTION_ID",
+      "string"
+    ],
+    [
+      5,
+      "REGIONID",
+      "string"
+    ],
+    [
+      6,
+      "DIRECTION_DESC",
+      "string"
+    ],
+    [
+      7,
+      "DIRECTION_TYPE_ID",
+      "string"
+    ],
+    [
+      8,
+      "DIRECTION_START_DATE",
+      "timestamptz"
+    ],
+    [
+      9,
+      "DIRECTION_END_DATE",
+      "timestamptz"
+    ],
+    [
+      10,
+      "DIRECTION_START_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      11,
+      "DIRECTION_END_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      12,
+      "COMPENSATION_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      13,
+      "INTEREST_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      14,
+      "INDEPENDENT_EXPERT_FEE",
+      "decimal(18, 8)"
+    ],
+    [
+      15,
+      "CRA",
+      "decimal(18, 8)"
+    ],
+    [
+      16,
+      "REGIONAL_CUSTOMER_ENERGY",
+      "decimal(18, 8)"
+    ],
+    [
+      17,
+      "REGIONAL_GENERATOR_ENERGY",
+      "decimal(18, 8)"
+    ],
+    [
+      18,
+      "REGIONAL_BENEFIT_FACTOR",
+      "decimal(18, 8)"
+    ],
+    [
+      19,
+      "REGION_ACE_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      20,
+      "REGION_ASOE_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      21,
+      "DIRECTION_SERVICE_ID",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "BILLING_DIRECTION_RECON_OTHER"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PREDISPATCH_LOCAL_PRICE/schema-9b90d9c0d0cde166.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DUID": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOCALLY_CONSTRAINED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOCAL_PRICE_ADJUSTMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(10, 2)"
+    },
+    "PERIODID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "PREDISPATCHSEQNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(10, 0)"
+    }
+  },
+  "required": [
+    "DATETIME",
+    "DUID"
+  ],
+  "title": "PREDISPATCH_LOCAL_PRICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PREDISPATCHSEQNO",
+      "decimal(10, 0)"
+    ],
+    [
+      2,
+      "DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "DUID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "LOCAL_PRICE_ADJUSTMENT",
+      "decimal(10, 2)"
+    ],
+    [
+      6,
+      "LOCALLY_CONSTRAINED",
+      "decimal(1, 0)"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PREDISPATCH_LOCAL_PRICE"
+  }
+}

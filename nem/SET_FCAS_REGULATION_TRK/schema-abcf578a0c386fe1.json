@@ -1,0 +1,137 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SET_FCAS_REGULATION_TRK/schema-abcf578a0c386fe1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CMPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "CONSTRAINTID": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "CRMPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RECOVERY_FACTOR_CMPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "double"
+    },
+    "RECOVERY_FACTOR_CRMPF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VERSIONNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "VERSIONNO",
+    "INTERVAL_DATETIME",
+    "CONSTRAINTID"
+  ],
+  "title": "SET_FCAS_REGULATION_TRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      5,
+      "CMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "CRMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "RECOVERY_FACTOR_CMPF",
+      "double"
+    ],
+    [
+      8,
+      "RECOVERY_FACTOR_CRMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "SET_FCAS_REGULATION_TRK"
+  }
+}

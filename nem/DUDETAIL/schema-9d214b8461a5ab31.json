@@ -1,0 +1,463 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DUDETAIL/schema-9d214b8461a5ab31.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADG_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "string"
+    },
+    "AGCCAPABILITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "AGGREGATED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "AUTHORISEDBY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string"
+    },
+    "AUTHORISEDDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "timestamptz"
+    },
+    "CONNECTIONPOINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "DISPATCHSUBTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "string"
+    },
+    "DISPATCHTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "DUID": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "INTERMITTENTFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOAD_MIN_RAMP_RATE_DOWN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "LOAD_MIN_RAMP_RATE_UP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MAXCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "double"
+    },
+    "MAXRATEOFCHANGEDOWN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MAXRATEOFCHANGEDOWN_LOAD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MAXRATEOFCHANGEUP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MAXRATEOFCHANGEUP_LOAD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MAXSTORAGECAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "MINCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MIN_RAMP_RATE_DOWN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "MIN_RAMP_RATE_UP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "NORMALLYONFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "PHYSICALDETAILSFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string"
+    },
+    "REGISTEREDCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "double"
+    },
+    "REGISTEREDMINCAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "SEMISCHEDULE_FLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string"
+    },
+    "SPINNINGRESERVEFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string"
+    },
+    "STARTTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string"
+    },
+    "STORAGEEXPORTEFFICIENCYFACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "STORAGEIMPORTEFFICIENCYFACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "VERSIONNO": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    },
+    "VOLTLEVEL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "DUID",
+    "VERSIONNO"
+  ],
+  "title": "DUDETAIL, Iceberg schema 6",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "CONNECTIONPOINTID",
+      "string"
+    ],
+    [
+      5,
+      "VOLTLEVEL",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "REGISTEREDCAPACITY",
+      "double"
+    ],
+    [
+      7,
+      "AGCCAPABILITY",
+      "string"
+    ],
+    [
+      8,
+      "DISPATCHTYPE",
+      "string"
+    ],
+    [
+      9,
+      "MAXCAPACITY",
+      "double"
+    ],
+    [
+      10,
+      "STARTTYPE",
+      "string"
+    ],
+    [
+      11,
+      "NORMALLYONFLAG",
+      "string"
+    ],
+    [
+      12,
+      "PHYSICALDETAILSFLAG",
+      "string"
+    ],
+    [
+      13,
+      "SPINNINGRESERVEFLAG",
+      "string"
+    ],
+    [
+      14,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      15,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      17,
+      "INTERMITTENTFLAG",
+      "string"
+    ],
+    [
+      18,
+      "SEMISCHEDULE_FLAG",
+      "string"
+    ],
+    [
+      19,
+      "MAXRATEOFCHANGEUP",
+      "decimal(6, 0)"
+    ],
+    [
+      20,
+      "MAXRATEOFCHANGEDOWN",
+      "decimal(6, 0)"
+    ],
+    [
+      21,
+      "DISPATCHSUBTYPE",
+      "string"
+    ],
+    [
+      22,
+      "ADG_ID",
+      "string"
+    ],
+    [
+      23,
+      "MINCAPACITY",
+      "decimal(6, 0)"
+    ],
+    [
+      24,
+      "REGISTEREDMINCAPACITY",
+      "decimal(6, 0)"
+    ],
+    [
+      25,
+      "MAXRATEOFCHANGEUP_LOAD",
+      "decimal(6, 0)"
+    ],
+    [
+      26,
+      "MAXRATEOFCHANGEDOWN_LOAD",
+      "decimal(6, 0)"
+    ],
+    [
+      27,
+      "MAXSTORAGECAPACITY",
+      "decimal(15, 5)"
+    ],
+    [
+      28,
+      "STORAGEIMPORTEFFICIENCYFACTOR",
+      "decimal(15, 5)"
+    ],
+    [
+      29,
+      "STORAGEEXPORTEFFICIENCYFACTOR",
+      "decimal(15, 5)"
+    ],
+    [
+      30,
+      "MIN_RAMP_RATE_UP",
+      "decimal(6, 0)"
+    ],
+    [
+      31,
+      "MIN_RAMP_RATE_DOWN",
+      "decimal(6, 0)"
+    ],
+    [
+      32,
+      "LOAD_MIN_RAMP_RATE_UP",
+      "decimal(6, 0)"
+    ],
+    [
+      33,
+      "LOAD_MIN_RAMP_RATE_DOWN",
+      "decimal(6, 0)"
+    ],
+    [
+      34,
+      "AGGREGATED",
+      "decimal(1, 0)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    2,
+    1,
+    3
+  ],
+  "x-schema-id": 6,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "DUDETAIL"
+  }
+}

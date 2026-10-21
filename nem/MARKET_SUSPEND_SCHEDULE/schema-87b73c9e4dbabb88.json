@@ -1,0 +1,227 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MARKET_SUSPEND_SCHEDULE/schema-87b73c9e4dbabb88.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DAY_TYPE": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "ENERGY_RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "L1_RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "L5_RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "L60_RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "L6_RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LREG_RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "PERIODID": {
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long"
+    },
+    "R1_RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "R5_RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "R60_RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "R6_RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "RREG_RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "DAY_TYPE",
+    "REGIONID",
+    "PERIODID"
+  ],
+  "title": "MARKET_SUSPEND_SCHEDULE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DAY_TYPE",
+      "string"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "long"
+    ],
+    [
+      5,
+      "ENERGY_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      6,
+      "R6_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "R60_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "R5_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "RREG_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "L6_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "L60_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "L5_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "LREG_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      15,
+      "L1_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "R1_RRP",
+      "decimal(15, 5)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "MARKET_SUSPEND_SCHEDULE"
+  }
+}

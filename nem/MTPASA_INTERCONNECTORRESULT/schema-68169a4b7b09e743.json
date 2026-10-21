@@ -1,0 +1,213 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_INTERCONNECTORRESULT/schema-68169a4b7b09e743.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CALCULATEDEXPORTLIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "CALCULATEDIMPORTLIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "DAY": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DEMAND_POE_TYPE": {
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "FLOW10": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "FLOW50": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "FLOW90": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 2)"
+    },
+    "INTERCONNECTORID": {
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PERIODID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "PROBABILITYOFBINDINGEXPORT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "PROBABILITYOFBINDINGIMPORT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "RUNTYPE": {
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RUN_NO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "RUN_NO",
+    "RUNTYPE",
+    "DEMAND_POE_TYPE",
+    "DAY",
+    "INTERCONNECTORID"
+  ],
+  "title": "MTPASA_INTERCONNECTORRESULT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUN_NO",
+      "long"
+    ],
+    [
+      3,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      4,
+      "DEMAND_POE_TYPE",
+      "string"
+    ],
+    [
+      5,
+      "DAY",
+      "timestamptz"
+    ],
+    [
+      6,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      7,
+      "PERIODID",
+      "decimal(3, 0)"
+    ],
+    [
+      8,
+      "FLOW90",
+      "decimal(12, 2)"
+    ],
+    [
+      9,
+      "FLOW50",
+      "decimal(12, 2)"
+    ],
+    [
+      10,
+      "FLOW10",
+      "decimal(12, 2)"
+    ],
+    [
+      11,
+      "PROBABILITYOFBINDINGEXPORT",
+      "decimal(8, 5)"
+    ],
+    [
+      12,
+      "PROBABILITYOFBINDINGIMPORT",
+      "decimal(8, 5)"
+    ],
+    [
+      13,
+      "CALCULATEDEXPORTLIMIT",
+      "decimal(12, 2)"
+    ],
+    [
+      14,
+      "CALCULATEDIMPORTLIMIT",
+      "decimal(12, 2)"
+    ],
+    [
+      15,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "MTPASA_INTERCONNECTORRESULT"
+  }
+}

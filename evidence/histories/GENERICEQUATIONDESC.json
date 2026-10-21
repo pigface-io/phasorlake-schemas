@@ -1,0 +1,132 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 166,
+      "from": {
+        "data-time": "2009-07-10T09:37:50+10:00",
+        "file": "PUBLIC_DVD_GENERICEQUATIONDESC_200907010000.zip",
+        "release": "2009-07",
+        "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "GEQDESC",
+        ""
+      ],
+      "rows": 2991,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2024-07-29T14:52:29+10:00",
+        "file": "PUBLIC_DVD_GENERICEQUATIONDESC_202407010000.zip",
+        "release": "2024-07",
+        "sha256": "9dc617e3cbb4bbf43f0d6c6d295a8647444874b3c7fbebf37c2400c1f1223fdb"
+      },
+      "updates": [],
+      "version": 2
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2024-08-02T14:32:38+10:00",
+        "file": "PUBLIC_ARCHIVE#GENERICEQUATIONDESC#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "ef393304476c38c3d0993e74c25f080f69a4bba8880a2f755fa05ff53e609c60"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "GEQDESC",
+        "NULL"
+      ],
+      "rows": 267,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-07T14:57:01+10:00",
+        "file": "PUBLIC_ARCHIVE#GENERICEQUATIONDESC#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "26fb2a18df4822cdd205f761cff9fc7548f76537bcd81658fc6d967f72982094"
+      },
+      "updates": [],
+      "version": 2
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EQUATIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "IMPACT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "SOURCE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "LIMITTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "REASON",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "MODIFICATIONS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "ADDITIONALNOTES",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GENERICEQUATIONDESC"
+}

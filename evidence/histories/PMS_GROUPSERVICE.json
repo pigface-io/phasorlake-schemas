@@ -1,0 +1,142 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2024-09-07T17:00:00.747+10:00",
+        "file": "PUBLIC_ARCHIVE#PMS_GROUPSERVICE#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "63cecb235bf4c375d3bac977ff2b82cac574f7f262eb4b872469353e44ea6f75"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "PARTICIPANT_REGISTRATION",
+        "PMS_GROUPSERVICE"
+      ],
+      "rows": 2286,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-07T17:00:01.560+10:00",
+        "file": "PUBLIC_ARCHIVE#PMS_GROUPSERVICE#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "6aa89aa31b51ab61b8ffc39d035f22fae8ea0a7db0c87130ee6e9a0242cf128a"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GROUPSERVICEID",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 2,
+          "name": "GROUPID",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONFROM",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "VERSIONTO",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "STARTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "ENDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "MARKET",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "SERVICETYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "ENTITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "ENTITYID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "MRC",
+          "required": false,
+          "type": "decimal(10, 3)"
+        },
+        {
+          "id": 12,
+          "name": "MRCREASON",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "MAXIMUMRAMPRATEPERMIN",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 14,
+          "name": "REGION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "APPROVEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 16,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "PMS_GROUPSERVICE"
+}

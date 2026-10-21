@@ -1,0 +1,201 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GENERICEQUATIONRHS/schema-affca8b794fe09c8.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DEFAULTVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(16, 10)"
+    },
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "EQUATIONID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "FACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(16, 10)"
+    },
+    "GROUPID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "timestamptz"
+    },
+    "OPERATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string"
+    },
+    "PARAMETERTERM1": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "PARAMETERTERM2": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "PARAMETERTERM3": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "SPD_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "SPD_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "TERMID": {
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long"
+    },
+    "VERSIONNO": {
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "EQUATIONID",
+    "EFFECTIVEDATE",
+    "VERSIONNO",
+    "TERMID"
+  ],
+  "title": "GENERICEQUATIONRHS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EQUATIONID",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "TERMID",
+      "long"
+    ],
+    [
+      5,
+      "GROUPID",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "SPD_ID",
+      "string"
+    ],
+    [
+      7,
+      "SPD_TYPE",
+      "string"
+    ],
+    [
+      8,
+      "FACTOR",
+      "decimal(16, 10)"
+    ],
+    [
+      9,
+      "OPERATION",
+      "string"
+    ],
+    [
+      10,
+      "DEFAULTVALUE",
+      "decimal(16, 10)"
+    ],
+    [
+      11,
+      "PARAMETERTERM1",
+      "decimal(3, 0)"
+    ],
+    [
+      12,
+      "PARAMETERTERM2",
+      "decimal(3, 0)"
+    ],
+    [
+      13,
+      "PARAMETERTERM3",
+      "decimal(3, 0)"
+    ],
+    [
+      14,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "GENERICEQUATIONRHS"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 198,
+      "from": {
+        "data-time": "1997-11-04T00:00:00+10:00",
+        "file": "PUBLIC_DVD_MARKET_PRICE_THRESHOLDS_200911010000.zip",
+        "release": "2009-11",
+        "sha256": "8f91e576b2516bb624e724efdcad603438a749cf2ba6b611377dd3862bbbf0fb"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "MARKET_CONFIG",
+        "MARKET_PRICE_THRESHOLDS"
+      ],
+      "rows": 1891,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-07-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MARKET_PRICE_THRESHOLDS#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "005af053cdacc24dceb47d9c2c4a63c05661b680fb6eaafe69eced7103c5f19b"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "VOLL",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 4,
+          "name": "MARKETPRICEFLOOR",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 5,
+          "name": "ADMINISTERED_PRICE_THRESHOLD",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "AUTHORISEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "AUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "MARKET_PRICE_THRESHOLDS"
+}

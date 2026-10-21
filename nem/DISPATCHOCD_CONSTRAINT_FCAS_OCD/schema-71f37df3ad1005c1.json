@@ -1,0 +1,138 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCHOCD_CONSTRAINT_FCAS_OCD/schema-71f37df3ad1005c1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONSTRAINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "INTERVENTION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MARGINALVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "RHS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "VIOLATIONDEGREE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(8, 5)"
+    }
+  },
+  "required": [],
+  "title": "DISPATCHOCD_CONSTRAINT_FCAS_OCD, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "INTERVENTION",
+      "decimal(1, 0)"
+    ],
+    [
+      4,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      5,
+      "VERSIONNO",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      7,
+      "RHS",
+      "decimal(10, 5)"
+    ],
+    [
+      8,
+      "MARGINALVALUE",
+      "decimal(10, 5)"
+    ],
+    [
+      9,
+      "VIOLATIONDEGREE",
+      "decimal(8, 5)"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "DISPATCHOCD_CONSTRAINT_FCAS_OCD"
+  }
+}

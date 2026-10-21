@@ -1,0 +1,100 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SSM_ENABLEMENT_PERIOD/schema-e16dae03b432de5e.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DUID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "ENABLEMENT_END_INTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "ENABLEMENT_REASON": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "ENABLEMENT_START_INTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "INSTRUCTION_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "SSM_ENABLEMENT_PERIOD, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INSTRUCTION_ID",
+      "string"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      3,
+      "ENABLEMENT_START_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      4,
+      "ENABLEMENT_END_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      5,
+      "ENABLEMENT_REASON",
+      "string"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "SSM_ENABLEMENT_PERIOD"
+  }
+}

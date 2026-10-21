@@ -1,0 +1,343 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BIDOFFERPERIOD/schema-2c2113cb71e34f26.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BANDAVAIL1": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "BANDAVAIL10": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "BANDAVAIL2": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "BANDAVAIL3": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "BANDAVAIL4": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "BANDAVAIL5": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "BANDAVAIL6": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "BANDAVAIL7": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "BANDAVAIL8": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "BANDAVAIL9": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "BIDTYPE": {
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "DIRECTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "string"
+    },
+    "DUID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "ENABLEMENTMAX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "ENABLEMENTMIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "FIXEDLOAD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "HIGHBREAKPOINT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "LOWBREAKPOINT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "MAXAVAIL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "OFFERDATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PASAAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "PERIODID": {
+      "type": "integer",
+      "x-field-id": 5,
+      "x-iceberg-type": "long"
+    },
+    "RAMPDOWNRATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "RAMPUPRATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "TRADINGDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [
+    "DUID",
+    "BIDTYPE",
+    "TRADINGDATE",
+    "OFFERDATETIME",
+    "PERIODID"
+  ],
+  "title": "BIDOFFERPERIOD, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DUID",
+      "string"
+    ],
+    [
+      2,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      3,
+      "TRADINGDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      5,
+      "PERIODID",
+      "long"
+    ],
+    [
+      6,
+      "MAXAVAIL",
+      "decimal(8, 3)"
+    ],
+    [
+      7,
+      "FIXEDLOAD",
+      "decimal(8, 3)"
+    ],
+    [
+      8,
+      "RAMPUPRATE",
+      "decimal(6, 0)"
+    ],
+    [
+      9,
+      "RAMPDOWNRATE",
+      "decimal(6, 0)"
+    ],
+    [
+      10,
+      "ENABLEMENTMIN",
+      "decimal(8, 3)"
+    ],
+    [
+      11,
+      "ENABLEMENTMAX",
+      "decimal(8, 3)"
+    ],
+    [
+      12,
+      "LOWBREAKPOINT",
+      "decimal(8, 3)"
+    ],
+    [
+      13,
+      "HIGHBREAKPOINT",
+      "decimal(8, 3)"
+    ],
+    [
+      14,
+      "BANDAVAIL1",
+      "decimal(8, 3)"
+    ],
+    [
+      15,
+      "BANDAVAIL2",
+      "decimal(8, 3)"
+    ],
+    [
+      16,
+      "BANDAVAIL3",
+      "decimal(8, 3)"
+    ],
+    [
+      17,
+      "BANDAVAIL4",
+      "decimal(8, 3)"
+    ],
+    [
+      18,
+      "BANDAVAIL5",
+      "decimal(8, 3)"
+    ],
+    [
+      19,
+      "BANDAVAIL6",
+      "decimal(8, 3)"
+    ],
+    [
+      20,
+      "BANDAVAIL7",
+      "decimal(8, 3)"
+    ],
+    [
+      21,
+      "BANDAVAIL8",
+      "decimal(8, 3)"
+    ],
+    [
+      22,
+      "BANDAVAIL9",
+      "decimal(8, 3)"
+    ],
+    [
+      23,
+      "BANDAVAIL10",
+      "decimal(8, 3)"
+    ],
+    [
+      24,
+      "PASAAVAILABILITY",
+      "decimal(8, 3)"
+    ],
+    [
+      25,
+      "DIRECTION",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "BIDOFFERPERIOD"
+  }
+}

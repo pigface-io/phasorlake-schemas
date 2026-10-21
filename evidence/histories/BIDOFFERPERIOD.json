@@ -1,0 +1,1065 @@
+{
+  "breaking": [],
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 54,
+      "from": {
+        "data-time": "2021-04-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_BIDPEROFFER_202104010000.zip",
+        "release": "2021-04",
+        "sha256": "30bdd8b283dcdf09122628fb7e641090ba0a03ecce633e7a802c38856edb5e6b"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "BIDOFFERPERIOD"
+      ],
+      "rows": 21974091552,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2024-01-31T00:00:00+10:00",
+        "file": "PUBLIC_DVD_BIDPEROFFER2_202401010000.zip",
+        "release": "2024-01",
+        "sha256": "2dec1e1b2a6a230073fbdc498bbe35fd38ce06c9ab07a35cfb85037f568b2ae6"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6,
+      "from": {
+        "data-time": "2024-02-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_BIDPEROFFER1_202402010000.zip",
+        "release": "2024-02",
+        "sha256": "da2c0d3c3c55edba9fda288f21594a204de7ac3de2c8c2e821a9cd448ef20f8d"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "BIDOFFERPERIOD"
+      ],
+      "rows": 3916082592,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2024-04-30T00:00:00+10:00",
+        "file": "PUBLIC_DVD_BIDPEROFFER2_202404010000.zip",
+        "release": "2024-04",
+        "sha256": "8ec64e97caaab7916536a4a06188b6086995fdad1291492612c5475e30ec3577"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 25
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 6,
+      "from": {
+        "data-time": "2024-05-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_BIDPEROFFER1_202405010000.zip",
+        "release": "2024-05",
+        "sha256": "4654480b546175c3af7afa3a6c668b19943b18c378e5bbe683502959cf53ec8b"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "BIDOFFERPERIOD"
+      ],
+      "rows": 4237187328,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2024-07-31T00:00:00+10:00",
+        "file": "PUBLIC_DVD_BIDPEROFFER2_202407010000.zip",
+        "release": "2024-07",
+        "sha256": "70cf004ff10524f3b8e239c470e9622e8a7693f7d6b8863de0534dfaaca57f88"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 26
+        },
+        {
+          "action": "add",
+          "field-id": 27
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 289,
+      "from": {
+        "data-time": "2024-08-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#BIDOFFERPERIOD#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "83a59b18e36c96cf52fd961e2a54ba36feb5f2c7a56a30b057956255248bdc6e"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "BIDOFFERPERIOD"
+      ],
+      "rows": 12365232192,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-03-31T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#BIDOFFERPERIOD#FILE42#202503010000.zip",
+        "release": "2025-03",
+        "sha256": "abc565ea2f63fee93ec152a5a4d605db1bb61ca6b24bc33afa1a048e8b7d821d"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 25
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 130,
+      "from": {
+        "data-time": "2025-04-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#BIDOFFERPERIOD#FILE01#202504010000.zip",
+        "release": "2025-04",
+        "sha256": "8907019ad7ff14dda20885c0d415a051110331a3aab556d0c80fad9d020f6f83"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "BIDOFFERPERIOD"
+      ],
+      "rows": 5537262240,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2025-06-30T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#BIDOFFERPERIOD#FILE45#202506010000.zip",
+        "release": "2025-06",
+        "sha256": "e1b84d44fe21d87d5627e6410eb94088778f85bdbe56ffaa362b9a32e1dece28"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 28
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "version"
+      ],
+      "files": 507,
+      "from": {
+        "data-time": "2025-07-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#BIDOFFERPERIOD#FILE01#202507010000.zip",
+        "release": "2025-07",
+        "sha256": "1e49d02f4414c18cea012b1bbf933c4a7c64132a3815e990888a267215ce961b"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "BIDOFFERPERIOD"
+      ],
+      "rows": 21401276011,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-04-30T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#BIDOFFERPERIOD#FILE56#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "9b0501b4e23bde94f234fe8698f4bb96c9c896f45b5581fdd54f8378fad40ccf"
+      },
+      "updates": [],
+      "version": 3
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "BIDTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "TRADINGDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "OFFERDATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "PERIODID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 6,
+          "name": "MAXAVAIL",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 7,
+          "name": "FIXEDLOAD",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 8,
+          "name": "RAMPUPRATE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 9,
+          "name": "RAMPDOWNRATE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 10,
+          "name": "ENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 11,
+          "name": "ENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 12,
+          "name": "LOWBREAKPOINT",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 13,
+          "name": "HIGHBREAKPOINT",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 14,
+          "name": "BANDAVAIL1",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 15,
+          "name": "BANDAVAIL2",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 16,
+          "name": "BANDAVAIL3",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 17,
+          "name": "BANDAVAIL4",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 18,
+          "name": "BANDAVAIL5",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 19,
+          "name": "BANDAVAIL6",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 20,
+          "name": "BANDAVAIL7",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 21,
+          "name": "BANDAVAIL8",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 22,
+          "name": "BANDAVAIL9",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 23,
+          "name": "BANDAVAIL10",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 24,
+          "name": "PASAAVAILABILITY",
+          "required": false,
+          "type": "decimal(8, 3)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "BIDTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "TRADINGDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "OFFERDATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "PERIODID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 6,
+          "name": "MAXAVAIL",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 7,
+          "name": "FIXEDLOAD",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 8,
+          "name": "RAMPUPRATE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 9,
+          "name": "RAMPDOWNRATE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 10,
+          "name": "ENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 11,
+          "name": "ENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 12,
+          "name": "LOWBREAKPOINT",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 13,
+          "name": "HIGHBREAKPOINT",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 14,
+          "name": "BANDAVAIL1",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 15,
+          "name": "BANDAVAIL2",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 16,
+          "name": "BANDAVAIL3",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 17,
+          "name": "BANDAVAIL4",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 18,
+          "name": "BANDAVAIL5",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 19,
+          "name": "BANDAVAIL6",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 20,
+          "name": "BANDAVAIL7",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 21,
+          "name": "BANDAVAIL8",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 22,
+          "name": "BANDAVAIL9",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 23,
+          "name": "BANDAVAIL10",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 24,
+          "name": "PASAAVAILABILITY",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 25,
+          "name": "DIRECTION",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "BIDTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "TRADINGDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "OFFERDATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "PERIODID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 6,
+          "name": "MAXAVAIL",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 7,
+          "name": "FIXEDLOAD",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 8,
+          "name": "RAMPUPRATE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 9,
+          "name": "RAMPDOWNRATE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 10,
+          "name": "ENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 11,
+          "name": "ENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 12,
+          "name": "LOWBREAKPOINT",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 13,
+          "name": "HIGHBREAKPOINT",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 14,
+          "name": "BANDAVAIL1",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 15,
+          "name": "BANDAVAIL2",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 16,
+          "name": "BANDAVAIL3",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 17,
+          "name": "BANDAVAIL4",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 18,
+          "name": "BANDAVAIL5",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 19,
+          "name": "BANDAVAIL6",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 20,
+          "name": "BANDAVAIL7",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 21,
+          "name": "BANDAVAIL8",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 22,
+          "name": "BANDAVAIL9",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 23,
+          "name": "BANDAVAIL10",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 24,
+          "name": "PASAAVAILABILITY",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 25,
+          "name": "DIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 26,
+          "name": "ENERGYLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "PERIODIDTO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "schema-id": 2,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "BIDTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "TRADINGDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "OFFERDATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 25,
+          "name": "DIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "PERIODID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 6,
+          "name": "MAXAVAIL",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 7,
+          "name": "FIXEDLOAD",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 8,
+          "name": "RAMPUPRATE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 9,
+          "name": "RAMPDOWNRATE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 10,
+          "name": "ENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 11,
+          "name": "ENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 12,
+          "name": "LOWBREAKPOINT",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 13,
+          "name": "HIGHBREAKPOINT",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 14,
+          "name": "BANDAVAIL1",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 15,
+          "name": "BANDAVAIL2",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 16,
+          "name": "BANDAVAIL3",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 17,
+          "name": "BANDAVAIL4",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 18,
+          "name": "BANDAVAIL5",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 19,
+          "name": "BANDAVAIL6",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 20,
+          "name": "BANDAVAIL7",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 21,
+          "name": "BANDAVAIL8",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 22,
+          "name": "BANDAVAIL9",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 23,
+          "name": "BANDAVAIL10",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 24,
+          "name": "PASAAVAILABILITY",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 26,
+          "name": "ENERGYLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "PERIODIDTO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "schema-id": 3,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "BIDTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "TRADINGDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "OFFERDATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 25,
+          "name": "DIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "PERIODID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 6,
+          "name": "MAXAVAIL",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 7,
+          "name": "FIXEDLOAD",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 8,
+          "name": "RAMPUPRATE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 9,
+          "name": "RAMPDOWNRATE",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 10,
+          "name": "ENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 11,
+          "name": "ENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 12,
+          "name": "LOWBREAKPOINT",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 13,
+          "name": "HIGHBREAKPOINT",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 14,
+          "name": "BANDAVAIL1",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 15,
+          "name": "BANDAVAIL2",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 16,
+          "name": "BANDAVAIL3",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 17,
+          "name": "BANDAVAIL4",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 18,
+          "name": "BANDAVAIL5",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 19,
+          "name": "BANDAVAIL6",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 20,
+          "name": "BANDAVAIL7",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 21,
+          "name": "BANDAVAIL8",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 22,
+          "name": "BANDAVAIL9",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 23,
+          "name": "BANDAVAIL10",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 24,
+          "name": "PASAAVAILABILITY",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 26,
+          "name": "ENERGYLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "PERIODIDTO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 28,
+          "name": "RECALL_PERIOD",
+          "required": false,
+          "type": "decimal(8, 3)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "schema-id": 4,
+      "type": "struct"
+    }
+  ],
+  "table": "BIDOFFERPERIOD"
+}

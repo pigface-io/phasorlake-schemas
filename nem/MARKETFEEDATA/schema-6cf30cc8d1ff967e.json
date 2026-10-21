@@ -1,0 +1,85 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MARKETFEEDATA/schema-6cf30cc8d1ff967e.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EFFECTIVEDATE": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "MARKETFEEID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "MARKETFEEVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "double"
+    },
+    "MARKETFEEVERSIONNO": {
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [
+    "MARKETFEEID",
+    "MARKETFEEVERSIONNO",
+    "EFFECTIVEDATE"
+  ],
+  "title": "MARKETFEEDATA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "MARKETFEEID",
+      "string"
+    ],
+    [
+      2,
+      "MARKETFEEVERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "MARKETFEEVALUE",
+      "double"
+    ],
+    [
+      5,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "MARKETFEEDATA"
+  }
+}

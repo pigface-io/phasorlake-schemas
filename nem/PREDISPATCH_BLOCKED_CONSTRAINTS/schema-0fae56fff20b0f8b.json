@@ -1,0 +1,45 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PREDISPATCH_BLOCKED_CONSTRAINTS/schema-0fae56fff20b0f8b.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONSTRAINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "PREDISPATCHSEQNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(10, 0)"
+    }
+  },
+  "required": [],
+  "title": "PREDISPATCH_BLOCKED_CONSTRAINTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PREDISPATCHSEQNO",
+      "decimal(10, 0)"
+    ],
+    [
+      2,
+      "CONSTRAINTID",
+      "string"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "PREDISPATCH_BLOCKED_CONSTRAINTS"
+  }
+}
