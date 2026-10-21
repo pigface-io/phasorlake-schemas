@@ -1,4 +1,4 @@
-# nem-schemas
+# utilake-schemas
 
 Every table of the National Electricity Market data that AEMO publishes on
 nemweb.com.au, as an [Apache Iceberg](https://iceberg.apache.org/) table:
@@ -19,7 +19,7 @@ it.
 | `evidence/models/`    | The data-model create scripts the monthly archives ship: each release's tables, columns, types and comments.                                 |
 | `evidence/histories/` | Each table's history as an Iceberg table, folded from all of the above.                                                                      |
 | `nem/`                | The published documents: `nem/{TABLE}/table.json` and one `schema-{hash}.json` per schema; `manifest.json` names each with its SHA-256.      |
-| `crates/`             | `nem-iceberg`, the Iceberg contract (no I/O); `nem-schemas`, the tool; `xtask`, the repository's gates.                                      |
+| `crates/`             | `utilake-iceberg`, the Iceberg contract (no I/O); `utilake-schemas`, the tool; `xtask`, the repository's gates.                                      |
 
 ## The pipeline
 
@@ -28,12 +28,12 @@ input: no clock, no network after `fetch`, and no order of work shows in
 the output.
 
 ```sh
-nem-schemas fetch --month 2026-09 --dir mirror/MMSDM_2026_09   # sources/2026-09.tsv
-nem-schemas census --month 2026-09 --dir mirror/MMSDM_2026_09  # evidence/census/2026-09.toml, evidence/ctl/
-nem-schemas reports --dir mirror/Reports --mmsdm mirror        # evidence/census/reports/
-nem-schemas models --month 2026-09 --dir mirror/MMSDM_2026_09  # evidence/models/
-nem-schemas fold                                               # evidence/histories/
-nem-schemas export                                             # nem/, manifest.json
+utilake-schemas fetch --month 2026-09 --dir mirror/MMSDM_2026_09   # sources/2026-09.tsv
+utilake-schemas census --month 2026-09 --dir mirror/MMSDM_2026_09  # evidence/census/2026-09.toml, evidence/ctl/
+utilake-schemas reports --dir mirror/Reports --mmsdm mirror        # evidence/census/reports/
+utilake-schemas models --month 2026-09 --dir mirror/MMSDM_2026_09  # evidence/models/
+utilake-schemas fold                                               # evidence/histories/
+utilake-schemas export                                             # nem/, manifest.json
 ```
 
 `fetch` downloads one month of the MMSDM archive, one request at a time.
@@ -72,7 +72,7 @@ To read the histories with an Iceberg library, write them as tables
 without data:
 
 ```sh
-nem-schemas iceberg --out target/iceberg   # target/iceberg/{TABLE}/metadata/
+utilake-schemas iceberg --out target/iceberg   # target/iceberg/{TABLE}/metadata/
 just replay                                # every table read back by pyiceberg
 ```
 
@@ -93,7 +93,7 @@ projects every file onto one schema by field id:
 
 ```sh
 # files.json: [{"path": "…parquet", "schema_id": 0, "min_us": …, "max_us": …}]
-nem-schemas sql DISPATCHPRICE --files files.json --from 2024-08-01 --to 2024-09-01 [--as-of 0]
+utilake-schemas sql DISPATCHPRICE --files files.json --from 2024-08-01 --to 2024-09-01 [--as-of 0]
 ```
 
 A time is RFC 3339, or a day, which is its midnight in market time

@@ -1,6 +1,6 @@
 //! `sql TABLE --files FILES.json --from T --to T [--as-of SCHEMA_ID]`: the
 //! DuckDB query that reads an interval of a table's Parquet files across
-//! its schemas ([`nem_iceberg::plan`], [`nem_iceberg::duckdb_sql`]).
+//! its schemas ([`utilake_iceberg::plan`], [`utilake_iceberg::duckdb_sql`]).
 //!
 //! `FILES.json` lists the table's data files, `[{path, schema_id, min_us,
 //! max_us}]`: where each is, the schema it was written under, and its
@@ -11,8 +11,8 @@
 
 use std::path::Path;
 
-use nem_iceberg::{DataFile, PlanError, Target, duckdb_sql, plan};
 use serde::Deserialize;
+use utilake_iceberg::{DataFile, PlanError, Target, duckdb_sql, plan};
 
 use crate::catalog::{Catalog, CatalogError};
 use crate::export::{ExportError, read_histories};

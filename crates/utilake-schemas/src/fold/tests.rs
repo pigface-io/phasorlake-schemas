@@ -1,4 +1,4 @@
-use nem_iceberg::compat::check;
+use utilake_iceberg::compat::check;
 
 use super::*;
 use crate::catalog::tests::{decl, scada};
@@ -128,7 +128,7 @@ fn every_census_folds_into_one_file_per_table() {
     assert_eq!(render(&h), text);
     // Typed by the release: NUMERIC(16,6).
     let f = h.schemas[0].by_name("SCADAVALUE").unwrap();
-    assert_eq!(f.ty, nem_iceberg::IcebergType::decimal(16, 6).unwrap());
+    assert_eq!(f.ty, utilake_iceberg::IcebergType::decimal(16, 6).unwrap());
     assert_eq!(h.schemas[0].identifier_field_ids, [1]);
     // Two census months and two report runs, in one run: report files
     // carry no SHA-256.

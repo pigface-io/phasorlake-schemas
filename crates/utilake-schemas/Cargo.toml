@@ -1,5 +1,5 @@
 [package]
-name = "nem-schemas"
+name = "utilake-schemas"
 description = "Reads AEMO's MMS files into a census of every block's shape, folds it into each table's history, and exports the documents under nem/."
 version.workspace = true
 edition.workspace = true
@@ -12,11 +12,11 @@ publish.workspace = true
 workspace = true
 
 [[bin]]
-name = "nem-schemas"
+name = "utilake-schemas"
 path = "src/main.rs"
 
 [dependencies]
-nem-iceberg.workspace = true
+utilake-iceberg.workspace = true
 clap.workspace = true
 flate2.workspace = true
 memchr.workspace = true

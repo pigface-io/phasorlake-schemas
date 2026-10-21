@@ -17,8 +17,8 @@
 use std::collections::{BTreeMap, HashMap};
 use std::path::{Path, PathBuf};
 
-use nem_iceberg::IcebergType;
 use serde::{Deserialize, Serialize};
+use utilake_iceberg::IcebergType;
 
 /// Why the declarations cannot be read or written.
 #[derive(Debug, thiserror::Error)]

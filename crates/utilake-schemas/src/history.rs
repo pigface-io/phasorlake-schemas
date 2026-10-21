@@ -52,7 +52,7 @@
 //!   published field keeps the published type; at the first block that
 //!   type cannot hold ([`holds`]), the column gets a new field, recorded as
 //!   breaking with that block's file and time: a split, never a retype. A
-//!   fold that cannot keep the promise ([`nem_iceberg::compat::check`]) is
+//!   fold that cannot keep the promise ([`utilake_iceberg::compat::check`]) is
 //!   an error.
 //! - **An override** (`[[override]]` in the table's declaration) is the
 //!   type of each of the column's lineages that no published field sets,
@@ -63,9 +63,11 @@
 
 use std::collections::BTreeMap;
 
-use nem_iceberg::compat::{Violation, check};
-use nem_iceberg::history::{Break, Change, Mark, Run, Update};
-use nem_iceberg::{Declared, Evidence, Field, History, IcebergType, Kind, Schema, choose, holds};
+use utilake_iceberg::compat::{Violation, check};
+use utilake_iceberg::history::{Break, Change, Mark, Run, Update};
+use utilake_iceberg::{
+    Declared, Evidence, Field, History, IcebergType, Kind, Schema, choose, holds,
+};
 
 use crate::census::{BlockRecord, FileRecord};
 use crate::month::YearMonth;

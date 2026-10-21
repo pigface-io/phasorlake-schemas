@@ -2,7 +2,7 @@
 //! data, so any Iceberg reader can be asked what its schemas are.
 //!
 //! `DIR/{TABLE}/metadata/v1.metadata.json` is the table's first metadata
-//! ([`nem_iceberg::table::TableMetadata`]): every schema of the history,
+//! ([`utilake_iceberg::table::TableMetadata`]): every schema of the history,
 //! the current one the schema of its last run, and no snapshot. Beside it,
 //! `version-hint.text` names version 1: the digit alone, which readers
 //! that do not trim it need. The table's UUID is derived from its name and
@@ -10,15 +10,15 @@
 
 use std::path::{Path, PathBuf};
 
-use nem_iceberg::History;
-use nem_iceberg::table::TableMetadata;
+use utilake_iceberg::History;
+use utilake_iceberg::table::TableMetadata;
 
 use crate::export::{ExportError, read_histories, text};
 
 /// A UUID (version 8, RFC 9562) from the SHA-256 of the table's name.
 pub fn table_uuid(table: &str) -> String {
     use sha2::Digest as _;
-    let hash = sha2::Sha256::digest(format!("nem-schemas/{table}").as_bytes());
+    let hash = sha2::Sha256::digest(format!("utilake-schemas/{table}").as_bytes());
     let mut b = [0u8; 16];
     b.copy_from_slice(&hash[..16]);
     // The version in the high nibble of byte 6, the variant `10` in the

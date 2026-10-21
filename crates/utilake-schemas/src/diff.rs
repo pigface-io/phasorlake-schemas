@@ -8,7 +8,7 @@
 
 use std::fmt::Write as _;
 
-use nem_iceberg::History;
+use utilake_iceberg::History;
 
 use crate::published::Published;
 
@@ -63,7 +63,7 @@ fn names<'a>(names: impl Iterator<Item = &'a String>) -> String {
 
 /// The Markdown summary of `now` against `base`, published at `rev`.
 pub fn diff(rev: &str, base: &Published, now: &Published) -> String {
-    let mut out = format!("## nem-schemas against `{rev}`\n\n");
+    let mut out = format!("## utilake-schemas against `{rev}`\n\n");
     let added: Vec<&String> = now
         .tables
         .keys()
@@ -143,7 +143,7 @@ mod tests {
         let base = Published::read(root).unwrap();
         assert_eq!(
             diff("main", &base, &base),
-            "## nem-schemas against `main`\n\nNo table changed.\n"
+            "## utilake-schemas against `main`\n\nNo table changed.\n"
         );
         grow(root);
         let mut now = Published::read(root).unwrap();
@@ -156,7 +156,7 @@ mod tests {
         old.tables.insert("GONE".into(), gone);
         assert_eq!(
             diff("main", &old, &now),
-            "## nem-schemas against `main`\n\n\
+            "## utilake-schemas against `main`\n\n\
              - Tables added (1): `NEW`\n\
              - Tables removed (1): `GONE`\n\n\
              | Table | Schemas added | Runs added | Runs grown | Fields added | Breaks added |\n\

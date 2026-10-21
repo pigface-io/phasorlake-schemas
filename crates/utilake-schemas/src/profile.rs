@@ -3,11 +3,11 @@
 //!
 //! Nothing is sampled and nothing is taken from AEMO's declarations: this is
 //! the evidence the column's Iceberg type is chosen from
-//! ([`nem_iceberg::choose`]) and the declarations are audited against.
+//! ([`utilake_iceberg::choose`]) and the declarations are audited against.
 
 use std::cmp::Ordering;
 
-use nem_iceberg::{Evidence, Kind};
+use utilake_iceberg::{Evidence, Kind};
 
 /// One column of one block.
 #[derive(Debug, Clone, Default)]

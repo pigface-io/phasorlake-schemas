@@ -1,10 +1,10 @@
 {
   "exclude": [
     "crates/xtask/",
-    "crates/nem-schemas/src/main.rs"
+    "crates/utilake-schemas/src/main.rs"
   ],
   "floors": {
-    "crates/nem-schemas/src": 100,
-    "crates/nem-iceberg/src": 100
+    "crates/utilake-schemas/src": 100,
+    "crates/utilake-iceberg/src": 100
   }
 }

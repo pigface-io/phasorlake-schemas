@@ -1,22 +1,22 @@
-# nem-schemas: every table of Australia's National Electricity Market data
+# utilake-schemas: every table of Australia's National Electricity Market data
 # as an Apache Iceberg table, derived from AEMO's published files.
 #
-#   nem-iceberg  the Iceberg contract: types, schemas, the type rule, the
+#   utilake-iceberg  the Iceberg contract: types, schemas, the type rule, the
 #                interval planner, and table metadata and manifests as bytes.
 #                Pure: no I/O.
-#   nem-schemas  the tool: fetches AEMO's files, takes their census, folds
+#   utilake-schemas  the tool: fetches AEMO's files, takes their census, folds
 #                the census into each table's history, exports nem/.
 #   xtask        repository gates: coverage floors and their ratchet.
 [workspace]
 resolver = "3"
-members = ["crates/nem-iceberg", "crates/nem-schemas", "crates/xtask"]
+members = ["crates/utilake-iceberg", "crates/utilake-schemas", "crates/xtask"]
 
 [workspace.package]
 version = "0.1.0"
 edition = "2024"
 rust-version = "1.97"
 license = "Apache-2.0"
-repository = "https://github.com/pigface-io/nem-schemas"
+repository = "https://github.com/g0itb4/utilake-schemas"
 publish = false
 
 [workspace.lints.rust]
@@ -44,7 +44,7 @@ explicit_iter_loop = "deny"
 uninlined_format_args = "deny"
 
 [workspace.dependencies]
-nem-iceberg = { path = "crates/nem-iceberg" }
+utilake-iceberg = { path = "crates/utilake-iceberg" }
 
 anyhow = "1"
 clap = { version = "4.6", features = ["derive", "wrap_help"] }

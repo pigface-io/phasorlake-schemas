@@ -39,9 +39,9 @@ pub const BASE: &str = "https://www.nemweb.com.au";
 
 /// The User-Agent of every request.
 pub const USER_AGENT: &str = concat!(
-    "nem-schemas/",
+    "utilake-schemas/",
     env!("CARGO_PKG_VERSION"),
-    " (+https://github.com/pigface-io/nem-schemas)"
+    " (+https://github.com/g0itb4/utilake-schemas)"
 );
 
 /// The least time between two requests, by default.

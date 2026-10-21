@@ -1,5 +1,5 @@
 [package]
-name = "nem-iceberg"
+name = "utilake-iceberg"
 description = "AEMO's NEM tables as Apache Iceberg tables: types, schemas with stable field ids, the type rule, each table's history and what it promises across versions, the interval planner, and table metadata and manifests as bytes."
 version.workspace = true
 edition.workspace = true

@@ -2,7 +2,7 @@
 //! published.
 //!
 //! Every table published at the base must still be published, its history
-//! kept to what it promised ([`nem_iceberg::compat::check`]), and every
+//! kept to what it promised ([`utilake_iceberg::compat::check`]), and every
 //! schema document published at the base must be there with the same
 //! bytes: a document's `$id` is a promise that it never changes.
 
@@ -28,7 +28,7 @@ pub fn compat(rev: &str, base: &Published, now: &Published) -> Compat {
                 "nem/{table}/table.json: published at {rev} and missing now"
             )),
             Some(new) => violations.extend(
-                nem_iceberg::compat::check(old, new)
+                utilake_iceberg::compat::check(old, new)
                     .iter()
                     .map(|v| format!("nem/{table}/table.json: {v}")),
             ),

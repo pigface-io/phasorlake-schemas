@@ -205,7 +205,7 @@ fn a_month_is_fetched_politely_once_and_recorded() {
     // One request at a time, the interval apart, each naming this
     // repository; the big-table directory that is not there is a 404.
     assert!(s.log.iter().all(|(_, ua, _)| ua == USER_AGENT));
-    assert!(USER_AGENT.contains("https://github.com/pigface-io/nem-schemas"));
+    assert!(USER_AGENT.contains("https://github.com/g0itb4/utilake-schemas"));
     for w in s.log.windows(2) {
         assert!(w[1].2 - w[0].2 >= gap, "{:?}", s.urls());
     }

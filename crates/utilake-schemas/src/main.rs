@@ -1,4 +1,4 @@
-//! `nem-schemas`: fetch a month of AEMO's archive, take its census, take
+//! `utilake-schemas`: fetch a month of AEMO's archive, take its census, take
 //! the census of the report folders, record a month's data-model releases,
 //! fold every census into each table's history, export the histories as
 //! the documents under `nem/`, hold them to a git revision, plan a read of
@@ -6,17 +6,17 @@
 //! table declarations from utilake's table files.
 //!
 //! ```text
-//! nem-schemas fetch --month 2024-01 --dir mirror/MMSDM_2024_01 [--interval-ms 1000] [--root .]
-//! nem-schemas census --month 2024-01 --dir mirror/MMSDM_2024_01 [--root .]
-//! nem-schemas reports --dir mirror/Reports [--mmsdm mirror] [--root .]
-//! nem-schemas models --month 2025-10 --dir mirror/MMSDM_2025_10 [--root .]
-//! nem-schemas fold [--check] [--root .]
-//! nem-schemas export [--check] [--base-url URL] [--root .]
-//! nem-schemas compat --base origin/main [--root .]
-//! nem-schemas diff --base origin/main [--root .]
-//! nem-schemas sql DISPATCHPRICE --files files.json --from 2024-08-01 --to 2024-08-02 [--as-of 0] [--root .]
-//! nem-schemas iceberg --out target/iceberg [--root .]
-//! nem-schemas tables-from-utilake --from ../utilake/schemas/nem --out tables
+//! utilake-schemas fetch --month 2024-01 --dir mirror/MMSDM_2024_01 [--interval-ms 1000] [--root .]
+//! utilake-schemas census --month 2024-01 --dir mirror/MMSDM_2024_01 [--root .]
+//! utilake-schemas reports --dir mirror/Reports [--mmsdm mirror] [--root .]
+//! utilake-schemas models --month 2025-10 --dir mirror/MMSDM_2025_10 [--root .]
+//! utilake-schemas fold [--check] [--root .]
+//! utilake-schemas export [--check] [--base-url URL] [--root .]
+//! utilake-schemas compat --base origin/main [--root .]
+//! utilake-schemas diff --base origin/main [--root .]
+//! utilake-schemas sql DISPATCHPRICE --files files.json --from 2024-08-01 --to 2024-08-02 [--as-of 0] [--root .]
+//! utilake-schemas iceberg --out target/iceberg [--root .]
+//! utilake-schemas tables-from-utilake --from ../utilake/schemas/nem --out tables
 //! ```
 
 use std::path::{Path, PathBuf};
@@ -24,13 +24,13 @@ use std::process::ExitCode;
 use std::time::Duration;
 
 use clap::{Parser, Subcommand};
-use nem_schemas::catalog::Catalog;
-use nem_schemas::fetch::{DEFAULT_INTERVAL_MS, Http, Response};
-use nem_schemas::month::YearMonth;
+use utilake_schemas::catalog::Catalog;
+use utilake_schemas::fetch::{DEFAULT_INTERVAL_MS, Http, Response};
+use utilake_schemas::month::YearMonth;
 
 #[derive(Parser)]
 #[command(
-    name = "nem-schemas",
+    name = "utilake-schemas",
     version,
     about = "The census of AEMO's MMS archive."
 )]
@@ -71,7 +71,7 @@ enum Cmd {
         root: PathBuf,
         /// Files read at once: one per core by default. The census is bound
         /// by the CPU; give 6 while something else writes the same disk.
-        #[arg(long, default_value_t = nem_schemas::pool::default_jobs())]
+        #[arg(long, default_value_t = utilake_schemas::pool::default_jobs())]
         jobs: usize,
     },
     /// Record every folder of the report roots in
@@ -89,7 +89,7 @@ enum Cmd {
         root: PathBuf,
         /// Folders read at once: one per core by default; give 6 while
         /// something else writes the same disk.
-        #[arg(long, default_value_t = nem_schemas::pool::default_jobs())]
+        #[arg(long, default_value_t = utilake_schemas::pool::default_jobs())]
         jobs: usize,
     },
     /// Record the data-model create scripts a month's archive carries
@@ -127,7 +127,7 @@ enum Cmd {
         #[arg(long)]
         check: bool,
         /// Where the documents are published.
-        #[arg(long, default_value = nem_schemas::export::DEFAULT_BASE_URL)]
+        #[arg(long, default_value = utilake_schemas::export::DEFAULT_BASE_URL)]
         base_url: String,
         /// The repository root.
         #[arg(long, default_value = ".")]
@@ -241,7 +241,7 @@ impl GitCli<'_> {
     }
 }
 
-impl nem_schemas::published::Git for GitCli<'_> {
+impl utilake_schemas::published::Git for GitCli<'_> {
     fn list(&self, rev: &str, dir: &str) -> std::io::Result<Vec<String>> {
         // Paths relative to the root, as the root's own files are named.
         let out = self.run(&["ls-tree", "-r", "--name-only", "-z", rev, "--", dir])?;
@@ -263,12 +263,12 @@ fn published(
     rev: &str,
 ) -> Result<
     (
-        nem_schemas::published::Published,
-        nem_schemas::published::Published,
+        utilake_schemas::published::Published,
+        utilake_schemas::published::Published,
     ),
     ExitCode,
 > {
-    use nem_schemas::published::Published;
+    use utilake_schemas::published::Published;
     let base = Published::at(&GitCli(root), rev).map_err(|e| fail(&e))?;
     let now = Published::read(root).map_err(|e| fail(&e))?;
     Ok((base, now))
@@ -313,9 +313,9 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                 .build()
                 .into();
             let interval = Duration::from_millis(interval_ms);
-            let done = nem_schemas::fetch::fetch_month(
+            let done = utilake_schemas::fetch::fetch_month(
                 &mut Ureq(agent),
-                nem_schemas::fetch::BASE,
+                utilake_schemas::fetch::BASE,
                 month,
                 &dir,
                 &root,
@@ -334,13 +334,14 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             jobs,
         } => {
             let cat = catalog(&root)?;
-            let files = nem_schemas::census::month_files(&dir).map_err(|e| fail(&e))?;
+            let files = utilake_schemas::census::month_files(&dir).map_err(|e| fail(&e))?;
             let tmp = scratch()?;
-            let census = nem_schemas::census::census_month(&cat, month, &files, tmp.path(), jobs);
+            let census =
+                utilake_schemas::census::census_month(&cat, month, &files, tmp.path(), jobs);
             for p in &census.problems {
                 eprintln!("error: {}: {}", p.file, p.error);
             }
-            let blocks = nem_schemas::census::record(&root, &census).map_err(|e| fail(&e))?;
+            let blocks = utilake_schemas::census::record(&root, &census).map_err(|e| fail(&e))?;
             println!(
                 "{month}: {} file(s), {blocks} block(s), {} unread",
                 census.files.len(),
@@ -358,7 +359,7 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         } => {
             let cat = catalog(&root)?;
             let tmp = scratch()?;
-            let taken = nem_schemas::reports::census_reports(
+            let taken = utilake_schemas::reports::census_reports(
                 &cat,
                 &dir,
                 mmsdm.as_deref(),
@@ -381,9 +382,9 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             }
         }
         Cmd::Models { month, dir, root } => {
-            let files = nem_schemas::census::files_under(&dir).map_err(|e| fail(&e))?;
-            let zips = nem_schemas::models::model_zips(&files);
-            let r = nem_schemas::models::record(&root, month, &zips).map_err(|e| fail(&e))?;
+            let files = utilake_schemas::census::files_under(&dir).map_err(|e| fail(&e))?;
+            let zips = utilake_schemas::models::model_zips(&files);
+            let r = utilake_schemas::models::record(&root, month, &zips).map_err(|e| fail(&e))?;
             for p in &r.problems {
                 eprintln!("error: {p}");
             }
@@ -399,7 +400,7 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         }
         Cmd::Fold { check, root } => {
             let cat = catalog(&root)?;
-            let f = nem_schemas::fold::fold(&root, &cat, check).map_err(|e| fail(&e))?;
+            let f = utilake_schemas::fold::fold(&root, &cat, check).map_err(|e| fail(&e))?;
             println!(
                 "{} table(s), {} schema(s), {} run(s), {} break(s); {} file(s) {}",
                 f.tables,
@@ -418,7 +419,7 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             base_url,
             root,
         } => {
-            use nem_schemas::export;
+            use utilake_schemas::export;
             let r = export::Export::load(&root, &base_url)
                 .map_err(|e| fail(&e))?
                 .render();
@@ -450,7 +451,7 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                 println!("compat: {base} has no nem/; nothing to hold to");
                 return Ok(ExitCode::SUCCESS);
             }
-            let c = nem_schemas::compat::compat(&base, &old, &now);
+            let c = utilake_schemas::compat::compat(&base, &old, &now);
             for v in &c.violations {
                 println!("{v}");
             }
@@ -464,7 +465,7 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         }
         Cmd::Diff { base, root } => {
             let (old, now) = published(&root, &base)?;
-            print!("{}", nem_schemas::diff::diff(&base, &old, &now));
+            print!("{}", utilake_schemas::diff::diff(&base, &old, &now));
         }
         Cmd::Sql {
             table,
@@ -474,16 +475,16 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             as_of,
             root,
         } => {
-            let q = nem_schemas::sql::sql(&root, &table, &files, (&from, &to), as_of)
+            let q = utilake_schemas::sql::sql(&root, &table, &files, (&from, &to), as_of)
                 .map_err(|e| fail(&e))?;
             print!("{q}");
         }
         Cmd::Iceberg { out, root } => {
-            let n = nem_schemas::iceberg::write_tables(&root, &out).map_err(|e| fail(&e))?;
+            let n = utilake_schemas::iceberg::write_tables(&root, &out).map_err(|e| fail(&e))?;
             println!("{n} table(s) written under {}", out.display());
         }
         Cmd::TablesFromUtilake { from, out } => {
-            let cat = nem_schemas::catalog::from_utilake(&from).map_err(|e| fail(&e))?;
+            let cat = utilake_schemas::catalog::from_utilake(&from).map_err(|e| fail(&e))?;
             let n = cat.write(&out).map_err(|e| fail(&e))?;
             println!("{n} table declaration(s) written to {}", out.display());
         }

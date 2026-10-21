@@ -18,8 +18,8 @@
 use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 
-use nem_iceberg::History;
 use serde_json::{Value, json};
+use utilake_iceberg::History;
 
 use crate::catalog::{Catalog, CatalogError, TableDecl};
 use crate::fold::histories_dir;
@@ -37,7 +37,7 @@ pub const FORMAT: u32 = 2;
 
 /// Where the documents are published: a document's `$id` is this and its
 /// path.
-pub const DEFAULT_BASE_URL: &str = "https://raw.githubusercontent.com/pigface-io/nem-schemas/main/";
+pub const DEFAULT_BASE_URL: &str = "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/";
 
 /// The directory the export owns.
 pub const OWNED: &str = "nem";

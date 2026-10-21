@@ -1,10 +1,10 @@
-"""Read every table `nem-schemas iceberg` wrote with pyiceberg, and hold it
+"""Read every table `utilake-schemas iceberg` wrote with pyiceberg, and hold it
 to its history.
 
     uv run --with pyiceberg python scripts/replay.py [DIR] [HISTORIES]
 
 DIR (default target/iceberg) holds one table per directory, as
-`nem-schemas iceberg --out DIR` writes them; HISTORIES (default
+`utilake-schemas iceberg --out DIR` writes them; HISTORIES (default
 evidence/histories) holds each table's history. Every history must have a
 table and every table a history. Each table is loaded as a pyiceberg
 `StaticTable` from the metadata its `version-hint.text` names, and must

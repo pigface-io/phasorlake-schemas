@@ -13,7 +13,7 @@ Energy Market Operator (AEMO) on nemweb.com.au:
   No row of AEMO's data is copied.
 - `sources/` lists every file read: its URL, SHA-256, size and the time the
   server says it was published.
-- `nem/` and `manifest.json` are generated from the above by `nem-schemas
+- `nem/` and `manifest.json` are generated from the above by `utilake-schemas
   export`.
 - `testdata/` holds short excerpts of AEMO's files for the tests.
 

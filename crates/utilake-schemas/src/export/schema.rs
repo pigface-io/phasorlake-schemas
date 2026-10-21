@@ -9,8 +9,8 @@
 //! name and Iceberg type. Nothing in it says which files were written under
 //! the schema, so a published document never changes.
 
-use nem_iceberg::{IcebergType, Schema};
 use serde_json::{Map, Value, json};
+use utilake_iceberg::{IcebergType, Schema};
 
 use super::{FORMAT, text};
 

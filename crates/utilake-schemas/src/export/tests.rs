@@ -248,8 +248,8 @@ fn a_schema_document_is_named_by_its_fields_and_never_changes() {
 }
 
 /// A schema of one column `C` of type `ty`, required when boolean.
-fn one_column(ty: &str) -> nem_iceberg::Schema {
-    nem_iceberg::Schema::from_json(
+fn one_column(ty: &str) -> utilake_iceberg::Schema {
+    utilake_iceberg::Schema::from_json(
         &json!({"schema-id": 0, "fields": [field(1, "C", ty, ty == "boolean")]}),
     )
     .unwrap()
@@ -578,7 +578,7 @@ fn import_check(dir: &Path) -> Result<usize, String> {
                 let fid = u32_(get(f, "id", at)?, at)?;
                 let fname = s(get(f, "name", at)?, at)?.to_owned();
                 let ty = s(get(f, "type", at)?, at)?.to_owned();
-                nem_iceberg::IcebergType::parse(&ty)
+                utilake_iceberg::IcebergType::parse(&ty)
                     .ok_or(format!("{at}: {ty:?} is not a field type"))?;
                 get(f, "required", at)?
                     .as_bool()
