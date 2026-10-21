@@ -435,21 +435,34 @@ pub fn census_reports(
     mmsdm: Option<&Path>,
     repo: &Path,
     tmp: &Path,
+    jobs: usize,
 ) -> Result<Vec<Taken>, CensusError> {
-    let mut ctls = CtlSource::new(mmsdm);
-    let mut out = Vec::new();
+    let mut work = Vec::new();
     for root in ROOTS {
         let dir = reports.join(root);
         for top in top_folders(&dir) {
             for (rel, files) in folders(&dir, &top)? {
-                let census = census_folder(catalog, &mut ctls, &files, tmp);
-                record_folder(repo, root, &rel, &census)?;
-                let folder = format!("Reports/{root}/{rel}");
-                out.push(Taken { folder, census });
+                work.push((root, rel, files));
             }
         }
     }
-    Ok(out)
+    // Folders on `jobs` threads, each thread with its own control files
+    // and spool directory; taken in the order of the folders.
+    let ctls: Vec<std::sync::Mutex<CtlSource>> = (0..jobs.max(1))
+        .map(|_| std::sync::Mutex::new(CtlSource::new(mmsdm)))
+        .collect();
+    let taken = crate::pool::map(jobs, &work, |w, (root, rel, files)| {
+        let spool = tmp.join(format!("thread-{w}"));
+        let _ = std::fs::create_dir_all(&spool);
+        let mut c = ctls[w]
+            .lock()
+            .unwrap_or_else(std::sync::PoisonError::into_inner);
+        let census = census_folder(catalog, &mut c, files, &spool);
+        record_folder(repo, root, rel, &census)?;
+        let folder = format!("Reports/{root}/{rel}");
+        Ok(Taken { folder, census })
+    });
+    taken.into_iter().collect()
 }
 
 #[cfg(test)]
@@ -675,7 +688,7 @@ mod tests {
         assert!(read_folder(&repo, "ARCHIVE", "Dir").is_err());
 
         // Every folder of both roots at once, each recorded.
-        let taken = census_reports(&cat, &reports, Some(&mmsdm), &repo, tmp.path()).unwrap();
+        let taken = census_reports(&cat, &reports, Some(&mmsdm), &repo, tmp.path(), 2).unwrap();
         let names: Vec<&str> = taken.iter().map(|t| t.folder.as_str()).collect();
         assert_eq!(
             names,
@@ -688,7 +701,7 @@ mod tests {
         assert!(folder_path(&repo, "ARCHIVE", "GSH/Benchmark_Price").is_file());
         let blocked = dir.path().join("blocked");
         std::fs::write(&blocked, "a file").unwrap();
-        assert!(census_reports(&cat, &reports, None, &blocked, tmp.path()).is_err());
+        assert!(census_reports(&cat, &reports, None, &blocked, tmp.path(), 2).is_err());
         // Without MMSDM months nothing is typed.
         let mut none = CtlSource::new(None);
         assert!(

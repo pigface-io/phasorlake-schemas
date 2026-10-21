@@ -168,7 +168,7 @@ fn every_block_of_every_file_of_a_month_is_recorded_with_its_rows() {
     let files = month_files(&mdir).unwrap();
     assert_eq!(files.len(), 5, "{files:?}");
     let tmp = tempfile::tempdir().unwrap();
-    let census = census_month(&cat, month, &files, tmp.path());
+    let census = census_month(&cat, month, &files, tmp.path(), 3);
     assert_eq!(census.problems.len(), 1, "{:?}", census.problems);
     assert!(census.problems[0].error.contains("could not be opened"));
     assert!(!census.files.contains_key("MMSDM_create_v5.6.zip"));
@@ -289,7 +289,7 @@ fn a_file_that_cannot_be_read_is_a_problem_of_its_own() {
     }
     let files = month_files(dir.path()).unwrap();
     let tmp = tempfile::tempdir().unwrap();
-    let census = census_month(&cat, month, &files, tmp.path());
+    let census = census_month(&cat, month, &files, tmp.path(), 3);
     let files: Vec<&str> = census.problems.iter().map(|p| base(&p.file)).collect();
     assert_eq!(
         files,
@@ -355,7 +355,7 @@ fn a_whole_month_zip_is_read_through_its_nested_zips_and_control_files() {
     let files = month_files(dir.path()).unwrap();
     assert_eq!(files.len(), 1);
     let tmp = tempfile::tempdir().unwrap();
-    let census = census_month(&cat, month, &files, tmp.path());
+    let census = census_month(&cat, month, &files, tmp.path(), 3);
     assert!(census.problems.is_empty(), "{:?}", census.problems);
     let file = &census.files["PUBLIC_DVD_DISPATCH_UNIT_SCADA_201201010000.zip"];
     assert_eq!(
@@ -401,7 +401,7 @@ fn a_month_both_a_directory_and_a_zip_is_counted_once() {
     let files = month_files(dir.path()).unwrap();
     assert_eq!(files.len(), 3, "{files:?}");
     let tmp = tempfile::tempdir().unwrap();
-    let census = census_month(&cat, month, &files, tmp.path());
+    let census = census_month(&cat, month, &files, tmp.path(), 3);
     assert!(census.problems.is_empty(), "{:?}", census.problems);
     let names: Vec<&str> = census.files.keys().map(String::as_str).collect();
     assert_eq!(
@@ -477,7 +477,13 @@ fn the_heads_of_a_month_have_the_shapes_utilake_recorded() {
         .filter(|p| !p.ends_with("utilake-census.toml"))
         .collect();
     let tmp = tempfile::tempdir().unwrap();
-    let census = census_month(&cat, YearMonth::new(2026, 8).unwrap(), &files, tmp.path());
+    let census = census_month(
+        &cat,
+        YearMonth::new(2026, 8).unwrap(),
+        &files,
+        tmp.path(),
+        3,
+    );
     assert!(census.problems.is_empty(), "{:?}", census.problems);
     assert_eq!(census.files.len(), expected.len());
     for (name, want) in &expected {
@@ -509,7 +515,13 @@ fn the_heads_of_an_old_month_are_typed_by_split_and_daily_control_files() {
     let dir = repo().join("testdata/bootstrap/MMSDM_2024_01");
     let files = month_files(&dir).unwrap();
     let tmp = tempfile::tempdir().unwrap();
-    let census = census_month(&cat, YearMonth::new(2024, 1).unwrap(), &files, tmp.path());
+    let census = census_month(
+        &cat,
+        YearMonth::new(2024, 1).unwrap(),
+        &files,
+        tmp.path(),
+        3,
+    );
     assert!(census.problems.is_empty(), "{:?}", census.problems);
     let rec =
         |stem: &str| FileRecord::of(&census.files[&format!("PUBLIC_DVD_{stem}_202401010000.CSV")]);
@@ -542,4 +554,53 @@ fn the_heads_of_an_old_month_are_typed_by_split_and_daily_control_files() {
             r.block
         );
     }
+}
+
+#[test]
+fn the_census_is_the_same_on_any_number_of_threads() {
+    let cat = scada();
+    let dir = tempfile::tempdir().unwrap();
+    let files: Vec<PathBuf> = (0..12)
+        .map(|i| {
+            let name = format!("PUBLIC_DVD_DISPATCH_UNIT_SCADA_2024010{i:02}0000.CSV");
+            let p = dir.path().join(&name);
+            put(dir.path(), &name, format!("C,X\nI,DISPATCH,UNIT_SCADA,1,SETTLEMENTDATE,DUID,SCADAVALUE\nD,DISPATCH,UNIT_SCADA,1,\"2024/01/01 00:05:00\",U{i},1.5\nC,END\n").as_bytes());
+            p
+        })
+        .collect();
+    let month = YearMonth::new(2024, 1).unwrap();
+    let tmp = tempfile::tempdir().unwrap();
+    let one = census_month(&cat, month, &files, tmp.path(), 1);
+    for jobs in [2, 5, 12] {
+        assert_eq!(
+            census_month(&cat, month, &files, tmp.path(), jobs),
+            one,
+            "{jobs}"
+        );
+    }
+    assert_eq!(one.files.len(), 12);
+}
+
+#[test]
+fn a_file_that_opens_but_cannot_be_read_is_a_problem() {
+    // A directory opens as a file and fails on the first read.
+    let dir = tempfile::tempdir().unwrap();
+    let odd = dir
+        .path()
+        .join("PUBLIC_DVD_DISPATCH_UNIT_SCADA_202401010000.zip");
+    std::fs::create_dir(&odd).unwrap();
+    let tmp = tempfile::tempdir().unwrap();
+    let c = census_month(
+        &scada(),
+        YearMonth::new(2024, 1).unwrap(),
+        &[odd],
+        tmp.path(),
+        1,
+    );
+    assert_eq!(c.problems.len(), 1);
+    assert!(
+        c.problems[0].error.starts_with("The file cannot be read"),
+        "{:?}",
+        c.problems
+    );
 }

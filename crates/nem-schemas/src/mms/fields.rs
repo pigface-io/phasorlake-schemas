@@ -133,24 +133,21 @@ impl Splitter {
                     None => return,
                 }
             } else {
-                match memchr(b',', &line[i..]) {
-                    Some(off) => {
-                        self.spans.push(Span {
-                            start: i as u32,
-                            end: (i + off) as u32,
-                            scratch: false,
-                        });
-                        i += off + 1;
-                    }
-                    None => {
-                        self.spans.push(Span {
-                            start: i as u32,
-                            end: n as u32,
-                            scratch: false,
-                        });
-                        return;
-                    }
+                // An unquoted field is short (a number, a code): a plain
+                // walk to its comma beats a search call per field.
+                let start = i;
+                while i < n && line[i] != b',' {
+                    i += 1;
                 }
+                self.spans.push(Span {
+                    start: start as u32,
+                    end: i as u32,
+                    scratch: false,
+                });
+                if i == n {
+                    return;
+                }
+                i += 1;
             }
             if i == n && line[n - 1] == b',' {
                 // A trailing comma means one more, empty, field.

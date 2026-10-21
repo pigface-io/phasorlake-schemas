@@ -91,6 +91,29 @@ pub fn walk_csv_entries<E>(
     walk(path, tmp_dir, NESTED_IN_MEMORY, 0, "", on_entry, on_other)
 }
 
+/// [`walk_csv_entries`] over a zip already open as `reader` (read through
+/// a large buffer here), named `label` in errors.
+pub fn walk_csv_entries_in<R: Read + Seek, E>(
+    reader: R,
+    label: &str,
+    tmp_dir: &Path,
+    on_entry: &mut dyn FnMut(Entry<'_>) -> Result<(), E>,
+    on_other: &mut dyn FnMut(Entry<'_>),
+) -> Result<usize, WalkError<E>> {
+    let archive = zip::ZipArchive::new(BufReader::with_capacity(ZIP_READ_BUFFER, reader))
+        .map_err(|e| open_error(label, e.to_string()))?;
+    walk_zip(
+        archive,
+        label,
+        tmp_dir,
+        NESTED_IN_MEMORY,
+        0,
+        "",
+        on_entry,
+        on_other,
+    )
+}
+
 /// Either the archive failed or the callback did.
 #[derive(Debug, thiserror::Error)]
 pub enum WalkError<E> {
@@ -103,8 +126,10 @@ pub enum WalkError<E> {
 }
 
 /// Read buffer of a zip on disk. The zip reader asks for its compressed
-/// bytes 8 KiB at a time; this lets each system call bring many of them.
-const ZIP_READ_BUFFER: usize = 64 << 10;
+/// bytes 8 KiB at a time; this lets each system call bring many of them,
+/// and keeps each visit of a spinning disk's head a long sequential read
+/// while several files are read at once.
+const ZIP_READ_BUFFER: usize = 8 << 20;
 /// A nested zip up to this size is read into memory and walked there;
 /// a larger one goes to a temporary file.
 const NESTED_IN_MEMORY: u64 = 64 << 20;

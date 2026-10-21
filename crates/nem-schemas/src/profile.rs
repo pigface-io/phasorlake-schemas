@@ -10,7 +10,7 @@ use std::cmp::Ordering;
 use nem_iceberg::{Evidence, Kind};
 
 /// One column of one block.
-#[derive(Debug, Clone, Default, PartialEq, Eq)]
+#[derive(Debug, Clone, Default)]
 pub struct ColumnProfile {
     /// Rows without a value: an empty field, or no field at all.
     pub nulls: u64,
@@ -28,7 +28,39 @@ pub struct ColumnProfile {
     pub min: Option<Vec<u8>>,
     /// The greatest value of a number or time column, as written.
     pub max: Option<Vec<u8>>,
+    /// Where the digits of `min` and `max` are, once a number has been
+    /// compared with them: every value is compared with both, and this
+    /// spares reading the bounds' digits again each time.
+    pub(crate) plain_bounds: [Option<Plain>; 2],
 }
+
+/// Two profiles are the same when what they record is: the bounds' digits
+/// are only remembered to compare faster.
+impl PartialEq for ColumnProfile {
+    fn eq(&self, o: &Self) -> bool {
+        (
+            self.nulls,
+            self.kind,
+            self.int_digits,
+            self.scale,
+            self.sig_digits,
+            self.max_len,
+            &self.min,
+            &self.max,
+        ) == (
+            o.nulls,
+            o.kind,
+            o.int_digits,
+            o.scale,
+            o.sig_digits,
+            o.max_len,
+            &o.min,
+            &o.max,
+        )
+    }
+}
+
+impl Eq for ColumnProfile {}
 
 impl ColumnProfile {
     /// Takes one field; `None` when the row has no field there.
@@ -37,7 +69,7 @@ impl ColumnProfile {
             self.nulls += 1;
             return;
         };
-        let (kind, int_digits, scale, sig) = classify(v);
+        let (kind, int_digits, scale, sig, pv) = scan(v);
         self.kind = self.kind.join(kind);
         self.int_digits = self.int_digits.max(int_digits);
         self.scale = self.scale.max(scale);
@@ -46,22 +78,36 @@ impl ColumnProfile {
         if self.kind == Kind::Text {
             self.min = None;
             self.max = None;
+            self.plain_bounds = [None; 2];
             return;
         }
-        let numeric = matches!(self.kind, Kind::Integer | Kind::Decimal);
-        if self
-            .min
-            .as_deref()
-            .is_none_or(|m| order(v, m, numeric) == Ordering::Less)
-        {
-            set(&mut self.min, v);
+        if !matches!(self.kind, Kind::Integer | Kind::Decimal) {
+            // Dates and times order as written.
+            for (slot, want) in [
+                (&mut self.min, Ordering::Less),
+                (&mut self.max, Ordering::Greater),
+            ] {
+                if slot.as_deref().is_none_or(|m| v.cmp(m) == want) {
+                    set(slot, v);
+                }
+            }
+            return;
         }
-        if self
-            .max
-            .as_deref()
-            .is_none_or(|m| order(v, m, numeric) == Ordering::Greater)
-        {
-            set(&mut self.max, v);
+        // A number: its digits found as it was classified, each bound's
+        // kept from when it was set.
+        for (i, want) in [(0, Ordering::Less), (1, Ordering::Greater)] {
+            let slot = if i == 0 { &mut self.min } else { &mut self.max };
+            let better = match slot.as_deref() {
+                None => true,
+                Some(m) => {
+                    let pm = self.plain_bounds[i].or_else(|| plain(m));
+                    order_with(v, pv, m, pm) == want
+                }
+            };
+            if better {
+                set(slot, v);
+                self.plain_bounds[i] = pv;
+            }
         }
     }
 
@@ -88,6 +134,7 @@ impl ColumnProfile {
         };
         pick(&mut self.min, &other.min, Ordering::Less);
         pick(&mut self.max, &other.max, Ordering::Greater);
+        self.plain_bounds = [None; 2];
     }
 
     /// What the profile says of the column's type.
@@ -108,14 +155,38 @@ fn set(slot: &mut Option<Vec<u8>>, v: &[u8]) {
     b.extend_from_slice(v);
 }
 
+/// Where a plain decimal's digits are: its sign, its whole digits without
+/// leading zeros and its fraction digits without trailing zeros, as ranges
+/// of the value.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) struct Plain {
+    neg: bool,
+    int: (u32, u32),
+    frac: (u32, u32),
+}
+
+impl Plain {
+    fn parts(self, v: &[u8]) -> (bool, &[u8], &[u8]) {
+        let r = |(a, b): (u32, u32)| &v[a as usize..b as usize];
+        (self.neg, r(self.int), r(self.frac))
+    }
+}
+
 /// Orders two values: numbers by value, times as written (AEMO's
 /// `YYYY/MM/DD HH:MM:SS` orders as text).
 fn order(a: &[u8], b: &[u8], numeric: bool) -> Ordering {
-    if !numeric {
-        return a.cmp(b);
+    if numeric {
+        order_with(a, plain(a), b, plain(b))
+    } else {
+        a.cmp(b)
     }
-    match (plain(a), plain(b)) {
-        (Some(x), Some(y)) => cmp_plain(x, y),
+}
+
+/// Orders two numbers whose digits are found: plain decimals by their
+/// digits, anything else (an exponent form) by value.
+fn order_with(a: &[u8], pa: Option<Plain>, b: &[u8], pb: Option<Plain>) -> Ordering {
+    match (pa, pb) {
+        (Some(x), Some(y)) => cmp_plain(x.parts(a), y.parts(b)),
         _ => {
             let n = |v: &[u8]| crate::text::parse_f64(v).unwrap_or(f64::NAN);
             n(a).total_cmp(&n(b))
@@ -123,26 +194,36 @@ fn order(a: &[u8], b: &[u8], numeric: bool) -> Ordering {
     }
 }
 
-/// A plain decimal split into sign, whole digits without leading zeros,
-/// and fraction digits without trailing zeros; `None` for anything else
-/// (an exponent form).
-fn plain(v: &[u8]) -> Option<(bool, &[u8], &[u8])> {
-    let (neg, body) = match v.first() {
-        Some(b'-') => (true, &v[1..]),
-        Some(b'+') => (false, &v[1..]),
-        _ => (false, v),
-    };
-    let (int, frac) = match body.iter().position(|&c| c == b'.') {
-        Some(i) => (&body[..i], &body[i + 1..]),
-        None => (body, &body[..0]),
-    };
-    if !int.iter().chain(frac).all(u8::is_ascii_digit) {
-        return None;
+/// The digits of a plain decimal; `None` for anything else (an exponent
+/// form).
+fn plain(v: &[u8]) -> Option<Plain> {
+    let start = usize::from(matches!(v.first(), Some(b'-' | b'+')));
+    let neg = start == 1 && v[0] == b'-';
+    let mut point = None;
+    for (i, &c) in v.iter().enumerate().skip(start) {
+        match c {
+            b'0'..=b'9' => {}
+            b'.' if point.is_none() => point = Some(i),
+            _ => return None,
+        }
     }
-    let int = &int[int.iter().position(|&c| c != b'0').unwrap_or(int.len())..];
-    let frac = &frac[..frac.iter().rposition(|&c| c != b'0').map_or(0, |i| i + 1)];
+    let int_end = point.unwrap_or(v.len());
+    let frac_start = point.map_or(v.len(), |p| p + 1);
+    let int_start = v[start..int_end]
+        .iter()
+        .position(|&c| c != b'0')
+        .map_or(int_end, |i| start + i);
+    let frac_end = v[frac_start..]
+        .iter()
+        .rposition(|&c| c != b'0')
+        .map_or(frac_start, |i| frac_start + i + 1);
+    let at = |i: usize| u32::try_from(i).unwrap_or(u32::MAX);
     // Minus zero is zero.
-    Some((neg && !(int.is_empty() && frac.is_empty()), int, frac))
+    Some(Plain {
+        neg: neg && !(int_start == int_end && frac_start == frac_end),
+        int: (at(int_start), at(int_end)),
+        frac: (at(frac_start), at(frac_end)),
+    })
 }
 
 /// Orders two plain decimals by value, without parsing them.
@@ -161,10 +242,16 @@ fn cmp_plain(a: (bool, &[u8], &[u8]), b: (bool, &[u8], &[u8])) -> Ordering {
 /// The kind of one value, with its digits before and after the point and
 /// its significant digits.
 pub fn classify(v: &[u8]) -> (Kind, u8, u8, u8) {
+    let (k, i, s, g, _) = scan(v);
+    (k, i, s, g)
+}
+
+/// [`classify`], and where a plain decimal's digits are.
+fn scan(v: &[u8]) -> (Kind, u8, u8, u8, Option<Plain>) {
     if let Some(k) = time_kind(v) {
-        return (k, 0, 0, 0);
+        return (k, 0, 0, 0, None);
     }
-    number(v).unwrap_or((Kind::Text, 0, 0, 0))
+    number(v).unwrap_or((Kind::Text, 0, 0, 0, None))
 }
 
 /// `YYYY/MM/DD` is a date; with ` HH:MM:SS` and an optional fraction, a
@@ -197,28 +284,37 @@ fn time_kind(v: &[u8]) -> Option<Kind> {
 
 /// A number: an optional sign, digits with at most one point, and an
 /// optional exponent. Its digits before and after the point are those of
-/// its value written out in full; leading zeros do not count.
-fn number(v: &[u8]) -> Option<(Kind, u8, u8, u8)> {
-    let mut i = usize::from(matches!(v.first(), Some(b'-' | b'+')));
+/// its value written out in full; leading zeros do not count. A number
+/// without an exponent comes with where its digits are.
+fn number(v: &[u8]) -> Option<(Kind, u8, u8, u8, Option<Plain>)> {
+    let start = usize::from(matches!(v.first(), Some(b'-' | b'+')));
+    let mut i = start;
     let (mut int_len, mut frac_len, mut leading) = (0i32, 0i32, true);
     let mut sig = 0i32;
-    let mut point = false;
+    let mut point = None;
     let mut any = false;
+    // The first whole digit that is not a leading zero, and the end of the
+    // last fraction digit that is not a trailing zero.
+    let (mut int_start, mut frac_end) = (None, None);
     while let Some(&c) = v.get(i) {
         match c {
             b'0'..=b'9' => {
                 any = true;
-                if point {
+                if point.is_some() {
                     frac_len += 1;
+                    if c != b'0' {
+                        frac_end = Some(i + 1);
+                    }
                 } else if !(leading && c == b'0') {
                     int_len += 1;
+                    int_start.get_or_insert(i);
                 }
                 if !(leading && c == b'0') {
                     leading = false;
                     sig += 1;
                 }
             }
-            b'.' if !point => point = true,
+            b'.' if point.is_none() => point = Some(i),
             _ => break,
         }
         i += 1;
@@ -237,13 +333,26 @@ fn number(v: &[u8]) -> Option<(Kind, u8, u8, u8)> {
     }
     let int_digits = (int_len + exp).max(0);
     let scale = (frac_len - exp).max(0);
-    let kind = if point || exponent {
+    let kind = if point.is_some() || exponent {
         Kind::Decimal
     } else {
         Kind::Integer
     };
     let cap = |n: i32| u8::try_from(n).unwrap_or(u8::MAX);
-    Some((kind, cap(int_digits), cap(scale), cap(sig)))
+    let plain = (!exponent).then(|| {
+        let int_end = point.unwrap_or(v.len());
+        let frac_start = point.map_or(v.len(), |p| p + 1);
+        let int_start = int_start.unwrap_or(int_end);
+        let frac_end = frac_end.unwrap_or(frac_start);
+        let at = |i: usize| u32::try_from(i).unwrap_or(u32::MAX);
+        Plain {
+            // Minus zero is zero.
+            neg: start == 1 && v[0] == b'-' && !(int_start == int_end && frac_start == frac_end),
+            int: (at(int_start), at(int_end)),
+            frac: (at(frac_start), at(frac_end)),
+        }
+    });
+    Some((kind, cap(int_digits), cap(scale), cap(sig), plain))
 }
 
 #[cfg(test)]

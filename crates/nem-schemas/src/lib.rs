@@ -46,6 +46,7 @@ pub mod mms;
 pub mod models;
 pub mod month;
 pub mod names;
+pub mod pool;
 pub mod profile;
 pub mod published;
 pub mod reports;

@@ -17,7 +17,6 @@
 //! `sources/{YYYY-MM}.tsv`.
 
 use std::collections::{BTreeMap, HashMap};
-use std::io::Seek as _;
 use std::path::{Path, PathBuf};
 
 use serde::{Deserialize, Serialize};
@@ -29,7 +28,7 @@ use crate::mms::{IRow, Row, RowError, RowFailure, ScanError, SinkError};
 use crate::month::YearMonth;
 use crate::profile::ColumnProfile;
 use crate::shape::{CanonicalShape, ShapeId, TypeClass};
-use crate::zip::{ArchiveError, WalkError, walk_csv_entries};
+use crate::zip::{ArchiveError, WalkError, walk_csv_entries_in};
 
 /// Why the census of a month could not be taken or recorded.
 #[derive(Debug, thiserror::Error)]
@@ -381,6 +380,15 @@ pub(crate) fn base(name: &str) -> &str {
 struct Copies(HashMap<String, Vec<(String, Vec<RawBlock>)>>);
 
 impl Copies {
+    /// Takes in what another reading found, after what this one did.
+    fn merge(&mut self, other: Self) {
+        for (key, copies) in other.0 {
+            for (source, blocks) in copies {
+                self.add(&key, &source, blocks);
+            }
+        }
+    }
+
     /// Blocks of file `key` read out of the file `source`; many CSVs of
     /// one zip add to one copy.
     fn add(&mut self, key: &str, source: &str, blocks: Vec<RawBlock>) {
@@ -429,6 +437,13 @@ struct Reading {
     buf: Vec<u8>,
 }
 
+/// What reading one file gave: a CSV's blocks, or how the walk of a zip
+/// ended.
+enum Took {
+    Csv(Result<Vec<RawBlock>, ScanError>),
+    Zip(Result<usize, WalkError<ScanError>>),
+}
+
 /// A control file's text, kept when it can be read.
 fn push_ctl(ctls: &mut Vec<(String, String)>, name: String, r: &mut dyn std::io::Read) {
     let mut text = Vec::new();
@@ -438,6 +453,27 @@ fn push_ctl(ctls: &mut Vec<(String, String)>, name: String, r: &mut dyn std::io:
 }
 
 impl Reading {
+    /// Takes in what another reading found, after what this one did.
+    fn merge(&mut self, other: Self) {
+        self.raw.merge(other.raw);
+        self.digests.extend(other.digests);
+        self.ctls.extend(other.ctls);
+        self.problems.extend(other.problems);
+    }
+
+    /// What a read of file `shown` gave, or none when it failed, which is
+    /// a problem of the month.
+    fn readable<T>(&mut self, r: std::io::Result<T>, shown: &str) -> Option<T> {
+        r.map_err(|e| {
+            let error = format!("The file cannot be read: {e}.");
+            self.problems.push(Unread {
+                file: shown.to_owned(),
+                error,
+            });
+        })
+        .ok()
+    }
+
     /// A file that could not be read: a problem, and a file of no blocks.
     fn unread(&mut self, name: &str, file: String, error: String) {
         self.problems.push(Unread { file, error });
@@ -459,46 +495,45 @@ impl Reading {
         if !is(".csv") && !is(".zip") {
             return;
         }
-        // Opened once: hashed, then read from the start.
-        let opened = std::fs::File::open(path).and_then(|mut f| {
-            let digest = crate::files::sha256_of(&mut f)?;
-            f.seek(std::io::SeekFrom::Start(0))?;
-            Ok((f, digest))
-        });
-        let (f, digest) = match opened {
-            Ok(o) => o,
-            Err(e) => {
-                let error = format!("The file cannot be read: {e}.");
-                return self.problems.push(Unread { file: shown, error });
-            }
-        };
-        self.digests.insert(name.clone(), digest);
-        if is(".csv") {
-            match read_blocks(f, &mut self.buf) {
-                Ok(blocks) => self.raw.add(&name, &name, blocks),
-                Err(e) => self.unread(&name, shown, e.to_string()),
-            }
+        // Read once: hashed as it is read, and what the reading skipped
+        // (a zip's directory) after.
+        let Some((f, tally)) = self.readable(crate::files::HashedFile::open(path), &shown) else {
             return;
-        }
+        };
         let mut entry_err = None;
         let (raw, buf, ctls) = (&mut self.raw, &mut self.buf, &mut self.ctls);
-        let walked = walk_csv_entries::<ScanError>(
-            path,
-            tmp,
-            &mut |e| {
-                let key = file_key(&name, &e.name);
-                let entry = e.name.clone();
-                let blocks = read_blocks(e.reader, buf).inspect_err(|_| entry_err = Some(entry))?;
-                raw.add(&key, &name, blocks);
-                Ok(())
-            },
-            &mut |e| {
-                let b = base(&e.name).to_owned();
-                if crate::zip::has_extension(&b, ".ctl") {
-                    push_ctl(ctls, b, e.reader);
-                }
-            },
-        );
+        let read = if is(".csv") {
+            Took::Csv(read_blocks(f, buf))
+        } else {
+            Took::Zip(walk_csv_entries_in::<_, ScanError>(
+                f,
+                &shown,
+                tmp,
+                &mut |e| {
+                    let key = file_key(&name, &e.name);
+                    let entry = e.name.clone();
+                    let blocks =
+                        read_blocks(e.reader, buf).inspect_err(|_| entry_err = Some(entry))?;
+                    raw.add(&key, &name, blocks);
+                    Ok(())
+                },
+                &mut |e| {
+                    let b = base(&e.name).to_owned();
+                    if crate::zip::has_extension(&b, ".ctl") {
+                        push_ctl(ctls, b, e.reader);
+                    }
+                },
+            ))
+        };
+        let Some(digest) = self.readable(tally.finish(path), &shown) else {
+            return;
+        };
+        self.digests.insert(name.clone(), digest);
+        let walked = match read {
+            Took::Csv(Ok(blocks)) => return self.raw.add(&name, &name, blocks),
+            Took::Csv(Err(e)) => return self.unread(&name, shown, e.to_string()),
+            Took::Zip(walked) => walked,
+        };
         match walked {
             // A whole-month zip holds control files beside data zips; a
             // zip of control files only has no CSV, and that is fine.
@@ -521,18 +556,30 @@ pub fn census_month(
     month: YearMonth,
     files: &[PathBuf],
     tmp: &Path,
+    jobs: usize,
 ) -> MonthCensus {
+    // The month's documentation (the data model's create and upgrade
+    // scripts and their reports) is not market data.
+    let market: Vec<&PathBuf> = files
+        .iter()
+        .filter(|p| {
+            !p.components()
+                .any(|c| c.as_os_str().eq_ignore_ascii_case("DOCUMENTATION"))
+        })
+        .collect();
+    // Each file read on its own, on `jobs` threads with a spool directory
+    // each, then taken in in the files' order: the same census as one
+    // thread reading them in turn.
+    let read = crate::pool::map(jobs, &market, |w, path| {
+        let mut r = Reading::default();
+        let spool = tmp.join(format!("thread-{w}"));
+        let _ = std::fs::create_dir_all(&spool);
+        r.file(path, &spool);
+        r
+    });
     let mut r = Reading::default();
-    for path in files {
-        // The month's documentation (the data model's create and upgrade
-        // scripts and their reports) is not market data.
-        if path
-            .components()
-            .any(|c| c.as_os_str().eq_ignore_ascii_case("DOCUMENTATION"))
-        {
-            continue;
-        }
-        r.file(path, tmp);
+    for one in read {
+        r.merge(one);
     }
     let ctls = Ctls::parse(r.ctls.iter().map(|(n, t)| (n.as_str(), t.as_str())));
     let files = r
@@ -755,6 +802,7 @@ impl BlockRecord {
             max_len: self.max_len.get(j).copied().unwrap_or(0),
             min: some(self.min.get(j)),
             max: some(self.max.get(j)),
+            ..ColumnProfile::default()
         }
     }
 }

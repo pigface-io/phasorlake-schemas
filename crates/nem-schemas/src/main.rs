@@ -69,6 +69,10 @@ enum Cmd {
         /// The repository root, whose `tables/` declares the tables.
         #[arg(long, default_value = ".")]
         root: PathBuf,
+        /// Files read at once: one per core by default. The census is bound
+        /// by the CPU; give 6 while something else writes the same disk.
+        #[arg(long, default_value_t = nem_schemas::pool::default_jobs())]
+        jobs: usize,
     },
     /// Record every folder of the report roots in
     /// `{root}/evidence/census/reports/{ROOT}/{folder}.toml`.
@@ -83,6 +87,10 @@ enum Cmd {
         /// The repository root, whose `tables/` declares the tables.
         #[arg(long, default_value = ".")]
         root: PathBuf,
+        /// Folders read at once: one per core by default; give 6 while
+        /// something else writes the same disk.
+        #[arg(long, default_value_t = nem_schemas::pool::default_jobs())]
+        jobs: usize,
     },
     /// Record the data-model create scripts a month's archive carries
     /// (`DOCUMENTATION/MMS Data Model/v5.x/MMSDM_create_v5.x.zip`, from
@@ -319,11 +327,16 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                 done.listed, done.fetched, done.bytes, done.skipped, done.requests
             );
         }
-        Cmd::Census { month, dir, root } => {
+        Cmd::Census {
+            month,
+            dir,
+            root,
+            jobs,
+        } => {
             let cat = catalog(&root)?;
             let files = nem_schemas::census::month_files(&dir).map_err(|e| fail(&e))?;
             let tmp = scratch()?;
-            let census = nem_schemas::census::census_month(&cat, month, &files, tmp.path());
+            let census = nem_schemas::census::census_month(&cat, month, &files, tmp.path(), jobs);
             for p in &census.problems {
                 eprintln!("error: {}: {}", p.file, p.error);
             }
@@ -337,7 +350,12 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                 return Ok(ExitCode::from(3));
             }
         }
-        Cmd::Reports { dir, mmsdm, root } => {
+        Cmd::Reports {
+            dir,
+            mmsdm,
+            root,
+            jobs,
+        } => {
             let cat = catalog(&root)?;
             let tmp = scratch()?;
             let taken = nem_schemas::reports::census_reports(
@@ -346,6 +364,7 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                 mmsdm.as_deref(),
                 &root,
                 tmp.path(),
+                jobs,
             )
             .map_err(|e| fail(&e))?;
             let mut unread = 0;
