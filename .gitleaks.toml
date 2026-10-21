@@ -1,0 +1,14 @@
+# gitleaks configuration. The default rules stay on; this file only adds
+# allowlists, and each one says why it is safe.
+title = "nem-schemas"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Lockfile integrity hashes"
+paths = ['''(^|/)Cargo\.lock$''']
+
+[[allowlists]]
+description = "AEMO's published files and the records of them: hashes of public files are not keys"
+paths = ['''^(evidence|sources|nem|testdata)/''', '''^manifest\.json$''']

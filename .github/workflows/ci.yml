@@ -1,0 +1,68 @@
+# CI runs what a developer's hooks run, through the same `just` recipes, plus
+# the known vulnerabilities of the dependencies.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # A dependency becomes vulnerable without a commit here: look weekly.
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # The versions the hooks were written against, each download checked against its SHA-256.
+  GITLEAKS_VERSION: "8.30.1"
+  GITLEAKS_SHA256_LINUX: 551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb
+  PREK_VERSION: "0.5.4"
+  CARGO_LLVM_COV_VERSION: "0.9.1"
+  CARGO_AUDIT_VERSION: "0.22.2"
+
+jobs:
+  # Every git hook of both stages on every file.
+  hooks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          # The whole history: gitleaks scans every commit and the ratchet diffs against main.
+          fetch-depth: 0
+          # No job pushes: the token does not stay on disk for a tool to find.
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - name: Install gitleaks, prek and cargo-llvm-cov
+        run: |
+          scripts/fetch-tool.sh \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" \
+            "$GITLEAKS_SHA256_LINUX" \
+            "gitleaks" \
+            "$HOME/.local/bin"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          pipx install "prek==${PREK_VERSION}"
+          cargo install --locked cargo-llvm-cov --version "$CARGO_LLVM_COV_VERSION"
+      - run: SKIP=ratchet just check
+      - run: just ratchet origin/main
+        if: github.event_name == 'pull_request'
+      - name: Scan the whole history for secrets
+        run: just secrets
+
+  # Known vulnerabilities in the Rust crates, against the lock file.
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - run: cargo install --locked cargo-audit --version "$CARGO_AUDIT_VERSION"
+      - run: just audit
