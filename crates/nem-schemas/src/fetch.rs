@@ -39,7 +39,7 @@ pub const BASE: &str = "https://www.nemweb.com.au";
 
 /// The User-Agent of every request.
 pub const USER_AGENT: &str = concat!(
-    "nem-census/",
+    "nem-schemas/",
     env!("CARGO_PKG_VERSION"),
     " (+https://github.com/pigface-io/nem-schemas)"
 );

@@ -4,12 +4,12 @@
 #   nem-iceberg  the Iceberg contract: types, schemas, the type rule, the
 #                interval planner, and table metadata and manifests as bytes.
 #                Pure: no I/O.
-#   nem-census   reads AEMO's files into a census, folds the census into
-#                each table's history, exports the documents under nem/.
+#   nem-schemas  the tool: fetches AEMO's files, takes their census, folds
+#                the census into each table's history, exports nem/.
 #   xtask        repository gates: coverage floors and their ratchet.
 [workspace]
 resolver = "3"
-members = ["crates/nem-census", "crates/nem-iceberg", "crates/xtask"]
+members = ["crates/nem-iceberg", "crates/nem-schemas", "crates/xtask"]
 
 [workspace.package]
 version = "0.1.0"

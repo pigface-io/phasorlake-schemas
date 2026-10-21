@@ -1,12 +1,12 @@
-//! `nem-census`: fetch a month of AEMO's archive, take its census, take
+//! `nem-schemas`: fetch a month of AEMO's archive, take its census, take
 //! the census of the report folders; and, once, write the table
 //! declarations from utilake's table files.
 //!
 //! ```text
-//! nem-census fetch --month 2024-01 --dir mirror/MMSDM_2024_01 [--interval-ms 1000] [--root .]
-//! nem-census census --month 2024-01 --dir mirror/MMSDM_2024_01 [--root .]
-//! nem-census reports --dir mirror/Reports [--mmsdm mirror] [--root .]
-//! nem-census tables-from-utilake --from ../utilake/schemas/nem --out tables
+//! nem-schemas fetch --month 2024-01 --dir mirror/MMSDM_2024_01 [--interval-ms 1000] [--root .]
+//! nem-schemas census --month 2024-01 --dir mirror/MMSDM_2024_01 [--root .]
+//! nem-schemas reports --dir mirror/Reports [--mmsdm mirror] [--root .]
+//! nem-schemas tables-from-utilake --from ../utilake/schemas/nem --out tables
 //! ```
 
 use std::path::{Path, PathBuf};
@@ -14,13 +14,13 @@ use std::process::ExitCode;
 use std::time::Duration;
 
 use clap::{Parser, Subcommand};
-use nem_census::catalog::Catalog;
-use nem_census::fetch::{DEFAULT_INTERVAL_MS, Http, Response};
-use nem_census::month::YearMonth;
+use nem_schemas::catalog::Catalog;
+use nem_schemas::fetch::{DEFAULT_INTERVAL_MS, Http, Response};
+use nem_schemas::month::YearMonth;
 
 #[derive(Parser)]
 #[command(
-    name = "nem-census",
+    name = "nem-schemas",
     version,
     about = "The census of AEMO's MMS archive."
 )]
@@ -148,9 +148,9 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                 .build()
                 .into();
             let interval = Duration::from_millis(interval_ms);
-            let done = nem_census::fetch::fetch_month(
+            let done = nem_schemas::fetch::fetch_month(
                 &mut Ureq(agent),
-                nem_census::fetch::BASE,
+                nem_schemas::fetch::BASE,
                 month,
                 &dir,
                 &root,
@@ -164,13 +164,13 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         }
         Cmd::Census { month, dir, root } => {
             let cat = catalog(&root)?;
-            let files = nem_census::census::month_files(&dir).map_err(|e| fail(&e))?;
+            let files = nem_schemas::census::month_files(&dir).map_err(|e| fail(&e))?;
             let tmp = scratch()?;
-            let census = nem_census::census::census_month(&cat, month, &files, tmp.path());
+            let census = nem_schemas::census::census_month(&cat, month, &files, tmp.path());
             for p in &census.problems {
                 eprintln!("error: {}: {}", p.file, p.error);
             }
-            let blocks = nem_census::census::record(&root, &census).map_err(|e| fail(&e))?;
+            let blocks = nem_schemas::census::record(&root, &census).map_err(|e| fail(&e))?;
             println!(
                 "{month}: {} file(s), {blocks} block(s), {} unread",
                 census.files.len(),
@@ -183,7 +183,7 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         Cmd::Reports { dir, mmsdm, root } => {
             let cat = catalog(&root)?;
             let tmp = scratch()?;
-            let taken = nem_census::reports::census_reports(
+            let taken = nem_schemas::reports::census_reports(
                 &cat,
                 &dir,
                 mmsdm.as_deref(),
@@ -205,7 +205,7 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             }
         }
         Cmd::TablesFromUtilake { from, out } => {
-            let cat = nem_census::catalog::from_utilake(&from).map_err(|e| fail(&e))?;
+            let cat = nem_schemas::catalog::from_utilake(&from).map_err(|e| fail(&e))?;
             let n = cat.write(&out).map_err(|e| fail(&e))?;
             println!("{n} table declaration(s) written to {}", out.display());
         }
