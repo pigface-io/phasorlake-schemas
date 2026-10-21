@@ -58,8 +58,8 @@ census month dir:
     cargo run -q -p utilake-schemas -- census --month {{ month }} --dir {{ dir }}
 
 # record every folder of the report roots under evidence/census/reports/
-reports dir mmsdm="":
-    cargo run -q -p utilake-schemas -- reports --dir {{ dir }} {{ if mmsdm == "" { "" } else { "--mmsdm " + mmsdm } }}
+reports dir mmsdm="" mirror="":
+    cargo run -q -p utilake-schemas -- reports --dir {{ dir }} {{ if mmsdm == "" { "" } else { "--mmsdm " + mmsdm } }} {{ if mirror == "" { "" } else { "--mirror " + mirror } }}
 
 # record the data-model releases a month's directory carries under evidence/models/
 models month dir:

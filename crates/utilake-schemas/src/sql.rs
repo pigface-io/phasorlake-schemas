@@ -70,7 +70,7 @@ struct Listed {
 }
 
 /// Days from 1970-01-01 to a civil date (proleptic Gregorian).
-fn days_from_civil(y: i64, m: i64, d: i64) -> i64 {
+pub(crate) fn days_from_civil(y: i64, m: i64, d: i64) -> i64 {
     let y = if m <= 2 { y - 1 } else { y };
     let era = y.div_euclid(400);
     let yoe = y - era * 400;
@@ -80,7 +80,8 @@ fn days_from_civil(y: i64, m: i64, d: i64) -> i64 {
     era * 146_097 + doe - 719_468
 }
 
-fn days_in_month(y: i64, m: i64) -> i64 {
+/// The days of month `m` of year `y`.
+pub(crate) fn days_in_month(y: i64, m: i64) -> i64 {
     match m {
         2 if (y % 4 == 0 && y % 100 != 0) || y % 400 == 0 => 29,
         2 => 28,

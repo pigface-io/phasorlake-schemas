@@ -86,7 +86,7 @@ enum Cmd {
         mmsdm: Option<PathBuf>,
         /// The nemweb-mirror home whose `mirror/journal/` notes each
         /// folder's listings, counted for the files rewritten in place.
-        #[arg(long)]
+        #[arg(long, env = "NEMWEB_MIRROR_HOME")]
         mirror: Option<PathBuf>,
         /// The repository root, whose `tables/` declares the tables.
         #[arg(long, default_value = ".")]

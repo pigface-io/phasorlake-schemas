@@ -375,21 +375,53 @@ pub fn journals(mirror: &Path) -> PathBuf {
     mirror.join("mirror/journal").join(host).join("Reports")
 }
 
-/// What the census reads of a version's sidecar, `{path}.json`.
+/// What the census reads of a version's sidecar, `{path}.json`. Fields it
+/// does not know are passed over.
 #[derive(Debug, Deserialize)]
 struct Sidecar {
     url: String,
+    #[serde(rename = "size")]
+    _size: serde::de::IgnoredAny,
+    sha256: String,
+    fetched_at: String,
+    /// The server's `Last-Modified`, as it sent it.
+    #[serde(default)]
+    last_modified: Option<String>,
+    /// The same as an instant, RFC 3339.
     #[serde(default)]
     last_modified_at: Option<String>,
+    /// The time the listing showed, as it wrote it.
+    #[serde(default)]
+    listed_modified: Option<String>,
+    /// The same as an instant, RFC 3339.
     #[serde(default)]
     listed_modified_at: Option<String>,
 }
 
-/// The sidecar of the file at `path`, when it has one that reads.
+/// The sidecar of the file at `path`, when it has one that reads. Its
+/// instants are written again as RFC 3339; one a sidecar written before
+/// they were kept lacks is read from the text beside it (market time when
+/// the text gives no offset), and a text that is not a time has none. An
+/// instant without an offset, or a `fetched_at` that is not a time with
+/// one, is a sidecar that does not read.
 fn sidecar(path: &Path) -> Option<Sidecar> {
+    use crate::stamp::{NEM_OFFSET_SECS, parse, parse_rfc3339};
     let mut p = path.as_os_str().to_owned();
     p.push(".json");
-    serde_json::from_slice(&std::fs::read(p).ok()?).ok()
+    let mut sc: Sidecar = serde_json::from_slice(&std::fs::read(p).ok()?).ok()?;
+    parse_rfc3339(&sc.fetched_at)?;
+    let instant = |at: Option<String>, text: Option<&str>| -> Option<Option<String>> {
+        match at {
+            Some(at) => parse_rfc3339(&at).map(|t| Some(t.to_string())),
+            None => Some(
+                text.and_then(|t| parse(t, NEM_OFFSET_SECS))
+                    .map(|t| t.to_string()),
+            ),
+        }
+    };
+    sc.last_modified_at = instant(sc.last_modified_at.take(), sc.last_modified.as_deref())?;
+    sc.listed_modified_at = instant(sc.listed_modified_at.take(), sc.listed_modified.as_deref())?;
+    Some(sc)
 }
 
 /// One line of a folder's journal, as far as the census reads it.
@@ -594,8 +626,16 @@ fn classed(
                 None => (Change::Data, None),
             },
         };
-        let (listed_at, published_at) =
-            sc.map_or((None, None), |s| (s.listed_modified_at, s.last_modified_at));
+        // A version that could not be read has the SHA-256 its sidecar
+        // records.
+        let (sha256, listed_at, published_at) = match sc {
+            Some(s) => (
+                if sha256.is_empty() { s.sha256 } else { sha256 },
+                s.listed_modified_at,
+                s.last_modified_at,
+            ),
+            None => (sha256, None, None),
+        };
         versions.push(Version {
             file: file.clone(),
             change,
@@ -973,6 +1013,56 @@ mod tests {
     }
 
     #[test]
+    fn older_sidecars_gain_their_instants_on_read() {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("f.zip");
+        let with = |json: &[u8]| {
+            std::fs::write(dir.path().join("f.zip.json"), json).unwrap();
+            sidecar(&path)
+        };
+        // The mirror's record before it kept the `_at` fields: the HTTP
+        // date as the server sent it, and the listing's text in market
+        // time with no offset. The instants are read from them.
+        let sc = with(br#"{"url":"https://h/d/f.zip","size":3,"sha256":"x","crc32":1,"fetched_at":"2026-10-18T00:03:51Z","last_modified":"Mon, 18 May 2026 07:27:50 GMT","listed_size":3,"listed_modified":"Monday, May 18, 2026 05:27 PM","tool":"nemweb-mirror/0.1.0"}"#).unwrap();
+        assert_eq!(
+            (sc.url.as_str(), sc.sha256.as_str()),
+            ("https://h/d/f.zip", "x")
+        );
+        assert_eq!(sc.last_modified_at.as_deref(), Some("2026-05-18T07:27:50Z"));
+        assert_eq!(
+            sc.listed_modified_at.as_deref(),
+            Some("2026-05-18T17:27:00+10:00")
+        );
+        // The record with the `_at` fields reads the same, and what it
+        // wrote there is kept over what the text would give.
+        let kept = with(br#"{"url":"u","size":3,"sha256":"x","fetched_at":"2026-10-18T00:03:51Z","last_modified":"Mon, 18 May 2026 07:27:50 GMT","last_modified_at":"2026-05-18T08:27:50+01:00","listed_modified":"Monday, May 18, 2026 05:27 PM","listed_modified_at":"2026-05-18T17:27:00+10:00"}"#).unwrap();
+        assert_eq!(
+            kept.last_modified_at.as_deref(),
+            Some("2026-05-18T08:27:50+01:00")
+        );
+        assert_eq!(kept.listed_modified_at, sc.listed_modified_at);
+        // A text that is not a time has no instant; a zip entry's naive
+        // time is market time.
+        let odd = with(br#"{"url":"u","size":3,"sha256":"x","fetched_at":"2026-10-18T00:03:51Z","last_modified":"unknown","listed_modified":"2017-01-12 12:24:16"}"#).unwrap();
+        assert_eq!(odd.last_modified_at, None);
+        assert_eq!(
+            odd.listed_modified_at.as_deref(),
+            Some("2017-01-12T12:24:16+10:00")
+        );
+        // An `_at` without an offset, a fetched_at that is not a time, a
+        // field missing, or no sidecar at all: none that reads.
+        for bad in [
+            &br#"{"url":"u","size":3,"sha256":"x","fetched_at":"2026-10-18T00:03:51Z","last_modified_at":"2026-05-18T07:27:50"}"#[..],
+            br#"{"url":"u","size":3,"sha256":"x","fetched_at":"2026-10-18T00:03:51Z","listed_modified_at":"2026-05-18T07:27:50"}"#,
+            br#"{"url":"u","size":3,"sha256":"x","fetched_at":"t"}"#,
+            br#"{"url":"u","sha256":"x","fetched_at":"2026-10-18T00:03:51Z"}"#,
+        ] {
+            assert!(with(bad).is_none(), "{}", String::from_utf8_lossy(bad));
+        }
+        assert!(sidecar(&dir.path().join("none")).is_none());
+    }
+
+    #[test]
     fn a_print_leaves_out_the_report_time() {
         let print = |b: &[u8]| Print::new(b).finish().unwrap();
         // AEMO's C rows.
@@ -1062,15 +1152,17 @@ mod tests {
         cut[2000..4000].fill(0x55);
         files.push(v(bad, t1942, &cut));
         // A CSV that does not read, then a version gone before it was
-        // read; a zip and the same; a file of no kind, then a version
-        // with no sidecar.
+        // read, with no sidecar; a zip, then a version gone but for its
+        // sidecar; a file of no kind, then a version with no sidecar.
         let version = |file: &str| reports.join(format!("{VIC_GAS}/{file}@20261021T191200+1000"));
         let worse = "PUBLIC_WORSE_20261021.CSV";
         files.push(v(worse, None, b"D,A,B,1,x\n"));
         files.push(version(worse));
         let gone = "PUBLIC_GONE_20261021.zip";
         files.push(v(gone, None, &inner("19:00:00")));
-        files.push(version(gone));
+        let gone_since = v(gone, t1912, &inner("19:12:00"));
+        std::fs::remove_file(&gone_since).unwrap();
+        files.push(gone_since);
         let pdf = "notes.pdf";
         files.push(v(pdf, None, b"%PDF"));
         std::fs::write(version(pdf), b"%PDF-2").unwrap();
@@ -1128,6 +1220,8 @@ mod tests {
         assert_eq!(by[worse].versions[1].sha256, "", "gone before it was read");
         assert_eq!(by[worse].versions[1].listed_at, None, "no sidecar");
         assert_eq!(changes(gone), [First, Data]);
+        assert_eq!(by[gone].versions[1].sha256, "x", "its sidecar's");
+        assert_eq!(by[pdf].versions[0].sha256, "x", "not read: its sidecar's");
         assert_eq!(changes(pdf), [First, Data]);
         assert_eq!((by[lone].relisted, by[lone].versions.len()), (2, 1));
         // Every version is read as its name's kind: none is another file.
