@@ -6,10 +6,18 @@
 #                Pure: no I/O.
 #   utilake-schemas  the tool: fetches AEMO's files, takes their census, folds
 #                the census into each table's history, exports nem/.
-#   xtask        repository gates: coverage floors and their ratchet.
+#   utilake-gates    the repository gates every utilake repository runs from
+#                its xtask: coverage floors, their ratchet, benchmark budgets,
+#                the agent index, the error catalogue.
+#   xtask        this repository's gates: coverage floors and their ratchet.
 [workspace]
 resolver = "3"
-members = ["crates/utilake-iceberg", "crates/utilake-schemas", "crates/xtask"]
+members = [
+    "crates/utilake-gates",
+    "crates/utilake-iceberg",
+    "crates/utilake-schemas",
+    "crates/xtask",
+]
 
 [workspace.package]
 version = "0.1.0"
@@ -44,6 +52,7 @@ explicit_iter_loop = "deny"
 uninlined_format_args = "deny"
 
 [workspace.dependencies]
+utilake-gates = { path = "crates/utilake-gates" }
 utilake-iceberg = { path = "crates/utilake-iceberg" }
 
 anyhow = "1"

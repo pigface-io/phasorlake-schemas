@@ -677,6 +677,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "06abde3611657adf66d383f00b093d7faecc7fa57071cce2578660c9f1010821"
 
 [[package]]
+name = "utilake-gates"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "serde",
+ "serde_json",
+ "tempfile",
+]
+
+[[package]]
 name = "utilake-iceberg"
 version = "0.1.0"
 dependencies = [
@@ -818,10 +828,8 @@ checksum = "23b97319f7b8343df12cc98938e5c3eb436064524c8d2b4e30a1d3a36eecdf81"
 name = "xtask"
 version = "0.1.0"
 dependencies = [
- "anyhow",
  "clap",
- "serde",
- "serde_json",
+ "utilake-gates",
 ]
 
 [[package]]
