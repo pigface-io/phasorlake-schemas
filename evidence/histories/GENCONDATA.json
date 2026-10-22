@@ -121,7 +121,7 @@
         "schema",
         "version"
       ],
-      "files": 2,
+      "files": 5,
       "from": {
         "data-time": "2026-05-01T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#GENCONDATA#FILE01#202605010000.zip",
@@ -136,13 +136,13 @@
         "GENCONDATA",
         "NULL"
       ],
-      "rows": 11202,
+      "rows": 27068,
       "schema-id": 3,
       "to": {
-        "data-time": "2026-06-30T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#GENCONDATA#FILE01#202606010000.zip",
-        "release": "2026-06",
-        "sha256": "52515ea7997d61a2f929c3b5027876851024fdbf45bc9a9b22727547f64d7a29"
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#GENCONDATA#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "d9c474215596afb53bfcdc61d4bc9b5d906bb710e7e50f50038ceefbe21d9617"
       },
       "updates": [
         {

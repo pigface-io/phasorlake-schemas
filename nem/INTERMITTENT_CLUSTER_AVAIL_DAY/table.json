@@ -35,7 +35,7 @@
         "changes": [
           "first"
         ],
-        "files": 23,
+        "files": 26,
         "from": {
           "data-time": "2024-08-02T00:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#INTERMITTENT_CLUSTER_AVAIL_DAY#FILE01#202408010000.zip",
@@ -50,13 +50,13 @@
           "DEMAND",
           "INTERMITTENT_CLUSTER_AVAIL_DAY"
         ],
-        "rows": 920640,
+        "rows": 1211842,
         "schema-id": 0,
         "to": {
-          "data-time": "2026-07-01T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#INTERMITTENT_CLUSTER_AVAIL_DAY#FILE01#202606010000.zip",
-          "release": "2026-06",
-          "sha256": "9ecec7be08ebda063933dd9273329f3be5655c3320efd0bbb6607b4b4c78eee9"
+          "data-time": "2026-10-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#INTERMITTENT_CLUSTER_AVAIL_DAY#FILE01#202609010000.zip",
+          "release": "2026-09",
+          "sha256": "4c381b5889c28840149f4c8c1cc9d87d2ad8e6b5ca3151340d07555b44406d18"
         },
         "updates": [],
         "version": 1

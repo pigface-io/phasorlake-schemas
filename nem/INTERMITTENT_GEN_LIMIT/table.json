@@ -41,7 +41,7 @@
         "changes": [
           "first"
         ],
-        "files": 23,
+        "files": 26,
         "from": {
           "data-time": "2024-08-02T00:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#INTERMITTENT_GEN_LIMIT#FILE01#202408010000.zip",
@@ -56,13 +56,13 @@
           "DEMAND",
           "INTERMITTENT_GEN_LIMIT"
         ],
-        "rows": 29477952,
+        "rows": 38095961,
         "schema-id": 0,
         "to": {
-          "data-time": "2026-07-01T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#INTERMITTENT_GEN_LIMIT#FILE01#202606010000.zip",
-          "release": "2026-06",
-          "sha256": "a0547cd4f8780e9cc7ec547d5f5a3800c5d7a1b2bcbc1e8f2c350ed709510399"
+          "data-time": "2026-10-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#INTERMITTENT_GEN_LIMIT#FILE01#202609010000.zip",
+          "release": "2026-09",
+          "sha256": "0905ab6047a63e529d39493824804992d825875fa9d503d084f5a15bddf6227b"
         },
         "updates": [],
         "version": 1

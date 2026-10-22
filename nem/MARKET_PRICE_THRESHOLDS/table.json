@@ -59,7 +59,7 @@
         "changes": [
           "first"
         ],
-        "files": 200,
+        "files": 203,
         "from": {
           "data-time": "1997-11-04T00:00:00+10:00",
           "file": "PUBLIC_DVD_MARKET_PRICE_THRESHOLDS_200911010000.zip",
@@ -75,13 +75,13 @@
           "MARKET_CONFIG",
           "MARKET_PRICE_THRESHOLDS"
         ],
-        "rows": 1928,
+        "rows": 1985,
         "schema-id": 0,
         "to": {
           "data-time": "2026-07-01T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#MARKET_PRICE_THRESHOLDS#FILE01#202606010000.zip",
-          "release": "2026-06",
-          "sha256": "47d7dad115b60b7563579449e6268328cda567b097133d2aeeb1285eccbd0272"
+          "file": "PUBLIC_ARCHIVE#MARKET_PRICE_THRESHOLDS#FILE01#202609010000.zip",
+          "release": "2026-09",
+          "sha256": "d849ceba61fe2be80971e351d2ddad1f0c08529f10321b7178548ca91bb425ec"
         },
         "updates": [],
         "version": 1

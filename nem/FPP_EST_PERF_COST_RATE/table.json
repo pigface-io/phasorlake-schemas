@@ -101,7 +101,7 @@
         "changes": [
           "schema"
         ],
-        "files": 2,
+        "files": 5,
         "from": {
           "data-time": "2024-12-09T11:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#FPP_EST_PERF_COST_RATE#FILE01#202605010000.zip",
@@ -116,13 +116,13 @@
           "FPP",
           "EST_PERF_COST_RATE"
         ],
-        "rows": 1278398,
+        "rows": 2039897,
         "schema-id": 1,
         "to": {
-          "data-time": "2026-07-08T23:05:00+10:00",
-          "file": "PUBLIC_ARCHIVE#FPP_EST_PERF_COST_RATE#FILE01#202606010000.zip",
-          "release": "2026-06",
-          "sha256": "6a20b25bf67e4bdb258d5479539eb35b33152d329e9ebfaea422af0f24908c70"
+          "data-time": "2026-10-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_EST_PERF_COST_RATE#FILE01#202609010000.zip",
+          "release": "2026-09",
+          "sha256": "6e9b6262409a2730a64ae99775b8408a38d35a32060da2cd0b0767eafd19bacc"
         },
         "updates": [
           {

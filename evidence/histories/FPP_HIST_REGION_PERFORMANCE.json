@@ -36,7 +36,7 @@
       "changes": [
         "schema"
       ],
-      "files": 2,
+      "files": 5,
       "from": {
         "data-time": "2025-05-11T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_HIST_REGION_PERFORMANCE#FILE01#202605010000.zip",
@@ -51,13 +51,13 @@
         "FPP",
         "HIST_REGION_PERFORMANCE"
       ],
-      "rows": 600,
+      "rows": 1675,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-07-12T00:05:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_HIST_REGION_PERFORMANCE#FILE01#202606010000.zip",
-        "release": "2026-06",
-        "sha256": "77a16906c1948aadf9d3cb8aa3812a33bdc9615fd974d804edfe48f052f0ac05"
+        "data-time": "2026-10-11T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_HIST_REGION_PERFORMANCE#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "9db2931b9a5b8a49125ef560db288a602e7b1a75cd17fc8532e6ef3e2de98539"
       },
       "updates": [
         {

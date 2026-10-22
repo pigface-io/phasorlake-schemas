@@ -138,7 +138,7 @@
           "schema",
           "version"
         ],
-        "files": 2,
+        "files": 5,
         "from": {
           "data-time": "2026-05-01T00:05:00+10:00",
           "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202605010000.zip",
@@ -153,13 +153,13 @@
           "DISPATCH",
           "NEGATIVE_RESIDUE"
         ],
-        "rows": 105686,
+        "rows": 317975,
         "schema-id": 1,
         "to": {
-          "data-time": "2026-07-01T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202606010000.zip",
-          "release": "2026-06",
-          "sha256": "77e1445d18128c892b6a38cb8285079782b866c65b566b3ebfc57507736c863e"
+          "data-time": "2026-10-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202609010000.zip",
+          "release": "2026-09",
+          "sha256": "3b6e0d60546af27964243d66a3858de66f271e89972f7faa3f29fffebda3e03c"
         },
         "updates": [
           {

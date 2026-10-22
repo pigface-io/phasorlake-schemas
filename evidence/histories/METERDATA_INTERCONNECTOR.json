@@ -6,7 +6,7 @@
       "changes": [
         "first"
       ],
-      "files": 23,
+      "files": 26,
       "from": {
         "data-time": "2024-01-14T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#METERDATA_INTERCONNECTOR#FILE01#202408010000.zip",
@@ -21,13 +21,13 @@
         "METERDATA",
         "INTERCONNECTOR"
       ],
-      "rows": 3931200,
+      "rows": 4570560,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-06-20T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#METERDATA_INTERCONNECTOR#FILE01#202606010000.zip",
-        "release": "2026-06",
-        "sha256": "2f5dba922d7c3edff3f076158c0a1cb6ce92f8b6581cc82759e961dc70707eac"
+        "data-time": "2026-09-26T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#METERDATA_INTERCONNECTOR#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "4b6a607ec397b6e919a25a1faffa1c92833aa01bbf7328d97f7dd227d17cd5a2"
       },
       "updates": [],
       "version": 1

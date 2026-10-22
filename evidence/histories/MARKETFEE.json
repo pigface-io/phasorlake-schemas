@@ -75,7 +75,7 @@
       "changes": [
         "version"
       ],
-      "files": 23,
+      "files": 26,
       "from": {
         "data-time": "2000-06-27T08:38:47+10:00",
         "file": "PUBLIC_ARCHIVE#MARKETFEE#FILE01#202408010000.zip",
@@ -90,13 +90,13 @@
         "SETTLEMENT_CONFIG",
         "MARKETFEE"
       ],
-      "rows": 1738,
+      "rows": 2050,
       "schema-id": 1,
       "to": {
         "data-time": "2026-06-29T15:46:58+10:00",
-        "file": "PUBLIC_ARCHIVE#MARKETFEE#FILE01#202606010000.zip",
-        "release": "2026-06",
-        "sha256": "e749909a2ada875a576d9401c94bc8ee84b37c82ffd48dfb397cfe46d08d9e97"
+        "file": "PUBLIC_ARCHIVE#MARKETFEE#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "90620f920d7602252b576692ca39cea60e324896d90d8aff108a2e7246764ab6"
       },
       "updates": [],
       "version": 2

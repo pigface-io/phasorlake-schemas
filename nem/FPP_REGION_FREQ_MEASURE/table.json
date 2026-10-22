@@ -95,7 +95,7 @@
         "changes": [
           "schema"
         ],
-        "files": 3,
+        "files": 7,
         "from": {
           "data-time": "2024-12-09T11:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#FPP_REGION_FREQ_MEASURE#FILE01#202605010000.zip",
@@ -110,13 +110,13 @@
           "FPP",
           "REGION_FREQ_MEASURE"
         ],
-        "rows": 121128975,
+        "rows": 193181400,
         "schema-id": 1,
         "to": {
-          "data-time": "2026-07-08T21:05:00+10:00",
-          "file": "PUBLIC_ARCHIVE#FPP_REGION_FREQ_MEASURE#FILE01#202606010000.zip",
-          "release": "2026-06",
-          "sha256": "260c39a8bcfb61daac496deb71f693f30413909f0ec83dfdd97b4f00e410eb4c"
+          "data-time": "2026-10-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_REGION_FREQ_MEASURE#FILE01#202609010000.zip",
+          "release": "2026-09",
+          "sha256": "5be1ae87b1cb3946682e888b5bd60ca56565ccd1b87ae962a028f918c4f82f1f"
         },
         "updates": [
           {

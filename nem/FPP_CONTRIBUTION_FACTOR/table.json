@@ -131,7 +131,7 @@
         "changes": [
           "schema"
         ],
-        "files": 8,
+        "files": 14,
         "from": {
           "data-time": "2025-01-07T02:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#FPP_CONTRIBUTION_FACTOR#FILE01#202605010000.zip",
@@ -146,13 +146,13 @@
           "FPP",
           "CONTRIBUTION_FACTOR"
         ],
-        "rows": 277359294,
+        "rows": 446394413,
         "schema-id": 1,
         "to": {
-          "data-time": "2026-07-08T04:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#FPP_CONTRIBUTION_FACTOR#FILE04#202606010000.zip",
-          "release": "2026-06",
-          "sha256": "1841f3274fdcf42ca6d46ec7675f56091fbd9533cf74b69568e1fb5e7395f50b"
+          "data-time": "2026-10-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_CONTRIBUTION_FACTOR#FILE01#202609010000.zip",
+          "release": "2026-09",
+          "sha256": "9fc1f02afd76f2a8090fbcacb982a5edda367c1911966748c237c819da335580"
         },
         "updates": [
           {

@@ -101,7 +101,7 @@
         "changes": [
           "schema"
         ],
-        "files": 2,
+        "files": 6,
         "from": {
           "data-time": "2024-12-09T11:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#FPP_CONSTRAINT_FREQ_MEASURE#FILE01#202605010000.zip",
@@ -116,13 +116,13 @@
           "FPP",
           "CONSTRAINT_FREQ_MEASURE"
         ],
-        "rows": 95875950,
+        "rows": 152985825,
         "schema-id": 1,
         "to": {
-          "data-time": "2026-07-08T22:45:00+10:00",
-          "file": "PUBLIC_ARCHIVE#FPP_CONSTRAINT_FREQ_MEASURE#FILE01#202606010000.zip",
-          "release": "2026-06",
-          "sha256": "f8640f73354a4c1f7eb06b502b7facdb6aedf8b354d7793ec9000adc79c35cea"
+          "data-time": "2026-10-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_CONSTRAINT_FREQ_MEASURE#FILE01#202609010000.zip",
+          "release": "2026-09",
+          "sha256": "43ac43691faf1738e294c34115b66cd9c840042c0681978206a0b7be8ebf5d2d"
         },
         "updates": [
           {

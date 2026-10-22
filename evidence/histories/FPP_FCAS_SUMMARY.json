@@ -75,7 +75,7 @@
       "changes": [
         "schema"
       ],
-      "files": 2,
+      "files": 5,
       "from": {
         "data-time": "2024-12-09T11:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202605010000.zip",
@@ -90,13 +90,13 @@
         "FPP",
         "FCAS_SUMMARY"
       ],
-      "rows": 1278366,
+      "rows": 2039845,
       "schema-id": 2,
       "to": {
-        "data-time": "2026-07-08T22:30:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202606010000.zip",
-        "release": "2026-06",
-        "sha256": "3c0e66e8ab06740b014f71c5c2ad7c8f84fdfaf560a6dc78a3a1f8dca580ecbe"
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "1eb3ae1bfc6858542a31f1aac304e00688ba5f8bd7065d9379c34fea2d7afda8"
       },
       "updates": [
         {

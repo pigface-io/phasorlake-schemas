@@ -41,7 +41,7 @@
         "changes": [
           "first"
         ],
-        "files": 204,
+        "files": 207,
         "from": {
           "data-time": "1998-07-01T00:00:00+10:00",
           "file": "PUBLIC_DVD_MARKETFEETRK_200907010000.zip",
@@ -57,13 +57,13 @@
           "SETTLEMENT_CONFIG",
           "MARKETFEETRK"
         ],
-        "rows": 7307,
+        "rows": 7451,
         "schema-id": 0,
         "to": {
           "data-time": "2026-07-01T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#MARKETFEETRK#FILE01#202606010000.zip",
-          "release": "2026-06",
-          "sha256": "5e6d1ff961105d454cf597094b5964edc0c669cfead79ca174a4f2312f9a7e62"
+          "file": "PUBLIC_ARCHIVE#MARKETFEETRK#FILE01#202609010000.zip",
+          "release": "2026-09",
+          "sha256": "a9bfba7f149e9951dcf1369a3cdc7af93ffb28d39a455462bbaac975fedf529a"
         },
         "updates": [],
         "version": 1

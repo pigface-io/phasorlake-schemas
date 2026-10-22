@@ -114,7 +114,7 @@
           "schema",
           "version"
         ],
-        "files": 56,
+        "files": 58,
         "from": {
           "data-time": "2019-10-01T00:00:00+10:00",
           "file": "PUBLIC_DVD_AUCTION_IC_ALLOCATIONS_201910010000.zip",
@@ -130,13 +130,13 @@
           "IRAUCTION_CONFIG",
           "AUCTION_IC_ALLOCATIONS"
         ],
-        "rows": 1137,
+        "rows": 1507,
         "schema-id": 1,
         "to": {
-          "data-time": "2026-07-01T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#AUCTION_IC_ALLOCATIONS#FILE01#202606010000.zip",
-          "release": "2026-06",
-          "sha256": "8f6301b10678898b2eb13d5554ded4c1c7f00d3793aa8548306364c0fb5121f7"
+          "data-time": "2026-10-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#AUCTION_IC_ALLOCATIONS#FILE01#202609010000.zip",
+          "release": "2026-09",
+          "sha256": "210afae5e9005f67620ce4a8604af32fac2ba2f6cc05d020fc3586f07cf77b39"
         },
         "updates": [
           {

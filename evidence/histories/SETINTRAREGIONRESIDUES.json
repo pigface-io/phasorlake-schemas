@@ -37,7 +37,7 @@
         "schema",
         "version"
       ],
-      "files": 23,
+      "files": 26,
       "from": {
         "data-time": "2023-12-31T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#SETINTRAREGIONRESIDUES#FILE01#202408010000.zip",
@@ -52,13 +52,13 @@
         "SETTLEMENTS",
         "INTRAREGIONRESIDUES"
       ],
-      "rows": 5025600,
+      "rows": 5742720,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-06-29T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#SETINTRAREGIONRESIDUES#FILE01#202606010000.zip",
-        "release": "2026-06",
-        "sha256": "48fe928890cd32cf02eff1e9e671d24f929697e6bae6ecfc1219dae150ead5c3"
+        "data-time": "2026-09-29T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#SETINTRAREGIONRESIDUES#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "ded65cf901a237efb5a81844c7a9b4261be3512cd3b5c31a210334950466875b"
       },
       "updates": [
         {

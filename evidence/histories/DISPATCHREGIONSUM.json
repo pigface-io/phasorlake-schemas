@@ -318,7 +318,7 @@
       "changes": [
         "version"
       ],
-      "files": 13,
+      "files": 16,
       "from": {
         "data-time": "2025-06-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202506010000.zip",
@@ -333,13 +333,13 @@
         "DISPATCH",
         "REGIONSUM"
       ],
-      "rows": 568800,
+      "rows": 701280,
       "schema-id": 5,
       "to": {
-        "data-time": "2026-07-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202606010000.zip",
-        "release": "2026-06",
-        "sha256": "19daa5f7e84bd67c213bb690c783375c90cfcf47550bbec2bc955658fe8cc77c"
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "c9b384d926a508d5fcbdbd7c10bbb390833b2a5cdd589dfba7471098dff22795"
       },
       "updates": [],
       "version": 9

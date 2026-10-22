@@ -36,7 +36,7 @@
       "changes": [
         "schema"
       ],
-      "files": 2,
+      "files": 5,
       "from": {
         "data-time": "2024-12-29T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_FORECAST_RESIDUAL_DCF#FILE01#202605010000.zip",
@@ -51,13 +51,13 @@
         "FPP",
         "FORECAST_RESIDUAL_DCF"
       ],
-      "rows": 6140,
+      "rows": 16246,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-07-12T00:05:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_FORECAST_RESIDUAL_DCF#FILE01#202606010000.zip",
-        "release": "2026-06",
-        "sha256": "f940ab402904694b544162625fdff7d7c9be5a993ed9e5313e993f363eeb7f7a"
+        "data-time": "2026-10-11T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FORECAST_RESIDUAL_DCF#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "891050e69d246f2409e1579a3e884213f8a0ad21a90528e70e95f18120bd0272"
       },
       "updates": [
         {

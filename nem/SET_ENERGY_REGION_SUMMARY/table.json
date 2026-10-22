@@ -89,7 +89,7 @@
         "changes": [
           "first"
         ],
-        "files": 23,
+        "files": 26,
         "from": {
           "data-time": "2024-06-02T00:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#SET_ENERGY_REGION_SUMMARY#FILE01#202408010000.zip",
@@ -104,13 +104,13 @@
           "SETTLEMENTS",
           "ENERGY_REGION_SUMMARY"
         ],
-        "rows": 66999962,
+        "rows": 74467480,
         "schema-id": 0,
         "to": {
-          "data-time": "2026-07-07T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#SET_ENERGY_REGION_SUMMARY#FILE01#202606010000.zip",
-          "release": "2026-06",
-          "sha256": "9606f5281d686eaa6e4eb0dd1b268d480aea4ace488269ee5841cebcc9c8ee40"
+          "data-time": "2026-10-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#SET_ENERGY_REGION_SUMMARY#FILE01#202609010000.zip",
+          "release": "2026-09",
+          "sha256": "1a276e0bfbd474c2573187ae153e188a6c9193fba820106db6776fcd1fa2a9eb"
         },
         "updates": [],
         "version": 1
