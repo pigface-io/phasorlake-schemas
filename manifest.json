@@ -1,2813 +1,2818 @@
 {
   "base_url": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/",
-  "baseline": {
-    "reason": "",
-    "version": 1
-  },
   "format": 3,
-  "listed": [
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "ADG_DETAIL",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "AGGREGATE_DISPATCH_GROUP",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "ANCILLARY_RECOVERY_SPLIT",
-      "package": "SETTLEMENT_CONFIG",
-      "runs": 3,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-11",
-      "last_release": "2026-09",
-      "name": "APEVENT",
-      "package": "FORCE_MAJEURE",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-11",
-      "last_release": "2026-09",
-      "name": "APEVENTREGION",
-      "package": "FORCE_MAJEURE",
-      "runs": 3,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-09",
-      "last_release": "2026-09",
-      "name": "AUCTION",
-      "package": "IRAUCTION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-09",
-      "last_release": "2026-09",
-      "name": "AUCTION_CALENDAR",
-      "package": "IRAUCTION",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-09",
-      "last_release": "2026-09",
-      "name": "AUCTION_IC_ALLOCATIONS",
-      "package": "IRAUCTION",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-09",
-      "last_release": "2026-09",
-      "name": "AUCTION_TRANCHE",
-      "package": "IRAUCTION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "AVERAGEPRICE30",
-      "package": "TRADING_DATA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2021-04",
-      "last_release": "2026-09",
-      "name": "BIDDAYOFFER",
-      "package": "BIDS",
-      "runs": 4,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "BIDDAYOFFER_D",
-      "package": "BIDS",
-      "runs": 3,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "BIDDUIDDETAILS",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "BIDDUIDDETAILSTRK",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2021-04",
-      "last_release": "2026-09",
-      "name": "BIDOFFERPERIOD",
-      "package": "BIDS",
-      "runs": 6,
-      "schemas": 5
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "BIDPEROFFER_D",
-      "package": "BIDS",
-      "runs": 5,
-      "schemas": 4
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "BIDTYPES",
-      "package": "MARKET_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "BIDTYPESTRK",
-      "package": "MARKET_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "BILLINGCALENDAR",
-      "package": "BILLING_CONFIG",
-      "runs": 3,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "BILLINGDAYTRK",
-      "package": "BILLING_RUN",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "BILLINGREGIONEXPORTS",
-      "package": "BILLING_RUN",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "BILLINGREGIONFIGURES",
-      "package": "BILLING_RUN",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "BILLINGREGIONIMPORTS",
-      "package": "BILLING_RUN",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "BILLINGRUNTRK",
-      "package": "BILLING_RUN",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2011-10",
-      "last_release": "2026-09",
-      "name": "BILLING_CO2E_PUBLICATION",
-      "package": "BILLING_RUN",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2011-10",
-      "last_release": "2026-09",
-      "name": "BILLING_CO2E_PUBLICATION_TRK",
-      "package": "BILLING_RUN",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-08",
-      "last_release": "2010-06",
-      "name": "BILLING_DIRECTION_RECONCILIATION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "BILLING_DIRECTION_RECON_OTHER",
-      "package": "BILLING_RUN",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-10",
-      "last_release": "2026-09",
-      "name": "BILLING_NMAS_TST_RECVRY_RBF",
-      "package": "BILLING_RUN",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-08",
-      "name": "BILLING_NMAS_TST_RECVRY_TRK",
-      "package": "BILLING_RUN",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2024-07",
-      "name": "BILLSMELTERRATE",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "CONSTRAINTRELAXATION_OCD",
-      "package": "DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "DAYTRACK",
-      "package": "SETTLEMENT_DATA",
-      "runs": 5,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "DEMANDOPERATIONALACTUAL",
-      "package": "DEMAND_FORECASTS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "DEMANDOPERATIONALFORECAST",
-      "package": "DEMAND_FORECASTS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "DISPATCHABLEUNIT",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-09",
-      "last_release": "2026-09",
-      "name": "DISPATCHBLOCKEDCONSTRAINT",
-      "package": "DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2009-09",
-      "name": "DISPATCHBNC_CASESOLUTION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2009-09",
-      "name": "DISPATCHBNC_UNIT_SOLUTION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "DISPATCHCASESOLUTION",
-      "package": "DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "DISPATCHCONSTRAINT",
-      "package": "DISPATCH",
-      "runs": 4,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "DISPATCHINTERCONNECTORRES",
-      "package": "DISPATCH",
-      "runs": 3,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "DISPATCHLOAD",
-      "package": "DISPATCH",
-      "runs": 6,
-      "schemas": 6
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2011-11",
-      "name": "DISPATCHOCD_CONSTRAINT_FCAS_OCD",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "DISPATCHOFFERTRK",
-      "package": "DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "DISPATCHPRICE",
-      "package": "DISPATCH",
-      "runs": 4,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "DISPATCHREGIONSUM",
-      "package": "DISPATCH",
-      "runs": 8,
-      "schemas": 6
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2011-11",
-      "name": "DISPATCH_CONSTRAINTRELAXATION_OCD",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-10",
-      "last_release": "2026-08",
-      "name": "DISPATCH_CONSTRAINT_FCAS_OCD",
-      "package": "DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2011-11",
-      "name": "DISPATCH_DISPATCHCASE_OCD",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2025-05",
-      "name": "DISPATCH_FCAS_REQ",
-      "package": "DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "DISPATCH_FCAS_REQ_CONSTRAINT",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "DISPATCH_FCAS_REQ_RUN",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "DISPATCH_INTERCONNECTION",
-      "package": "DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "DISPATCH_LOCAL_PRICE",
-      "package": "DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-06",
-      "name": "DISPATCH_MNSPBIDTRK",
-      "package": "DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2010-11",
-      "last_release": "2026-09",
-      "name": "DISPATCH_UNIT_SCADA",
-      "package": "DISPATCH",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2020-10",
-      "last_release": "2026-09",
-      "name": "DUALLOC",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "DUDETAIL",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 7,
-      "schemas": 7
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "DUDETAILSUMMARY",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 5,
-      "schemas": 4
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "EMSMASTER",
-      "package": "GENERIC_CONSTRAINT",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_CONSTRAINT_FREQ_MEASURE",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_CONTRIBUTION_FACTOR",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_EST_PERF_COST_RATE",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_EST_RESIDUAL_COST_RATE",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_FCAS_SUMMARY",
-      "package": null,
-      "runs": 3,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_FORECAST_DEFAULT_CF",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_FORECAST_RESIDUAL_DCF",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_HIST_PERFORMANCE",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2025-04",
-      "last_release": "2026-09",
-      "name": "FPP_HIST_REGION_PERFORMANCE",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2025-01",
-      "last_release": "2026-09",
-      "name": "FPP_P5_FWD_EST_RESIDUALRATE",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2025-01",
-      "last_release": "2026-09",
-      "name": "FPP_PD_FWD_EST_RESIDUALRATE",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_PERFORMANCE",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_RCR",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_REGION_FREQ_MEASURE",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_RESIDUAL_CF",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_RESIDUAL_PERFORMANCE",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_RUN",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2024-12",
-      "last_release": "2024-12",
-      "name": "FPP_UNIT_MW",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "FPP_USAGE",
-      "package": null,
-      "runs": 3,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2026-07",
-      "name": "GD_INSTRUCT_GDINSTRUCT",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "GENCONDATA",
-      "package": "GENERIC_CONSTRAINT",
-      "runs": 4,
-      "schemas": 4
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "GENCONSET",
-      "package": "GENERIC_CONSTRAINT",
-      "runs": 2,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "GENCONSETINVOKE",
-      "package": "GENERIC_CONSTRAINT",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "GENCONSETTRK",
-      "package": "GENERIC_CONSTRAINT",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "GENERICCONSTRAINTRHS",
-      "package": "GENERIC_CONSTRAINT",
-      "runs": 2,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "GENERICEQUATIONDESC",
-      "package": "GENERIC_CONSTRAINT",
-      "runs": 2,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "GENERICEQUATIONRHS",
-      "package": "GENERIC_CONSTRAINT",
-      "runs": 2,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2011-05",
-      "last_release": "2026-09",
-      "name": "GENUNITS",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "GENUNITS_UNIT",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "GST_BAS_CLASS",
-      "package": "BILLING_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "GST_RATE",
-      "package": "BILLING_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "GST_TRANSACTION_CLASS",
-      "package": "BILLING_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "GST_TRANSACTION_TYPE",
-      "package": "BILLING_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "INSTRUCTIONSUBTYPE",
-      "package": "GD_INSTRUCT",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "INSTRUCTIONTYPE",
-      "package": "GD_INSTRUCT",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "INTERCONNECTOR",
-      "package": "MARKET_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "INTERCONNECTORCONSTRAINT",
-      "package": "MARKET_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "INTERMITTENT_CLUSTER_AVAIL",
-      "package": "DEMAND_FORECASTS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "INTERMITTENT_CLUSTER_AVAIL_DAY",
-      "package": "DEMAND_FORECASTS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "INTERMITTENT_DS_PRED",
-      "package": "DEMAND_FORECASTS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "INTERMITTENT_DS_RUN",
-      "package": "DEMAND_FORECASTS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "INTERMITTENT_FORECAST_TRK",
-      "package": "DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "INTERMITTENT_GEN_LIMIT",
-      "package": "DEMAND_FORECASTS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "INTERMITTENT_GEN_LIMIT_DAY",
-      "package": "DEMAND_FORECASTS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "INTERMITTENT_GEN_SCADA",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-09",
-      "last_release": "2010-06",
-      "name": "IRAUCTION_CONFIG_AUCTION_REVENUE_ESTIMATE",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-09",
-      "last_release": "2010-06",
-      "name": "IRAUCTION_CONFIG_AUCTION_REVENUE_TRACK",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-09",
-      "last_release": "2010-02",
-      "name": "IRAUCTION_CONFIG_AUCTION_RP_ESTIMATE",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-09",
-      "last_release": "2010-06",
-      "name": "IRAUCTION_RESIDUE_CON_ESTIMATES_TRK",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-09",
-      "last_release": "2026-09",
-      "name": "IRAUCTION_RESIDUE_PRICE_FUNDS_BID",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "IRFMAMOUNT",
-      "package": "FORCE_MAJEURE",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "IRFMEVENTS",
-      "package": "FORCE_MAJEURE",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "LOSSFACTORMODEL",
-      "package": "MARKET_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "LOSSMODEL",
-      "package": "MARKET_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "MARKETFEE",
-      "package": "SETTLEMENT_CONFIG",
-      "runs": 3,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "MARKETFEEDATA",
-      "package": "SETTLEMENT_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "MARKETFEETRK",
-      "package": "SETTLEMENT_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2024-07",
-      "name": "MARKETNOTICEDATA",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "MARKETNOTICETYPE",
-      "package": "MARKET_NOTICE",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "MARKETSUSPENSION",
-      "package": "HISTORICAL TABLES",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "MARKETSUSREGION",
-      "package": "HISTORICAL TABLES",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2024-08",
-      "last_release": "2026-07",
-      "name": "MARKET_CONFIG_FCASREGUSEFACTORS",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2024-08",
-      "last_release": "2026-07",
-      "name": "MARKET_CONFIG_FCASREGUSEFACTORS_TRK",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-11",
-      "last_release": "2026-09",
-      "name": "MARKET_PRICE_THRESHOLDS",
-      "package": "MARKET_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "MARKET_SUSPEND_REGIME_SUM",
-      "package": "FORCE_MAJEURE",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "MARKET_SUSPEND_REGION_SUM",
-      "package": "FORCE_MAJEURE",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "MARKET_SUSPEND_SCHEDULE",
-      "package": "FORCE_MAJEURE",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "MARKET_SUSPEND_SCHEDULE_TRK",
-      "package": "FORCE_MAJEURE",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2010-11",
-      "last_release": "2026-09",
-      "name": "MCC_CASESOLUTION",
-      "package": "MCC_DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2010-11",
-      "last_release": "2026-09",
-      "name": "MCC_CONSTRAINTSOLUTION",
-      "package": "MCC_DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "METERDATA_INTERCONNECTOR",
-      "package": "METER_DATA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2010-12",
-      "name": "METER_DATA_GEN_DUID",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2021-05",
-      "name": "METER_DATA_INTERCONNECTOR",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2021-04",
-      "last_release": "2026-07",
-      "name": "MNSP_BIDOFFERPERIOD",
-      "package": "BIDS",
-      "runs": 4,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2021-04",
-      "last_release": "2026-07",
-      "name": "MNSP_DAYOFFER",
-      "package": "BIDS",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "MNSP_INTERCONNECTOR",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "MNSP_PARTICIPANT",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2018-05",
-      "last_release": "2026-09",
-      "name": "MTPASA_CASERESULT",
-      "package": "MTPASA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2024-07",
-      "name": "MTPASA_CASESOLUTION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2012-09",
-      "name": "MTPASA_CASE_SET",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2018-05",
-      "last_release": "2026-09",
-      "name": "MTPASA_CONSTRAINTRESULT",
-      "package": "MTPASA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2018-05",
-      "name": "MTPASA_CONSTRAINTSOLUTION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2018-05",
-      "last_release": "2026-09",
-      "name": "MTPASA_CONSTRAINTSUMMARY",
-      "package": "MTPASA",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "MTPASA_DUIDAVAILABILITY",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2018-05",
-      "last_release": "2026-09",
-      "name": "MTPASA_INTERCONNECTORRESULT",
-      "package": "MTPASA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2018-05",
-      "name": "MTPASA_INTERCONNECTORSOLUTION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2018-05",
-      "last_release": "2026-09",
-      "name": "MTPASA_LOLPRESULT",
-      "package": "MTPASA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "MTPASA_REGIONAVAILABILITY",
-      "package": "MTPASA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "MTPASA_REGIONAVAIL_TRK",
-      "package": "MTPASA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2018-05",
-      "last_release": "2026-09",
-      "name": "MTPASA_REGIONITERATION",
-      "package": "MTPASA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2018-05",
-      "last_release": "2026-09",
-      "name": "MTPASA_REGIONRESULT",
-      "package": "MTPASA",
-      "runs": 3,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2018-05",
-      "name": "MTPASA_REGIONSOLUTION",
-      "package": null,
-      "runs": 3,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2018-05",
-      "last_release": "2026-09",
-      "name": "MTPASA_REGIONSUMMARY",
-      "package": "MTPASA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2010-05",
-      "last_release": "2026-09",
-      "name": "MTPASA_RESERVELIMIT",
-      "package": "RESERVE_DATA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2010-05",
-      "last_release": "2018-05",
-      "name": "MTPASA_RESERVELIMITSOLUTION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2010-05",
-      "last_release": "2026-09",
-      "name": "MTPASA_RESERVELIMIT_REGION",
-      "package": "RESERVE_DATA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2010-05",
-      "last_release": "2026-09",
-      "name": "MTPASA_RESERVELIMIT_SET",
-      "package": "RESERVE_DATA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "NEGATIVE_RESIDUE",
-      "package": "DISPATCH",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "NETWORK_EQUIPMENTDETAIL",
-      "package": "NETWORK",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "NETWORK_OUTAGECONSTRAINTSET",
-      "package": "NETWORK",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "NETWORK_OUTAGEDETAIL",
-      "package": "NETWORK",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "NETWORK_OUTAGESTATUSCODE",
-      "package": "NETWORK",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "NETWORK_RATING",
-      "package": "NETWORK",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "NETWORK_STATICRATING",
-      "package": "NETWORK",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "NETWORK_SUBSTATIONDETAIL",
-      "package": "NETWORK",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2021-03",
-      "name": "OFFER_BIDDAYOFFER",
-      "package": null,
-      "runs": 3,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2021-03",
-      "last_release": "2021-03",
-      "name": "OFFER_BIDOFFERPERIOD",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2021-02",
-      "name": "OFFER_BIDPEROFFER",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2021-03",
-      "last_release": "2021-03",
-      "name": "OFFER_MNSP_BIDOFFERPERIOD",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2021-03",
-      "name": "OFFER_MNSP_DAYOFFER",
-      "package": null,
-      "runs": 3,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2021-02",
-      "name": "OFFER_MNSP_OFFERTRK",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2021-02",
-      "name": "OFFER_MNSP_PEROFFER",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "OVERRIDERRP",
-      "package": "FORCE_MAJEURE",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-09",
-      "last_release": "2026-09",
-      "name": "P5MIN_BLOCKEDCONSTRAINT",
-      "package": "P5MIN",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "P5MIN_CASESOLUTION",
-      "package": "P5MIN",
-      "runs": 3,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "P5MIN_CONSTRAINTSOLUTION",
-      "package": "P5MIN",
-      "runs": 526,
-      "schemas": 5
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "P5MIN_FCAS_REQ_CONSTRAINT",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "P5MIN_FCAS_REQ_RUN",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "P5MIN_INTERCONNECTORSOLN",
-      "package": "P5MIN",
-      "runs": 3,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "P5MIN_INTERSENSITIVITIES",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "P5MIN_LOCAL_PRICE",
-      "package": "P5MIN",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "P5MIN_PRICESENSITIVITIES",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "P5MIN_REGIONSOLUTION",
-      "package": "P5MIN",
-      "runs": 34,
-      "schemas": 9
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2021-06",
-      "last_release": "2026-09",
-      "name": "P5MIN_SCENARIODEMAND",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2021-06",
-      "last_release": "2026-09",
-      "name": "P5MIN_SCENARIODEMANDTRK",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2024-07",
-      "name": "P5MIN_UNITSOLUTION",
-      "package": null,
-      "runs": 29,
-      "schemas": 7
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PARTICIPANT",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PARTICIPANTCATEGORY",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PARTICIPANTCATEGORYALLOC",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PARTICIPANTCLASS",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "PD7DAY_CASESOLUTION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "PD7DAY_CONSTRAINTSOLUTION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "PD7DAY_INTERCONNECTORSOLUTION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "PD7DAY_MARKET_SUMMARY",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "PD7DAY_PRICESOLUTION",
-      "package": null,
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PDPASA_CASESOLUTION",
-      "package": "PDPASA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2021-02",
-      "last_release": "2026-09",
-      "name": "PDPASA_CONSTRAINTSOLUTION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2025-07",
-      "last_release": "2026-09",
-      "name": "PDPASA_DUIDAVAILABILITY",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2021-02",
-      "last_release": "2026-09",
-      "name": "PDPASA_INTERCONNECTORSOLN",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PDPASA_REGIONSOLUTION",
-      "package": "PDPASA",
-      "runs": 6,
-      "schemas": 5
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "PD_FCAS_REQ_CONSTRAINT",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-12",
-      "last_release": "2026-09",
-      "name": "PD_FCAS_REQ_RUN",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PERDEMAND",
-      "package": "DEMAND_FORECASTS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "PMS_GROUP",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "PMS_GROUPSERVICE",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PREDISPATCHCASESOLUTION",
-      "package": "PRE_DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PREDISPATCHCONSTRAINT",
-      "package": "PRE_DISPATCH",
-      "runs": 4,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PREDISPATCHINTERCONNECTORRES",
-      "package": "PRE_DISPATCH",
-      "runs": 3,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2024-07",
-      "name": "PREDISPATCHINTERSENSITIVITIES",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PREDISPATCHLOAD",
-      "package": "PRE_DISPATCH",
-      "runs": 5,
-      "schemas": 5
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PREDISPATCHOFFERTRK",
-      "package": "PRE_DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PREDISPATCHPRICE",
-      "package": "PRE_DISPATCH",
-      "runs": 3,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PREDISPATCHPRICESENSITIVITIES",
-      "package": "PRE_DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PREDISPATCHREGIONSUM",
-      "package": "PRE_DISPATCH",
-      "runs": 9,
-      "schemas": 7
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PREDISPATCHSCENARIODEMAND",
-      "package": "PRE_DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PREDISPATCHSCENARIODEMANDTRK",
-      "package": "PRE_DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2025-02",
-      "last_release": "2026-07",
-      "name": "PREDISPATCH_BLOCKED_CONSTRAINTS",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2025-05",
-      "name": "PREDISPATCH_FCAS_REQ",
-      "package": "PRE_DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "PREDISPATCH_LOCAL_PRICE",
-      "package": "PRE_DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-06",
-      "name": "PREDISPATCH_MNSPBIDTRK",
-      "package": "PRE_DISPATCH",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-09",
-      "last_release": "2026-03",
-      "name": "PRICELOAD_PRICE_REVISION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "PRUDENTIALRUNTRK",
-      "package": "PRUDENTIALS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "REGION",
-      "package": "MARKET_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "REGIONAPC",
-      "package": "FORCE_MAJEURE",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "REGIONAPCINTERVALS",
-      "package": "FORCE_MAJEURE",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "REGIONSTANDINGDATA",
-      "package": "MARKET_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "RESDEMANDTRK",
-      "package": "DEMAND_FORECASTS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-10",
-      "last_release": "2018-05",
-      "name": "RESERVE_DATA_RESERVE",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-09",
-      "last_release": "2026-09",
-      "name": "RESIDUE_CONTRACTS",
-      "package": "IRAUCTION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-09",
-      "last_release": "2026-08",
-      "name": "RESIDUE_CON_FUNDS",
-      "package": "IRAUCTION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-09",
-      "last_release": "2026-09",
-      "name": "RESIDUE_PUBLIC_DATA",
-      "package": "IRAUCTION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-09",
-      "last_release": "2026-09",
-      "name": "RESIDUE_TRK",
-      "package": "IRAUCTION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2016-08",
-      "last_release": "2026-09",
-      "name": "ROOFTOP_PV_ACTUAL",
-      "package": "DEMAND_FORECASTS",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2016-08",
-      "last_release": "2026-09",
-      "name": "ROOFTOP_PV_FORECAST",
-      "package": "DEMAND_FORECASTS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "SECDEPOSIT_INTEREST_RATE",
-      "package": "BILLING_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "SETCFG_PARTICIPANT_MPF",
-      "package": "SETTLEMENT_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "SETCFG_PARTICIPANT_MPFTRK",
-      "package": "SETTLEMENT_CONFIG",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2024-08",
-      "last_release": "2026-07",
-      "name": "SETCFG_SAPS_SETT_PRICE",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "SETCFG_WDRRR_CALENDAR",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "SETCFG_WDR_REIMBURSE_RATE",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2024-12",
-      "name": "SETCPDATAREGION",
-      "package": "SETTLEMENT_DATA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "SETFCASREGIONRECOVERY",
-      "package": "SETTLEMENT_DATA",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2024-12",
-      "name": "SETGENDATAREGION",
-      "package": "SETTLEMENT_DATA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "SETINTRAREGIONRESIDUES",
-      "package": "SETTLEMENT_DATA",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "SETIRSURPLUS",
-      "package": "SETTLEMENT_DATA",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "SETLOCALAREAENERGY",
-      "package": "SETTLEMENT_DATA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "SETLOCALAREATNI",
-      "package": "SETTLEMENT_DATA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2026-01",
-      "last_release": "2026-07",
-      "name": "SETTLEMENTS_FCAS_CLAWBACK_REQ",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2026-01",
-      "last_release": "2026-07",
-      "name": "SETTLEMENTS_FCAS_CLAWBACK_RUN_TRK",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2009-07",
-      "name": "SETTLEMENTS_RUN_PARAMETER",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "SET_ANCILLARY_SUMMARY",
-      "package": "SETTLEMENT_DATA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "SET_ENERGY_REGION_SUMMARY",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "SET_FCAS_REGULATION_TRK",
-      "package": "SETTLEMENT_DATA",
-      "runs": 4,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "SET_NMAS_RECOVERY_RBF",
-      "package": "SETTLEMENT_DATA",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "SPDCONNECTIONPOINTCONSTRAINT",
-      "package": "GENERIC_CONSTRAINT",
-      "runs": 2,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "SPDINTERCONNECTORCONSTRAINT",
-      "package": "GENERIC_CONSTRAINT",
-      "runs": 2,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2024-07",
-      "name": "SPDRC_",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "SPDREGIONCONSTRAINT",
-      "package": "GENERIC_CONSTRAINT",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "SRA_FINANCIAL_RUNTRK",
-      "package": "IRAUCTION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "SRA_PRUDENTIAL_RUN",
-      "package": "IRAUCTION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2025-11",
-      "last_release": "2026-09",
-      "name": "SSM_ENABLEMENT_COSTS",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2025-11",
-      "last_release": "2026-09",
-      "name": "SSM_ENABLEMENT_PERIOD",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "STADUALLOC",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "STATION",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "STATIONOPERATINGSTATUS",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "STATIONOWNER",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "STATIONOWNERTRK",
-      "package": "PARTICIPANT_REGISTRATION",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "STPASA_CASESOLUTION",
-      "package": "STPASA_SOLUTION",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "STPASA_CONSTRAINTSOLUTION",
-      "package": "STPASA_SOLUTION",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2025-07",
-      "last_release": "2026-09",
-      "name": "STPASA_DUIDAVAILABILITY",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "STPASA_INTERCONNECTORSOLN",
-      "package": "STPASA_SOLUTION",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "STPASA_REGIONSOLUTION",
-      "package": "STPASA_SOLUTION",
-      "runs": 6,
-      "schemas": 4
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "TRADINGINTERCONNECT",
-      "package": "TRADING_DATA",
-      "runs": 2,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "TRADINGPRICE",
-      "package": "TRADING_DATA",
-      "runs": 3,
-      "schemas": 3
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2021-09",
-      "name": "TRADING_REGIONSUM",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": false,
-      "first_release": "2009-07",
-      "last_release": "2021-09",
-      "name": "TRADING_UNIT_SOLUTION",
-      "package": null,
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2009-07",
-      "last_release": "2026-09",
-      "name": "TRANSMISSIONLOSSFACTOR",
-      "package": "MARKET_CONFIG",
-      "runs": 2,
-      "schemas": 2
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "VOLTAGE_INSTRUCTION",
-      "package": "VOLTAGE_INSTRUCTIONS",
-      "runs": 1,
-      "schemas": 1
-    },
-    {
-      "breaks": 0,
-      "declared": true,
-      "first_release": "2024-08",
-      "last_release": "2026-09",
-      "name": "VOLTAGE_INSTRUCTION_TRK",
-      "package": "VOLTAGE_INSTRUCTIONS",
-      "runs": 1,
-      "schemas": 1
+  "markets": {
+    "nem": {
+      "baseline": {
+        "reason": "",
+        "version": 1
+      },
+      "listed": [
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "ADG_DETAIL",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "AGGREGATE_DISPATCH_GROUP",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "ANCILLARY_RECOVERY_SPLIT",
+          "package": "SETTLEMENT_CONFIG",
+          "runs": 3,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-11",
+          "last_release": "2026-09",
+          "name": "APEVENT",
+          "package": "FORCE_MAJEURE",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-11",
+          "last_release": "2026-09",
+          "name": "APEVENTREGION",
+          "package": "FORCE_MAJEURE",
+          "runs": 3,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-09",
+          "last_release": "2026-09",
+          "name": "AUCTION",
+          "package": "IRAUCTION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-09",
+          "last_release": "2026-09",
+          "name": "AUCTION_CALENDAR",
+          "package": "IRAUCTION",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-09",
+          "last_release": "2026-09",
+          "name": "AUCTION_IC_ALLOCATIONS",
+          "package": "IRAUCTION",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-09",
+          "last_release": "2026-09",
+          "name": "AUCTION_TRANCHE",
+          "package": "IRAUCTION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "AVERAGEPRICE30",
+          "package": "TRADING_DATA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2021-04",
+          "last_release": "2026-09",
+          "name": "BIDDAYOFFER",
+          "package": "BIDS",
+          "runs": 4,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "BIDDAYOFFER_D",
+          "package": "BIDS",
+          "runs": 3,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "BIDDUIDDETAILS",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "BIDDUIDDETAILSTRK",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2021-04",
+          "last_release": "2026-09",
+          "name": "BIDOFFERPERIOD",
+          "package": "BIDS",
+          "runs": 6,
+          "schemas": 5
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "BIDPEROFFER_D",
+          "package": "BIDS",
+          "runs": 5,
+          "schemas": 4
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "BIDTYPES",
+          "package": "MARKET_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "BIDTYPESTRK",
+          "package": "MARKET_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "BILLINGCALENDAR",
+          "package": "BILLING_CONFIG",
+          "runs": 3,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "BILLINGDAYTRK",
+          "package": "BILLING_RUN",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "BILLINGREGIONEXPORTS",
+          "package": "BILLING_RUN",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "BILLINGREGIONFIGURES",
+          "package": "BILLING_RUN",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "BILLINGREGIONIMPORTS",
+          "package": "BILLING_RUN",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "BILLINGRUNTRK",
+          "package": "BILLING_RUN",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2011-10",
+          "last_release": "2026-09",
+          "name": "BILLING_CO2E_PUBLICATION",
+          "package": "BILLING_RUN",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2011-10",
+          "last_release": "2026-09",
+          "name": "BILLING_CO2E_PUBLICATION_TRK",
+          "package": "BILLING_RUN",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-08",
+          "last_release": "2010-06",
+          "name": "BILLING_DIRECTION_RECONCILIATION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "BILLING_DIRECTION_RECON_OTHER",
+          "package": "BILLING_RUN",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-10",
+          "last_release": "2026-09",
+          "name": "BILLING_NMAS_TST_RECVRY_RBF",
+          "package": "BILLING_RUN",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-08",
+          "name": "BILLING_NMAS_TST_RECVRY_TRK",
+          "package": "BILLING_RUN",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2024-07",
+          "name": "BILLSMELTERRATE",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "CONSTRAINTRELAXATION_OCD",
+          "package": "DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "DAYTRACK",
+          "package": "SETTLEMENT_DATA",
+          "runs": 5,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "DEMANDOPERATIONALACTUAL",
+          "package": "DEMAND_FORECASTS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "DEMANDOPERATIONALFORECAST",
+          "package": "DEMAND_FORECASTS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "DISPATCHABLEUNIT",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-09",
+          "last_release": "2026-09",
+          "name": "DISPATCHBLOCKEDCONSTRAINT",
+          "package": "DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2009-09",
+          "name": "DISPATCHBNC_CASESOLUTION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2009-09",
+          "name": "DISPATCHBNC_UNIT_SOLUTION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "DISPATCHCASESOLUTION",
+          "package": "DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "DISPATCHCONSTRAINT",
+          "package": "DISPATCH",
+          "runs": 4,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "DISPATCHINTERCONNECTORRES",
+          "package": "DISPATCH",
+          "runs": 3,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "DISPATCHLOAD",
+          "package": "DISPATCH",
+          "runs": 6,
+          "schemas": 6
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2011-11",
+          "name": "DISPATCHOCD_CONSTRAINT_FCAS_OCD",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "DISPATCHOFFERTRK",
+          "package": "DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "DISPATCHPRICE",
+          "package": "DISPATCH",
+          "runs": 4,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "DISPATCHREGIONSUM",
+          "package": "DISPATCH",
+          "runs": 8,
+          "schemas": 6
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2011-11",
+          "name": "DISPATCH_CONSTRAINTRELAXATION_OCD",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-10",
+          "last_release": "2026-08",
+          "name": "DISPATCH_CONSTRAINT_FCAS_OCD",
+          "package": "DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2011-11",
+          "name": "DISPATCH_DISPATCHCASE_OCD",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2025-05",
+          "name": "DISPATCH_FCAS_REQ",
+          "package": "DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "DISPATCH_FCAS_REQ_CONSTRAINT",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "DISPATCH_FCAS_REQ_RUN",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "DISPATCH_INTERCONNECTION",
+          "package": "DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "DISPATCH_LOCAL_PRICE",
+          "package": "DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-06",
+          "name": "DISPATCH_MNSPBIDTRK",
+          "package": "DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2010-11",
+          "last_release": "2026-09",
+          "name": "DISPATCH_UNIT_SCADA",
+          "package": "DISPATCH",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2020-10",
+          "last_release": "2026-09",
+          "name": "DUALLOC",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "DUDETAIL",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 7,
+          "schemas": 7
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "DUDETAILSUMMARY",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 5,
+          "schemas": 4
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "EMSMASTER",
+          "package": "GENERIC_CONSTRAINT",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_CONSTRAINT_FREQ_MEASURE",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_CONTRIBUTION_FACTOR",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_EST_PERF_COST_RATE",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_EST_RESIDUAL_COST_RATE",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_FCAS_SUMMARY",
+          "package": null,
+          "runs": 3,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_FORECAST_DEFAULT_CF",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_FORECAST_RESIDUAL_DCF",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_HIST_PERFORMANCE",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2025-04",
+          "last_release": "2026-09",
+          "name": "FPP_HIST_REGION_PERFORMANCE",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2025-01",
+          "last_release": "2026-09",
+          "name": "FPP_P5_FWD_EST_RESIDUALRATE",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2025-01",
+          "last_release": "2026-09",
+          "name": "FPP_PD_FWD_EST_RESIDUALRATE",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_PERFORMANCE",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_RCR",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_REGION_FREQ_MEASURE",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_RESIDUAL_CF",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_RESIDUAL_PERFORMANCE",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_RUN",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2024-12",
+          "last_release": "2024-12",
+          "name": "FPP_UNIT_MW",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "FPP_USAGE",
+          "package": null,
+          "runs": 3,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2026-07",
+          "name": "GD_INSTRUCT_GDINSTRUCT",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "GENCONDATA",
+          "package": "GENERIC_CONSTRAINT",
+          "runs": 4,
+          "schemas": 4
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "GENCONSET",
+          "package": "GENERIC_CONSTRAINT",
+          "runs": 2,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "GENCONSETINVOKE",
+          "package": "GENERIC_CONSTRAINT",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "GENCONSETTRK",
+          "package": "GENERIC_CONSTRAINT",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "GENERICCONSTRAINTRHS",
+          "package": "GENERIC_CONSTRAINT",
+          "runs": 2,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "GENERICEQUATIONDESC",
+          "package": "GENERIC_CONSTRAINT",
+          "runs": 2,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "GENERICEQUATIONRHS",
+          "package": "GENERIC_CONSTRAINT",
+          "runs": 2,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2011-05",
+          "last_release": "2026-09",
+          "name": "GENUNITS",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "GENUNITS_UNIT",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "GST_BAS_CLASS",
+          "package": "BILLING_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "GST_RATE",
+          "package": "BILLING_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "GST_TRANSACTION_CLASS",
+          "package": "BILLING_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "GST_TRANSACTION_TYPE",
+          "package": "BILLING_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "INSTRUCTIONSUBTYPE",
+          "package": "GD_INSTRUCT",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "INSTRUCTIONTYPE",
+          "package": "GD_INSTRUCT",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "INTERCONNECTOR",
+          "package": "MARKET_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "INTERCONNECTORCONSTRAINT",
+          "package": "MARKET_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "INTERMITTENT_CLUSTER_AVAIL",
+          "package": "DEMAND_FORECASTS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "INTERMITTENT_CLUSTER_AVAIL_DAY",
+          "package": "DEMAND_FORECASTS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "INTERMITTENT_DS_PRED",
+          "package": "DEMAND_FORECASTS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "INTERMITTENT_DS_RUN",
+          "package": "DEMAND_FORECASTS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "INTERMITTENT_FORECAST_TRK",
+          "package": "DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "INTERMITTENT_GEN_LIMIT",
+          "package": "DEMAND_FORECASTS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "INTERMITTENT_GEN_LIMIT_DAY",
+          "package": "DEMAND_FORECASTS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "INTERMITTENT_GEN_SCADA",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-09",
+          "last_release": "2010-06",
+          "name": "IRAUCTION_CONFIG_AUCTION_REVENUE_ESTIMATE",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-09",
+          "last_release": "2010-06",
+          "name": "IRAUCTION_CONFIG_AUCTION_REVENUE_TRACK",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-09",
+          "last_release": "2010-02",
+          "name": "IRAUCTION_CONFIG_AUCTION_RP_ESTIMATE",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-09",
+          "last_release": "2010-06",
+          "name": "IRAUCTION_RESIDUE_CON_ESTIMATES_TRK",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-09",
+          "last_release": "2026-09",
+          "name": "IRAUCTION_RESIDUE_PRICE_FUNDS_BID",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "IRFMAMOUNT",
+          "package": "FORCE_MAJEURE",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "IRFMEVENTS",
+          "package": "FORCE_MAJEURE",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "LOSSFACTORMODEL",
+          "package": "MARKET_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "LOSSMODEL",
+          "package": "MARKET_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "MARKETFEE",
+          "package": "SETTLEMENT_CONFIG",
+          "runs": 3,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "MARKETFEEDATA",
+          "package": "SETTLEMENT_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "MARKETFEETRK",
+          "package": "SETTLEMENT_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2024-07",
+          "name": "MARKETNOTICEDATA",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "MARKETNOTICETYPE",
+          "package": "MARKET_NOTICE",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "MARKETSUSPENSION",
+          "package": "HISTORICAL TABLES",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "MARKETSUSREGION",
+          "package": "HISTORICAL TABLES",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2024-08",
+          "last_release": "2026-07",
+          "name": "MARKET_CONFIG_FCASREGUSEFACTORS",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2024-08",
+          "last_release": "2026-07",
+          "name": "MARKET_CONFIG_FCASREGUSEFACTORS_TRK",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-11",
+          "last_release": "2026-09",
+          "name": "MARKET_PRICE_THRESHOLDS",
+          "package": "MARKET_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "MARKET_SUSPEND_REGIME_SUM",
+          "package": "FORCE_MAJEURE",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "MARKET_SUSPEND_REGION_SUM",
+          "package": "FORCE_MAJEURE",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "MARKET_SUSPEND_SCHEDULE",
+          "package": "FORCE_MAJEURE",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "MARKET_SUSPEND_SCHEDULE_TRK",
+          "package": "FORCE_MAJEURE",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2010-11",
+          "last_release": "2026-09",
+          "name": "MCC_CASESOLUTION",
+          "package": "MCC_DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2010-11",
+          "last_release": "2026-09",
+          "name": "MCC_CONSTRAINTSOLUTION",
+          "package": "MCC_DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "METERDATA_INTERCONNECTOR",
+          "package": "METER_DATA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2010-12",
+          "name": "METER_DATA_GEN_DUID",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2021-05",
+          "name": "METER_DATA_INTERCONNECTOR",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2021-04",
+          "last_release": "2026-07",
+          "name": "MNSP_BIDOFFERPERIOD",
+          "package": "BIDS",
+          "runs": 4,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2021-04",
+          "last_release": "2026-07",
+          "name": "MNSP_DAYOFFER",
+          "package": "BIDS",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "MNSP_INTERCONNECTOR",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "MNSP_PARTICIPANT",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2018-05",
+          "last_release": "2026-09",
+          "name": "MTPASA_CASERESULT",
+          "package": "MTPASA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2024-07",
+          "name": "MTPASA_CASESOLUTION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2012-09",
+          "name": "MTPASA_CASE_SET",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2018-05",
+          "last_release": "2026-09",
+          "name": "MTPASA_CONSTRAINTRESULT",
+          "package": "MTPASA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2018-05",
+          "name": "MTPASA_CONSTRAINTSOLUTION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2018-05",
+          "last_release": "2026-09",
+          "name": "MTPASA_CONSTRAINTSUMMARY",
+          "package": "MTPASA",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "MTPASA_DUIDAVAILABILITY",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2018-05",
+          "last_release": "2026-09",
+          "name": "MTPASA_INTERCONNECTORRESULT",
+          "package": "MTPASA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2018-05",
+          "name": "MTPASA_INTERCONNECTORSOLUTION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2018-05",
+          "last_release": "2026-09",
+          "name": "MTPASA_LOLPRESULT",
+          "package": "MTPASA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "MTPASA_REGIONAVAILABILITY",
+          "package": "MTPASA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "MTPASA_REGIONAVAIL_TRK",
+          "package": "MTPASA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2018-05",
+          "last_release": "2026-09",
+          "name": "MTPASA_REGIONITERATION",
+          "package": "MTPASA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2018-05",
+          "last_release": "2026-09",
+          "name": "MTPASA_REGIONRESULT",
+          "package": "MTPASA",
+          "runs": 3,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2018-05",
+          "name": "MTPASA_REGIONSOLUTION",
+          "package": null,
+          "runs": 3,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2018-05",
+          "last_release": "2026-09",
+          "name": "MTPASA_REGIONSUMMARY",
+          "package": "MTPASA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2010-05",
+          "last_release": "2026-09",
+          "name": "MTPASA_RESERVELIMIT",
+          "package": "RESERVE_DATA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2010-05",
+          "last_release": "2018-05",
+          "name": "MTPASA_RESERVELIMITSOLUTION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2010-05",
+          "last_release": "2026-09",
+          "name": "MTPASA_RESERVELIMIT_REGION",
+          "package": "RESERVE_DATA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2010-05",
+          "last_release": "2026-09",
+          "name": "MTPASA_RESERVELIMIT_SET",
+          "package": "RESERVE_DATA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "NEGATIVE_RESIDUE",
+          "package": "DISPATCH",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "NETWORK_EQUIPMENTDETAIL",
+          "package": "NETWORK",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "NETWORK_OUTAGECONSTRAINTSET",
+          "package": "NETWORK",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "NETWORK_OUTAGEDETAIL",
+          "package": "NETWORK",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "NETWORK_OUTAGESTATUSCODE",
+          "package": "NETWORK",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "NETWORK_RATING",
+          "package": "NETWORK",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "NETWORK_STATICRATING",
+          "package": "NETWORK",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "NETWORK_SUBSTATIONDETAIL",
+          "package": "NETWORK",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2021-03",
+          "name": "OFFER_BIDDAYOFFER",
+          "package": null,
+          "runs": 3,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2021-03",
+          "last_release": "2021-03",
+          "name": "OFFER_BIDOFFERPERIOD",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2021-02",
+          "name": "OFFER_BIDPEROFFER",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2021-03",
+          "last_release": "2021-03",
+          "name": "OFFER_MNSP_BIDOFFERPERIOD",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2021-03",
+          "name": "OFFER_MNSP_DAYOFFER",
+          "package": null,
+          "runs": 3,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2021-02",
+          "name": "OFFER_MNSP_OFFERTRK",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2021-02",
+          "name": "OFFER_MNSP_PEROFFER",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "OVERRIDERRP",
+          "package": "FORCE_MAJEURE",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-09",
+          "last_release": "2026-09",
+          "name": "P5MIN_BLOCKEDCONSTRAINT",
+          "package": "P5MIN",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "P5MIN_CASESOLUTION",
+          "package": "P5MIN",
+          "runs": 3,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "P5MIN_CONSTRAINTSOLUTION",
+          "package": "P5MIN",
+          "runs": 526,
+          "schemas": 5
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "P5MIN_FCAS_REQ_CONSTRAINT",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "P5MIN_FCAS_REQ_RUN",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "P5MIN_INTERCONNECTORSOLN",
+          "package": "P5MIN",
+          "runs": 3,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "P5MIN_INTERSENSITIVITIES",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "P5MIN_LOCAL_PRICE",
+          "package": "P5MIN",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "P5MIN_PRICESENSITIVITIES",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "P5MIN_REGIONSOLUTION",
+          "package": "P5MIN",
+          "runs": 34,
+          "schemas": 9
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2021-06",
+          "last_release": "2026-09",
+          "name": "P5MIN_SCENARIODEMAND",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2021-06",
+          "last_release": "2026-09",
+          "name": "P5MIN_SCENARIODEMANDTRK",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2024-07",
+          "name": "P5MIN_UNITSOLUTION",
+          "package": null,
+          "runs": 29,
+          "schemas": 7
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PARTICIPANT",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PARTICIPANTCATEGORY",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PARTICIPANTCATEGORYALLOC",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PARTICIPANTCLASS",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "PD7DAY_CASESOLUTION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "PD7DAY_CONSTRAINTSOLUTION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "PD7DAY_INTERCONNECTORSOLUTION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "PD7DAY_MARKET_SUMMARY",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "PD7DAY_PRICESOLUTION",
+          "package": null,
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PDPASA_CASESOLUTION",
+          "package": "PDPASA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2021-02",
+          "last_release": "2026-09",
+          "name": "PDPASA_CONSTRAINTSOLUTION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2025-07",
+          "last_release": "2026-09",
+          "name": "PDPASA_DUIDAVAILABILITY",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2021-02",
+          "last_release": "2026-09",
+          "name": "PDPASA_INTERCONNECTORSOLN",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PDPASA_REGIONSOLUTION",
+          "package": "PDPASA",
+          "runs": 6,
+          "schemas": 5
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "PD_FCAS_REQ_CONSTRAINT",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-12",
+          "last_release": "2026-09",
+          "name": "PD_FCAS_REQ_RUN",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PERDEMAND",
+          "package": "DEMAND_FORECASTS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "PMS_GROUP",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "PMS_GROUPSERVICE",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PREDISPATCHCASESOLUTION",
+          "package": "PRE_DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PREDISPATCHCONSTRAINT",
+          "package": "PRE_DISPATCH",
+          "runs": 4,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PREDISPATCHINTERCONNECTORRES",
+          "package": "PRE_DISPATCH",
+          "runs": 3,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2024-07",
+          "name": "PREDISPATCHINTERSENSITIVITIES",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PREDISPATCHLOAD",
+          "package": "PRE_DISPATCH",
+          "runs": 5,
+          "schemas": 5
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PREDISPATCHOFFERTRK",
+          "package": "PRE_DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PREDISPATCHPRICE",
+          "package": "PRE_DISPATCH",
+          "runs": 3,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PREDISPATCHPRICESENSITIVITIES",
+          "package": "PRE_DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PREDISPATCHREGIONSUM",
+          "package": "PRE_DISPATCH",
+          "runs": 9,
+          "schemas": 7
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PREDISPATCHSCENARIODEMAND",
+          "package": "PRE_DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PREDISPATCHSCENARIODEMANDTRK",
+          "package": "PRE_DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2025-02",
+          "last_release": "2026-07",
+          "name": "PREDISPATCH_BLOCKED_CONSTRAINTS",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2025-05",
+          "name": "PREDISPATCH_FCAS_REQ",
+          "package": "PRE_DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "PREDISPATCH_LOCAL_PRICE",
+          "package": "PRE_DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-06",
+          "name": "PREDISPATCH_MNSPBIDTRK",
+          "package": "PRE_DISPATCH",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-09",
+          "last_release": "2026-03",
+          "name": "PRICELOAD_PRICE_REVISION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "PRUDENTIALRUNTRK",
+          "package": "PRUDENTIALS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "REGION",
+          "package": "MARKET_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "REGIONAPC",
+          "package": "FORCE_MAJEURE",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "REGIONAPCINTERVALS",
+          "package": "FORCE_MAJEURE",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "REGIONSTANDINGDATA",
+          "package": "MARKET_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "RESDEMANDTRK",
+          "package": "DEMAND_FORECASTS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-10",
+          "last_release": "2018-05",
+          "name": "RESERVE_DATA_RESERVE",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-09",
+          "last_release": "2026-09",
+          "name": "RESIDUE_CONTRACTS",
+          "package": "IRAUCTION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-09",
+          "last_release": "2026-08",
+          "name": "RESIDUE_CON_FUNDS",
+          "package": "IRAUCTION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-09",
+          "last_release": "2026-09",
+          "name": "RESIDUE_PUBLIC_DATA",
+          "package": "IRAUCTION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-09",
+          "last_release": "2026-09",
+          "name": "RESIDUE_TRK",
+          "package": "IRAUCTION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2016-08",
+          "last_release": "2026-09",
+          "name": "ROOFTOP_PV_ACTUAL",
+          "package": "DEMAND_FORECASTS",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2016-08",
+          "last_release": "2026-09",
+          "name": "ROOFTOP_PV_FORECAST",
+          "package": "DEMAND_FORECASTS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "SECDEPOSIT_INTEREST_RATE",
+          "package": "BILLING_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "SETCFG_PARTICIPANT_MPF",
+          "package": "SETTLEMENT_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "SETCFG_PARTICIPANT_MPFTRK",
+          "package": "SETTLEMENT_CONFIG",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2024-08",
+          "last_release": "2026-07",
+          "name": "SETCFG_SAPS_SETT_PRICE",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "SETCFG_WDRRR_CALENDAR",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "SETCFG_WDR_REIMBURSE_RATE",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2024-12",
+          "name": "SETCPDATAREGION",
+          "package": "SETTLEMENT_DATA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "SETFCASREGIONRECOVERY",
+          "package": "SETTLEMENT_DATA",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2024-12",
+          "name": "SETGENDATAREGION",
+          "package": "SETTLEMENT_DATA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "SETINTRAREGIONRESIDUES",
+          "package": "SETTLEMENT_DATA",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "SETIRSURPLUS",
+          "package": "SETTLEMENT_DATA",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "SETLOCALAREAENERGY",
+          "package": "SETTLEMENT_DATA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "SETLOCALAREATNI",
+          "package": "SETTLEMENT_DATA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2026-01",
+          "last_release": "2026-07",
+          "name": "SETTLEMENTS_FCAS_CLAWBACK_REQ",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2026-01",
+          "last_release": "2026-07",
+          "name": "SETTLEMENTS_FCAS_CLAWBACK_RUN_TRK",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2009-07",
+          "name": "SETTLEMENTS_RUN_PARAMETER",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "SET_ANCILLARY_SUMMARY",
+          "package": "SETTLEMENT_DATA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "SET_ENERGY_REGION_SUMMARY",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "SET_FCAS_REGULATION_TRK",
+          "package": "SETTLEMENT_DATA",
+          "runs": 4,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "SET_NMAS_RECOVERY_RBF",
+          "package": "SETTLEMENT_DATA",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "SPDCONNECTIONPOINTCONSTRAINT",
+          "package": "GENERIC_CONSTRAINT",
+          "runs": 2,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "SPDINTERCONNECTORCONSTRAINT",
+          "package": "GENERIC_CONSTRAINT",
+          "runs": 2,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2024-07",
+          "name": "SPDRC_",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "SPDREGIONCONSTRAINT",
+          "package": "GENERIC_CONSTRAINT",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "SRA_FINANCIAL_RUNTRK",
+          "package": "IRAUCTION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "SRA_PRUDENTIAL_RUN",
+          "package": "IRAUCTION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2025-11",
+          "last_release": "2026-09",
+          "name": "SSM_ENABLEMENT_COSTS",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2025-11",
+          "last_release": "2026-09",
+          "name": "SSM_ENABLEMENT_PERIOD",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "STADUALLOC",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "STATION",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "STATIONOPERATINGSTATUS",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "STATIONOWNER",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "STATIONOWNERTRK",
+          "package": "PARTICIPANT_REGISTRATION",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "STPASA_CASESOLUTION",
+          "package": "STPASA_SOLUTION",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "STPASA_CONSTRAINTSOLUTION",
+          "package": "STPASA_SOLUTION",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2025-07",
+          "last_release": "2026-09",
+          "name": "STPASA_DUIDAVAILABILITY",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "STPASA_INTERCONNECTORSOLN",
+          "package": "STPASA_SOLUTION",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "STPASA_REGIONSOLUTION",
+          "package": "STPASA_SOLUTION",
+          "runs": 6,
+          "schemas": 4
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "TRADINGINTERCONNECT",
+          "package": "TRADING_DATA",
+          "runs": 2,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "TRADINGPRICE",
+          "package": "TRADING_DATA",
+          "runs": 3,
+          "schemas": 3
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2021-09",
+          "name": "TRADING_REGIONSUM",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": false,
+          "first_release": "2009-07",
+          "last_release": "2021-09",
+          "name": "TRADING_UNIT_SOLUTION",
+          "package": null,
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2009-07",
+          "last_release": "2026-09",
+          "name": "TRANSMISSIONLOSSFACTOR",
+          "package": "MARKET_CONFIG",
+          "runs": 2,
+          "schemas": 2
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "VOLTAGE_INSTRUCTION",
+          "package": "VOLTAGE_INSTRUCTIONS",
+          "runs": 1,
+          "schemas": 1
+        },
+        {
+          "breaks": 0,
+          "declared": true,
+          "first_release": "2024-08",
+          "last_release": "2026-09",
+          "name": "VOLTAGE_INSTRUCTION_TRK",
+          "package": "VOLTAGE_INSTRUCTIONS",
+          "runs": 1,
+          "schemas": 1
+        }
+      ],
+      "schemas": 421,
+      "tables": 280
     }
-  ],
-  "market": "nem",
+  },
   "schemas": 421,
   "sha256": {
     "nem/ADG_DETAIL/metadata/snap-5155715949342366677-1-447fe174-a50e-8670-98ae-23ebf8238140.avro": "83fb7b4d2bceaac4d473375b433cb2cec0737d26b16b4155596830d1bfd4bba1",
