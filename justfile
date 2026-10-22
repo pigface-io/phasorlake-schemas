@@ -61,6 +61,14 @@ census month dir:
 reports dir mmsdm="" mirror="":
     cargo run -q -p utilake-schemas -- reports --dir {{ dir }} {{ if mmsdm == "" { "" } else { "--mmsdm " + mmsdm } }} {{ if mirror == "" { "" } else { "--mirror " + mirror } }}
 
+# list every file each census read in sources/, from a mirror archive's sidecars
+sources archive:
+    cargo run -q -p utilake-schemas -- sources --archive {{ archive }}
+
+# fail if listing the sources again would change any file, listing each
+sources-check archive:
+    cargo run -q -p utilake-schemas -- sources --archive {{ archive }} --check
+
 # record the data-model releases a month's directory carries under evidence/models/
 models month dir:
     cargo run -q -p utilake-schemas -- models --month {{ month }} --dir {{ dir }}

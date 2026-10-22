@@ -21,7 +21,8 @@
 //! `{name}.part` and renamed when complete; one already there with the size
 //! the listing gives is not fetched again. Every file is recorded in
 //! `sources/{YYYY-MM}.tsv`: its URL, sha256, size and the `Last-Modified`
-//! the server sent, sorted by URL.
+//! the server sent, sorted by URL. A month read from a mirror archive
+//! instead has its sources file written by [`crate::sources`].
 //!
 //! The HTTP client is behind [`Http`], so tests serve pages from memory.
 
@@ -534,14 +535,21 @@ pub fn read_sources(path: &Path) -> Result<BTreeMap<String, Source>, FetchError>
     Ok(out)
 }
 
-/// Writes a sources file whole, sorted by URL.
-pub fn write_sources(path: &Path, sources: &BTreeMap<String, Source>) -> Result<(), FetchError> {
+/// The text of a sources file, sorted by URL.
+#[must_use]
+pub fn sources_text(sources: &BTreeMap<String, Source>) -> String {
     use std::fmt::Write as _;
     let mut text = format!("{SOURCES_HEADER}\n");
     for (url, s) in sources {
         let last = s.last_modified.as_deref().unwrap_or_default();
         let _ = writeln!(text, "{url}\t{}\t{}\t{last}", s.sha256, s.size);
     }
+    text
+}
+
+/// Writes a sources file whole, sorted by URL (see [`sources_text`]).
+pub fn write_sources(path: &Path, sources: &BTreeMap<String, Source>) -> Result<(), FetchError> {
+    let text = sources_text(sources);
     crate::files::write_atomic(path, text.as_bytes()).map_err(|e| write_error(path, e))
 }
 

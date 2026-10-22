@@ -2,7 +2,8 @@
 //! of every month had.
 //!
 //! - [`fetch`] downloads one month of the archive, politely, and records
-//!   where each file came from;
+//!   where each file came from; [`sources`] records the same from a mirror
+//!   archive's sidecars, for every file a census read;
 //! - [`census`] reads every file of a month's directory into its census;
 //!   [`reports`] does the same for the report folders, as runs;
 //! - [`catalog`] is the hand-kept declaration of each table: the table of
@@ -52,6 +53,7 @@ pub mod profile;
 pub mod published;
 pub mod reports;
 pub mod shape;
+pub mod sources;
 pub mod sql;
 pub mod stamp;
 pub mod text;

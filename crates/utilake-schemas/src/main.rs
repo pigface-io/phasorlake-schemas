@@ -1,4 +1,5 @@
-//! `utilake-schemas`: fetch a month of AEMO's archive, take its census, take
+//! `utilake-schemas`: fetch a month of AEMO's archive, take its census, list
+//! the files every census read from a mirror archive, take
 //! the census of the report folders, record a month's data-model releases,
 //! fold every census into each table's history, export the histories as
 //! the documents under `nem/`, hold them to a git revision, plan a read of
@@ -8,6 +9,7 @@
 //! ```text
 //! utilake-schemas fetch --month 2024-01 --dir mirror/MMSDM_2024_01 [--interval-ms 1000] [--root .]
 //! utilake-schemas census --month 2024-01 --dir mirror/MMSDM_2024_01 [--root .]
+//! utilake-schemas sources --archive /data/mirror/archive [--check] [--root .]
 //! utilake-schemas reports --dir mirror/Reports [--mmsdm mirror] [--mirror ~/.nemweb-mirror] [--root .]
 //! utilake-schemas models --month 2025-10 --dir mirror/MMSDM_2025_10 [--root .]
 //! utilake-schemas fold [--check] [--root .]
@@ -70,6 +72,25 @@ enum Cmd {
         root: PathBuf,
         /// Files read at once: one per core by default. The census is bound
         /// by the CPU; give 6 while something else writes the same disk.
+        #[arg(long, default_value_t = utilake_schemas::pool::default_jobs())]
+        jobs: usize,
+    },
+    /// List every file each census read in `{root}/sources/{YYYY-MM}.tsv`,
+    /// from the sidecars of a mirror archive; exit 1 naming each file whose
+    /// sidecar is missing or disagrees with the census, writing nothing.
+    Sources {
+        /// The mirror archive: the directory holding `www.nemweb.com.au/`,
+        /// or that directory itself.
+        #[arg(long)]
+        archive: PathBuf,
+        /// Write nothing; exit 3 if any sources file would change, listing
+        /// each.
+        #[arg(long)]
+        check: bool,
+        /// The repository root.
+        #[arg(long, default_value = ".")]
+        root: PathBuf,
+        /// Months and folders read at once: one per core by default.
         #[arg(long, default_value_t = utilake_schemas::pool::default_jobs())]
         jobs: usize,
     },
@@ -343,6 +364,41 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             );
             if !census.problems.is_empty() {
                 return Ok(ExitCode::from(3));
+            }
+        }
+        Cmd::Sources {
+            archive,
+            check,
+            root,
+            jobs,
+        } => {
+            use utilake_schemas::sources;
+            let s = sources::collect(&root, &archive, jobs).map_err(|e| fail(&e))?;
+            for m in &s.mismatches {
+                eprintln!("error: {m}");
+            }
+            let counts = format!(
+                "{} month(s), {} file(s) listed, {} mismatch(es)",
+                s.months.len(),
+                s.files(),
+                s.mismatches.len()
+            );
+            if !s.mismatches.is_empty() {
+                println!("{counts}; nothing written");
+                return Ok(ExitCode::FAILURE);
+            }
+            if check {
+                let stale = sources::stale(&root, &s);
+                for p in &stale {
+                    eprintln!("stale: {}", p.display());
+                }
+                println!("{counts}; {} file(s) would change", stale.len());
+                if !stale.is_empty() {
+                    return Ok(ExitCode::from(3));
+                }
+            } else {
+                let n = sources::write(&root, &s).map_err(|e| fail(&e))?;
+                println!("{counts}; {n} file(s) written");
             }
         }
         Cmd::Reports {

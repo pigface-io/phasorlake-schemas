@@ -13,7 +13,7 @@ it.
 | Path                  | What it holds                                                                                                                                |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `tables/`             | One hand-kept declaration per table: its report pairs, key, time column, temporal roles, load mode, visibility and any column typed by hand. |
-| `sources/`            | Every file fetched, per month: its URL, SHA-256, size and the time the server says it was published.                                         |
+| `sources/`             | Every file the evidence was taken from, per month: its URL, SHA-256, size and the time the server says it was published.                       |
 | `evidence/census/`    | For every block of every file AEMO published: its header, row count, data span and a profile of each column's values. No row is copied.      |
 | `evidence/ctl/`       | AEMO's control files, byte for byte, named by their SHA-256.                                                                                 |
 | `evidence/models/`    | The data-model create scripts the monthly archives ship: each release's tables, columns, types and comments.                                 |
@@ -31,12 +31,24 @@ the output.
 utilake-schemas fetch --month 2026-09 --dir mirror/MMSDM_2026_09   # sources/2026-09.tsv
 utilake-schemas census --month 2026-09 --dir mirror/MMSDM_2026_09  # evidence/census/2026-09.toml, evidence/ctl/
 utilake-schemas reports --dir mirror/Reports --mmsdm mirror        # evidence/census/reports/
+utilake-schemas sources --archive archive                          # sources/, for a census of a mirror archive
 utilake-schemas models --month 2026-09 --dir mirror/MMSDM_2026_09  # evidence/models/
 utilake-schemas fold                                               # evidence/histories/
 utilake-schemas export                                             # nem/, manifest.json
 ```
 
-`fetch` downloads one month of the MMSDM archive, one request at a time.
+`fetch` downloads one month of the MMSDM archive, one request at a time,
+and records each file in `sources/{YYYY-MM}.tsv` as it lands. A census
+taken from a local mirror archive instead (nemweb as laid out under
+`www.nemweb.com.au/`, a sidecar `{file}.json` beside each file) has
+`sources/` written by `sources --archive DIR` (`just sources DIR`): one row
+per file every census under `evidence/census/` records, report folders
+included, with the URL and `Last-Modified` its sidecar gives and the
+SHA-256 and size the census gives. A file without a sidecar, or whose
+sidecar disagrees with the census, is named, every one, and nothing is
+written; `--check` lists each sources file that would change. The
+publication time is held in `sources/` alone: no census, history or
+document under `nem/` depends on it.
 `reports` reads a local copy of nemweb's `Reports/ARCHIVE` and
 `Reports/CURRENT`. A file nemweb rewrote in place is kept by nemweb-mirror
 as `{name}@{listed time}` beside the first version; each such file is listed

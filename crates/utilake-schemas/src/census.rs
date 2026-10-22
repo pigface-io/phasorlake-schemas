@@ -14,7 +14,7 @@
 //! the month with its sha256, size and kind, and each of its blocks in file
 //! order, in an order that does not depend on the order of work. When a
 //! file was published is not the census's: `fetch` records it in
-//! `sources/{YYYY-MM}.tsv`.
+//! `sources/{YYYY-MM}.tsv`, or [`crate::sources`] from a mirror archive.
 
 use std::collections::{BTreeMap, HashMap};
 use std::path::{Path, PathBuf};

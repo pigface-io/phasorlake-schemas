@@ -11,8 +11,8 @@ Energy Market Operator (AEMO) on nemweb.com.au:
 - `evidence/census/` records, for every block of every file AEMO published,
   its header, row count, data span and a profile of each column's values.
   No row of AEMO's data is copied.
-- `sources/` lists every file read: its URL, SHA-256, size and the time the
-  server says it was published.
+- `sources/` lists every file the evidence was read from: its URL, SHA-256,
+  size and the time the server says it was published.
 - `nem/` and `manifest.json` are generated from the above by `utilake-schemas
   export`.
 - `testdata/` holds short excerpts of AEMO's files for the tests.

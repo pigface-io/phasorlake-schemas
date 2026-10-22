@@ -375,21 +375,24 @@ pub fn journals(mirror: &Path) -> PathBuf {
     mirror.join("mirror/journal").join(host).join("Reports")
 }
 
-/// What the census reads of a version's sidecar, `{path}.json`. Fields it
+/// What the census reads of a file's sidecar, `{path}.json`. Fields it
 /// does not know are passed over.
 #[derive(Debug, Deserialize)]
-struct Sidecar {
-    url: String,
-    #[serde(rename = "size")]
-    _size: serde::de::IgnoredAny,
-    sha256: String,
-    fetched_at: String,
+pub(crate) struct Sidecar {
+    /// Where the file was fetched from.
+    pub(crate) url: String,
+    /// Its size in bytes.
+    pub(crate) size: u64,
+    /// Its SHA-256.
+    pub(crate) sha256: String,
+    /// When it was fetched, RFC 3339.
+    pub(crate) fetched_at: String,
     /// The server's `Last-Modified`, as it sent it.
     #[serde(default)]
-    last_modified: Option<String>,
+    pub(crate) last_modified: Option<String>,
     /// The same as an instant, RFC 3339.
     #[serde(default)]
-    last_modified_at: Option<String>,
+    pub(crate) last_modified_at: Option<String>,
     /// The time the listing showed, as it wrote it.
     #[serde(default)]
     listed_modified: Option<String>,
@@ -404,7 +407,7 @@ struct Sidecar {
 /// the text gives no offset), and a text that is not a time has none. An
 /// instant without an offset, or a `fetched_at` that is not a time with
 /// one, is a sidecar that does not read.
-fn sidecar(path: &Path) -> Option<Sidecar> {
+pub(crate) fn sidecar(path: &Path) -> Option<Sidecar> {
     use crate::stamp::{NEM_OFFSET_SECS, parse, parse_rfc3339};
     let mut p = path.as_os_str().to_owned();
     p.push(".json");
