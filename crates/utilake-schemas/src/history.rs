@@ -78,6 +78,7 @@
 
 use std::collections::BTreeMap;
 
+use utilake_iceberg::Market;
 use utilake_iceberg::compat::{Violation, check};
 use utilake_iceberg::history::{Break, Mark, Run, derive_run};
 use utilake_iceberg::{
@@ -207,18 +208,30 @@ struct Obs {
     files: u64,
     rows: u64,
     columns: Vec<String>,
+    /// The headers the columns were written under, where the record keeps
+    /// them; empty otherwise.
+    headers: Vec<String>,
     ctl: Vec<TypeClass>,
     evidence: Vec<Evidence>,
     nulls: Vec<u64>,
 }
 
-/// Every observation of every table, gathering.
+/// Every observation of every table, gathering, in one market's clock.
 #[derive(Debug, Default)]
 pub struct Observations {
+    market: Market,
     tables: BTreeMap<String, Vec<Obs>>,
 }
 
 impl Observations {
+    /// Observations of `market`, whose times are read in its clock.
+    pub fn for_market(market: Market) -> Self {
+        Self {
+            market,
+            tables: BTreeMap::new(),
+        }
+    }
+
     /// Takes in block `index` of `file` of the census of `month`.
     pub fn block(
         &mut self,
@@ -253,8 +266,15 @@ impl Observations {
         f: &FileRecord,
         b: &BlockRecord,
     ) {
-        let start = b.first.as_deref().and_then(crate::fold::market_time);
-        let end = b.last.as_deref().and_then(crate::fold::market_time);
+        let offset = self.market.offset_text();
+        let start = b
+            .first
+            .as_deref()
+            .and_then(|t| crate::fold::market_time(t, offset));
+        let end = b
+            .last
+            .as_deref()
+            .and_then(|t| crate::fold::market_time(t, offset));
         let mark = |(file, sha256): (&str, &str), data_time: Option<String>| Mark {
             file: file.to_owned(),
             sha256: sha256.to_owned(),
@@ -263,7 +283,7 @@ impl Observations {
         };
         // Blocks without a time sort at the start of their month.
         let ends_at = instant(end.as_deref())
-            .or_else(|| instant(Some(&format!("{month}-01T00:00:00+10:00"))))
+            .or_else(|| instant(Some(&format!("{month}-01T00:00:00{offset}"))))
             .unwrap_or_default();
         let n = b.columns.len();
         let profiles: Vec<_> = (0..n).map(|j| b.profile_of(j)).collect();
@@ -278,6 +298,7 @@ impl Observations {
             files,
             rows: b.rows,
             columns: b.columns.clone(),
+            headers: b.headers.clone(),
             ctl: (0..n).map(|j| b.ctl_of(j)).collect(),
             evidence: profiles
                 .iter()
@@ -307,8 +328,24 @@ impl Observations {
                 overrides: d.overrides.get(&table).unwrap_or(&none),
                 published: published.get(&table),
             };
-            let (h, schemas) = fold_table(&table, &rules, d, &obs)?;
+            let (mut h, schemas) = fold_table(&table, &rules, d, &obs)?;
             unresolved(&h, &obs, &schemas)?;
+            // The header a column was written under, kept by the first
+            // observation that names one for its field.
+            let mut headers = BTreeMap::new();
+            for (o, &id) in obs.iter().zip(&schemas) {
+                // Every observation was folded under a schema the history
+                // has, with a field per column.
+                let s = h.schema(id).expect("the observation's schema");
+                for (name, header) in o.columns.iter().zip(&o.headers) {
+                    if header.is_empty() || header == name {
+                        continue;
+                    }
+                    let f = s.by_name(name).expect("the column's field");
+                    headers.entry(f.id).or_insert_with(|| header.clone());
+                }
+            }
+            h.headers = headers;
             if let Some(old) = rules.published {
                 let violations = check(old, &h);
                 if !violations.is_empty() {
@@ -607,6 +644,7 @@ fn fold_table(
         schemas: published.map(|h| h.schemas.clone()).unwrap_or_default(),
         runs: Vec::new(),
         breaking: Vec::new(),
+        headers: BTreeMap::new(),
     };
     let mut next_schema_id = out
         .schemas

@@ -340,6 +340,7 @@ mod tests {
             table: "PRICE".into(),
             format_version: 3,
             current_schema_id: 2,
+            headers: std::collections::BTreeMap::new(),
             schemas: vec![
                 schema(0, vec![t.clone(), field(2, "RRP", dec(15))]),
                 schema(

@@ -121,8 +121,9 @@ pub struct Folded {
     pub changed: usize,
 }
 
-/// AEMO's `YYYY/MM/DD[ HH:MM:SS[.f]]` as RFC 3339 in market time.
-pub fn market_time(text: &str) -> Option<String> {
+/// AEMO's `YYYY/MM/DD[ HH:MM:SS[.f]]` as RFC 3339 at `offset`, the
+/// market's (`+10:00`).
+pub fn market_time(text: &str, offset: &str) -> Option<String> {
     let b = text.as_bytes();
     let digits =
         |r: std::ops::Range<usize>| b.get(r).is_some_and(|s| s.iter().all(u8::is_ascii_digit));
@@ -140,7 +141,7 @@ pub fn market_time(text: &str) -> Option<String> {
         "" => "00:00:00",
         t => t.strip_prefix(' ').filter(|t| t.len() >= 8)?,
     };
-    Some(format!("{date}T{time}+10:00"))
+    Some(format!("{date}T{time}{offset}"))
 }
 
 /// The directory of a market's histories under the repository root:
@@ -221,7 +222,7 @@ pub fn observe(
     market: Market,
     catalog: &Catalog,
 ) -> Result<Observations, CensusError> {
-    let mut obs = Observations::default();
+    let mut obs = Observations::for_market(market);
     for month in recorded_months(root, market)? {
         let files = read_month(root, market, month)?.unwrap_or_default();
         for (file, f) in &files {

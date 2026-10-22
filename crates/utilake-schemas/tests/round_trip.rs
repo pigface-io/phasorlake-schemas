@@ -20,6 +20,10 @@ fn every_history_is_its_metadata_and_back() {
         root.display()
     );
     for (table, h) in &histories {
+        assert!(
+            table.chars().all(|c| c.is_ascii_alphanumeric() || c == '_'),
+            "{table}: a table is named in letters, digits and underscores"
+        );
         let p = Published {
             market: Market::Nem,
             history: h.clone(),
@@ -27,7 +31,6 @@ fn every_history_is_its_metadata_and_back() {
             description: None,
             docs: BTreeMap::new(),
             model_types: BTreeMap::new(),
-            headers: BTreeMap::new(),
             model: Vec::new(),
         };
         let t = to_metadata(&p, "file:///t", "u").unwrap_or_else(|e| panic!("{table}: {e}"));

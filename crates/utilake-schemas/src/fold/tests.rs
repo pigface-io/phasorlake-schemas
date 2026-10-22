@@ -66,7 +66,6 @@ fn publish(root: &Path, h: &History) {
         description: None,
         docs: BTreeMap::new(),
         model_types: BTreeMap::new(),
-        headers: BTreeMap::new(),
         model: Vec::new(),
     };
     let t = utilake_iceberg::to_metadata(&p, "l", "u").unwrap();
@@ -396,6 +395,141 @@ fn every_failure_names_its_file() {
     assert!(err(root, &cat).contains("census/nem cannot be read"));
 }
 
+/// A run of a plain feed's folder: one block of `pair`, its columns
+/// written under `headers`, its time column `GASDATE` over one day.
+fn plain_tally(pair: (&str, &str), columns: &[&str], headers: &[&str]) -> Tally {
+    let n = columns.len();
+    Tally {
+        month: "2026-10".parse().unwrap(),
+        csvs: 2,
+        first_csv: "F.zip!F.CSV".into(),
+        last_csv: "F.zip@20261021T221100+1000!F.CSV".into(),
+        first_file: "F.zip".into(),
+        first_sha256: "f1".into(),
+        last_file: "F.zip@20261021T221100+1000".into(),
+        last_sha256: "f2".into(),
+        block: BlockRecord {
+            shape: ShapeId(9),
+            report: (pair.0.into(), pair.1.into()),
+            version: 1,
+            rows: 4,
+            rows_repeated: 1,
+            headers: headers.iter().map(|h| (*h).to_owned()).collect(),
+            time: Some(columns[0].to_owned()),
+            first: Some("2026/09/20".into()),
+            last: Some("2026/09/21".into()),
+            columns: columns.iter().map(|c| (*c).to_owned()).collect(),
+            ctl: "?".repeat(n),
+            kinds: "Dsd".into(),
+            nulls: vec![0; n],
+            int_digits: vec![0, 0, 1],
+            scale: vec![0, 0, 1],
+            sig_digits: vec![0, 0, 2],
+            max_len: vec![10, 1, 3],
+            min: vec![String::new(); n],
+            max: vec![String::new(); n],
+        },
+    }
+}
+
+#[test]
+fn another_market_folds_in_its_own_clock_with_its_headers() {
+    let dir = tempfile::tempdir().unwrap();
+    let root = dir.path();
+    let columns = ["GASDATE", "FACILITYNAME", "DEMAND"];
+    let gbb = FolderCensus {
+        files: 2,
+        csvs: 2,
+        blocks: vec![plain_tally(
+            ("GBB", "ACTUAL_FLOW_STORAGE"),
+            &columns,
+            &["GasDate", "FacilityName", "Demand"],
+        )],
+        ..FolderCensus::default()
+    };
+    record_folder(
+        root,
+        Market::Gas,
+        (crate::reports::feed("gbb").unwrap(), "CURRENT", ""),
+        &gbb,
+    )
+    .unwrap();
+    let cat = Catalog::new(vec![(
+        "GBB_ACTUAL_FLOW_STORAGE.toml".into(),
+        decl(
+            "GBB_ACTUAL_FLOW_STORAGE",
+            ("GBB", "ACTUAL_FLOW_STORAGE"),
+            Some("GASDATE"),
+        ),
+    )])
+    .unwrap();
+    let folded = fold(root, Market::Gas, &cat, false, None).unwrap();
+    assert_eq!((folded.tables, folded.runs), (1, 1));
+    let h: History = serde_json::from_slice(
+        &std::fs::read(history_path(root, Market::Gas, "GBB_ACTUAL_FLOW_STORAGE")).unwrap(),
+    )
+    .unwrap();
+    let run = &h.runs[0];
+    assert_eq!(run.kinds, ["gbb/current"]);
+    assert_eq!((run.files, run.rows), (2, 4));
+    assert_eq!(run.from.file, "F.zip");
+    assert_eq!(run.to.file, "F.zip@20261021T221100+1000");
+    assert_eq!(
+        run.from.data_time.as_deref(),
+        Some("2026-09-20T00:00:00+10:00")
+    );
+    // The header a column was written under, where it is not the name.
+    let gasdate = h.schemas[0].by_name("GASDATE").unwrap().id;
+    let demand = h.schemas[0].by_name("DEMAND").unwrap().id;
+    assert_eq!(h.headers.get(&gasdate).map(String::as_str), Some("GasDate"));
+    assert_eq!(h.headers.get(&demand).map(String::as_str), Some("Demand"));
+    assert_eq!(h.headers.len(), 3);
+    let text = std::fs::read_to_string(history_path(root, Market::Gas, "GBB_ACTUAL_FLOW_STORAGE"))
+        .unwrap();
+    assert!(text.contains("\"headers\": {"), "{text}");
+    assert_eq!(
+        fold(root, Market::Gas, &cat, true, None).unwrap().changed,
+        0
+    );
+
+    // The WEM: its own clock, and a pair no table declares named without
+    // the hyphen.
+    let wem = FolderCensus {
+        files: 2,
+        csvs: 2,
+        blocks: vec![plain_tally(("WEM", "FACILITY-SCADA"), &columns, &[])],
+        ..FolderCensus::default()
+    };
+    record_folder(
+        root,
+        Market::Wem,
+        (
+            crate::reports::feed("datafiles").unwrap(),
+            "datafiles",
+            "facility-scada",
+        ),
+        &wem,
+    )
+    .unwrap();
+    let none = Catalog::new(vec![]).unwrap();
+    fold(root, Market::Wem, &none, false, None).unwrap();
+    let h: History = serde_json::from_slice(
+        &std::fs::read(history_path(root, Market::Wem, "WEM_FACILITY_SCADA")).unwrap(),
+    )
+    .unwrap();
+    assert_eq!(h.runs[0].kinds, ["datafiles/datafiles"]);
+    assert_eq!(
+        h.runs[0].from.data_time.as_deref(),
+        Some("2026-09-20T00:00:00+08:00")
+    );
+    assert!(h.headers.is_empty());
+    assert!(
+        !std::fs::read_to_string(history_path(root, Market::Wem, "WEM_FACILITY_SCADA"))
+            .unwrap()
+            .contains("headers")
+    );
+}
+
 #[test]
 fn reports_folders_are_found_below_their_root() {
     let (dir, _) = repo();
@@ -415,19 +549,24 @@ fn reports_folders_are_found_below_their_root() {
 
 #[test]
 fn market_times() {
+    let nem = |t: &str| market_time(t, "+10:00");
     assert_eq!(
-        market_time("2024/08/01 00:05:00").as_deref(),
+        nem("2024/08/01 00:05:00").as_deref(),
         Some("2024-08-01T00:05:00+10:00")
     );
     assert_eq!(
-        market_time("2024/08/01 00:05:00.5").as_deref(),
+        nem("2024/08/01 00:05:00.5").as_deref(),
         Some("2024-08-01T00:05:00.5+10:00")
     );
     assert_eq!(
-        market_time("2024/08/01").as_deref(),
+        nem("2024/08/01").as_deref(),
         Some("2024-08-01T00:00:00+10:00")
     );
-    assert_eq!(market_time("2024/08/01 00:05"), None);
-    assert_eq!(market_time("2024-08-01"), None);
-    assert_eq!(market_time("2024/08/01X"), None);
+    assert_eq!(
+        market_time("2024/08/01 08:00:00", "+08:00").as_deref(),
+        Some("2024-08-01T08:00:00+08:00")
+    );
+    assert_eq!(nem("2024/08/01 00:05"), None);
+    assert_eq!(nem("2024-08-01"), None);
+    assert_eq!(nem("2024/08/01X"), None);
 }

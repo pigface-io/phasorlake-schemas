@@ -192,6 +192,9 @@ struct MarketExport {
     histories: BTreeMap<String, History>,
     /// Each declared table's declaration in its published form.
     declarations: BTreeMap<String, Declaration>,
+    /// The data-model tables each declared table names as its own words'
+    /// source, when it names any.
+    models_of: BTreeMap<String, Vec<String>>,
     /// The data-model releases, first shipped first.
     models: Vec<Model>,
     /// The data version of the histories.
@@ -226,18 +229,27 @@ impl MarketExport {
         if !tables.exists() && !histories.exists() {
             return Ok(None);
         }
-        let declarations = if tables.exists() {
-            Catalog::read(&tables)?
+        let (declarations, models_of) = if tables.exists() {
+            let catalog = Catalog::read(&tables)?;
+            let declarations = catalog
                 .tables()
                 .iter()
                 .map(|d| Ok((d.name.clone(), declaration(d)?)))
-                .collect::<Result<_, ExportError>>()?
+                .collect::<Result<_, ExportError>>()?;
+            let models_of = catalog
+                .tables()
+                .iter()
+                .filter(|d| !d.model.is_empty())
+                .map(|d| (d.name.clone(), d.model.clone()))
+                .collect();
+            (declarations, models_of)
         } else {
-            BTreeMap::new()
+            (BTreeMap::new(), BTreeMap::new())
         };
         Ok(Some(Self {
             histories: read_histories(root, market)?,
             declarations,
+            models_of,
             models: by_first_seen(&read_models(root, market)?)
                 .into_iter()
                 .cloned()
@@ -246,18 +258,36 @@ impl MarketExport {
         }))
     }
 
-    /// The newest release's declaration of `table`.
-    fn model(&self, table: &str) -> Option<&ModelTable> {
-        self.models.iter().rev().find_map(|m| m.tables.get(table))
+    /// The data-model tables that say what `table`'s columns are: its
+    /// own name, then the ones its declaration names.
+    fn model_names<'a>(&'a self, table: &'a str) -> impl Iterator<Item = &'a str> {
+        std::iter::once(table).chain(
+            self.models_of
+                .get(table)
+                .into_iter()
+                .flatten()
+                .map(String::as_str),
+        )
     }
 
-    /// The comment and type the newest release with the column gives it.
+    /// The newest release's declaration of `table`, under its own name or
+    /// the first model table its declaration names.
+    fn model(&self, table: &str) -> Option<&ModelTable> {
+        self.model_names(table)
+            .find_map(|name| self.models.iter().rev().find_map(|m| m.tables.get(name)))
+    }
+
+    /// The comment and type the newest release with the column gives it,
+    /// in the table's own model table or the ones its declaration names.
     fn column(&self, table: &str, column: &str) -> (Option<&str>, Option<&str>) {
-        self.models
-            .iter()
-            .rev()
-            .filter_map(|m| m.tables.get(table))
-            .find_map(|t| t.columns.iter().find(|c| c.0.eq_ignore_ascii_case(column)))
+        self.model_names(table)
+            .find_map(|name| {
+                self.models
+                    .iter()
+                    .rev()
+                    .filter_map(|m| m.tables.get(name))
+                    .find_map(|t| t.columns.iter().find(|c| c.0.eq_ignore_ascii_case(column)))
+            })
             .map_or((None, None), |(_, ty, _, comment)| {
                 (non_empty(comment), Some(ty.as_str()))
             })
@@ -314,8 +344,7 @@ impl Export {
                 .map(str::to_owned),
             docs,
             model_types,
-            headers: BTreeMap::new(),
-            model: Vec::new(),
+            model: e.models_of.get(table).cloned().unwrap_or_default(),
         })
     }
 

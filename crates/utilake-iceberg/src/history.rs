@@ -16,6 +16,8 @@
 //! as it adds a run, and a reader of the table metadata computes it again
 //! from the snapshots, the same way.
 
+use std::collections::BTreeMap;
+
 use serde::{Deserialize, Serialize};
 
 use crate::schema::{Field, Schema};
@@ -39,6 +41,11 @@ pub struct History {
     pub runs: Vec<Run>,
     /// The columns that needed a new field.
     pub breaking: Vec<Break>,
+    /// The header a file wrote for a field whose name was made from it
+    /// (`Load Forecast (MW)` for `LOAD_FORECAST_MW`), by field id; empty
+    /// where every header is its field's name, as in every MMS file.
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub headers: BTreeMap<u32, String>,
 }
 
 /// Where a run starts or ends: one AEMO file.

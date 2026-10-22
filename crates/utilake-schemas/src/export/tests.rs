@@ -671,10 +671,9 @@ fn import_check(dir: &Path) -> Result<usize, String> {
         .iter()
         .map(|(k, v)| s(v, "manifest.json").map(|v| (k.clone(), v.to_owned())))
         .collect::<Result<_, _>>()?;
-    // Every file under nem/ is listed.
-    let present: BTreeSet<String> = crate::census::files_under(&dir.join("nem"))
-        .unwrap()
-        .iter()
+    // Every file under a market's directory is listed.
+    let present: BTreeSet<String> = owned()
+        .flat_map(|m| crate::census::files_under(&dir.join(m)).unwrap_or_default())
         .map(|p| {
             p.strip_prefix(dir)
                 .unwrap()
@@ -683,7 +682,9 @@ fn import_check(dir: &Path) -> Result<usize, String> {
         })
         .collect();
     if let Some(p) = present.iter().find(|p| !listed.contains_key(*p)) {
-        return Err(format!("{p}: is under nem/ but not in the manifest"));
+        return Err(format!(
+            "{p}: is under a market directory but not in the manifest"
+        ));
     }
     // Every listed file is there with its hash; JSON parses, Avro is a
     // manifest list.
@@ -715,8 +716,9 @@ fn import_check(dir: &Path) -> Result<usize, String> {
             serde_json::from_value(doc.clone()).map_err(|e| format!("{at}: {e}"))?;
         let p = from_metadata(&m).map_err(|e| format!("{at}: {e}"))?;
         let name = p.history.table.as_str();
-        if *rel != format!("nem/{name}/metadata/v1.metadata.json") {
-            return Err(format!("{at}: names table {name:?}"));
+        let market = p.market;
+        if *rel != format!("{market}/{name}/metadata/v1.metadata.json") {
+            return Err(format!("{at}: names table {name:?} of {market}"));
         }
         if m.format_version != 3 {
             return Err(format!("{at}: format-version is not 3"));
@@ -731,7 +733,7 @@ fn import_check(dir: &Path) -> Result<usize, String> {
                     return Err(format!("{at}: field {} has two names or types", f.id));
                 }
             }
-            let doc_rel = format!("nem/{name}/schema-{}.json", sc.schema_id);
+            let doc_rel = format!("{market}/{name}/schema-{}.json", sc.schema_id);
             let sdoc = docs
                 .get(&doc_rel)
                 .ok_or(format!("{at}: {doc_rel} is not in the manifest"))?;
@@ -759,7 +761,7 @@ fn import_check(dir: &Path) -> Result<usize, String> {
             let list = sn
                 .manifest_list
                 .strip_prefix(base)
-                .filter(|l| l.starts_with(&format!("nem/{name}/metadata/")))
+                .filter(|l| l.starts_with(&format!("{market}/{name}/metadata/")))
                 .ok_or(format!("{at}: snapshot {} lists elsewhere", sn.snapshot_id))?;
             match lists.get(list) {
                 Some(0) => {}
@@ -774,6 +776,65 @@ fn import_check(dir: &Path) -> Result<usize, String> {
         return Err("manifest.json: names no table".into());
     }
     Ok(tables)
+}
+
+#[test]
+fn another_market_is_published_beside_the_nem_with_its_words_and_headers() {
+    let dir = exported();
+    let root = dir.path();
+    let put = |rel: &str, text: &str| {
+        crate::files::write_atomic(&root.join(rel), text.as_bytes()).unwrap();
+    };
+    put(
+        "tables/gas/GBB_ACTUAL_FLOW_STORAGE.toml",
+        "name = \"GBB_ACTUAL_FLOW_STORAGE\"\nreport_pairs = [[\"GBB\", \"ACTUAL_FLOW_STORAGE\"]]\nprimary_key = [\"GASDATE\"]\ntime_column = \"GASDATE\"\nload_mode = \"append\"\nvisibility = \"PUBLIC\"\nmodel = [\"GAS_DAILY_FLOW_ACTUAL\"]\n\n[temporal]\norigin = \"hand\"\nentity = []\nvalid = { kind = \"instant\", column = \"GASDATE\" }\norder = []\n",
+    );
+    put(
+        "evidence/models/gas/2.2.toml",
+        "version = \"2.2\"\nmodel = \"Gas Data Model Report\"\ncreated = \"\"\nscript_sha256 = \"g\"\nfirst_seen = \"2026-10\"\nlast_seen = \"2026-10\"\n\n[tables.GAS_DAILY_FLOW_ACTUAL]\ncomment = \"Daily flow\"\nprimary_key = [\"GASDATE\"]\ncolumns = [\n    [\"GasDate\", \"DATE\", false, \"Date of gas day\"],\n]\n",
+    );
+    let mut h = sample();
+    h.table = "GBB_ACTUAL_FLOW_STORAGE".into();
+    for s in &mut h.schemas {
+        s.fields[0].name = "GASDATE".into();
+    }
+    h.headers = BTreeMap::from([(1, "GasDate".to_owned())]);
+    put(
+        "evidence/histories/gas/GBB_ACTUAL_FLOW_STORAGE.json",
+        &crate::fold::render(&h),
+    );
+    let r = export(root);
+    assert_eq!((r.tables, r.schemas), (2, 4));
+    let t = read(
+        root,
+        "gas/GBB_ACTUAL_FLOW_STORAGE/metadata/v1.metadata.json",
+    );
+    let p = t["properties"].as_object().unwrap();
+    assert_eq!(p["utilake.market"], "gas");
+    assert_eq!(p["utilake.offset"], "+10:00");
+    assert_eq!(p["utilake.declared"], "true");
+    assert_eq!(p["utilake.model"], r#"["GAS_DAILY_FLOW_ACTUAL"]"#);
+    assert_eq!(p["utilake.headers"], r#"{"1":"GasDate"}"#);
+    assert_eq!(p["comment"], "Daily flow", "the model table's words");
+    assert_eq!(p["utilake.model-types"], r#"{"1":"DATE"}"#);
+    assert_eq!(t["schemas"][0]["fields"][0]["doc"], "Date of gas day");
+    assert_eq!(
+        t["table-uuid"],
+        crate::iceberg::table_uuid_in(Market::Gas, "GBB_ACTUAL_FLOW_STORAGE")
+    );
+    let d = read(root, "gas/GBB_ACTUAL_FLOW_STORAGE/schema-0.json");
+    assert_eq!(d["properties"]["GASDATE"]["x-header"], "GasDate");
+    assert!(d["properties"]["DUID"].get("x-header").is_none());
+    assert!(root.join("gas/headers.json").is_file());
+    let m = read(root, "manifest.json");
+    assert_eq!(m["markets"]["gas"]["tables"], 1);
+    assert_eq!(m["markets"]["nem"]["tables"], 1);
+    assert_eq!(m["tables"], 2);
+    // The NEM's table says nothing of its market.
+    let nem = read(root, TABLE);
+    assert!(nem["properties"].get("utilake.market").is_none());
+    assert!(check(root, &r).unwrap().is_empty());
+    assert_eq!(import_check(root).unwrap(), 2);
 }
 
 #[test]

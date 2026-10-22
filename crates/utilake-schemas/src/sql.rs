@@ -103,8 +103,9 @@ pub(crate) fn days_in_month(y: i64, m: i64) -> i64 {
 
 /// A time as microseconds since 1970 (UTC): RFC 3339 (`T` or a space
 /// between date and time, a fraction of up to nine digits, `Z` or an
-/// offset), or a day, which is its midnight at +10:00.
-pub fn parse_time(s: &str) -> Option<i64> {
+/// offset), or a day, which is its midnight at `offset_secs` from UTC
+/// (the market's: 36 000 for +10:00).
+pub fn parse_time(s: &str, offset_secs: i32) -> Option<i64> {
     let b = s.as_bytes();
     let num = |r: std::ops::Range<usize>| -> Option<i64> {
         let d = b.get(r)?;
@@ -121,7 +122,7 @@ pub fn parse_time(s: &str) -> Option<i64> {
     }
     let day = days_from_civil(y, m, d) * 86_400;
     if b.len() == 10 {
-        return Some((day - 36_000) * 1_000_000);
+        return Some((day - i64::from(offset_secs)) * 1_000_000);
     }
     let (h, mi, sec) = (num(11..13)?, num(14..16)?, num(17..19)?);
     let shaped =
@@ -158,8 +159,8 @@ pub fn parse_time(s: &str) -> Option<i64> {
     Some((day + h * 3600 + mi * 60 + sec - offset) * 1_000_000 + micros)
 }
 
-fn time(s: &str) -> Result<i64, SqlError> {
-    parse_time(s).ok_or_else(|| SqlError::Time(s.to_owned()))
+fn time(s: &str, market: Market) -> Result<i64, SqlError> {
+    parse_time(s, market.offset_secs()).ok_or_else(|| SqlError::Time(s.to_owned()))
 }
 
 /// The DuckDB query reading `[from, to)` of `table`'s files listed in
@@ -203,7 +204,7 @@ pub fn sql(
     };
     let text = std::fs::read(files).map_err(|e| bad(e.to_string()))?;
     let listed: Vec<Listed> = serde_json::from_slice(&text).map_err(|e| bad(e.to_string()))?;
-    let interval = (time(from)?, time(to)?);
+    let interval = (time(from, market)?, time(to, market)?);
     if interval.1 < interval.0 {
         return Err(SqlError::Empty {
             from: from.to_owned(),
@@ -240,18 +241,29 @@ mod tests {
 
     #[test]
     fn times_are_rfc_3339_or_a_market_day() {
-        let day = parse_time("2024-08-01").unwrap();
-        assert_eq!(day, parse_time("2024-08-01T00:00:00+10:00").unwrap());
-        assert_eq!(day, parse_time("2024-07-31 14:00:00Z").unwrap());
-        assert_eq!(day, 1_722_434_400_000_000);
-        assert_eq!(parse_time("1970-01-01T00:00:00Z"), Some(0));
-        assert_eq!(parse_time("1969-12-31T23:59:59.5-00:00"), Some(-500_000));
+        let day = parse_time("2024-08-01", 36_000).unwrap();
         assert_eq!(
-            parse_time("2024-02-29t01:02:03.1234567z"),
+            day,
+            parse_time("2024-08-01T00:00:00+10:00", 36_000).unwrap()
+        );
+        assert_eq!(day, parse_time("2024-07-31 14:00:00Z", 36_000).unwrap());
+        assert_eq!(day, 1_722_434_400_000_000);
+        assert_eq!(
+            parse_time("2024-08-01", 28_800).unwrap(),
+            day + 2 * 3600 * 1_000_000,
+            "a day in Perth begins two hours later"
+        );
+        assert_eq!(parse_time("1970-01-01T00:00:00Z", 36_000), Some(0));
+        assert_eq!(
+            parse_time("1969-12-31T23:59:59.5-00:00", 36_000),
+            Some(-500_000)
+        );
+        assert_eq!(
+            parse_time("2024-02-29t01:02:03.1234567z", 36_000),
             Some(1_709_168_523_123_456)
         );
         assert_eq!(
-            parse_time("2000-03-01T00:00:00Z"),
+            parse_time("2000-03-01T00:00:00Z", 36_000),
             Some(951_868_800_000_000)
         );
         for bad in [
@@ -274,7 +286,7 @@ mod tests {
             "2024-08-01T00:00:00+10:60",
             "2024-08-01T00:00:00+1000",
         ] {
-            assert_eq!(parse_time(bad), None, "{bad}");
+            assert_eq!(parse_time(bad, 36_000), None, "{bad}");
         }
     }
 

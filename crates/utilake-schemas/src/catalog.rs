@@ -116,6 +116,11 @@ pub struct TableDecl {
     /// Columns typed by hand.
     #[serde(default, rename = "override", skip_serializing_if = "Vec::is_empty")]
     pub overrides: Vec<Override>,
+    /// The tables of AEMO's data model whose columns say what this
+    /// table's are, when the table's own name is not in the model (a
+    /// published file that is a view of model tables).
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub model: Vec<String>,
 }
 
 impl TableDecl {
@@ -231,11 +236,24 @@ impl Catalog {
     }
 
     /// The table a block of this report pair is recorded under: the one
-    /// declared for the pair, else `{TYPE}_{SUBTYPE}`.
+    /// declared for the pair, else `{TYPE}_{SUBTYPE}` with any character
+    /// that is not a letter, digit or underscore written as `_` (a plain
+    /// feed's name may carry a hyphen or a dot; an MMS pair never does).
     pub fn table_of(&self, report_type: &str, report_subtype: &str) -> String {
         self.declared_by_pair(report_type, report_subtype)
             .map_or_else(
-                || format!("{report_type}_{report_subtype}"),
+                || {
+                    format!("{report_type}_{report_subtype}")
+                        .chars()
+                        .map(|c| {
+                            if c.is_ascii_alphanumeric() || c == '_' {
+                                c
+                            } else {
+                                '_'
+                            }
+                        })
+                        .collect()
+                },
                 |t| t.name.clone(),
             )
     }
@@ -297,6 +315,7 @@ pub(crate) mod tests {
             visibility: "PUBLIC".into(),
             temporal: toml::Table::new(),
             overrides: Vec::new(),
+            model: Vec::new(),
         }
     }
 
@@ -359,6 +378,8 @@ reason = "Six places are what AEMO measures."
         assert!(c.table("NOBODY").is_none());
         assert_eq!(c.table_of("DISPATCH", "PRICE"), "DISPATCHPRICE");
         assert_eq!(c.table_of("DISPATCH", "OTHER"), "DISPATCH_OTHER");
+        assert_eq!(c.table_of("WEM", "FACILITY-SCADA"), "WEM_FACILITY_SCADA");
+        assert_eq!(c.table_of("WEMDE", "A.B"), "WEMDE_A_B");
         // Written back, a declaration reads as it was.
         let out = dir.path().join("out");
         assert_eq!(c.write(&out).unwrap(), 2);

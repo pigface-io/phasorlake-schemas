@@ -35,8 +35,8 @@
 //!   other markets is: a NEM table's metadata is the same bytes with or
 //!   without this.
 //! - **The headers** a file wrote for columns whose names were made from
-//!   them (`Load Forecast (MW)` for `LOAD_FORECAST_MW`): `utilake.headers`,
-//!   a compact JSON object by field id; and **the model tables** that
+//!   them (`Load Forecast (MW)` for `LOAD_FORECAST_MW`, [`History::headers`]):
+//!   `utilake.headers`, a compact JSON object by field id; and **the model tables** that
 //!   annotate a table whose own name is not in AEMO's data model:
 //!   `utilake.model`, a compact JSON array. Both only when there are any.
 //!
@@ -127,9 +127,6 @@ pub struct Published {
     pub docs: BTreeMap<u32, String>,
     /// Each column's type in AEMO's data model, by field id.
     pub model_types: BTreeMap<u32, String>,
-    /// The header a file wrote for a column, by field id, where the
-    /// column's name was made from it.
-    pub headers: BTreeMap<u32, String>,
     /// The tables of AEMO's data model whose columns annotate this table,
     /// when the table's own name is not one of them.
     pub model: Vec<String>,
@@ -355,8 +352,8 @@ fn properties(p: &Published) -> BTreeMap<String, String> {
     if !p.model_types.is_empty() {
         put(K_MODEL_TYPES, json(&p.model_types));
     }
-    if !p.headers.is_empty() {
-        put(K_HEADERS, json(&p.headers));
+    if !p.history.headers.is_empty() {
+        put(K_HEADERS, json(&p.history.headers));
     }
     if !p.model.is_empty() {
         put(K_MODEL, json(&p.model));
@@ -589,12 +586,12 @@ pub fn from_metadata(m: &TableMetadata) -> Result<Published, PublishError> {
             schemas,
             runs,
             breaking,
+            headers,
         },
         declaration,
         description: p.owned(K_COMMENT),
         docs,
         model_types,
-        headers,
         model,
     })
 }
@@ -644,7 +641,6 @@ mod tests {
             description: Some("Unit SCADA".into()),
             docs: BTreeMap::from([(1, "Interval end".to_owned()), (3, "A flag".to_owned())]),
             model_types: BTreeMap::from([(1, "TIMESTAMP(0)".to_owned())]),
-            headers: BTreeMap::new(),
             model: Vec::new(),
         }
     }
@@ -746,12 +742,12 @@ mod tests {
                 schemas: vec![],
                 runs: vec![],
                 breaking: vec![],
+                headers: BTreeMap::new(),
             },
             declaration: None,
             description: None,
             docs: BTreeMap::new(),
             model_types: BTreeMap::new(),
-            headers: BTreeMap::new(),
             model: Vec::new(),
         };
         let t = to_metadata(&p, "file:///t", "u").unwrap();
@@ -782,7 +778,7 @@ mod tests {
     fn a_table_of_another_market_says_so_and_keeps_its_clock() {
         let mut p = published();
         p.market = Market::Wem;
-        p.headers = BTreeMap::from([(1, "Trading Interval".to_owned())]);
+        p.history.headers = BTreeMap::from([(1, "Trading Interval".to_owned())]);
         p.model = vec!["GAS_DAILY_FLOW_ACTUAL".to_owned()];
         let t = to_metadata(&p, "file:///t", "u").unwrap();
         let m = &t.metadata;

@@ -58,6 +58,9 @@ pub fn document(
         if let Some(t) = published.model_types.get(&f.id) {
             p["x-model-type"] = json!(t);
         }
+        if let Some(h) = published.history.headers.get(&f.id) {
+            p["x-header"] = json!(h);
+        }
         properties.insert(f.name.clone(), p);
     }
     text(&json!({
