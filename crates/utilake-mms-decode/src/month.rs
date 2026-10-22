@@ -57,6 +57,11 @@ impl YearMonth {
         }
     }
 
+    /// Months since year 0, for arithmetic such as "how many months old".
+    pub const fn ordinal(self) -> i64 {
+        self.year as i64 * 12 + (self.month as i64 - 1)
+    }
+
     /// The month before this one.
     pub const fn prev(self) -> Self {
         if self.month == 1 {
@@ -139,6 +144,7 @@ mod tests {
         let ym: YearMonth = "2024-01".parse().unwrap();
         assert_eq!((ym.year(), ym.month()), (2024, 1));
         assert_eq!(ym.to_string(), "2024-01");
+        assert_eq!(ym.next().ordinal() - ym.ordinal(), 1);
     }
 
     #[test]
