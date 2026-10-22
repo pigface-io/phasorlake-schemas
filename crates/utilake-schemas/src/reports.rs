@@ -14,9 +14,12 @@
 //! carry their time) that held a table in one shape and version, with the
 //! first and last CSV, how many, and the block record of them all (rows,
 //! time span, and each column's declared class and observed profile,
-//! merged). A run ends at any change: another shape or version, or a
-//! column whose values are of a wider kind or scale than the run's so far,
-//! so the CSV where anything changed is kept. It is written to
+//! merged). A run ends at another shape or version, or at a column whose
+//! numbers or times turn to text, which starts a new lineage of it; a
+//! wider number or scale only widens the run. A file can carry a table in
+//! two shapes at once (a new version beside the old), so each shape has
+//! its own run, and a run ends when a CSV holds the table but not the
+//! run's shape. The CSV where anything changed is kept. It is written to
 //! `{root}/evidence/census/reports/{ARCHIVE|CURRENT}/{folder}.toml`.
 //!
 //! nemweb rewrites some files in place under the same name (most gas
@@ -35,6 +38,7 @@ use std::path::{Path, PathBuf};
 
 use serde::{Deserialize, Serialize};
 use sha2::Digest as _;
+use utilake_iceberg::Kind;
 
 use crate::catalog::Catalog;
 use crate::census::{
@@ -277,30 +281,35 @@ struct Acc {
 struct Gather {
     census: FolderCensus,
     runs: Vec<Acc>,
-    /// The open run of each report pair.
-    open: HashMap<(String, String), usize>,
+    /// The open runs of each report pair, one per shape it is carried in.
+    open: HashMap<(String, String), Vec<usize>>,
+    /// The runs the CSV being read added to, and its report pairs.
+    touched: HashSet<usize>,
+    pairs: HashSet<(String, String)>,
     undated: u64,
 }
 
 /// Whether `b` continues run `a`: the same shape, version and declared
-/// classes, and no column of a wider kind or scale than the run has seen.
+/// classes, and no column whose numbers or times turn to text.
 fn continues(a: &Acc, b: &BlockShape) -> bool {
     let m = &a.merged;
     m.shape.id() == b.shape.id()
         && m.version == b.version
         && m.ctl == b.ctl
-        && m.profile
-            .iter()
-            .zip(&b.profile)
-            .all(|(p, q)| p.kind.join(q.kind) == p.kind && q.scale <= p.scale)
+        && m.profile.iter().zip(&b.profile).all(|(p, q)| {
+            matches!(p.kind, Kind::Empty | Kind::Text) || p.kind.join(q.kind) != Kind::Text
+        })
 }
 
 impl Gather {
     fn add(&mut self, month: YearMonth, csv: &str, path: &Path, b: BlockShape) {
         let key = (b.shape.report_type.clone(), b.shape.report_subtype.clone());
-        let open = self.open.get(&key).copied();
-        let Some(i) = open.filter(|i| continues(&self.runs[*i], &b)) else {
-            self.open.insert(key, self.runs.len());
+        let open = self.open.entry(key.clone()).or_default();
+        let found = open.iter().copied().find(|i| continues(&self.runs[*i], &b));
+        self.pairs.insert(key);
+        let Some(i) = found else {
+            open.push(self.runs.len());
+            self.touched.insert(self.runs.len());
             self.runs.push(Acc {
                 month,
                 csvs: 1,
@@ -312,6 +321,7 @@ impl Gather {
             });
             return;
         };
+        self.touched.insert(i);
         let a = &mut self.runs[i];
         a.csvs += 1;
         if csv < a.first_csv.as_str() {
@@ -340,6 +350,19 @@ impl Gather {
                 *c = d;
             }
         }
+    }
+
+    /// Ends a CSV: a run of a report pair the CSV held, in a shape it did
+    /// not, is closed.
+    fn end_csv(&mut self) {
+        for key in self.pairs.drain() {
+            let touched = &self.touched;
+            self.open
+                .entry(key)
+                .or_default()
+                .retain(|i| touched.contains(i));
+        }
+        self.touched.clear();
     }
 }
 
@@ -713,6 +736,7 @@ pub fn census_folder(
                     let b = block_shape(catalog, c, None, raw);
                     g.add(month, base(csv), path, b);
                 }
+                g.end_csv();
                 Ok(())
             };
         let is = |ext: &str| crate::zip::has_extension(file, ext);
@@ -1338,14 +1362,22 @@ mod tests {
             &format!("{folder}/PUBLIC_DISPATCHSCADA_202607310005_1.CSV"),
             &three_tables(1),
         );
-        // A value with a second decimal place: a wider scale starts a run.
-        let finer = String::from_utf8(three_tables(1))
-            .unwrap()
-            .replace(",0.5\r", ",0.25\r");
+        // A value with a second decimal place only widens the run; a value
+        // that is not a number starts one.
+        let with = |v: &str| {
+            String::from_utf8(three_tables(1))
+                .unwrap()
+                .replace(",0.5\r", &format!(",{v}\r"))
+        };
         put(
             &reports,
             &format!("{folder}/PUBLIC_DISPATCHSCADA_202610200010_1.CSV"),
-            finer.as_bytes(),
+            with("0.25").as_bytes(),
+        );
+        put(
+            &reports,
+            &format!("{folder}/PUBLIC_DISPATCHSCADA_202610200015_1.CSV"),
+            with("x1").as_bytes(),
         );
         // A zip named for its month, of a CSV that is not.
         put(
@@ -1406,8 +1438,8 @@ mod tests {
                 .is_none()
         );
         let census = census_folder(&cat, &mut ctls, &all["Dispatch_SCADA"], None, tmp.path());
-        assert_eq!((census.files, census.other), (11, 1));
-        assert_eq!(census.csvs, 7, "three nested, four loose");
+        assert_eq!((census.files, census.other), (12, 1));
+        assert_eq!(census.csvs, 8, "three nested, five loose");
         let unread: Vec<&str> = census.unread.iter().map(|u| u.file.as_str()).collect();
         assert_eq!(
             unread,
@@ -1427,18 +1459,19 @@ mod tests {
             .filter(|t| t.block.report == ("DISPATCH".into(), "UNIT_SCADA".into()))
             .collect();
         // Runs in name order: July untyped; August's two nested CSVs and
-        // October's first typed alike (October looks back to August's
-        // control file); October's finer value and the CSV of the zip
-        // named for October 21st after it.
+        // October's first two typed alike (October looks back to August's
+        // control file, and a finer value only widens the run); October's
+        // value that is not a number, and the CSV of the zip named for
+        // October 21st after it.
         let months: Vec<String> = scada.iter().map(|t| t.month.to_string()).collect();
         assert_eq!(months, ["2026-07", "2026-08", "2026-10"]);
         let aug = scada[1];
-        assert_eq!((aug.csvs, aug.block.rows), (3, 9));
+        assert_eq!((aug.csvs, aug.block.rows), (4, 10));
         assert_eq!(
             aug.first_csv,
             "PUBLIC_DISPATCHSCADA_202608010005_0000000001.CSV"
         );
-        assert_eq!(aug.last_csv, "PUBLIC_DISPATCHSCADA_202610200005_1.CSV");
+        assert_eq!(aug.last_csv, "PUBLIC_DISPATCHSCADA_202610200010_1.CSV");
         assert_eq!(aug.first_sha256.len(), 64, "the run's first file is hashed");
         assert_eq!(aug.last_sha256.len(), 64);
         assert!(!aug.first_file.is_empty() && !aug.last_file.is_empty());
@@ -1448,7 +1481,7 @@ mod tests {
         assert_eq!(aug.block.first.as_deref(), Some("2026/08/01 00:05:00"));
         assert_eq!(
             scada[2].first_csv,
-            "PUBLIC_DISPATCHSCADA_202610200010_1.CSV"
+            "PUBLIC_DISPATCHSCADA_202610200015_1.CSV"
         );
         assert_eq!(scada[2].last_csv, "PUBLIC_UNDATED.CSV");
         assert_eq!(scada[0].block.ctl_of(0), TypeClass::Unknown);
@@ -1501,6 +1534,46 @@ mod tests {
             none.for_month(YearMonth::new(2026, 8).unwrap())
                 .for_table(&["DISPATCH_UNIT_SCADA"])
                 .is_none()
+        );
+    }
+
+    #[test]
+    fn each_shape_a_file_carries_has_its_own_run() {
+        let dir = tempfile::tempdir().unwrap();
+        // Every CSV holds the table in version 1; all but the third hold
+        // it in version 2 beside it.
+        let csv = |both: bool| {
+            let mut c = String::from_utf8(three_tables(1)).unwrap();
+            if both {
+                c.push_str("I,DISPATCH,UNIT_SCADA,2,SETTLEMENTDATE,DUID,SCADAVALUE,FLAG\r\n");
+                c.push_str("D,DISPATCH,UNIT_SCADA,2,\"2026/08/01 00:05:00\",UNIT1,1.5,1\r\n");
+            }
+            c
+        };
+        let files: Vec<PathBuf> = [true, true, false, true]
+            .iter()
+            .enumerate()
+            .map(|(i, both)| {
+                let rel = format!("PUBLIC_DISPATCHSCADA_20260801000{i}_1.CSV");
+                put(dir.path(), &rel, csv(*both).as_bytes());
+                dir.path().join(rel)
+            })
+            .collect();
+        let mut ctls = CtlSource::new(None);
+        let census = census_folder(&scada(), &mut ctls, &files, None, dir.path());
+        let runs: Vec<(u16, u64, &str)> = census
+            .blocks
+            .iter()
+            .filter(|t| t.block.report.1 == "UNIT_SCADA")
+            .map(|t| (t.block.version, t.csvs, t.first_csv.as_str()))
+            .collect();
+        assert_eq!(
+            runs,
+            [
+                (1, 4, "PUBLIC_DISPATCHSCADA_202608010000_1.CSV"),
+                (2, 2, "PUBLIC_DISPATCHSCADA_202608010000_1.CSV"),
+                (2, 1, "PUBLIC_DISPATCHSCADA_202608010003_1.CSV"),
+            ]
         );
     }
 }
