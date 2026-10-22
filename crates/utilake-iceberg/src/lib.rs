@@ -6,9 +6,11 @@
 //! it and AEMO's declaration ([`choose`]); [`holds`] says whether a type
 //! takes what a later file holds. A table's [`History`] is what the
 //! export publishes; [`compat::check`] holds a new version of it to what the
-//! old one promised. [`plan`] reads any time interval of a table's files
-//! across its schemas, and [`table`] writes the table's metadata and
-//! manifests.
+//! old one promised. [`publish`] writes a history, with the table's
+//! declaration and documentation, as Iceberg table metadata and reads it
+//! back: the one document a published table is. [`plan`] reads any time
+//! interval of a table's files across its schemas, and [`table`] writes
+//! table metadata and manifests as bytes.
 //!
 //! Std, serde and SHA-256 only; no I/O.
 
@@ -16,6 +18,7 @@ pub mod compat;
 mod evidence;
 pub mod history;
 mod plan;
+pub mod publish;
 mod schema;
 pub mod table;
 mod types;
@@ -23,5 +26,6 @@ mod types;
 pub use evidence::{Choice, Declared, Evidence, Kind, choose, holds};
 pub use history::History;
 pub use plan::{Column, DataFile, PlanError, Read, Target, casts_to, duckdb_sql, plan};
+pub use publish::{Declaration, PublishError, Published, from_metadata, to_metadata};
 pub use schema::{Field, Schema};
 pub use types::IcebergType;
