@@ -1,0 +1,366 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PREDISPATCHINTERCONNECTORRES/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DATETIME": {
+      "description": "Period date and time",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "EXPORTGENCONID": {
+      "description": "Generic Constraint setting the export limit",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "EXPORTLIMIT": {
+      "description": "Calculated export limit.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "FCASEXPORTLIMIT": {
+      "description": "Calculated export limit applying to energy + FCAS.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "FCASIMPORTLIMIT": {
+      "description": "Calculated import limit applying to energy + FCAS.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "IMPORTGENCONID": {
+      "description": "Generic Constraint setting the import limit",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "IMPORTLIMIT": {
+      "description": "Calculated import limit.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "INTERCONNECTORID": {
+      "description": "Interconnector identifier",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "INTERVENTION": {
+      "description": "Flag to indicate if this result set was sourced from the pricing run (INTERVENTION=0) or the physical run (INTERVENTION=1). In the event that there is not intervention in the market, both pricing and physical runs correspond to INTERVENTION=0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last changed.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOCALLY_CONSTRAINED_EXPORT": {
+      "description": "Key for Local_Price_Adjustment_Export: 2 = at least one Outage Constraint; 1 = at least 1 System Normal Constraint (and no Outage Constraint); 0 = No System Normal or Outage Constraints",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "LOCALLY_CONSTRAINED_IMPORT": {
+      "description": "Key for Local_Price_Adjustment_Import: 2 = at least one Outage Constraint; 1 = at least 1 System Normal Constraint (and no Outage Constraint); 0 = No System Normal or Outage Constraints",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "LOCAL_PRICE_ADJUSTMENT_EXPORT": {
+      "description": "Aggregate Constraint contribution cost of this Interconnector: Sum(MarginalValue x Factor) for all relevant Constraints, for Export (Factor >= 0)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(10, 2)",
+      "x-model-type": "NUMERIC(10,2)"
+    },
+    "LOCAL_PRICE_ADJUSTMENT_IMPORT": {
+      "description": "Aggregate Constraint contribution cost of this Interconnector: Sum(MarginalValue x Factor) for all relevant Constraints, for Import (Factor >= 0)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(10, 2)",
+      "x-model-type": "NUMERIC(10,2)"
+    },
+    "MARGINALLOSS": {
+      "description": "Marginal loss factor. Use this to adjust bids between reports.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MARGINALVALUE": {
+      "description": "$ Marginal value of interconnector constraint from SPD",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "METEREDMWFLOW": {
+      "description": "Metered MW Flow from EMS. For periods subsequent to the first period of a Pre-Dispatch run, this value represents the cleared target for the previous period of that Pre-Dispatch run.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MWFLOW": {
+      "description": "Calculated MW Flow",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MWLOSSES": {
+      "description": "Calculated MW Losses",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PERIODID": {
+      "description": "PERIODID is just a period count, starting from 1 for each predispatch run. Use DATETIME to determine half hour period.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "PREDISPATCHSEQNO": {
+      "description": "Unique identifier of predispatch run in the form YYYYMMDDPP with 01 at 04:30",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(10, 0)",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUNNO": {
+      "description": "SPD Predispatch run no, typically 1. It increments if the case is re-run.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "VIOLATIONDEGREE": {
+      "description": "Degree of violation of interconnector constraint in MW",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    }
+  },
+  "required": [
+    "INTERCONNECTORID",
+    "DATETIME"
+  ],
+  "title": "PREDISPATCHINTERCONNECTORRES, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PREDISPATCHSEQNO",
+      "decimal(10, 0)"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "decimal(2, 0)"
+    ],
+    [
+      5,
+      "INTERVENTION",
+      "decimal(2, 0)"
+    ],
+    [
+      6,
+      "METEREDMWFLOW",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "MWFLOW",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "MWLOSSES",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "MARGINALVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "VIOLATIONDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      12,
+      "DATETIME",
+      "timestamptz"
+    ],
+    [
+      13,
+      "EXPORTLIMIT",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "IMPORTLIMIT",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "MARGINALLOSS",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "EXPORTGENCONID",
+      "string"
+    ],
+    [
+      17,
+      "IMPORTGENCONID",
+      "string"
+    ],
+    [
+      18,
+      "FCASEXPORTLIMIT",
+      "decimal(15, 5)"
+    ],
+    [
+      19,
+      "FCASIMPORTLIMIT",
+      "decimal(15, 5)"
+    ],
+    [
+      20,
+      "LOCAL_PRICE_ADJUSTMENT_EXPORT",
+      "decimal(10, 2)"
+    ],
+    [
+      21,
+      "LOCALLY_CONSTRAINED_EXPORT",
+      "decimal(1, 0)"
+    ],
+    [
+      22,
+      "LOCAL_PRICE_ADJUSTMENT_IMPORT",
+      "decimal(10, 2)"
+    ],
+    [
+      23,
+      "LOCALLY_CONSTRAINED_IMPORT",
+      "decimal(1, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    3,
+    12
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "PREDISPATCHINTERCONNECTORRES"
+  }
+}

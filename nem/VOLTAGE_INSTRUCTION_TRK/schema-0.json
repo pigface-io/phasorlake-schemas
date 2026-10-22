@@ -1,0 +1,174 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/VOLTAGE_INSTRUCTION_TRK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EST_EXPIRY": {
+      "description": "Estimated expiry time of current Instruction set",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "EST_NEXT_INSTRUCTION": {
+      "description": "Estimated issue time of next Instruction set",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "FILE_TYPE": {
+      "description": "Either 'SIGNAL' (childless) or 'INSTRUCTION'",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "OPERATING_MODE": {
+      "description": "The current VDS operating mode. Valid values: AUTO, AUTO-VERFIED, MANUAL",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(60)"
+    },
+    "OPERATING_STATUS": {
+      "description": "Unstructured code and message from AEMO",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(100)"
+    },
+    "RUN_DATETIME": {
+      "description": "MVAr Interval - a timestamp of when instructions issued",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "SE_DATETIME": {
+      "description": "State Estimator start time, when a snapshot is taken of SCADA values",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "SOLUTION_CATEGORY": {
+      "description": "VDS solver solution category. Valid values: SUCCESS, WARNING, FAILURE",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(60)"
+    },
+    "SOLUTION_STATUS": {
+      "description": "VDS solver solution status. Valid values: NOACTCNV [Solved with no instructions], NOVIOACT, CONVERGE, UNMANAGE, UNMANCTG, CTGDIV, SENHDIV [Failed with too many violations], BCDIV",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(60)"
+    },
+    "VERSION_DATETIME": {
+      "description": "Datetime the file was published by VDS - Versions differ from Run_DateTime only for Supplemental runs",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "VERSION_DATETIME"
+  ],
+  "title": "VOLTAGE_INSTRUCTION_TRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "FILE_TYPE",
+      "string"
+    ],
+    [
+      3,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "SE_DATETIME",
+      "timestamptz"
+    ],
+    [
+      5,
+      "SOLUTION_CATEGORY",
+      "string"
+    ],
+    [
+      6,
+      "SOLUTION_STATUS",
+      "string"
+    ],
+    [
+      7,
+      "OPERATING_MODE",
+      "string"
+    ],
+    [
+      8,
+      "OPERATING_STATUS",
+      "string"
+    ],
+    [
+      9,
+      "EST_EXPIRY",
+      "timestamptz"
+    ],
+    [
+      10,
+      "EST_NEXT_INSTRUCTION",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "VOLTAGE_INSTRUCTION_TRK"
+  }
+}

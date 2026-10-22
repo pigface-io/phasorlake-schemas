@@ -1,0 +1,96 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/P5MIN_SCENARIODEMAND/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DELTAMW": {
+      "description": "The MW offset to apply to region total demand for this SCENARIO",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(4, 0)",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "The effective date of this set of scenarios",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REGIONID": {
+      "description": "The region to which to apply the deltaMW for this SCENARIO",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "SCENARIO": {
+      "description": "The scenario identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "VERSION_DATETIME": {
+      "description": "The version of this set of scenarios",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [],
+  "title": "P5MIN_SCENARIODEMAND, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "SCENARIO",
+      "decimal(2, 0)"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "DELTAMW",
+      "decimal(4, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "P5MIN_SCENARIODEMAND"
+  }
+}

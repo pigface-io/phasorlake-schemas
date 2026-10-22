@@ -1,0 +1,141 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_P5_FWD_EST_RESIDUALRATE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "description": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "CONSTRAINTID": {
+      "description": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "EST_UNUSED_FCAS": {
+      "description": "Estimated unused recovery FCAS in AUD/MWh (the forward financial estimate of the recovery of unused FCAS, assuming that all is unused FCAS). This value will be either 0 (nil), or a negative value (debit) only. For details on the calculation, please see FPP procedure and supporting documentation. Please note that there may be cases where there is not yet a residual default contribution factor for the constraint (for example if there is a new constraint binding in p5min that has not yet bound in dispatch). In these scenarios there will be no EST_UNUSED_FCAS row sent for the constraint, as this is currently incalculable until a corresponding residual default contribution factor is calculated from a dispatch run with this constraint binding.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RELEVANT_REGIONS": {
+      "description": "Relevant regions (a comma separated list of the relevant regions for the constraint from FCAS data)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(200)"
+    },
+    "RUNNO": {
+      "description": "The 5 minute predispatch case run number that was the trigger for the constraint FCAS processor execution (as the FCAS requirement data is the basis for these forward estimates)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    },
+    "RUN_DATETIME": {
+      "description": "The run date and time of the 5 minute predispatch case that was the trigger for the constraint FCAS processor execution (as the FCAS requirement data is the basis of these forward estimates)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "VERSIONNO": {
+      "description": "The version number of the effective default contribution factor for the unit / constraint combination taken from the FPP_FORECAST_DEFAULT_CF table",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    }
+  },
+  "required": [],
+  "title": "FPP_P5_FWD_EST_RESIDUALRATE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(5, 0)"
+    ],
+    [
+      3,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      5,
+      "VERSIONNO",
+      "decimal(5, 0)"
+    ],
+    [
+      6,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      7,
+      "RELEVANT_REGIONS",
+      "string"
+    ],
+    [
+      8,
+      "EST_UNUSED_FCAS",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "FPP_P5_FWD_EST_RESIDUALRATE"
+  }
+}

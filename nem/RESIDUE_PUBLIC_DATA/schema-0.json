@@ -1,0 +1,153 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/RESIDUE_PUBLIC_DATA/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CLEARINGPRICE": {
+      "description": "Clearing price",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(17, 5)",
+      "x-model-type": "NUMERIC(17,5)"
+    },
+    "CONTRACTID": {
+      "description": "Unique id for each contract to be specified by AEMO",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "FROMREGIONID": {
+      "description": "Nominated source region for Interconnector",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "INTERCONNECTORID": {
+      "description": "Unique interconnector identifier",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "LASTCHANGED": {
+      "description": "Date and time this record was last changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RESERVEPRICE": {
+      "description": "Reserve price",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(17, 5)",
+      "x-model-type": "NUMERIC(17,5)"
+    },
+    "UNITSOFFERED": {
+      "description": "Total units offered for auction",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5,0)"
+    },
+    "UNITSSOLD": {
+      "description": "Units Sold (modified format and usage in March 2003 to support SRA Inter-Temporal Linking)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "VERSIONNO": {
+      "description": "Version Number",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "CONTRACTID",
+    "VERSIONNO",
+    "INTERCONNECTORID",
+    "FROMREGIONID"
+  ],
+  "title": "RESIDUE_PUBLIC_DATA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTID",
+      "string"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      4,
+      "FROMREGIONID",
+      "string"
+    ],
+    [
+      5,
+      "UNITSOFFERED",
+      "decimal(5, 0)"
+    ],
+    [
+      6,
+      "UNITSSOLD",
+      "decimal(16, 6)"
+    ],
+    [
+      7,
+      "CLEARINGPRICE",
+      "decimal(17, 5)"
+    ],
+    [
+      8,
+      "RESERVEPRICE",
+      "decimal(17, 5)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "RESIDUE_PUBLIC_DATA"
+  }
+}

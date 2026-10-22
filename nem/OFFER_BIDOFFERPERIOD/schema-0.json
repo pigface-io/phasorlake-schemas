@@ -1,0 +1,333 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/OFFER_BIDOFFERPERIOD/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BANDAVAIL1": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "BANDAVAIL10": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "BANDAVAIL2": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "BANDAVAIL3": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "BANDAVAIL4": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "BANDAVAIL5": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "BANDAVAIL6": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "BANDAVAIL7": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "BANDAVAIL8": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "BANDAVAIL9": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "BIDTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "DUID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "ENABLEMENTMAX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "ENABLEMENTMIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "FIXEDLOAD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "HIGHBREAKPOINT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "LOWBREAKPOINT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "MAXAVAIL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "OFFERDATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PASAAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "PERIODID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "RAMPDOWNRATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "RAMPUPRATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "TRADINGDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "OFFER_BIDOFFERPERIOD, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DUID",
+      "string"
+    ],
+    [
+      2,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      3,
+      "TRADINGDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      5,
+      "PERIODID",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "MAXAVAIL",
+      "decimal(4, 0)"
+    ],
+    [
+      7,
+      "FIXEDLOAD",
+      "decimal(3, 0)"
+    ],
+    [
+      8,
+      "RAMPUPRATE",
+      "decimal(3, 0)"
+    ],
+    [
+      9,
+      "RAMPDOWNRATE",
+      "decimal(3, 0)"
+    ],
+    [
+      10,
+      "ENABLEMENTMIN",
+      "decimal(3, 0)"
+    ],
+    [
+      11,
+      "ENABLEMENTMAX",
+      "decimal(4, 0)"
+    ],
+    [
+      12,
+      "LOWBREAKPOINT",
+      "decimal(3, 0)"
+    ],
+    [
+      13,
+      "HIGHBREAKPOINT",
+      "decimal(4, 0)"
+    ],
+    [
+      14,
+      "BANDAVAIL1",
+      "decimal(3, 0)"
+    ],
+    [
+      15,
+      "BANDAVAIL2",
+      "decimal(3, 0)"
+    ],
+    [
+      16,
+      "BANDAVAIL3",
+      "decimal(4, 0)"
+    ],
+    [
+      17,
+      "BANDAVAIL4",
+      "decimal(3, 0)"
+    ],
+    [
+      18,
+      "BANDAVAIL5",
+      "decimal(4, 0)"
+    ],
+    [
+      19,
+      "BANDAVAIL6",
+      "decimal(3, 0)"
+    ],
+    [
+      20,
+      "BANDAVAIL7",
+      "decimal(3, 0)"
+    ],
+    [
+      21,
+      "BANDAVAIL8",
+      "decimal(4, 0)"
+    ],
+    [
+      22,
+      "BANDAVAIL9",
+      "decimal(3, 0)"
+    ],
+    [
+      23,
+      "BANDAVAIL10",
+      "decimal(4, 0)"
+    ],
+    [
+      24,
+      "PASAAVAILABILITY",
+      "decimal(4, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "OFFER_BIDOFFERPERIOD"
+  }
+}

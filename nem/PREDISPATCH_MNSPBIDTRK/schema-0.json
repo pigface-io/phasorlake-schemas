@@ -1,0 +1,157 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PREDISPATCH_MNSPBIDTRK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DATETIME": {
+      "description": "Period expressed as Date/Time",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Record creation timestamp",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LINKID": {
+      "description": "Identifier for each of the two MNSP Interconnector Links. Each link pertains to the direction from and to.",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "OFFERDATE": {
+      "description": "Time this bid was processed and loaded",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    },
+    "PARTICIPANTID": {
+      "description": "Participant Identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "PERIODID": {
+      "description": "Trading Interval number",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "PREDISPATCHSEQNO": {
+      "description": "Predispatch run identifier",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Market Date from which bid is active",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "VERSIONNO": {
+      "description": "Version No. for given offer date and settlement date used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "PREDISPATCHSEQNO",
+    "LINKID",
+    "PERIODID"
+  ],
+  "title": "PREDISPATCH_MNSPBIDTRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PREDISPATCHSEQNO",
+      "long"
+    ],
+    [
+      2,
+      "LINKID",
+      "string"
+    ],
+    [
+      3,
+      "PERIODID",
+      "long"
+    ],
+    [
+      4,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      5,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "OFFERDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "VERSIONNO",
+      "decimal(3, 0)"
+    ],
+    [
+      8,
+      "DATETIME",
+      "timestamptz"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "PREDISPATCH_MNSPBIDTRK"
+  }
+}

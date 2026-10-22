@@ -1,0 +1,199 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_LOLPRESULT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DAY": {
+      "description": "Day this result is for",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOSSOFLOADMAGNITUDE": {
+      "description": "Loss of Load Magnitude for the worst interval in this region. Values are LOW, MEDIUM, HIGH",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LOSSOFLOADPROBABILITY": {
+      "description": "Loss of Load Probability for the worst interval in this region",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(8, 5)",
+      "x-model-type": "NUMERIC(8,5)"
+    },
+    "REGIONID": {
+      "description": "The unique region identifier",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUNTYPE": {
+      "description": "Type of run. Always LOLP",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUN_DATETIME": {
+      "description": "Date processing of the run begins.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUN_NO": {
+      "description": "Unique run id.",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4)"
+    },
+    "WORST_INTERVAL_DEMAND": {
+      "description": "The Abstract Operational Demand for the worst interval in this region (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "WORST_INTERVAL_DSP": {
+      "description": "The half hourly aggregate demand side participation for the worst interval period in this region (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "WORST_INTERVAL_INTGEN": {
+      "description": "The half hourly aggregate intermittent generation for the worst interval in this region (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "WORST_INTERVAL_PERIODID": {
+      "description": "The half hourly interval period with the highest LOLP, or highest region demand if LOLP = 0 for all intervals (1..48)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "RUN_NO",
+    "RUNTYPE",
+    "DAY",
+    "REGIONID"
+  ],
+  "title": "MTPASA_LOLPRESULT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUN_NO",
+      "long"
+    ],
+    [
+      3,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      4,
+      "DAY",
+      "timestamptz"
+    ],
+    [
+      5,
+      "REGIONID",
+      "string"
+    ],
+    [
+      6,
+      "WORST_INTERVAL_PERIODID",
+      "decimal(3, 0)"
+    ],
+    [
+      7,
+      "WORST_INTERVAL_DEMAND",
+      "decimal(12, 2)"
+    ],
+    [
+      8,
+      "WORST_INTERVAL_INTGEN",
+      "decimal(12, 2)"
+    ],
+    [
+      9,
+      "WORST_INTERVAL_DSP",
+      "decimal(12, 2)"
+    ],
+    [
+      10,
+      "LOSSOFLOADPROBABILITY",
+      "decimal(8, 5)"
+    ],
+    [
+      11,
+      "LOSSOFLOADMAGNITUDE",
+      "string"
+    ],
+    [
+      12,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MTPASA_LOLPRESULT"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_CONTRIBUTION_FACTOR/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "description": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "CF_ABS_NEGATIVE_PERF_TOTAL": {
+      "description": "The sum of absolute negative performance in MWHz for the combination of constraint / bid type (raise or lower). This is used as the denominator in normalising contribution factors (CF) where a units performance is negative. For further details please see the FPP procedure document. >0 = Performance was calculated for the units NULL = Performance for the units was unavailable",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "CF_ABS_POSITIVE_PERF_TOTAL": {
+      "description": "The sum of absolute positive performance in MWHz for the combination of constraint / bid type (raise or lower). This is used as the denominator in normalising contribution factors (CF) where a units performance is positive. For further details please see the FPP procedure document. >0 = Performance was calculated for the units NULL = Performance for the units was unavailable",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "CF_REASON_FLAG": {
+      "description": "The reason flag showing the decision matrix for the contribution factor (CF) Supported values are: 0 = CF is calculated based on good input data 1 = CF is 0 because it is not primary in the group 2 = CF is not for the DUID but for the whole group 4 = CF is calculated based on substitute performance 8 = CF is 0 because FM is unreliable. 16 = CF is 0 because more than 50 percent input is bad or not available.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    },
+    "CONSTRAINTID": {
+      "description": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "CONTRIBUTION_FACTOR": {
+      "description": "Contribution Factor (the calculated contribution factor for the FPP unit and constraint ID for that trading interval) - for further details please see the FPP procedure document",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "DEFAULT_CONTRIBUTION_FACTOR": {
+      "description": "The Default Contribution Factor (the calculated default contribution factor based on historical performance for the FPP unit and constraint ID for that trading interval) that is effective for this trading interval, which joins back to FPP_FORECAST_DEFAULT_CF - for further details please see the FPP procedure document",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "FPP_UNITID": {
+      "description": "FPP Unit ID (registered DUID/ TNI)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "NCF_ABS_NEGATIVE_PERF_TOTAL": {
+      "description": "The sum of absolute negative performance in MWHz for the combination of constraint / bid type (raise or lower). This is used as the denominator in normalising negative contribution factors (NCF). For further details please see the FPP procedure document. >0 = Performance was calculated for the units NULL = Performance for the units was unavailable 0 = When NCF is zero (i.e. CF is positive), then this total will be represented as zero",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "NEGATIVE_CONTRIBUTION_FACTOR": {
+      "description": "Negative Contribution Factor (the calculated negative contribution factor for the FPP unit and constraint ID for that trading interval) - for further details please see the FPP procedure document",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "PARTICIPANTID": {
+      "description": "Participant ID",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "SETTLEMENTS_UNITID": {
+      "description": "The Settlements Unit ID (registered DUID / TNI) Note that this SETTLEMENTS_UNITID is what is sent and used by the Settlements system, and may be different from the FPP_UNITID for non-scheduled loads where the FPP_UNITID may be a descriptive key, whereas what will be sent to Settlements as the SETTLEMENTS_UNITID will be the TNI code.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(50)"
+    },
+    "VERSIONNO": {
+      "description": "Version (FPP run number from the FPP database)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    }
+  },
+  "required": [],
+  "title": "FPP_CONTRIBUTION_FACTOR, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      3,
+      "FPP_UNITID",
+      "string"
+    ],
+    [
+      4,
+      "VERSIONNO",
+      "decimal(5, 0)"
+    ],
+    [
+      5,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      6,
+      "CONTRIBUTION_FACTOR",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "NEGATIVE_CONTRIBUTION_FACTOR",
+      "decimal(18, 8)"
+    ],
+    [
+      8,
+      "DEFAULT_CONTRIBUTION_FACTOR",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "CF_REASON_FLAG",
+      "decimal(5, 0)"
+    ],
+    [
+      10,
+      "CF_ABS_POSITIVE_PERF_TOTAL",
+      "decimal(18, 8)"
+    ],
+    [
+      11,
+      "CF_ABS_NEGATIVE_PERF_TOTAL",
+      "decimal(18, 8)"
+    ],
+    [
+      12,
+      "NCF_ABS_NEGATIVE_PERF_TOTAL",
+      "decimal(18, 8)"
+    ],
+    [
+      13,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      14,
+      "SETTLEMENTS_UNITID",
+      "string"
+    ],
+    [
+      15,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "FPP_CONTRIBUTION_FACTOR"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLSMELTERRATE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUTHORISEDBY": {
+      "description": "Who authorised",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "AUTHORISEDDATE": {
+      "description": "Authorised date",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "CONTRACTYEAR": {
+      "description": "AEMO Contract Year number starting in week containing 1st January",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(22,0)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Calendar settlement date record becomes effective",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RAR1": {
+      "description": "Smelter rate 1",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(6, 2)",
+      "x-model-type": "NUMERIC(6,2)"
+    },
+    "RAR2": {
+      "description": "Smelter rate 2",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(6, 2)",
+      "x-model-type": "NUMERIC(6,2)"
+    },
+    "VERSIONNO": {
+      "description": "Version no of the record for the given effective date",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "VERSIONNO",
+    "CONTRACTYEAR"
+  ],
+  "title": "BILLSMELTERRATE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      4,
+      "RAR1",
+      "decimal(6, 2)"
+    ],
+    [
+      5,
+      "RAR2",
+      "decimal(6, 2)"
+    ],
+    [
+      6,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "BILLSMELTERRATE"
+  }
+}

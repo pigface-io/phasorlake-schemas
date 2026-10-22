@@ -1,0 +1,171 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/AUCTION_TRANCHE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUCTIONDATE": {
+      "description": "Default date of the auction",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "CHANGEDATE": {
+      "description": "Date of changing this record",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "CHANGEDBY": {
+      "description": "Name of person who changed this record",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "CONTRACTYEAR": {
+      "description": "SRA Contracted Year",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Date and time record was last changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "NOTIFYDATE": {
+      "description": "Default date participants notified of details",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "QUARTER": {
+      "description": "SRA Contracted Quarter",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "TRANCHE": {
+      "description": "Label identifying the arbitrary segmented share of the Interconnector flow",
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "UNITALLOCATION": {
+      "description": "Percentage of units allocated to the tranche",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "VERSIONNO": {
+      "description": "Version of data for other key data - a higher version for same key data will take precedence",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "QUARTER",
+    "VERSIONNO",
+    "TRANCHE"
+  ],
+  "title": "AUCTION_TRANCHE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "QUARTER",
+      "long"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "TRANCHE",
+      "long"
+    ],
+    [
+      5,
+      "AUCTIONDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "NOTIFYDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "UNITALLOCATION",
+      "decimal(18, 8)"
+    ],
+    [
+      8,
+      "CHANGEDATE",
+      "timestamptz"
+    ],
+    [
+      9,
+      "CHANGEDBY",
+      "string"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "AUCTION_TRANCHE"
+  }
+}

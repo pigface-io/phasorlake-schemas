@@ -1,0 +1,84 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_REGIONAVAIL_TRK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ENDDATE": {
+      "description": "Last date of the report inclusive.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LATEST_OFFER_DATETIME": {
+      "description": "Date Time of the latest offer used in the report.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PUBLISH_DATETIME": {
+      "description": "Date Time the report was published.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "STARTDATE": {
+      "description": "First date of the report inclusive.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "PUBLISH_DATETIME"
+  ],
+  "title": "MTPASA_REGIONAVAIL_TRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PUBLISH_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "LATEST_OFFER_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MTPASA_REGIONAVAIL_TRK"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BIDTYPES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "description": "Bid Type Identifier",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "DESCRIPTION": {
+      "description": "Description of this Bid Type",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(64)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Market date starting at 04:30 inclusive",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "NUMBEROFBANDS": {
+      "description": "Number of active bands (1 to 10)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "NUMDAYSAHEADPRICELOCKED": {
+      "description": "Number of days prior to the Market Day when prices are locked from 12:30pm",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "SPDALIAS": {
+      "description": "Alias for this BIDTYPE used in the SPD Solver",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "VALIDATIONRULE": {
+      "description": "ENERGY or AS validation rules to apply.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "VERSIONNO": {
+      "description": "Record version number",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "BIDTYPE",
+    "EFFECTIVEDATE",
+    "VERSIONNO"
+  ],
+  "title": "BIDTYPES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      5,
+      "NUMBEROFBANDS",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "NUMDAYSAHEADPRICELOCKED",
+      "decimal(2, 0)"
+    ],
+    [
+      7,
+      "VALIDATIONRULE",
+      "string"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      9,
+      "SPDALIAS",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "BIDTYPES"
+  }
+}

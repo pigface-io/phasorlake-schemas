@@ -1,0 +1,200 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/APEVENTREGION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APEVENTID": {
+      "description": "Unique identifier for this administered pricing event",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(22,0)"
+    },
+    "ENERGYAPFLAG": {
+      "description": "flag indicating if the apevent covers an energy AP",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Date Time of the final Dispatch Interval to which the administered event applies",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOWER5MINAPFLAG": {
+      "description": "flag indicating if the apevent covers a lower5min AP",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "LOWER60SECAPFLAG": {
+      "description": "flag indicating if the apevent covers a lower60sec AP\nflag indicating if the apevent covers a lower5min AP\nflag indicating if the apevent covers a lowerreg AP\nflag indicating if the apevent covers a lower60sec AP",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "LOWER6SECAPFLAG": {
+      "description": "flag indicating if the apevent covers a lower6sec AP",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "LOWERREGAPFLAG": {
+      "description": "flag indicating if the apevent covers a lowerreg AP",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "RAISE5MINAPFLAG": {
+      "description": "flag indicating if the apevent covers a raise5min AP",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "RAISE60SECAPFLAG": {
+      "description": "flag indicating if the apevent covers a raise60sec AP",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "RAISE6SECAPFLAG": {
+      "description": "flag indicating if the apevent covers a raise6sec AP",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "RAISEREGAPFLAG": {
+      "description": "flag indicating if the apevent covers a raisereg AP",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "REGIONID": {
+      "description": "Date-Time of the first Dispatch Interval to which the administered event applies",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    }
+  },
+  "required": [
+    "APEVENTID",
+    "REGIONID"
+  ],
+  "title": "APEVENTREGION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "APEVENTID",
+      "long"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      4,
+      "ENERGYAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "RAISE6SECAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "RAISE60SECAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      7,
+      "RAISE5MINAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      8,
+      "RAISEREGAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "LOWER6SECAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      10,
+      "LOWER60SECAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      11,
+      "LOWER5MINAPFLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      12,
+      "LOWERREGAPFLAG",
+      "decimal(1, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "APEVENTREGION"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_CASERESULT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PLEXOS_VERSION": {
+      "description": "Version of PLEXOS used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(4, 3)",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUN_DATETIME": {
+      "description": "Date processing of the run begins.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUN_NO": {
+      "description": "Unique run id.",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "RUN_NO"
+  ],
+  "title": "MTPASA_CASERESULT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUN_NO",
+      "long"
+    ],
+    [
+      3,
+      "PLEXOS_VERSION",
+      "decimal(4, 3)"
+    ],
+    [
+      4,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MTPASA_CASERESULT"
+  }
+}

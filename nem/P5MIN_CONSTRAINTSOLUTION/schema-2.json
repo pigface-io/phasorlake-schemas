@@ -1,0 +1,202 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/P5MIN_CONSTRAINTSOLUTION/schema-2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONSTRAINTID": {
+      "description": "Constraint identifier (synonymous with GenConID)",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "DUID": {
+      "description": "DUID to which the Constraint is confidential. Null denotes non-confidential",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "GENCONID_EFFECTIVEDATE": {
+      "description": "Effective date of the Generic Constraint (ConstraintID). This field is used to track the version of this generic constraint applied in this dispatch interval",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "GENCONID_VERSIONNO": {
+      "description": "Version number of the Generic Constraint (ConstraintID). This field is used to track the version of this generic constraint applied in this dispatch interval",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(22,0)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "The unique identifier for the interval within this study",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "INTERVENTION": {
+      "description": "Flag to indicate if this result set was sourced from the pricing run (INTERVENTION=0) or the physical run(INTERVENTION=1). In the event there is not intervention in the market, both pricing and physical runs correspond to INTERVENTION=0)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LHS": {
+      "description": "Aggregation of the constraints LHS term solution values",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MARGINALVALUE": {
+      "description": "Marginal cost of constraint (>0 if binding)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 6)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RHS": {
+      "description": "Right Hand Side value in the capacity evaluation",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RUN_DATETIME": {
+      "description": "Unique Timestamp Identifier for this study",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "VIOLATIONDEGREE": {
+      "description": "Amount of Violation (>0 if  violating)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "INTERVAL_DATETIME",
+    "CONSTRAINTID"
+  ],
+  "title": "P5MIN_CONSTRAINTSOLUTION, Iceberg schema 2",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      12,
+      "INTERVENTION",
+      "decimal(2, 0)"
+    ],
+    [
+      2,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      4,
+      "RHS",
+      "decimal(15, 5)"
+    ],
+    [
+      5,
+      "MARGINALVALUE",
+      "decimal(15, 6)"
+    ],
+    [
+      6,
+      "VIOLATIONDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      13,
+      "DUID",
+      "string"
+    ],
+    [
+      9,
+      "GENCONID_EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      10,
+      "GENCONID_VERSIONNO",
+      "double"
+    ],
+    [
+      11,
+      "LHS",
+      "decimal(15, 5)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 2,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "P5MIN_CONSTRAINTSOLUTION"
+  }
+}

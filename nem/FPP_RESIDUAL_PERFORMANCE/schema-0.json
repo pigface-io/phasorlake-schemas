@@ -1,0 +1,125 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_RESIDUAL_PERFORMANCE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "INTERVAL_DATETIME": {
+      "description": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOWER_PERFORMANCE": {
+      "description": "Lower performance value in MWHz units (calculated by FPP for that trading interval taken from FPP database)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 5)",
+      "x-model-type": "NUMERIC(18,5)"
+    },
+    "LOWER_REASON_FLAG": {
+      "description": "The reason flag showing the decision matrix for the lower performance value Supported values are: 0 = Performance is calculated based on good input data 4 = Performance is Null as Input data is bad or unavailable 8 = Performance is Null as FM is unreliable 12 = Performance is Null as Input data is bad or unavailable and FM is unreliable",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    },
+    "RAISE_PERFORMANCE": {
+      "description": "Raise performance value in MWHz units (calculated by FPP for that trading interval taken from FPP database)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(18, 5)",
+      "x-model-type": "NUMERIC(18,5)"
+    },
+    "RAISE_REASON_FLAG": {
+      "description": "The reason flag showing the decision matrix for the raise performance value Supported values are: 0 = Performance is calculated based on good input data 4 = Performance is Null as Input data is bad or unavailable 8 = Performance is Null as FM is unreliable 12 = Performance is Null as Input data is bad or unavailable and FM is unreliable",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    },
+    "REGIONID": {
+      "description": "Region ID of the residual performance",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "VERSIONNO": {
+      "description": "Version (FPP run number from the FPP database)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    }
+  },
+  "required": [],
+  "title": "FPP_RESIDUAL_PERFORMANCE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "decimal(5, 0)"
+    ],
+    [
+      4,
+      "RAISE_PERFORMANCE",
+      "decimal(18, 5)"
+    ],
+    [
+      5,
+      "RAISE_REASON_FLAG",
+      "decimal(5, 0)"
+    ],
+    [
+      6,
+      "LOWER_PERFORMANCE",
+      "decimal(18, 5)"
+    ],
+    [
+      7,
+      "LOWER_REASON_FLAG",
+      "decimal(5, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "FPP_RESIDUAL_PERFORMANCE"
+  }
+}

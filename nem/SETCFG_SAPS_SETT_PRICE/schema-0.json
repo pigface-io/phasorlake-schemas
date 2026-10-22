@@ -1,0 +1,128 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SETCFG_SAPS_SETT_PRICE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "FROMDATE": {
+      "description": "The From Date of the SAPS Pricing Application Period",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "ISFIRM": {
+      "description": "Whether the SAPS Price is Firm or Non-Firm",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LASTCHANGED": {
+      "description": "The Last Changed Date time of the record",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REGIONID": {
+      "description": "The Region ID for which the calculated SAPS Price is applicable",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "SAPS_RRP": {
+      "description": "The Region Reference Price for SAPS in the Region",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "TODATE": {
+      "description": "The To Date of the SAPS Pricing Application Period",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "VERSION_DATETIME": {
+      "description": "The Date time of the record generation",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [],
+  "title": "SETCFG_SAPS_SETT_PRICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FROMDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "TODATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      5,
+      "SAPS_RRP",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "ISFIRM",
+      "decimal(3, 0)"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SETCFG_SAPS_SETT_PRICE"
+  }
+}

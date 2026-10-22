@@ -1,0 +1,95 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/EMSMASTER/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DESCRIPTION": {
+      "description": "The detailed description of the SCADA point associated with the SPD_ID",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(255)"
+    },
+    "GROUPING_ID": {
+      "description": "The Grouping associated with the SPD ID - most often a RegionID",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "SPD_ID": {
+      "description": "ID defining data source",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(21)"
+    },
+    "SPD_TYPE": {
+      "description": "ID describing type of data source",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(1)"
+    }
+  },
+  "required": [
+    "SPD_ID",
+    "SPD_TYPE"
+  ],
+  "title": "EMSMASTER, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SPD_ID",
+      "string"
+    ],
+    [
+      2,
+      "SPD_TYPE",
+      "string"
+    ],
+    [
+      3,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      4,
+      "GROUPING_ID",
+      "string"
+    ],
+    [
+      5,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "EMSMASTER"
+  }
+}

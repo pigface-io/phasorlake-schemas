@@ -1,0 +1,109 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/LOSSFACTORMODEL/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DEMANDCOEFFICIENT": {
+      "description": "The coefficient applied to the region demand in the calculation of the interconnector loss factor",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(27,17)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Calendar date data set is effective",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "INTERCONNECTORID": {
+      "description": "The unique identifier for the interconnector.",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REGIONID": {
+      "description": "The unique region identifier for a connection point of the interconnector",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "VERSIONNO": {
+      "description": "Version number within effective date of the status proposed",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "VERSIONNO",
+    "INTERCONNECTORID",
+    "REGIONID"
+  ],
+  "title": "LOSSFACTORMODEL, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "DEMANDCOEFFICIENT",
+      "double"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "LOSSFACTORMODEL"
+  }
+}

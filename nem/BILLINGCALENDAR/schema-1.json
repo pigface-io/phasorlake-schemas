@@ -1,0 +1,177 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLINGCALENDAR/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONTRACTYEAR": {
+      "description": "AEMO Contract Year number starting in week containing 1st January",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "ENDDATE": {
+      "description": "End Date of week",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "FINALSTATEMENTDATE": {
+      "description": "Final Statement Date",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PAYMENTDATE": {
+      "description": "Payment Date",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PRELIMINARYSTATEMENTDATE": {
+      "description": "Preliminary Statement Date",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REVISION1_STATEMENTDATE": {
+      "description": "Revision 1 Statement Date for the billing week.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REVISION2_STATEMENTDATE": {
+      "description": "Revision 2 Statement Date for the billing week.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "STARTDATE": {
+      "description": "Start Date of week",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "WEEKNO": {
+      "description": "Week no within the contract year. Week no 1 is the week containing 1st January",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "WEEKNO"
+  ],
+  "title": "BILLINGCALENDAR, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "WEEKNO",
+      "long"
+    ],
+    [
+      3,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "PRELIMINARYSTATEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "FINALSTATEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "PAYMENTDATE",
+      "timestamptz"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      9,
+      "REVISION1_STATEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      10,
+      "REVISION2_STATEMENTDATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "BILLINGCALENDAR"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/CONSTRAINTRELAXATION_OCD/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONSTRAINTID": {
+      "description": "Constraint identifier",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RHS": {
+      "description": "Relaxed RHS used in attempt to avoid constraint violation",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "RUNNO": {
+      "description": "Dispatch run no",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "End date and time of the dispatch interval",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "VERSIONNO": {
+      "description": "Version Number",
+      "type": "integer",
+      "x-field-id": 6,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "RUNNO",
+    "CONSTRAINTID",
+    "VERSIONNO"
+  ],
+  "title": "CONSTRAINTRELAXATION_OCD, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "long"
+    ],
+    [
+      3,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      4,
+      "RHS",
+      "decimal(16, 6)"
+    ],
+    [
+      5,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      6,
+      "VERSIONNO",
+      "long"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    6
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "CONSTRAINTRELAXATION_OCD"
+  }
+}

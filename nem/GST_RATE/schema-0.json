@@ -1,0 +1,95 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GST_RATE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BAS_CLASS": {
+      "description": "The BAS classification",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "The effective date of the data set",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "GST_RATE": {
+      "description": "The GST rate that applies to this BAS classification",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(8, 5)",
+      "x-model-type": "NUMERIC(8,5)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time the record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "VERSIONNO": {
+      "description": "The version number of the data set",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "VERSIONNO",
+    "BAS_CLASS"
+  ],
+  "title": "GST_RATE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "BAS_CLASS",
+      "string"
+    ],
+    [
+      4,
+      "GST_RATE",
+      "decimal(8, 5)"
+    ],
+    [
+      5,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GST_RATE"
+  }
+}

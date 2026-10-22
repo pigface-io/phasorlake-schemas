@@ -1,0 +1,186 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/STATION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADDRESS1": {
+      "description": "Station Address",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(80)"
+    },
+    "ADDRESS2": {
+      "description": "Station Address",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(80)"
+    },
+    "ADDRESS3": {
+      "description": "Station Address",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(80)"
+    },
+    "ADDRESS4": {
+      "description": "Station Address",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(80)"
+    },
+    "CITY": {
+      "description": "City",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(40)"
+    },
+    "CONNECTIONPOINTID": {
+      "description": "Not used. Do not use as the Connection Point Identifier for station load",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "POSTCODE": {
+      "description": "Post Code",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "STATE": {
+      "description": "State of Australia",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "STATIONID": {
+      "description": "Station Identifier",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "STATIONNAME": {
+      "description": "Full name of station",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(80)"
+    }
+  },
+  "required": [
+    "STATIONID"
+  ],
+  "title": "STATION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "STATIONID",
+      "string"
+    ],
+    [
+      2,
+      "STATIONNAME",
+      "string"
+    ],
+    [
+      3,
+      "ADDRESS1",
+      "string"
+    ],
+    [
+      4,
+      "ADDRESS2",
+      "string"
+    ],
+    [
+      5,
+      "ADDRESS3",
+      "string"
+    ],
+    [
+      6,
+      "ADDRESS4",
+      "string"
+    ],
+    [
+      7,
+      "CITY",
+      "string"
+    ],
+    [
+      8,
+      "STATE",
+      "string"
+    ],
+    [
+      9,
+      "POSTCODE",
+      "string"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      11,
+      "CONNECTIONPOINTID",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STATION"
+  }
+}

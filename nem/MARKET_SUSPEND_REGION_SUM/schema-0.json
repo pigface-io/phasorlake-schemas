@@ -1,0 +1,113 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MARKET_SUSPEND_REGION_SUM/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "END_REGION_INTERVAL": {
+      "description": "Last Dispatch interval for the Suspension event for this Region",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "END_SUSPENSION_INTERVAL": {
+      "description": "Last Dispatch interval for the Suspension event",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "INITIAL_INTERVAL": {
+      "description": "Initial interval of the Suspension event",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last DateTime the Suspension was administered",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REGIONID": {
+      "description": "Region(s) covered by the Suspension event",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "SUSPENSION_ID": {
+      "description": "Unique identifier for this suspension event",
+      "type": "number",
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(13, 1)",
+      "x-model-type": "VARCHAR(20)"
+    }
+  },
+  "required": [
+    "SUSPENSION_ID",
+    "REGIONID"
+  ],
+  "title": "MARKET_SUSPEND_REGION_SUM, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SUSPENSION_ID",
+      "decimal(13, 1)"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "INITIAL_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      4,
+      "END_REGION_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      5,
+      "END_SUSPENSION_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MARKET_SUSPEND_REGION_SUM"
+  }
+}

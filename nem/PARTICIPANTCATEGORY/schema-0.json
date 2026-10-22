@@ -1,0 +1,66 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PARTICIPANTCATEGORY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DESCRIPTION": {
+      "description": "Category description",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(64)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PARTICIPANTCATEGORYID": {
+      "description": "Participant category identifier",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    }
+  },
+  "required": [
+    "PARTICIPANTCATEGORYID"
+  ],
+  "title": "PARTICIPANTCATEGORY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PARTICIPANTCATEGORYID",
+      "string"
+    ],
+    [
+      2,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      3,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "PARTICIPANTCATEGORY"
+  }
+}

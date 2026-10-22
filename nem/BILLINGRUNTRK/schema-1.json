@@ -1,0 +1,276 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLINGRUNTRK/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADJ_CLEARED": {
+      "description": "Flag",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "AUTHORISEDBY": {
+      "description": "null, since not used",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "AUTHORISEDDATE": {
+      "description": "null, since not used",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "BILLRUNNO": {
+      "description": "Sequential run number",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "CONTRACTYEAR": {
+      "description": "Year of the run",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MAKEUP": {
+      "description": "Not Used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 8)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PAYMENTPOSTBY": {
+      "description": "Who posted the payment",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "PAYMENTPOSTDATE": {
+      "description": "When the payment was posted",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "POSTBY": {
+      "description": "Who posted the results",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "POSTDATE": {
+      "description": "When the results were posted",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RECEIPTPOSTBY": {
+      "description": "null, since not used",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "RECEIPTPOSTDATE": {
+      "description": "null, since not used",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REVISIONINDEX": {
+      "description": "Revision Run Type",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "SHORTFALL": {
+      "description": "Payment shortfall amount",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(16, 8)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "STATUS": {
+      "description": "The billing run type, PRELIM, FINAL, REVISE or INTERIM",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(6)"
+    },
+    "WEEKNO": {
+      "description": "Week number of the run",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "WEEKNO",
+    "BILLRUNNO"
+  ],
+  "title": "BILLINGRUNTRK, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "WEEKNO",
+      "long"
+    ],
+    [
+      3,
+      "BILLRUNNO",
+      "long"
+    ],
+    [
+      4,
+      "STATUS",
+      "string"
+    ],
+    [
+      5,
+      "ADJ_CLEARED",
+      "string"
+    ],
+    [
+      6,
+      "AUTHORISEDDATE",
+      "string"
+    ],
+    [
+      7,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      8,
+      "POSTDATE",
+      "timestamptz"
+    ],
+    [
+      9,
+      "POSTBY",
+      "string"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      11,
+      "RECEIPTPOSTDATE",
+      "string"
+    ],
+    [
+      12,
+      "RECEIPTPOSTBY",
+      "string"
+    ],
+    [
+      13,
+      "PAYMENTPOSTDATE",
+      "timestamptz"
+    ],
+    [
+      14,
+      "PAYMENTPOSTBY",
+      "string"
+    ],
+    [
+      15,
+      "SHORTFALL",
+      "decimal(16, 8)"
+    ],
+    [
+      16,
+      "MAKEUP",
+      "decimal(15, 8)"
+    ],
+    [
+      17,
+      "REVISIONINDEX",
+      "long"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "BILLINGRUNTRK"
+  }
+}

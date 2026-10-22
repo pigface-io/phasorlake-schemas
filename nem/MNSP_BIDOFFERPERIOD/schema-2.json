@@ -1,0 +1,304 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MNSP_BIDOFFERPERIOD/schema-2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BANDAVAIL1": {
+      "description": "Availability at price band 1",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL10": {
+      "description": "Availability at price band 10",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL2": {
+      "description": "Availability at price band 2",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL3": {
+      "description": "Availability at price band 3",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL4": {
+      "description": "Availability at price band 4",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL5": {
+      "description": "Availability at price band 5",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL6": {
+      "description": "Availability at price band 6",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL7": {
+      "description": "Availability at price band 7",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL8": {
+      "description": "Availability at price band 8",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL9": {
+      "description": "Availability at price band 9",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "FIXEDLOAD": {
+      "description": "Fixed unit output, in MW. A value of NULL means no fixed load so the unit is dispatched according to bid and the market.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "LINKID": {
+      "description": "Identifier for each of the two MNSP Interconnector Links. Each link pertains to the direction from and to.",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "MAXAVAIL": {
+      "description": "Maximum planned availability MW",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "OFFERDATETIME": {
+      "description": "Time this bid was processed and loaded",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    },
+    "PASAAVAILABILITY": {
+      "description": "Allows for future use for Energy bids, being the physical plant capability including any capability potentially available within 24 hours",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "PERIODID": {
+      "description": "Period ID, 1 to 288",
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAMPUPRATE": {
+      "description": "Ramp rate (MW / min) in the positive direction of flow for this MNSP link for this half-hour period",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMERIC(6)"
+    },
+    "RECALL_PERIOD": {
+      "description": "The advance notice(in hours) that a Scheduled Resource requires to achieve the PASA Availability MW for this trading interval",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "TRADINGDATE": {
+      "description": "The trading date this bid is for",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "LINKID",
+    "TRADINGDATE",
+    "OFFERDATETIME",
+    "PERIODID"
+  ],
+  "title": "MNSP_BIDOFFERPERIOD, Iceberg schema 2",
+  "type": "object",
+  "x-fields": [
+    [
+      3,
+      "LINKID",
+      "string"
+    ],
+    [
+      1,
+      "TRADINGDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "PERIODID",
+      "long"
+    ],
+    [
+      5,
+      "MAXAVAIL",
+      "decimal(8, 3)"
+    ],
+    [
+      16,
+      "FIXEDLOAD",
+      "decimal(8, 3)"
+    ],
+    [
+      17,
+      "RAMPUPRATE",
+      "decimal(6, 0)"
+    ],
+    [
+      6,
+      "BANDAVAIL1",
+      "decimal(8, 3)"
+    ],
+    [
+      7,
+      "BANDAVAIL2",
+      "decimal(8, 3)"
+    ],
+    [
+      8,
+      "BANDAVAIL3",
+      "decimal(8, 3)"
+    ],
+    [
+      9,
+      "BANDAVAIL4",
+      "decimal(8, 3)"
+    ],
+    [
+      10,
+      "BANDAVAIL5",
+      "decimal(8, 3)"
+    ],
+    [
+      11,
+      "BANDAVAIL6",
+      "decimal(8, 3)"
+    ],
+    [
+      12,
+      "BANDAVAIL7",
+      "decimal(8, 3)"
+    ],
+    [
+      13,
+      "BANDAVAIL8",
+      "decimal(8, 3)"
+    ],
+    [
+      14,
+      "BANDAVAIL9",
+      "decimal(8, 3)"
+    ],
+    [
+      15,
+      "BANDAVAIL10",
+      "decimal(8, 3)"
+    ],
+    [
+      18,
+      "PASAAVAILABILITY",
+      "decimal(8, 3)"
+    ],
+    [
+      19,
+      "RECALL_PERIOD",
+      "decimal(8, 3)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 2,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MNSP_BIDOFFERPERIOD"
+  }
+}

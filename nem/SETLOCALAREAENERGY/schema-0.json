@@ -1,0 +1,169 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SETLOCALAREAENERGY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADME": {
+      "description": "ADME component of UFE for the local area in this trading interval, in MWh.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "ADMELA": {
+      "description": "The sum of all DME amounts for each Market Customer FRMP and TNI in the local area, in this trading interval.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "DDME": {
+      "description": "DDME component of UFE for the local area in this trading interval, in MWh.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "LASTCHANGED": {
+      "description": "Last changed date time for the record",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOCALAREAID": {
+      "description": "Unique identifier for the local area",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "PERIODID": {
+      "description": "Settlement Trading Interval",
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Settlement date of the settlement run",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "SETTLEMENTRUNNO": {
+      "description": "Settlement run number of the settlement run",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "TME": {
+      "description": "TME component of UFE for the local area in this trading interval, in MWh.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "UFE": {
+      "description": "Total unaccounted-for energy for the local area in this trading interval, in MWh",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "SETTLEMENTRUNNO",
+    "LOCALAREAID",
+    "PERIODID"
+  ],
+  "title": "SETLOCALAREAENERGY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "SETTLEMENTRUNNO",
+      "long"
+    ],
+    [
+      3,
+      "LOCALAREAID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "long"
+    ],
+    [
+      5,
+      "UFE",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "DDME",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "TME",
+      "decimal(18, 8)"
+    ],
+    [
+      8,
+      "ADME",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "ADMELA",
+      "decimal(18, 8)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SETLOCALAREAENERGY"
+  }
+}

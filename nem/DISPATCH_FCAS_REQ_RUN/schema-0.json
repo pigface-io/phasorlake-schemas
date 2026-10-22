@@ -1,0 +1,66 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCH_FCAS_REQ_RUN/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "LASTCHANGED": {
+      "description": "The last time the constraint FCAS processor was executed for this case run time.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUNNO": {
+      "description": "The dispatch case run number that has triggers the constraint FCAS processor run",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    },
+    "RUN_DATETIME": {
+      "description": "The run date and time of the dispatch case that triggers the constraint FCAS processor run",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [],
+  "title": "DISPATCH_FCAS_REQ_RUN, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(5, 0)"
+    ],
+    [
+      3,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DISPATCH_FCAS_REQ_RUN"
+  }
+}

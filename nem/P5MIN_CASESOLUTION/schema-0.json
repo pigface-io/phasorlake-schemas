@@ -1,0 +1,292 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/P5MIN_CASESOLUTION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "LASTCHANGED": {
+      "description": "Last changed date and time of this record",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "NONPHYSICALLOSSES": {
+      "description": "Flag to indicate non-physical losses occurred in this study",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "RUN_DATETIME": {
+      "description": "Unique Timestamp Identifier for this study",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "STARTINTERVAL_DATETIME": {
+      "description": "Date and Time of first interval in study",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "TOTAL5MINVIOLATION": {
+      "description": "Sum of regional 5 min FCAS violations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTAL60SECVIOLATION": {
+      "description": "Sum of regional 60 sec FCAS violations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTAL6SECVIOLATION": {
+      "description": "Sum of regional 6 sec FCAS violations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTALAREAGENVIOLATION": {
+      "description": "Sum of Regional Energy balance violations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTALASPROFILEVIOLATION": {
+      "description": "Sum of unit FCAS profile offer violations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTALENERGYCONSTRVIOLATION": {
+      "description": "Sum of unit energy constrained violations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTALENERGYOFFERVIOLATION": {
+      "description": "Sum of unit offer violations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTALFASTSTARTVIOLATION": {
+      "description": "Sum of unit Fast start profile violations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTALGENERICVIOLATION": {
+      "description": "Sum of Generic Constraint violations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTALINTERCONNECTORVIOLATION": {
+      "description": "Sum of Interconnector violations of standing data limits",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTALOBJECTIVE": {
+      "description": "The Objective function from the LP",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(27,10)"
+    },
+    "TOTALRAMPRATEVIOLATION": {
+      "description": "Sum of Unit Ramp Rate violations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTALREGVIOLATION": {
+      "description": "Sum of regional regulation FCAS violations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTALUNITMWCAPACITYVIOLATION": {
+      "description": "Sum of unit capacity violations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME"
+  ],
+  "title": "P5MIN_CASESOLUTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "STARTINTERVAL_DATETIME",
+      "string"
+    ],
+    [
+      3,
+      "TOTALOBJECTIVE",
+      "double"
+    ],
+    [
+      4,
+      "NONPHYSICALLOSSES",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "TOTALAREAGENVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      6,
+      "TOTALINTERCONNECTORVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "TOTALGENERICVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "TOTALRAMPRATEVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "TOTALUNITMWCAPACITYVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "TOTAL5MINVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "TOTALREGVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "TOTAL6SECVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "TOTAL60SECVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "TOTALENERGYCONSTRVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "TOTALENERGYOFFERVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "TOTALASPROFILEVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "TOTALFASTSTARTVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      18,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "P5MIN_CASESOLUTION"
+  }
+}

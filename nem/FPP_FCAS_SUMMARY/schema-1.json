@@ -1,0 +1,246 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_FCAS_SUMMARY/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BASE_COST": {
+      "description": "Base cost in AUD related to the constraint (from FCAS data used for FPP calculations)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "BIDTYPE": {
+      "description": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations, i.e. RAISEREG or LOWERREG)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "CONSTRAINTID": {
+      "description": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "CONSTRAINT_MARGINAL_VALUE": {
+      "description": "Marginal value in AUD/MW per hour related to the constraint (from FCAS data used for FPP calculations)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "P_REGULATION": {
+      "description": "P regulation value in AUD/MW per hour related to the constraint (from FCAS data used for FPP calculations also known as adjusted marginal value)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "RCR": {
+      "description": "RCR MW (the calculated requirement for corrective response from FPP database). Note that this is a join back to the FPP_RCR table.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(18, 5)",
+      "x-model-type": "NUMERIC(18,5)"
+    },
+    "REGULATION_MW": {
+      "description": "Enabled regulation MW used in the FPP calculation (from FPP database)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "RELEVANT_REGIONS": {
+      "description": "Relevant regions (a comma separated list of the relevant regions for the constraint from FCAS data)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(200)"
+    },
+    "RUNNO": {
+      "description": "The dispatch case run number that was the trigger for the constraint FCAS processor execution",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    },
+    "RUN_DATETIME": {
+      "description": "The run date and time of the dispatch case that was the trigger for the constraint FCAS processor execution",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "TOTAL_FPP": {
+      "description": "Total amount of FPP in AUD changing hands related to the constraint (note that this is not the sum of FPP)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "TSFCAS": {
+      "description": "TSFCAS in AUD related to the constraint (FCAS recovery amount related to the constraint also known as adjusted cost)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "USAGE_VALUE": {
+      "description": "Usage (calculation of the proportion of regulation FCAS that was calculated to be used). Note that this is a join back to the FPP_USAGE table.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "VERSIONNO": {
+      "description": "The version number. In most cases this version will be the FPP run number from the FPP database, however there are some cases (like a new pricing run of the constraint FCAS processor received by the FPP system) where the version number listed here will be the financial estimate run number from the FPP database (this number is a different sequence from the FPP run number because there is no recalculation of performance or contribution, just changes to pricing / p regulation hence only the financial estimation is performed).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(10, 0)",
+      "x-model-type": "NUMERIC(10)"
+    }
+  },
+  "required": [],
+  "title": "FPP_FCAS_SUMMARY, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(5, 0)"
+    ],
+    [
+      3,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      5,
+      "VERSIONNO",
+      "decimal(10, 0)"
+    ],
+    [
+      6,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      7,
+      "RELEVANT_REGIONS",
+      "string"
+    ],
+    [
+      8,
+      "REGULATION_MW",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "CONSTRAINT_MARGINAL_VALUE",
+      "decimal(18, 8)"
+    ],
+    [
+      10,
+      "P_REGULATION",
+      "decimal(18, 8)"
+    ],
+    [
+      11,
+      "BASE_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      12,
+      "TSFCAS",
+      "decimal(18, 8)"
+    ],
+    [
+      13,
+      "TOTAL_FPP",
+      "decimal(18, 8)"
+    ],
+    [
+      14,
+      "RCR",
+      "decimal(18, 5)"
+    ],
+    [
+      16,
+      "USAGE_VALUE",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "FPP_FCAS_SUMMARY"
+  }
+}

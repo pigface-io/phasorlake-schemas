@@ -1,0 +1,111 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/INTERMITTENT_GEN_SCADA/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DUID": {
+      "description": "Dispatchable Unit Identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUN_DATETIME": {
+      "description": "Date Time of the dispatch interval (interval ending)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "SCADA_QUALITY": {
+      "description": "SCADA quality snapshot for intermittent generating unit at start of interval for a specified SCADA signal type.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "SCADA_TYPE": {
+      "description": "SCADA snapshot for intermittent generating unit at start of interval for a specified SCADA signal type. ELAV = Total Elements Available (# turbines for wind farms, # inverters for solar farms); LOCL = Local Limit (MW).",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "SCADA_VALUE": {
+      "description": "SCADA value snapshot for intermittent generating unit at start of interval for a specified SCADA signal type.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    }
+  },
+  "required": [],
+  "title": "INTERMITTENT_GEN_SCADA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      3,
+      "SCADA_TYPE",
+      "string"
+    ],
+    [
+      4,
+      "SCADA_VALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      5,
+      "SCADA_QUALITY",
+      "string"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "INTERMITTENT_GEN_SCADA"
+  }
+}

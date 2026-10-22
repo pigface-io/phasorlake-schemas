@@ -1,0 +1,248 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_INTERCONNECTORSOLUTION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CALCULATEDEXPORTLIMIT": {
+      "description": "Calculated Interconnector limit of exporting energy on the basis of invoked constraints and static interconnector export limit",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CALCULATEDIMPORTLIMIT": {
+      "description": "Calculated Interconnector limit of importing energy on the basis of invoked constraints and static interconnector import limit. Note unlike the input interconnector import limit this is a directional quantity and should be defined with respect to the interconnector flow",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CAPACITYMARGINALVALUE": {
+      "description": "Capacity adequacy assessment marginal value; 0 if not binding",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CAPACITYMWFLOW": {
+      "description": "Interconnector loading level (MW) that can be reached in case of capacity scarcity in neighbouring regions subject to network and energy constraints",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CAPACITYVIOLATIONDEGREE": {
+      "description": "Capacity adequacy assessment violation degree, 0 if not violating; where CapacityMWFLow <= export + violation Degree (Deficit)CapacityMWFLow >= import + CapacityViolationDegree (Deficit)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "DAY": {
+      "description": "Day this solution is for. Generated from the solution file periodid",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "ENERGYBLOCK": {
+      "description": "Sunday at start of the week for this solutions energy block. Generated from the solution file energy block",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "EXPORTLIMITCONSTRAINTID": {
+      "description": "ID of the constraint that sets the Interconnector Export Limit",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "IMPORTLIMITCONSTRAINTID": {
+      "description": "ID of the constraint that sets the Interconnector Import Limit",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "INTERCONNECTORID": {
+      "description": "The unique identifier for the interconnector",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "LASTCHANGED": {
+      "description": "Date the solution was loaded",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LDCBLOCK": {
+      "description": "LDC block this solution is for. Generated from the solution file periodid",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RUNTYPE": {
+      "description": "Type of run.  Values are RELIABILITY_LRC and OUTAGE_LRC",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUN_DATETIME": {
+      "description": "Date processing of the run begins",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUN_NO": {
+      "description": "Unique run id. Generated from the solution file caseid",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [],
+  "title": "MTPASA_INTERCONNECTORSOLUTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUN_NO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "ENERGYBLOCK",
+      "timestamptz"
+    ],
+    [
+      4,
+      "DAY",
+      "timestamptz"
+    ],
+    [
+      5,
+      "LDCBLOCK",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      7,
+      "CAPACITYMWFLOW",
+      "decimal(12, 2)"
+    ],
+    [
+      8,
+      "CAPACITYMARGINALVALUE",
+      "decimal(12, 2)"
+    ],
+    [
+      9,
+      "CAPACITYVIOLATIONDEGREE",
+      "decimal(12, 2)"
+    ],
+    [
+      10,
+      "CALCULATEDEXPORTLIMIT",
+      "decimal(12, 2)"
+    ],
+    [
+      11,
+      "CALCULATEDIMPORTLIMIT",
+      "decimal(12, 2)"
+    ],
+    [
+      12,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      13,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      14,
+      "EXPORTLIMITCONSTRAINTID",
+      "string"
+    ],
+    [
+      15,
+      "IMPORTLIMITCONSTRAINTID",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MTPASA_INTERCONNECTORSOLUTION"
+  }
+}

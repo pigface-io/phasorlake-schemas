@@ -1,0 +1,215 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PREDISPATCHCONSTRAINT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONFIDENTIAL_TO": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "CONSTRAINTID": {
+      "description": "Generic constraint identifier",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "DATETIME": {
+      "description": "Period date and time",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "GENCONID_EFFECTIVEDATE": {
+      "description": "Effective date of the Generic Constraint (ConstraintID). This field is used to track the version of this generic constraint applied in this dispatch interval",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "GENCONID_VERSIONNO": {
+      "description": "Version number of the Generic Constraint (ConstraintID). This field is used to track the version of this generic constraint applied in this dispatch interval",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(22,0)"
+    },
+    "INTERVENTION": {
+      "description": "Flag to indicate if this result set was sourced from the pricing run (INTERVENTION=0) or the physical run (INTERVENTION=1). In the event that there is not intervention in the market, both pricing and physical runs correspond to INTERVENTION=0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MARGINALVALUE": {
+      "description": "Marginal value of violated constraint",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PERIODID": {
+      "description": "Unique period identifier, in the format yyyymmddpp. The period (pp) is 01 to 48, with 01 corresponding to the half-hour ending at 04:30am.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(10, 0)",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "PREDISPATCHSEQNO": {
+      "description": "Unique identifier of predispatch run in the form YYYYMMDDPP with 01 at 04:30",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(10, 0)",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RHS": {
+      "description": "RHS value used.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RUNNO": {
+      "description": "SPD Predispatch run no, typically 1. It increments if the case is re-run.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "VIOLATIONDEGREE": {
+      "description": "Degree of constraint violation",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    }
+  },
+  "required": [
+    "CONSTRAINTID",
+    "DATETIME"
+  ],
+  "title": "PREDISPATCHCONSTRAINT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PREDISPATCHSEQNO",
+      "decimal(10, 0)"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "decimal(10, 0)"
+    ],
+    [
+      5,
+      "INTERVENTION",
+      "decimal(2, 0)"
+    ],
+    [
+      6,
+      "RHS",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "MARGINALVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "VIOLATIONDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      10,
+      "DATETIME",
+      "timestamptz"
+    ],
+    [
+      11,
+      "CONFIDENTIAL_TO",
+      "string"
+    ],
+    [
+      12,
+      "GENCONID_EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      13,
+      "GENCONID_VERSIONNO",
+      "double"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    3,
+    10
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "PREDISPATCHCONSTRAINT"
+  }
+}

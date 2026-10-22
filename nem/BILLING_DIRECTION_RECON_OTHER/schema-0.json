@@ -1,0 +1,335 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLING_DIRECTION_RECON_OTHER/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BILLRUNNO": {
+      "description": "Billing run no",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3)"
+    },
+    "COMPENSATION_AMOUNT": {
+      "description": "The final compensation amount for the direction.  The same value for all regions",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "CONTRACTYEAR": {
+      "description": "Billing contract year",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4)"
+    },
+    "CRA": {
+      "description": "The total recovery amount for the direction.  The same value for all regions",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "DIRECTION_DESC": {
+      "description": "Direction description",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(200)"
+    },
+    "DIRECTION_END_DATE": {
+      "description": "Settlement day on which the direction ends.  The same value for all regions",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "DIRECTION_END_INTERVAL": {
+      "description": "Dispatch interval in which the direction ends.  The same value for all regions",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "DIRECTION_ID": {
+      "description": "Direction identifier",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "DIRECTION_SERVICE_ID": {
+      "description": "The Direction Service ID associated with the Direction Type ID. Eg For FCAS Direction Type, Direction Service could be any contingency service.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "DIRECTION_START_DATE": {
+      "description": "Settlement day on which the direction starts",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "DIRECTION_START_INTERVAL": {
+      "description": "Dispatch interval in which the direction starts.  The same value for all regions",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "DIRECTION_TYPE_ID": {
+      "description": "The service for which the direction occurred (ENERGY, ANCILLARY, NON_ENERGY_NON_AS, etc)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "INDEPENDENT_EXPERT_FEE": {
+      "description": "The independent expert fee amount for the direction.  The same value for all regions",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "INTEREST_AMOUNT": {
+      "description": "The interest amount calculated on the final compensation amount for the direction.  The same value for all regions",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "REGIONAL_BENEFIT_FACTOR": {
+      "description": "The regional benefit factor allocated to this region for the direction",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "REGIONAL_CUSTOMER_ENERGY": {
+      "description": "The total customer energy for this region, over the duration of the direction. NULL for Billing Week post the IESS rule effective date.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "REGIONAL_GENERATOR_ENERGY": {
+      "description": "The total generator energy for this region, over the duration of the direction. NULL for Billing Week post the IESS rule effective date.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "REGIONID": {
+      "description": "Region Identifier",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "REGION_ACE_MWH": {
+      "description": "The Sum of ACE MWh value for the Region over the duration of the direction. NULL for Billing Week prior to the IESS rule effective date",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "REGION_ASOE_MWH": {
+      "description": "The Sum of ASOE MWh value for the Region over the duration of the direction. NULL for Billing Week prior to the IESS rule effective date",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "WEEKNO": {
+      "description": "Billing week no",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3)"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "WEEKNO",
+    "BILLRUNNO",
+    "DIRECTION_ID",
+    "REGIONID"
+  ],
+  "title": "BILLING_DIRECTION_RECON_OTHER, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "WEEKNO",
+      "long"
+    ],
+    [
+      3,
+      "BILLRUNNO",
+      "long"
+    ],
+    [
+      4,
+      "DIRECTION_ID",
+      "string"
+    ],
+    [
+      5,
+      "REGIONID",
+      "string"
+    ],
+    [
+      6,
+      "DIRECTION_DESC",
+      "string"
+    ],
+    [
+      7,
+      "DIRECTION_TYPE_ID",
+      "string"
+    ],
+    [
+      8,
+      "DIRECTION_START_DATE",
+      "timestamptz"
+    ],
+    [
+      9,
+      "DIRECTION_END_DATE",
+      "timestamptz"
+    ],
+    [
+      10,
+      "DIRECTION_START_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      11,
+      "DIRECTION_END_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      12,
+      "COMPENSATION_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      13,
+      "INTEREST_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      14,
+      "INDEPENDENT_EXPERT_FEE",
+      "decimal(18, 8)"
+    ],
+    [
+      15,
+      "CRA",
+      "decimal(18, 8)"
+    ],
+    [
+      16,
+      "REGIONAL_CUSTOMER_ENERGY",
+      "decimal(18, 8)"
+    ],
+    [
+      17,
+      "REGIONAL_GENERATOR_ENERGY",
+      "decimal(18, 8)"
+    ],
+    [
+      18,
+      "REGIONAL_BENEFIT_FACTOR",
+      "decimal(18, 8)"
+    ],
+    [
+      19,
+      "REGION_ACE_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      20,
+      "REGION_ASOE_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      21,
+      "DIRECTION_SERVICE_ID",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "BILLING_DIRECTION_RECON_OTHER"
+  }
+}

@@ -1,0 +1,576 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/P5MIN_UNITSOLUTION/schema-4.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGCSTATUS": {
+      "description": "AGC Status from EMS: 1 = on, 0 = off",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "AVAILABILITY": {
+      "description": "For Scheduled units, this is the MAXAVAIL bid availability For Semi-scheduled units, this is the lower of MAXAVAIL bid availability and UIGF",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CONFORMANCE_MODE": {
+      "description": "Mode specific to units within an aggregate. 0 - no monitoring, 1 - aggregate monitoring, 2 - individual monitoring due to constraint",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMERIC(6,0)"
+    },
+    "CONNECTIONPOINTID": {
+      "description": "Connection point identifier for DUID",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(12)"
+    },
+    "DISPATCHMODETIME": {
+      "description": "Minutes for which the unit has been in the current DISPATCHMODE. From NEMDE TRADERSOLUTION element FSTARGETMODETIME attribute.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(4, 0)",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "DUID": {
+      "description": "Dispatchable unit identifier",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "INITIALMW": {
+      "description": "Initial MW at start of period. For periods subsequent to the first period of a P5MIN run, this value represents the cleared target for the previous period of that P5MIN run. Negative values when Bi-directional Unit start from importing power, otherwise positive.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "The unique identifier for the interval within this study",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "INTERVENTION": {
+      "description": "Flag to indicate if this result set was sourced from the pricing run (INTERVENTION=0) or the physical run(INTERVENTION=1). In the event there is not intervention in the market, both pricing and physical runs correspond to INTERVENTION=0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOWER1SEC": {
+      "description": "Dispatched Lower1Sec - TraderSolution element L1Target attribute",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER1SECFLAGS": {
+      "description": "TraderSolution element L1Flags attribute",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWER5MIN": {
+      "description": "Lower 5 min reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINFLAGS": {
+      "description": "Lower 5min status flag",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWER60SEC": {
+      "description": "Lower 60 sec reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECFLAGS": {
+      "description": "Lower 60sec status flag",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWER6SEC": {
+      "description": "Lower 6 sec reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECFLAGS": {
+      "description": "Lower 6sec status flag",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWERREG": {
+      "description": "Lower Regulation reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGFLAGS": {
+      "description": "Lower Reg status flag",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISE1SEC": {
+      "description": "Dispatched Raise1Sec - TraderSolution element R1Target attribute",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE1SECFLAGS": {
+      "description": "TraderSolution element R1Flags attribute",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISE5MIN": {
+      "description": "Raise 5 min reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINFLAGS": {
+      "description": "Raise 5min status flag",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISE60SEC": {
+      "description": "Raise 60 sec reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECFLAGS": {
+      "description": "Raise 60sec status flag",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISE6SEC": {
+      "description": "Raise 6 sec reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECFLAGS": {
+      "description": "Raise 6sec status flag",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISEREG": {
+      "description": "Raise Regulation reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGFLAGS": {
+      "description": "Raise Reg status flag",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAMPDOWNRATE": {
+      "description": "Ramp down rate (lessor of bid or telemetered rate).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAMPUPRATE": {
+      "description": "Ramp up rate (lessor of bid or telemetered rate).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RUN_DATETIME": {
+      "description": "Unique Timestamp Identifier for this study",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "SEMIDISPATCHCAP": {
+      "description": "Boolean representation flagging if the Target is Capped",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "TOTALCLEARED": {
+      "description": "Target MW for end of period. Negative values when Bi-directional Unit is importing power, otherwise positive.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TRADETYPE": {
+      "description": "Generator or Load",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "UIGF": {
+      "description": "For Semi-Scheduled units. Unconstrained Intermittent Generation Forecast value provided to NEMDE",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "INTERVAL_DATETIME",
+    "DUID"
+  ],
+  "title": "P5MIN_UNITSOLUTION, Iceberg schema 4",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      30,
+      "INTERVENTION",
+      "decimal(2, 0)"
+    ],
+    [
+      2,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "DUID",
+      "string"
+    ],
+    [
+      4,
+      "CONNECTIONPOINTID",
+      "string"
+    ],
+    [
+      5,
+      "TRADETYPE",
+      "long"
+    ],
+    [
+      6,
+      "AGCSTATUS",
+      "decimal(2, 0)"
+    ],
+    [
+      7,
+      "INITIALMW",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "TOTALCLEARED",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "RAMPDOWNRATE",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "RAMPUPRATE",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "LOWER5MIN",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "LOWER60SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "LOWER6SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "RAISE5MIN",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "RAISE60SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "RAISE6SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "LOWERREG",
+      "decimal(15, 5)"
+    ],
+    [
+      18,
+      "RAISEREG",
+      "decimal(15, 5)"
+    ],
+    [
+      19,
+      "AVAILABILITY",
+      "decimal(15, 5)"
+    ],
+    [
+      20,
+      "RAISE6SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      21,
+      "RAISE60SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      22,
+      "RAISE5MINFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      23,
+      "RAISEREGFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      24,
+      "LOWER6SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      25,
+      "LOWER60SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      26,
+      "LOWER5MINFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      27,
+      "LOWERREGFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      28,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      29,
+      "SEMIDISPATCHCAP",
+      "decimal(3, 0)"
+    ],
+    [
+      31,
+      "DISPATCHMODETIME",
+      "decimal(4, 0)"
+    ],
+    [
+      32,
+      "LOWER1SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      33,
+      "RAISE1SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      35,
+      "LOWER1SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      34,
+      "RAISE1SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      36,
+      "CONFORMANCE_MODE",
+      "decimal(6, 0)"
+    ],
+    [
+      37,
+      "UIGF",
+      "decimal(15, 5)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 4,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "P5MIN_UNITSOLUTION"
+  }
+}

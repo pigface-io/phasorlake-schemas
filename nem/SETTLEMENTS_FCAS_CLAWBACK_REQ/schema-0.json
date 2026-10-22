@@ -1,0 +1,242 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SETTLEMENTS_FCAS_CLAWBACK_REQ/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADJUSTED_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "BASE_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "BIDTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "CONSTRAINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "CONSTRAINT_ENABLEMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(9, 6)"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PREV_ADJUSTED_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "PREV_BASE_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "PREV_CONSTRAINT_ENABLEMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "PREV_REGION_BASE_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "PREV_REGION_ENABLEMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "P_REGULATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(10, 8)"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "REGION_BASE_COST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "REGION_ENABLEMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(9, 6)"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(1, 0)"
+    }
+  },
+  "required": [],
+  "title": "SETTLEMENTS_FCAS_CLAWBACK_REQ, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      6,
+      "REGION_ENABLEMENT",
+      "decimal(9, 6)"
+    ],
+    [
+      7,
+      "CONSTRAINT_ENABLEMENT",
+      "decimal(9, 6)"
+    ],
+    [
+      8,
+      "REGION_BASE_COST",
+      "decimal(14, 8)"
+    ],
+    [
+      9,
+      "BASE_COST",
+      "decimal(14, 8)"
+    ],
+    [
+      10,
+      "ADJUSTED_COST",
+      "decimal(14, 8)"
+    ],
+    [
+      11,
+      "P_REGULATION",
+      "decimal(10, 8)"
+    ],
+    [
+      12,
+      "PREV_REGION_ENABLEMENT",
+      "decimal(8, 5)"
+    ],
+    [
+      13,
+      "PREV_CONSTRAINT_ENABLEMENT",
+      "decimal(8, 5)"
+    ],
+    [
+      14,
+      "PREV_REGION_BASE_COST",
+      "decimal(14, 8)"
+    ],
+    [
+      15,
+      "PREV_BASE_COST",
+      "decimal(14, 8)"
+    ],
+    [
+      16,
+      "PREV_ADJUSTED_COST",
+      "decimal(14, 8)"
+    ],
+    [
+      17,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SETTLEMENTS_FCAS_CLAWBACK_REQ"
+  }
+}

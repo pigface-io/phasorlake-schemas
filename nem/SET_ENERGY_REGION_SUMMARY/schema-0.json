@@ -1,0 +1,216 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SET_ENERGY_REGION_SUMMARY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ACE_AMOUNT": {
+      "description": "The Adjusted Consumed Energy Amount for the Region Id",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "ACE_MWH": {
+      "description": "The Adjusted Consumed Energy summary for the Region Id",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "ASOE_AMOUNT": {
+      "description": "The Adjusted Sent Out Energy Amount for the Region Id",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "ASOE_MWH": {
+      "description": "The Adjusted Sent Out Energy summary for the Region Id",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "CE_MWH": {
+      "description": "The Consumed Energy summary for the Region Id",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "LASTCHANGED": {
+      "description": "The Last changed Date time of the record",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PERIODID": {
+      "description": "The Period ID Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "REGIONID": {
+      "description": "The NEM Region Id Identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "The Settlement Date of the Billing Week",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "TOTAL_AMOUNT": {
+      "description": "The Total Dollar Amount summary for the Region Id",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "TOTAL_MWH": {
+      "description": "The Total Energy summary for the Region Id",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "UFEA_MWH": {
+      "description": "The UFEA Energy summary for the Region Id",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "VERSIONNO": {
+      "description": "The Settlement Run No",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [],
+  "title": "SET_ENERGY_REGION_SUMMARY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "PERIODID",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "CE_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "UFEA_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "ACE_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      8,
+      "ASOE_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "ACE_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      10,
+      "ASOE_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      11,
+      "TOTAL_MWH",
+      "decimal(18, 8)"
+    ],
+    [
+      12,
+      "TOTAL_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      13,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SET_ENERGY_REGION_SUMMARY"
+  }
+}

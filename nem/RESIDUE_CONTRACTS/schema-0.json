@@ -1,0 +1,295 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/RESIDUE_CONTRACTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUCTIONDATE": {
+      "description": "Close date of bidding, calculated as RAUCDATE business days before the contract start date",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "AUCTIONID": {
+      "description": "Unique id for each auction date (new in March 2003 to support SRA Inter-Temporal Linking)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "AUTHORISEDBY": {
+      "description": "Name of authorising officer or process",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "AUTHORISEDDATE": {
+      "description": "Authorisation date for this record",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "CALCMETHOD": {
+      "description": "Identifies methodology used",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "CONTRACTID": {
+      "description": "Unique identifier for each SRA Contract as specified by AEMO",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "CONTRACTYEAR": {
+      "description": "SRA Contracted Year",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "DESCRIPTION": {
+      "description": "Description of Contract",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(80)"
+    },
+    "ENDDATE": {
+      "description": "SRA Quarter end date",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "NOTIFYBY": {
+      "description": "Name of notifying person",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "NOTIFYDATE": {
+      "description": "Open date of bidding, calculated as RNOTIFYDATE business days before the auction date",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "NOTIFYPOSTDATE": {
+      "description": "Date notification posted",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "POSTDATE": {
+      "description": "Date of publishing the auction results",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "POSTEDBY": {
+      "description": "Name of publishing officer or process",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "QUARTER": {
+      "description": "SRA Contracted Quarter",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "STARTDATE": {
+      "description": "SRA Quarter start date",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "TRANCHE": {
+      "description": "Label identifying the arbitrary segmented share of the Interconnector flow",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(2,0)"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "QUARTER",
+    "TRANCHE"
+  ],
+  "title": "RESIDUE_CONTRACTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "QUARTER",
+      "long"
+    ],
+    [
+      3,
+      "TRANCHE",
+      "long"
+    ],
+    [
+      4,
+      "CONTRACTID",
+      "string"
+    ],
+    [
+      5,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "NOTIFYDATE",
+      "timestamptz"
+    ],
+    [
+      8,
+      "AUCTIONDATE",
+      "timestamptz"
+    ],
+    [
+      9,
+      "CALCMETHOD",
+      "string"
+    ],
+    [
+      10,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      11,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      12,
+      "NOTIFYPOSTDATE",
+      "timestamptz"
+    ],
+    [
+      13,
+      "NOTIFYBY",
+      "string"
+    ],
+    [
+      14,
+      "POSTDATE",
+      "string"
+    ],
+    [
+      15,
+      "POSTEDBY",
+      "string"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      17,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      18,
+      "AUCTIONID",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "RESIDUE_CONTRACTS"
+  }
+}

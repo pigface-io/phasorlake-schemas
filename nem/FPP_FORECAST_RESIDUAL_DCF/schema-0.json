@@ -1,0 +1,141 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_FORECAST_RESIDUAL_DCF/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "description": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "CONSTRAINTID": {
+      "description": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "DCF_ABS_NEGATIVE_PERF_TOTAL": {
+      "description": "The sum of absolute negative performance in MWHz for the combination of constraint (raise or lower). This is used as the denominator in normalising default contribution factors (DCF). For further details please see the FPP procedure document. >0 = Performance was calculated for the units NULL = Performance for the units was unavailable",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "EFFECTIVE_END_DATETIME": {
+      "description": "Effective period end date and time (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time) of the effective period for this residual default contribution factor related to the constraint. This is the billing period over which these default contribution factors will be effective / applied. Effective end date will align with the end of a settlement week.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "EFFECTIVE_START_DATETIME": {
+      "description": "Effective period start date and time (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time) of the effective period for this residual default contribution factor related to the constraint. This is the billing period over which these default contribution factors will be effective / applied. In most cases this will align to the settlement week, however there are some cases (like a new constraint) where the effective start date will be prorated to align with the change.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RESIDUAL_DCF": {
+      "description": "Calculated residual default contribution factor from the historical performance period. For further details please see the FPP procedure document.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "RESIDUAL_DCF_REASON_FLAG": {
+      "description": "The reason flag showing the decision matrix for the residual default contribution factor (DCF)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    },
+    "VERSIONNO": {
+      "description": "The version number. In most cases this version will be the historical performance calculation run number from the FPP database (which is different from the FPP run number), however there are some cases (like a new constraint) where the version number listed here will be the FPP run number from the FPP database (this will be where the effective start date time will be prorated to align with the detection of this change).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(10, 0)",
+      "x-model-type": "NUMERIC(10)"
+    }
+  },
+  "required": [],
+  "title": "FPP_FORECAST_RESIDUAL_DCF, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVE_START_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "EFFECTIVE_END_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "VERSIONNO",
+      "decimal(10, 0)"
+    ],
+    [
+      5,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      6,
+      "RESIDUAL_DCF",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "RESIDUAL_DCF_REASON_FLAG",
+      "decimal(5, 0)"
+    ],
+    [
+      8,
+      "DCF_ABS_NEGATIVE_PERF_TOTAL",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "FPP_FORECAST_RESIDUAL_DCF"
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SETINTRAREGIONRESIDUES/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ACE_AMOUNT": {
+      "description": "The Adjusted Consumed Energy Dollar Amount for the Region used in the calculation of IRSS (Intra Residue Amount). NULL for Settlement dates prior to the IESS rule effective date",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "ASOE_AMOUNT": {
+      "description": "The Adjusted Sent Out Energy Dollar Amount for the Region used in the calculation of IRSS (Intra Residue Amount). NULL for Settlement dates prior to the IESS rule effective date",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "EC": {
+      "description": "Energy purchased by customers. NULL for Settlement dates post the IESS rule effective date",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "EP": {
+      "description": "Energy payments to generators. NULL for Settlement dates post the IESS rule effective date",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "EXP": {
+      "description": "Net import in MWh into the region calculated at the regional reference node (export is negative)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 8)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "IRSS": {
+      "description": "Intra-regional surplus (a negative sign indicates surplus, and a positive sign indicates a deficiency)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 8)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PERIODID": {
+      "description": "Settlements Trading Interval.",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3)"
+    },
+    "REGIONID": {
+      "description": "Region Identifier",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "RRP": {
+      "description": "Regional price",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 8)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RUNNO": {
+      "description": "Settlement run number",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Settlement Date",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "RUNNO",
+    "PERIODID",
+    "REGIONID"
+  ],
+  "title": "SETINTRAREGIONRESIDUES, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "long"
+    ],
+    [
+      3,
+      "PERIODID",
+      "long"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "EP",
+      "double"
+    ],
+    [
+      6,
+      "EC",
+      "double"
+    ],
+    [
+      7,
+      "RRP",
+      "decimal(15, 8)"
+    ],
+    [
+      8,
+      "EXP",
+      "decimal(15, 8)"
+    ],
+    [
+      9,
+      "IRSS",
+      "decimal(15, 8)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      11,
+      "ACE_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      12,
+      "ASOE_AMOUNT",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SETINTRAREGIONRESIDUES"
+  }
+}

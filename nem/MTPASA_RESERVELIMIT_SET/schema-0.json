@@ -1,0 +1,128 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_RESERVELIMIT_SET/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUTHORISEDBY": {
+      "description": "User authorising this requirement set",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "AUTHORISEDDATE": {
+      "description": "Date the requirement set was authorised",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "DESCRIPTION": {
+      "description": "Description of this set of Reserve Requirements",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(200)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Trade date when the set of reserve requirements become effective",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Timestamp the record was last modified",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RESERVELIMIT_SET_ID": {
+      "description": "MT PASA LRC Reserve Requirement Set Identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "VERSION_DATETIME": {
+      "description": "Timestamp when the set of reserve requirements become effective",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "VERSION_DATETIME"
+  ],
+  "title": "MTPASA_RESERVELIMIT_SET, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "RESERVELIMIT_SET_ID",
+      "string"
+    ],
+    [
+      4,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      5,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MTPASA_RESERVELIMIT_SET"
+  }
+}

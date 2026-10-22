@@ -1,0 +1,984 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCHPRICE/schema-2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APCFLAG": {
+      "description": "APC Active flag (see note)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "CUMUL_PRE_AP_ENERGY_PRICE": {
+      "description": "Cumulative price that triggers administered pricing event if above the threshold",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 46,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CUMUL_PRE_AP_LOWER1_PRICE": {
+      "description": "Cumulative price that triggers administered pricing event if above the threshold",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 66,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CUMUL_PRE_AP_LOWER5MIN_PRICE": {
+      "description": "Cumulative price that triggers administered pricing event if above the threshold",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 53,
+      "x-iceberg-type": "decimal(15, 6)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CUMUL_PRE_AP_LOWER60_PRICE": {
+      "description": "Cumulative price that triggers administered pricing event if above the threshold",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 52,
+      "x-iceberg-type": "decimal(15, 6)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CUMUL_PRE_AP_LOWER6_PRICE": {
+      "description": "Cumulative price that triggers administered pricing event if above the threshold",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 51,
+      "x-iceberg-type": "decimal(15, 6)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CUMUL_PRE_AP_LOWERREG_PRICE": {
+      "description": "Cumulative price that triggers administered pricing event if above the threshold",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 54,
+      "x-iceberg-type": "decimal(15, 6)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CUMUL_PRE_AP_RAISE1_PRICE": {
+      "description": "Cumulative price that triggers administered pricing event if above the threshold",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 65,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CUMUL_PRE_AP_RAISE5MIN_PRICE": {
+      "description": "Cumulative price that triggers administered pricing event if above the threshold",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 49,
+      "x-iceberg-type": "decimal(15, 6)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CUMUL_PRE_AP_RAISE60_PRICE": {
+      "description": "Cumulative price that triggers administered pricing event if above the threshold",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 48,
+      "x-iceberg-type": "decimal(15, 6)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CUMUL_PRE_AP_RAISE6_PRICE": {
+      "description": "Cumulative price that triggers administered pricing event if above the threshold",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 47,
+      "x-iceberg-type": "decimal(15, 6)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CUMUL_PRE_AP_RAISEREG_PRICE": {
+      "description": "Cumulative price that triggers administered pricing event if above the threshold",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 50,
+      "x-iceberg-type": "decimal(15, 6)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "DISPATCHINTERVAL": {
+      "description": "Dispatch interval identifier 001 to 288 in format YYYYMMDDPPP",
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long",
+      "x-model-type": "VARCHAR(22)"
+    },
+    "EEP": {
+      "description": "Excess energy price - no longer used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "INTERVENTION": {
+      "description": "Manual intervention flag",
+      "type": "integer",
+      "x-field-id": 5,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOWER1SECAPCFLAG": {
+      "description": "BitFlag field for Price adjustments - \"1\" = Voll_Override; \"4\" = Floor_VoLL; \"8\" = Manual_Override; \"16\" = Price_Scaled",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 62,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWER1SECROP": {
+      "description": "Lower1Sec Regional Original Price - uncapped/unfloored and unscaled",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 61,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER1SECRRP": {
+      "description": "Regional Lower 1Sec Price - RegionSolution element L1Price attribute",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 60,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINAPCFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWER5MINROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECAPCFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWER60SECROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECAPCFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWER6SECROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGAPCFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWERREGROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MARKETSUSPENDEDFLAG": {
+      "description": "Market suspended flag",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "MII_STATUS": {
+      "description": "Communicates the current MII status for this dispatch interval.  Values of: 'NOT_MII', 'MII_SUBJECT_TO_REVIEW', 'MII_PRICE_REJECTED', 'MII_PRICE_ACCEPTED'.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 56,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(21)"
+    },
+    "OCD_STATUS": {
+      "description": "Communicates the current OCD status for this dispatch interval.  Values of: 'NOT_OCD', 'OCD_UNRESOLVED', 'OCD_RESOLVED'.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 55,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(14)"
+    },
+    "PRE_AP_ENERGY_PRICE": {
+      "description": "Price before ap capping or scaling - for rolling sum price monitoring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PRE_AP_LOWER1_PRICE": {
+      "description": "Price before AP capping or scaling - for Rolling Sum Price monitoring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 64,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PRE_AP_LOWER5MIN_PRICE": {
+      "description": "Price before ap capping or scaling - for rolling sum price monitoring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 44,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PRE_AP_LOWER60_PRICE": {
+      "description": "Price before ap capping or scaling - for rolling sum price monitoring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 43,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PRE_AP_LOWER6_PRICE": {
+      "description": "Price before ap capping or scaling - for rolling sum price monitoring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 42,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PRE_AP_LOWERREG_PRICE": {
+      "description": "Price before ap capping or scaling - for rolling sum price monitoring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 45,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PRE_AP_RAISE1_PRICE": {
+      "description": "Price before AP capping or scaling - for Rolling Sum Price monitoring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 63,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PRE_AP_RAISE5MIN_PRICE": {
+      "description": "Price before ap capping or scaling - for rolling sum price monitoring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 40,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PRE_AP_RAISE60_PRICE": {
+      "description": "Price before ap capping or scaling - for rolling sum price monitoring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 39,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PRE_AP_RAISE6_PRICE": {
+      "description": "Price before ap capping or scaling - for rolling sum price monitoring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 38,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PRE_AP_RAISEREG_PRICE": {
+      "description": "Price before ap capping or scaling - for rolling sum price monitoring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 41,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PRICE_STATUS": {
+      "description": "Status of regional prices for this dispatch interval \"NOT FIRM\" or \"FIRM\"",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RAISE1SECAPCFLAG": {
+      "description": "BitFlag field for Price adjustments - \"1\" = Voll_Override; \"4\" = Floor_VoLL; \"8\" = Manual_Override; \"16\" = Price_Scaled",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 59,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISE1SECROP": {
+      "description": "Raise1Sec Regional Original Price - uncapped/unfloored and unscaled",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 58,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE1SECRRP": {
+      "description": "Regional Raise 1Sec Price - R1Price attribute after capping/flooring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 57,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINAPCFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISE5MINROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECAPCFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISE60SECROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECAPCFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISE6SECROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGAPCFLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISEREGROP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "REGIONID": {
+      "description": "Region Identifier",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "ROP": {
+      "description": "Regional Override Price, being the original price prior to any price scaling, price capping or VoLL override being applied. The APC flag allows the determination of whether capping, scaling or override occurred",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP": {
+      "description": "Regional Reference Price for this dispatch period. RRP is the price used to settle the market",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RUNNO": {
+      "description": "Dispatch run no; always 1",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Market date and time starting at 04:05",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "RUNNO",
+    "REGIONID",
+    "DISPATCHINTERVAL",
+    "INTERVENTION"
+  ],
+  "title": "DISPATCHPRICE, Iceberg schema 2",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "long"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "DISPATCHINTERVAL",
+      "long"
+    ],
+    [
+      5,
+      "INTERVENTION",
+      "long"
+    ],
+    [
+      6,
+      "RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "EEP",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "ROP",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "APCFLAG",
+      "decimal(3, 0)"
+    ],
+    [
+      10,
+      "MARKETSUSPENDEDFLAG",
+      "decimal(3, 0)"
+    ],
+    [
+      11,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      12,
+      "RAISE6SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "RAISE6SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "RAISE6SECAPCFLAG",
+      "decimal(3, 0)"
+    ],
+    [
+      15,
+      "RAISE60SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "RAISE60SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "RAISE60SECAPCFLAG",
+      "decimal(3, 0)"
+    ],
+    [
+      18,
+      "RAISE5MINRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      19,
+      "RAISE5MINROP",
+      "decimal(15, 5)"
+    ],
+    [
+      20,
+      "RAISE5MINAPCFLAG",
+      "decimal(3, 0)"
+    ],
+    [
+      21,
+      "RAISEREGRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      22,
+      "RAISEREGROP",
+      "decimal(15, 5)"
+    ],
+    [
+      23,
+      "RAISEREGAPCFLAG",
+      "decimal(3, 0)"
+    ],
+    [
+      24,
+      "LOWER6SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      25,
+      "LOWER6SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      26,
+      "LOWER6SECAPCFLAG",
+      "decimal(3, 0)"
+    ],
+    [
+      27,
+      "LOWER60SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      28,
+      "LOWER60SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      29,
+      "LOWER60SECAPCFLAG",
+      "decimal(3, 0)"
+    ],
+    [
+      30,
+      "LOWER5MINRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      31,
+      "LOWER5MINROP",
+      "decimal(15, 5)"
+    ],
+    [
+      32,
+      "LOWER5MINAPCFLAG",
+      "decimal(3, 0)"
+    ],
+    [
+      33,
+      "LOWERREGRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      34,
+      "LOWERREGROP",
+      "decimal(15, 5)"
+    ],
+    [
+      35,
+      "LOWERREGAPCFLAG",
+      "decimal(3, 0)"
+    ],
+    [
+      36,
+      "PRICE_STATUS",
+      "string"
+    ],
+    [
+      37,
+      "PRE_AP_ENERGY_PRICE",
+      "decimal(15, 5)"
+    ],
+    [
+      38,
+      "PRE_AP_RAISE6_PRICE",
+      "decimal(15, 5)"
+    ],
+    [
+      39,
+      "PRE_AP_RAISE60_PRICE",
+      "decimal(15, 5)"
+    ],
+    [
+      40,
+      "PRE_AP_RAISE5MIN_PRICE",
+      "decimal(15, 5)"
+    ],
+    [
+      41,
+      "PRE_AP_RAISEREG_PRICE",
+      "decimal(15, 5)"
+    ],
+    [
+      42,
+      "PRE_AP_LOWER6_PRICE",
+      "decimal(15, 5)"
+    ],
+    [
+      43,
+      "PRE_AP_LOWER60_PRICE",
+      "decimal(15, 5)"
+    ],
+    [
+      44,
+      "PRE_AP_LOWER5MIN_PRICE",
+      "decimal(15, 5)"
+    ],
+    [
+      45,
+      "PRE_AP_LOWERREG_PRICE",
+      "decimal(15, 5)"
+    ],
+    [
+      46,
+      "CUMUL_PRE_AP_ENERGY_PRICE",
+      "double"
+    ],
+    [
+      47,
+      "CUMUL_PRE_AP_RAISE6_PRICE",
+      "decimal(15, 6)"
+    ],
+    [
+      48,
+      "CUMUL_PRE_AP_RAISE60_PRICE",
+      "decimal(15, 6)"
+    ],
+    [
+      49,
+      "CUMUL_PRE_AP_RAISE5MIN_PRICE",
+      "decimal(15, 6)"
+    ],
+    [
+      50,
+      "CUMUL_PRE_AP_RAISEREG_PRICE",
+      "decimal(15, 6)"
+    ],
+    [
+      51,
+      "CUMUL_PRE_AP_LOWER6_PRICE",
+      "decimal(15, 6)"
+    ],
+    [
+      52,
+      "CUMUL_PRE_AP_LOWER60_PRICE",
+      "decimal(15, 6)"
+    ],
+    [
+      53,
+      "CUMUL_PRE_AP_LOWER5MIN_PRICE",
+      "decimal(15, 6)"
+    ],
+    [
+      54,
+      "CUMUL_PRE_AP_LOWERREG_PRICE",
+      "decimal(15, 6)"
+    ],
+    [
+      55,
+      "OCD_STATUS",
+      "string"
+    ],
+    [
+      56,
+      "MII_STATUS",
+      "string"
+    ],
+    [
+      57,
+      "RAISE1SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      58,
+      "RAISE1SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      59,
+      "RAISE1SECAPCFLAG",
+      "decimal(3, 0)"
+    ],
+    [
+      60,
+      "LOWER1SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      61,
+      "LOWER1SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      62,
+      "LOWER1SECAPCFLAG",
+      "decimal(3, 0)"
+    ],
+    [
+      63,
+      "PRE_AP_RAISE1_PRICE",
+      "decimal(15, 5)"
+    ],
+    [
+      64,
+      "PRE_AP_LOWER1_PRICE",
+      "decimal(15, 5)"
+    ],
+    [
+      65,
+      "CUMUL_PRE_AP_RAISE1_PRICE",
+      "decimal(15, 5)"
+    ],
+    [
+      66,
+      "CUMUL_PRE_AP_LOWER1_PRICE",
+      "decimal(15, 5)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 2,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DISPATCHPRICE"
+  }
+}

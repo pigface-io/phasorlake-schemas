@@ -1,0 +1,173 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/RESIDUE_TRK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUCTIONID": {
+      "description": "Unique id for each auction date. (new in March 2003 to support SRA Inter-Temporal Linking)",
+      "type": "string",
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "AUTHORISEDBY": {
+      "description": "Authorising officer or process",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "AUTHORISEDDATE": {
+      "description": "Date results published",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "CONTRACTID": {
+      "description": "SRA Contract identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "POSTDATE": {
+      "description": "Date the run is authorised",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "POSTEDBY": {
+      "description": "Name of authorising officer or process",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "RUNDATE": {
+      "description": "Date auction results determined",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "STATUS": {
+      "description": "Load status [SUCCESSFUL/CORRUPT]",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "VERSIONNO": {
+      "description": "Contract run version",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "VERSIONNO",
+    "AUCTIONID"
+  ],
+  "title": "RESIDUE_TRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTID",
+      "string"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "RUNDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      6,
+      "POSTDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "POSTEDBY",
+      "string"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      9,
+      "STATUS",
+      "string"
+    ],
+    [
+      10,
+      "AUCTIONID",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    2,
+    10
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "RESIDUE_TRK"
+  }
+}

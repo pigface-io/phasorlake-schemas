@@ -1,0 +1,158 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_RESERVELIMITSOLUTION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DAY": {
+      "description": "Day this solution is for. Generated from the solution file period id.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "ENERGYBLOCK": {
+      "description": "Sunday at start of the week for this solutions energy block. Generated from the solution file energy block.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Timestamp the record was last modified.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LDCBLOCK": {
+      "description": "Load Duration Curve block this solution is for. Generated from the solution file period id.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "MARGINALVALUE": {
+      "description": "Marginal Value of the Reserve Requirement Constraint. A non-zero value indicates that the reserve requirement is binding.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "RESERVELIMITID": {
+      "description": "The unique identifier of the MT PASA LRC Reserve Requirement.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUNTYPE": {
+      "description": "Type of run. Values are RELIABILITY_LRC and OUTAGE_LRC",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUN_DATETIME": {
+      "description": "Date processing of the run begins",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUN_NO": {
+      "description": "Unique run ID. Generated from the solution file Case ID.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [],
+  "title": "MTPASA_RESERVELIMITSOLUTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUN_NO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      4,
+      "ENERGYBLOCK",
+      "timestamptz"
+    ],
+    [
+      5,
+      "DAY",
+      "timestamptz"
+    ],
+    [
+      6,
+      "LDCBLOCK",
+      "decimal(3, 0)"
+    ],
+    [
+      7,
+      "RESERVELIMITID",
+      "string"
+    ],
+    [
+      8,
+      "MARGINALVALUE",
+      "decimal(16, 6)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MTPASA_RESERVELIMITSOLUTION"
+  }
+}

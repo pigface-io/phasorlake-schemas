@@ -1,0 +1,307 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PDPASA_CASESOLUTION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CAPACITYOBJFUNCTION": {
+      "description": "Objective Function from the Capacity Adequacy run",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "CAPACITYOPTION": {
+      "description": "Not populated as of 2005 End of Year Release; was the Probability of Exceedance (POE) demand forecast used for capacity adequacy (LRC) assessment. 0 if no assessment, 1 for 10% POE, 2 for 50% POE, 3 for 90% POE.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "INTERCONNECTORFLOWPENALTY": {
+      "description": "The penalty for non-zero interconnector flow",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "LASTCHANGED": {
+      "description": "Date and time the record was created or modified",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LORCAPACITYOPTION": {
+      "description": "Generation Availability to be used in LOR run (either PASA or MARKET)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "LORCONDITION": {
+      "description": "Lack of Reserve Condition (LOR) flag for the case indicates the most severe condition in the case  (3 = LOR3, 2 = LOR2, 1 = LOR1, 0 = No LOR)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "LORDEMANDOPTION": {
+      "description": "Specifies the Probability of Exceedence (POE) demand forecast for LOR assessment (0 if no assessment, 10 for 10%, 50 for 50%, 90 for 90%)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "LORUIGFOPTION": {
+      "description": "UIGF POE forecast availability used for this option",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "MAXSPARECAPACITYOPTION": {
+      "description": "Not populated as of 2005 End of Year Release; was the Probability of Exceedance (POE) demand forecast used for assessment of Maximum Spare Capacity. 0 if no assessment, 1 for 10% POE, 2 for 50% POE, 3 for 90% POE",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "MAXSURPLUSRESERVEOPTION": {
+      "description": "Not populated as of 2005 End of Year Release; was the Probability of Exceedance (POE) demand forecast used for assessment of Maximum surplus Reserve. 0 if no assessment, 1 for 10% POE, 2 for 50% POE, 3 for 90% POE",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "OUTAGELRCCAPACITYOPTION": {
+      "description": "Generation Availability to be used in Outage LRC run (either PASA or MARKET)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "OUTAGELRCDEMANDOPTION": {
+      "description": "Specifies the Probability of Exceedence (POE) demand forecast for outage LRC assessment (0 if no assessment, 10 for 10%, 50 for 50%, 90 for 90%)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "OUTAGELRCUIGFOPTION": {
+      "description": "UIGF POE forecast availability used for this option",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "PASAVERSION": {
+      "description": "Version of the PASA solver used to solve this case",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "RELIABILITYLRCCAPACITYOPTION": {
+      "description": "Generation Availability to be used in Reliability LRC run (either PASA or MARKET)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "RELIABILITYLRCDEMANDOPTION": {
+      "description": "Specifies the Probability of Exceedence (POE) demand forecast for Reliability LRC assessment (0 if no assessment, 10 for 10%, 50 for 50%, 90 for 90%)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "RELIABILITYLRCUIGFOPTION": {
+      "description": "UIGF POE forecast availability used for this option",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RESERVECONDITION": {
+      "description": "Low Reserve Condition (LRC) flag for the case (1 - LRC in the case, 0 - No LRCs in the case) for capacity run",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "RUN_DATETIME": {
+      "description": "Case identifier by the time the case was run",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME"
+  ],
+  "title": "PDPASA_CASESOLUTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "PASAVERSION",
+      "string"
+    ],
+    [
+      3,
+      "RESERVECONDITION",
+      "decimal(1, 0)"
+    ],
+    [
+      4,
+      "LORCONDITION",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "CAPACITYOBJFUNCTION",
+      "decimal(12, 3)"
+    ],
+    [
+      6,
+      "CAPACITYOPTION",
+      "decimal(12, 3)"
+    ],
+    [
+      7,
+      "MAXSURPLUSRESERVEOPTION",
+      "decimal(12, 3)"
+    ],
+    [
+      8,
+      "MAXSPARECAPACITYOPTION",
+      "decimal(12, 3)"
+    ],
+    [
+      9,
+      "INTERCONNECTORFLOWPENALTY",
+      "decimal(12, 3)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      11,
+      "RELIABILITYLRCDEMANDOPTION",
+      "decimal(12, 3)"
+    ],
+    [
+      12,
+      "OUTAGELRCDEMANDOPTION",
+      "decimal(12, 3)"
+    ],
+    [
+      13,
+      "LORDEMANDOPTION",
+      "decimal(12, 3)"
+    ],
+    [
+      14,
+      "RELIABILITYLRCCAPACITYOPTION",
+      "string"
+    ],
+    [
+      15,
+      "OUTAGELRCCAPACITYOPTION",
+      "string"
+    ],
+    [
+      16,
+      "LORCAPACITYOPTION",
+      "string"
+    ],
+    [
+      17,
+      "LORUIGFOPTION",
+      "decimal(3, 0)"
+    ],
+    [
+      18,
+      "RELIABILITYLRCUIGFOPTION",
+      "decimal(3, 0)"
+    ],
+    [
+      19,
+      "OUTAGELRCUIGFOPTION",
+      "decimal(3, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "PDPASA_CASESOLUTION"
+  }
+}

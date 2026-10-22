@@ -1,0 +1,94 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GST_TRANSACTION_TYPE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DESCRIPTION": {
+      "description": "Description of the transaction type",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(100)"
+    },
+    "GL_FINANCIALCODE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(4, 0)",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "GL_TCODE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(4, 0)",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time the record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "TRANSACTION_TYPE": {
+      "description": "The transaction type",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    }
+  },
+  "required": [
+    "TRANSACTION_TYPE"
+  ],
+  "title": "GST_TRANSACTION_TYPE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRANSACTION_TYPE",
+      "string"
+    ],
+    [
+      2,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      3,
+      "GL_FINANCIALCODE",
+      "decimal(4, 0)"
+    ],
+    [
+      4,
+      "GL_TCODE",
+      "decimal(4, 0)"
+    ],
+    [
+      5,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GST_TRANSACTION_TYPE"
+  }
+}

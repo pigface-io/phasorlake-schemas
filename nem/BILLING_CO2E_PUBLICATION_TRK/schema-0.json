@@ -1,0 +1,80 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLING_CO2E_PUBLICATION_TRK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BILLRUNNO": {
+      "description": "Billing run no",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3)"
+    },
+    "CONTRACTYEAR": {
+      "description": "Billing contract year",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4)"
+    },
+    "LASTCHANGED": {
+      "description": "Last changed date time",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "WEEKNO": {
+      "description": "Billing week no",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3)"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "WEEKNO"
+  ],
+  "title": "BILLING_CO2E_PUBLICATION_TRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "WEEKNO",
+      "long"
+    ],
+    [
+      3,
+      "BILLRUNNO",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "BILLING_CO2E_PUBLICATION_TRK"
+  }
+}

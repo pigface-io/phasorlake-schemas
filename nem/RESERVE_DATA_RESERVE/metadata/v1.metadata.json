@@ -1,12 +1,13 @@
 {
   "current-schema-id": 0,
+  "current-snapshot-id": 2283434892026405423,
   "default-sort-order-id": 0,
   "default-spec-id": 0,
   "format-version": 3,
   "last-column-id": 17,
   "last-partition-id": 999,
-  "last-sequence-number": 0,
-  "last-updated-ms": 0,
+  "last-sequence-number": 1,
+  "last-updated-ms": 1254319200000,
   "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/RESERVE_DATA_RESERVE",
   "metadata-log": [],
   "next-row-id": 0,
@@ -16,8 +17,17 @@
       "spec-id": 0
     }
   ],
-  "properties": {},
-  "refs": {},
+  "properties": {
+    "utilake.declared": "false",
+    "utilake.format": "3",
+    "utilake.table": "RESERVE_DATA_RESERVE"
+  },
+  "refs": {
+    "main": {
+      "snapshot-id": 2283434892026405423,
+      "type": "branch"
+    }
+  },
   "schemas": [
     {
       "fields": [
@@ -129,8 +139,41 @@
       "type": "struct"
     }
   ],
-  "snapshot-log": [],
-  "snapshots": [],
+  "snapshot-log": [
+    {
+      "snapshot-id": 2283434892026405423,
+      "timestamp-ms": 1254319200000
+    }
+  ],
+  "snapshots": [
+    {
+      "added-rows": 0,
+      "first-row-id": 0,
+      "manifest-list": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/RESERVE_DATA_RESERVE/metadata/snap-2283434892026405423-1-7876fd2d-e655-80f1-acf5-a5c7b1ba1ddf.avro",
+      "schema-id": 0,
+      "sequence-number": 1,
+      "snapshot-id": 2283434892026405423,
+      "summary": {
+        "operation": "append",
+        "utilake.files": "74",
+        "utilake.from.file": "PUBLIC_DVD_RESERVE_200910010000.zip",
+        "utilake.from.release": "2009-10",
+        "utilake.from.sha256": "b164a3d28c04bf3e9e0b202abd7faf98fdc338a77b74582ebddce7c238329944",
+        "utilake.from.time": "2009-10-29T00:00:00+10:00",
+        "utilake.kinds": "[\"dvd\"]",
+        "utilake.report-subtype": "RESERVE",
+        "utilake.report-type": "RESERVE_DATA",
+        "utilake.rows": "33696",
+        "utilake.to.file": "PUBLIC_DVD_RESERVE_201805010000.zip",
+        "utilake.to.release": "2018-05",
+        "utilake.to.sha256": "f279b3884428753e4fa04418831d2f600025f8152549d5dc68aa4795069d05e0",
+        "utilake.to.time": "2018-05-04T00:00:00+10:00",
+        "utilake.total-rows": "33696",
+        "utilake.version": "1"
+      },
+      "timestamp-ms": 1254319200000
+    }
+  ],
   "sort-orders": [
     {
       "fields": [],

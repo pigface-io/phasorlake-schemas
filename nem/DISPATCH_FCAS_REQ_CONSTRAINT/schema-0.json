@@ -1,0 +1,261 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCH_FCAS_REQ_CONSTRAINT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADJUSTED_COST": {
+      "description": "The adjusted cost of the constraint for this service, after the regulation/contingency split",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "BASE_COST": {
+      "description": "The base cost of the constraint, before the regulation/contingency split",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "BIDTYPE": {
+      "description": "DUID offered type",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "CONSTRAINTID": {
+      "description": "ConstraintID join to table GenConData",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "CONSTRAINT_ENABLEMENT": {
+      "description": "MW enabled for this bid type within the constraint",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "The trading interval date and time of the dispatch interval that was processed by the constraint FCAS processor",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LHS": {
+      "description": "Constraints summed LHS - aggregate LHS Solution values from the physical run from the DISPATCHCONSTRAINT table",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MARGINALVALUE": {
+      "description": "Shadow price of constraint from the DISPATCHCONSTRAINT table from the physical run.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "P_REGULATION": {
+      "description": "The adjusted marginal value of the constraint for FPP recovery (blank for constraints without REG terms)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "REGIONAL_ENABLEMENT": {
+      "description": "The dispatched MW for the bid type inside the region from the physical run of the DISPATCHREGIONSUM table",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "REGIONID": {
+      "description": "Region identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "REGION_BASE_COST": {
+      "description": "The regional payment allocated to the constraint for the interval pro-rated based on marginal value ratios over the binding constraints for that service in that region (this is an intermediate calculation to get to the base cost)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "RHS": {
+      "description": "Constraints RHS value used in the solution - may be either dynamic (calculated) or static from the physical run from the DISPATCHCONSTRAINT table",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP": {
+      "description": "Bid type prices for the region coming from the pricing run of the DISPATCHREGIONSUM table",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RUNNO": {
+      "description": "The dispatch case run number that has triggers the constraint FCAS processor run",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    },
+    "RUN_DATETIME": {
+      "description": "The run date and time of the dispatch case that triggers the constraint FCAS processor run",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [],
+  "title": "DISPATCH_FCAS_REQ_CONSTRAINT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(5, 0)"
+    ],
+    [
+      3,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      5,
+      "REGIONID",
+      "string"
+    ],
+    [
+      6,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      7,
+      "LHS",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "RHS",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "MARGINALVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "REGIONAL_ENABLEMENT",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "CONSTRAINT_ENABLEMENT",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "REGION_BASE_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      14,
+      "BASE_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      15,
+      "ADJUSTED_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      16,
+      "P_REGULATION",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DISPATCH_FCAS_REQ_CONSTRAINT"
+  }
+}

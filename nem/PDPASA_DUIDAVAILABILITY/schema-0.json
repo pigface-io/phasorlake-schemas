@@ -1,0 +1,172 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PDPASA_DUIDAVAILABILITY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DUID": {
+      "description": "NEM Dispatchable Unit Identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "GENERATION_MAX_AVAILABILITY": {
+      "description": "Available Capacity for a scheduled generating unit, semi-scheduled generating unit, BDU (Gen side), WDR or MNSP.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(12, 6)",
+      "x-model-type": "NUMERIC(12,6)"
+    },
+    "GENERATION_PASA_AVAILABILITY": {
+      "description": "PASA Availability for a scheduled generating unit, BDU (Gen side), WDR or MNSP. Null for a semi-scheduled generating unit.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 0)",
+      "x-model-type": "NUMERIC(12,0)"
+    },
+    "GENERATION_RECALL_PERIOD": {
+      "description": "Recall Period associated with the PASA Availability for a scheduled generating unit, BDU (Gen side), WDR or MNSP. Null for a semi-scheduled generating unit.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "Half hour ended interval",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Report Creation Date Time.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOAD_MAX_AVAILABILITY": {
+      "description": "Available Capacity for a scheduled load or BDU(Load side).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(12, 6)",
+      "x-model-type": "NUMERIC(12,6)"
+    },
+    "LOAD_PASA_AVAILABILITY": {
+      "description": "PASA Availability for a scheduled load or BDU(Load side).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 0)",
+      "x-model-type": "NUMERIC(12,0)"
+    },
+    "LOAD_RECALL_PERIOD": {
+      "description": "Recall Period associated with the PASA Availability for a scheduled load or BDU(Load side).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "RUN_DATETIME": {
+      "description": "PDPASA run, identified by the first half hour ended interval of the run.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [],
+  "title": "PDPASA_DUIDAVAILABILITY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "DUID",
+      "string"
+    ],
+    [
+      4,
+      "GENERATION_MAX_AVAILABILITY",
+      "decimal(12, 6)"
+    ],
+    [
+      5,
+      "GENERATION_PASA_AVAILABILITY",
+      "decimal(12, 0)"
+    ],
+    [
+      6,
+      "GENERATION_RECALL_PERIOD",
+      "decimal(8, 3)"
+    ],
+    [
+      7,
+      "LOAD_MAX_AVAILABILITY",
+      "decimal(12, 6)"
+    ],
+    [
+      8,
+      "LOAD_PASA_AVAILABILITY",
+      "decimal(12, 0)"
+    ],
+    [
+      9,
+      "LOAD_RECALL_PERIOD",
+      "decimal(8, 3)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "PDPASA_DUIDAVAILABILITY"
+  }
+}

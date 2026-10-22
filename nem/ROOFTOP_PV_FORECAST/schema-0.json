@@ -1,0 +1,141 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/ROOFTOP_PV_FORECAST/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "INTERVAL_DATETIME": {
+      "description": "The forecast half-hour interval (time ending)",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "POWERMEAN": {
+      "description": "The average forecast value in MW at the interval end",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "POWERPOE50": {
+      "description": "50% probability of exceedance forecast value in MW at the interval end",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "POWERPOEHIGH": {
+      "description": "10% probability of exceedance forecast value in MW at the interval end",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "POWERPOELOW": {
+      "description": "90% probability of exceedance forecast value in MW at the interval end",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "REGIONID": {
+      "description": "Region identifier",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "VERSION_DATETIME": {
+      "description": "Date time this forecast was produced",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "VERSION_DATETIME",
+    "REGIONID",
+    "INTERVAL_DATETIME"
+  ],
+  "title": "ROOFTOP_PV_FORECAST, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "POWERMEAN",
+      "decimal(12, 3)"
+    ],
+    [
+      5,
+      "POWERPOE50",
+      "decimal(12, 3)"
+    ],
+    [
+      6,
+      "POWERPOELOW",
+      "decimal(12, 3)"
+    ],
+    [
+      7,
+      "POWERPOEHIGH",
+      "decimal(12, 3)"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "ROOFTOP_PV_FORECAST"
+  }
+}

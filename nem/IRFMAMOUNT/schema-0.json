@@ -1,0 +1,140 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/IRFMAMOUNT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AMOUNT": {
+      "description": "Total settlement amount in $",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "AUTHORISEDBY": {
+      "description": "Person authorising amount",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "AUTHORISEDDATE": {
+      "description": "Authorised date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Date of event",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "IRFMID": {
+      "description": "Unique Industrial Relations Force Majeure event",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "LASTCHANGED": {
+      "description": "last changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PERIODID": {
+      "description": "Settlement period",
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "VERSIONNO": {
+      "description": "Version number of record of event",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "IRFMID",
+    "VERSIONNO",
+    "PERIODID"
+  ],
+  "title": "IRFMAMOUNT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "IRFMID",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "PERIODID",
+      "long"
+    ],
+    [
+      5,
+      "AMOUNT",
+      "decimal(15, 5)"
+    ],
+    [
+      6,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      7,
+      "AUTHORISEDDATE",
+      "string"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "IRFMAMOUNT"
+  }
+}

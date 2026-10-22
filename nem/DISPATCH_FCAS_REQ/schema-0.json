@@ -1,0 +1,256 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCH_FCAS_REQ/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADJUSTED_COST": {
+      "description": "The adjusted cost of the constraint for this service, before the regulation/contingency split",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "BASE_COST": {
+      "description": "The base cost of the constraint for this service, before the regulation/contingency split",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "BIDTYPE": {
+      "description": "DUID offered type",
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "ESTIMATED_CMPF": {
+      "description": "An estimated value for the constraint CMPF, based on dispatched data",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "ESTIMATED_CRMPF": {
+      "description": "An estimated value for the constraint CRMPF, based on dispatched data",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "GENCONEFFECTIVEDATE": {
+      "description": "Generic Constraint EffectiveDate - Join to table GenConData",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "GENCONID": {
+      "description": "Generic Constraint ID - Join to table GenConData",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "GENCONVERSIONNO": {
+      "description": "Generic Constraint Version number - Join to table GenConData",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "INTERVENTION": {
+      "description": "Intervention Flag",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Date record is changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MARGINALVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "RECOVERY_FACTOR_CMPF": {
+      "description": "Estimated recovery factor for CMPF based recovery",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "RECOVERY_FACTOR_CRMPF": {
+      "description": "Estimated recovery factor for CRMPF based recovery",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "REGIONID": {
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "RUNNO": {
+      "description": "Dispatch run no; always 1",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Settlement date and time of Dispatch Interval",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "RUNNO",
+    "INTERVENTION",
+    "GENCONID",
+    "REGIONID",
+    "BIDTYPE"
+  ],
+  "title": "DISPATCH_FCAS_REQ, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "long"
+    ],
+    [
+      3,
+      "INTERVENTION",
+      "long"
+    ],
+    [
+      4,
+      "GENCONID",
+      "string"
+    ],
+    [
+      5,
+      "REGIONID",
+      "string"
+    ],
+    [
+      6,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      7,
+      "GENCONEFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      8,
+      "GENCONVERSIONNO",
+      "decimal(3, 0)"
+    ],
+    [
+      9,
+      "MARGINALVALUE",
+      "decimal(16, 6)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      11,
+      "BASE_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      12,
+      "ADJUSTED_COST",
+      "decimal(18, 8)"
+    ],
+    [
+      13,
+      "ESTIMATED_CMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      14,
+      "ESTIMATED_CRMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      15,
+      "RECOVERY_FACTOR_CMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      16,
+      "RECOVERY_FACTOR_CRMPF",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DISPATCH_FCAS_REQ"
+  }
+}

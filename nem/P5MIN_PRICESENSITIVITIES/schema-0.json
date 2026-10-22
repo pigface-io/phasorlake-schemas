@@ -1,0 +1,757 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/P5MIN_PRICESENSITIVITIES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "INTERVAL_DATETIME": {
+      "description": "The unique identifier for the interval within this study",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "INTERVENTION": {
+      "description": "Whether an Intervention constraint was defined in this run",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "INTERVENTION_ACTIVE": {
+      "description": "Flag to indicate if the sensitivity run contains an active intervention constraint: 0 = No, 1 = Yes",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Timestamp when this record was last modified",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 49,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REGIONID": {
+      "description": "Region",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RRP1": {
+      "description": "Regional Reference price for scenario 1",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP10": {
+      "description": "Regional Reference price for scenario 10",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP11": {
+      "description": "Regional Reference price for scenario 11",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP12": {
+      "description": "Regional Reference price for scenario 12",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP13": {
+      "description": "Regional Reference price for scenario 13",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP14": {
+      "description": "Regional Reference price for scenario 14",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP15": {
+      "description": "Regional Reference price for scenario 15",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP16": {
+      "description": "Regional Reference price for scenario 16",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP17": {
+      "description": "Regional Reference price for scenario 17",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP18": {
+      "description": "Regional Reference price for scenario 18",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP19": {
+      "description": "Regional Reference price for scenario 19",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP2": {
+      "description": "Regional Reference price for scenario 2",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP20": {
+      "description": "Regional Reference price for scenario 20",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP21": {
+      "description": "Regional Reference price for scenario 21",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP22": {
+      "description": "Regional Reference price for scenario 22",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP23": {
+      "description": "Regional Reference price for scenario 23",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP24": {
+      "description": "Regional Reference price for scenario 24",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP25": {
+      "description": "Regional Reference price for scenario 25",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP26": {
+      "description": "Regional Reference price for scenario 26",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP27": {
+      "description": "Regional Reference price for scenario 27",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP28": {
+      "description": "Regional Reference price for scenario 28",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP29": {
+      "description": "Regional Reference price for scenario 29",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP3": {
+      "description": "Regional Reference price for scenario 3",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP30": {
+      "description": "Regional Reference price for scenario 30",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP31": {
+      "description": "Regional Reference price for scenario 31",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP32": {
+      "description": "Regional Reference price for scenario 32",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP33": {
+      "description": "Regional Reference price for scenario 33",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 38,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP34": {
+      "description": "Regional Reference price for scenario 34",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 39,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP35": {
+      "description": "Regional Reference price for scenario 35",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 40,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP36": {
+      "description": "Regional Reference price for scenario 36",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 41,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP37": {
+      "description": "Regional Reference price for scenario 37",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 42,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP38": {
+      "description": "Regional Reference price for scenario 38",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 43,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP39": {
+      "description": "Regional Reference price for scenario 39",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 44,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP4": {
+      "description": "Regional Reference price for scenario 4",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP40": {
+      "description": "Regional Reference price for scenario 40",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 45,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP41": {
+      "description": "Regional Reference price for scenario 41",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 46,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP42": {
+      "description": "Regional Reference price for scenario 42",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 47,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP43": {
+      "description": "Regional Reference price for scenario 43",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 48,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP5": {
+      "description": "Regional Reference price for scenario 5",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP6": {
+      "description": "Regional Reference price for scenario 6",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP7": {
+      "description": "Regional Reference price for scenario 7",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP8": {
+      "description": "Regional Reference price for scenario 8",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP9": {
+      "description": "Regional Reference price for scenario 9",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RUN_DATETIME": {
+      "description": "Definitive Run from which this solution derives",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [],
+  "title": "P5MIN_PRICESENSITIVITIES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "INTERVENTION",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "INTERVENTION_ACTIVE",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "RRP1",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "RRP2",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "RRP3",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "RRP4",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "RRP5",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "RRP6",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "RRP7",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "RRP8",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "RRP9",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "RRP10",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "RRP11",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "RRP12",
+      "decimal(15, 5)"
+    ],
+    [
+      18,
+      "RRP13",
+      "decimal(15, 5)"
+    ],
+    [
+      19,
+      "RRP14",
+      "decimal(15, 5)"
+    ],
+    [
+      20,
+      "RRP15",
+      "decimal(15, 5)"
+    ],
+    [
+      21,
+      "RRP16",
+      "decimal(15, 5)"
+    ],
+    [
+      22,
+      "RRP17",
+      "decimal(15, 5)"
+    ],
+    [
+      23,
+      "RRP18",
+      "decimal(15, 5)"
+    ],
+    [
+      24,
+      "RRP19",
+      "decimal(15, 5)"
+    ],
+    [
+      25,
+      "RRP20",
+      "decimal(15, 5)"
+    ],
+    [
+      26,
+      "RRP21",
+      "decimal(15, 5)"
+    ],
+    [
+      27,
+      "RRP22",
+      "decimal(15, 5)"
+    ],
+    [
+      28,
+      "RRP23",
+      "decimal(15, 5)"
+    ],
+    [
+      29,
+      "RRP24",
+      "decimal(15, 5)"
+    ],
+    [
+      30,
+      "RRP25",
+      "decimal(15, 5)"
+    ],
+    [
+      31,
+      "RRP26",
+      "decimal(15, 5)"
+    ],
+    [
+      32,
+      "RRP27",
+      "decimal(15, 5)"
+    ],
+    [
+      33,
+      "RRP28",
+      "decimal(15, 5)"
+    ],
+    [
+      34,
+      "RRP29",
+      "decimal(15, 5)"
+    ],
+    [
+      35,
+      "RRP30",
+      "decimal(15, 5)"
+    ],
+    [
+      36,
+      "RRP31",
+      "decimal(15, 5)"
+    ],
+    [
+      37,
+      "RRP32",
+      "decimal(15, 5)"
+    ],
+    [
+      38,
+      "RRP33",
+      "decimal(15, 5)"
+    ],
+    [
+      39,
+      "RRP34",
+      "decimal(15, 5)"
+    ],
+    [
+      40,
+      "RRP35",
+      "decimal(15, 5)"
+    ],
+    [
+      41,
+      "RRP36",
+      "decimal(15, 5)"
+    ],
+    [
+      42,
+      "RRP37",
+      "decimal(15, 5)"
+    ],
+    [
+      43,
+      "RRP38",
+      "decimal(15, 5)"
+    ],
+    [
+      44,
+      "RRP39",
+      "decimal(15, 5)"
+    ],
+    [
+      45,
+      "RRP40",
+      "decimal(15, 5)"
+    ],
+    [
+      46,
+      "RRP41",
+      "decimal(15, 5)"
+    ],
+    [
+      47,
+      "RRP42",
+      "decimal(15, 5)"
+    ],
+    [
+      48,
+      "RRP43",
+      "decimal(15, 5)"
+    ],
+    [
+      49,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "P5MIN_PRICESENSITIVITIES"
+  }
+}

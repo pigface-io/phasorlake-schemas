@@ -1,0 +1,1446 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/P5MIN_REGIONSOLUTION/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGGREGATEDISPATCHERROR": {
+      "description": "Aggregate dispatch error applied",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 60,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "AVAILABLEGENERATION": {
+      "description": "Regional Available generation",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "AVAILABLELOAD": {
+      "description": "Regional Available Load",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CLEAREDSUPPLY": {
+      "description": "Sum of cleared generation and import for region",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 62,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "DEMANDFORECAST": {
+      "description": "Predicted change in regional demand for this interval",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "DEMAND_AND_NONSCHEDGEN": {
+      "description": "Sum of Cleared Scheduled generation, imported generation (at the region boundary) and allowances made for non-scheduled generation (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 91,
+      "x-iceberg-type": "decimal(15, 6)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "DISPATCHABLEGENERATION": {
+      "description": "Regional Generation Dispatched",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "DISPATCHABLELOAD": {
+      "description": "Regional Load Dispatched",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "EXCESSGENERATION": {
+      "description": "Total Energy Imbalance (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "INITIALSUPPLY": {
+      "description": "Sum of initial generation and import for region",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 61,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "The unique identifier for the interval within this study",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "INTERVENTION": {
+      "description": "Flag to indicate if this result set was sourced from the pricing run (INTERVENTION=0) or the physical run (INTERVENTION=1). In the event there is not intervention in the market, both pricing and physical runs correspond to INTERVENTION=0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 95,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 89,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOWER5MINDISPATCH": {
+      "description": "Not used since Dec 2003. Lower 5 min MW dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINIMPORT": {
+      "description": "Not used since Dec 2003. Lower 5 min MW imported",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINLOCALDISPATCH": {
+      "description": "Lower 5 min local dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINLOCALREQ": {
+      "description": "Not used since Dec 2003. Lower 5 min local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINLOCALVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Lower 5 min local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 77,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINREQ": {
+      "description": "Not used since Dec 2003. Lower 5 min total requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINROP": {
+      "description": "Original regional price (Lower5Min)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINRRP": {
+      "description": "Region Reference Price (Lower5Min)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Lower 5 min requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 85,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECDISPATCH": {
+      "description": "Not used since Dec 2003. Lower 60 sec MW dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECIMPORT": {
+      "description": "Not used since Dec 2003. Lower 60 sec MW imported",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECLOCALDISPATCH": {
+      "description": "Lower 60 sec local dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECLOCALREQ": {
+      "description": "Not used since Dec 2003. Lower 60 sec local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 38,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECLOCALVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Lower 60 sec local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 79,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECREQ": {
+      "description": "Not used since Dec 2003. Lower 60 sec total requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 39,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECROP": {
+      "description": "Original regional price (Lower60Sec)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECRRP": {
+      "description": "Region Reference Price (Lower60Sec)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Lower 60 seconds requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 87,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECDISPATCH": {
+      "description": "Not used since Dec 2003. Lower 6 sec MW dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 40,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECIMPORT": {
+      "description": "Not used since Dec 2003. Lower 6 sec MW imported",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 41,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECLOCALDISPATCH": {
+      "description": "Lower 6 sec local dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 42,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECLOCALREQ": {
+      "description": "Not used since Dec 2003. Lower 6 sec local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 43,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECLOCALVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Lower 6 sec local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 80,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECREQ": {
+      "description": "Not used since Dec 2003. Lower 6 sec total requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 44,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECROP": {
+      "description": "Original regional price (Lower6Sec)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECRRP": {
+      "description": "Region Reference Price (Lower6Sec)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Lower 6 seconds requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 88,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGDISPATCH": {
+      "description": "Not used since Dec 2003. Total Lower Regulation dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 64,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGIMPORT": {
+      "description": "Not used since Dec 2003. Lower Regulation MW imported",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 63,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGLOCALDISPATCH": {
+      "description": "Lower Regulation local dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 65,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGLOCALREQ": {
+      "description": "Not used since Dec 2003. Lower Regulation local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 66,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGLOCALVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Lower Reg local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 78,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGREQ": {
+      "description": "Not used since Dec 2003. Lower Regulation total requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 67,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGROP": {
+      "description": "Original regional price (LowerReg)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGRRP": {
+      "description": "Region Reference Price (LowerReg)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Lower Reg requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 86,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "NETINTERCHANGE": {
+      "description": "Net interconnector Flows",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINDISPATCH": {
+      "description": "Not used since Dec 2003. Total Raise 5 min MW dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 45,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINIMPORT": {
+      "description": "Not used since Dec 2003. Raise 5 min MW imported",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 46,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINLOCALDISPATCH": {
+      "description": "Raise 5 min local dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 47,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINLOCALREQ": {
+      "description": "Not used since Dec 2003. Raise 5 min local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 48,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINLOCALVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Raise 5 min local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 73,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINREQ": {
+      "description": "Not used since Dec 2003. Raise 5 min total requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 49,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINROP": {
+      "description": "Original regional price (Raise5Min)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINRRP": {
+      "description": "Region Reference Price (Raise5Min)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Raise 5 min requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 81,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECDISPATCH": {
+      "description": "Not used since Dec 2003. Raise 60 sec MW dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 50,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECIMPORT": {
+      "description": "Not used since Dec 2003. Raise 60 sec MW imported",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 51,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECLOCALDISPATCH": {
+      "description": "Raise 50 sec local dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 52,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECLOCALREQ": {
+      "description": "Not used since Dec 2003. Raise 60 sec local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 53,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECLOCALVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Raise 60 sec local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 75,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECREQ": {
+      "description": "Not used since Dec 2003. Raise 60 sec total requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 54,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECROP": {
+      "description": "Original regional price (Raise60Sec)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECRRP": {
+      "description": "Region Reference Price (Raise60Sec)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Raise 60 seconds requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 83,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECDISPATCH": {
+      "description": "Not used since Dec 2003. Raise 6 sec MW dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 55,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECIMPORT": {
+      "description": "Not used since Dec 2003. Raise 6 sec MW imported",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 56,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECLOCALDISPATCH": {
+      "description": "Raise 6 sec local dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 57,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECLOCALREQ": {
+      "description": "Not used since Dec 2003. Raise 6 sec local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 58,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECLOCALVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Raise 6 sec local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 76,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECREQ": {
+      "description": "Not used since Dec 2003. Raise 6 sec total requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 59,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECROP": {
+      "description": "Original regional price (Raise6Sec)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECRRP": {
+      "description": "Region Reference Price (Raise6Sec)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Raise 6 seconds requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 84,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGDISPATCH": {
+      "description": "Not used since Dec 2003. Total Raise Regulation dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 69,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGIMPORT": {
+      "description": "Not used since Dec 2003. Raise Regulation MW imported",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 68,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGLOCALDISPATCH": {
+      "description": "Raise Regulation local dispatch",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 70,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGLOCALREQ": {
+      "description": "Not used since Dec 2003. Raise Regulation local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 71,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGLOCALVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Raise Reg local requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 74,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGREQ": {
+      "description": "Not used since Dec 2003. Raise Regulation total requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 72,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGROP": {
+      "description": "Original regional price (RaiseReg)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGRRP": {
+      "description": "Region Reference Price (RaiseReg)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGVIOLATION": {
+      "description": "Not used since Dec 2003. Violation (MW) of Raise Reg requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 82,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "REGIONID": {
+      "description": "Region Identifier",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "ROP": {
+      "description": "Region Override Price (Energy)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRP": {
+      "description": "Region Reference Price (Energy)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RUN_DATETIME": {
+      "description": "Unique Timestamp Identifier for this study",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "SEMISCHEDULE_CLEAREDMW": {
+      "description": "Regional aggregated Semi-Schedule generator Cleared MW",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 93,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "SEMISCHEDULE_COMPLIANCEMW": {
+      "description": "Regional aggregated Semi-Schedule generator Cleared MW where Semi-Dispatch cap is enforced",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 94,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTALDEMAND": {
+      "description": "Regional Demand - NB NOT net of Interconnector flows or Loads",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TOTALINTERMITTENTGENERATION": {
+      "description": "Allowance made for non-scheduled generation in the demand forecast (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 90,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "UIGF": {
+      "description": "Regional aggregated Unconstrained Intermittent Generation Forecast of Semi-scheduled generation (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 92,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "INTERVAL_DATETIME",
+    "REGIONID"
+  ],
+  "title": "P5MIN_REGIONSOLUTION, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      95,
+      "INTERVENTION",
+      "decimal(2, 0)"
+    ],
+    [
+      2,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      5,
+      "ROP",
+      "decimal(15, 5)"
+    ],
+    [
+      6,
+      "EXCESSGENERATION",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "RAISE6SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "RAISE6SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "RAISE60SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "RAISE60SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "RAISE5MINRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "RAISE5MINROP",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "RAISEREGRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "RAISEREGROP",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "LOWER6SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "LOWER6SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "LOWER60SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      18,
+      "LOWER60SECROP",
+      "decimal(15, 5)"
+    ],
+    [
+      19,
+      "LOWER5MINRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      20,
+      "LOWER5MINROP",
+      "decimal(15, 5)"
+    ],
+    [
+      21,
+      "LOWERREGRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      22,
+      "LOWERREGROP",
+      "decimal(15, 5)"
+    ],
+    [
+      23,
+      "TOTALDEMAND",
+      "decimal(15, 5)"
+    ],
+    [
+      24,
+      "AVAILABLEGENERATION",
+      "decimal(15, 5)"
+    ],
+    [
+      25,
+      "AVAILABLELOAD",
+      "decimal(15, 5)"
+    ],
+    [
+      26,
+      "DEMANDFORECAST",
+      "decimal(15, 5)"
+    ],
+    [
+      27,
+      "DISPATCHABLEGENERATION",
+      "decimal(15, 5)"
+    ],
+    [
+      28,
+      "DISPATCHABLELOAD",
+      "decimal(15, 5)"
+    ],
+    [
+      29,
+      "NETINTERCHANGE",
+      "decimal(15, 5)"
+    ],
+    [
+      30,
+      "LOWER5MINDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      31,
+      "LOWER5MINIMPORT",
+      "decimal(15, 5)"
+    ],
+    [
+      32,
+      "LOWER5MINLOCALDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      33,
+      "LOWER5MINLOCALREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      34,
+      "LOWER5MINREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      35,
+      "LOWER60SECDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      36,
+      "LOWER60SECIMPORT",
+      "decimal(15, 5)"
+    ],
+    [
+      37,
+      "LOWER60SECLOCALDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      38,
+      "LOWER60SECLOCALREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      39,
+      "LOWER60SECREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      40,
+      "LOWER6SECDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      41,
+      "LOWER6SECIMPORT",
+      "decimal(15, 5)"
+    ],
+    [
+      42,
+      "LOWER6SECLOCALDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      43,
+      "LOWER6SECLOCALREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      44,
+      "LOWER6SECREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      45,
+      "RAISE5MINDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      46,
+      "RAISE5MINIMPORT",
+      "decimal(15, 5)"
+    ],
+    [
+      47,
+      "RAISE5MINLOCALDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      48,
+      "RAISE5MINLOCALREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      49,
+      "RAISE5MINREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      50,
+      "RAISE60SECDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      51,
+      "RAISE60SECIMPORT",
+      "decimal(15, 5)"
+    ],
+    [
+      52,
+      "RAISE60SECLOCALDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      53,
+      "RAISE60SECLOCALREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      54,
+      "RAISE60SECREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      55,
+      "RAISE6SECDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      56,
+      "RAISE6SECIMPORT",
+      "decimal(15, 5)"
+    ],
+    [
+      57,
+      "RAISE6SECLOCALDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      58,
+      "RAISE6SECLOCALREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      59,
+      "RAISE6SECREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      60,
+      "AGGREGATEDISPATCHERROR",
+      "decimal(15, 5)"
+    ],
+    [
+      61,
+      "INITIALSUPPLY",
+      "decimal(15, 5)"
+    ],
+    [
+      62,
+      "CLEAREDSUPPLY",
+      "decimal(15, 5)"
+    ],
+    [
+      63,
+      "LOWERREGIMPORT",
+      "decimal(15, 5)"
+    ],
+    [
+      64,
+      "LOWERREGDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      65,
+      "LOWERREGLOCALDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      66,
+      "LOWERREGLOCALREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      67,
+      "LOWERREGREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      68,
+      "RAISEREGIMPORT",
+      "decimal(15, 5)"
+    ],
+    [
+      69,
+      "RAISEREGDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      70,
+      "RAISEREGLOCALDISPATCH",
+      "decimal(15, 5)"
+    ],
+    [
+      71,
+      "RAISEREGLOCALREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      72,
+      "RAISEREGREQ",
+      "decimal(15, 5)"
+    ],
+    [
+      73,
+      "RAISE5MINLOCALVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      74,
+      "RAISEREGLOCALVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      75,
+      "RAISE60SECLOCALVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      76,
+      "RAISE6SECLOCALVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      77,
+      "LOWER5MINLOCALVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      78,
+      "LOWERREGLOCALVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      79,
+      "LOWER60SECLOCALVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      80,
+      "LOWER6SECLOCALVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      81,
+      "RAISE5MINVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      82,
+      "RAISEREGVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      83,
+      "RAISE60SECVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      84,
+      "RAISE6SECVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      85,
+      "LOWER5MINVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      86,
+      "LOWERREGVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      87,
+      "LOWER60SECVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      88,
+      "LOWER6SECVIOLATION",
+      "decimal(15, 5)"
+    ],
+    [
+      89,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      90,
+      "TOTALINTERMITTENTGENERATION",
+      "decimal(15, 5)"
+    ],
+    [
+      91,
+      "DEMAND_AND_NONSCHEDGEN",
+      "decimal(15, 6)"
+    ],
+    [
+      92,
+      "UIGF",
+      "decimal(15, 5)"
+    ],
+    [
+      93,
+      "SEMISCHEDULE_CLEAREDMW",
+      "decimal(15, 5)"
+    ],
+    [
+      94,
+      "SEMISCHEDULE_COMPLIANCEMW",
+      "decimal(15, 5)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "P5MIN_REGIONSOLUTION"
+  }
+}

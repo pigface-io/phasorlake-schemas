@@ -1,0 +1,215 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/VOLTAGE_INSTRUCTION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADDITIONAL_NOTES": {
+      "description": "Additional information pertaining to a particular instruction, e.g. Previously issued instruction revoked",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(60)"
+    },
+    "CONFORMING": {
+      "description": "[0,1] Denotes if the Device is currently conforming",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "CONTROL_TYPE": {
+      "description": "One of VOLTAGE, TAP, MVAR, SWITCH or COMMIT but may be extended to other types",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "DEVICE_ID": {
+      "description": "The company/participant preferred name of an equipment",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(60)"
+    },
+    "DEVICE_TYPE": {
+      "description": "One of REACTOR, CAPACITOR, GEN, SVC, TRANS or GRPGEN but may be extended to other types",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "EMS_ID": {
+      "description": "The unique identifier for reference within AEMO –matches equipment names between NOS and EMS",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(60)"
+    },
+    "INSTRUCTION_SEQUENCE": {
+      "description": "Order for execution of Instruction",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(4, 0)",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "INSTRUCTION_SUMMARY": {
+      "description": "Verbose summary of instruction",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(400)"
+    },
+    "PARTICIPANTID": {
+      "description": "The NEM id of the participant who owns the equipment",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUN_DATETIME": {
+      "description": "MVAr Interval – a timestamp of when instructions issued",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "STATION_ID": {
+      "description": "The id of the station where the control equipment resides",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(60)"
+    },
+    "TARGET": {
+      "description": "Instruction for the device, for this interval null denotes no instruction",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(20,5)"
+    },
+    "VERSION_DATETIME": {
+      "description": "Datetime the file was published by VDS - Versions differ from Run_DateTime only for Supplemental runs",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "EMS_ID",
+    "VERSION_DATETIME"
+  ],
+  "title": "VOLTAGE_INSTRUCTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "EMS_ID",
+      "string"
+    ],
+    [
+      3,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      4,
+      "STATION_ID",
+      "string"
+    ],
+    [
+      5,
+      "DEVICE_ID",
+      "string"
+    ],
+    [
+      6,
+      "DEVICE_TYPE",
+      "string"
+    ],
+    [
+      7,
+      "CONTROL_TYPE",
+      "string"
+    ],
+    [
+      8,
+      "TARGET",
+      "double"
+    ],
+    [
+      9,
+      "CONFORMING",
+      "decimal(1, 0)"
+    ],
+    [
+      10,
+      "INSTRUCTION_SUMMARY",
+      "string"
+    ],
+    [
+      11,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      12,
+      "INSTRUCTION_SEQUENCE",
+      "decimal(4, 0)"
+    ],
+    [
+      13,
+      "ADDITIONAL_NOTES",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    11
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "VOLTAGE_INSTRUCTION"
+  }
+}

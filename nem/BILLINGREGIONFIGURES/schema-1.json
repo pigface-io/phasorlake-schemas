@@ -1,0 +1,288 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLINGREGIONFIGURES/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADMINPRICECOMPO": {
+      "description": "This field is populated with 0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(16, 8)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "ASPAYMENT": {
+      "description": "Ancillary service payments in $",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "BILLRUNNO": {
+      "description": "Unique run no within a given contract year and week no",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "CONTRACTYEAR": {
+      "description": "AEMO Contract Year number starting in week containing 1st January",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "ENERGYOUT": {
+      "description": "MWh Energy output in the region during the billing period",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(17, 10)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "ENERGYPURCHASED": {
+      "description": "MWh Amount of energy purchased in region during billing period",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "EXCESSGEN": {
+      "description": "This field is populated with 0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(16, 8)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "INTCOMPO": {
+      "description": "This field is populated with 0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(16, 8)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "POOLFEES": {
+      "description": "This field is populated with 0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(16, 8)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "REGIONID": {
+      "description": "Unique region identifier",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "RESERVETRADING": {
+      "description": "This field is populated with 0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(16, 8)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "SETTSURPLUS": {
+      "description": "Intraregional residues in $",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "VALUEOUT": {
+      "description": "$ Value of energy output in region during billing period",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "VALUEPURCHASED": {
+      "description": "$ Value of energy purchased during billing period",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "WDRSQ": {
+      "description": "WDR Settlement Quantity Capped in MWh",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "WDRTA": {
+      "description": "WDR transaction amount in $",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "WEEKNO": {
+      "description": "Week no within the contract year. Week no 1 is the week containing 1st January",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "WEEKNO",
+    "BILLRUNNO",
+    "REGIONID"
+  ],
+  "title": "BILLINGREGIONFIGURES, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "WEEKNO",
+      "long"
+    ],
+    [
+      3,
+      "BILLRUNNO",
+      "long"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "ENERGYOUT",
+      "decimal(17, 10)"
+    ],
+    [
+      6,
+      "VALUEOUT",
+      "double"
+    ],
+    [
+      7,
+      "ENERGYPURCHASED",
+      "double"
+    ],
+    [
+      8,
+      "VALUEPURCHASED",
+      "double"
+    ],
+    [
+      9,
+      "EXCESSGEN",
+      "decimal(16, 8)"
+    ],
+    [
+      10,
+      "RESERVETRADING",
+      "decimal(16, 8)"
+    ],
+    [
+      11,
+      "INTCOMPO",
+      "decimal(16, 8)"
+    ],
+    [
+      12,
+      "ADMINPRICECOMPO",
+      "decimal(16, 8)"
+    ],
+    [
+      13,
+      "SETTSURPLUS",
+      "double"
+    ],
+    [
+      14,
+      "ASPAYMENT",
+      "double"
+    ],
+    [
+      15,
+      "POOLFEES",
+      "decimal(16, 8)"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      17,
+      "WDRSQ",
+      "decimal(18, 8)"
+    ],
+    [
+      18,
+      "WDRTA",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "BILLINGREGIONFIGURES"
+  }
+}

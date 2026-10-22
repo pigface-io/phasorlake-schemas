@@ -1,0 +1,156 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SRA_FINANCIAL_RUNTRK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "INTEREST_VERSIONNO": {
+      "description": "Version number of the interest component used in the payments run",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3)"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time this record was last modified",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MAKEUP_VERSIONNO": {
+      "description": "Version number of the makeup component used in the makeup run",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3)"
+    },
+    "POSTEDDATE": {
+      "description": "The date/time the run was posted",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUNDATE": {
+      "description": "The date and time the run was triggered",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUNTYPE": {
+      "description": "The type of SRA run",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "SRA_QUARTER": {
+      "description": "Relevant Quarter of the Tranche",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3)"
+    },
+    "SRA_RUNNO": {
+      "description": "SRA Run Number",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3)"
+    },
+    "SRA_YEAR": {
+      "description": "Year of the Tranche",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4)"
+    }
+  },
+  "required": [
+    "SRA_YEAR",
+    "SRA_QUARTER",
+    "SRA_RUNNO"
+  ],
+  "title": "SRA_FINANCIAL_RUNTRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SRA_YEAR",
+      "long"
+    ],
+    [
+      2,
+      "SRA_QUARTER",
+      "long"
+    ],
+    [
+      3,
+      "SRA_RUNNO",
+      "long"
+    ],
+    [
+      4,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      5,
+      "RUNDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "POSTEDDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "INTEREST_VERSIONNO",
+      "long"
+    ],
+    [
+      8,
+      "MAKEUP_VERSIONNO",
+      "long"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SRA_FINANCIAL_RUNTRK"
+  }
+}

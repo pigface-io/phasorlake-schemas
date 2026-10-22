@@ -1,0 +1,172 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_CONSTRAINT_FREQ_MEASURE/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "description": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "CONSTRAINTID": {
+      "description": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "CORRELATION_FLAG": {
+      "description": "Flag to indicate the result of the Frequency Measure correlation check between regions in the same constraint. Supported values are: 0 = Frequency measures in this constraint are not correlated (e.g. system separation between two regions) 1 = Frequency measures in this constraint are correlated",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    },
+    "FM_LOWER_HZ": {
+      "description": "Calculated 4 second Frequency Measure in Hz for that constraint from the FPP database. Frequency Measure data is split across these two raise and lower columns in the following ways: >0 = Allocated to the FM_RAISE_HZ column <0 = Allocated to the FM_LOWER_HZ column 0 = To fill any gaps where the alternative column is not applicable (or no deviation from 50 Hz)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "FM_RAISE_HZ": {
+      "description": "Calculated 4 second Frequency Measure in Hz for that constraint from the FPP database. Frequency Measure data is split across these two raise and lower columns in the following ways: >0 = Allocated to the FM_RAISE_HZ column <0 = Allocated to the FM_LOWER_HZ column 0 = To fill any gaps where the alternative column is not applicable (or no deviation from 50 Hz)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MEASUREMENT_DATETIME": {
+      "description": "Date and time of the SCADA data (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "USED_IN_RCR_FLAG": {
+      "description": "Flag to indicate the result of the Frequency Measure alignment check between Mainland and Tasmania for global constraints. Supported values are: 0 = Not used in RCR calculation as the signs for the frequency measures between Mainland and Tasmania do not align 1 = Used in the RCR calculation as the signs for the frequency measures between Mainland and Tasmania do align in the case of global constraints. For non-global constraints this flag is set to 1",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    },
+    "VERSIONNO": {
+      "description": "Version (FPP run number from the FPP database)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    }
+  },
+  "required": [],
+  "title": "FPP_CONSTRAINT_FREQ_MEASURE, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "MEASUREMENT_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      4,
+      "VERSIONNO",
+      "decimal(5, 0)"
+    ],
+    [
+      5,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      6,
+      "FM_RAISE_HZ",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "FM_LOWER_HZ",
+      "decimal(18, 8)"
+    ],
+    [
+      8,
+      "USED_IN_RCR_FLAG",
+      "decimal(5, 0)"
+    ],
+    [
+      9,
+      "CORRELATION_FLAG",
+      "decimal(5, 0)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "FPP_CONSTRAINT_FREQ_MEASURE"
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/NETWORK_RATING/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EQUIPMENTID": {
+      "description": "A unique identifier for this equipment at this substation, and based on its type",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "EQUIPMENTTYPE": {
+      "description": "The type of equipment. Valid values are:\nLINE = Line\nTRANS = Transformer\nCB = Circuit breaker\nISOL = Isolator\nCAP = Capacitor\nREAC = Reactor\nUNIT = Unit",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "ISDYNAMIC": {
+      "description": "One of:\n1 = Normally uses dynamic ratings\n0 = No dynamic ratings, static ratings are used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "LASTCHANGED": {
+      "description": "The time that this record was last changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RATINGLEVEL": {
+      "description": "The rating level of the value used, one of:\nNORM = Continuous rating value. Applied under pre-contingent conditions.\nEMER = Continuous rating value. Applied under pre-contingent conditions\nLDSH = Load Shedding",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "REGIONID": {
+      "description": "The region that this rating is for",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "SPD_ID": {
+      "description": "ID defining this data source for use in constraints",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(21)"
+    },
+    "SUBSTATIONID": {
+      "description": "The substation the equipment is located at",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "VALIDFROM": {
+      "description": "The date that this record is applies from (inclusive)",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "VALIDTO": {
+      "description": "The date that this record applies until (exclusive)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "SPD_ID",
+    "VALIDFROM"
+  ],
+  "title": "NETWORK_RATING, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SPD_ID",
+      "string"
+    ],
+    [
+      2,
+      "VALIDFROM",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VALIDTO",
+      "timestamptz"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "SUBSTATIONID",
+      "string"
+    ],
+    [
+      6,
+      "EQUIPMENTTYPE",
+      "string"
+    ],
+    [
+      7,
+      "EQUIPMENTID",
+      "string"
+    ],
+    [
+      8,
+      "RATINGLEVEL",
+      "string"
+    ],
+    [
+      9,
+      "ISDYNAMIC",
+      "decimal(1, 0)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NETWORK_RATING"
+  }
+}

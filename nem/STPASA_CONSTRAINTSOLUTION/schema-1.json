@@ -1,0 +1,155 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/STPASA_CONSTRAINTSOLUTION/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CAPACITYMARGINALVALUE": {
+      "description": "Capacity adequacy assessment marginal value, 0 if not binding",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CAPACITYRHS": {
+      "description": "The RHS value in the capacity evaluation.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CAPACITYVIOLATIONDEGREE": {
+      "description": "Capacity adequacy assessment violation degree for generic constraint; 0 if not violating",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CONSTRAINTID": {
+      "description": "Constraint identifier (synonymous with GenConID)",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "The unique identifier for the interval within this study",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last changed date of this record",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUNTYPE": {
+      "description": "Type of run. Values are RELIABILITY_LRC, OUTAGE_LRC and LOR. Note that the STPASA RELIABILITY_LRC and OUTAGE_LRC Run Types are discontinued from 31 July 2025, with only the LOR Run Type reported.",
+      "type": "string",
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUN_DATETIME": {
+      "description": "Unique Timestamp Identifier for this study",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "STUDYREGIONID": {
+      "description": "Primary Region for LP Solve (or MARKET if none).",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "INTERVAL_DATETIME",
+    "CONSTRAINTID",
+    "RUNTYPE"
+  ],
+  "title": "STPASA_CONSTRAINTSOLUTION, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      4,
+      "CAPACITYRHS",
+      "decimal(12, 2)"
+    ],
+    [
+      5,
+      "CAPACITYMARGINALVALUE",
+      "decimal(12, 2)"
+    ],
+    [
+      6,
+      "CAPACITYVIOLATIONDEGREE",
+      "decimal(12, 2)"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      8,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      9,
+      "STUDYREGIONID",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    8
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STPASA_CONSTRAINTSOLUTION"
+  }
+}

@@ -1,12 +1,13 @@
 {
   "current-schema-id": 0,
+  "current-snapshot-id": 2676871440203508172,
   "default-sort-order-id": 0,
   "default-spec-id": 0,
   "format-version": 3,
   "last-column-id": 18,
   "last-partition-id": 999,
-  "last-sequence-number": 0,
-  "last-updated-ms": 0,
+  "last-sequence-number": 1,
+  "last-updated-ms": 1614520800000,
   "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/OFFER_MNSP_BIDOFFERPERIOD",
   "metadata-log": [],
   "next-row-id": 0,
@@ -16,8 +17,17 @@
       "spec-id": 0
     }
   ],
-  "properties": {},
-  "refs": {},
+  "properties": {
+    "utilake.declared": "false",
+    "utilake.format": "3",
+    "utilake.table": "OFFER_MNSP_BIDOFFERPERIOD"
+  },
+  "refs": {
+    "main": {
+      "snapshot-id": 2676871440203508172,
+      "type": "branch"
+    }
+  },
   "schemas": [
     {
       "fields": [
@@ -135,8 +145,41 @@
       "type": "struct"
     }
   ],
-  "snapshot-log": [],
-  "snapshots": [],
+  "snapshot-log": [
+    {
+      "snapshot-id": 2676871440203508172,
+      "timestamp-ms": 1614520800000
+    }
+  ],
+  "snapshots": [
+    {
+      "added-rows": 0,
+      "first-row-id": 0,
+      "manifest-list": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/OFFER_MNSP_BIDOFFERPERIOD/metadata/snap-2676871440203508172-1-79f4af98-1bdb-89de-a87f-3cda03241de1.avro",
+      "schema-id": 0,
+      "sequence-number": 1,
+      "snapshot-id": 2676871440203508172,
+      "summary": {
+        "operation": "append",
+        "utilake.files": "1",
+        "utilake.from.file": "PUBLIC_DVD_MNSP_PEROFFER_202103010000.zip",
+        "utilake.from.release": "2021-03",
+        "utilake.from.sha256": "9cc0f5240e13cdaac7ec863651d9c824a7548111c9c6f405621cb266b258eb19",
+        "utilake.from.time": "2021-03-01T00:00:00+10:00",
+        "utilake.kinds": "[\"dvd\"]",
+        "utilake.report-subtype": "MNSP_BIDOFFERPERIOD",
+        "utilake.report-type": "OFFER",
+        "utilake.rows": "1172160",
+        "utilake.to.file": "PUBLIC_DVD_MNSP_PEROFFER_202103010000.zip",
+        "utilake.to.release": "2021-03",
+        "utilake.to.sha256": "9cc0f5240e13cdaac7ec863651d9c824a7548111c9c6f405621cb266b258eb19",
+        "utilake.to.time": "2021-03-31T00:00:00+10:00",
+        "utilake.total-rows": "1172160",
+        "utilake.version": "1"
+      },
+      "timestamp-ms": 1614520800000
+    }
+  ],
   "sort-orders": [
     {
       "fields": [],

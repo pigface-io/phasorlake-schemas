@@ -1,0 +1,168 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MARKETFEE/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DESCRIPTION": {
+      "description": "Description of market fee",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(64)"
+    },
+    "FEE_CLASS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(40)"
+    },
+    "GL_FINANCIALCODE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(4, 0)",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "GL_TCODE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MARKETFEEID": {
+      "description": "Identifier for Market Fee",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "MARKETFEEPERIOD": {
+      "description": "Period type - PERIOD, DAILY, WEEKLY",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "MARKETFEETYPE": {
+      "description": "Type - MW or $",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(12)"
+    },
+    "METER_SUBTYPE": {
+      "description": "The Meter Sub Type values are ACE, ASOE or ALL. ACE represent ACE_MWH value , ASOE represent ASOE_MWH value and ALL represent sum of ACE_MWh and ASOE_MWh",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "METER_TYPE": {
+      "description": "The Energy Type for the Market Fees Calculation. E.g of Meter Types are CUSTOMER, GENERATOR, NREG, BDU etc. If Meter Type is mentioned as ALL then all the Meter Types for that Participant Category will be used in the Fee calculation",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    }
+  },
+  "required": [
+    "MARKETFEEID"
+  ],
+  "title": "MARKETFEE, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "MARKETFEEID",
+      "string"
+    ],
+    [
+      2,
+      "MARKETFEEPERIOD",
+      "string"
+    ],
+    [
+      3,
+      "MARKETFEETYPE",
+      "string"
+    ],
+    [
+      4,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      5,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      6,
+      "GL_TCODE",
+      "decimal(2, 0)"
+    ],
+    [
+      7,
+      "GL_FINANCIALCODE",
+      "decimal(4, 0)"
+    ],
+    [
+      8,
+      "FEE_CLASS",
+      "string"
+    ],
+    [
+      9,
+      "METER_TYPE",
+      "string"
+    ],
+    [
+      10,
+      "METER_SUBTYPE",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MARKETFEE"
+  }
+}

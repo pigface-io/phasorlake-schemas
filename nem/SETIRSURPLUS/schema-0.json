@@ -1,0 +1,183 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SETIRSURPLUS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CSP_DEROGATION_AMOUNT": {
+      "description": "The CSP derogation amount applied as an adjustment to SRA",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "INTERCONNECTORID": {
+      "description": "Interconnector",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOSSFACTOR": {
+      "description": "MW losses along interconnector NOTE: This is not a loss factor, but a loss figure expressed in MWH",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 8)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MWFLOW": {
+      "description": "Net flow at the regional node (MWh), including losses",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 8)",
+      "x-model-type": "NUMERIC(15,6)"
+    },
+    "PERIODID": {
+      "description": "Settlements Trading Interval.",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "REGIONID": {
+      "description": "Side of interconnector",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Settlement date",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "SETTLEMENTRUNNO": {
+      "description": "Settlement run number",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "SURPLUSVALUE": {
+      "description": "Amount of surplus in $",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 8)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "UNADJUSTED_IRSR": {
+      "description": "The SRA amount unadjusted by CSP",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "SETTLEMENTRUNNO",
+    "PERIODID",
+    "INTERCONNECTORID",
+    "REGIONID"
+  ],
+  "title": "SETIRSURPLUS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "SETTLEMENTRUNNO",
+      "long"
+    ],
+    [
+      3,
+      "PERIODID",
+      "long"
+    ],
+    [
+      4,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      5,
+      "REGIONID",
+      "string"
+    ],
+    [
+      6,
+      "MWFLOW",
+      "decimal(15, 8)"
+    ],
+    [
+      7,
+      "LOSSFACTOR",
+      "decimal(15, 8)"
+    ],
+    [
+      8,
+      "SURPLUSVALUE",
+      "decimal(15, 8)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      10,
+      "UNADJUSTED_IRSR",
+      "decimal(18, 8)"
+    ],
+    [
+      11,
+      "CSP_DEROGATION_AMOUNT",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SETIRSURPLUS"
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BIDOFFERPERIOD/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BANDAVAIL1": {
+      "description": "Availability at price band 1",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL10": {
+      "description": "Availability at price band 10",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL2": {
+      "description": "Availability at price band 2",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL3": {
+      "description": "Availability at price band 3",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL4": {
+      "description": "Availability at price band 4",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL5": {
+      "description": "Availability at price band 5",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL6": {
+      "description": "Availability at price band 6",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL7": {
+      "description": "Availability at price band 7",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL8": {
+      "description": "Availability at price band 8",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BANDAVAIL9": {
+      "description": "Availability at price band 9",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "BIDTYPE": {
+      "description": "The type of bid, one-of ENERGY, RAISE6SEC, RAISE60SEC, RAISE5MIN, RAISEREG, LOWER6SEC, LOWER60SEC, LOWER5MIN, LOWERREG",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "DUID": {
+      "description": "Dispatchable Unit ID",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "ENABLEMENTMAX": {
+      "description": "Maximum Energy Output (MW) at which this ancillary service can be supplied (AS Only)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "ENABLEMENTMIN": {
+      "description": "Minimum Energy Output (MW) at which this ancillary service becomes available (AS Only)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "FIXEDLOAD": {
+      "description": "Fixed unit output MW (Energy bids only) A null value means no fixed load so the unit is dispatched according to bid and market",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "HIGHBREAKPOINT": {
+      "description": "Maximum Energy Output (MW) at which the unit can provide the full availability (MAXAVAIL) for this ancillary service (AS Only)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "LOWBREAKPOINT": {
+      "description": "Minimum Energy Output (MW) at which the unit can provide the full availability (MAXAVAIL) for this ancillary service (AS Only)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "MAXAVAIL": {
+      "description": "Maximum availability for this BidType in this period",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "OFFERDATETIME": {
+      "description": "Time this bid was processed and loaded",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    },
+    "PASAAVAILABILITY": {
+      "description": "Allows for future use for Energy bids, being the physical plant capability including any capability potentially available within 24 hours",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "PERIODID": {
+      "description": "Period ID 1 to 288",
+      "type": "integer",
+      "x-field-id": 5,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAMPDOWNRATE": {
+      "description": "MW/Min for lower (Energy bids only)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMERIC(6)"
+    },
+    "RAMPUPRATE": {
+      "description": "MW/Min for raise (Energy bids only)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMERIC(6)"
+    },
+    "TRADINGDATE": {
+      "description": "The trading date this bid is for",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "DUID",
+    "BIDTYPE",
+    "TRADINGDATE",
+    "OFFERDATETIME",
+    "PERIODID"
+  ],
+  "title": "BIDOFFERPERIOD, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DUID",
+      "string"
+    ],
+    [
+      2,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      3,
+      "TRADINGDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      5,
+      "PERIODID",
+      "long"
+    ],
+    [
+      6,
+      "MAXAVAIL",
+      "decimal(8, 3)"
+    ],
+    [
+      7,
+      "FIXEDLOAD",
+      "decimal(8, 3)"
+    ],
+    [
+      8,
+      "RAMPUPRATE",
+      "decimal(6, 0)"
+    ],
+    [
+      9,
+      "RAMPDOWNRATE",
+      "decimal(6, 0)"
+    ],
+    [
+      10,
+      "ENABLEMENTMIN",
+      "decimal(8, 3)"
+    ],
+    [
+      11,
+      "ENABLEMENTMAX",
+      "decimal(8, 3)"
+    ],
+    [
+      12,
+      "LOWBREAKPOINT",
+      "decimal(8, 3)"
+    ],
+    [
+      13,
+      "HIGHBREAKPOINT",
+      "decimal(8, 3)"
+    ],
+    [
+      14,
+      "BANDAVAIL1",
+      "decimal(8, 3)"
+    ],
+    [
+      15,
+      "BANDAVAIL2",
+      "decimal(8, 3)"
+    ],
+    [
+      16,
+      "BANDAVAIL3",
+      "decimal(8, 3)"
+    ],
+    [
+      17,
+      "BANDAVAIL4",
+      "decimal(8, 3)"
+    ],
+    [
+      18,
+      "BANDAVAIL5",
+      "decimal(8, 3)"
+    ],
+    [
+      19,
+      "BANDAVAIL6",
+      "decimal(8, 3)"
+    ],
+    [
+      20,
+      "BANDAVAIL7",
+      "decimal(8, 3)"
+    ],
+    [
+      21,
+      "BANDAVAIL8",
+      "decimal(8, 3)"
+    ],
+    [
+      22,
+      "BANDAVAIL9",
+      "decimal(8, 3)"
+    ],
+    [
+      23,
+      "BANDAVAIL10",
+      "decimal(8, 3)"
+    ],
+    [
+      24,
+      "PASAAVAILABILITY",
+      "decimal(8, 3)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "BIDOFFERPERIOD"
+  }
+}

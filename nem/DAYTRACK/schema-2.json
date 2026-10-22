@@ -1,0 +1,171 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DAYTRACK/schema-2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EXANTERUNNO": {
+      "description": "Not Used",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "EXANTERUNSTATUS": {
+      "description": "This is to determine whether the Settlement Run is a valid run or not.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "EXPOSTRUNNO": {
+      "description": "Settlement Run No",
+      "type": "integer",
+      "x-field-id": 6,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "EXPOSTRUNSTATUS": {
+      "description": "Estimate for DAILY/INITIAL and Actual for PRELIM/FINAL and REVISE.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "METER_CASEID": {
+      "description": "The Metering Case Id used for the Settlement Run. For Estimate Daily Run this will be 0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5,0)"
+    },
+    "METER_RUNTYPE": {
+      "description": "The Type of Settlement Run(ESTIMATE/PRELIM/FINAL/REVISE)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "REGIONID": {
+      "description": "Not Used",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Calendar Settlement Date",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "SETTLEMENTINTERVALLENGTH": {
+      "description": "Length of a settlement interval, in minutes (was 30 minutes, will be 5 minutes starting the commencement of 5MS rule change date).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "EXPOSTRUNNO"
+  ],
+  "title": "DAYTRACK, Iceberg schema 2",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "EXANTERUNSTATUS",
+      "string"
+    ],
+    [
+      4,
+      "EXANTERUNNO",
+      "long"
+    ],
+    [
+      5,
+      "EXPOSTRUNSTATUS",
+      "string"
+    ],
+    [
+      6,
+      "EXPOSTRUNNO",
+      "long"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      8,
+      "SETTLEMENTINTERVALLENGTH",
+      "decimal(3, 0)"
+    ],
+    [
+      9,
+      "METER_CASEID",
+      "decimal(5, 0)"
+    ],
+    [
+      10,
+      "METER_RUNTYPE",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    6
+  ],
+  "x-schema-id": 2,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DAYTRACK"
+  }
+}

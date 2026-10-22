@@ -1,0 +1,112 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SSM_ENABLEMENT_PERIOD/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DUID": {
+      "description": "Dispatchable Unit Identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "ENABLEMENT_END_INTERVAL": {
+      "description": "The last Dispatch Interval the unit is enabled for SSM Services.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "ENABLEMENT_REASON": {
+      "description": "Reason for the enablement.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(40)"
+    },
+    "ENABLEMENT_START_INTERVAL": {
+      "description": "The first Dispatch Interval the unit is enabled for SSM Services.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "INSTRUCTION_ID": {
+      "description": "Unique Instruction Identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LASTCHANGED": {
+      "description": "Last time record was changed.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [],
+  "title": "SSM_ENABLEMENT_PERIOD, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INSTRUCTION_ID",
+      "string"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      3,
+      "ENABLEMENT_START_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      4,
+      "ENABLEMENT_END_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      5,
+      "ENABLEMENT_REASON",
+      "string"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SSM_ENABLEMENT_PERIOD"
+  }
+}

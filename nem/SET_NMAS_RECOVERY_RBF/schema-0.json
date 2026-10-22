@@ -1,0 +1,181 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SET_NMAS_RECOVERY_RBF/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONTRACTID": {
+      "description": "The NMAS/ISF Contract Id",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LASTCHANGED": {
+      "description": "The Last Updated date and time",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PAYMENTTYPE": {
+      "description": "The type of payment being recovered. Valid values are:\n- AVAILABILITY\n- ENABLEMENT\n- COMPENSATION",
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "PAYMENT_AMOUNT": {
+      "description": "The total Payment Amount to recover from all benefitting regions",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "PERIODID": {
+      "description": "Settlements Trading Interval.",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RBF": {
+      "description": "The Benefitting Factor for the RegionId",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "RECOVERY_AMOUNT": {
+      "description": "The Total recovery amount for the period for the REGIONID",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "REGIONID": {
+      "description": "The region from where the amount is recovered",
+      "type": "string",
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "SERVICE": {
+      "description": "The type of NSCAS service incl ISF Services. Current value values are:\n- REACTIVE\n- LOADSHED\n- RESTART\n- INERTIA, SYSTEM STRENGTH, TYPE1, TYPE2",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Settlement Date",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "VERSIONNO": {
+      "description": "Settlement run number",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "VERSIONNO",
+    "PERIODID",
+    "SERVICE",
+    "CONTRACTID",
+    "PAYMENTTYPE",
+    "REGIONID"
+  ],
+  "title": "SET_NMAS_RECOVERY_RBF, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "PERIODID",
+      "long"
+    ],
+    [
+      4,
+      "SERVICE",
+      "string"
+    ],
+    [
+      5,
+      "CONTRACTID",
+      "string"
+    ],
+    [
+      6,
+      "PAYMENTTYPE",
+      "string"
+    ],
+    [
+      7,
+      "REGIONID",
+      "string"
+    ],
+    [
+      8,
+      "RBF",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "PAYMENT_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      10,
+      "RECOVERY_AMOUNT",
+      "decimal(18, 8)"
+    ],
+    [
+      11,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SET_NMAS_RECOVERY_RBF"
+  }
+}

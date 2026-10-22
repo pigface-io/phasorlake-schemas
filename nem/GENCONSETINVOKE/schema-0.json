@@ -1,0 +1,235 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GENCONSETINVOKE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ASCONSTRAINTTYPE": {
+      "description": "Constraint type (e.g. ancillary services). This also flags where a constraint is an interconnector or intra-region network limit.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "ENDAUTHORISEDBY": {
+      "description": "user authorising revoke.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "ENDDATE": {
+      "description": "Market date end",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "ENDINTERVALDATETIME": {
+      "description": "The settlement date and time corresponding to the last interval to which the constraint set is to be applied.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "ENDPERIOD": {
+      "description": "Dispatch interval number end",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "GENCONSETID": {
+      "description": "Unique generic constraint set identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "INTERVENTION": {
+      "description": "0 is not intervention, 1 is intervention and causes dispatch to solve twice.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "INVOCATION_ID": {
+      "description": "Abstract unique identifier for the record. Allows Invocations to be modified without affecting PK values",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(9)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "STARTAUTHORISEDBY": {
+      "description": "User authorising invoke, indicating a constraint set invocation is applicable (i.e. non-null). A null value indicates inactive invocation.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "STARTDATE": {
+      "description": "Market date of start",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "STARTINTERVALDATETIME": {
+      "description": "The settlement date and time corresponding to the first interval to which the constraint set is to be applied.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "STARTPERIOD": {
+      "description": "The first dispatch interval of the invocation being the dispatch interval number starting from1 at 04:05.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "SYSTEMNORMAL": {
+      "description": "Flag to indicate if the constraint set is a system normal (1) or an outage set (0)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "VARCHAR(1)"
+    }
+  },
+  "required": [
+    "INVOCATION_ID"
+  ],
+  "title": "GENCONSETINVOKE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INVOCATION_ID",
+      "long"
+    ],
+    [
+      2,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "STARTPERIOD",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "GENCONSETID",
+      "string"
+    ],
+    [
+      5,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "ENDPERIOD",
+      "decimal(3, 0)"
+    ],
+    [
+      7,
+      "STARTAUTHORISEDBY",
+      "string"
+    ],
+    [
+      8,
+      "ENDAUTHORISEDBY",
+      "string"
+    ],
+    [
+      9,
+      "INTERVENTION",
+      "string"
+    ],
+    [
+      10,
+      "ASCONSTRAINTTYPE",
+      "string"
+    ],
+    [
+      11,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      12,
+      "STARTINTERVALDATETIME",
+      "timestamptz"
+    ],
+    [
+      13,
+      "ENDINTERVALDATETIME",
+      "timestamptz"
+    ],
+    [
+      14,
+      "SYSTEMNORMAL",
+      "decimal(1, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GENCONSETINVOKE"
+  }
+}

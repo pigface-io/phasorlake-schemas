@@ -1,0 +1,111 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MARKET_SUSPEND_REGIME_SUM/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "END_INTERVAL": {
+      "description": "Last Dispatch interval for which this regime applies",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PRICING_REGIME": {
+      "description": "Pricing Regime applied",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "REGIONID": {
+      "description": "Region(s) covered by this evolution of the event",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "START_INTERVAL": {
+      "description": "First Dispatch interval from which this regime applies",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "SUSPENSION_ID": {
+      "description": "Unique identifier for this suspension event",
+      "type": "number",
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(13, 1)",
+      "x-model-type": "VARCHAR(20)"
+    }
+  },
+  "required": [
+    "SUSPENSION_ID",
+    "REGIONID",
+    "START_INTERVAL"
+  ],
+  "title": "MARKET_SUSPEND_REGIME_SUM, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SUSPENSION_ID",
+      "decimal(13, 1)"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "START_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      4,
+      "END_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      5,
+      "PRICING_REGIME",
+      "string"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MARKET_SUSPEND_REGIME_SUM"
+  }
+}

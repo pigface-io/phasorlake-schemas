@@ -1,0 +1,156 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_UNIT_MW/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DEVIATION_MW": {
+      "description": "Unit Deviation (output of the FPP calculation process)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 5)",
+      "x-model-type": "NUMERIC(18,5)"
+    },
+    "FPP_UNITID": {
+      "description": "FPP Unit ID (registered DUID/TNI)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MEASURED_MW": {
+      "description": "Measured MW (4 second SCADA measurement in MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "MEASUREMENT_DATETIME": {
+      "description": "Date and time of the SCADA data (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MW_QUALITY_FLAG": {
+      "description": "MW Quality (4 second SCADA measurement Quality) Supported values are: 0 = Bad Quality 1 = Good Quality 2 = Suspect Quality -1 = Value not used as input in the FPP calculation (generally used to indicate when SCADA data was late arriving after the FPP calculation commenced)",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(5)"
+    },
+    "PARTICIPANTID": {
+      "description": "Participant ID",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "SCHEDULED_MW": {
+      "description": "Scheduled MW (reference trajectory value from FPP calculation process)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 5)",
+      "x-model-type": "NUMERIC(18,5)"
+    },
+    "VERSIONNO": {
+      "description": "Version (FPP run number from the FPP database)",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(5)"
+    }
+  },
+  "required": [],
+  "title": "FPP_UNIT_MW, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "MEASUREMENT_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "FPP_UNITID",
+      "string"
+    ],
+    [
+      4,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      5,
+      "MEASURED_MW",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "MW_QUALITY_FLAG",
+      "long"
+    ],
+    [
+      7,
+      "SCHEDULED_MW",
+      "decimal(18, 5)"
+    ],
+    [
+      8,
+      "DEVIATION_MW",
+      "decimal(18, 5)"
+    ],
+    [
+      9,
+      "PARTICIPANTID",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "FPP_UNIT_MW"
+  }
+}

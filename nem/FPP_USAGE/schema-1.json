@@ -1,0 +1,140 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_USAGE/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "description": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "CONSTRAINTID": {
+      "description": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REGULATION_MW": {
+      "description": "Enabled regulation MW used in the FPP calculation (from FPP database)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "USAGE_REASON_FLAG": {
+      "description": "The reason flag showing the decision matrix for the usage calculation Supported values are: 0 = Usage is calculated based on good input data 1 = Usage is 0 as FM is unreliable 2 = Usage is 0 as the percentage of units with unavailable input or bad data is greater than the threshold percentage",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    },
+    "USAGE_VALUE": {
+      "description": "Usage (calculation of the proportion of regulation FCAS that was calculated to be used)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "USED_MW": {
+      "description": "Maximum used regulation MW value (quantity of regulation FCAS that was calculated to be used in MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "VERSIONNO": {
+      "description": "Version (FPP run number from the FPP database)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5)"
+    }
+  },
+  "required": [],
+  "title": "FPP_USAGE, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "decimal(5, 0)"
+    ],
+    [
+      4,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      5,
+      "REGULATION_MW",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "USED_MW",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "USAGE_VALUE",
+      "decimal(18, 8)"
+    ],
+    [
+      8,
+      "USAGE_REASON_FLAG",
+      "decimal(5, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "FPP_USAGE"
+  }
+}

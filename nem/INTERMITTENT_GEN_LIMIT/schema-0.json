@@ -1,0 +1,94 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/INTERMITTENT_GEN_LIMIT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DUID": {
+      "description": "Unique Identifier of Dispatchable Unit",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "OFFERDATETIME": {
+      "description": "Date and Time when this unit availability submission was loaded",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PERIODID": {
+      "description": "Trading interval number (1...48) within this TRADINGDATE for which UPPERMWLIMIT applies",
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "TRADINGDATE": {
+      "description": "Trading Day for which this unit availability submission applies",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "UPPERMWLIMIT": {
+      "description": "Maximum imposed MW limit (down regulation in AWEFS/ASEFS). Value between 0 and the registered DUID Maximum Capacity. Value = -1 means no limit applies.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMERIC(6)"
+    }
+  },
+  "required": [
+    "TRADINGDATE",
+    "DUID",
+    "OFFERDATETIME",
+    "PERIODID"
+  ],
+  "title": "INTERMITTENT_GEN_LIMIT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRADINGDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      3,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "PERIODID",
+      "long"
+    ],
+    [
+      5,
+      "UPPERMWLIMIT",
+      "decimal(6, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "INTERMITTENT_GEN_LIMIT"
+  }
+}

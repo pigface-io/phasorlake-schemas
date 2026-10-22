@@ -1,0 +1,247 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DUDETAILSUMMARY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONNECTIONPOINTID": {
+      "description": "Country wide - Unique id of a connection point",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "DISPATCHTYPE": {
+      "description": "Identifies LOAD, GENERATOR or BIDIRECTIONAL. This will likely expand to more generic models as new technology types are integrated into the NEM",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "DISTRIBUTIONLOSSFACTOR": {
+      "description": "The distribution loss factor to the currently assigned connection point",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 6)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "DUID": {
+      "description": "Dispatchable Unit Identifier",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "END_DATE": {
+      "description": "End date for effective record",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MAXIMUM_ENERGY_PRICE": {
+      "description": "Capped Offer/Bid Energy Price adjusted for TLF, DLF and VoLL",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(9, 2)",
+      "x-model-type": "NUMERIC(9,2)"
+    },
+    "MINIMUM_ENERGY_PRICE": {
+      "description": "Floored Offer/Bid Energy Price adjusted for TLF, DLF and MPF",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(9, 2)",
+      "x-model-type": "NUMERIC(9,2)"
+    },
+    "PARTICIPANTID": {
+      "description": "Participant that owns unit during effective record period",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "REGIONID": {
+      "description": "Region identifier that unit is in",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "SCHEDULE_TYPE": {
+      "description": "Scheduled status of the unit:\n    'SCHEDULED'\n    'NON-SCHEDULED'\n    'SEMI-SCHEDULED'",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "STARTTYPE": {
+      "description": "Unit start type. At this time restricted to Fast, Slow or Non Dispatched",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "START_DATE": {
+      "description": "Start date for effective record",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "STATIONID": {
+      "description": "Station that unit is in",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "TRANSMISSIONLOSSFACTOR": {
+      "description": "Used in Bidding, Dispatch and Settlements. For Bidding and Dispatch, where the DUID is a BDU with DISPATCHTYPE of BIDIRECTIONAL, the TLF for the load component of the BDU. For Settlements, where dual TLFs apply, the primary TLF is applied to all energy (load and generation) when the Net Energy Flow of the ConnectionPointID in the interval is negative (net load).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 6)",
+      "x-model-type": "NUMERIC(15,5)"
+    }
+  },
+  "required": [
+    "DUID",
+    "START_DATE"
+  ],
+  "title": "DUDETAILSUMMARY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DUID",
+      "string"
+    ],
+    [
+      2,
+      "START_DATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "END_DATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "DISPATCHTYPE",
+      "string"
+    ],
+    [
+      5,
+      "CONNECTIONPOINTID",
+      "string"
+    ],
+    [
+      6,
+      "REGIONID",
+      "string"
+    ],
+    [
+      7,
+      "STATIONID",
+      "string"
+    ],
+    [
+      8,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      10,
+      "TRANSMISSIONLOSSFACTOR",
+      "decimal(15, 6)"
+    ],
+    [
+      11,
+      "STARTTYPE",
+      "string"
+    ],
+    [
+      12,
+      "DISTRIBUTIONLOSSFACTOR",
+      "decimal(15, 6)"
+    ],
+    [
+      13,
+      "MINIMUM_ENERGY_PRICE",
+      "decimal(9, 2)"
+    ],
+    [
+      14,
+      "MAXIMUM_ENERGY_PRICE",
+      "decimal(9, 2)"
+    ],
+    [
+      15,
+      "SCHEDULE_TYPE",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DUDETAILSUMMARY"
+  }
+}

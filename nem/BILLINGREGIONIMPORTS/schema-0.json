@@ -1,0 +1,167 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLINGREGIONIMPORTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BILLRUNNO": {
+      "description": "Unique run no within a given contract year and week no",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "CONTRACTYEAR": {
+      "description": "AEMO Contract Year number starting in week containing 1st January",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "ENERGY": {
+      "description": "Amount of energy imported",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(16, 8)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "IMPORTFROM": {
+      "description": "Region energy imported from",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REGIONID": {
+      "description": "Unique region identifier",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "SURPLUSENERGY": {
+      "description": "Populated with 0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(16, 8)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "SURPLUSVALUE": {
+      "description": "Interregional residue",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "VALUE": {
+      "description": "Value of energy imported",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "WEEKNO": {
+      "description": "Week no within the contract year. Week no 1 is the week containing 1st January",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "WEEKNO",
+    "BILLRUNNO",
+    "REGIONID",
+    "IMPORTFROM"
+  ],
+  "title": "BILLINGREGIONIMPORTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "WEEKNO",
+      "long"
+    ],
+    [
+      3,
+      "BILLRUNNO",
+      "long"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "IMPORTFROM",
+      "string"
+    ],
+    [
+      6,
+      "ENERGY",
+      "decimal(16, 8)"
+    ],
+    [
+      7,
+      "VALUE",
+      "double"
+    ],
+    [
+      8,
+      "SURPLUSENERGY",
+      "decimal(16, 8)"
+    ],
+    [
+      9,
+      "SURPLUSVALUE",
+      "double"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "BILLINGREGIONIMPORTS"
+  }
+}

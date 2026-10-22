@@ -1,0 +1,276 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/P5MIN_INTERCONNECTORSOLN/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EXPORTGENCONID": {
+      "description": "Generic Constraint setting the export limit",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "EXPORTLIMIT": {
+      "description": "Calculated Interconnector limit of exporting energy on the basis of invoked constraints and static interconnector export limit",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "FCASEXPORTLIMIT": {
+      "description": "Calculated export limit applying to energy + Frequency Controlled Ancillary Services.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "FCASIMPORTLIMIT": {
+      "description": "Calculated import limit applying to energy + Frequency Controlled Ancillary Services.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "IMPORTGENCONID": {
+      "description": "Generic Constraint setting the import limit",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "IMPORTLIMIT": {
+      "description": "Calculated Interconnector limit of importing energy on the basis of invoked constraints and static interconnector import limit. Note unlike the input interconnector import limit this is a directional quantity and should be defined with respect to the interconnector flow.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "INTERCONNECTORID": {
+      "description": "Interconnector identifier",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "The unique identifier for the interval within this study",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last changed date of this record",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MARGINALLOSS": {
+      "description": "Marginal loss factor at the cleared flow",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MARGINALVALUE": {
+      "description": "Marginal cost of Interconnector standing data limits (if binding)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "METEREDMWFLOW": {
+      "description": "SCADA MW Flow measured at Run start. For periods subsequent to the first period of a P5MIN run, this value represents the cleared target for the previous period of that P5MIN run.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MNSP": {
+      "description": "Flag indicating MNSP registration",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "MWFLOW": {
+      "description": "Cleared Interconnector loading level (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MWLOSSES": {
+      "description": "Interconnector Losses at cleared flow",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RUN_DATETIME": {
+      "description": "Unique Timestamp Identifier for this study",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "VIOLATIONDEGREE": {
+      "description": "Violation of Interconnector standing data limits",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "INTERCONNECTORID",
+    "INTERVAL_DATETIME"
+  ],
+  "title": "P5MIN_INTERCONNECTORSOLN, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      3,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "METEREDMWFLOW",
+      "decimal(15, 5)"
+    ],
+    [
+      5,
+      "MWFLOW",
+      "decimal(15, 5)"
+    ],
+    [
+      6,
+      "MWLOSSES",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "MARGINALVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "VIOLATIONDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "MNSP",
+      "decimal(1, 0)"
+    ],
+    [
+      10,
+      "EXPORTLIMIT",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "IMPORTLIMIT",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "MARGINALLOSS",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "EXPORTGENCONID",
+      "string"
+    ],
+    [
+      14,
+      "IMPORTGENCONID",
+      "string"
+    ],
+    [
+      15,
+      "FCASEXPORTLIMIT",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "FCASIMPORTLIMIT",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "P5MIN_INTERCONNECTORSOLN"
+  }
+}

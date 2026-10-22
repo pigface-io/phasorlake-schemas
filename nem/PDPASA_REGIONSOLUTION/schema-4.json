@@ -1,0 +1,695 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PDPASA_REGIONSOLUTION/schema-4.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGGREGATECAPACITYAVAILABLE": {
+      "description": "Sum of MAXAVAIL quantities offered by all Scheduled units and Availability of all semi-scheduled units limited by MAXAVAIL in a given Region for a given PERIODID",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "AGGREGATEPASAAVAILABILITY": {
+      "description": "Sum of PASAAVAILABILITY for all scheduled generating units and scheduled bidirectional units (Gen side) with a Recall_Period <= 24 hours plus the sum of Unconstrained Intermittent Generation Forecasts (UIGF) for all semi-scheduled generating units. For the OUTAGE_LRC run, UIGF is the POE90 forecast. For the LOR Run, UIGF is the POE50 forecast. Note that the OUTAGE_LRC Run Type is discontinued from 31 July 2025. From March 2026, AGGREGATEPASAAVAILABILITY changes from that with Recall_Period <= 24 to that achievable by the relevant INTERVAL_DATETIME if recalled at the start of the run.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(12, 0)",
+      "x-model-type": "NUMERIC(12,0)"
+    },
+    "AGGREGATESCHEDULEDLOAD": {
+      "description": "Sum of  MAXAVAIL quantities bid by of all Scheduled Loads in a given Region for a given PERIODID.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CALCULATEDLOR1LEVEL": {
+      "description": "Region Reserve Level for LOR1 used. Can be static value or calculated value if an interconnector is a credible contingency",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "CALCULATEDLOR2LEVEL": {
+      "description": "Region Reserve Level for LOR2 used. Can be static value or calculated value if an interconnector is a credible contingency",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "CAPACITYREQ": {
+      "description": "Demand + Reserve requirements (MW). This field is not populated after 30 July 2025.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CONSTRAINEDCAPACITY": {
+      "description": "Aggregate generation + WDR capacity from Energy Constrained plant subjected to restrictions due to network constraints.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(12, 0)",
+      "x-model-type": "NUMERIC(12,0)"
+    },
+    "DEMAND10": {
+      "description": "10% Probability of Exceedance demand forecast",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "DEMAND50": {
+      "description": "50% Probability of Exceedance demand forecast",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "DEMAND90": {
+      "description": "90% Probability of Exceedance demand forecast",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "DEMAND_AND_NONSCHEDGEN": {
+      "description": "Sum of Cleared Scheduled generation, imported generation (at the region boundary) and allowances made for non-scheduled generation (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "ENERGYREQDEMAND10": {
+      "description": "Energy (GWh) required for this energy block based on the 10% probability of exceedance demand. Listed in the first interval of the energy block",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "ENERGYREQDEMAND50": {
+      "description": "Sum of: (Region Demand50)/Period (sum by trading day, entered in first period of trading day, GWh).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "FUM": {
+      "description": "Forecasting Uncertainty Measure. MW value of reserve calculated as defined in the Reserve Level Declaration Guidelines",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "End date time of the interval",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Date time this record was created.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LCR": {
+      "description": "Largest Credible Risk. MW value for highest credible contingency",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "LCR2": {
+      "description": "Two Largest Credible Risks. MW value for highest two credible contingencies.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "LORCONDITION": {
+      "description": "Lack of Reserve Condition (LOR) flag for this region and interval   (3 = LOR3, 2 = LOR2, 1 = LOR1, 0 = No LOR)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "LORNETINTERCHANGEUNDERSCARCITY": {
+      "description": "Net interconnector flow from the region for this interval from the LOR assessment",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "LOR_SEMISCHEDULEDCAPACITY": {
+      "description": "Constrained generation forecast for semi-scheduled units for the region for the LOR run. Semi-scheduled generation is constrained by both System Normal and Outage constraints, and incorporate MAXAVAIL limits.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "MAXSPARECAPACITY": {
+      "description": "Maximum Spare Capacity (MW) evaluated for this region. Calculated for each region in turn. This value reflects Regional LOR reserve.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "MAXSURPLUSRESERVE": {
+      "description": "Maximum Surplus Reserve (MW) evaluated for this region from LRC runs. This field is no longer populated.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "MSRNETINTERCHANGEUNDERSCARCITY": {
+      "description": "Net interconnector flow from the region for this interval from the MSR assessment. This field is no longer populated.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "NETINTERCHANGEUNDERSCARCITY": {
+      "description": "Net export (MW) out of this region in the LOR evaluation. Export if > 0, Import if < 0. This value is the same as LORNETINTERCHANGEUNDERSCARCITY.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "REGIONID": {
+      "description": "Region identifier",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "RESERVECONDITION": {
+      "description": "Regional reserve condition from LRC run. This field is not populated after 30 July 2025.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "RESERVEREQ": {
+      "description": "Reserve Requirement (MW). This field is not populated after 30 July 2025.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "RUNTYPE": {
+      "description": "Type of run. Values are OUTAGE_LRC and LOR. Note that the PDPASA OUTAGE_LRC Run Type is discontinued from 31 July 2025, with only the LOR Run Type reported.",
+      "type": "string",
+      "x-field-id": 23,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUN_DATETIME": {
+      "description": "Unique Timestamp Identifier for this run, identified by the first half hour ended interval of the run.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "SEMISCHEDULEDCAPACITY": {
+      "description": "Constrained generation forecast (MW) for semi-scheduled units for the region. For OUTAGE_LRC run and LOR run, semi-scheduled generation is constrained by both System Normal and Outage constraints. All run types (OUTAGE_LRC, LOR) incorporate MAXAVAIL limits.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "SS_SOLAR_CAPACITY": {
+      "description": "Constrained generation forecast for solar for the region. For OUTAGE_LRC run and LOR run. solar generation is constrained by both System Normal and Outage constraints. All run types (OUTAGE_LRC, LOR) incorporate MAXAVAIL limits.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 39,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "SS_SOLAR_CLEARED": {
+      "description": "Constrained generation forecast (MW) for solar for the region. For OUTAGE_LRC run and LOR run, solar generation is constrained by both System Normal and Outage constraints. All run types (OUTAGE_LRC, LOR) incorporate MAXAVAIL limits. This value is the same as SS_SOLAR_CAPACITY.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 41,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "SS_SOLAR_UIGF": {
+      "description": "Unconstrained Intermittent Generation Forecast for solar for the region. For OUTAGE_LRC run, this is the POE90 forecast (determined by LRCUIGFOption in CaseSolution). For LOR run, this is the POE50 forecast.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "SS_WIND_CAPACITY": {
+      "description": "Constrained generation forecast for wind for the region. For OUTAGE_LRC run and LOR run, wind generation is constrained by both System Normal and Outage constraints. All run types (OUTAGE_LRC, LOR) incorporate MAXAVAIL limits.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 40,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "SS_WIND_CLEARED": {
+      "description": "Constrained generation forecast (MW) for wind for the region. For OUTAGE_LRC run and LOR run, wind generation is constrained by both System Normal and Outage constraints. All run types (OUTAGE_LRC, LOR) incorporate MAXAVAIL limits. This value is the same as SS_WIND_CAPACITY.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 42,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "SS_WIND_UIGF": {
+      "description": "Unconstrained Intermittent Generation Forecast for wind for the region. For OUTAGE_LRC run, this is the POE90 forecast (determined by LRCUIGFOption in CaseSolution). For LOR run, this is the POE50 forecast.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 38,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "SURPLUSCAPACITY": {
+      "description": "Regional surplus capacity (MW), +/- values indicate surplus/deficit capacity respectively. This value reflects Regional LOR reserve.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "SURPLUSRESERVE": {
+      "description": "Regional surplus reserve (MW). This value also reflects Regional LOR reserve. Note: For LOR runs, RESERVEREQ requirement input is not used.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALINTERMITTENTGENERATION": {
+      "description": "Allowance made for non-scheduled generation in the demand forecast (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "UIGF": {
+      "description": "Regional aggregated Unconstrained Intermittent Generation Forecast of Semi-scheduled generation (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "UNCONSTRAINEDCAPACITY": {
+      "description": "Aggregate generation + WDR capacity from Non-Energy Constrained plant subjected to restrictions due to network constraints.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(12, 0)",
+      "x-model-type": "NUMERIC(12,0)"
+    },
+    "WDR_AVAILABLE": {
+      "description": "Regional aggregated Wholesale Demand Response (WDR) availability in MW.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 43,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "WDR_CAPACITY": {
+      "description": "Regional aggregated Wholesale Demand Response (WDR) capacity in MW.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 45,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "WDR_PASAAVAILABLE": {
+      "description": "Regional aggregated Wholesale Demand Response (WDR) PASA availability in MW.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 44,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "INTERVAL_DATETIME",
+    "REGIONID",
+    "RUNTYPE"
+  ],
+  "title": "PDPASA_REGIONSOLUTION, Iceberg schema 4",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "DEMAND10",
+      "decimal(12, 2)"
+    ],
+    [
+      5,
+      "DEMAND50",
+      "decimal(12, 2)"
+    ],
+    [
+      6,
+      "DEMAND90",
+      "decimal(12, 2)"
+    ],
+    [
+      7,
+      "RESERVEREQ",
+      "decimal(12, 2)"
+    ],
+    [
+      8,
+      "CAPACITYREQ",
+      "decimal(12, 2)"
+    ],
+    [
+      9,
+      "ENERGYREQDEMAND50",
+      "decimal(12, 2)"
+    ],
+    [
+      10,
+      "UNCONSTRAINEDCAPACITY",
+      "decimal(12, 0)"
+    ],
+    [
+      11,
+      "CONSTRAINEDCAPACITY",
+      "decimal(12, 0)"
+    ],
+    [
+      12,
+      "NETINTERCHANGEUNDERSCARCITY",
+      "decimal(12, 2)"
+    ],
+    [
+      13,
+      "SURPLUSCAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      14,
+      "SURPLUSRESERVE",
+      "decimal(12, 2)"
+    ],
+    [
+      15,
+      "RESERVECONDITION",
+      "decimal(1, 0)"
+    ],
+    [
+      16,
+      "MAXSURPLUSRESERVE",
+      "decimal(12, 2)"
+    ],
+    [
+      17,
+      "MAXSPARECAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      18,
+      "LORCONDITION",
+      "decimal(1, 0)"
+    ],
+    [
+      19,
+      "AGGREGATECAPACITYAVAILABLE",
+      "decimal(12, 2)"
+    ],
+    [
+      20,
+      "AGGREGATESCHEDULEDLOAD",
+      "decimal(12, 2)"
+    ],
+    [
+      21,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      22,
+      "AGGREGATEPASAAVAILABILITY",
+      "decimal(12, 0)"
+    ],
+    [
+      23,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      24,
+      "ENERGYREQDEMAND10",
+      "decimal(12, 2)"
+    ],
+    [
+      25,
+      "CALCULATEDLOR1LEVEL",
+      "decimal(16, 6)"
+    ],
+    [
+      26,
+      "CALCULATEDLOR2LEVEL",
+      "decimal(16, 6)"
+    ],
+    [
+      27,
+      "MSRNETINTERCHANGEUNDERSCARCITY",
+      "decimal(12, 2)"
+    ],
+    [
+      28,
+      "LORNETINTERCHANGEUNDERSCARCITY",
+      "decimal(12, 2)"
+    ],
+    [
+      29,
+      "TOTALINTERMITTENTGENERATION",
+      "decimal(15, 5)"
+    ],
+    [
+      30,
+      "DEMAND_AND_NONSCHEDGEN",
+      "decimal(15, 5)"
+    ],
+    [
+      31,
+      "UIGF",
+      "decimal(12, 2)"
+    ],
+    [
+      32,
+      "SEMISCHEDULEDCAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      33,
+      "LOR_SEMISCHEDULEDCAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      34,
+      "LCR",
+      "decimal(16, 6)"
+    ],
+    [
+      35,
+      "LCR2",
+      "decimal(16, 6)"
+    ],
+    [
+      36,
+      "FUM",
+      "decimal(16, 6)"
+    ],
+    [
+      37,
+      "SS_SOLAR_UIGF",
+      "decimal(12, 2)"
+    ],
+    [
+      38,
+      "SS_WIND_UIGF",
+      "decimal(12, 2)"
+    ],
+    [
+      39,
+      "SS_SOLAR_CAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      40,
+      "SS_WIND_CAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      41,
+      "SS_SOLAR_CLEARED",
+      "decimal(12, 2)"
+    ],
+    [
+      42,
+      "SS_WIND_CLEARED",
+      "decimal(12, 2)"
+    ],
+    [
+      43,
+      "WDR_AVAILABLE",
+      "decimal(12, 2)"
+    ],
+    [
+      44,
+      "WDR_PASAAVAILABLE",
+      "decimal(12, 2)"
+    ],
+    [
+      45,
+      "WDR_CAPACITY",
+      "decimal(12, 2)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    23
+  ],
+  "x-schema-id": 4,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "PDPASA_REGIONSOLUTION"
+  }
+}

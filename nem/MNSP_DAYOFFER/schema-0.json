@@ -1,0 +1,364 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MNSP_DAYOFFER/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ENTRYTYPE": {
+      "description": "Bid type. Either Rebid or Daily",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LINKID": {
+      "description": "Identifier for each of the two MNSP Interconnector Links. Each link pertains to the direction from and to.",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "OFFERDATE": {
+      "description": "Time this bid was processed and loaded",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    },
+    "PARTICIPANTID": {
+      "description": "Participant Identifier",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "PRICEBAND1": {
+      "description": "Price for Availability Band 1",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(9, 2)",
+      "x-model-type": "NUMERIC(9,2)"
+    },
+    "PRICEBAND10": {
+      "description": "Price for Availability Band 10",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(9, 2)",
+      "x-model-type": "NUMERIC(9,2)"
+    },
+    "PRICEBAND2": {
+      "description": "Price for Availability Band 2",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(9, 2)",
+      "x-model-type": "NUMERIC(9,2)"
+    },
+    "PRICEBAND3": {
+      "description": "Price for Availability Band 3",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(9, 2)",
+      "x-model-type": "NUMERIC(9,2)"
+    },
+    "PRICEBAND4": {
+      "description": "Price for Availability Band 4",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(9, 2)",
+      "x-model-type": "NUMERIC(9,2)"
+    },
+    "PRICEBAND5": {
+      "description": "Price for Availability Band 5",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(9, 2)",
+      "x-model-type": "NUMERIC(9,2)"
+    },
+    "PRICEBAND6": {
+      "description": "Price for Availability Band 6",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(9, 2)",
+      "x-model-type": "NUMERIC(9,2)"
+    },
+    "PRICEBAND7": {
+      "description": "Price for Availability Band 7",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(9, 2)",
+      "x-model-type": "NUMERIC(9,2)"
+    },
+    "PRICEBAND8": {
+      "description": "Price for Availability Band 8",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(9, 2)",
+      "x-model-type": "NUMERIC(9,2)"
+    },
+    "PRICEBAND9": {
+      "description": "Price for Availability Band 9",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(9, 2)",
+      "x-model-type": "NUMERIC(9,2)"
+    },
+    "REBIDEXPLANATION": {
+      "description": "Explanation for all rebids and inflexibilities",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(500)"
+    },
+    "REBID_AWARE_TIME": {
+      "description": "Intended to support the Rebidding and Technical Parameters Guideline. The time at which the participant became aware of the event(s) / occurrence(s) that prompted the rebid. Not validated by AEMO",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "REBID_CATEGORY": {
+      "description": "Intended to support the Rebidding and Technical Parameters Guideline. A provided rebid category. Not validated by AEMO",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "REBID_DECISION_TIME": {
+      "description": "Intended to support the Rebidding and Technical Parameters Guideline. The time at which the participant made the decision to rebid. Not validated by AEMO",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "REBID_EVENT_TIME": {
+      "description": "The time of the event(s) or other occurrence(s) cited/adduced as the reason for the rebid. Required for rebids, not required for fixed load or low ramp rates. Expected in the format: HH:MM:SS e.g. 20:11:00",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "REFERENCE_ID": {
+      "description": "A participants unique Reference Id",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(100)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Market Date from which bid is active",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "VERSIONNO": {
+      "description": "Version of data for other key data - a higher version for same key data will take precedence",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "OFFERDATE",
+    "VERSIONNO",
+    "PARTICIPANTID",
+    "LINKID"
+  ],
+  "title": "MNSP_DAYOFFER, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "OFFERDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      5,
+      "LINKID",
+      "string"
+    ],
+    [
+      6,
+      "ENTRYTYPE",
+      "string"
+    ],
+    [
+      7,
+      "REBIDEXPLANATION",
+      "string"
+    ],
+    [
+      8,
+      "PRICEBAND1",
+      "decimal(9, 2)"
+    ],
+    [
+      9,
+      "PRICEBAND2",
+      "decimal(9, 2)"
+    ],
+    [
+      10,
+      "PRICEBAND3",
+      "decimal(9, 2)"
+    ],
+    [
+      11,
+      "PRICEBAND4",
+      "decimal(9, 2)"
+    ],
+    [
+      12,
+      "PRICEBAND5",
+      "decimal(9, 2)"
+    ],
+    [
+      13,
+      "PRICEBAND6",
+      "decimal(9, 2)"
+    ],
+    [
+      14,
+      "PRICEBAND7",
+      "decimal(9, 2)"
+    ],
+    [
+      15,
+      "PRICEBAND8",
+      "decimal(9, 2)"
+    ],
+    [
+      16,
+      "PRICEBAND9",
+      "decimal(9, 2)"
+    ],
+    [
+      17,
+      "PRICEBAND10",
+      "decimal(9, 2)"
+    ],
+    [
+      18,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      19,
+      "REBID_EVENT_TIME",
+      "string"
+    ],
+    [
+      20,
+      "REBID_AWARE_TIME",
+      "string"
+    ],
+    [
+      21,
+      "REBID_DECISION_TIME",
+      "string"
+    ],
+    [
+      22,
+      "REBID_CATEGORY",
+      "string"
+    ],
+    [
+      23,
+      "REFERENCE_ID",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MNSP_DAYOFFER"
+  }
+}

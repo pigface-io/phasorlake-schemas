@@ -1,0 +1,265 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PMS_GROUPSERVICE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APPROVEDDATE": {
+      "description": "Date which this record was approved",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    },
+    "ENDDATE": {
+      "description": "Effective date of when this service ended operation. Will be set to max date 9999/12/31 23:59:59.999 until its service ends or a change to the service is required.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    },
+    "ENTITYID": {
+      "description": "Describe the entity ID in the market that it will be operating in. Will only contain the DUID of the group initially.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(50)"
+    },
+    "ENTITYTYPE": {
+      "description": "Describes the entity that is operating. Will only be WDRU initially.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(50)"
+    },
+    "GROUPID": {
+      "description": "Group id of the Group where the Service is attached to.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(20,0)"
+    },
+    "GROUPSERVICEID": {
+      "description": "Record identifier of the Service allocated to the Group. When data is updated, existing record identifier is terminated, and new record identifier(s) are allocated.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(20,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Date time which record was last changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    },
+    "MARKET": {
+      "description": "Market that this group is operating its service in. Will only be NEM initially.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(50)"
+    },
+    "MAXIMUMRAMPRATEPERMIN": {
+      "description": "Maximum ramp rate MW per minute of the service.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(10, 0)",
+      "x-model-type": "NUMERIC(10,0)"
+    },
+    "MRC": {
+      "description": "Maximum responsive component for the service offering",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(10, 3)",
+      "x-model-type": "NUMERIC(10,3)"
+    },
+    "MRCREASON": {
+      "description": "Reason for the MRC.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(500)"
+    },
+    "REGION": {
+      "description": "Region the group is operating this service in One of NSW1, QLD1, VIC1, SA1 or TAS1",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "SERVICETYPE": {
+      "description": "Service that this group is operating. Will be only be ENERGY initially",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(50)"
+    },
+    "STARTDATE": {
+      "description": "Effective date of when this service started operation",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    },
+    "VERSIONFROM": {
+      "description": "Date for which this version is effective from.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    },
+    "VERSIONTO": {
+      "description": "Date for which this version is effective to. Will be set to max date 9999/12/31 23:59:59.999 until this version ends or a change to the version is required.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    }
+  },
+  "required": [],
+  "title": "PMS_GROUPSERVICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GROUPSERVICEID",
+      "double"
+    ],
+    [
+      2,
+      "GROUPID",
+      "double"
+    ],
+    [
+      3,
+      "VERSIONFROM",
+      "timestamptz"
+    ],
+    [
+      4,
+      "VERSIONTO",
+      "timestamptz"
+    ],
+    [
+      5,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "MARKET",
+      "string"
+    ],
+    [
+      8,
+      "SERVICETYPE",
+      "string"
+    ],
+    [
+      9,
+      "ENTITYTYPE",
+      "string"
+    ],
+    [
+      10,
+      "ENTITYID",
+      "string"
+    ],
+    [
+      11,
+      "MRC",
+      "decimal(10, 3)"
+    ],
+    [
+      12,
+      "MRCREASON",
+      "string"
+    ],
+    [
+      13,
+      "MAXIMUMRAMPRATEPERMIN",
+      "decimal(10, 0)"
+    ],
+    [
+      14,
+      "REGION",
+      "string"
+    ],
+    [
+      15,
+      "APPROVEDDATE",
+      "timestamptz"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "PMS_GROUPSERVICE"
+  }
+}

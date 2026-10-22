@@ -1,0 +1,153 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/NETWORK_STATICRATING/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APPLICATIONID": {
+      "description": "The applicationid which defines the application timeframes of this rating.",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "EQUIPMENTID": {
+      "description": "A unique identifier for this type of equipment at this substation",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "EQUIPMENTTYPE": {
+      "description": "The type of equipment. Valid values are:\nLINE = Line\nTRANS = Transformer\nCB = Circuit breaker\nISOL = Isolator\nCAP = Capacitor\nREAC = Reactor\nUNIT = Unit",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "LASTCHANGED": {
+      "description": "The time that this record was last changed.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RATINGLEVEL": {
+      "description": "The rating level of the value used, one of:\nNORM = Continuous rating value. Applied under pre-contingent conditions.\nEMER = Continuous rating value. Applied under pre-contingent conditions\nLDSH = Load Shedding",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "RATINGVALUE": {
+      "description": "The rating value in MVA that applies. This may be positive or negative depending on which side of the nominal MW flow direction the rating value applies.\nFlow into a transmission device is positive, flow out of the device is negative.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "SUBSTATIONID": {
+      "description": "The substation the equipment is located at",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "VALIDFROM": {
+      "description": "The date that this record is applies from (inclusive)",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "VALIDTO": {
+      "description": "The date that this record applies until (exclusive)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "SUBSTATIONID",
+    "EQUIPMENTTYPE",
+    "EQUIPMENTID",
+    "RATINGLEVEL",
+    "APPLICATIONID",
+    "VALIDFROM"
+  ],
+  "title": "NETWORK_STATICRATING, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SUBSTATIONID",
+      "string"
+    ],
+    [
+      2,
+      "EQUIPMENTTYPE",
+      "string"
+    ],
+    [
+      3,
+      "EQUIPMENTID",
+      "string"
+    ],
+    [
+      4,
+      "RATINGLEVEL",
+      "string"
+    ],
+    [
+      5,
+      "APPLICATIONID",
+      "string"
+    ],
+    [
+      6,
+      "VALIDFROM",
+      "timestamptz"
+    ],
+    [
+      7,
+      "VALIDTO",
+      "timestamptz"
+    ],
+    [
+      8,
+      "RATINGVALUE",
+      "decimal(16, 6)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NETWORK_STATICRATING"
+  }
+}

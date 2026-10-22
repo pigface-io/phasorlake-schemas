@@ -1,0 +1,111 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/AVERAGEPRICE30/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PERIODDATE": {
+      "description": "30-minute interval period, 1 to 48 from the start of the calendar day",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PERIODID": {
+      "description": "The 30-minute interval period, 1 to 48",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "PRICE_CONFIDENCE": {
+      "description": "Result of Manifestly Incorrect Inputs Price Status and OCD_Status - either \"FIRM\" or \"NOT FIRM\". Only FIRM if the Dispatch Interval is resolved for both MII and OCD",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "REGIONID": {
+      "description": "Region Identifier",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "RRP": {
+      "description": "Regional reference price for this period",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    }
+  },
+  "required": [
+    "PERIODDATE",
+    "REGIONID"
+  ],
+  "title": "AVERAGEPRICE30, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PERIODDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "PERIODID",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      5,
+      "PRICE_CONFIDENCE",
+      "string"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "AVERAGEPRICE30"
+  }
+}

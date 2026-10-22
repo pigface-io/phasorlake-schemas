@@ -1,0 +1,321 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DUDETAIL/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGCCAPABILITY": {
+      "description": "AGC Capability flag",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "AUTHORISEDBY": {
+      "description": "User authorising record",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "AUTHORISEDDATE": {
+      "description": "Date record authorised",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "CONNECTIONPOINTID": {
+      "description": "Country wide - Unique id of a connection point",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "DISPATCHTYPE": {
+      "description": "Identifies LOAD, GENERATOR or BIDIRECTIONAL.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "DUID": {
+      "description": "Dispatchable Unit Identifier",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Effective calendar date of record",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "INTERMITTENTFLAG": {
+      "description": "Indicate whether a unit is intermittent (e.g. a wind farm)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MAXCAPACITY": {
+      "description": "Maximum Capacity as used for bid validation",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(6,0)"
+    },
+    "MAXRATEOFCHANGEDOWN": {
+      "description": "Maximum ramp down rate for Unit (Mw/min)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMERIC(6,0)"
+    },
+    "MAXRATEOFCHANGEUP": {
+      "description": "Maximum ramp up rate for Unit (Mw/min)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMERIC(6,0)"
+    },
+    "NORMALLYONFLAG": {
+      "description": "For a dispatchable load indicates that the load is normally on or off.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "PHYSICALDETAILSFLAG": {
+      "description": "Indicates that the physical details for this unit are to be recorded",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "REGISTEREDCAPACITY": {
+      "description": "Registered capacity for normal operations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(6,0)"
+    },
+    "SEMISCHEDULE_FLAG": {
+      "description": "Indicates if the DUID is a Semi-Scheduled Unit",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "SPINNINGRESERVEFLAG": {
+      "description": "Indicates spinning reserve capability",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "STARTTYPE": {
+      "description": "Identify unit as Fast or Slow",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "VERSIONNO": {
+      "description": "version of Dispatchable Unit details for this effective date",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "VOLTLEVEL": {
+      "description": "Voltage Level",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "VARCHAR(10)"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "DUID",
+    "VERSIONNO"
+  ],
+  "title": "DUDETAIL, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "CONNECTIONPOINTID",
+      "string"
+    ],
+    [
+      5,
+      "VOLTLEVEL",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "REGISTEREDCAPACITY",
+      "double"
+    ],
+    [
+      7,
+      "AGCCAPABILITY",
+      "string"
+    ],
+    [
+      8,
+      "DISPATCHTYPE",
+      "string"
+    ],
+    [
+      9,
+      "MAXCAPACITY",
+      "double"
+    ],
+    [
+      10,
+      "STARTTYPE",
+      "string"
+    ],
+    [
+      11,
+      "NORMALLYONFLAG",
+      "string"
+    ],
+    [
+      12,
+      "PHYSICALDETAILSFLAG",
+      "string"
+    ],
+    [
+      13,
+      "SPINNINGRESERVEFLAG",
+      "string"
+    ],
+    [
+      14,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      15,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      17,
+      "INTERMITTENTFLAG",
+      "string"
+    ],
+    [
+      18,
+      "SEMISCHEDULE_FLAG",
+      "string"
+    ],
+    [
+      19,
+      "MAXRATEOFCHANGEUP",
+      "decimal(6, 0)"
+    ],
+    [
+      20,
+      "MAXRATEOFCHANGEDOWN",
+      "decimal(6, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    2,
+    1,
+    3
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DUDETAIL"
+  }
+}

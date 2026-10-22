@@ -1,0 +1,262 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PD7DAY_PRICESOLUTION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "INTERVAL_DATETIME": {
+      "description": "The unique identifier for the interval within this study",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "INTERVENTION": {
+      "description": "Flag to indicate if this Predispatch case includes an intervention pricing run: 0 = case does not include an intervention pricing run, 1 = case does include an intervention pricing run.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOWER1SECRRP": {
+      "description": "Regional Lower 1Sec Price - RegionSolution element L1Price attribute",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINRRP": {
+      "description": "Region Reference Price (Lower5Min)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECRRP": {
+      "description": "Region Reference Price (Lower60Sec)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECRRP": {
+      "description": "Region Reference Price (Lower6Sec)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGRRP": {
+      "description": "Region Reference Price (LowerReg)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE1SECRRP": {
+      "description": "Regional Raise 1Sec Price - R1Price attribute after capping/flooring",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINRRP": {
+      "description": "Region Reference Price (Raise5Min)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECRRP": {
+      "description": "Region Reference Price (Raise60Sec)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECRRP": {
+      "description": "Region Reference Price (Raise6Sec)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGRRP": {
+      "description": "Region Reference Price (RaiseReg)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "REGIONID": {
+      "description": "Region Identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RRP": {
+      "description": "Region Reference Price (Energy)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RUN_DATETIME": {
+      "description": "Unique Timestamp Identifier for this study",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [],
+  "title": "PD7DAY_PRICESOLUTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "INTERVENTION",
+      "decimal(2, 0)"
+    ],
+    [
+      3,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      6,
+      "LOWER1SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "LOWER6SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "LOWER60SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "LOWER5MINRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "LOWERREGRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "RAISE1SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "RAISE6SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "RAISE60SECRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "RAISE5MINRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "RAISEREGRRP",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "PD7DAY_PRICESOLUTION"
+  }
+}

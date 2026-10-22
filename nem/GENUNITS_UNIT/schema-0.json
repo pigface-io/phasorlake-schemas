@@ -1,0 +1,214 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GENUNITS_UNIT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGGREGATION_FLAG": {
+      "description": "Deprecated as this flag is moved to DUDETAIL table with IESS release.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Effective Date of this detail record",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "GENSETID": {
+      "description": "System wide unique Generating Set ID",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LASTCHANGED": {
+      "description": "Date/Time when record was changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MAXSTORAGECAPACITY": {
+      "description": "The rated storage capacity (MWh), information only",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "REGISTEREDCAPACITY": {
+      "description": "Registered capacity for normal operations",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "REGISTEREDMINCAPACITY": {
+      "description": "Only applicable for the LOAD side of BDU (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "UNITMINSIZE": {
+      "description": "Only applicable for the LOAD side of BDU (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "UNIT_COUNT": {
+      "description": "Number of units in this Gen Unit grouping",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(10, 0)",
+      "x-model-type": "NUMERIC(10,0)"
+    },
+    "UNIT_GROUPING_LABEL": {
+      "description": "Label of Physical Units within the station",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "UNIT_MAX_SIZE": {
+      "description": "Maximum Capacity for each unit in this grouping",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "UNIT_SIZE": {
+      "description": "Nameplate Capacity for each unit in this grouping",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMERIC(8,3)"
+    },
+    "VERSIONNO": {
+      "description": "Version with respect to the effective date",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(6,0)"
+    }
+  },
+  "required": [
+    "GENSETID",
+    "EFFECTIVEDATE",
+    "VERSIONNO",
+    "UNIT_GROUPING_LABEL"
+  ],
+  "title": "GENUNITS_UNIT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GENSETID",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "UNIT_GROUPING_LABEL",
+      "string"
+    ],
+    [
+      5,
+      "UNIT_COUNT",
+      "decimal(10, 0)"
+    ],
+    [
+      6,
+      "UNIT_SIZE",
+      "decimal(8, 3)"
+    ],
+    [
+      7,
+      "UNIT_MAX_SIZE",
+      "decimal(8, 3)"
+    ],
+    [
+      8,
+      "AGGREGATION_FLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      10,
+      "UNITMINSIZE",
+      "decimal(8, 3)"
+    ],
+    [
+      11,
+      "MAXSTORAGECAPACITY",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "REGISTEREDCAPACITY",
+      "decimal(8, 3)"
+    ],
+    [
+      13,
+      "REGISTEREDMINCAPACITY",
+      "decimal(8, 3)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GENUNITS_UNIT"
+  }
+}

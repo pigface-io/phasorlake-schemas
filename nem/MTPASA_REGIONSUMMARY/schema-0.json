@@ -1,0 +1,467 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_REGIONSUMMARY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGGREGATION_PERIOD": {
+      "description": "Period data is aggregated over. Values are YEAR, MONTH",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "DEMAND_POE_TYPE": {
+      "description": "Demand POE type used. Value are POE10, POE50",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LRC": {
+      "description": "LRC Condition reported (Value=1) if USE_WEIGHTED_AVG >= 0.002% otherwise (Value=0)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "NATIVEDEMAND": {
+      "description": "Native demand calculated from Operational As Generated trace supplied by Energy Forecasting",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "NUMBEROFITERATIONS": {
+      "description": "Total number of iterations and reference years performed",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "PERIOD_ENDING": {
+      "description": "Datetime of day at end of period (i.e. last day of month or year reported)",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REGIONID": {
+      "description": "The unique region identifier",
+      "type": "string",
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUNTYPE": {
+      "description": "Type of run. Always RELIABILITY",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUN_DATETIME": {
+      "description": "Date processing of the run begins.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUN_NO": {
+      "description": "Unique run id.",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4)"
+    },
+    "USE_AVERAGE": {
+      "description": "Average period unserved energy across iterations and reference years (MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_EVENT_LOWERQUARTILE": {
+      "description": "Lower quartile unserved energy event size across all half hourly intervals and iterations and reference years that have unserved energy>0 (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_EVENT_MAX": {
+      "description": "Maximum unserved energy event size across all half hourly intervals and iterations and reference years that have unserved energy>0 (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_EVENT_MEDIAN": {
+      "description": "Median unserved energy event size across all half hourly intervals and iterations and reference years that have unserved energy>0 (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_EVENT_MIN": {
+      "description": "Minimum unserved energy event size across all half hourly intervals and iterations and reference years that have unserved energy>0 (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_EVENT_UPPERQUARTILE": {
+      "description": "Upper quartile unserved energy event size across all half hourly intervals and iterations and reference years that have unserved energy>0 (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_NUMBEROFITERATIONS": {
+      "description": "Number of iterations and reference years showing unserved energy",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_PERCENTILE10": {
+      "description": "Unserved energy period amount at the 10th percentile of iterations and reference years (MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_PERCENTILE100": {
+      "description": "Unserved energy period amount at the 100th percentile of iterations and reference years (MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_PERCENTILE20": {
+      "description": "Unserved energy period amount at the 20th percentile of iterations and reference years (MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_PERCENTILE30": {
+      "description": "Unserved energy period amount at the 30th percentile of iterations and reference years (MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_PERCENTILE40": {
+      "description": "Unserved energy period amount at the 40th percentile of iterations and reference years (MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_PERCENTILE50": {
+      "description": "Unserved energy period amount at the 50th percentile of iterations and reference years (MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_PERCENTILE60": {
+      "description": "Unserved energy period amount at the 60th percentile of iterations and reference years (MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_PERCENTILE70": {
+      "description": "Unserved energy period amount at the 70th percentile of iterations and reference years (MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_PERCENTILE80": {
+      "description": "Unserved energy period amount at the 80th percentile of iterations and reference years (MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_PERCENTILE90": {
+      "description": "Unserved energy period amount at the 90th percentile of iterations and reference years (MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_WEIGHTED_AVG": {
+      "description": "Weighted average USE per region = (USE_AVERAGE_POE10/NATIVE_DEMAND_POE_10*WEIGHT_POE_10 + USE_AVERAGE_POE50/NATIVE_DEMAND_POE_50*WEIGHT_POE_50)*100",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "WEIGHT": {
+      "description": "Fixed Values of 0.696 for 50 POE and 0.304 for 10 POE.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "RUN_NO",
+    "RUNTYPE",
+    "DEMAND_POE_TYPE",
+    "AGGREGATION_PERIOD",
+    "PERIOD_ENDING",
+    "REGIONID"
+  ],
+  "title": "MTPASA_REGIONSUMMARY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUN_NO",
+      "long"
+    ],
+    [
+      3,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      4,
+      "DEMAND_POE_TYPE",
+      "string"
+    ],
+    [
+      5,
+      "AGGREGATION_PERIOD",
+      "string"
+    ],
+    [
+      6,
+      "PERIOD_ENDING",
+      "timestamptz"
+    ],
+    [
+      7,
+      "REGIONID",
+      "string"
+    ],
+    [
+      8,
+      "NATIVEDEMAND",
+      "decimal(12, 2)"
+    ],
+    [
+      9,
+      "USE_PERCENTILE10",
+      "decimal(12, 2)"
+    ],
+    [
+      10,
+      "USE_PERCENTILE20",
+      "decimal(12, 2)"
+    ],
+    [
+      11,
+      "USE_PERCENTILE30",
+      "decimal(12, 2)"
+    ],
+    [
+      12,
+      "USE_PERCENTILE40",
+      "decimal(12, 2)"
+    ],
+    [
+      13,
+      "USE_PERCENTILE50",
+      "decimal(12, 2)"
+    ],
+    [
+      14,
+      "USE_PERCENTILE60",
+      "decimal(12, 2)"
+    ],
+    [
+      15,
+      "USE_PERCENTILE70",
+      "decimal(12, 2)"
+    ],
+    [
+      16,
+      "USE_PERCENTILE80",
+      "decimal(12, 2)"
+    ],
+    [
+      17,
+      "USE_PERCENTILE90",
+      "decimal(12, 2)"
+    ],
+    [
+      18,
+      "USE_PERCENTILE100",
+      "decimal(12, 2)"
+    ],
+    [
+      19,
+      "USE_AVERAGE",
+      "decimal(12, 2)"
+    ],
+    [
+      20,
+      "NUMBEROFITERATIONS",
+      "decimal(12, 2)"
+    ],
+    [
+      21,
+      "USE_NUMBEROFITERATIONS",
+      "decimal(12, 2)"
+    ],
+    [
+      22,
+      "USE_EVENT_MAX",
+      "decimal(12, 2)"
+    ],
+    [
+      23,
+      "USE_EVENT_UPPERQUARTILE",
+      "decimal(12, 2)"
+    ],
+    [
+      24,
+      "USE_EVENT_MEDIAN",
+      "decimal(12, 2)"
+    ],
+    [
+      25,
+      "USE_EVENT_LOWERQUARTILE",
+      "decimal(12, 2)"
+    ],
+    [
+      26,
+      "USE_EVENT_MIN",
+      "decimal(12, 2)"
+    ],
+    [
+      27,
+      "WEIGHT",
+      "decimal(16, 6)"
+    ],
+    [
+      28,
+      "USE_WEIGHTED_AVG",
+      "double"
+    ],
+    [
+      29,
+      "LRC",
+      "decimal(12, 2)"
+    ],
+    [
+      30,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MTPASA_REGIONSUMMARY"
+  }
+}

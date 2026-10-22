@@ -1,0 +1,189 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_HIST_PERFORMANCE/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EFFECTIVE_END_DATETIME": {
+      "description": "Effective period end date and time (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time) of the effective period for this historical performance values related to the FPP unit ID. This is the billing period over which these historical performance values will be effective / applied over. This will align to the settlement week.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "EFFECTIVE_START_DATETIME": {
+      "description": "Effective period start date and time (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time) of the effective period for this historical performance values related to the FPP unit ID. This is the billing period over which these historical performance values will be effective / applied over. This will align to the settlement week.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "FPP_HIST_LOWER_PERFORMANCE": {
+      "description": "Calculated FPP historical lower performance from the historical performance period (substitute lower performance calculated used for negative contribution factor calculation when live performance is unavailable) - please see the NER and FPP procedure documents for further information",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(18, 5)",
+      "x-model-type": "NUMERIC(18,5)"
+    },
+    "FPP_HIST_RAISE_PERFORMANCE": {
+      "description": "Calculated FPP historical raise performance from the historical performance period (substitute raise performance calculated used for negative contribution factor calculation when live performance is unavailable) - please see the NER and FPP procedure documents for further information",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 5)",
+      "x-model-type": "NUMERIC(18,5)"
+    },
+    "FPP_UNITID": {
+      "description": "FPP Unit ID (registered DUID/ TNI)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "HIST_PERIOD_END_DATETIME": {
+      "description": "Historical period end date and time (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time) of the historical period for this historical performance calculation related to the FPP unit ID. This is the historical period of trading intervals that feed into the historical performance calculation. This will align to the settlement week.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "HIST_PERIOD_START_DATETIME": {
+      "description": "Historical period start date and time (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time) of the historical period for this historical performance calculation related to the FPP unit ID. This is the historical period of trading intervals that feed into the historical performance calculation. This will align to the settlement week.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REG_HIST_LOWER_PERFORMANCE": {
+      "description": "Calculated regulation historical lower performance from the historical performance period (substitute lower performance when live performance is unavailable and default lower performance used for default contribution factor calculation) - please see the NER and FPP procedure documents for further information",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 5)",
+      "x-model-type": "NUMERIC(18,5)"
+    },
+    "REG_HIST_RAISE_PERFORMANCE": {
+      "description": "Calculated regulation historical raise performance from the historical performance period (substitute raise performance when live performance is unavailable and default raise performance used for default contribution factor calculation) - please see the NER and FPP procedure documents for further information",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 5)",
+      "x-model-type": "NUMERIC(18,5)"
+    },
+    "VERSIONNO": {
+      "description": "Version (FPP historical performance calculation run number from the FPP database) Note that due to the these historical calculations, the version numbers listed here are different to the normal FPP run number version for trading interval calculations.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(10, 0)",
+      "x-model-type": "NUMERIC(10)"
+    }
+  },
+  "required": [],
+  "title": "FPP_HIST_PERFORMANCE, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FPP_UNITID",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVE_START_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "EFFECTIVE_END_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "VERSIONNO",
+      "decimal(10, 0)"
+    ],
+    [
+      5,
+      "HIST_PERIOD_START_DATETIME",
+      "timestamptz"
+    ],
+    [
+      6,
+      "HIST_PERIOD_END_DATETIME",
+      "timestamptz"
+    ],
+    [
+      7,
+      "REG_HIST_RAISE_PERFORMANCE",
+      "decimal(18, 5)"
+    ],
+    [
+      8,
+      "REG_HIST_LOWER_PERFORMANCE",
+      "decimal(18, 5)"
+    ],
+    [
+      9,
+      "FPP_HIST_RAISE_PERFORMANCE",
+      "decimal(18, 5)"
+    ],
+    [
+      10,
+      "FPP_HIST_LOWER_PERFORMANCE",
+      "decimal(18, 5)"
+    ],
+    [
+      11,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "FPP_HIST_PERFORMANCE"
+  }
+}

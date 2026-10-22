@@ -1,0 +1,81 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SSM_ENABLEMENT_COSTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ENABLEMENT_REASON": {
+      "description": "Primary Service type associated.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(40)"
+    },
+    "END_TRADINGDATE": {
+      "description": "Trading Date of the end of the enablement",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "ESTIMATED_COSTS": {
+      "description": "Cost estimation for the service type.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "LASTCHANGED": {
+      "description": "Last time record was changed.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [],
+  "title": "SSM_ENABLEMENT_COSTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "END_TRADINGDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "ENABLEMENT_REASON",
+      "string"
+    ],
+    [
+      3,
+      "ESTIMATED_COSTS",
+      "decimal(18, 8)"
+    ],
+    [
+      4,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SSM_ENABLEMENT_COSTS"
+  }
+}

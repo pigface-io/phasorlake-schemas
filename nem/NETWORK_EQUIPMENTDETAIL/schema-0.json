@@ -1,0 +1,155 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/NETWORK_EQUIPMENTDETAIL/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DESCRIPTION": {
+      "description": "A short description for this equipment.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(100)"
+    },
+    "ELEMENTID": {
+      "description": "Equipment element id",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 0)",
+      "x-model-type": "NUMERIC(15,0)"
+    },
+    "EQUIPMENTID": {
+      "description": "A unique identifier for this type of equipment at this substation",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "EQUIPMENTTYPE": {
+      "description": "The type of equipment. Valid values are:\nLINE = Line\nTRANS = Transformer\nCB = Circuit breaker\nISOL = Isolator\nCAP = Capacitor\nREAC = Reactor\nUNIT = Unit",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "LASTCHANGED": {
+      "description": "The time that this record was last changed.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    },
+    "SUBSTATIONID": {
+      "description": "ID uniquely identifying the substation this equipment is located at",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "VALIDFROM": {
+      "description": "The date that this record is applies from (inclusive)",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    },
+    "VALIDTO": {
+      "description": "The date that this record applies until (exclusive)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(3)"
+    },
+    "VOLTAGE": {
+      "description": "The voltage in KV for this equipment.\nTransformers may have multiple voltages defined.\nE.g. 132_110_33",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    }
+  },
+  "required": [
+    "SUBSTATIONID",
+    "EQUIPMENTTYPE",
+    "EQUIPMENTID",
+    "VALIDFROM"
+  ],
+  "title": "NETWORK_EQUIPMENTDETAIL, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SUBSTATIONID",
+      "string"
+    ],
+    [
+      2,
+      "EQUIPMENTTYPE",
+      "string"
+    ],
+    [
+      3,
+      "EQUIPMENTID",
+      "string"
+    ],
+    [
+      4,
+      "VALIDFROM",
+      "timestamptz"
+    ],
+    [
+      5,
+      "VALIDTO",
+      "timestamptz"
+    ],
+    [
+      6,
+      "VOLTAGE",
+      "string"
+    ],
+    [
+      7,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      9,
+      "ELEMENTID",
+      "decimal(15, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NETWORK_EQUIPMENTDETAIL"
+  }
+}

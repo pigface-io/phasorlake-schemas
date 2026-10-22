@@ -1,0 +1,242 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/RESERVE_DATA_RESERVE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOADREJECTIONRESERVEREQ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOR1LEVEL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "LOR2LEVEL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "LOWER5MIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOWER60SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOWER6SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOWERREG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "PASARESERVE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "PERIODID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "RAISE5MIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RAISE60SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RAISE6SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RAISEREG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(1, 0)"
+    }
+  },
+  "required": [],
+  "title": "RESERVE_DATA_RESERVE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "decimal(2, 0)"
+    ],
+    [
+      5,
+      "LOWER5MIN",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "LOWER60SEC",
+      "decimal(1, 0)"
+    ],
+    [
+      7,
+      "LOWER6SEC",
+      "decimal(1, 0)"
+    ],
+    [
+      8,
+      "RAISE5MIN",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "RAISE60SEC",
+      "decimal(1, 0)"
+    ],
+    [
+      10,
+      "RAISE6SEC",
+      "decimal(1, 0)"
+    ],
+    [
+      11,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      12,
+      "PASARESERVE",
+      "decimal(4, 0)"
+    ],
+    [
+      13,
+      "LOADREJECTIONRESERVEREQ",
+      "decimal(1, 0)"
+    ],
+    [
+      14,
+      "RAISEREG",
+      "decimal(1, 0)"
+    ],
+    [
+      15,
+      "LOWERREG",
+      "decimal(1, 0)"
+    ],
+    [
+      16,
+      "LOR1LEVEL",
+      "decimal(4, 0)"
+    ],
+    [
+      17,
+      "LOR2LEVEL",
+      "decimal(4, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "RESERVE_DATA_RESERVE"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_EST_RESIDUAL_COST_RATE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "description": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "CONSTRAINTID": {
+      "description": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "FPP": {
+      "description": "FPP in AUD/MWh (the financial estimate of frequency performance payment calculated). This value can be either positive (credit) or negative (debit). For details on the calculation, please see FPP procedure and supporting documentation.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RELEVANT_REGIONS": {
+      "description": "Relevant regions (a comma separated list of the relevant regions for the constraint from FCAS data)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(200)"
+    },
+    "UNUSED_FCAS": {
+      "description": "Unused recovery FCAS in AUD/MWh (the financial estimate of the recovery of unused FCAS calculated). This value will be either 0 (nil), or a negative value (debit) only. For details on the calculation, please see FPP procedure and supporting documentation.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "USED_FCAS": {
+      "description": "Used recovery FCAS in AUD/MWh (the financial estimate of the recovery of used FCAS calculated). This value will be either 0 (nil), or a negative value (debit) only. For details on the calculation, please see FPP procedure and supporting documentation.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "VERSIONNO": {
+      "description": "The version number. In most cases this version will be the FPP run number from the FPP database, however there are some cases (like a new pricing run of the constraint FCAS processor received by the FPP system) where the version number listed here will be the financial estimate run number from the FPP database (this number is a different sequence from the FPP run number because there is no recalculation of performance or contribution, just changes to pricing / p regulation hence only the financial estimation is performed).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(10, 0)",
+      "x-model-type": "NUMERIC(10)"
+    }
+  },
+  "required": [],
+  "title": "FPP_EST_RESIDUAL_COST_RATE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "decimal(10, 0)"
+    ],
+    [
+      4,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      5,
+      "RELEVANT_REGIONS",
+      "string"
+    ],
+    [
+      6,
+      "FPP",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "USED_FCAS",
+      "decimal(18, 8)"
+    ],
+    [
+      8,
+      "UNUSED_FCAS",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "FPP_EST_RESIDUAL_COST_RATE"
+  }
+}

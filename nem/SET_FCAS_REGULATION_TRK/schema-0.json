@@ -1,0 +1,155 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SET_FCAS_REGULATION_TRK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CMPF": {
+      "description": "Constraint Market Participant Factor. This column is NULL for Settlement Dates past FPP Rule Effective Date",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "CONSTRAINTID": {
+      "description": "Generic Constraint ID",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "CRMPF": {
+      "description": "Constraint Residual Market Participant Factor. This column is NULL for Settlement Dates past FPP Rule Effective Date",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "Dispatch Interval Date Time",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RECOVERY_FACTOR_CMPF": {
+      "description": "Recovery factor for CMPF based recovery. This column is NULL for Settlement Dates past FPP Rule Effective Date",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "RECOVERY_FACTOR_CRMPF": {
+      "description": "Recovery factor for CRMPF based recovery. This column is NULL for Settlement Dates past FPP Rule Effective Date.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Settlement Date",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "VERSIONNO": {
+      "description": "Settlement Run No",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "VERSIONNO",
+    "INTERVAL_DATETIME",
+    "CONSTRAINTID"
+  ],
+  "title": "SET_FCAS_REGULATION_TRK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      5,
+      "CMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "CRMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "RECOVERY_FACTOR_CMPF",
+      "double"
+    ],
+    [
+      8,
+      "RECOVERY_FACTOR_CRMPF",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SET_FCAS_REGULATION_TRK"
+  }
+}

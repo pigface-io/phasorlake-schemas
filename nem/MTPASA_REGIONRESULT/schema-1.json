@@ -1,0 +1,558 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_REGIONRESULT/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGGREGATEINSTALLEDCAPACITY": {
+      "description": "The total installed capacity of all generation (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "DAY": {
+      "description": "Day this result is for",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "DEMAND": {
+      "description": "Demand value from selected half hourly interval (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "DEMANDSIDEPARTICIPATION10": {
+      "description": "The 10th percentile for demand side participation, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "DEMANDSIDEPARTICIPATION50": {
+      "description": "The 50th percentile for demand side participation, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "DEMANDSIDEPARTICIPATION90": {
+      "description": "The 90th percentile for demand side participation, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "DEMAND_POE_TYPE": {
+      "description": "Demand POE type used. Value is POE10",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "NUMBEROFITERATIONS": {
+      "description": "Total number of iterations and reference years performed",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "PERIODID": {
+      "description": "Half hourly period reported, selected as period of maximum NEM scheduled demand (calculated as maximum of scheduled demands, averaged across iterations and reference years)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "REGIONID": {
+      "description": "The unique region identifier",
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUNTYPE": {
+      "description": "Type of run. Always RELIABILITY",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUN_DATETIME": {
+      "description": "Date processing of the run begins.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUN_NO": {
+      "description": "Unique run id.",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4)"
+    },
+    "TOTALAVAILABLEGEN10": {
+      "description": "The 10% percentile for available capacity, across iterations and reference years (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALAVAILABLEGEN50": {
+      "description": "The 50% percentile for available capacity, across iterations and reference years (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALAVAILABLEGEN90": {
+      "description": "The 90% percentile for available capacity, across iterations and reference years (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 38,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALAVAILABLEGENMAX": {
+      "description": "Maximum available capacity, across iterations and reference years (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 39,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALAVAILABLEGENMIN": {
+      "description": "Minimum available capacity, across iterations and reference years (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALINTERMITTENTGEN10": {
+      "description": "The 10th percentile for intermittent generation, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALINTERMITTENTGEN50": {
+      "description": "The 50th percentile for intermittent generation, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALINTERMITTENTGEN90": {
+      "description": "The 90th percentile for intermittent generation, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALSCHEDULEDGEN10": {
+      "description": "The 10th percentile for scheduled generation across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALSCHEDULEDGEN50": {
+      "description": "The 50th percentile for scheduled generation across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALSCHEDULEDGEN90": {
+      "description": "The 90th percentile for scheduled generation across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALSEMISCHEDULEGEN10": {
+      "description": "The 10% percentile for semi-scheduled generation across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALSEMISCHEDULEGEN50": {
+      "description": "The 50% percentile for semi-scheduled generation across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALSEMISCHEDULEGEN90": {
+      "description": "The 90% percentile for semi-scheduled generation across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_AVERAGE": {
+      "description": "Average unserved energy, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_EVENT_AVERAGE": {
+      "description": "Average unserved energy event size, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_LOWERQUARTILE": {
+      "description": "Lower quartile unserved energy, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_MAX": {
+      "description": "Maximum unserved energy, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_MEDIAN": {
+      "description": "Median unserved energy, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_MIN": {
+      "description": "Minimum unserved energy, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_NUMBEROFITERATIONS": {
+      "description": "Number of iterations and reference years with unserved energy>0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "USE_UPPERQUARTILE": {
+      "description": "Upper quartile unserved energy, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "RUN_NO",
+    "RUNTYPE",
+    "DEMAND_POE_TYPE",
+    "DAY",
+    "REGIONID"
+  ],
+  "title": "MTPASA_REGIONRESULT, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUN_NO",
+      "long"
+    ],
+    [
+      3,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      4,
+      "DEMAND_POE_TYPE",
+      "string"
+    ],
+    [
+      5,
+      "DAY",
+      "timestamptz"
+    ],
+    [
+      6,
+      "REGIONID",
+      "string"
+    ],
+    [
+      7,
+      "PERIODID",
+      "decimal(3, 0)"
+    ],
+    [
+      8,
+      "DEMAND",
+      "decimal(12, 2)"
+    ],
+    [
+      9,
+      "AGGREGATEINSTALLEDCAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      10,
+      "NUMBEROFITERATIONS",
+      "decimal(12, 2)"
+    ],
+    [
+      11,
+      "USE_NUMBEROFITERATIONS",
+      "decimal(12, 2)"
+    ],
+    [
+      12,
+      "USE_MAX",
+      "decimal(12, 2)"
+    ],
+    [
+      13,
+      "USE_UPPERQUARTILE",
+      "decimal(12, 2)"
+    ],
+    [
+      14,
+      "USE_MEDIAN",
+      "decimal(12, 2)"
+    ],
+    [
+      15,
+      "USE_LOWERQUARTILE",
+      "decimal(12, 2)"
+    ],
+    [
+      16,
+      "USE_MIN",
+      "decimal(12, 2)"
+    ],
+    [
+      17,
+      "USE_AVERAGE",
+      "decimal(12, 2)"
+    ],
+    [
+      18,
+      "USE_EVENT_AVERAGE",
+      "decimal(12, 2)"
+    ],
+    [
+      19,
+      "TOTALSCHEDULEDGEN90",
+      "decimal(12, 2)"
+    ],
+    [
+      20,
+      "TOTALSCHEDULEDGEN50",
+      "decimal(12, 2)"
+    ],
+    [
+      21,
+      "TOTALSCHEDULEDGEN10",
+      "decimal(12, 2)"
+    ],
+    [
+      22,
+      "TOTALINTERMITTENTGEN90",
+      "decimal(12, 2)"
+    ],
+    [
+      23,
+      "TOTALINTERMITTENTGEN50",
+      "decimal(12, 2)"
+    ],
+    [
+      24,
+      "TOTALINTERMITTENTGEN10",
+      "decimal(12, 2)"
+    ],
+    [
+      25,
+      "DEMANDSIDEPARTICIPATION90",
+      "decimal(12, 2)"
+    ],
+    [
+      26,
+      "DEMANDSIDEPARTICIPATION50",
+      "decimal(12, 2)"
+    ],
+    [
+      27,
+      "DEMANDSIDEPARTICIPATION10",
+      "decimal(12, 2)"
+    ],
+    [
+      28,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      32,
+      "TOTALSEMISCHEDULEGEN90",
+      "decimal(12, 2)"
+    ],
+    [
+      33,
+      "TOTALSEMISCHEDULEGEN50",
+      "decimal(12, 2)"
+    ],
+    [
+      34,
+      "TOTALSEMISCHEDULEGEN10",
+      "decimal(12, 2)"
+    ],
+    [
+      35,
+      "TOTALAVAILABLEGENMIN",
+      "decimal(12, 2)"
+    ],
+    [
+      36,
+      "TOTALAVAILABLEGEN10",
+      "decimal(12, 2)"
+    ],
+    [
+      37,
+      "TOTALAVAILABLEGEN50",
+      "decimal(12, 2)"
+    ],
+    [
+      38,
+      "TOTALAVAILABLEGEN90",
+      "decimal(12, 2)"
+    ],
+    [
+      39,
+      "TOTALAVAILABLEGENMAX",
+      "decimal(12, 2)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MTPASA_REGIONRESULT"
+  }
+}

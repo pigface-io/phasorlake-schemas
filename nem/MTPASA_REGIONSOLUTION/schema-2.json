@@ -1,0 +1,608 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_REGIONSOLUTION/schema-2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGGREGATECAPACITYAVAILABLE": {
+      "description": "Sum of  MAXAVAIL quantities offered by all Scheduled Generators in a given Region for a given PERIODID.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "AGGREGATEPASAAVAILABILITY": {
+      "description": "Sum of  PASAAVAILABILITY quantities offered by all Scheduled Generators in a given Region for a given PERIODID.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(12, 0)",
+      "x-model-type": "NUMERIC(12,0)"
+    },
+    "AGGREGATESCHEDULEDLOAD": {
+      "description": "Sum of  MAXAVAIL quantities bid by of all Scheduled Loads in a given Region for a given PERIODID.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CALCULATEDLOR1LEVEL": {
+      "description": "Region Reserve Level for LOR1 used. Can be static value or calculated value if an interconnector is a credible contingency",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "CALCULATEDLOR2LEVEL": {
+      "description": "Region Reserve Level for LOR2 used. Can be static value or calculated value if an interconnector is a credible contingency",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "CAPACITYREQ": {
+      "description": "Not used from 21/05/2010. Prior to 21/05/2010: CA Demand + Reserve Requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CONSTRAINEDCAPACITY": {
+      "description": "Region energy constrained MW capacity subject to energy and network security constraints",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(12, 0)",
+      "x-model-type": "NUMERIC(12,0)"
+    },
+    "DAY": {
+      "description": "Day this solution is for. Generated from the solution file periodid",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "DEFICITRESERVE": {
+      "description": "Regional reserve deficit (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "DEMAND10": {
+      "description": "Input value for 10% probability demand",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "DEMAND50": {
+      "description": "Input value for 50% probability demand",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "DEMAND_AND_NONSCHEDGEN": {
+      "description": "Sum of Cleared Scheduled generation, imported generation (at the region boundary) and allowances made for non-scheduled generation (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "ENERGYBLOCK": {
+      "description": "Sunday at start of the week for this solutions energy block. Generated from the solution file energy block",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "ENERGYREQDEMAND10": {
+      "description": "Sum of: (Region Period Demand - given Demand10)/PeriodLength(sum by Energy Block, entered in first period of energy block, GWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "ENERGYREQDEMAND50": {
+      "description": "Sum of: (Region Period Demand - given Demand50)/PeriodLength (sum by Energy Block, entered in first period of energy block, GWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 39,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "LASTCHANGED": {
+      "description": "Date the solution was loaded",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LDCBLOCK": {
+      "description": "LDC block this solution is for. Generated from the solution file periodid",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LORCONDITION": {
+      "description": "The LOR Condition determined from the Maximum Spare Capacity value: 0 = no condition, 1 = LOR1 condition, 2 = LOR2 condition, 3 = LOR3 condition",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "LORNETINTERCHANGEUNDERSCARCITY": {
+      "description": "Net interconnector flow from the region for this interval from the LOR assessment",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "LORTOTALINTERMITTENTGENERATION": {
+      "description": "Allowance made for non-scheduled generation in the LOR assessment",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 38,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOR_SEMISCHEDULEDCAPACITY": {
+      "description": "Aggregate Regional UIGF availability for LOR",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "MAXSPARECAPACITY": {
+      "description": "The Maximum Spare Capacity evaluated for this region in this period. Calculated for each region in turn",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "MAXSURPLUSRESERVE": {
+      "description": "The Maximum generation (MW) that could be withdrawn from this region without incurring a Low Reserve Condition.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "MAXUSEFULRESPONSE": {
+      "description": "The Maximum market response (MW) needed for the region to eliminate a Low Reserve Condition (LRC)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "MSRNETINTERCHANGEUNDERSCARCITY": {
+      "description": "Net interconnector flow from the region for this interval from the MSR assessment",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "MURNETINTERCHANGEUNDERSCARCITY": {
+      "description": "Net interconnector flow from the region for this interval from the MRR assessment",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "decimal(12, 6)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "NETINTERCHANGEUNDERSCARCITY": {
+      "description": "Calculated in capacity adequacy evaluation: Export if > 0, Import if < 0.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "REGIONID": {
+      "description": "The unique region identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "RESERVECONDITION": {
+      "description": "The regional reserve condition: 0 = Adequate, 1 = LRC",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "RESERVEREQ": {
+      "description": "Not used from 21/05/2010. Prior to 21/05/2010: Input reserve requirement",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "RUNTYPE": {
+      "description": "Type of run.  Values are RELIABILITY_LRC and OUTAGE_LRC",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUN_DATETIME": {
+      "description": "Date processing of the run begins",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUN_NO": {
+      "description": "Unique run id. Generated from the solution file caseid",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "SEMISCHEDULEDCAPACITY": {
+      "description": "Aggregate Regional UIGF availability",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "SURPLUSCAPACITY": {
+      "description": "Regional surplus capacity MW, +/- values indicate surplus/deficit capacity",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "SURPLUSRESERVE": {
+      "description": "Not used from 21/05/2010. Prior to 21/05/2010: Regional reserve surplus. +/-0 values indicate surplus/deficit reserve",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "TOTALINTERMITTENTGENERATION": {
+      "description": "Allowance made for non-scheduled generation in the demand forecast (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "UIGF": {
+      "description": "Regional aggregated Unconstrained Intermittent Generation Forecast of Semi-scheduled generation (MW).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "UNCONSTRAINEDCAPACITY": {
+      "description": "Region energy unconstrained MW capacity subject to network security constraints",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(12, 0)",
+      "x-model-type": "NUMERIC(12,0)"
+    }
+  },
+  "required": [],
+  "title": "MTPASA_REGIONSOLUTION, Iceberg schema 2",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUN_NO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "ENERGYBLOCK",
+      "timestamptz"
+    ],
+    [
+      4,
+      "DAY",
+      "timestamptz"
+    ],
+    [
+      5,
+      "LDCBLOCK",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "REGIONID",
+      "string"
+    ],
+    [
+      7,
+      "DEMAND10",
+      "decimal(12, 2)"
+    ],
+    [
+      8,
+      "RESERVEREQ",
+      "decimal(12, 2)"
+    ],
+    [
+      9,
+      "CAPACITYREQ",
+      "decimal(12, 2)"
+    ],
+    [
+      10,
+      "ENERGYREQDEMAND10",
+      "decimal(12, 2)"
+    ],
+    [
+      11,
+      "UNCONSTRAINEDCAPACITY",
+      "decimal(12, 0)"
+    ],
+    [
+      12,
+      "CONSTRAINEDCAPACITY",
+      "decimal(12, 0)"
+    ],
+    [
+      13,
+      "NETINTERCHANGEUNDERSCARCITY",
+      "decimal(12, 2)"
+    ],
+    [
+      14,
+      "SURPLUSCAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      15,
+      "SURPLUSRESERVE",
+      "decimal(12, 2)"
+    ],
+    [
+      16,
+      "RESERVECONDITION",
+      "decimal(1, 0)"
+    ],
+    [
+      17,
+      "MAXSURPLUSRESERVE",
+      "decimal(12, 2)"
+    ],
+    [
+      18,
+      "MAXSPARECAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      19,
+      "LORCONDITION",
+      "decimal(1, 0)"
+    ],
+    [
+      20,
+      "AGGREGATECAPACITYAVAILABLE",
+      "decimal(12, 2)"
+    ],
+    [
+      21,
+      "AGGREGATESCHEDULEDLOAD",
+      "decimal(12, 2)"
+    ],
+    [
+      22,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      23,
+      "AGGREGATEPASAAVAILABILITY",
+      "decimal(12, 0)"
+    ],
+    [
+      24,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      25,
+      "CALCULATEDLOR1LEVEL",
+      "decimal(16, 6)"
+    ],
+    [
+      26,
+      "CALCULATEDLOR2LEVEL",
+      "decimal(16, 6)"
+    ],
+    [
+      27,
+      "MSRNETINTERCHANGEUNDERSCARCITY",
+      "decimal(12, 2)"
+    ],
+    [
+      28,
+      "LORNETINTERCHANGEUNDERSCARCITY",
+      "decimal(12, 2)"
+    ],
+    [
+      29,
+      "TOTALINTERMITTENTGENERATION",
+      "decimal(15, 5)"
+    ],
+    [
+      30,
+      "DEMAND50",
+      "decimal(12, 2)"
+    ],
+    [
+      31,
+      "DEMAND_AND_NONSCHEDGEN",
+      "decimal(15, 5)"
+    ],
+    [
+      32,
+      "UIGF",
+      "decimal(12, 2)"
+    ],
+    [
+      33,
+      "SEMISCHEDULEDCAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      34,
+      "LOR_SEMISCHEDULEDCAPACITY",
+      "decimal(12, 2)"
+    ],
+    [
+      35,
+      "DEFICITRESERVE",
+      "decimal(16, 6)"
+    ],
+    [
+      36,
+      "MAXUSEFULRESPONSE",
+      "decimal(12, 2)"
+    ],
+    [
+      37,
+      "MURNETINTERCHANGEUNDERSCARCITY",
+      "decimal(12, 6)"
+    ],
+    [
+      38,
+      "LORTOTALINTERMITTENTGENERATION",
+      "decimal(15, 5)"
+    ],
+    [
+      39,
+      "ENERGYREQDEMAND50",
+      "decimal(12, 2)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 2,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MTPASA_REGIONSOLUTION"
+  }
+}

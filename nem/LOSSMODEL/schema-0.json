@@ -1,0 +1,139 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/LOSSMODEL/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EFFECTIVEDATE": {
+      "description": "Calendar date data set is effective",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "INTERCONNECTORID": {
+      "description": "Interconnector identifier",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOSSFACTOR": {
+      "description": "Not used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "LOSSSEGMENT": {
+      "description": "Segment Identifier (1 to 80 at present)",
+      "type": "integer",
+      "x-field-id": 5,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(6,0)"
+    },
+    "MWBREAKPOINT": {
+      "description": "MW Value for segment",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMERIC(6,0)"
+    },
+    "PERIODID": {
+      "description": "Not used",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "VERSIONNO": {
+      "description": "Version number within effective date",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "VERSIONNO",
+    "INTERCONNECTORID",
+    "LOSSSEGMENT"
+  ],
+  "title": "LOSSMODEL, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "string"
+    ],
+    [
+      5,
+      "LOSSSEGMENT",
+      "long"
+    ],
+    [
+      6,
+      "MWBREAKPOINT",
+      "decimal(6, 0)"
+    ],
+    [
+      7,
+      "LOSSFACTOR",
+      "decimal(16, 6)"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "LOSSMODEL"
+  }
+}

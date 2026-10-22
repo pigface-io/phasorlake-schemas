@@ -1,0 +1,306 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GENUNITS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGCFLAG": {
+      "description": "AGC Available flag",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(2)"
+    },
+    "CDINDICATOR": {
+      "description": "Centrally dispatched Indicator",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "CO2E_DATA_SOURCE": {
+      "description": "An indicator as to the source of the emission factor used in the calculation of the index. The applicable values for this field would be NTNDP which indicates the emission factor is quoted from the National Transmission Network Development Plan or Estimated to indicate the emission factor has been calculated using an internal AEMO procedure based upon the Department of Climate Change and Energy Efficiency NGA factors",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "CO2E_EMISSIONS_FACTOR": {
+      "description": "The emissions factor for the generating unit, as calculated by Settlements staff members",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "CO2E_ENERGY_SOURCE": {
+      "description": "The energy source for the generating unit, as used in the calculation of the CO2-e emissions factor.  Distinct from the Energy Source for a generating unit published as part of the Registration Master List",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(100)"
+    },
+    "DISPATCHTYPE": {
+      "description": "Identifies LOAD, GENERATOR or BIDIRECTIONAL. This will likely expand to more generic models as new technology types are integrated into the NEM.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "GENSETID": {
+      "description": "Physical Unit identifier",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "GENSETNAME": {
+      "description": "Genset name",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(40)"
+    },
+    "GENSETTYPE": {
+      "description": "Genset type",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MAXCAPACITY": {
+      "description": "Maximum capacity",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMERIC(6,0)"
+    },
+    "MKTGENERATORIND": {
+      "description": "Market Generator Indicator Flag",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "NORMALSTATUS": {
+      "description": "On / Off for load",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "REGISTEREDCAPACITY": {
+      "description": "Registered capacity",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMERIC(6,0)"
+    },
+    "SETLOSSFACTOR": {
+      "description": "Not used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "SPINNINGFLAG": {
+      "description": "Not used",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(2)"
+    },
+    "STARTTYPE": {
+      "description": "Fast / Slow / Not Dispatched",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "STATIONID": {
+      "description": "Station Identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "VOLTLEVEL": {
+      "description": "Voltage level",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMERIC(6,0)"
+    }
+  },
+  "required": [
+    "GENSETID"
+  ],
+  "title": "GENUNITS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GENSETID",
+      "string"
+    ],
+    [
+      2,
+      "STATIONID",
+      "string"
+    ],
+    [
+      3,
+      "SETLOSSFACTOR",
+      "decimal(16, 6)"
+    ],
+    [
+      4,
+      "CDINDICATOR",
+      "string"
+    ],
+    [
+      5,
+      "AGCFLAG",
+      "string"
+    ],
+    [
+      6,
+      "SPINNINGFLAG",
+      "string"
+    ],
+    [
+      7,
+      "VOLTLEVEL",
+      "decimal(6, 0)"
+    ],
+    [
+      8,
+      "REGISTEREDCAPACITY",
+      "decimal(6, 0)"
+    ],
+    [
+      9,
+      "DISPATCHTYPE",
+      "string"
+    ],
+    [
+      10,
+      "STARTTYPE",
+      "string"
+    ],
+    [
+      11,
+      "MKTGENERATORIND",
+      "string"
+    ],
+    [
+      12,
+      "NORMALSTATUS",
+      "string"
+    ],
+    [
+      13,
+      "MAXCAPACITY",
+      "decimal(6, 0)"
+    ],
+    [
+      14,
+      "GENSETTYPE",
+      "string"
+    ],
+    [
+      15,
+      "GENSETNAME",
+      "string"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      17,
+      "CO2E_EMISSIONS_FACTOR",
+      "decimal(18, 8)"
+    ],
+    [
+      18,
+      "CO2E_ENERGY_SOURCE",
+      "string"
+    ],
+    [
+      19,
+      "CO2E_DATA_SOURCE",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GENUNITS"
+  }
+}

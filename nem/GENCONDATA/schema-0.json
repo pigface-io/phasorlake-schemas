@@ -1,0 +1,396 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GENCONDATA/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADDITIONALNOTES": {
+      "description": "Extra notes on the constraint",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(256)"
+    },
+    "AUTHORISEDBY": {
+      "description": "User authorising record",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "AUTHORISEDDATE": {
+      "description": "Date record authorised",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "CONSTRAINTTYPE": {
+      "description": "The logical operator (=, >=, <=)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(2)"
+    },
+    "CONSTRAINTVALUE": {
+      "description": "the RHS value used if there is no dynamic RHS defined in GenericConstraintRHS",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "DESCRIPTION": {
+      "description": "Detail of the plant that is not in service",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(256)"
+    },
+    "DISPATCH": {
+      "description": "Flag: constraint RHS used for Dispatch? 1-used, 0-not used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "DYNAMICRHS": {
+      "description": "Not used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Effective date of this constraint",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "GENCONID": {
+      "description": "Unique ID for the constraint",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "GENERICCONSTRAINTWEIGHT": {
+      "description": "The constraint violation penalty factor",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "IMPACT": {
+      "description": "The device(s) that is affected by the constraint e.g. Interconnector, Generator(s) or Cutset",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(64)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LIMITTYPE": {
+      "description": "The limit type of the constraint e.g. Transient Stability, Voltage Stability",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(64)"
+    },
+    "LOR": {
+      "description": "Flag to indicate if PASA LOR run uses the constraint; 1-used, 0-not used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "LRC": {
+      "description": "Flag to indicate if PASA LRC run uses the constraint; 1-used, 0-not used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "MODIFICATIONS": {
+      "description": "Details of the changes made to this version of the constraint",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(256)"
+    },
+    "MTPASA": {
+      "description": "Flag to indicate if the constraint RHS is to be used for MT PASA, 1-used, 0-not used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "P5MIN_SCOPE_OVERRIDE": {
+      "description": "Extra notes on the constraint: NULL = Dispatch RHS applied in 5MPD, PD = PreDispatch RHS applied in 5MPD",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(2)"
+    },
+    "PREDISPATCH": {
+      "description": "Flag to indicate if the constraint RHS is to be used for PreDispatch, 1-used, 0-not used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "REASON": {
+      "description": "The contingency or reason for the constraint",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(256)"
+    },
+    "SOURCE": {
+      "description": "The source of the constraint formulation",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(128)"
+    },
+    "STATUS": {
+      "description": "Not used",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(8)"
+    },
+    "STPASA": {
+      "description": "Flag to indicate if the constraint RHS is to be used for ST PASA, 1-used, 0-not used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "VERSIONNO": {
+      "description": "Version with respect to the effective date",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "VERSIONNO",
+    "GENCONID"
+  ],
+  "title": "GENCONDATA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      3,
+      "GENCONID",
+      "string"
+    ],
+    [
+      4,
+      "CONSTRAINTTYPE",
+      "string"
+    ],
+    [
+      5,
+      "CONSTRAINTVALUE",
+      "decimal(16, 6)"
+    ],
+    [
+      6,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      7,
+      "STATUS",
+      "string"
+    ],
+    [
+      8,
+      "GENERICCONSTRAINTWEIGHT",
+      "double"
+    ],
+    [
+      9,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      10,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      11,
+      "DYNAMICRHS",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      13,
+      "DISPATCH",
+      "decimal(1, 0)"
+    ],
+    [
+      14,
+      "PREDISPATCH",
+      "decimal(1, 0)"
+    ],
+    [
+      15,
+      "STPASA",
+      "decimal(1, 0)"
+    ],
+    [
+      16,
+      "MTPASA",
+      "decimal(1, 0)"
+    ],
+    [
+      17,
+      "IMPACT",
+      "string"
+    ],
+    [
+      18,
+      "SOURCE",
+      "string"
+    ],
+    [
+      19,
+      "LIMITTYPE",
+      "string"
+    ],
+    [
+      20,
+      "REASON",
+      "string"
+    ],
+    [
+      21,
+      "MODIFICATIONS",
+      "string"
+    ],
+    [
+      22,
+      "ADDITIONALNOTES",
+      "string"
+    ],
+    [
+      23,
+      "P5MIN_SCOPE_OVERRIDE",
+      "string"
+    ],
+    [
+      24,
+      "LRC",
+      "decimal(1, 0)"
+    ],
+    [
+      25,
+      "LOR",
+      "decimal(1, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GENCONDATA"
+  }
+}

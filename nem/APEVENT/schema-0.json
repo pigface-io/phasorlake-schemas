@@ -1,0 +1,160 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/APEVENT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APEVENTID": {
+      "description": "Unique identifier for this administered pricing event",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(22,0)"
+    },
+    "EFFECTIVEFROMINTERVAL": {
+      "description": "Date Time of the first Dispatch Interval to which the administered event applies",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "EFFECTIVETOINTERVAL": {
+      "description": "Date Time of the final Dispatch Interval to which the administered event applies",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "ENDAUTHORISEDBY": {
+      "description": "Authorising staff for end of AP event",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "ENDAUTHORISEDDATE": {
+      "description": "Date Time end authorised",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Date-Time the record was last modified",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REASON": {
+      "description": "Description of the driver for the Event",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(2000)"
+    },
+    "STARTAUTHORISEDBY": {
+      "description": "Authorising staff for start of AP event",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "STARTAUTHORISEDDATE": {
+      "description": "Date-Time start authorised",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "APEVENTID"
+  ],
+  "title": "APEVENT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "APEVENTID",
+      "long"
+    ],
+    [
+      2,
+      "EFFECTIVEFROMINTERVAL",
+      "timestamptz"
+    ],
+    [
+      3,
+      "EFFECTIVETOINTERVAL",
+      "timestamptz"
+    ],
+    [
+      4,
+      "REASON",
+      "string"
+    ],
+    [
+      5,
+      "STARTAUTHORISEDBY",
+      "string"
+    ],
+    [
+      6,
+      "STARTAUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "ENDAUTHORISEDBY",
+      "string"
+    ],
+    [
+      8,
+      "ENDAUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "APEVENT"
+  }
+}

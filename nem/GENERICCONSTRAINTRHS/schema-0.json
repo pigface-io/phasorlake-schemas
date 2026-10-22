@@ -1,0 +1,243 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GENERICCONSTRAINTRHS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DEFAULTVALUE": {
+      "description": "Default value if primary source given by SPD_ID and SPD_TYPE not available.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Effective date of this record",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "FACTOR": {
+      "description": "Multiplier applied to operator result",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "GENCONID": {
+      "description": "Generic Constraint Identifier",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "GROUPID": {
+      "description": "ID of super-term, if this is a sub-term",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "OPERATION": {
+      "description": "Unitary operator to apply to data value",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "PARAMETERTERM1": {
+      "description": "The unique identifier for the first term (logic expression) to use in a Branch term",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "VARCHAR(12)"
+    },
+    "PARAMETERTERM2": {
+      "description": "The unique identifier for the second term (logic<=0 result) to use in a Branch term",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "VARCHAR(12)"
+    },
+    "PARAMETERTERM3": {
+      "description": "The unique identifier for the third term (logic>0 result) to use in a Branch term",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "VARCHAR(12)"
+    },
+    "SCOPE": {
+      "description": "Scope of RHS term (DS, PD, ST or EQ)",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(2)"
+    },
+    "SPD_ID": {
+      "description": "ID defining data source",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(21)"
+    },
+    "SPD_TYPE": {
+      "description": "ID describing type of data source",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "TERMID": {
+      "description": "The unique identifier for the a constraint RHS term",
+      "type": "integer",
+      "x-field-id": 5,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "VERSIONNO": {
+      "description": "Version no of this record for the effective date",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(22,0)"
+    }
+  },
+  "required": [
+    "GENCONID",
+    "EFFECTIVEDATE",
+    "VERSIONNO",
+    "SCOPE",
+    "TERMID"
+  ],
+  "title": "GENERICCONSTRAINTRHS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GENCONID",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "SCOPE",
+      "string"
+    ],
+    [
+      5,
+      "TERMID",
+      "long"
+    ],
+    [
+      6,
+      "GROUPID",
+      "decimal(3, 0)"
+    ],
+    [
+      7,
+      "SPD_ID",
+      "string"
+    ],
+    [
+      8,
+      "SPD_TYPE",
+      "string"
+    ],
+    [
+      9,
+      "FACTOR",
+      "double"
+    ],
+    [
+      10,
+      "OPERATION",
+      "string"
+    ],
+    [
+      11,
+      "DEFAULTVALUE",
+      "double"
+    ],
+    [
+      12,
+      "PARAMETERTERM1",
+      "decimal(3, 0)"
+    ],
+    [
+      13,
+      "PARAMETERTERM2",
+      "decimal(3, 0)"
+    ],
+    [
+      14,
+      "PARAMETERTERM3",
+      "decimal(3, 0)"
+    ],
+    [
+      15,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GENERICCONSTRAINTRHS"
+  }
+}

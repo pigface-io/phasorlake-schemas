@@ -1,0 +1,1053 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCHLOAD/schema-5.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGCSTATUS": {
+      "description": "AGC Status from EMS\n* 1 = on\n* 0 = off",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "AVAILABILITY": {
+      "description": "For Scheduled units, this is the MAXAVAIL bid availability For Semi-scheduled units, this is the lower of MAXAVAIL bid availability and UIGF",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CONFORMANCE_MODE": {
+      "description": "Mode specific to units within an aggregate. 0 - no monitoring, 1 - aggregate monitoring, 2 - individual monitoring due to constraint",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 64,
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMERIC(6,0)"
+    },
+    "CONNECTIONPOINTID": {
+      "description": "Connection point identifier for DUID",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(12)"
+    },
+    "DISPATCHINTERVAL": {
+      "description": "Dispatch period identifier, from 001 to 288 in format YYYYMMDDPPP.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(22,0)"
+    },
+    "DISPATCHMODE": {
+      "description": "Dispatch mode for fast start plant (0 to 4).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "DISPATCHMODETIME": {
+      "description": "Minutes for which the unit has been in the current DISPATCHMODE. From NEMDE TRADERSOLUTION element FSTARGETMODETIME attribute.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 57,
+      "x-iceberg-type": "decimal(4, 0)",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "DOWNEPF": {
+      "description": "Not Used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "DUID": {
+      "description": "Dispatchable unit identifier",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "ELEMENT_CAP": {
+      "description": "Cap on the number of turbines or inverters at a DUID.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 69,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(5,0)"
+    },
+    "ENERGY_STORAGE": {
+      "description": "The projected energy storage based on cleared energy and regulation FCAS dispatch(MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 67,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "INITIALMW": {
+      "description": "Initial MW at start of period. Negative values when Bi-directional Unit start from importing power, otherwise positive.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "INITIAL_ENERGY_STORAGE": {
+      "description": "The energy storage at the start of this dispatch interval(MWh)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 66,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "INTERVENTION": {
+      "description": "Intervention flag if intervention run",
+      "type": "integer",
+      "x-field-id": 6,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOWER1SEC": {
+      "description": "Dispatched Lower1Sec - TraderSolution element L1Target attribute",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 58,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER1SECACTUALAVAILABILITY": {
+      "description": "Trapezium adjusted Lower 1Sec Availability",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 63,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "LOWER1SECFLAGS": {
+      "description": "TraderSolution element L1Flags attribute",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 61,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWER5MIN": {
+      "description": "Lower 5 min reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER5MINACTUALAVAILABILITY": {
+      "description": "trapezium adjusted lower 5min availability",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 54,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "LOWER5MINFLAGS": {
+      "description": "Lower 5min status flag",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 40,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWER60SEC": {
+      "description": "Lower 60 sec reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER60SECACTUALAVAILABILITY": {
+      "description": "trapezium adjusted lower 60sec availability",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 53,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "LOWER60SECFLAGS": {
+      "description": "Lower 60sec status flag",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 39,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWER6SEC": {
+      "description": "Lower 6 sec reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWER6SECACTUALAVAILABILITY": {
+      "description": "trapezium adjusted lower 6sec availability",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 52,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "LOWER6SECFLAGS": {
+      "description": "Lower 6sec status flag  - see",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 38,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "LOWERREG": {
+      "description": "Lower Regulation reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGACTUALAVAILABILITY": {
+      "description": "trapezium adjusted lower reg availability",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 55,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "LOWERREGAVAILABILITY": {
+      "description": "Lower Reg availability - minimum of bid and telemetered value",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 45,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGENABLEMENTMAX": {
+      "description": "Lower Reg enablement Max point - minimum of bid and telemetered value",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 46,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGENABLEMENTMIN": {
+      "description": "Lower Reg Enablement Min point - maximum of bid and telemetered value",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 47,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LOWERREGFLAGS": {
+      "description": "Lower Reg status flag  - see",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 41,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "MARGINAL5MINVALUE": {
+      "description": "Marginal $ value for 5 min",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MARGINAL60SECVALUE": {
+      "description": "Marginal $ value for 60 seconds",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MARGINAL6SECVALUE": {
+      "description": "Marginal $ value for 6 seconds",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MARGINALVALUE": {
+      "description": "Marginal $ value for energy",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "MIN_AVAILABILITY": {
+      "description": "BDU only. Load side availability (BidOfferPeriod.MAXAVAIL where DIRECTION = LOAD)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 68,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE1SEC": {
+      "description": "Dispatched Raise1Sec - TraderSolution element R1Target attribute",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 59,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE1SECACTUALAVAILABILITY": {
+      "description": "Trapezium adjusted Raise 1Sec Availability",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 62,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "RAISE1SECFLAGS": {
+      "description": "TraderSolution element R1Flags attribute",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 60,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISE5MIN": {
+      "description": "Raise 5 min reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE5MINACTUALAVAILABILITY": {
+      "description": "trapezium adjusted raise 5min availability",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 50,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "RAISE5MINFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISE60SEC": {
+      "description": "Raise 60 sec reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE60SECACTUALAVAILABILITY": {
+      "description": "trapezium adjusted raise 60sec availability",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 49,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "RAISE60SECFLAGS": {
+      "description": "Raise 60sec status flag  - see",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISE6SEC": {
+      "description": "Raise 6 sec reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISE6SECACTUALAVAILABILITY": {
+      "description": "trapezium adjusted raise 6sec availability",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 48,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "RAISE6SECFLAGS": {
+      "description": "Raise 6sec status flag  - see",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAISEREG": {
+      "description": "Raise Regulation reserve target",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGACTUALAVAILABILITY": {
+      "description": "trapezium adjusted raise reg availability",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 51,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "RAISEREGAVAILABILITY": {
+      "description": "RaiseReg availability - minimum of bid and telemetered value",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 42,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGENABLEMENTMAX": {
+      "description": "RaiseReg enablement max point - minimum of bid and telemetered value",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 43,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGENABLEMENTMIN": {
+      "description": "RaiseReg Enablement Min point - maximum of bid and telemetered value",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 44,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAISEREGFLAGS": {
+      "description": "Raise Reg status flag  - see",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "RAMPDOWNRATE": {
+      "description": "Ramp down rate used in dispatch (lesser of bid or telemetered rate).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RAMPUPRATE": {
+      "description": "Ramp up rate (lesser of bid or telemetered rate).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RUNNO": {
+      "description": "Dispatch run no; always 1",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "SEMIDISPATCHCAP": {
+      "description": "Boolean representation flagging if the Target is Capped",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 56,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Market date and time starting at 04:05",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "TOTALCLEARED": {
+      "description": "Target MW for end of period. Negative values when Bi-directional Unit is importing power, otherwise positive.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "TRADETYPE": {
+      "description": "Not used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "UIGF": {
+      "description": "For Semi-Scheduled units. Unconstrained Intermittent Generation Forecast value provided to NEMDE",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 65,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "UPEPF": {
+      "description": "Not Used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "VIOLATION5MINDEGREE": {
+      "description": "Violation MW 5 min",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "VIOLATION60SECDEGREE": {
+      "description": "Violation MW 60 seconds",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "VIOLATION6SECDEGREE": {
+      "description": "Violation MW 6 seconds",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "VIOLATIONDEGREE": {
+      "description": "Violation MW energy",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "RUNNO",
+    "DUID",
+    "INTERVENTION"
+  ],
+  "title": "DISPATCHLOAD, Iceberg schema 5",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "long"
+    ],
+    [
+      3,
+      "DUID",
+      "string"
+    ],
+    [
+      4,
+      "TRADETYPE",
+      "decimal(2, 0)"
+    ],
+    [
+      5,
+      "DISPATCHINTERVAL",
+      "double"
+    ],
+    [
+      6,
+      "INTERVENTION",
+      "long"
+    ],
+    [
+      7,
+      "CONNECTIONPOINTID",
+      "string"
+    ],
+    [
+      8,
+      "DISPATCHMODE",
+      "decimal(2, 0)"
+    ],
+    [
+      9,
+      "AGCSTATUS",
+      "decimal(2, 0)"
+    ],
+    [
+      10,
+      "INITIALMW",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "TOTALCLEARED",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "RAMPDOWNRATE",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "RAMPUPRATE",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "LOWER5MIN",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "LOWER60SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "LOWER6SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "RAISE5MIN",
+      "decimal(15, 5)"
+    ],
+    [
+      18,
+      "RAISE60SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      19,
+      "RAISE6SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      20,
+      "DOWNEPF",
+      "decimal(15, 5)"
+    ],
+    [
+      21,
+      "UPEPF",
+      "decimal(15, 5)"
+    ],
+    [
+      22,
+      "MARGINAL5MINVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      23,
+      "MARGINAL60SECVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      24,
+      "MARGINAL6SECVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      25,
+      "MARGINALVALUE",
+      "decimal(15, 5)"
+    ],
+    [
+      26,
+      "VIOLATION5MINDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      27,
+      "VIOLATION60SECDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      28,
+      "VIOLATION6SECDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      29,
+      "VIOLATIONDEGREE",
+      "decimal(15, 5)"
+    ],
+    [
+      30,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      31,
+      "LOWERREG",
+      "decimal(15, 5)"
+    ],
+    [
+      32,
+      "RAISEREG",
+      "decimal(15, 5)"
+    ],
+    [
+      33,
+      "AVAILABILITY",
+      "decimal(15, 5)"
+    ],
+    [
+      34,
+      "RAISE6SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      35,
+      "RAISE60SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      36,
+      "RAISE5MINFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      37,
+      "RAISEREGFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      38,
+      "LOWER6SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      39,
+      "LOWER60SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      40,
+      "LOWER5MINFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      41,
+      "LOWERREGFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      42,
+      "RAISEREGAVAILABILITY",
+      "decimal(15, 5)"
+    ],
+    [
+      43,
+      "RAISEREGENABLEMENTMAX",
+      "decimal(15, 5)"
+    ],
+    [
+      44,
+      "RAISEREGENABLEMENTMIN",
+      "decimal(15, 5)"
+    ],
+    [
+      45,
+      "LOWERREGAVAILABILITY",
+      "decimal(15, 5)"
+    ],
+    [
+      46,
+      "LOWERREGENABLEMENTMAX",
+      "decimal(15, 5)"
+    ],
+    [
+      47,
+      "LOWERREGENABLEMENTMIN",
+      "decimal(15, 5)"
+    ],
+    [
+      48,
+      "RAISE6SECACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      49,
+      "RAISE60SECACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      50,
+      "RAISE5MINACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      51,
+      "RAISEREGACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      52,
+      "LOWER6SECACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      53,
+      "LOWER60SECACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      54,
+      "LOWER5MINACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      55,
+      "LOWERREGACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      56,
+      "SEMIDISPATCHCAP",
+      "decimal(3, 0)"
+    ],
+    [
+      57,
+      "DISPATCHMODETIME",
+      "decimal(4, 0)"
+    ],
+    [
+      64,
+      "CONFORMANCE_MODE",
+      "decimal(6, 0)"
+    ],
+    [
+      65,
+      "UIGF",
+      "decimal(15, 5)"
+    ],
+    [
+      59,
+      "RAISE1SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      60,
+      "RAISE1SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      58,
+      "LOWER1SEC",
+      "decimal(15, 5)"
+    ],
+    [
+      61,
+      "LOWER1SECFLAGS",
+      "decimal(3, 0)"
+    ],
+    [
+      62,
+      "RAISE1SECACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      63,
+      "LOWER1SECACTUALAVAILABILITY",
+      "decimal(16, 6)"
+    ],
+    [
+      66,
+      "INITIAL_ENERGY_STORAGE",
+      "decimal(15, 5)"
+    ],
+    [
+      67,
+      "ENERGY_STORAGE",
+      "decimal(15, 5)"
+    ],
+    [
+      68,
+      "MIN_AVAILABILITY",
+      "decimal(15, 5)"
+    ],
+    [
+      69,
+      "ELEMENT_CAP",
+      "long"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    6
+  ],
+  "x-schema-id": 5,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DISPATCHLOAD"
+  }
+}

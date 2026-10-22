@@ -1,0 +1,186 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GENCONSETTRK/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUTHORISEDBY": {
+      "description": "The person who authorised the constraint set",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(15)"
+    },
+    "AUTHORISEDDATE": {
+      "description": "The date and time of authorising the constraint set",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "COVERAGE": {
+      "description": "The region the constraint set is located in or a special grouping (e.g. CHIMERA)",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(64)"
+    },
+    "DESCRIPTION": {
+      "description": "Description of the constraint",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(256)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Date this record becomes effective",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "GENCONSETID": {
+      "description": "Unique ID for the Constraint Set",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MODIFICATIONS": {
+      "description": "Details of the changes made to this version of the constraint set",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(256)"
+    },
+    "OUTAGE": {
+      "description": "Detail of the plant that is not in service",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(256)"
+    },
+    "SYSTEMNORMAL": {
+      "description": "Not used as of 2005 End of Year Release [was Flag to indicate if the constraint set is a system normal (1) or and an outage set (0)]",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "VARCHAR(1)"
+    },
+    "VERSIONNO": {
+      "description": "Version no of the record for the given effective date",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "GENCONSETID",
+    "EFFECTIVEDATE",
+    "VERSIONNO"
+  ],
+  "title": "GENCONSETTRK, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GENCONSETID",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "long"
+    ],
+    [
+      4,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      5,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      6,
+      "AUTHORISEDDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      10,
+      "SYSTEMNORMAL",
+      "decimal(1, 0)"
+    ],
+    [
+      8,
+      "COVERAGE",
+      "string"
+    ],
+    [
+      9,
+      "MODIFICATIONS",
+      "string"
+    ],
+    [
+      11,
+      "OUTAGE",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GENCONSETTRK"
+  }
+}

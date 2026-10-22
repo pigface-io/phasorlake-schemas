@@ -1,0 +1,145 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/AUCTION_CALENDAR/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONTRACTYEAR": {
+      "description": "SRA Contracted Year",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4,0)"
+    },
+    "ENDDATE": {
+      "description": "Last day of SRA Contract Quarter expressed as Date",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "NOTIFYDATE": {
+      "description": "Default notification date",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PAYMENTDATE": {
+      "description": "Date for payment by Participant",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "QUARTER": {
+      "description": "SRA Contracted Quarter",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "RECONCILIATIONDATE": {
+      "description": "Date of reconciliation for the quarter",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "STARTDATE": {
+      "description": "First day of SRA Contract Quarter expressed as Date",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "CONTRACTYEAR",
+    "QUARTER"
+  ],
+  "title": "AUCTION_CALENDAR, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "long"
+    ],
+    [
+      2,
+      "QUARTER",
+      "long"
+    ],
+    [
+      3,
+      "STARTDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "ENDDATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "NOTIFYDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "PAYMENTDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "RECONCILIATIONDATE",
+      "timestamptz"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "AUCTION_CALENDAR"
+  }
+}

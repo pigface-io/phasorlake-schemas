@@ -1,0 +1,198 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCH_INTERCONNECTION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DISPATCHINTERVAL": {
+      "description": "Dispatch period identifier, from 001 to 288 in format YYYYMMDDPPP",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "double",
+      "x-model-type": "NUMERIC(22,0)"
+    },
+    "FROM_REGIONID": {
+      "description": "Nominated RegionID from which the energy flows",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "FROM_REGION_MW_LOSSES": {
+      "description": "Losses across the Interconnection attributable to the nominal From Region",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "INTERVENTION": {
+      "description": "Intervention case or not",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "IRLF": {
+      "description": "Inter-Regional Loss Factor. Calculated based on the MWFLOW and the nominal From and To Region losses.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LASTCHANGED": {
+      "description": "The datetime that the record was last changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "METEREDMWFLOW": {
+      "description": "Summed Metered MW flow of the parallel regulated Interconnectors",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "MWFLOW": {
+      "description": "Summed MW flow of the parallel regulated Interconnectors",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    },
+    "RUNNO": {
+      "description": "Dispatch run no; always 1",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Market date starting at 04:05",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "TO_REGIONID": {
+      "description": "Nominated RegionID to which the energy flows",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "TO_REGION_MW_LOSSES": {
+      "description": "Losses across the Interconnection attributable to the nominal To Region",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(16, 6)",
+      "x-model-type": "NUMERIC(16,6)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "RUNNO",
+    "INTERVENTION",
+    "FROM_REGIONID",
+    "TO_REGIONID"
+  ],
+  "title": "DISPATCH_INTERCONNECTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "long"
+    ],
+    [
+      3,
+      "INTERVENTION",
+      "long"
+    ],
+    [
+      4,
+      "FROM_REGIONID",
+      "string"
+    ],
+    [
+      5,
+      "TO_REGIONID",
+      "string"
+    ],
+    [
+      6,
+      "DISPATCHINTERVAL",
+      "double"
+    ],
+    [
+      7,
+      "IRLF",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "MWFLOW",
+      "decimal(16, 6)"
+    ],
+    [
+      9,
+      "METEREDMWFLOW",
+      "decimal(16, 6)"
+    ],
+    [
+      10,
+      "FROM_REGION_MW_LOSSES",
+      "decimal(16, 6)"
+    ],
+    [
+      11,
+      "TO_REGION_MW_LOSSES",
+      "decimal(16, 6)"
+    ],
+    [
+      12,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DISPATCH_INTERCONNECTION"
+  }
+}

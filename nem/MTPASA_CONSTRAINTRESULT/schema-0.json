@@ -1,0 +1,244 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_CONSTRAINTRESULT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONSTRAINTID": {
+      "description": "The unique identifier for the constraint. Only binding or violating constraints are reported",
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "CONSTRAINTVIOLATION10": {
+      "description": "The 10th percentile violation degree for this constraint, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CONSTRAINTVIOLATION50": {
+      "description": "The 50th percentile violation degree for this constraint, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "CONSTRAINTVIOLATION90": {
+      "description": "The 90th percentile violation degree for this constraint, across iterations and reference years (MW)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
+    },
+    "DAY": {
+      "description": "Day this result is for",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "DEMAND_POE_TYPE": {
+      "description": "Demand POE type used. Value is POE10",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "The effective date of the constraint used",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PERIODID": {
+      "description": "Half hourly period reported, selected as period of maximum NEM scheduled demand (calculated as maximum of scheduled demands, averaged across iterations and reference years)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "PROBABILITYOFBINDING": {
+      "description": "Proportion of a constraint binding, across iterations and reference years",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(8, 5)",
+      "x-model-type": "NUMERIC(8,5)"
+    },
+    "PROBABILITYOFVIOLATION": {
+      "description": "Proportion of a constraint violating, across iterations and reference years",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(8, 5)",
+      "x-model-type": "NUMERIC(8,5)"
+    },
+    "RUNTYPE": {
+      "description": "Type of run. Always RELIABILITY",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUN_DATETIME": {
+      "description": "Date processing of the run begins.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUN_NO": {
+      "description": "Unique run id.",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(4)"
+    },
+    "VERSIONNO": {
+      "description": "The version of the constraint used",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "RUN_NO",
+    "RUNTYPE",
+    "DEMAND_POE_TYPE",
+    "DAY",
+    "CONSTRAINTID"
+  ],
+  "title": "MTPASA_CONSTRAINTRESULT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUN_NO",
+      "long"
+    ],
+    [
+      3,
+      "RUNTYPE",
+      "string"
+    ],
+    [
+      4,
+      "DEMAND_POE_TYPE",
+      "string"
+    ],
+    [
+      5,
+      "DAY",
+      "timestamptz"
+    ],
+    [
+      6,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      7,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      8,
+      "VERSIONNO",
+      "decimal(3, 0)"
+    ],
+    [
+      9,
+      "PERIODID",
+      "decimal(3, 0)"
+    ],
+    [
+      10,
+      "PROBABILITYOFBINDING",
+      "decimal(8, 5)"
+    ],
+    [
+      11,
+      "PROBABILITYOFVIOLATION",
+      "decimal(8, 5)"
+    ],
+    [
+      12,
+      "CONSTRAINTVIOLATION90",
+      "decimal(12, 2)"
+    ],
+    [
+      13,
+      "CONSTRAINTVIOLATION50",
+      "decimal(12, 2)"
+    ],
+    [
+      14,
+      "CONSTRAINTVIOLATION10",
+      "decimal(12, 2)"
+    ],
+    [
+      15,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MTPASA_CONSTRAINTRESULT"
+  }
+}

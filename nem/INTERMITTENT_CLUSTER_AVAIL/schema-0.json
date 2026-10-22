@@ -1,0 +1,123 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/INTERMITTENT_CLUSTER_AVAIL/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CLUSTERID": {
+      "description": "Unique Cluster Identifier for this cluster within the DUID",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "DUID": {
+      "description": "Unique Identifier of Dispatchable Unit",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "ELEMENTS_AVAILABLE": {
+      "description": "Number of elements within this CLUSTERID (turbines for wind, or inverters for solar) that are available for this TRADINGDATE and PERIODID (scheduled maintenance in AWEFS/ASEFS). Value between 0 and the registered Number of Cluster Elements. Value = 0 means no elements available",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5,0)"
+    },
+    "ELEMENTS_UNAVAILABLE": {
+      "description": "Number of elements within this CLUSTERID (turbines for wind, or inverters for solar) that are not available for this TRADINGDATE and PERIODID (scheduled maintenance in AWEFS/ASEFS). Value between 0 and the registered Number of Cluster Elements.Value = 0 means no elements unavailable",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMERIC(5,0)"
+    },
+    "OFFERDATETIME": {
+      "description": "Date and Time when this cluster availability submission was loaded",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PERIODID": {
+      "description": "Trading interval number (1…48) within this TRADINGDATE for which ELEMENTS_UNAVAILABLE applies",
+      "type": "integer",
+      "x-field-id": 5,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "TRADINGDATE": {
+      "description": "The trading day to which the availability submission applies",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "TRADINGDATE",
+    "DUID",
+    "OFFERDATETIME",
+    "CLUSTERID",
+    "PERIODID"
+  ],
+  "title": "INTERMITTENT_CLUSTER_AVAIL, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRADINGDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      3,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "CLUSTERID",
+      "string"
+    ],
+    [
+      5,
+      "PERIODID",
+      "long"
+    ],
+    [
+      6,
+      "ELEMENTS_UNAVAILABLE",
+      "decimal(5, 0)"
+    ],
+    [
+      7,
+      "ELEMENTS_AVAILABLE",
+      "decimal(5, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "INTERMITTENT_CLUSTER_AVAIL"
+  }
+}
