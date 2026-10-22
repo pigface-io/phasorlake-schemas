@@ -1,4 +1,5 @@
 use utilake_iceberg::compat::check;
+use utilake_iceberg::history::{Change, Update};
 
 use super::*;
 use crate::shape::ShapeId;

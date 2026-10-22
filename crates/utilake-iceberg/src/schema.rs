@@ -44,6 +44,27 @@ impl Schema {
         self.fields.iter().find(|f| f.name == name)
     }
 
+    /// The schema with no field documented: what the fold compares and
+    /// names; the docs are put on when the table is published.
+    #[must_use]
+    pub fn without_docs(&self) -> Self {
+        let mut s = self.clone();
+        for f in &mut s.fields {
+            f.doc = None;
+        }
+        s
+    }
+
+    /// The schema with each field documented as `docs` says of its id.
+    #[must_use]
+    pub fn with_docs(&self, docs: &std::collections::BTreeMap<u32, String>) -> Self {
+        let mut s = self.clone();
+        for f in &mut s.fields {
+            f.doc = docs.get(&f.id).cloned();
+        }
+        s
+    }
+
     /// Whether `other` has the same columns (ids, names, types, nullability,
     /// docs, order) and the same key, whatever ids the two schemas carry.
     pub fn same_as(&self, other: &Self) -> bool {
@@ -227,5 +248,11 @@ mod tests {
             ..a.clone()
         };
         assert!(!a.same_as(&rekeyed));
+        let docs = std::collections::BTreeMap::from([(1, "First".to_owned())]);
+        let documented = a.with_docs(&docs);
+        assert_eq!(documented.fields[0].doc.as_deref(), Some("First"));
+        assert_eq!(documented.fields[1].doc, None);
+        assert!(!documented.same_as(&a), "a doc is part of a field");
+        assert_eq!(documented.without_docs(), a);
     }
 }

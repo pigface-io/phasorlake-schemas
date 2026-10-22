@@ -79,7 +79,7 @@
 use std::collections::BTreeMap;
 
 use utilake_iceberg::compat::{Violation, check};
-use utilake_iceberg::history::{Break, Change, Mark, Run, Update};
+use utilake_iceberg::history::{Break, Mark, Run, derive_run};
 use utilake_iceberg::{
     Declared, Evidence, Field, History, IcebergType, Kind, Schema, choose, holds,
 };
@@ -763,32 +763,6 @@ fn extend(out: &mut History, id: u32, o: &Obs, published: bool) {
         r.rows += o.rows;
         return;
     }
-    let (changes, updates, overlaps) = match out.runs.last() {
-        None => (vec![Change::First], Vec::new(), false),
-        Some(r) => {
-            let mut changes = Vec::new();
-            if r.schema_id != id {
-                changes.push(Change::Schema);
-            }
-            if r.version != o.version {
-                changes.push(Change::Version);
-            }
-            if r.report != o.report {
-                changes.push(Change::Report);
-            }
-            if same(r) {
-                changes.push(Change::Published);
-            }
-            let schema = |id| out.schema(id).expect("every run's schema is kept");
-            let earlier: Vec<&Schema> = out.runs.iter().map(|r| schema(r.schema_id)).collect();
-            let updates = updates(schema(r.schema_id), schema(id), &earlier);
-            let overlaps = match (&r.to.data_time, &o.from.data_time) {
-                (Some(end), Some(start)) => start < end,
-                _ => false,
-            };
-            (changes, updates, overlaps)
-        }
-    };
     out.runs.push(Run {
         schema_id: id,
         report: o.report.clone(),
@@ -798,86 +772,13 @@ fn extend(out: &mut History, id: u32, o: &Obs, published: bool) {
         to: o.to.clone(),
         files: o.files,
         rows: o.rows,
-        changes,
-        updates,
-        overlaps,
+        changes: Vec::new(),
+        updates: Vec::new(),
+        overlaps: false,
     });
-}
-
-/// The positions, in `seq`, outside one longest increasing subsequence:
-/// the fewest elements that moved.
-fn outside_lis(seq: &[usize]) -> Vec<bool> {
-    let mut tails: Vec<usize> = Vec::new();
-    let mut back = vec![usize::MAX; seq.len()];
-    for (i, v) in seq.iter().enumerate() {
-        let k = tails.partition_point(|&t| seq[t] < *v);
-        if k > 0 {
-            back[i] = tails[k - 1];
-        }
-        if k == tails.len() {
-            tails.push(i);
-        } else {
-            tails[k] = i;
-        }
-    }
-    let mut outside = vec![true; seq.len()];
-    let mut i = tails.last().copied().unwrap_or(usize::MAX);
-    while i != usize::MAX {
-        outside[i] = false;
-        i = back[i];
-    }
-    outside
-}
-
-/// The updates that take `a` to `b`; `earlier` holds the schemas of every
-/// run so far, so a field back from one of them is a restore, not an add.
-pub fn updates(a: &Schema, b: &Schema, earlier: &[&Schema]) -> Vec<Update> {
-    let mut out = Vec::new();
-    for f in &a.fields {
-        if b.field(f.id).is_none() {
-            out.push(Update::Delete { field_id: f.id });
-        }
-    }
-    for f in &b.fields {
-        match a.field(f.id) {
-            None if earlier.iter().any(|s| s.field(f.id).is_some()) => {
-                out.push(Update::Restore { field_id: f.id });
-            }
-            None => out.push(Update::Add { field_id: f.id }),
-            Some(old) => {
-                if old.required && !f.required {
-                    out.push(Update::MakeOptional { field_id: f.id });
-                }
-            }
-        }
-    }
-    let shared: Vec<u32> = b
-        .fields
-        .iter()
-        .filter(|f| a.field(f.id).is_some())
-        .map(|f| f.id)
-        .collect();
-    let positions: Vec<usize> = shared
-        .iter()
-        .filter_map(|id| a.fields.iter().position(|f| f.id == *id))
-        .collect();
-    for (id, moved) in shared.iter().zip(outside_lis(&positions)) {
-        if moved {
-            out.push(Update::Move { field_id: *id });
-        }
-    }
-    let (mut ka, mut kb) = (
-        a.identifier_field_ids.clone(),
-        b.identifier_field_ids.clone(),
-    );
-    ka.sort_unstable();
-    kb.sort_unstable();
-    if ka != kb {
-        out.push(Update::SetIdentifierFields {
-            field_ids: b.identifier_field_ids.clone(),
-        });
-    }
-    out
+    let n = out.runs.len() - 1;
+    let (before, last) = out.runs.split_at_mut(n);
+    derive_run(&out.schemas, before, &mut last[0]).expect("every run's schema is kept");
 }
 
 #[cfg(test)]

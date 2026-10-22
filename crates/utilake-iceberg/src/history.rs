@@ -1,6 +1,6 @@
-//! A table's history as an Iceberg table: the document the export
-//! publishes in each `table.json` (`iceberg`), and what [`crate::compat`]
-//! compares across commits.
+//! A table's history as an Iceberg table: what the fold writes, what
+//! [`crate::publish`] turns into table metadata and back, and what
+//! [`crate::compat`] compares across commits.
 //!
 //! - **Schemas** are Iceberg schemas by id. A field's id never changes
 //!   meaning: one name and one type for its life.
@@ -10,6 +10,11 @@
 //!   run before.
 //! - **Breaking** lists the columns whose values left their field's type,
 //!   so they needed a new field.
+//!
+//! What a run says of its start (`changes`, `updates`, `overlaps`) is a
+//! function of the runs before it ([`derive_run`]): the fold computes it
+//! as it adds a run, and a reader of the table metadata computes it again
+//! from the snapshots, the same way.
 
 use serde::{Deserialize, Serialize};
 
@@ -215,6 +220,131 @@ impl History {
     }
 }
 
+/// Fills in what `run` says of its start, given the `before` runs and the
+/// table's `schemas`: its changes (the first run's `first`; else which of
+/// schema, AEMO version and report pair differ from the run before, or
+/// `published` when none does), the schema updates from the run before,
+/// and whether its data starts before that run's ends. `Err` names a
+/// schema id a run has and `schemas` lacks.
+pub fn derive_run(schemas: &[Schema], before: &[Run], run: &mut Run) -> Result<(), u32> {
+    let schema = |id: u32| schemas.iter().find(|s| s.schema_id == id).ok_or(id);
+    let Some(prev) = before.last() else {
+        run.changes = vec![Change::First];
+        run.updates.clear();
+        run.overlaps = false;
+        return Ok(());
+    };
+    let mut changes = Vec::new();
+    if prev.schema_id != run.schema_id {
+        changes.push(Change::Schema);
+    }
+    if prev.version != run.version {
+        changes.push(Change::Version);
+    }
+    if prev.report != run.report {
+        changes.push(Change::Report);
+    }
+    if changes.is_empty() {
+        changes.push(Change::Published);
+    }
+    let earlier = before
+        .iter()
+        .map(|r| schema(r.schema_id))
+        .collect::<Result<Vec<_>, _>>()?;
+    run.updates = updates(schema(prev.schema_id)?, schema(run.schema_id)?, &earlier);
+    run.overlaps = match (&prev.to.data_time, &run.from.data_time) {
+        (Some(end), Some(start)) => start < end,
+        _ => false,
+    };
+    run.changes = changes;
+    Ok(())
+}
+
+/// [`derive_run`] over every run in order.
+pub fn derive(schemas: &[Schema], runs: &mut [Run]) -> Result<(), u32> {
+    for i in 0..runs.len() {
+        let (before, rest) = runs.split_at_mut(i);
+        derive_run(schemas, before, &mut rest[0])?;
+    }
+    Ok(())
+}
+
+/// The positions, in `seq`, outside one longest increasing subsequence:
+/// the fewest elements that moved.
+fn outside_lis(seq: &[usize]) -> Vec<bool> {
+    let mut tails: Vec<usize> = Vec::new();
+    let mut back = vec![usize::MAX; seq.len()];
+    for (i, v) in seq.iter().enumerate() {
+        let k = tails.partition_point(|&t| seq[t] < *v);
+        if k > 0 {
+            back[i] = tails[k - 1];
+        }
+        if k == tails.len() {
+            tails.push(i);
+        } else {
+            tails[k] = i;
+        }
+    }
+    let mut outside = vec![true; seq.len()];
+    let mut i = tails.last().copied().unwrap_or(usize::MAX);
+    while i != usize::MAX {
+        outside[i] = false;
+        i = back[i];
+    }
+    outside
+}
+
+/// The updates that take `a` to `b`; `earlier` holds the schemas of every
+/// run so far, so a field back from one of them is a restore, not an add.
+pub fn updates(a: &Schema, b: &Schema, earlier: &[&Schema]) -> Vec<Update> {
+    let mut out = Vec::new();
+    for f in &a.fields {
+        if b.field(f.id).is_none() {
+            out.push(Update::Delete { field_id: f.id });
+        }
+    }
+    for f in &b.fields {
+        match a.field(f.id) {
+            None if earlier.iter().any(|s| s.field(f.id).is_some()) => {
+                out.push(Update::Restore { field_id: f.id });
+            }
+            None => out.push(Update::Add { field_id: f.id }),
+            Some(old) => {
+                if old.required && !f.required {
+                    out.push(Update::MakeOptional { field_id: f.id });
+                }
+            }
+        }
+    }
+    let shared: Vec<u32> = b
+        .fields
+        .iter()
+        .filter(|f| a.field(f.id).is_some())
+        .map(|f| f.id)
+        .collect();
+    let positions: Vec<usize> = shared
+        .iter()
+        .filter_map(|id| a.fields.iter().position(|f| f.id == *id))
+        .collect();
+    for (id, moved) in shared.iter().zip(outside_lis(&positions)) {
+        if moved {
+            out.push(Update::Move { field_id: *id });
+        }
+    }
+    let (mut ka, mut kb) = (
+        a.identifier_field_ids.clone(),
+        b.identifier_field_ids.clone(),
+    );
+    ka.sort_unstable();
+    kb.sort_unstable();
+    if ka != kb {
+        out.push(Update::SetIdentifierFields {
+            field_ids: b.identifier_field_ids.clone(),
+        });
+    }
+    out
+}
+
 #[cfg(test)]
 pub(crate) mod tests {
     use serde_json::json;
@@ -279,6 +409,85 @@ pub(crate) mod tests {
         assert!(h.schema(7).is_none());
         let ids: Vec<u32> = h.fields().iter().map(|f| f.id).collect();
         assert_eq!(ids, [1, 2, 3]);
+    }
+
+    #[test]
+    fn what_a_run_says_of_its_start_is_derived_from_the_runs_before() {
+        let mut h: History = serde_json::from_value(sample()).unwrap();
+        // The hand-written sample names updates of fields no schema has;
+        // derived, the second run's is the add and nothing else: a field
+        // put between two others moves neither.
+        derive(&h.schemas, &mut h.runs).unwrap();
+        assert_eq!(h.runs[0].changes, [Change::First]);
+        assert!(h.runs[0].updates.is_empty() && !h.runs[0].overlaps);
+        assert_eq!(h.runs[1].changes, [Change::Schema, Change::Version]);
+        assert_eq!(h.runs[1].updates, [Update::Add { field_id: 3 }]);
+        assert!(!h.runs[1].overlaps, "the second run's data has no time");
+        // A third run back on schema 0 restores nothing (field 2 never
+        // left), deletes 3, and overlaps when its data starts before the
+        // second run's ends; the same schema, version and pair as the run
+        // before is a published boundary.
+        let mut third = h.runs[1].clone();
+        third.schema_id = 0;
+        third.from.data_time = Some("2024-08-01T00:00:00+10:00".into());
+        h.runs[1].to.data_time = Some("2024-08-02T00:00:00+10:00".into());
+        h.runs.push(third);
+        let mut fourth = h.runs[1].clone();
+        fourth.changes = vec![Change::First];
+        h.runs.push(fourth);
+        derive(&h.schemas, &mut h.runs).unwrap();
+        assert_eq!(h.runs[2].changes, [Change::Schema]);
+        assert_eq!(h.runs[2].updates, [Update::Delete { field_id: 3 }]);
+        assert!(h.runs[2].overlaps);
+        assert_eq!(h.runs[3].changes, [Change::Schema]);
+        assert_eq!(h.runs[3].updates, [Update::Restore { field_id: 3 }]);
+        let mut fifth = h.runs[3].clone();
+        fifth.from.data_time = None;
+        h.runs.push(fifth);
+        derive(&h.schemas, &mut h.runs).unwrap();
+        assert_eq!(h.runs[4].changes, [Change::Published]);
+        assert!(h.runs[4].updates.is_empty() && !h.runs[4].overlaps);
+        // A run of a schema the table lacks.
+        h.runs[4].schema_id = 9;
+        assert_eq!(derive(&h.schemas, &mut h.runs), Err(9));
+        h.runs[4].schema_id = 1;
+        h.runs[0].schema_id = 9;
+        assert_eq!(derive(&h.schemas, &mut h.runs), Err(9));
+    }
+
+    #[test]
+    fn updates_are_the_fewest_moves_and_name_the_key() {
+        let field = |id, required| Field {
+            id,
+            name: format!("F{id}"),
+            ty: crate::IcebergType::Long,
+            required,
+            doc: None,
+        };
+        let schema = |ids: &[u32], key: &[u32]| Schema {
+            schema_id: 0,
+            fields: ids.iter().map(|id| field(*id, true)).collect(),
+            identifier_field_ids: key.to_vec(),
+            last_column_id: 0,
+        };
+        let a = schema(&[1, 2, 3, 4], &[1]);
+        // Field 4 moved to the front: one move, not three.
+        let b = schema(&[4, 1, 2, 3], &[1]);
+        assert_eq!(updates(&a, &b, &[]), [Update::Move { field_id: 4 }]);
+        // The key in another order is the same key.
+        let c = schema(&[1, 2, 3, 4], &[2, 1]);
+        assert_eq!(updates(&c, &schema(&[1, 2, 3, 4], &[1, 2]), &[]), []);
+        assert_eq!(
+            updates(&a, &c, &[]),
+            [Update::SetIdentifierFields {
+                field_ids: vec![2, 1]
+            }]
+        );
+        // A required field made optional.
+        let mut d = a.clone();
+        d.fields[1] = field(2, false);
+        assert_eq!(updates(&a, &d, &[]), [Update::MakeOptional { field_id: 2 }]);
+        assert_eq!(outside_lis(&[]), Vec::<bool>::new());
     }
 
     #[test]
