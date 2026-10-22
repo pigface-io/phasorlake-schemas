@@ -20,11 +20,14 @@ fn every_history_is_its_metadata_and_back() {
     );
     for (table, h) in &histories {
         let p = Published {
+            market: utilake_iceberg::Market::Nem,
             history: h.clone(),
             declaration: None,
             description: None,
             docs: BTreeMap::new(),
             model_types: BTreeMap::new(),
+            headers: BTreeMap::new(),
+            model: Vec::new(),
         };
         let t = to_metadata(&p, "file:///t", "u").unwrap_or_else(|e| panic!("{table}: {e}"));
         let back = from_metadata(&t.metadata).unwrap_or_else(|e| panic!("{table}: {e}"));

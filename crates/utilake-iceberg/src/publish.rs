@@ -29,6 +29,16 @@
 //!   a compact JSON object by field id.
 //! - `utilake.format`, the generation of this layout ([`FORMAT`]), and
 //!   `utilake.table`, the table's name.
+//! - **The market**, for a table that is not the NEM's: `utilake.market`
+//!   (`wem`, `gas`) and `utilake.offset` (`+08:00`). Absent, the table is
+//!   the NEM's at `+10:00`, as every table published before there were
+//!   other markets is: a NEM table's metadata is the same bytes with or
+//!   without this.
+//! - **The headers** a file wrote for columns whose names were made from
+//!   them (`Load Forecast (MW)` for `LOAD_FORECAST_MW`): `utilake.headers`,
+//!   a compact JSON object by field id; and **the model tables** that
+//!   annotate a table whose own name is not in AEMO's data model:
+//!   `utilake.model`, a compact JSON array. Both only when there are any.
 //!
 //! [`to_metadata`] writes a [`Published`] table this way and
 //! [`from_metadata`] reads one back: the same table, with the fields'
@@ -41,6 +51,7 @@ use std::str::FromStr;
 use serde::{Deserialize, Serialize};
 
 use crate::history::{Break, History, Mark, Run, derive};
+use crate::market::Market;
 use crate::schema::Schema;
 use crate::table::manifest::write_manifest_list;
 use crate::table::metadata::{Snapshot, TableMetadata};
@@ -104,6 +115,8 @@ pub struct Valid {
 /// and its documentation.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Published {
+    /// The market the table is of.
+    pub market: Market,
     /// The history, no field documented.
     pub history: History,
     /// The declaration.
@@ -114,6 +127,12 @@ pub struct Published {
     pub docs: BTreeMap<u32, String>,
     /// Each column's type in AEMO's data model, by field id.
     pub model_types: BTreeMap<u32, String>,
+    /// The header a file wrote for a column, by field id, where the
+    /// column's name was made from it.
+    pub headers: BTreeMap<u32, String>,
+    /// The tables of AEMO's data model whose columns annotate this table,
+    /// when the table's own name is not one of them.
+    pub model: Vec<String>,
 }
 
 /// A manifest list to write beside the metadata.
@@ -191,6 +210,10 @@ const K_ORIGIN: &str = "utilake.temporal.origin";
 const K_COMMENT: &str = "comment";
 const K_MODEL_TYPES: &str = "utilake.model-types";
 const K_BREAKS: &str = "utilake.breaks";
+const K_MARKET: &str = "utilake.market";
+const K_OFFSET: &str = "utilake.offset";
+const K_HEADERS: &str = "utilake.headers";
+const K_MODEL: &str = "utilake.model";
 
 const S_ROWS: &str = "utilake.rows";
 const S_TOTAL_ROWS: &str = "utilake.total-rows";
@@ -218,6 +241,12 @@ fn days_from_civil(y: i64, m: i64, d: i64) -> i64 {
 /// Midnight at +10:00 beginning the month `YYYY-MM`, in milliseconds
 /// since 1970; none when it is not a month.
 pub fn month_start_ms(month: &str) -> Option<i64> {
+    month_start_ms_at(month, Market::Nem.offset_secs())
+}
+
+/// Midnight at `offset_secs` from UTC beginning the month `YYYY-MM`, in
+/// milliseconds since 1970; none when it is not a month.
+pub fn month_start_ms_at(month: &str, offset_secs: i32) -> Option<i64> {
     let (y, m) = month.split_once('-')?;
     if y.len() != 4 || m.len() != 2 || !y.bytes().chain(m.bytes()).all(|c| c.is_ascii_digit()) {
         return None;
@@ -225,7 +254,7 @@ pub fn month_start_ms(month: &str) -> Option<i64> {
     let (y, m): (i64, i64) = (y.parse().ok()?, m.parse().ok()?);
     (1..=12)
         .contains(&m)
-        .then(|| (days_from_civil(y, m, 1) * 86_400 - 36_000) * 1000)
+        .then(|| (days_from_civil(y, m, 1) * 86_400 - i64::from(offset_secs)) * 1000)
 }
 
 /// The id of the snapshot of `run` in `table`: 63 bits of the SHA-256 of
@@ -293,6 +322,10 @@ fn properties(p: &Published) -> BTreeMap<String, String> {
     };
     put(K_FORMAT, FORMAT.to_string());
     put(K_TABLE, p.history.table.clone());
+    if p.market != Market::Nem {
+        put(K_MARKET, p.market.id().to_owned());
+        put(K_OFFSET, p.market.offset_text().to_owned());
+    }
     put(K_DECLARED, p.declaration.is_some().to_string());
     if let Some(d) = &p.declaration {
         if let Some(pkg) = &d.package {
@@ -321,6 +354,12 @@ fn properties(p: &Published) -> BTreeMap<String, String> {
     }
     if !p.model_types.is_empty() {
         put(K_MODEL_TYPES, json(&p.model_types));
+    }
+    if !p.headers.is_empty() {
+        put(K_HEADERS, json(&p.headers));
+    }
+    if !p.model.is_empty() {
+        put(K_MODEL, json(&p.model));
     }
     if !p.history.breaking.is_empty() {
         put(K_BREAKS, json(&p.history.breaking));
@@ -354,12 +393,13 @@ pub fn to_metadata(p: &Published, location: &str, uuid: &str) -> Result<Table, P
             id = snapshot_id(&h.table, run, salt);
         }
         let parent = m.current_snapshot_id;
-        let timestamp_ms =
-            month_start_ms(&run.from.release).ok_or_else(|| PublishError::Release {
+        let timestamp_ms = month_start_ms_at(&run.from.release, p.market.offset_secs())
+            .ok_or_else(|| PublishError::Release {
                 file: run.from.file.clone(),
                 release: run.from.release.clone(),
-            })? + sequence
-                - 1;
+            })?
+            + sequence
+            - 1;
         let path = format!("metadata/snap-{id}-{sequence}-{uuid}.avro");
         let bytes = write_manifest_list(id, parent, sequence, 0, &[])
             .expect("an empty manifest list encodes");
@@ -502,6 +542,15 @@ pub fn from_metadata(m: &TableMetadata) -> Result<Published, PublishError> {
         return Err(p.malformed(K_FORMAT, format, &format!("format {FORMAT}")));
     }
     let table = p.need(K_TABLE)?.to_owned();
+    let market = match p.get(K_MARKET) {
+        None => Market::Nem,
+        Some(id) => Market::parse(id).ok_or_else(|| p.malformed(K_MARKET, id, "a market"))?,
+    };
+    if let Some(offset) = p.get(K_OFFSET)
+        && offset != market.offset_text()
+    {
+        return Err(p.malformed(K_OFFSET, offset, &format!("{market}'s offset")));
+    }
     let declaration = match p.need(K_DECLARED)? {
         "true" => Some(declaration_of(&p)?),
         "false" => None,
@@ -529,7 +578,10 @@ pub fn from_metadata(m: &TableMetadata) -> Result<Published, PublishError> {
     derive(&schemas, &mut runs).map_err(PublishError::UnknownSchema)?;
     let breaking: Vec<Break> = p.json(K_BREAKS)?.unwrap_or_default();
     let model_types: BTreeMap<u32, String> = p.json(K_MODEL_TYPES)?.unwrap_or_default();
+    let headers: BTreeMap<u32, String> = p.json(K_HEADERS)?.unwrap_or_default();
+    let model: Vec<String> = p.json(K_MODEL)?.unwrap_or_default();
     Ok(Published {
+        market,
         history: History {
             table,
             format_version: 3,
@@ -542,6 +594,8 @@ pub fn from_metadata(m: &TableMetadata) -> Result<Published, PublishError> {
         description: p.owned(K_COMMENT),
         docs,
         model_types,
+        headers,
+        model,
     })
 }
 
@@ -567,6 +621,7 @@ mod tests {
         derive(&h.schemas, &mut h.runs).unwrap();
         h.current_schema_id = 1;
         Published {
+            market: Market::Nem,
             history: h,
             declaration: Some(Declaration {
                 package: Some("DISPATCH".into()),
@@ -589,6 +644,8 @@ mod tests {
             description: Some("Unit SCADA".into()),
             docs: BTreeMap::from([(1, "Interval end".to_owned()), (3, "A flag".to_owned())]),
             model_types: BTreeMap::from([(1, "TIMESTAMP(0)".to_owned())]),
+            headers: BTreeMap::new(),
+            model: Vec::new(),
         }
     }
 
@@ -653,6 +710,11 @@ mod tests {
         assert_eq!(m.properties[K_COMMENT], "Unit SCADA");
         assert_eq!(m.properties[K_MODEL_TYPES], r#"{"1":"TIMESTAMP(0)"}"#);
         assert!(m.properties[K_BREAKS].starts_with(r#"[{"column":"X""#));
+        // A NEM table says nothing of its market: its bytes are those of
+        // every table published before there were other markets.
+        for key in [K_MARKET, K_OFFSET, K_HEADERS, K_MODEL] {
+            assert!(!m.properties.contains_key(key), "{key}");
+        }
         for s in &m.schemas {
             assert_eq!(s.field(1).unwrap().doc.as_deref(), Some("Interval end"));
             assert_eq!(s.field(2).unwrap().doc, None);
@@ -676,6 +738,7 @@ mod tests {
     #[test]
     fn an_undeclared_table_with_no_runs_is_still_a_table() {
         let p = Published {
+            market: Market::Nem,
             history: History {
                 table: "T".into(),
                 format_version: 3,
@@ -688,6 +751,8 @@ mod tests {
             description: None,
             docs: BTreeMap::new(),
             model_types: BTreeMap::new(),
+            headers: BTreeMap::new(),
+            model: Vec::new(),
         };
         let t = to_metadata(&p, "file:///t", "u").unwrap();
         let m = &t.metadata;
@@ -711,6 +776,45 @@ mod tests {
         let t = to_metadata(&q, "file:///t", "u").unwrap();
         assert!(!t.metadata.properties.contains_key(K_PACKAGE));
         assert_eq!(from_metadata(&t.metadata).unwrap(), q);
+    }
+
+    #[test]
+    fn a_table_of_another_market_says_so_and_keeps_its_clock() {
+        let mut p = published();
+        p.market = Market::Wem;
+        p.headers = BTreeMap::from([(1, "Trading Interval".to_owned())]);
+        p.model = vec!["GAS_DAILY_FLOW_ACTUAL".to_owned()];
+        let t = to_metadata(&p, "file:///t", "u").unwrap();
+        let m = &t.metadata;
+        assert_eq!(m.properties[K_MARKET], "wem");
+        assert_eq!(m.properties[K_OFFSET], "+08:00");
+        assert_eq!(m.properties[K_HEADERS], r#"{"1":"Trading Interval"}"#);
+        assert_eq!(m.properties[K_MODEL], r#"["GAS_DAILY_FLOW_ACTUAL"]"#);
+        // Midnight in Perth, not Sydney: two hours later in UTC.
+        assert_eq!(
+            m.snapshots[0].timestamp_ms,
+            month_start_ms("2024-08").unwrap() + 2 * 3600 * 1000
+        );
+        assert_eq!(
+            month_start_ms_at("2024-01", 8 * 3600),
+            Some(1_704_038_400_000)
+        );
+        assert_eq!(from_metadata(m).unwrap(), p);
+        let nem = to_metadata(&published(), "file:///t", "u").unwrap();
+        assert_ne!(
+            nem.metadata.snapshots[0].timestamp_ms,
+            m.snapshots[0].timestamp_ms
+        );
+        // A gas table keeps the NEM's clock.
+        p.market = Market::Gas;
+        let g = to_metadata(&p, "file:///t", "u").unwrap();
+        assert_eq!(g.metadata.properties[K_MARKET], "gas");
+        assert_eq!(g.metadata.properties[K_OFFSET], "+10:00");
+        assert_eq!(
+            g.metadata.snapshots[0].timestamp_ms,
+            nem.metadata.snapshots[0].timestamp_ms
+        );
+        assert_eq!(from_metadata(&g.metadata).unwrap().market, Market::Gas);
     }
 
     #[test]
@@ -792,6 +896,16 @@ mod tests {
         assert!(err(&with(K_KEY, "[1]")).contains("JSON of the shape this key takes"));
         assert!(err(&with(K_BREAKS, "{}")).contains("utilake.breaks"));
         assert!(err(&with(K_MODEL_TYPES, "[]")).contains("utilake.model-types"));
+        assert!(err(&with(K_HEADERS, "[]")).contains("utilake.headers"));
+        assert!(err(&with(K_MODEL, "{}")).contains("utilake.model"));
+        assert_eq!(
+            err(&with(K_MARKET, "mars")),
+            "In the table's properties, utilake.market is \"mars\", which is not a market."
+        );
+        assert_eq!(
+            err(&with(K_OFFSET, "+08:00")),
+            "In the table's properties, utilake.offset is \"+08:00\", which is not nem's offset."
+        );
         let summary = |key: &str, value: Option<&str>| {
             let mut m = m.clone();
             let s = &mut m.snapshots[1].summary;

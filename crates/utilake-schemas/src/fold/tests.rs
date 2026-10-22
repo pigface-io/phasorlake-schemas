@@ -57,11 +57,14 @@ fn census(root: &Path, month: &str, int: u8) {
 /// Publishes `h` as the export does: as table metadata, undeclared.
 fn publish(root: &Path, h: &History) {
     let p = utilake_iceberg::Published {
+        market: utilake_iceberg::Market::Nem,
         history: h.clone(),
         declaration: None,
         description: None,
         docs: BTreeMap::new(),
         model_types: BTreeMap::new(),
+        headers: BTreeMap::new(),
+        model: Vec::new(),
     };
     let t = utilake_iceberg::to_metadata(&p, "l", "u").unwrap();
     let text = serde_json::to_string(&t.metadata).unwrap();

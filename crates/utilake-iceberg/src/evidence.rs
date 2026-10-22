@@ -4,7 +4,7 @@ use crate::types::IcebergType;
 
 /// What a column's values were seen to be, on a widening lattice: `Empty`
 /// below everything, `Integer` below `Decimal`, `Date` below `Timestamp`,
-/// and `Text` above everything.
+/// `Boolean` beside them, and `Text` above everything.
 #[derive(
     Debug,
     Clone,
@@ -31,22 +31,26 @@ pub enum Kind {
     Date,
     /// Days with a time of day.
     Timestamp,
+    /// `true` or `false`.
+    Boolean,
     /// Anything else.
     Text,
 }
 
 impl Kind {
     /// Every kind, bottom of the lattice first.
-    pub const ALL: [Self; 6] = [
+    pub const ALL: [Self; 7] = [
         Self::Empty,
         Self::Integer,
         Self::Decimal,
         Self::Date,
         Self::Timestamp,
+        Self::Boolean,
         Self::Text,
     ];
 
-    /// One letter per kind, for compact records: `-`, `i`, `d`, `D`, `t`, `s`.
+    /// One letter per kind, for compact records: `-`, `i`, `d`, `D`, `t`,
+    /// `b`, `s`.
     pub const fn letter(self) -> char {
         match self {
             Self::Empty => '-',
@@ -54,6 +58,7 @@ impl Kind {
             Self::Decimal => 'd',
             Self::Date => 'D',
             Self::Timestamp => 't',
+            Self::Boolean => 'b',
             Self::Text => 's',
         }
     }
@@ -66,6 +71,7 @@ impl Kind {
     /// The least kind that holds both.
     pub fn join(self, other: Self) -> Self {
         use Kind::{Date, Decimal, Empty, Integer, Text, Timestamp};
+        let _ = Kind::Boolean;
         match (self, other) {
             (Empty, k) | (k, Empty) => k,
             (a, b) if a == b => a,
@@ -150,7 +156,8 @@ const FLOAT_PRINTED: u8 = 16;
 ///   the largest observed scale, fixed for life, and P what the values and
 ///   the declaration need, while it fits a 64-bit integer (18 digits);
 ///   past that, `double`;
-/// - days `date`, times `timestamptz`, anything else `string`;
+/// - days `date`, times `timestamptz`, `true`/`false` `boolean`, anything
+///   else `string`;
 /// - never a value: the declared type, else `string`.
 ///
 /// A whole-number column with nothing declaring it whole is a
@@ -185,6 +192,7 @@ pub fn choose(e: Evidence, d: Declared) -> Choice {
         Kind::Integer | Kind::Decimal => IcebergType::Double,
         Kind::Date => IcebergType::Date,
         Kind::Timestamp => IcebergType::Timestamptz,
+        Kind::Boolean => IcebergType::Boolean,
         Kind::Text => IcebergType::String,
     };
     Choice { ty, observed: true }
@@ -194,8 +202,7 @@ pub fn choose(e: Evidence, d: Declared) -> Choice {
 /// field: `e`'s kind is at or below the kind the type holds on the lattice
 /// ([`Kind::join`]), and its digits fit.
 ///
-/// - `string` holds anything; `boolean` only a column never seen with a
-///   value, since no kind is boolean;
+/// - `string` holds anything; `boolean` holds `true` and `false`;
 /// - `long` holds whole numbers of at most 18 digits;
 /// - `decimal(P, S)` holds numbers of at most S digits after the point and
 ///   P - S before it;
@@ -203,7 +210,7 @@ pub fn choose(e: Evidence, d: Declared) -> Choice {
 /// - `date` holds days, `timestamptz` days and times.
 pub fn holds(ty: IcebergType, e: Evidence) -> bool {
     let (top, fits) = match ty {
-        IcebergType::Boolean => (Kind::Empty, true),
+        IcebergType::Boolean => (Kind::Boolean, true),
         IcebergType::Long => (Kind::Integer, e.int_digits <= LONG_DIGITS),
         IcebergType::Double => (Kind::Decimal, true),
         IcebergType::Decimal { precision, scale } => (
@@ -239,6 +246,10 @@ mod tests {
         assert_eq!(Date.join(Timestamp), Timestamp);
         assert_eq!(Integer.join(Date), Text);
         assert_eq!(Text.join(Integer), Text);
+        assert_eq!(Boolean.join(Empty), Boolean);
+        assert_eq!(Boolean.join(Boolean), Boolean);
+        assert_eq!(Boolean.join(Integer), Text);
+        assert_eq!(Date.join(Boolean), Text);
         assert_eq!(Decimal.join(Decimal), Decimal);
         assert_eq!(Evidence::default().kind, Empty);
         for k in Kind::ALL {
@@ -410,6 +421,12 @@ mod tests {
         let int = ev(Kind::Integer, 3, 0);
         let dec = ev(Kind::Decimal, 3, 2);
         assert!(!holds(T::Boolean, int));
+        assert!(holds(T::Boolean, ev(Kind::Boolean, 0, 0)));
+        assert!(!holds(T::Date, ev(Kind::Boolean, 0, 0)));
+        assert_eq!(
+            choose(ev(Kind::Boolean, 0, 0), Declared::default()).ty,
+            T::Boolean
+        );
         assert!(holds(T::Long, int) && !holds(T::Long, dec));
         assert!(holds(T::Long, ev(Kind::Integer, 18, 0)));
         assert!(!holds(T::Long, ev(Kind::Integer, 19, 0)));

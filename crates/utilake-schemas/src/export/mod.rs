@@ -263,6 +263,7 @@ impl Export {
             }
         }
         Some(Published {
+            market: utilake_iceberg::Market::Nem,
             history: h.clone(),
             declaration: self.declarations.get(table).cloned(),
             description: self
@@ -271,6 +272,8 @@ impl Export {
                 .map(str::to_owned),
             docs,
             model_types,
+            headers: BTreeMap::new(),
+            model: Vec::new(),
         })
     }
 

@@ -1,4 +1,4 @@
-//! AEMO's NEM tables as Apache Iceberg tables (format version 3).
+//! AEMO's tables as Apache Iceberg tables (format version 3).
 //!
 //! Every table is an Iceberg schema history: fields with ids that never
 //! change meaning, types from the set in [`IcebergType`], identifier fields
@@ -17,6 +17,7 @@
 pub mod compat;
 mod evidence;
 pub mod history;
+pub mod market;
 mod plan;
 pub mod publish;
 mod schema;
@@ -25,6 +26,7 @@ mod types;
 
 pub use evidence::{Choice, Declared, Evidence, Kind, choose, holds};
 pub use history::History;
+pub use market::Market;
 pub use plan::{Column, DataFile, PlanError, Read, Target, casts_to, duckdb_sql, plan};
 pub use publish::{Declaration, PublishError, Published, from_metadata, to_metadata};
 pub use schema::{Field, Schema};
