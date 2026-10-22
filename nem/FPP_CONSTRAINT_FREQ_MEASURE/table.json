@@ -53,6 +53,12 @@
       "id": 9,
       "model_type": "NUMERIC(5)",
       "name": "CORRELATION_FLAG"
+    },
+    {
+      "comment": "Last date and time record changed",
+      "id": 10,
+      "model_type": "TIMESTAMP(0)",
+      "name": "LASTCHANGED"
     }
   ],
   "declared": true,
@@ -90,10 +96,46 @@
         },
         "updates": [],
         "version": 1
+      },
+      {
+        "changes": [
+          "schema"
+        ],
+        "files": 2,
+        "from": {
+          "data-time": "2024-12-09T11:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_CONSTRAINT_FREQ_MEASURE#FILE01#202605010000.zip",
+          "release": "2026-05",
+          "sha256": "bcb627ef630b42db1206e66a9d4d5025568df8b25c6278831dd9bcafef07b724"
+        },
+        "kinds": [
+          "archive"
+        ],
+        "overlaps": true,
+        "report": [
+          "FPP",
+          "CONSTRAINT_FREQ_MEASURE"
+        ],
+        "rows": 95875950,
+        "schema-id": 1,
+        "to": {
+          "data-time": "2026-07-08T22:45:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_CONSTRAINT_FREQ_MEASURE#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "f8640f73354a4c1f7eb06b502b7facdb6aedf8b354d7793ec9000adc79c35cea"
+        },
+        "updates": [
+          {
+            "action": "add",
+            "field-id": 10
+          }
+        ],
+        "version": 1
       }
     ],
     "schema-files": {
-      "0": "schema-0a3ed2de0f467752.json"
+      "0": "schema-0a3ed2de0f467752.json",
+      "1": "schema-38d98da06285300e.json"
     },
     "schemas": [
       {
@@ -155,6 +197,73 @@
         ],
         "identifier-field-ids": [],
         "schema-id": 0,
+        "type": "struct"
+      },
+      {
+        "fields": [
+          {
+            "id": 1,
+            "name": "INTERVAL_DATETIME",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 2,
+            "name": "MEASUREMENT_DATETIME",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 3,
+            "name": "CONSTRAINTID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 4,
+            "name": "VERSIONNO",
+            "required": false,
+            "type": "decimal(5, 0)"
+          },
+          {
+            "id": 5,
+            "name": "BIDTYPE",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 6,
+            "name": "FM_RAISE_HZ",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 7,
+            "name": "FM_LOWER_HZ",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 8,
+            "name": "USED_IN_RCR_FLAG",
+            "required": false,
+            "type": "decimal(5, 0)"
+          },
+          {
+            "id": 9,
+            "name": "CORRELATION_FLAG",
+            "required": false,
+            "type": "decimal(5, 0)"
+          },
+          {
+            "id": 10,
+            "name": "LASTCHANGED",
+            "required": false,
+            "type": "timestamptz"
+          }
+        ],
+        "identifier-field-ids": [],
+        "schema-id": 1,
         "type": "struct"
       }
     ],

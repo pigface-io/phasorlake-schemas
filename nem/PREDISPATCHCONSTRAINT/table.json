@@ -197,7 +197,7 @@
         "changes": [
           "schema"
         ],
-        "files": 65,
+        "files": 73,
         "from": {
           "data-time": "2024-08-01T04:30:00+10:00",
           "file": "PUBLIC_ARCHIVE#PREDISPATCHCONSTRAINT#ALL#FILE01#202408010000.zip",
@@ -213,13 +213,13 @@
           "PREDISPATCH",
           "CONSTRAINT_SOLUTION"
         ],
-        "rows": 1481865937,
+        "rows": 1638408555,
         "schema-id": 2,
         "to": {
-          "data-time": "2026-05-02T04:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#PREDISPATCHCONSTRAINT#ALL#FILE02#202604010000.zip",
-          "release": "2026-04",
-          "sha256": "cd0736e13ef4e7edca6c30f53705cc373034ad2f46606c3f3ff241cdc4c0eef0"
+          "data-time": "2026-07-02T04:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#PREDISPATCHCONSTRAINT#ALL#FILE03#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "23ac2b9db9ae0a6b87e472771415b21aa109b31da4100318e59ce1d4bd6d09b4"
         },
         "updates": [
           {

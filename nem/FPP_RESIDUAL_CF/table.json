@@ -65,6 +65,12 @@
       "id": 11,
       "model_type": "NUMERIC(18,8)",
       "name": "NCF_ABS_NEGATIVE_PERF_TOTAL"
+    },
+    {
+      "comment": "Last date and time record changed",
+      "id": 12,
+      "model_type": "TIMESTAMP(0)",
+      "name": "LASTCHANGED"
     }
   ],
   "declared": true,
@@ -102,10 +108,46 @@
         },
         "updates": [],
         "version": 1
+      },
+      {
+        "changes": [
+          "schema"
+        ],
+        "files": 2,
+        "from": {
+          "data-time": "2024-12-09T11:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_RESIDUAL_CF#FILE01#202605010000.zip",
+          "release": "2026-05",
+          "sha256": "34bfdf584e2f26a90e72ad81078f47fcaba1e25c7e55c15235b998b311a49e1c"
+        },
+        "kinds": [
+          "archive"
+        ],
+        "overlaps": true,
+        "report": [
+          "FPP",
+          "RESIDUAL_CF"
+        ],
+        "rows": 1278374,
+        "schema-id": 1,
+        "to": {
+          "data-time": "2026-07-08T22:30:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_RESIDUAL_CF#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "bd08ef99447214d9c2283fa07b2e2a69e44d1d3f0f45cfd6d96ed5a0a4a36ab7"
+        },
+        "updates": [
+          {
+            "action": "add",
+            "field-id": 12
+          }
+        ],
+        "version": 1
       }
     ],
     "schema-files": {
-      "0": "schema-28a666419aa5d4b5.json"
+      "0": "schema-28a666419aa5d4b5.json",
+      "1": "schema-7385c056ba2f26ac.json"
     },
     "schemas": [
       {
@@ -179,6 +221,85 @@
         ],
         "identifier-field-ids": [],
         "schema-id": 0,
+        "type": "struct"
+      },
+      {
+        "fields": [
+          {
+            "id": 1,
+            "name": "INTERVAL_DATETIME",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 2,
+            "name": "CONSTRAINTID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 3,
+            "name": "VERSIONNO",
+            "required": false,
+            "type": "decimal(5, 0)"
+          },
+          {
+            "id": 4,
+            "name": "BIDTYPE",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 5,
+            "name": "RESIDUAL_CF",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 6,
+            "name": "NEGATIVE_RESIDUAL_CF",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 7,
+            "name": "RESIDUAL_DCF",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 8,
+            "name": "RESIDUAL_CF_REASON_FLAG",
+            "required": false,
+            "type": "decimal(5, 0)"
+          },
+          {
+            "id": 9,
+            "name": "CF_ABS_POSITIVE_PERF_TOTAL",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 10,
+            "name": "CF_ABS_NEGATIVE_PERF_TOTAL",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 11,
+            "name": "NCF_ABS_NEGATIVE_PERF_TOTAL",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 12,
+            "name": "LASTCHANGED",
+            "required": false,
+            "type": "timestamptz"
+          }
+        ],
+        "identifier-field-ids": [],
+        "schema-id": 1,
         "type": "struct"
       }
     ],

@@ -6,7 +6,7 @@
       "changes": [
         "first"
       ],
-      "files": 202,
+      "files": 204,
       "from": {
         "data-time": "2000-07-01T00:00:00+10:00",
         "file": "PUBLIC_DVD_GST_RATE_200907010000.zip",
@@ -22,13 +22,13 @@
         "BILLING_CONFIG",
         "GST_RATE"
       ],
-      "rows": 1212,
+      "rows": 1224,
       "schema-id": 0,
       "to": {
         "data-time": "2000-07-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#GST_RATE#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "69ecbb3a26ed434c000dd90276d268190a5409a3be9684c55fc0afb308044456"
+        "file": "PUBLIC_ARCHIVE#GST_RATE#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "8ec94e1b798a7479381b9031592bfce4709961da593f51aca505edcf10aef142"
       },
       "updates": [],
       "version": 1

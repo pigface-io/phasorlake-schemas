@@ -35,7 +35,7 @@
         "changes": [
           "first"
         ],
-        "files": 21,
+        "files": 23,
         "from": {
           "data-time": "2010-09-12T07:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#NETWORK_OUTAGECONSTRAINTSET#FILE01#202408010000.zip",
@@ -50,13 +50,13 @@
           "NETWORK",
           "OUTAGECONSTRAINTSET"
         ],
-        "rows": 210125,
+        "rows": 246406,
         "schema-id": 0,
         "to": {
           "data-time": "2099-11-27T10:30:00+10:00",
-          "file": "PUBLIC_ARCHIVE#NETWORK_OUTAGECONSTRAINTSET#FILE01#202604010000.zip",
-          "release": "2026-04",
-          "sha256": "61b90c4b69f33084e9de3055f1b116b38a74cbe54de4274819cfd57f04d66164"
+          "file": "PUBLIC_ARCHIVE#NETWORK_OUTAGECONSTRAINTSET#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "4bbb297b6ebaa67392e4933ece95608b4affae83dfc183491a77d3f247f249be"
         },
         "updates": [],
         "version": 1

@@ -31,6 +31,41 @@
       },
       "updates": [],
       "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_EST_RESIDUAL_COST_RATE#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "70e6266fdeb3ac9f86ef14de321300e8b003f24fe2438edb53a786a1bc6e3c55"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "EST_RESIDUAL_COST_RATE"
+      ],
+      "rows": 1278362,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-07-08T22:35:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_EST_RESIDUAL_COST_RATE#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "8a276efd5e4f1b8d289d71ff6a7ab17de1312c4a4df532626a81126024027b10"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 9
+        }
+      ],
+      "version": 1
     }
   ],
   "schemas": [
@@ -87,6 +122,67 @@
       ],
       "identifier-field-ids": [],
       "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "CONSTRAINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 4,
+          "name": "BIDTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "RELEVANT_REGIONS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FPP",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 7,
+          "name": "USED_FCAS",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 8,
+          "name": "UNUSED_FCAS",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 1,
       "type": "struct"
     }
   ],

@@ -1,0 +1,167 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_HIST_PERFORMANCE/schema-177cb793d86fb459.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EFFECTIVE_END_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "EFFECTIVE_START_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "FPP_HIST_LOWER_PERFORMANCE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(18, 5)"
+    },
+    "FPP_HIST_RAISE_PERFORMANCE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 5)"
+    },
+    "FPP_UNITID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "HIST_PERIOD_END_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "HIST_PERIOD_START_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz"
+    },
+    "REG_HIST_LOWER_PERFORMANCE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 5)"
+    },
+    "REG_HIST_RAISE_PERFORMANCE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 5)"
+    },
+    "VERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(10, 0)"
+    }
+  },
+  "required": [],
+  "title": "FPP_HIST_PERFORMANCE, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FPP_UNITID",
+      "string"
+    ],
+    [
+      2,
+      "EFFECTIVE_START_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "EFFECTIVE_END_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "VERSIONNO",
+      "decimal(10, 0)"
+    ],
+    [
+      5,
+      "HIST_PERIOD_START_DATETIME",
+      "timestamptz"
+    ],
+    [
+      6,
+      "HIST_PERIOD_END_DATETIME",
+      "timestamptz"
+    ],
+    [
+      7,
+      "REG_HIST_RAISE_PERFORMANCE",
+      "decimal(18, 5)"
+    ],
+    [
+      8,
+      "REG_HIST_LOWER_PERFORMANCE",
+      "decimal(18, 5)"
+    ],
+    [
+      9,
+      "FPP_HIST_RAISE_PERFORMANCE",
+      "decimal(18, 5)"
+    ],
+    [
+      10,
+      "FPP_HIST_LOWER_PERFORMANCE",
+      "decimal(18, 5)"
+    ],
+    [
+      11,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "FPP_HIST_PERFORMANCE"
+  }
+}

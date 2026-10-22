@@ -53,6 +53,12 @@
       "id": 9,
       "model_type": "NUMERIC(18,8)",
       "name": "USAGE_VALUE"
+    },
+    {
+      "comment": "Last date and time record changed",
+      "id": 10,
+      "model_type": "TIMESTAMP(0)",
+      "name": "LASTCHANGED"
     }
   ],
   "declared": true,
@@ -129,11 +135,47 @@
           }
         ],
         "version": 1
+      },
+      {
+        "changes": [
+          "schema"
+        ],
+        "files": 2,
+        "from": {
+          "data-time": "2024-12-09T11:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202605010000.zip",
+          "release": "2026-05",
+          "sha256": "031ef63d404aeb7ad6ffdf40f472f8acec2d4a4574cbb8bb856108bd98007102"
+        },
+        "kinds": [
+          "archive"
+        ],
+        "overlaps": true,
+        "report": [
+          "FPP",
+          "FPP_USAGE"
+        ],
+        "rows": 1278374,
+        "schema-id": 2,
+        "to": {
+          "data-time": "2026-07-08T22:30:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "fc2bc7f65ce406c6721bd2037e9b3bc30b909d9bd9ac958cdb7390ed0d6cb0a1"
+        },
+        "updates": [
+          {
+            "action": "add",
+            "field-id": 10
+          }
+        ],
+        "version": 1
       }
     ],
     "schema-files": {
       "0": "schema-63866e56369cf4e0.json",
-      "1": "schema-d1b80dbff0a75bc0.json"
+      "1": "schema-d1b80dbff0a75bc0.json",
+      "2": "schema-cde9506d49a373f3.json"
     },
     "schemas": [
       {
@@ -244,6 +286,67 @@
         ],
         "identifier-field-ids": [],
         "schema-id": 1,
+        "type": "struct"
+      },
+      {
+        "fields": [
+          {
+            "id": 1,
+            "name": "INTERVAL_DATETIME",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 2,
+            "name": "CONSTRAINTID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 3,
+            "name": "VERSIONNO",
+            "required": false,
+            "type": "decimal(5, 0)"
+          },
+          {
+            "id": 4,
+            "name": "BIDTYPE",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 5,
+            "name": "REGULATION_MW",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 6,
+            "name": "USED_MW",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 9,
+            "name": "USAGE_VALUE",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 8,
+            "name": "USAGE_REASON_FLAG",
+            "required": false,
+            "type": "decimal(5, 0)"
+          },
+          {
+            "id": 10,
+            "name": "LASTCHANGED",
+            "required": false,
+            "type": "timestamptz"
+          }
+        ],
+        "identifier-field-ids": [],
+        "schema-id": 2,
         "type": "struct"
       }
     ],

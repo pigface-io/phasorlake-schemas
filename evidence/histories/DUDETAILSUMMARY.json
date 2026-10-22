@@ -155,7 +155,7 @@
         "schema",
         "version"
       ],
-      "files": 24,
+      "files": 26,
       "from": {
         "data-time": "1998-10-25T00:00:00+10:00",
         "file": "PUBLIC_DVD_DUDETAILSUMMARY_202405010000.zip",
@@ -171,13 +171,13 @@
         "PARTICIPANT_REGISTRATION",
         "DUDETAILSUMMARY"
       ],
-      "rows": 423508,
+      "rows": 469233,
       "schema-id": 3,
       "to": {
-        "data-time": "2026-05-08T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#DUDETAILSUMMARY#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "0ffa95f7e7a6cc763596883573bb694a762020fc33c9549d3d0cec4be4e9dd52"
+        "data-time": "2026-07-13T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DUDETAILSUMMARY#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "f6af1ba508eb473bb95ee0dae0964b9e00d29aa6f8bf549a60f75d597f48c3ae"
       },
       "updates": [
         {

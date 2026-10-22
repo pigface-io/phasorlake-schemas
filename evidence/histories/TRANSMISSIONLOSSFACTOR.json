@@ -37,7 +37,7 @@
         "schema",
         "version"
       ],
-      "files": 126,
+      "files": 128,
       "from": {
         "data-time": "2015-07-01T00:00:00+10:00",
         "file": "PUBLIC_DVD_TRANSMISSIONLOSSFACTOR_201507010000.zip",
@@ -53,13 +53,13 @@
         "MARKET_CONFIG",
         "TRANSMISSIONLOSSFACTOR"
       ],
-      "rows": 12171,
+      "rows": 13585,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-04-28T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#TRANSMISSIONLOSSFACTOR#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "07c963ec28dd028f4c4406c3fe800ac7b2c8e385cd02245b03ac7e212614012d"
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#TRANSMISSIONLOSSFACTOR#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "6cbf068a362675ed786c7dbb6cb7b59b032e217fa8764c5edb9fb5c057142993"
       },
       "updates": [
         {

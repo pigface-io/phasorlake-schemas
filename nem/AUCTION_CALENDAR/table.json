@@ -114,7 +114,7 @@
           "schema",
           "version"
         ],
-        "files": 52,
+        "files": 54,
         "from": {
           "data-time": "2016-07-01T00:00:00+10:00",
           "file": "PUBLIC_DVD_AUCTION_CALENDAR_201607010000.zip",
@@ -130,13 +130,13 @@
           "IRAUCTION_CONFIG",
           "AUCTION_CALENDAR"
         ],
-        "rows": 93,
+        "rows": 118,
         "schema-id": 1,
         "to": {
-          "data-time": "2026-04-01T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#AUCTION_CALENDAR#FILE01#202603010000.zip",
-          "release": "2026-03",
-          "sha256": "3a94f8d28598a0928961fad7fc16e2efc52b56687fcc36bc30b49ae6d0335f65"
+          "data-time": "2026-07-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#AUCTION_CALENDAR#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "2a2255a3cb94417f83ad9602c6d7340ee5a16984882fa0e30532f834a5505c12"
         },
         "updates": [
           {

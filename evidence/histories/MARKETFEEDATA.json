@@ -6,7 +6,7 @@
       "changes": [
         "first"
       ],
-      "files": 202,
+      "files": 204,
       "from": {
         "data-time": "1998-07-01T00:00:00+10:00",
         "file": "PUBLIC_DVD_MARKETFEEDATA_200907010000.zip",
@@ -22,13 +22,13 @@
         "SETTLEMENT_CONFIG",
         "MARKETFEEDATA"
       ],
-      "rows": 83614,
+      "rows": 84891,
       "schema-id": 0,
       "to": {
-        "data-time": "2025-07-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#MARKETFEEDATA#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "6623c5bca259c09a395f68285618083544482645eac7dd3b272cb4ef5b73452f"
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MARKETFEEDATA#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "b7b0f5a30b1be79c5e65de692de33b955258d0912cfffc55ce5884613eb407ae"
       },
       "updates": [],
       "version": 1

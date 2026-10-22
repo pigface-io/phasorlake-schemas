@@ -41,7 +41,7 @@
         "changes": [
           "first"
         ],
-        "files": 202,
+        "files": 204,
         "from": {
           "data-time": "2000-04-06T00:00:00+10:00",
           "file": "PUBLIC_DVD_MNSP_PARTICIPANT_200907010000.zip",
@@ -57,13 +57,13 @@
           "PARTICIPANT_REGISTRATION",
           "MNSP_PARTICIPANT"
         ],
-        "rows": 1010,
+        "rows": 1020,
         "schema-id": 0,
         "to": {
           "data-time": "2005-11-11T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#MNSP_PARTICIPANT#FILE01#202604010000.zip",
-          "release": "2026-04",
-          "sha256": "da99d07f3c256e71367c24fa55b401c86ab889d7751bd72829af1e4e078f8acc"
+          "file": "PUBLIC_ARCHIVE#MNSP_PARTICIPANT#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "8fa890b67816ac8c7d4f5de2ff0170e18ebdffef23ead4e87a8187ea92337709"
         },
         "updates": [],
         "version": 1

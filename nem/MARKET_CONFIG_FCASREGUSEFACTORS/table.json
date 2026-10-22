@@ -53,7 +53,7 @@
         "changes": [
           "first"
         ],
-        "files": 21,
+        "files": 23,
         "from": {
           "data-time": "2024-02-29T00:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#FCAS_REGU_USAGE_FACTORS#FILE01#202408010000.zip",
@@ -68,13 +68,13 @@
           "MARKET_CONFIG",
           "FCASREGUSEFACTORS"
         ],
-        "rows": 10080,
+        "rows": 11040,
         "schema-id": 0,
         "to": {
           "data-time": "2024-02-29T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#FCAS_REGU_USAGE_FACTORS#FILE01#202604010000.zip",
-          "release": "2026-04",
-          "sha256": "9ef121338b5d9e905e20b60b462a79b8d2a0abcf6c895fa84175c6040bfbc0ef"
+          "file": "PUBLIC_ARCHIVE#FCAS_REGU_USAGE_FACTORS#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "e2a9d219b095db6bd38a7d2d5e7328ab7899299dc8308996ec17e2da0a714ba2"
         },
         "updates": [],
         "version": 1

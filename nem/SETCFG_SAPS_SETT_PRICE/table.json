@@ -53,7 +53,7 @@
         "changes": [
           "first"
         ],
-        "files": 21,
+        "files": 23,
         "from": {
           "data-time": "2023-07-01T00:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#SETCFG_SAPS_SETT_PRICE#FILE01#202408010000.zip",
@@ -68,13 +68,13 @@
           "SETCFG",
           "SAPS_SETT_PRICE"
         ],
-        "rows": 18500,
+        "rows": 21430,
         "schema-id": 0,
         "to": {
           "data-time": "2026-07-01T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#SETCFG_SAPS_SETT_PRICE#FILE01#202604010000.zip",
-          "release": "2026-04",
-          "sha256": "14ac2b35d9a887c2b5822289293b71ae6e5496b53aeae9ce6cae395edf9fe512"
+          "file": "PUBLIC_ARCHIVE#SETCFG_SAPS_SETT_PRICE#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "642e041f22247242354cb15e12059bff6aa964b0e354da0523fda8784927cebb"
         },
         "updates": [],
         "version": 1

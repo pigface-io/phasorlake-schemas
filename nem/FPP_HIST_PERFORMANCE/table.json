@@ -59,6 +59,12 @@
       "id": 10,
       "model_type": "NUMERIC(18,5)",
       "name": "FPP_HIST_LOWER_PERFORMANCE"
+    },
+    {
+      "comment": "Last date and time record changed",
+      "id": 11,
+      "model_type": "TIMESTAMP(0)",
+      "name": "LASTCHANGED"
     }
   ],
   "declared": true,
@@ -96,10 +102,46 @@
         },
         "updates": [],
         "version": 1
+      },
+      {
+        "changes": [
+          "schema"
+        ],
+        "files": 2,
+        "from": {
+          "data-time": "2024-12-29T00:05:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_HIST_PERFORMANCE#FILE01#202605010000.zip",
+          "release": "2026-05",
+          "sha256": "6740d5b2fa20054b756a99b600903f6f329f7b391555ae1907fa95227fa2f668"
+        },
+        "kinds": [
+          "archive"
+        ],
+        "overlaps": true,
+        "report": [
+          "FPP",
+          "HIST_PERFORMANCE"
+        ],
+        "rows": 71204,
+        "schema-id": 1,
+        "to": {
+          "data-time": "2026-07-12T00:05:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_HIST_PERFORMANCE#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "2b0a3f6e1278e4eac7110c57b7a9a62a8f6a3ccfd2514dc8f7f6724acceb9dd2"
+        },
+        "updates": [
+          {
+            "action": "add",
+            "field-id": 11
+          }
+        ],
+        "version": 1
       }
     ],
     "schema-files": {
-      "0": "schema-47cc8ba236627aa5.json"
+      "0": "schema-47cc8ba236627aa5.json",
+      "1": "schema-177cb793d86fb459.json"
     },
     "schemas": [
       {
@@ -167,6 +209,79 @@
         ],
         "identifier-field-ids": [],
         "schema-id": 0,
+        "type": "struct"
+      },
+      {
+        "fields": [
+          {
+            "id": 1,
+            "name": "FPP_UNITID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 2,
+            "name": "EFFECTIVE_START_DATETIME",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 3,
+            "name": "EFFECTIVE_END_DATETIME",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 4,
+            "name": "VERSIONNO",
+            "required": false,
+            "type": "decimal(10, 0)"
+          },
+          {
+            "id": 5,
+            "name": "HIST_PERIOD_START_DATETIME",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 6,
+            "name": "HIST_PERIOD_END_DATETIME",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 7,
+            "name": "REG_HIST_RAISE_PERFORMANCE",
+            "required": false,
+            "type": "decimal(18, 5)"
+          },
+          {
+            "id": 8,
+            "name": "REG_HIST_LOWER_PERFORMANCE",
+            "required": false,
+            "type": "decimal(18, 5)"
+          },
+          {
+            "id": 9,
+            "name": "FPP_HIST_RAISE_PERFORMANCE",
+            "required": false,
+            "type": "decimal(18, 5)"
+          },
+          {
+            "id": 10,
+            "name": "FPP_HIST_LOWER_PERFORMANCE",
+            "required": false,
+            "type": "decimal(18, 5)"
+          },
+          {
+            "id": 11,
+            "name": "LASTCHANGED",
+            "required": false,
+            "type": "timestamptz"
+          }
+        ],
+        "identifier-field-ids": [],
+        "schema-id": 1,
         "type": "struct"
       }
     ],

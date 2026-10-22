@@ -59,6 +59,12 @@
       "id": 10,
       "model_type": "TIMESTAMP(0)",
       "name": "REVISION2_STATEMENTDATE"
+    },
+    {
+      "comment": "Revision 0 Statement Date for the billing week.",
+      "id": 11,
+      "model_type": "TIMESTAMP(0)",
+      "name": "REVISION0_STATEMENTDATE"
     }
   ],
   "declared": true,
@@ -137,11 +143,48 @@
           }
         ],
         "version": 2
+      },
+      {
+        "changes": [
+          "schema",
+          "version"
+        ],
+        "files": 2,
+        "from": {
+          "data-time": "1997-12-28T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#BILLINGCALENDAR#FILE01#202605010000.zip",
+          "release": "2026-05",
+          "sha256": "607b00c3d556872080a37b6753057aeb0595a30ad533dec1d2e656762abb3392"
+        },
+        "kinds": [
+          "archive"
+        ],
+        "overlaps": true,
+        "report": [
+          "BILLING_CONFIG",
+          "BILLINGCALENDAR"
+        ],
+        "rows": 3130,
+        "schema-id": 2,
+        "to": {
+          "data-time": "2027-12-19T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#BILLINGCALENDAR#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "e8c8744d4d1500e3fb75d0612fa6db2d473fd42db635fcfb1a29c8524880c0ac"
+        },
+        "updates": [
+          {
+            "action": "add",
+            "field-id": 11
+          }
+        ],
+        "version": 3
       }
     ],
     "schema-files": {
       "0": "schema-147a38ecb1b58104.json",
-      "1": "schema-d3e13b84cbadfec5.json"
+      "1": "schema-d3e13b84cbadfec5.json",
+      "2": "schema-a0298b70e53fb719.json"
     },
     "schemas": [
       {
@@ -270,6 +313,82 @@
           2
         ],
         "schema-id": 1,
+        "type": "struct"
+      },
+      {
+        "fields": [
+          {
+            "id": 1,
+            "name": "CONTRACTYEAR",
+            "required": true,
+            "type": "long"
+          },
+          {
+            "id": 2,
+            "name": "WEEKNO",
+            "required": true,
+            "type": "long"
+          },
+          {
+            "id": 3,
+            "name": "STARTDATE",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 4,
+            "name": "ENDDATE",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 5,
+            "name": "PRELIMINARYSTATEMENTDATE",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 6,
+            "name": "FINALSTATEMENTDATE",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 7,
+            "name": "PAYMENTDATE",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 8,
+            "name": "LASTCHANGED",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 9,
+            "name": "REVISION1_STATEMENTDATE",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 10,
+            "name": "REVISION2_STATEMENTDATE",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 11,
+            "name": "REVISION0_STATEMENTDATE",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "identifier-field-ids": [
+          1,
+          2
+        ],
+        "schema-id": 2,
         "type": "struct"
       }
     ],

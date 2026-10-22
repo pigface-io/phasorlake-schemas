@@ -95,6 +95,12 @@
       "id": 16,
       "model_type": "NUMERIC(15,5)",
       "name": "MAKEUP"
+    },
+    {
+      "comment": "Revision Run Type",
+      "id": 17,
+      "model_type": "NUMERIC(3,0)",
+      "name": "REVISIONINDEX"
     }
   ],
   "declared": true,
@@ -133,10 +139,47 @@
         },
         "updates": [],
         "version": 5
+      },
+      {
+        "changes": [
+          "schema",
+          "version"
+        ],
+        "files": 2,
+        "from": {
+          "data-time": "2026-05-01T03:45:55+10:00",
+          "file": "PUBLIC_ARCHIVE#BILLINGRUNTRK#FILE01#202605010000.zip",
+          "release": "2026-05",
+          "sha256": "f5d1b98f2c84df7afb6e0b09b3b525d9b9b3d05f4f0abbaf38c73346c222b581"
+        },
+        "kinds": [
+          "archive"
+        ],
+        "overlaps": false,
+        "report": [
+          "BILLING",
+          "RUNTRK"
+        ],
+        "rows": 95,
+        "schema-id": 1,
+        "to": {
+          "data-time": "2026-06-30T12:10:34+10:00",
+          "file": "PUBLIC_ARCHIVE#BILLINGRUNTRK#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "bda6903a1feb2ced187392f0ed46f9d53fc04221445c20fc648229f3d7c7f316"
+        },
+        "updates": [
+          {
+            "action": "add",
+            "field-id": 17
+          }
+        ],
+        "version": 6
       }
     ],
     "schema-files": {
-      "0": "schema-c66dd3bdb793b2cd.json"
+      "0": "schema-c66dd3bdb793b2cd.json",
+      "1": "schema-9af13161721d3c5e.json"
     },
     "schemas": [
       {
@@ -244,6 +287,119 @@
           3
         ],
         "schema-id": 0,
+        "type": "struct"
+      },
+      {
+        "fields": [
+          {
+            "id": 1,
+            "name": "CONTRACTYEAR",
+            "required": true,
+            "type": "long"
+          },
+          {
+            "id": 2,
+            "name": "WEEKNO",
+            "required": true,
+            "type": "long"
+          },
+          {
+            "id": 3,
+            "name": "BILLRUNNO",
+            "required": true,
+            "type": "long"
+          },
+          {
+            "id": 4,
+            "name": "STATUS",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 5,
+            "name": "ADJ_CLEARED",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 6,
+            "name": "AUTHORISEDDATE",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 7,
+            "name": "AUTHORISEDBY",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 8,
+            "name": "POSTDATE",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 9,
+            "name": "POSTBY",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 10,
+            "name": "LASTCHANGED",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 11,
+            "name": "RECEIPTPOSTDATE",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 12,
+            "name": "RECEIPTPOSTBY",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 13,
+            "name": "PAYMENTPOSTDATE",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 14,
+            "name": "PAYMENTPOSTBY",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 15,
+            "name": "SHORTFALL",
+            "required": false,
+            "type": "decimal(16, 8)"
+          },
+          {
+            "id": 16,
+            "name": "MAKEUP",
+            "required": false,
+            "type": "decimal(15, 8)"
+          },
+          {
+            "id": 17,
+            "name": "REVISIONINDEX",
+            "required": false,
+            "type": "long"
+          }
+        ],
+        "identifier-field-ids": [
+          1,
+          2,
+          3
+        ],
+        "schema-id": 1,
         "type": "struct"
       }
     ],

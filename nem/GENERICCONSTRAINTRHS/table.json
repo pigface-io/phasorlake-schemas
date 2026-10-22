@@ -131,7 +131,7 @@
         "changes": [
           "report"
         ],
-        "files": 21,
+        "files": 23,
         "from": {
           "data-time": "2024-08-01T00:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#GENERICCONSTRAINTRHS#FILE01#202408010000.zip",
@@ -146,13 +146,13 @@
           "GCRHS",
           "NULL"
         ],
-        "rows": 5857978,
+        "rows": 6500658,
         "schema-id": 0,
         "to": {
-          "data-time": "2026-04-30T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#GENERICCONSTRAINTRHS#FILE01#202604010000.zip",
-          "release": "2026-04",
-          "sha256": "6691e1a2ab21056cd4ded8a26727d3714183d64b11c5052eb4441973c53aec90"
+          "data-time": "2026-06-30T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#GENERICCONSTRAINTRHS#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "1c1fe76be2a43783415e17f51d6e08eacbf39171caf3b1c61bc3f374d00cfff0"
         },
         "updates": [],
         "version": 1

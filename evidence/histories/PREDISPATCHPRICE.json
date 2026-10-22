@@ -84,7 +84,7 @@
         "schema",
         "version"
       ],
-      "files": 42,
+      "files": 46,
       "from": {
         "data-time": "2024-08-01T04:30:00+10:00",
         "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICE#FILE01#202408010000.zip",
@@ -100,13 +100,13 @@
         "PREDISPATCH",
         "REGION_PRICES"
       ],
-      "rows": 8650830,
+      "rows": 9477990,
       "schema-id": 2,
       "to": {
-        "data-time": "2026-05-02T04:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICE#ALL#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "f12a153e47a6091108cb2c38b4d438a59a05a88f32fab7751599a0e6589fb29f"
+        "data-time": "2026-07-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICE#ALL#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "6d0fdf9c336534c3c39ef60aaaab34d4c71f72f8e33de574c481bec04d7c0e08"
       },
       "updates": [
         {

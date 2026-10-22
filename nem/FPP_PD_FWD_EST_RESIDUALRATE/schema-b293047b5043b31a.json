@@ -1,0 +1,152 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_PD_FWD_EST_RESIDUALRATE/schema-b293047b5043b31a.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BIDTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "CONSTRAINTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "EST_UNUSED_FCAS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 8)"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PREDISPATCHSEQNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(10, 0)"
+    },
+    "RELEVANT_REGIONS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "RUN_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(5, 0)"
+    }
+  },
+  "required": [],
+  "title": "FPP_PD_FWD_EST_RESIDUALRATE, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PREDISPATCHSEQNO",
+      "decimal(10, 0)"
+    ],
+    [
+      2,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "RUNNO",
+      "decimal(5, 0)"
+    ],
+    [
+      4,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      5,
+      "CONSTRAINTID",
+      "string"
+    ],
+    [
+      6,
+      "VERSIONNO",
+      "decimal(5, 0)"
+    ],
+    [
+      7,
+      "BIDTYPE",
+      "string"
+    ],
+    [
+      8,
+      "RELEVANT_REGIONS",
+      "string"
+    ],
+    [
+      9,
+      "EST_UNUSED_FCAS",
+      "decimal(18, 8)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "FPP_PD_FWD_EST_RESIDUALRATE"
+  }
+}

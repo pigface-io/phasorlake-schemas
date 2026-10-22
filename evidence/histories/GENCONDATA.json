@@ -115,6 +115,50 @@
         }
       ],
       "version": 6
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#GENCONDATA#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "f3ace38e39ec4bb0c87504ce4eb04c3da95b921c7f65039520f4a2f6a30cbd1e"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "GENCONDATA",
+        "NULL"
+      ],
+      "rows": 11202,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-06-30T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#GENCONDATA#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "52515ea7997d61a2f929c3b5027876851024fdbf45bc9a9b22727547f64d7a29"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 27
+        },
+        {
+          "action": "add",
+          "field-id": 28
+        },
+        {
+          "action": "add",
+          "field-id": 29
+        }
+      ],
+      "version": 7
     }
   ],
   "schemas": [
@@ -611,6 +655,191 @@
         3
       ],
       "schema-id": 2,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "GENCONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "CONSTRAINTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "CONSTRAINTVALUE",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 6,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "STATUS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "GENERICCONSTRAINTWEIGHT",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 9,
+          "name": "AUTHORISEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "AUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "DYNAMICRHS",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "DISPATCH",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 14,
+          "name": "PREDISPATCH",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 15,
+          "name": "STPASA",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 16,
+          "name": "MTPASA",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 22,
+          "name": "ADDITIONALNOTES",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 23,
+          "name": "P5MIN_SCOPE_OVERRIDE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 24,
+          "name": "LRC",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 25,
+          "name": "LOR",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 17,
+          "name": "IMPACT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "SOURCE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "LIMITTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 20,
+          "name": "REASON",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 21,
+          "name": "MODIFICATIONS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 26,
+          "name": "FORCE_SCADA",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 27,
+          "name": "SYSTEMSECURITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 28,
+          "name": "SSM_REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 29,
+          "name": "SSM_GROUPID",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 3,
       "type": "struct"
     }
   ],

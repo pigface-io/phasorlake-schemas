@@ -318,7 +318,7 @@
         "changes": [
           "version"
         ],
-        "files": 12,
+        "files": 14,
         "from": {
           "data-time": "2024-09-29T00:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#SET_FCAS_REGULATION_TRK#FILE01#202505010000.zip",
@@ -333,13 +333,13 @@
           "SETTLEMENTS",
           "SET_FCAS_REGULATION_TRK"
         ],
-        "rows": 2106531,
+        "rows": 2448368,
         "schema-id": 2,
         "to": {
-          "data-time": "2026-04-29T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#SET_FCAS_REGULATION_TRK#FILE01#202604010000.zip",
-          "release": "2026-04",
-          "sha256": "578fc0e9886e344f0d915d837ac93930e171203b8b7bdb64eb9d35d1c71ff60b"
+          "data-time": "2026-06-29T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#SET_FCAS_REGULATION_TRK#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "73b1a587550b90e9d9e7062fda681ff7b11c4a6cf89679b1c1a46967e8c735af"
         },
         "updates": [],
         "version": 3

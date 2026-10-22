@@ -53,6 +53,12 @@
       "id": 9,
       "model_type": "NUMERIC(18,8)",
       "name": "UNUSED_FCAS_RATE"
+    },
+    {
+      "comment": "Last date and time record changed",
+      "id": 10,
+      "model_type": "TIMESTAMP(0)",
+      "name": "LASTCHANGED"
     }
   ],
   "declared": true,
@@ -90,10 +96,46 @@
         },
         "updates": [],
         "version": 1
+      },
+      {
+        "changes": [
+          "schema"
+        ],
+        "files": 2,
+        "from": {
+          "data-time": "2024-12-09T11:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_EST_PERF_COST_RATE#FILE01#202605010000.zip",
+          "release": "2026-05",
+          "sha256": "2f65643cc56103d7984aaf5c41db391f4824a4d47e49b561989caa4314373ee8"
+        },
+        "kinds": [
+          "archive"
+        ],
+        "overlaps": true,
+        "report": [
+          "FPP",
+          "EST_PERF_COST_RATE"
+        ],
+        "rows": 1278398,
+        "schema-id": 1,
+        "to": {
+          "data-time": "2026-07-08T23:05:00+10:00",
+          "file": "PUBLIC_ARCHIVE#FPP_EST_PERF_COST_RATE#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "6a20b25bf67e4bdb258d5479539eb35b33152d329e9ebfaea422af0f24908c70"
+        },
+        "updates": [
+          {
+            "action": "add",
+            "field-id": 10
+          }
+        ],
+        "version": 1
       }
     ],
     "schema-files": {
-      "0": "schema-9a5599f1641e9b5e.json"
+      "0": "schema-9a5599f1641e9b5e.json",
+      "1": "schema-7ab3d36f38c704f5.json"
     },
     "schemas": [
       {
@@ -155,6 +197,73 @@
         ],
         "identifier-field-ids": [],
         "schema-id": 0,
+        "type": "struct"
+      },
+      {
+        "fields": [
+          {
+            "id": 1,
+            "name": "INTERVAL_DATETIME",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 2,
+            "name": "CONSTRAINTID",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 3,
+            "name": "VERSIONNO",
+            "required": false,
+            "type": "decimal(10, 0)"
+          },
+          {
+            "id": 4,
+            "name": "BIDTYPE",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 5,
+            "name": "RELEVANT_REGIONS",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 6,
+            "name": "FPP_PAYMENT_RATE",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 7,
+            "name": "FPP_RECOVERY_RATE",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 8,
+            "name": "USED_FCAS_RATE",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 9,
+            "name": "UNUSED_FCAS_RATE",
+            "required": false,
+            "type": "decimal(18, 8)"
+          },
+          {
+            "id": 10,
+            "name": "LASTCHANGED",
+            "required": false,
+            "type": "timestamptz"
+          }
+        ],
+        "identifier-field-ids": [],
+        "schema-id": 1,
         "type": "struct"
       }
     ],

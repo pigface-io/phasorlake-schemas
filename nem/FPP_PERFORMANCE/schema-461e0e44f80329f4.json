@@ -1,0 +1,138 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_PERFORMANCE/schema-461e0e44f80329f4.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "FPP_UNITID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOWER_PERFORMANCE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 5)"
+    },
+    "LOWER_REASON_FLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "PARTICIPANTID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "RAISE_PERFORMANCE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(18, 5)"
+    },
+    "RAISE_REASON_FLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "VERSIONNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(5, 0)"
+    }
+  },
+  "required": [],
+  "title": "FPP_PERFORMANCE, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "FPP_UNITID",
+      "string"
+    ],
+    [
+      3,
+      "VERSIONNO",
+      "decimal(5, 0)"
+    ],
+    [
+      4,
+      "RAISE_PERFORMANCE",
+      "decimal(18, 5)"
+    ],
+    [
+      5,
+      "RAISE_REASON_FLAG",
+      "decimal(5, 0)"
+    ],
+    [
+      6,
+      "LOWER_PERFORMANCE",
+      "decimal(18, 5)"
+    ],
+    [
+      7,
+      "LOWER_REASON_FLAG",
+      "decimal(5, 0)"
+    ],
+    [
+      8,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 2,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "table.json",
+    "name": "FPP_PERFORMANCE"
+  }
+}

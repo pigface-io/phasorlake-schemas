@@ -31,6 +31,41 @@
       },
       "updates": [],
       "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2025-02-12T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_PD_FWD_EST_RESIDUALRATE#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "13b558a227c9d11bdabe653267e684e48274c01cb1bea9966d79a1f24b1ca737"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "PD_FWD_EST_RESIDUALRATE"
+      ],
+      "rows": 10506582,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-07-10T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_PD_FWD_EST_RESIDUALRATE#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "b1a8926dd8c0fa7dc7ee1efc5ab6d6cb2c1d06c3b14244a7b5c75c2fe7ba5eda"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 10
+        }
+      ],
+      "version": 1
     }
   ],
   "schemas": [
@@ -93,6 +128,73 @@
       ],
       "identifier-field-ids": [],
       "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 2,
+          "name": "RUN_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 4,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "CONSTRAINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 7,
+          "name": "BIDTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "RELEVANT_REGIONS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "EST_UNUSED_FCAS",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 10,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 1,
       "type": "struct"
     }
   ],

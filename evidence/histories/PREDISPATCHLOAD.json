@@ -196,7 +196,7 @@
         "schema",
         "version"
       ],
-      "files": 12,
+      "files": 16,
       "from": {
         "data-time": "2025-11-01T04:30:00+10:00",
         "file": "PUBLIC_ARCHIVE#PREDISPATCHLOAD#ALL#FILE01#202511010000.zip",
@@ -212,13 +212,13 @@
         "PREDISPATCH",
         "UNIT_SOLUTION"
       ],
-      "rows": 9511488,
+      "rows": 12800832,
       "schema-id": 4,
       "to": {
-        "data-time": "2026-05-01T04:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#PREDISPATCHLOAD#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "5b09f1305efb87726e9a116c436c9d14448965ddca1bf914b00b2d22a5546831"
+        "data-time": "2026-07-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHLOAD#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "8fde2f086ca184db252a7c84582483b2587d9526de973c40a3f6d405bbcb27df"
       },
       "updates": [
         {

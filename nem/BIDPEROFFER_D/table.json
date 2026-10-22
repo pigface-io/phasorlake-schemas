@@ -342,7 +342,7 @@
         "changes": [
           "schema"
         ],
-        "files": 6,
+        "files": 8,
         "from": {
           "data-time": "2025-11-01T00:00:00+10:00",
           "file": "PUBLIC_ARCHIVE#BIDPEROFFER_D#FILE01#202511010000.zip",
@@ -357,13 +357,13 @@
           "BID",
           "BIDPEROFFER_D"
         ],
-        "rows": 109433472,
+        "rows": 147685920,
         "schema-id": 3,
         "to": {
-          "data-time": "2026-04-30T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#BIDPEROFFER_D#FILE01#202604010000.zip",
-          "release": "2026-04",
-          "sha256": "43f485a3a141a47493da8fc24917068afbbee5c50f94268ffab1b0a66a4cf591"
+          "data-time": "2026-06-30T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#BIDPEROFFER_D#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "58ac28c7a951d033011d730516a7b4c99da06f5e59e6aeb2e7b063d551fad6cb"
         },
         "updates": [
           {

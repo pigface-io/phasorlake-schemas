@@ -6,7 +6,7 @@
       "changes": [
         "first"
       ],
-      "files": 4,
+      "files": 6,
       "from": {
         "data-time": "2025-07-06T07:50:00+10:00",
         "file": "PUBLIC_ARCHIVE#SET_FCAS_CLAWBACK_RUN_TRK#FILE01#202601010000.zip",
@@ -21,13 +21,13 @@
         "SETTLEMENTS",
         "FCAS_CLAWBACK_RUN_TRK"
       ],
-      "rows": 14784,
+      "rows": 37398,
       "schema-id": 0,
       "to": {
         "data-time": "2026-03-23T18:20:00+10:00",
-        "file": "PUBLIC_ARCHIVE#SET_FCAS_CLAWBACK_RUN_TRK#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "97146864df4844fe43f6f4143e0a9c8914c99dd1a44e4de7dcf730ef0a73dd02"
+        "file": "PUBLIC_ARCHIVE#SET_FCAS_CLAWBACK_RUN_TRK#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "361207211cc33d0febf028c32a8f7eca6a5b4a73a760ffd27fa098d44fc7e056"
       },
       "updates": [],
       "version": 1

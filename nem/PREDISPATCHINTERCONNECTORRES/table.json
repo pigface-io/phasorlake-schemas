@@ -209,7 +209,7 @@
         "changes": [
           "schema"
         ],
-        "files": 42,
+        "files": 46,
         "from": {
           "data-time": "2024-08-01T04:30:00+10:00",
           "file": "PUBLIC_ARCHIVE#PREDISPATCHINTERCONNECTORRES#FILE01#202408010000.zip",
@@ -225,13 +225,13 @@
           "PREDISPATCH",
           "INTERCONNECTOR_SOLN"
         ],
-        "rows": 10380996,
+        "rows": 11373588,
         "schema-id": 1,
         "to": {
-          "data-time": "2026-05-02T04:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#PREDISPATCHINTERCONNECTORRES#ALL#FILE01#202604010000.zip",
-          "release": "2026-04",
-          "sha256": "f7be4670747e014466125f18c194cc1a56f67d80d019f6ca8e5de218a2e85764"
+          "data-time": "2026-07-02T04:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#PREDISPATCHINTERCONNECTORRES#ALL#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "ee623b0506246dadc4a964838e5a5fbc30acf000b5cb3d29c61cb54e739fc4a1"
         },
         "updates": [
           {

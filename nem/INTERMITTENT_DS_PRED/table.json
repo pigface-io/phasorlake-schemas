@@ -71,7 +71,7 @@
         "changes": [
           "first"
         ],
-        "files": 21,
+        "files": 23,
         "from": {
           "data-time": "2024-08-01T00:05:00+10:00",
           "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202408010000.zip",
@@ -86,13 +86,13 @@
           "DEMAND",
           "INTERMITTENT_DS_PRED"
         ],
-        "rows": 461742033,
+        "rows": 523565662,
         "schema-id": 0,
         "to": {
-          "data-time": "2026-05-01T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202604010000.zip",
-          "release": "2026-04",
-          "sha256": "80495a23547bd670c436237b0994ee84789bce7d2fafa40777a25799e48a6df1"
+          "data-time": "2026-07-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "ec8fd5fb3cc2a12f9fc0d9756ef09b00058309fa6851db440a38d72d57dfe234"
         },
         "updates": [],
         "version": 1

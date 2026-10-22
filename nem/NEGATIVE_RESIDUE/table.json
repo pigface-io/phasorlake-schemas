@@ -89,6 +89,12 @@
       "id": 15,
       "model_type": "NUMERIC(1,0)",
       "name": "NRMCONSTRAINT_BLOCKED_FLAG"
+    },
+    {
+      "comment": "NRM Loop Flag controls monitoring behaviour: \n0 = Individual NRM monitoring suppressed (loop operational with aggregate IRSR >= 0)\n1 = Individual NRM monitoring active (applies to: loop not operational, aggregate loop IRSR < 0, or non-loop interconnection)\nThis flag is evaluated and set for ALL interconnections in each dispatch interval",
+      "id": 16,
+      "model_type": "NUMERIC(1,0)",
+      "name": "NRM_LOOP_FLAG"
     }
   ],
   "declared": true,
@@ -126,10 +132,47 @@
         },
         "updates": [],
         "version": 1
+      },
+      {
+        "changes": [
+          "schema",
+          "version"
+        ],
+        "files": 2,
+        "from": {
+          "data-time": "2026-05-01T00:05:00+10:00",
+          "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202605010000.zip",
+          "release": "2026-05",
+          "sha256": "6c35e21679a4d4383a9b2023a1ad97d1ae3f4383a3c4de505c830f572393f4b6"
+        },
+        "kinds": [
+          "archive"
+        ],
+        "overlaps": false,
+        "report": [
+          "DISPATCH",
+          "NEGATIVE_RESIDUE"
+        ],
+        "rows": 105686,
+        "schema-id": 1,
+        "to": {
+          "data-time": "2026-07-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "77e1445d18128c892b6a38cb8285079782b866c65b566b3ebfc57507736c863e"
+        },
+        "updates": [
+          {
+            "action": "add",
+            "field-id": 16
+          }
+        ],
+        "version": 2
       }
     ],
     "schema-files": {
-      "0": "schema-d74bec9dc946804e.json"
+      "0": "schema-d74bec9dc946804e.json",
+      "1": "schema-3d46f54f7d1741c2.json"
     },
     "schemas": [
       {
@@ -231,6 +274,113 @@
           3
         ],
         "schema-id": 0,
+        "type": "struct"
+      },
+      {
+        "fields": [
+          {
+            "id": 1,
+            "name": "SETTLEMENTDATE",
+            "required": true,
+            "type": "timestamptz"
+          },
+          {
+            "id": 2,
+            "name": "NRM_DATETIME",
+            "required": true,
+            "type": "timestamptz"
+          },
+          {
+            "id": 3,
+            "name": "DIRECTIONAL_INTERCONNECTORID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "id": 4,
+            "name": "NRM_ACTIVATED_FLAG",
+            "required": false,
+            "type": "decimal(1, 0)"
+          },
+          {
+            "id": 5,
+            "name": "CUMUL_NEGRESIDUE_AMOUNT",
+            "required": false,
+            "type": "decimal(15, 5)"
+          },
+          {
+            "id": 6,
+            "name": "CUMUL_NEGRESIDUE_PREV_TI",
+            "required": false,
+            "type": "decimal(15, 5)"
+          },
+          {
+            "id": 7,
+            "name": "NEGRESIDUE_CURRENT_TI",
+            "required": false,
+            "type": "decimal(15, 5)"
+          },
+          {
+            "id": 8,
+            "name": "NEGRESIDUE_PD_NEXT_TI",
+            "required": false,
+            "type": "decimal(15, 5)"
+          },
+          {
+            "id": 9,
+            "name": "PRICE_REVISION",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "id": 10,
+            "name": "PREDISPATCHSEQNO",
+            "required": false,
+            "type": "decimal(10, 0)"
+          },
+          {
+            "id": 11,
+            "name": "EVENT_ACTIVATED_DI",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 12,
+            "name": "EVENT_DEACTIVATED_DI",
+            "required": false,
+            "type": "timestamptz"
+          },
+          {
+            "id": 13,
+            "name": "DI_NOTBINDING_COUNT",
+            "required": false,
+            "type": "decimal(2, 0)"
+          },
+          {
+            "id": 14,
+            "name": "DI_VIOLATED_COUNT",
+            "required": false,
+            "type": "decimal(2, 0)"
+          },
+          {
+            "id": 15,
+            "name": "NRMCONSTRAINT_BLOCKED_FLAG",
+            "required": false,
+            "type": "long"
+          },
+          {
+            "id": 16,
+            "name": "NRM_LOOP_FLAG",
+            "required": false,
+            "type": "long"
+          }
+        ],
+        "identifier-field-ids": [
+          1,
+          2,
+          3
+        ],
+        "schema-id": 1,
         "type": "struct"
       }
     ],

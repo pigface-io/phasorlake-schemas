@@ -41,7 +41,7 @@
         "changes": [
           "first"
         ],
-        "files": 202,
+        "files": 204,
         "from": {
           "data-time": "2000-07-01T00:00:00+10:00",
           "file": "PUBLIC_DVD_GST_TRANSACTION_CLASS_200907010000.zip",
@@ -57,13 +57,13 @@
           "BILLING_CONFIG",
           "GST_TRANSACTION_CLASS"
         ],
-        "rows": 117179,
+        "rows": 120423,
         "schema-id": 0,
         "to": {
-          "data-time": "2025-07-01T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#GST_TRANSACTION_CLASS#FILE01#202604010000.zip",
-          "release": "2026-04",
-          "sha256": "5179e5033832abe56cf71bdd1c52c8e47370262e51eb9e6bd4f86890aba7e04e"
+          "data-time": "2026-07-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#GST_TRANSACTION_CLASS#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "5015ee8f1ba828970ad7df86a41d2e1470985864672ab5d8789b71452772d7e3"
         },
         "updates": [],
         "version": 1

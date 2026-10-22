@@ -269,7 +269,7 @@
           "schema",
           "version"
         ],
-        "files": 21,
+        "files": 23,
         "from": {
           "data-time": "2024-08-01T00:05:00+10:00",
           "file": "PUBLIC_ARCHIVE#TRADINGPRICE#FILE01#202408010000.zip",
@@ -284,13 +284,13 @@
           "TRADING",
           "PRICE"
         ],
-        "rows": 918720,
+        "rows": 1006560,
         "schema-id": 2,
         "to": {
-          "data-time": "2026-05-01T00:00:00+10:00",
-          "file": "PUBLIC_ARCHIVE#TRADINGPRICE#FILE01#202604010000.zip",
-          "release": "2026-04",
-          "sha256": "ca374cd041d8ca07fb4bf0458fd301f7f669d628661a77b6fc5703c748c72b90"
+          "data-time": "2026-07-01T00:00:00+10:00",
+          "file": "PUBLIC_ARCHIVE#TRADINGPRICE#FILE01#202606010000.zip",
+          "release": "2026-06",
+          "sha256": "912b7e0727abd131521526db4a253e69c77122fbd1763e79cb6597c71f48658b"
         },
         "updates": [
           {

@@ -6,7 +6,7 @@
       "changes": [
         "first"
       ],
-      "files": 17,
+      "files": 19,
       "from": {
         "data-time": "2024-12-09T12:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#PD_FCAS_REQ_RUN#FILE01#202412010000.zip",
@@ -21,13 +21,13 @@
         "PREDISPATCH",
         "FCAS_REQ_RUN"
       ],
-      "rows": 221039,
+      "rows": 274585,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-05-08T17:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#PD_FCAS_REQ_RUN#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "72c9c26052fe02ce138fa28e2a570165e15611bcb3bca56d4745f7d0dba8d873"
+        "data-time": "2026-07-09T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PD_FCAS_REQ_RUN#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "f6cf7d68cc3aa544bf03888439ea08a15002c99f4e741ac81c8fc7480ac4f062"
       },
       "updates": [],
       "version": 1
