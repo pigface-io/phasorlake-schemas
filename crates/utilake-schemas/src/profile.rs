@@ -331,8 +331,8 @@ fn number(v: &[u8]) -> Option<(Kind, u8, u8, u8, Option<Plain>)> {
     } else if i != v.len() {
         return None;
     }
-    let int_digits = (int_len + exp).max(0);
-    let scale = (frac_len - exp).max(0);
+    let int_digits = int_len.saturating_add(exp).max(0);
+    let scale = frac_len.saturating_sub(exp).max(0);
     let kind = if point.is_some() || exponent {
         Kind::Decimal
     } else {

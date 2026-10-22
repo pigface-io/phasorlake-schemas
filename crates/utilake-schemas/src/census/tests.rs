@@ -69,11 +69,19 @@ D,UTILAKE_TEST,FIRSTDATED,1,y,2026/08/04,2026/08/08\r\n\
 D,UTILAKE_TEST,FIRSTDATED,1,z\r\n\
 I,UTILAKE_TEST,UNDATED,1,A,B\r\n\
 D,UTILAKE_TEST,UNDATED,1,1,2\r\n\
+I,UTILAKE_TEST,LATE,1,A,WHEN\r\n\
+D,UTILAKE_TEST,LATE,1,x,\r\n\
+D,UTILAKE_TEST,LATE,1,y,2026/08/06\r\n\
+D,UTILAKE_TEST,LATE,1,z,N/A\r\n\
+D,UTILAKE_TEST,LATE,1,w,2026/08/02\r\n\
+D,UTILAKE_TEST,LATE,1,v,\r\n\
 X,not a row\r\n\
 C,\"END OF REPORT\",15\r\n";
     let mut buf = Vec::new();
-    let blocks = read_blocks(&csv[..], &mut buf).unwrap();
-    assert_eq!(blocks.len(), 4);
+    let (blocks, stats) = read_blocks(&csv[..], &mut buf).unwrap();
+    assert_eq!(blocks.len(), 5);
+    assert_eq!(stats.bad_rows, 1, "X is no row");
+    assert!(stats.footer_mismatch(), "the footer says 15 lines");
     assert_eq!(blocks[0].rows, 3);
     assert_eq!(
         blocks[0].bounds.len(),
@@ -124,6 +132,15 @@ C,\"END OF REPORT\",15\r\n";
         "no known name: the first dated column; a short row bounds nothing"
     );
     assert_eq!(spans[3], None);
+    assert_eq!(
+        spans[4],
+        Some(Span {
+            first: "2026/08/02".into(),
+            last: "2026/08/06".into(),
+            column: "WHEN".into()
+        }),
+        "empty in the first row, empty and N/A later: the dated values alone bound it"
+    );
     assert!(date_like(b"2026/08/01") && !date_like(b"2026-08-01") && !date_like(b"1.5"));
 }
 
@@ -274,7 +291,16 @@ fn a_file_that_cannot_be_read_is_a_problem_of_its_own() {
     put(
         dir.path(),
         "DATA/PUBLIC_BADENTRY_202608.zip",
-        &zip_of(&[("GOOD.CSV", &three_tables(1)), ("BAD.CSV", b"D,A,B,1,x\n")]),
+        &zip_of(&[
+            ("GOOD.CSV", &three_tables(1)),
+            ("BAD.CSV", b"D,A,B,1,x\n"),
+            ("GOOD2.CSV", &three_tables(1)),
+        ]),
+    );
+    put(
+        dir.path(),
+        "DATA/PUBLIC_BADINNER_202608.zip",
+        &zip_of(&[("inner.zip", b"not a zip"), ("GOOD.CSV", &three_tables(1))]),
     );
     put(dir.path(), "DATA/LOCKED.CSV", &three_tables(1));
     put(dir.path(), "CTL/LOCKED.ctl", SCADA_CTL.as_bytes());
@@ -293,7 +319,12 @@ fn a_file_that_cannot_be_read_is_a_problem_of_its_own() {
     let files: Vec<&str> = census.problems.iter().map(|p| base(&p.file)).collect();
     assert_eq!(
         files,
-        ["LOCKED.CSV", "BAD.CSV", "PUBLIC_BAD_202608.CSV"],
+        [
+            "LOCKED.CSV",
+            "BAD.CSV",
+            "PUBLIC_BADINNER_202608.zip",
+            "PUBLIC_BAD_202608.CSV"
+        ],
         "{:?}",
         census.problems
     );
@@ -303,23 +334,37 @@ fn a_file_that_cannot_be_read_is_a_problem_of_its_own() {
             .ends_with("PUBLIC_BADENTRY_202608.zip!BAD.CSV")
     );
     assert!(
+        census.problems[2].error.contains("inner.zip"),
+        "{:?}",
+        census.problems[2]
+    );
+    assert!(
         census.problems[0]
             .error
             .starts_with("The file cannot be read: "),
         "{:?}",
         census.problems[0]
     );
-    assert!(census.problems[2].error.contains("before any I row"));
+    assert!(census.problems[3].error.contains("before any I row"));
     let names: Vec<&str> = census.files.keys().map(String::as_str).collect();
     assert_eq!(
         names,
-        ["PUBLIC_BADENTRY_202608.zip", "PUBLIC_BAD_202608.CSV"],
+        [
+            "PUBLIC_BADENTRY_202608.zip",
+            "PUBLIC_BADINNER_202608.zip",
+            "PUBLIC_BAD_202608.CSV"
+        ],
         "an unopened file is not in the census; a zip of no CSV has no blocks to record"
     );
     assert_eq!(
         census.files["PUBLIC_BADENTRY_202608.zip"].blocks.len(),
+        6,
+        "the entries before and after the bad one"
+    );
+    assert_eq!(
+        census.files["PUBLIC_BADINNER_202608.zip"].blocks.len(),
         3,
-        "the entry read before the bad one"
+        "the entry beside the zip that is not one"
     );
 }
 

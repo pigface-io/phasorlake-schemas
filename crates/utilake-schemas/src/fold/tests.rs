@@ -42,6 +42,8 @@ fn census(root: &Path, month: &str, int: u8) {
         sha256: "ab".into(),
         size: 9,
         kind: "dvd".into(),
+        bad_rows: 0,
+        footer_mismatches: 0,
         block: vec![b],
     };
     let files = BTreeMap::from([

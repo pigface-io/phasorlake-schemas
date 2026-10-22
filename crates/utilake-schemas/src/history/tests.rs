@@ -13,6 +13,8 @@ fn record(kind: &str) -> FileRecord {
         sha256: "ab".into(),
         size: 1,
         kind: kind.into(),
+        bad_rows: 0,
+        footer_mismatches: 0,
         block: Vec::new(),
     }
 }

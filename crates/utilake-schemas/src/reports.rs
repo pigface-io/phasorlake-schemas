@@ -62,10 +62,11 @@ pub fn kind(root: &str) -> String {
     format!("reports/{}", root.to_ascii_lowercase())
 }
 
-/// CSVs in a row that held one table in one shape and version.
+/// CSVs in a row that held one table in one shape and version, in one
+/// month.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Tally {
-    /// The month of its first CSV.
+    /// The month of every CSV in it.
     pub month: YearMonth,
     /// CSVs that held a block of it.
     pub csvs: u64,
@@ -102,12 +103,23 @@ pub struct FolderCensus {
     /// Files or entries that could not be read.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub unread: Vec<Unread>,
+    /// `D` rows the scanner refused, when any.
+    #[serde(default, skip_serializing_if = "is_zero")]
+    pub bad_rows: u64,
+    /// CSVs whose footer count was not their lines, when any.
+    #[serde(default, skip_serializing_if = "is_zero")]
+    pub footer_mismatches: u64,
     /// Every run, in the order its first CSV was read.
     #[serde(default, rename = "block")]
     pub blocks: Vec<Tally>,
     /// Every file nemweb rewrote in place, with each of its versions.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub rewritten: Vec<Rewritten>,
+}
+
+#[allow(clippy::trivially_copy_pass_by_ref)]
+fn is_zero(n: &u64) -> bool {
+    *n == 0
 }
 
 /// A file nemweb rewrote in place under the same name.
@@ -289,11 +301,14 @@ struct Gather {
     undated: u64,
 }
 
-/// Whether `b` continues run `a`: the same shape, version and declared
-/// classes, and no column whose numbers or times turn to text.
-fn continues(a: &Acc, b: &BlockShape) -> bool {
+/// Whether `b`, of `month`, continues run `a`: the same month, shape,
+/// version and declared classes, and no column whose numbers or times
+/// turn to text. A run never spans two months: each is released in its
+/// month, and the fold takes it in that month's turn.
+fn continues(a: &Acc, month: YearMonth, b: &BlockShape) -> bool {
     let m = &a.merged;
-    m.shape.id() == b.shape.id()
+    a.month == month
+        && m.shape.id() == b.shape.id()
         && m.version == b.version
         && m.ctl == b.ctl
         && m.profile.iter().zip(&b.profile).all(|(p, q)| {
@@ -305,7 +320,10 @@ impl Gather {
     fn add(&mut self, month: YearMonth, csv: &str, path: &Path, b: BlockShape) {
         let key = (b.shape.report_type.clone(), b.shape.report_subtype.clone());
         let open = self.open.entry(key.clone()).or_default();
-        let found = open.iter().copied().find(|i| continues(&self.runs[*i], &b));
+        let found = open
+            .iter()
+            .copied()
+            .find(|i| continues(&self.runs[*i], month, &b));
         self.pairs.insert(key);
         let Some(i) = found else {
             open.push(self.runs.len());
@@ -334,8 +352,9 @@ impl Gather {
         }
         let m = &mut a.merged;
         m.rows += b.rows;
+        // Spans of one column merge; of two, the run keeps the one it has.
         m.span = match (m.span.take(), b.span) {
-            (Some(x), Some(y)) => Some(Span {
+            (Some(x), Some(y)) if x.column == y.column => Some(Span {
                 first: x.first.min(y.first),
                 last: x.last.max(y.last),
                 column: x.column,
@@ -702,6 +721,10 @@ pub fn census_folder(
     for (i, path) in files.iter().enumerate() {
         let name = base(&path.to_string_lossy()).to_owned();
         let (file, _) = version_of(&name);
+        // The mirror's sidecars are records of the files, not files.
+        if crate::zip::has_extension(file, ".json") {
+            continue;
+        }
         let outer_month = name_month(file);
         g.census.files += 1;
         let hashed = versions.contains(&i);
@@ -710,9 +733,9 @@ pub fn census_folder(
         let mut prints = hashed.then(Vec::new);
         let mut one_csv =
             |csv: &str, r: &mut dyn std::io::Read, g: &mut Gather| -> Result<(), String> {
-                let blocks = if let Some(parts) = prints.as_mut() {
+                let read = if let Some(parts) = prints.as_mut() {
                     let mut p = Print::new(r);
-                    let blocks = read_blocks(&mut p, &mut scan_buf);
+                    let read = read_blocks(&mut p, &mut scan_buf);
                     match p.finish() {
                         Ok(print) => {
                             let entry = if csv == name { "" } else { csv };
@@ -720,13 +743,19 @@ pub fn census_folder(
                         }
                         Err(_) => prints = None,
                     }
-                    blocks
+                    read
                 } else {
                     read_blocks(r, &mut scan_buf)
-                }
-                .map_err(|e| e.to_string())?;
+                };
+                let (blocks, stats) = read.map_err(|e| {
+                    prints = None;
+                    e.to_string()
+                })?;
                 g.census.csvs += 1;
-                let month = name_month(base(csv)).or(outer_month);
+                g.census.bad_rows += stats.bad_rows;
+                g.census.footer_mismatches += u64::from(stats.footer_mismatch());
+                // A loose file's version stamp is not its month.
+                let month = name_month(version_of(base(csv)).0).or(outer_month);
                 let Some(month) = month else {
                     g.undated += 1;
                     return Ok(());
@@ -759,14 +788,15 @@ pub fn census_folder(
                 g.census.unread.push(Unread { file: name, error });
             }
         } else if is(".zip") {
-            let mut entry_err: Option<Unread> = None;
+            // An entry that does not read is listed; the rest are read.
             let mut on_entry = |e: crate::zip::Entry<'_>| {
-                one_csv(&e.name, e.reader, &mut g).inspect_err(|error| {
-                    entry_err = Some(Unread {
+                if let Err(error) = one_csv(&e.name, e.reader, &mut g) {
+                    g.census.unread.push(Unread {
                         file: format!("{name}!{}", e.name),
-                        error: error.clone(),
+                        error,
                     });
-                })
+                }
+                Ok::<(), std::convert::Infallible>(())
             };
             let walked = if hashed {
                 let shown = path.display().to_string();
@@ -781,10 +811,19 @@ pub fn census_folder(
                     })),
                 }
             } else {
-                walk_csv_entries::<String>(path, tmp, &mut on_entry, &mut |_| {})
+                walk_csv_entries(path, tmp, &mut on_entry, &mut |_| {})
             };
             match walked {
-                Ok(_) | Err(WalkError::Archive(ArchiveError::NoCsv { .. })) => {}
+                Ok(w) => {
+                    for a in w.failed {
+                        prints = None;
+                        g.census.unread.push(Unread {
+                            file: name.clone(),
+                            error: a.to_string(),
+                        });
+                    }
+                }
+                Err(WalkError::Archive(ArchiveError::NoCsv { .. })) => {}
                 Err(WalkError::Archive(a)) => {
                     prints = None;
                     g.census.unread.push(Unread {
@@ -792,10 +831,7 @@ pub fn census_folder(
                         error: a.to_string(),
                     });
                 }
-                Err(WalkError::Callback(_)) => {
-                    prints = None;
-                    g.census.unread.extend(entry_err);
-                }
+                Err(WalkError::Callback(never)) => match never {},
             }
         } else {
             // Not a report: nothing to compare.
@@ -980,6 +1016,7 @@ mod tests {
     use super::*;
     use crate::catalog::tests::scada;
     use crate::census::tests::{SCADA_CTL, put, three_tables, zip_of};
+    use crate::shape::CanonicalShape;
 
     /// The folder [`put_version`] writes into, under `Reports/`.
     const VIC_GAS: &str = "CURRENT/VicGas";
@@ -1458,32 +1495,40 @@ mod tests {
             .iter()
             .filter(|t| t.block.report == ("DISPATCH".into(), "UNIT_SCADA".into()))
             .collect();
-        // Runs in name order: July untyped; August's two nested CSVs and
-        // October's first two typed alike (October looks back to August's
-        // control file, and a finer value only widens the run); October's
-        // value that is not a number, and the CSV of the zip named for
-        // October 21st after it.
+        // Runs in name order, one month each: July untyped; August's two
+        // nested CSVs; October's first two typed alike (October looks
+        // back to August's control file, and a finer value only widens
+        // the run); October's value that is not a number, and the CSV of
+        // the zip named for October 21st after it.
         let months: Vec<String> = scada.iter().map(|t| t.month.to_string()).collect();
-        assert_eq!(months, ["2026-07", "2026-08", "2026-10"]);
+        assert_eq!(months, ["2026-07", "2026-08", "2026-10", "2026-10"]);
         let aug = scada[1];
-        assert_eq!((aug.csvs, aug.block.rows), (4, 10));
+        assert_eq!((aug.csvs, aug.block.rows), (2, 5));
         assert_eq!(
             aug.first_csv,
             "PUBLIC_DISPATCHSCADA_202608010005_0000000001.CSV"
         );
-        assert_eq!(aug.last_csv, "PUBLIC_DISPATCHSCADA_202610200010_1.CSV");
+        assert_eq!(
+            aug.last_csv,
+            "PUBLIC_DISPATCHSCADA_202608010010_0000000001.CSV"
+        );
         assert_eq!(aug.first_sha256.len(), 64, "the run's first file is hashed");
         assert_eq!(aug.last_sha256.len(), 64);
         assert!(!aug.first_file.is_empty() && !aug.last_file.is_empty());
         // The CSVs' blocks are one record: rows summed, values merged.
         assert_eq!(aug.block.nulls, [0, 0, 0]);
-        assert_eq!(aug.block.max[2], "3.5");
+        assert_eq!(aug.block.max[2], "2.5");
         assert_eq!(aug.block.first.as_deref(), Some("2026/08/01 00:05:00"));
+        let oct = scada[2];
+        assert_eq!((oct.csvs, oct.block.rows), (2, 5));
+        assert_eq!(oct.first_csv, "PUBLIC_DISPATCHSCADA_202610200005_1.CSV");
+        assert_eq!(oct.last_csv, "PUBLIC_DISPATCHSCADA_202610200010_1.CSV");
+        assert_eq!(oct.block.max[2], "3.5");
         assert_eq!(
-            scada[2].first_csv,
+            scada[3].first_csv,
             "PUBLIC_DISPATCHSCADA_202610200015_1.CSV"
         );
-        assert_eq!(scada[2].last_csv, "PUBLIC_UNDATED.CSV");
+        assert_eq!(scada[3].last_csv, "PUBLIC_UNDATED.CSV");
         assert_eq!(scada[0].block.ctl_of(0), TypeClass::Unknown);
         assert_eq!(aug.block.ctl_of(0), TypeClass::Timestamp);
         // Blocks without a span merge to none.
@@ -1535,6 +1580,60 @@ mod tests {
                 .for_table(&["DISPATCH_UNIT_SCADA"])
                 .is_none()
         );
+    }
+
+    /// Blocks whose spans are of two columns (a CSV whose time column is
+    /// empty throughout falls back to another) merge the rows, not the
+    /// spans: the run keeps the span it has.
+    #[test]
+    fn a_run_keeps_the_span_of_one_column() {
+        let shape = |span: Option<(&str, &str, &str)>| BlockShape {
+            shape: CanonicalShape {
+                report_type: "DISPATCH".into(),
+                report_subtype: "UNIT_SCADA".into(),
+                columns: vec!["SETTLEMENTDATE".into(), "LASTCHANGED".into()],
+            },
+            version: 1,
+            rows: 1,
+            span: span.map(|(first, last, column)| Span {
+                first: first.into(),
+                last: last.into(),
+                column: column.into(),
+            }),
+            ctl: vec![TypeClass::Unknown; 2],
+            profile: vec![crate::profile::ColumnProfile::default(); 2],
+        };
+        let m = YearMonth::new(2026, 8).unwrap();
+        let mut g = Gather::default();
+        let p = Path::new("x.zip");
+        g.add(m, "a.CSV", p, shape(None));
+        g.add(
+            m,
+            "b.CSV",
+            p,
+            shape(Some(("2026/08/02", "2026/08/03", "LASTCHANGED"))),
+        );
+        g.add(
+            m,
+            "c.CSV",
+            p,
+            shape(Some(("2026/08/01", "2026/08/09", "SETTLEMENTDATE"))),
+        );
+        g.add(
+            m,
+            "d.CSV",
+            p,
+            shape(Some(("2026/08/04", "2026/08/05", "LASTCHANGED"))),
+        );
+        assert_eq!(g.runs.len(), 1);
+        let s = g.runs[0].merged.span.as_ref().unwrap();
+        assert_eq!(
+            (s.first.as_str(), s.last.as_str(), s.column.as_str()),
+            ("2026/08/02", "2026/08/05", "LASTCHANGED")
+        );
+        // Another month: another run.
+        g.add(YearMonth::new(2026, 9).unwrap(), "e.CSV", p, shape(None));
+        assert_eq!(g.runs.len(), 2);
     }
 
     #[test]

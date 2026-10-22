@@ -23,12 +23,12 @@ use serde::{Deserialize, Serialize};
 
 use crate::catalog::Catalog;
 use crate::ctl::CtlFile;
-use crate::mms::scan::{Flow, Pos, ScanOptions, Sink, scan_with};
+use crate::mms::scan::{Flow, Pos, ScanOptions, ScanStats, Sink, scan_with};
 use crate::mms::{IRow, Row, RowError, RowFailure, ScanError, SinkError};
 use crate::month::YearMonth;
 use crate::profile::ColumnProfile;
 use crate::shape::{CanonicalShape, ShapeId, TypeClass};
-use crate::zip::{ArchiveError, WalkError, walk_csv_entries_in};
+use crate::zip::{ArchiveError, WalkError, Walked, walk_csv_entries_in};
 
 /// Why the census of a month could not be taken or recorded.
 #[derive(Debug, thiserror::Error)]
@@ -100,6 +100,8 @@ pub struct FileCensus {
     pub kind: String,
     /// Its blocks, in file order.
     pub blocks: Vec<BlockShape>,
+    /// What its scans counted beyond the blocks.
+    pub counted: Counted,
 }
 
 /// The census of one month: per file name, its blocks in file order. A
@@ -247,8 +249,6 @@ fn date_like(v: &[u8]) -> bool {
 #[derive(Default)]
 struct Blocks {
     blocks: Vec<RawBlock>,
-    /// Whether the current block's first D row has been seen.
-    probed: bool,
 }
 
 impl Sink for Blocks {
@@ -265,37 +265,33 @@ impl Sink for Blocks {
             bounds: Vec::new(),
             profile: vec![ColumnProfile::default(); irow.columns.len()],
         });
-        self.probed = false;
         Ok(())
     }
     fn row(&mut self, row: &Row<'_>, _: Pos) -> Result<(), RowFailure> {
         // The scanner refuses a D row before any I row.
         let b = self.blocks.last_mut().expect("a D row follows an I row");
         b.rows += 1;
-        // Data fields follow the four D,type,subtype,version cells.
+        // Data fields follow the four D,type,subtype,version cells. A
+        // column is bounded by its dated values alone: one empty or not a
+        // date, in any row, bounds nothing.
         for (j, p) in b.profile.iter_mut().enumerate() {
-            p.observe(row.get(4 + j));
-        }
-        if !self.probed {
-            self.probed = true;
-            for j in 0..b.columns.len() {
-                if let Some(v) = row.get(4 + j)
-                    && date_like(v)
-                {
-                    b.bounds.push((j, v.to_vec(), v.to_vec()));
+            let v = row.get(4 + j);
+            p.observe(v);
+            let Some(v) = v.filter(|v| date_like(v)) else {
+                continue;
+            };
+            match b.bounds.binary_search_by_key(&j, |(i, ..)| *i) {
+                Ok(at) => {
+                    let (_, min, max) = &mut b.bounds[at];
+                    if v < min.as_slice() {
+                        min.clear();
+                        min.extend_from_slice(v);
+                    } else if v > max.as_slice() {
+                        max.clear();
+                        max.extend_from_slice(v);
+                    }
                 }
-            }
-            return Ok(());
-        }
-        for (j, min, max) in &mut b.bounds {
-            if let Some(v) = row.get(4 + *j) {
-                if v < min.as_slice() {
-                    min.clear();
-                    min.extend_from_slice(v);
-                } else if v > max.as_slice() {
-                    max.clear();
-                    max.extend_from_slice(v);
-                }
+                Err(at) => b.bounds.insert(at, (j, v.to_vec(), v.to_vec())),
             }
         }
         Ok(())
@@ -309,18 +305,38 @@ impl Sink for Blocks {
 }
 
 /// Every block of one CSV stream, in order: I rows, D rows counted and
-/// their date-like columns bounded.
+/// their date-like columns bounded; with what the scan counted (rows it
+/// refused, the footer's count against the lines read).
 pub fn read_blocks(
     reader: impl std::io::Read,
     buf: &mut Vec<u8>,
-) -> Result<Vec<RawBlock>, ScanError> {
+) -> Result<(Vec<RawBlock>, ScanStats), ScanError> {
     let mut blocks = Blocks::default();
     let opts = ScanOptions {
         max_bad_rows: u64::MAX,
         ..Default::default()
     };
-    scan_with(reader, &mut blocks, &opts, buf)?;
-    Ok(blocks.blocks)
+    let stats = scan_with(reader, &mut blocks, &opts, buf)?;
+    Ok((blocks.blocks, stats))
+}
+
+/// What a scan counted that the blocks do not say: rows refused, and
+/// footers whose count was not the lines read.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct Counted {
+    /// `D` rows the scanner refused (an unknown record letter, a row of
+    /// another block).
+    pub bad_rows: u64,
+    /// CSVs whose `END OF REPORT` count disagreed with their lines.
+    pub footer_mismatches: u64,
+}
+
+impl Counted {
+    /// Takes in one scan's counts.
+    pub fn add(&mut self, s: &ScanStats) {
+        self.bad_rows += s.bad_rows;
+        self.footer_mismatches += u64::from(s.footer_mismatch());
+    }
 }
 
 /// Every file under `dir`, at any depth, sorted: hidden files (`.DS_Store`,
@@ -431,6 +447,8 @@ struct Reading {
     raw: Copies,
     /// File name to its sha256 and size.
     digests: HashMap<String, (String, u64)>,
+    /// File key to what its scans counted.
+    counted: HashMap<String, Counted>,
     ctls: Vec<(String, String)>,
     problems: Vec<Unread>,
     /// One read buffer for every file and entry of the month.
@@ -440,8 +458,8 @@ struct Reading {
 /// What reading one file gave: a CSV's blocks, or how the walk of a zip
 /// ended.
 enum Took {
-    Csv(Result<Vec<RawBlock>, ScanError>),
-    Zip(Result<usize, WalkError<ScanError>>),
+    Csv(Result<(Vec<RawBlock>, ScanStats), ScanError>),
+    Zip(Result<Walked, WalkError<std::convert::Infallible>>),
 }
 
 /// A control file's text, kept when it can be read.
@@ -457,6 +475,11 @@ impl Reading {
     fn merge(&mut self, other: Self) {
         self.raw.merge(other.raw);
         self.digests.extend(other.digests);
+        for (key, c) in other.counted {
+            let mine = self.counted.entry(key).or_default();
+            mine.bad_rows += c.bad_rows;
+            mine.footer_mismatches += c.footer_mismatches;
+        }
         self.ctls.extend(other.ctls);
         self.problems.extend(other.problems);
     }
@@ -500,21 +523,29 @@ impl Reading {
         let Some((f, tally)) = self.readable(crate::files::HashedFile::open(path), &shown) else {
             return;
         };
-        let mut entry_err = None;
         let (raw, buf, ctls) = (&mut self.raw, &mut self.buf, &mut self.ctls);
+        let (counted, problems) = (&mut self.counted, &mut self.problems);
         let read = if is(".csv") {
             Took::Csv(read_blocks(f, buf))
         } else {
-            Took::Zip(walk_csv_entries_in::<_, ScanError>(
+            // An entry that does not scan is a problem of its own; the
+            // other entries are read.
+            Took::Zip(walk_csv_entries_in(
                 f,
                 &shown,
                 tmp,
                 &mut |e| {
                     let key = file_key(&name, &e.name);
-                    let entry = e.name.clone();
-                    let blocks =
-                        read_blocks(e.reader, buf).inspect_err(|_| entry_err = Some(entry))?;
-                    raw.add(&key, &name, blocks);
+                    match read_blocks(e.reader, buf) {
+                        Ok((blocks, stats)) => {
+                            raw.add(&key, &name, blocks);
+                            counted.entry(key).or_default().add(&stats);
+                        }
+                        Err(err) => problems.push(Unread {
+                            file: format!("{shown}!{}", e.name),
+                            error: err.to_string(),
+                        }),
+                    }
                     Ok(())
                 },
                 &mut |e| {
@@ -530,19 +561,28 @@ impl Reading {
         };
         self.digests.insert(name.clone(), digest);
         let walked = match read {
-            Took::Csv(Ok(blocks)) => return self.raw.add(&name, &name, blocks),
+            Took::Csv(Ok((blocks, stats))) => {
+                self.counted.entry(name.clone()).or_default().add(&stats);
+                return self.raw.add(&name, &name, blocks);
+            }
             Took::Csv(Err(e)) => return self.unread(&name, shown, e.to_string()),
             Took::Zip(walked) => walked,
         };
         match walked {
             // A whole-month zip holds control files beside data zips; a
-            // zip of control files only has no CSV, and that is fine.
-            Ok(_) | Err(WalkError::Archive(ArchiveError::NoCsv { .. })) => {}
-            Err(WalkError::Archive(a)) => self.unread(&name, shown, a.to_string()),
-            Err(WalkError::Callback(e)) => {
-                let at = format!("{shown}!{}", entry_err.unwrap_or_default());
-                self.unread(&name, at, e.to_string());
+            // zip of control files only has no CSV, and that is fine. An
+            // entry left behind is a problem of its own.
+            Ok(w) => {
+                for a in w.failed {
+                    self.problems.push(Unread {
+                        file: shown.clone(),
+                        error: a.to_string(),
+                    });
+                }
             }
+            Err(WalkError::Archive(ArchiveError::NoCsv { .. })) => {}
+            Err(WalkError::Archive(a)) => self.unread(&name, shown, a.to_string()),
+            Err(WalkError::Callback(never)) => match never {},
         }
     }
 }
@@ -600,6 +640,7 @@ pub fn census_month(
                 size,
                 kind,
                 blocks,
+                counted: r.counted.get(&name).copied().unwrap_or_default(),
             };
             (name, file)
         })
@@ -695,9 +736,20 @@ pub struct FileRecord {
     pub size: u64,
     /// `dvd`, `archive` or `other`, with `#all` for a file of every run.
     pub kind: String,
+    /// `D` rows the scanner refused, when any.
+    #[serde(default, skip_serializing_if = "is_zero")]
+    pub bad_rows: u64,
+    /// CSVs whose footer count was not their lines, when any.
+    #[serde(default, skip_serializing_if = "is_zero")]
+    pub footer_mismatches: u64,
     /// Its blocks, in file order.
     #[serde(default)]
     pub block: Vec<BlockRecord>,
+}
+
+#[allow(clippy::trivially_copy_pass_by_ref)]
+fn is_zero(n: &u64) -> bool {
+    *n == 0
 }
 
 /// One block of a file in a month's census: its shape, and per column (in
@@ -815,6 +867,8 @@ impl FileRecord {
             sha256: f.sha256.clone(),
             size: f.size,
             kind: f.kind.clone(),
+            bad_rows: f.counted.bad_rows,
+            footer_mismatches: f.counted.footer_mismatches,
             block: f.blocks.iter().map(BlockRecord::of).collect(),
         }
     }

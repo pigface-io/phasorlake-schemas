@@ -227,6 +227,8 @@ pub fn observe(root: &Path, catalog: &Catalog) -> Result<Observations, CensusErr
                 sha256: String::new(),
                 size: 0,
                 kind: kind(root_name),
+                bad_rows: 0,
+                footer_mismatches: 0,
                 block: Vec::new(),
             };
             for t in &census.blocks {

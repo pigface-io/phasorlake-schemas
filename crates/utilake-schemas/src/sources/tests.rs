@@ -18,6 +18,8 @@ fn census(root: &Path, month: &str, files: &[(&str, &str, &str, u64)]) {
                 sha256: sha256.into(),
                 size,
                 kind: "dvd".into(),
+                bad_rows: 0,
+                footer_mismatches: 0,
                 block: Vec::new(),
             };
             (name, r)
