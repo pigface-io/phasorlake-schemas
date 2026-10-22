@@ -69,4 +69,4 @@ thiserror = "2"
 toml = "1"
 ureq = { version = "3.4", default-features = false, features = ["rustls"] }
 xxhash-rust = { version = "0.8", features = ["xxh3"] }
-zip = { version = "8", default-features = false, features = ["deflate-flate2-zlib-rs"] }
+zip = { version = "9", default-features = false, features = ["deflate-flate2-zlib-rs"] }

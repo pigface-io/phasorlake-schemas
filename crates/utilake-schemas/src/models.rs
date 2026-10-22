@@ -156,9 +156,10 @@ pub fn read_zip(path: &Path) -> Result<(String, String, Script), ModelError> {
     let mut zip = ::zip::ZipArchive::new(file).map_err(|e| zip_err(e.to_string()))?;
     // Older zips name entries with backslashes (`postgreSQL\\5.1\\...`).
     let found = zip.file_names().find_map(|n| {
+        let n = n.ok()?;
         let slashed = n.replace('\\', "/");
         let version = slashed.strip_prefix("postgreSQL/")?.split_once('/')?.0;
-        (slashed == POSTGRES.replace("{v}", version)).then(|| (n.to_owned(), version.to_owned()))
+        (slashed == POSTGRES.replace("{v}", version)).then(|| (n.into_owned(), version.to_owned()))
     });
     let (name, version) = found.ok_or_else(|| {
         zip_err("no postgreSQL/{version}/create_mms_data_model.sql entry".to_owned())
