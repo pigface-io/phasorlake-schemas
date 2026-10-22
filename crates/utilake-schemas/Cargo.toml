@@ -17,6 +17,7 @@ path = "src/main.rs"
 
 [dependencies]
 utilake-iceberg.workspace = true
+utilake-mms-decode.workspace = true
 clap.workspace = true
 flate2.workspace = true
 memchr.workspace = true

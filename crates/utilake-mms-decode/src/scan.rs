@@ -5,7 +5,10 @@ use std::io::Read;
 use crate::irow::{IRow, IRowScratch};
 use memchr::memchr;
 
-use crate::error::{RowError, RowFailure, ScanError, SinkError};
+use std::fmt;
+
+pub use crate::error::Never;
+use crate::error::{RowError, RowFailure, ScanError};
 use crate::fields::{Row, Splitter};
 
 pub use crate::error::Pos;
@@ -21,18 +24,29 @@ pub enum Flow {
 
 /// Receives the rows of one file.
 pub trait Sink {
+    /// Why this sink refuses a row for its values: the row is quarantined
+    /// and the scan goes on. [`Never`] for a sink that refuses none.
+    type Reject: Clone + fmt::Debug + fmt::Display;
+    /// What ends the scan: the sink failed, or refused the block its I row
+    /// opens. [`Never`] for a sink that cannot fail.
+    type Fatal: fmt::Debug + fmt::Display;
     /// A `C` row that is not the footer.
-    fn comment(&mut self, row: &Row<'_>, pos: Pos) -> Result<(), SinkError>;
+    fn comment(&mut self, row: &Row<'_>, pos: Pos) -> Result<(), Self::Fatal>;
     /// An `I` row: a new block begins. `irow.columns` are normalised and
     /// trailing empty names are dropped.
-    fn header(&mut self, irow: &IRow<'_>, pos: Pos) -> Result<(), SinkError>;
+    fn header(&mut self, irow: &IRow<'_>, pos: Pos) -> Result<(), Self::Fatal>;
     /// A `D` row (fields 0..4 are the prefix, data starts at 4).
-    fn row(&mut self, row: &Row<'_>, pos: Pos) -> Result<(), RowFailure>;
+    fn row(&mut self, row: &Row<'_>, pos: Pos)
+    -> Result<(), RowFailure<Self::Reject, Self::Fatal>>;
     /// A `D` row that [`Sink::row`] rejected, or a line of unknown kind.
-    fn bad_row(&mut self, raw: &[u8], pos: Pos, err: &RowError) -> Flow;
+    fn bad_row(&mut self, raw: &[u8], pos: Pos, err: &RowError<Self::Reject>) -> Flow;
     /// The footer `C,"END OF REPORT",n`, or end of input without one.
-    fn footer(&mut self, declared: Option<u64>, lines_read: u64, pos: Pos)
-    -> Result<(), SinkError>;
+    fn footer(
+        &mut self,
+        declared: Option<u64>,
+        lines_read: u64,
+        pos: Pos,
+    ) -> Result<(), Self::Fatal>;
     /// The number of `D` rows of the block that just ended, in a scan of
     /// [`ScanOptions::headers_only`]; called before the next
     /// [`Sink::header`] and before [`Sink::footer`].
@@ -93,7 +107,7 @@ pub fn scan<R: Read, S: Sink>(
     reader: R,
     sink: &mut S,
     opts: &ScanOptions,
-) -> Result<ScanStats, ScanError> {
+) -> Result<ScanStats, ScanError<S::Reject, S::Fatal>> {
     scan_with(reader, sink, opts, &mut Vec::new())
 }
 
@@ -105,7 +119,7 @@ pub fn scan_with<R: Read, S: Sink>(
     sink: &mut S,
     opts: &ScanOptions,
     buf: &mut Vec<u8>,
-) -> Result<ScanStats, ScanError> {
+) -> Result<ScanStats, ScanError<S::Reject, S::Fatal>> {
     let want = BUF.min(opts.max_line_bytes.max(16));
     if buf.len() < want {
         buf.resize(want, 0);
@@ -120,7 +134,7 @@ pub fn scan_with<R: Read, S: Sink>(
     let mut line_start_offset: u64 = 0;
     // The first row that could not be read, so a refusal can say exactly
     // what was wrong with it.
-    let mut first_bad: Option<(u64, Box<RowError>)> = None;
+    let mut first_bad: Option<(u64, Box<RowError<S::Reject>>)> = None;
 
     while !eof || filled > 0 {
         // Fill.
@@ -134,10 +148,9 @@ pub fn scan_with<R: Read, S: Sink>(
                 }
                 buf.resize((buf.len() * 2).min(opts.max_line_bytes), 0);
             }
-            match reader.read(&mut buf[filled..]) {
+            match fill(&mut reader, &mut buf[filled..]) {
                 Ok(0) => eof = true,
                 Ok(n) => filled += n,
-                Err(e) if e.kind() == std::io::ErrorKind::Interrupted => continue,
                 Err(source) => {
                     return Err(ScanError::Io {
                         bytes: stats.bytes,
@@ -242,18 +255,28 @@ pub fn scan_with<R: Read, S: Sink>(
     Ok(stats)
 }
 
+/// One read into `buf`, read again when interrupted.
+fn fill<R: Read>(reader: &mut R, buf: &mut [u8]) -> std::io::Result<usize> {
+    loop {
+        match reader.read(buf) {
+            Err(e) if e.kind() == std::io::ErrorKind::Interrupted => {}
+            read => return read,
+        }
+    }
+}
+
 /// Counts a row that could not be read and hands it to the sink; an error
 /// when the sink stops or there are more such rows than `opts` allows.
 #[cold]
 fn on_bad_row<S: Sink>(
     sink: &mut S,
     stats: &mut ScanStats,
-    first_bad: &mut Option<(u64, Box<RowError>)>,
+    first_bad: &mut Option<(u64, Box<RowError<S::Reject>>)>,
     opts: &ScanOptions,
     line: &[u8],
     pos: Pos,
-    e: Box<RowError>,
-) -> Result<(), ScanError> {
+    e: Box<RowError<S::Reject>>,
+) -> Result<(), ScanError<S::Reject, S::Fatal>> {
     stats.bad_rows += 1;
     if sink.bad_row(line, pos, &e) == Flow::Stop {
         return Err(ScanError::Stopped { line: pos.line });
@@ -287,8 +310,15 @@ pub(crate) mod tests {
         pub block_rows: Vec<u64>,
     }
 
+    /// A sink failure, for the tests.
+    #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
+    #[error("the sink is down")]
+    pub(crate) struct Down;
+
     impl Sink for Collect {
-        fn comment(&mut self, row: &Row<'_>, _: Pos) -> Result<(), SinkError> {
+        type Reject = Never;
+        type Fatal = Down;
+        fn comment(&mut self, row: &Row<'_>, _: Pos) -> Result<(), Down> {
             self.comments.push(
                 row.iter()
                     .map(|f| String::from_utf8_lossy(f).into_owned())
@@ -296,7 +326,7 @@ pub(crate) mod tests {
             );
             Ok(())
         }
-        fn header(&mut self, irow: &IRow<'_>, _: Pos) -> Result<(), SinkError> {
+        fn header(&mut self, irow: &IRow<'_>, _: Pos) -> Result<(), Down> {
             self.headers.push((
                 irow.report_type.to_owned(),
                 irow.report_subtype.to_owned(),
@@ -305,7 +335,7 @@ pub(crate) mod tests {
             ));
             Ok(())
         }
-        fn row(&mut self, row: &Row<'_>, _: Pos) -> Result<(), RowFailure> {
+        fn row(&mut self, row: &Row<'_>, _: Pos) -> Result<(), RowFailure<Never, Down>> {
             if let Some(n) = self.reject_rows_with
                 && row.len() == n
             {
@@ -325,7 +355,7 @@ pub(crate) mod tests {
         fn block_rows(&mut self, rows: u64) {
             self.block_rows.push(rows);
         }
-        fn bad_row(&mut self, raw: &[u8], pos: Pos, _: &RowError) -> Flow {
+        fn bad_row(&mut self, raw: &[u8], pos: Pos, _: &RowError<Never>) -> Flow {
             self.bad
                 .push((pos.line, String::from_utf8_lossy(raw).into_owned()));
             if self.stop_on_bad {
@@ -334,7 +364,7 @@ pub(crate) mod tests {
                 Flow::Continue
             }
         }
-        fn footer(&mut self, declared: Option<u64>, lines: u64, _: Pos) -> Result<(), SinkError> {
+        fn footer(&mut self, declared: Option<u64>, lines: u64, _: Pos) -> Result<(), Down> {
             self.footer = Some((declared, lines));
             Ok(())
         }
@@ -422,18 +452,21 @@ pub(crate) mod tests {
         assert_eq!(c.headers[2].1, "PRICE");
         assert_eq!(c.headers[2].2, 5);
         let dir = format!("{}/../../testdata/csv", env!("CARGO_MANIFEST_DIR"));
-        for e in std::fs::read_dir(dir).unwrap().filter_map(Result::ok) {
-            if e.path().extension().is_some_and(|x| x == "csv") {
-                let mut c = Collect::default();
-                let stats = scan(
-                    std::fs::read(e.path()).unwrap().as_slice(),
-                    &mut c,
-                    &ScanOptions::default(),
-                )
-                .unwrap();
-                assert!(!stats.footer_mismatch(), "{}", e.path().display());
-                assert_eq!(stats.bad_rows, 0, "{}", e.path().display());
-            }
+        let csvs = std::fs::read_dir(dir)
+            .unwrap()
+            .filter_map(Result::ok)
+            .filter(|e| e.path().extension().is_some_and(|x| x == "csv"));
+        for e in csvs {
+            let mut c = Collect::default();
+            let stats = scan(
+                std::fs::read(e.path()).unwrap().as_slice(),
+                &mut c,
+                &ScanOptions::default(),
+            )
+            .unwrap();
+            let at = e.path().display().to_string();
+            assert!(!stats.footer_mismatch(), "{at}");
+            assert_eq!(stats.bad_rows, 0, "{at}");
         }
     }
 
@@ -530,18 +563,16 @@ pub(crate) mod tests {
             &ScanOptions::default(),
         )
         .unwrap_err();
-        assert!(
-            matches!(
-                e,
-                ScanError::TooManyBadRows {
-                    bad: 1,
-                    limit: 0,
-                    line: 2,
-                    ..
-                }
-            ),
-            "{e}"
+        let too_many = matches!(
+            e,
+            ScanError::TooManyBadRows {
+                bad: 1,
+                limit: 0,
+                line: 2,
+                ..
+            }
         );
+        assert!(too_many, "{e}");
         let mut c = Collect {
             stop_on_bad: true,
             ..Default::default()
@@ -626,5 +657,124 @@ pub(crate) mod tests {
                 .lines,
             1
         );
+    }
+
+    /// A sink's own refusal quarantines the row; its own failure ends the
+    /// scan at whichever hook it fails in, and a sink that overrides no
+    /// `block_rows` is told nothing.
+    #[test]
+    fn a_sink_refuses_rows_and_fails_as_itself() {
+        #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
+        #[error("refused at {0}")]
+        struct Refused(&'static str);
+        /// Refuses rows of `odd` fields, fails at the hook it names.
+        struct Refuse {
+            hook: &'static str,
+            odd: usize,
+            bad: Vec<String>,
+        }
+        impl Refuse {
+            fn at(&self, hook: &'static str) -> Result<(), Refused> {
+                if self.hook == hook {
+                    Err(Refused(hook))
+                } else {
+                    Ok(())
+                }
+            }
+        }
+        impl Sink for Refuse {
+            type Reject = Refused;
+            type Fatal = Refused;
+            fn comment(&mut self, _: &Row<'_>, _: Pos) -> Result<(), Refused> {
+                self.at("comment")
+            }
+            fn header(&mut self, _: &IRow<'_>, _: Pos) -> Result<(), Refused> {
+                self.at("header")
+            }
+            fn row(&mut self, row: &Row<'_>, _: Pos) -> Result<(), RowFailure<Refused, Refused>> {
+                self.at("row").map_err(RowFailure::fatal)?;
+                if row.len() == self.odd {
+                    return Err(RowFailure::reject(Refused("the value")));
+                }
+                Ok(())
+            }
+            fn bad_row(&mut self, _: &[u8], _: Pos, e: &RowError<Refused>) -> Flow {
+                self.bad.push(e.to_string());
+                Flow::Continue
+            }
+            fn footer(&mut self, _: Option<u64>, _: u64, _: Pos) -> Result<(), Refused> {
+                self.at("footer")
+            }
+        }
+        let refuse = |hook, odd| Refuse {
+            hook,
+            odd,
+            bad: Vec::new(),
+        };
+        let text = b"C,x\nI,A,B,1,X\nD,A,B,1,1\nxyz\n";
+        let opts = ScanOptions {
+            max_bad_rows: 2,
+            ..Default::default()
+        };
+        for hook in ["comment", "header", "row", "footer"] {
+            let e = scan(text.as_slice(), &mut refuse(hook, 0), &opts).unwrap_err();
+            assert!(
+                matches!(&e, ScanError::Sink(Refused(h)) if *h == hook),
+                "{hook}: {e}"
+            );
+        }
+        let mut sink = refuse("", 5);
+        let stats = scan(text.as_slice(), &mut sink, &opts).unwrap();
+        assert_eq!((stats.blocks, stats.rows, stats.bad_rows), (1, 0, 2));
+        assert_eq!(sink.bad[0], "refused at the value");
+        assert!(sink.bad[1].starts_with("The row starts with 'x'"));
+        // Rejected rows past the limit refuse the file, the first named.
+        let e = scan(text.as_slice(), &mut refuse("", 5), &ScanOptions::default()).unwrap_err();
+        let text_of = e.to_string();
+        assert!(
+            text_of.ends_with("The first is line 3: refused at the value"),
+            "{e}"
+        );
+        // Headers only: a sink that does not take block counts is fine.
+        let only = ScanOptions {
+            headers_only: true,
+            ..opts
+        };
+        let stats = scan(text.as_slice(), &mut refuse("", 0), &only).unwrap();
+        assert_eq!((stats.blocks, stats.rows, stats.bad_rows), (1, 1, 1));
+    }
+
+    /// A line longer than the read buffer grows it; a read interrupted is
+    /// read again.
+    #[test]
+    fn long_lines_grow_the_buffer_and_interruptions_are_retried() {
+        let mut text = b"I,A,B,1,X\nD,A,B,1,".to_vec();
+        text.extend(std::iter::repeat_n(b'v', (1 << 20) + 100));
+        text.extend_from_slice(b"\n");
+        let mut c = Collect::default();
+        let stats = scan(text.as_slice(), &mut c, &ScanOptions::default()).unwrap();
+        assert_eq!(stats.rows, 1);
+        assert_eq!(c.rows[0][4].len(), (1 << 20) + 100);
+
+        struct Interrupting<'a> {
+            inner: &'a [u8],
+            interrupted: bool,
+        }
+        impl Read for Interrupting<'_> {
+            fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+                if !self.interrupted {
+                    self.interrupted = true;
+                    return Err(std::io::Error::from(std::io::ErrorKind::Interrupted));
+                }
+                self.inner.read(buf)
+            }
+        }
+        let mut c = Collect::default();
+        let reader = Interrupting {
+            inner: b"I,A,B,1,X\nD,A,B,1,1\n",
+            interrupted: false,
+        };
+        let stats = scan(reader, &mut c, &ScanOptions::default()).unwrap();
+        assert_eq!(stats.rows, 1);
     }
 }

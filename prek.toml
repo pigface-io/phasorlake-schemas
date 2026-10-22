@@ -16,7 +16,7 @@ repo = "builtin"
 hooks = [
     # AEMO's files are kept byte for byte.
     { id = "trailing-whitespace", exclude = '^(testdata/|evidence/ctl/)' },
-    { id = "end-of-file-fixer", exclude = '^(testdata/|evidence/ctl/)' },
+    { id = "end-of-file-fixer", exclude = '^(testdata/|evidence/ctl/|nem/.*/metadata/version-hint\.text$)' },
     { id = "check-yaml" },
     { id = "check-toml" },
     { id = "check-json" },

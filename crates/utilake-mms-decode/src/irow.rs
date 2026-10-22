@@ -7,7 +7,8 @@
 //! Fields 1..=3 are the report type, report subtype and version; the rest are
 //! column names. Data rows repeat the first three fields before their values.
 
-use utilake_core::{Fingerprint, normalize_name};
+use crate::fingerprint::Fingerprint;
+use crate::names::normalize_name;
 
 /// A parsed `I` row, borrowing from the line it came from.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

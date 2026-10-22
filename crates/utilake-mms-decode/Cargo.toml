@@ -1,6 +1,6 @@
 [package]
 name = "utilake-mms-decode"
-description = "The MMS C/I/D row format: scanner and field splitter. Knows no registry."
+description = "The MMS C/I/D row format: scanner, field splitter, I rows, shape ids, archive file names. Pure: knows no registry and no lake."
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
@@ -12,15 +12,10 @@ publish.workspace = true
 workspace = true
 
 [dependencies]
-utilake-core.workspace = true
 memchr.workspace = true
-serde_json.workspace = true
+serde.workspace = true
 thiserror.workspace = true
+xxhash-rust.workspace = true
 
 [dev-dependencies]
-criterion.workspace = true
-tempfile.workspace = true
-
-[[bench]]
-name = "values"
-harness = false
+serde_json.workspace = true

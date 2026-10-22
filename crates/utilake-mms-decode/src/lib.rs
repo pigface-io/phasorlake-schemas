@@ -1,4 +1,5 @@
-//! The MMS C/I/D row format.
+//! The MMS C/I/D row format, as AEMO publishes the National Electricity
+//! Market's data.
 //!
 //! ```text
 //! C,SETP.WORLD,DVD_DISPATCH_UNIT_SCADA,AEMO,PUBLIC,2024/02/07,00:00:07,...   file header
@@ -7,22 +8,34 @@
 //! C,"END OF REPORT",4193482                                                  footer: total lines
 //! ```
 //!
-//! Layer L2, synchronous and allocation-free per row. [`scan()`] splits bytes
-//! into rows and drives a [`Sink`]: each I row reaches it as the block's
-//! shape (report pair, version, ordered column names), each D row as its
-//! fields, untyped. The zips the files come in are walked by
-//! `utilake-kit`'s `container`.
+//! Synchronous and allocation-free per row. [`scan()`] splits bytes into
+//! rows and drives a [`Sink`]: each I row reaches it as the block's shape
+//! (report pair, version, ordered column names), each D row as its fields,
+//! untyped. What a sink refuses or fails with is the sink's own type
+//! ([`Sink::Reject`], [`Sink::Fatal`]): this crate knows no registry, no
+//! lake and no diagnostics.
 //!
-//! Decode knows no registry: what a shape means, and how its text becomes
-//! typed columns, is `utilake-mms-conform`'s business.
+//! Beside the scanner: [`names`] normalises a column name and
+//! [`fingerprint`] identifies a column list; [`shape`] gives a block's
+//! report pair and columns a content-addressed [`shape::ShapeId`], the one
+//! id every utilake repository gives it; [`filename`] reads a table and a
+//! [`month::YearMonth`] out of an archive file name.
 
 pub mod error;
 pub mod fields;
+pub mod filename;
+pub mod fingerprint;
 pub mod irow;
-pub mod mmstime;
+pub mod month;
+pub mod names;
 pub mod scan;
+pub mod shape;
 
-pub use error::{RowError, RowFailure, ScanError, SinkError};
+pub use error::{Never, Pos, RowError, RowFailure, ScanError};
 pub use fields::{PREFIX_FIELDS, Row};
+pub use fingerprint::Fingerprint;
 pub use irow::{IRow, IRowError, IRowScratch, parse_version};
-pub use scan::{Pos, ScanOptions, ScanStats, Sink, scan};
+pub use month::YearMonth;
+pub use names::normalize_name;
+pub use scan::{Flow, ScanOptions, ScanStats, Sink, scan, scan_with};
+pub use shape::{CanonicalShape, ShapeId, TypeClass};

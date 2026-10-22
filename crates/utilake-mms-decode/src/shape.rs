@@ -108,7 +108,7 @@ impl std::str::FromStr for TypeClass {
 }
 
 /// A shape in its canonical form: names normalised as an I row's are
-/// (see [`normalize_name`](crate::text::normalize_name)), in file order.
+/// (see [`normalize_name`](crate::names::normalize_name)), in file order.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CanonicalShape {
     /// Report type, normalised.
@@ -143,6 +143,15 @@ impl CanonicalShape {
             b.push(0x1E);
         }
         b
+    }
+
+    /// The shape of a block's header.
+    pub fn of(report_type: &str, report_subtype: &str, columns: &[&str]) -> Self {
+        Self {
+            report_type: report_type.to_owned(),
+            report_subtype: report_subtype.to_owned(),
+            columns: columns.iter().map(|c| (*c).to_owned()).collect(),
+        }
     }
 
     /// The shape's id.
@@ -205,6 +214,12 @@ mod tests {
     use super::*;
 
     fn scada(columns: &[&str]) -> CanonicalShape {
+        assert_eq!(
+            CanonicalShape::of("DISPATCH", "UNIT_SCADA", columns)
+                .columns
+                .len(),
+            columns.len()
+        );
         CanonicalShape {
             report_type: "DISPATCH".into(),
             report_subtype: "UNIT_SCADA".into(),

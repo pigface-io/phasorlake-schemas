@@ -1,33 +1,6 @@
 //! Names and numbers as AEMO writes them.
 
-/// Normalises a report or column name: strips a UTF-8 BOM, surrounding ASCII
-/// whitespace, one pair of double quotes, and upper-cases ASCII letters.
-///
-/// Returns `None` for an empty result or one containing a control character
-/// or a comma; those can never be real names and would corrupt a shape.
-/// Writes into `buf`, which the caller reuses, so the hot path allocates once
-/// per row at most.
-pub fn normalize_name<'b>(raw: &str, buf: &'b mut String) -> Option<&'b str> {
-    let s = raw
-        .strip_prefix('\u{feff}')
-        .unwrap_or(raw)
-        .trim_matches([' ', '\t', '\r']);
-    let s = match (s.strip_prefix('"'), s.len() >= 2) {
-        (Some(inner), true) => inner.strip_suffix('"').unwrap_or(s),
-        _ => s,
-    }
-    .trim_matches([' ', '\t']);
-    if s.is_empty()
-        || s.bytes()
-            .any(|b| b.is_ascii_control() || b == b',' || b == b'"')
-    {
-        return None;
-    }
-    buf.clear();
-    buf.push_str(s);
-    buf.make_ascii_uppercase();
-    Some(buf.as_str())
-}
+pub use utilake_mms_decode::normalize_name;
 
 /// Parses an `f64`. AEMO writes plain decimals and occasionally exponent
 /// forms such as `6E-05`; both are accepted. Leading `+` is accepted.

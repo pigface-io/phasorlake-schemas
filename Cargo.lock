@@ -697,6 +697,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "utilake-mms-decode"
+version = "0.1.0"
+dependencies = [
+ "memchr",
+ "serde",
+ "serde_json",
+ "thiserror",
+ "xxhash-rust",
+]
+
+[[package]]
 name = "utilake-schemas"
 version = "0.1.0"
 dependencies = [
@@ -711,6 +722,7 @@ dependencies = [
  "toml",
  "ureq",
  "utilake-iceberg",
+ "utilake-mms-decode",
  "xxhash-rust",
  "zip",
 ]

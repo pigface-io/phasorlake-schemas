@@ -23,8 +23,11 @@ use serde::{Deserialize, Serialize};
 
 use crate::catalog::Catalog;
 use crate::ctl::CtlFile;
-use crate::mms::scan::{Flow, Pos, ScanOptions, ScanStats, Sink, scan_with};
-use crate::mms::{IRow, Row, RowError, RowFailure, ScanError, SinkError};
+use utilake_mms_decode::scan::{Flow, Never, Pos, ScanOptions, ScanStats, Sink, scan_with};
+use utilake_mms_decode::{IRow, Row, RowError, RowFailure};
+
+/// A scan's failure: the census's sinks never fail of their own.
+pub type ScanError = utilake_mms_decode::ScanError<Never, Never>;
 use crate::month::YearMonth;
 use crate::profile::ColumnProfile;
 use crate::shape::{CanonicalShape, ShapeId, TypeClass};
@@ -252,10 +255,12 @@ struct Blocks {
 }
 
 impl Sink for Blocks {
-    fn comment(&mut self, _: &Row<'_>, _: Pos) -> Result<(), SinkError> {
+    type Reject = Never;
+    type Fatal = Never;
+    fn comment(&mut self, _: &Row<'_>, _: Pos) -> Result<(), Never> {
         Ok(())
     }
-    fn header(&mut self, irow: &IRow<'_>, _: Pos) -> Result<(), SinkError> {
+    fn header(&mut self, irow: &IRow<'_>, _: Pos) -> Result<(), Never> {
         self.blocks.push(RawBlock {
             report_type: irow.report_type.to_owned(),
             report_subtype: irow.report_subtype.to_owned(),
@@ -267,7 +272,7 @@ impl Sink for Blocks {
         });
         Ok(())
     }
-    fn row(&mut self, row: &Row<'_>, _: Pos) -> Result<(), RowFailure> {
+    fn row(&mut self, row: &Row<'_>, _: Pos) -> Result<(), RowFailure<Never, Never>> {
         // The scanner refuses a D row before any I row.
         let b = self.blocks.last_mut().expect("a D row follows an I row");
         b.rows += 1;
@@ -296,10 +301,10 @@ impl Sink for Blocks {
         }
         Ok(())
     }
-    fn bad_row(&mut self, _: &[u8], _: Pos, _: &RowError) -> Flow {
+    fn bad_row(&mut self, _: &[u8], _: Pos, _: &RowError<Never>) -> Flow {
         Flow::Continue
     }
-    fn footer(&mut self, _: Option<u64>, _: u64, _: Pos) -> Result<(), SinkError> {
+    fn footer(&mut self, _: Option<u64>, _: u64, _: Pos) -> Result<(), Never> {
         Ok(())
     }
 }

@@ -22,7 +22,8 @@
 //!
 //! - [`zip`] walks an archived zip, zips inside zips included, and hands
 //!   each `.CSV` entry over as a stream;
-//! - [`mms`] scans a CSV's C, I and D rows into a [`mms::Sink`];
+//! - [`utilake_mms_decode`] scans a CSV's C, I and D rows into a
+//!   [`utilake_mms_decode::Sink`];
 //! - [`profile`] says what each column's values were;
 //! - [`ctl`] parses the SQL*Loader control file that says what type AEMO
 //!   loads each column as;
@@ -44,17 +45,16 @@ pub mod files;
 pub mod fold;
 pub mod history;
 pub mod iceberg;
-pub mod mms;
 pub mod models;
-pub mod month;
-pub mod names;
 pub mod pool;
 pub mod profile;
 pub mod published;
 pub mod reports;
-pub mod shape;
 pub mod sources;
 pub mod sql;
 pub mod stamp;
 pub mod text;
 pub mod zip;
+
+pub use utilake_mms_decode::filename as names;
+pub use utilake_mms_decode::{month, shape};
