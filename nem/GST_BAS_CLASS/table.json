@@ -23,6 +23,7 @@
   "description": "GST_BAS_CLASS contains a static list of BAS (Business Activity Statement) classifications supported by the MMS.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

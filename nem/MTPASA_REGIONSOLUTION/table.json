@@ -239,6 +239,7 @@
   "description": "MTPASA_CASESOLUTION is obsolete from 2017 End of Year DM4.27 Release. \nThe MTPASA_REGIONSOLUTION table shows the results of the regional capacity, maximum surplus reserve and maximum spare capacity evaluations for each day and ldcblock of the study.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 2,
     "format-version": 3,
     "runs": [
       {

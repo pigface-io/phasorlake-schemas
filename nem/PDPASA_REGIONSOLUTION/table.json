@@ -275,6 +275,7 @@
   "description": "The PDPASA region solution data.Note that the OUTAGE_LRC Run Type is no longer reported from 31 July 2025.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 4,
     "format-version": 3,
     "runs": [
       {

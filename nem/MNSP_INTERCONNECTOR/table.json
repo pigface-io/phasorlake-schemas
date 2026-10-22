@@ -95,6 +95,7 @@
   "description": "MNSP_INTERCONNECTOR sets out attributes of each interconnector.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

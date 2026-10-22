@@ -47,6 +47,7 @@
   "description": "This report delivers the calculated RCR for each constraint for each 5 minute trading interval",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

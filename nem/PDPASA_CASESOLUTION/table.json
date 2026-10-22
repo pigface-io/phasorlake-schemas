@@ -119,6 +119,7 @@
   "description": "The top-level table identifying a PDPASA case, reporting options applied in the case and summary results",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

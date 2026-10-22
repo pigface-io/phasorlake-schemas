@@ -89,6 +89,7 @@
   "description": "The FCAS Recovery amount from each NEM Region and the Energy MWh used for the FCAS Recovery calculation from Participants",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

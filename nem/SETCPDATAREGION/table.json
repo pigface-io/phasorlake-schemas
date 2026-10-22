@@ -77,6 +77,7 @@
   "description": "SETCPDATAREGION sets out summary meter settlement data for each region. The table is populated for participants using Data Model 5.2. For participants using Data Model 5.3 or higher, SET_ENERGY_REGION_SUMMARY replace SETCPDATAREGION.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

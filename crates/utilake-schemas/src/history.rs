@@ -47,13 +47,28 @@
 //! Two things set a type beyond the rule:
 //!
 //! - **A published history is kept.** Every field of the history last
-//!   published keeps its id, name and type, every schema its id, and its
-//!   runs stay a prefix of the new ones. A lineage that continues a
-//!   published field keeps the published type; at the first block that
-//!   type cannot hold ([`holds`]), the column gets a new field, recorded as
-//!   breaking with that block's file and time: a split, never a retype. A
-//!   fold that cannot keep the promise ([`utilake_iceberg::compat::check`]) is
-//!   an error.
+//!   published keeps its id, name and type, every schema its id, and every
+//!   file its schema. Each published run covers the observations of its
+//!   report pair and version from its first file to its last, and a
+//!   column's lineage over a covered observation is the published field
+//!   that covers it (`Column::pin`): the field is forced, never minted
+//!   again, however much evidence from before or between the published
+//!   runs is added later. A lineage from before a published field that the
+//!   field's type holds (and, if the field is required, that holds no
+//!   null) is that field; one it cannot hold is a new field, which breaks
+//!   into the published one where it begins. At the first block a
+//!   published type cannot hold ([`holds`]), the column gets a new field,
+//!   recorded as breaking with that block's file and time: a split, never
+//!   a retype. New fields and schemas take the ids after the published
+//!   ones. A fold that cannot keep the promise
+//!   ([`utilake_iceberg::compat::check`]) is an error.
+//!
+//!   Three cases are not kept, and are stated here: the evidence of a file
+//!   already published is taken as unchanged (a re-census that changes it
+//!   is a new field, named by the check only when the file began a run);
+//!   a key column null in a backfill before a published required field is
+//!   its own, optional, field; and two blocks of one file with the same
+//!   report pair and version are covered from the first to the last.
 //! - **An override** (`[[override]]` in the table's declaration) is the
 //!   type of each of the column's lineages that no published field sets,
 //!   and the column's lineage does not end where its values turn to text.
@@ -421,6 +436,14 @@ struct Rules<'a> {
     published: Option<&'a History>,
 }
 
+/// What a published run's schema gives a column: its field.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+struct Want {
+    id: u32,
+    ty: IcebergType,
+    required: bool,
+}
+
 /// One column in one observation.
 #[derive(Debug, Clone, Copy)]
 struct Occ {
@@ -428,6 +451,9 @@ struct Occ {
     obs: usize,
     evidence: Evidence,
     declared: Declared,
+    nulls: u64,
+    /// The published field the observation is covered by, if any.
+    want: Option<Want>,
 }
 
 /// A column over every observation, folding.
@@ -441,9 +467,21 @@ struct Column {
     kind: Kind,
     /// The next of `occ` to fold.
     next: usize,
-    /// The field of its current lineage, its type, whether that is a
-    /// published field's, and where in `occ` the lineage ends.
-    field: Option<(u32, IcebergType, bool, usize)>,
+    /// Its current lineage.
+    field: Option<Lineage>,
+}
+
+/// A column's lineage, folding: its field.
+#[derive(Debug, Clone, Copy)]
+struct Lineage {
+    id: u32,
+    ty: IcebergType,
+    /// Whether the field is a published one.
+    pinned: bool,
+    /// Whether the published field is required.
+    required: bool,
+    /// Where in `occ` the lineage ends.
+    end: usize,
 }
 
 impl Column {
@@ -456,6 +494,59 @@ impl Column {
                 (e.join(o.evidence), widest(d, o.declared))
             })
     }
+
+    /// The published field a lineage starting at `occ[p]` and ending at
+    /// `occ[end]` continues: the one `occ[p]` is covered by, when its type
+    /// holds the values; else the first one a later observation of the
+    /// lineage is covered by, when its type holds everything up to it and,
+    /// if it is required, nothing before it holds a null. None: a new
+    /// field.
+    fn pin(&self, p: usize, end: usize) -> Option<Want> {
+        if let Some(w) = self.occ[p].want {
+            return holds(w.ty, self.occ[p].evidence).then_some(w);
+        }
+        let (q, w) = (p + 1..end).find_map(|q| Some((q, self.occ[q].want?)))?;
+        let (e, _) = self.over(p, q);
+        let nulled = w.required && self.occ[p..q].iter().any(|o| o.nulls > 0);
+        (holds(w.ty, e) && !nulled).then_some(w)
+    }
+}
+
+/// For each observation, the published schema whose run covers it, and
+/// whether it is the first of a published run. A run covers the
+/// observations of its report pair and version from the one its first
+/// file begins to the one its last file ends (the first alone when the
+/// last is not found, or comes first). A run whose first file no
+/// observation begins covers nothing: [`check`] names it.
+fn coverage<'a>(published: Option<&'a History>, obs: &[Obs]) -> Vec<(Option<&'a Schema>, bool)> {
+    let mut out = vec![(None, false); obs.len()];
+    let Some(h) = published else {
+        return out;
+    };
+    for r in &h.runs {
+        let is = |o: &Obs, mark: &Mark, m: &Mark| {
+            o.report == r.report
+                && o.version == r.version
+                && mark.file == m.file
+                && mark.sha256 == m.sha256
+        };
+        let Some(from) = obs.iter().position(|o| is(o, &o.from, &r.from)) else {
+            continue;
+        };
+        let to = obs
+            .iter()
+            .rposition(|o| is(o, &o.to, &r.to))
+            .filter(|&t| t >= from)
+            .unwrap_or(from);
+        let schema = h.schema(r.schema_id);
+        for (i, o) in obs.iter().enumerate().take(to + 1).skip(from) {
+            if o.report == r.report && o.version == r.version {
+                out[i].0 = schema;
+            }
+        }
+        out[from].1 = true;
+    }
+    out
 }
 
 fn fold_table(
@@ -465,6 +556,7 @@ fn fold_table(
     obs: &[Obs],
 ) -> Result<(History, Vec<u32>), HistoryError> {
     let key = rules.key;
+    let covered = coverage(rules.published, obs);
     // Each column's observations, and where its values turn to text.
     let mut columns: BTreeMap<&str, Column> = BTreeMap::new();
     for (i, o) in obs.iter().enumerate() {
@@ -487,30 +579,42 @@ fn fold_table(
                 obs: i,
                 evidence: seen,
                 declared,
+                nulls: o.nulls[j],
+                want: covered[i].0.and_then(|s| s.by_name(name)).map(|f| Want {
+                    id: f.id,
+                    ty: f.ty,
+                    required: f.required,
+                }),
             });
         }
     }
-    // The published fields: a lineage minted with one's id and name
-    // continues it.
-    let published: BTreeMap<u32, (&str, IcebergType)> = rules
-        .published
+    // The published fields and schemas keep their ids; new ones take the
+    // ids after them.
+    let published = rules.published;
+    let mut next_id = published
         .map(History::fields)
         .unwrap_or_default()
-        .into_iter()
-        .map(|f| (f.id, (f.name.as_str(), f.ty)))
-        .collect();
+        .iter()
+        .map(|f| f.id)
+        .max()
+        .unwrap_or(0);
     let mut required: BTreeMap<u32, bool> = BTreeMap::new();
-    let mut last_id = 0u32;
     let mut schemas = Vec::with_capacity(obs.len());
     let mut out = History {
         table: table.to_owned(),
         format_version: 3,
         current_schema_id: 0,
-        schemas: Vec::new(),
+        schemas: published.map(|h| h.schemas.clone()).unwrap_or_default(),
         runs: Vec::new(),
         breaking: Vec::new(),
     };
-    for o in obs {
+    let mut next_schema_id = out
+        .schemas
+        .iter()
+        .map(|s| s.schema_id)
+        .max()
+        .map_or(0, |m| m + 1);
+    for (i, o) in obs.iter().enumerate() {
         let mut fields = Vec::with_capacity(o.columns.len());
         for (j, name) in o.columns.iter().enumerate() {
             let c = columns
@@ -519,37 +623,60 @@ fn fold_table(
             let p = c.next;
             c.next += 1;
             let seen = c.occ[p].evidence;
+            let want = c.occ[p].want;
             // A lineage starts at the column's first observation, where
-            // its values turn to text, and where a published type no
-            // longer holds them.
-            while c
-                .field
-                .is_none_or(|(_, ty, pinned, end)| p == end || (pinned && !holds(ty, seen)))
-            {
+            // its values turn to text, where a published type no longer
+            // holds them, where a published required field meets a null
+            // outside its runs, and where another published field covers
+            // them.
+            let starts = match c.field {
+                None => true,
+                Some(l) => {
+                    p == l.end
+                        || (l.pinned && !holds(l.ty, seen))
+                        || (l.pinned && l.required && want.is_none() && c.occ[p].nulls > 0)
+                        || want.is_some_and(|w| w.id != l.id && holds(w.ty, seen))
+                }
+            };
+            if starts {
                 let end = c
                     .turns
                     .iter()
                     .copied()
                     .find(|&t| t > p)
                     .unwrap_or(c.occ.len());
-                last_id += 1;
-                let ty = match published.get(&last_id).filter(|f| f.0 == name) {
-                    Some(&(_, ty)) => (ty, true),
-                    None => (lineage_type(table, name, rules, c, obs, (p, end))?, false),
+                let next = match c.pin(p, end) {
+                    Some(w) => Lineage {
+                        id: w.id,
+                        ty: w.ty,
+                        pinned: true,
+                        required: w.required,
+                        end,
+                    },
+                    None => {
+                        next_id += 1;
+                        Lineage {
+                            id: next_id,
+                            ty: lineage_type(table, name, rules, c, obs, (p, end))?,
+                            pinned: false,
+                            required: false,
+                            end,
+                        }
+                    }
                 };
-                if let Some((old_id, old_type, ..)) = c.field {
+                if let Some(old) = c.field {
                     out.breaking.push(Break {
                         column: name.clone(),
-                        old_field_id: old_id,
-                        old_type: old_type.name(),
-                        new_field_id: last_id,
-                        new_type: ty.0.name(),
+                        old_field_id: old.id,
+                        old_type: old.ty.name(),
+                        new_field_id: next.id,
+                        new_type: next.ty.name(),
                         at: o.from.clone(),
                     });
                 }
-                c.field = Some((last_id, ty.0, ty.1, end));
+                c.field = Some(next);
             }
-            let (id, ty, ..) = c.field.expect("a lineage was started");
+            let Lineage { id, ty, .. } = c.field.expect("a lineage was started");
             let req = required.entry(id).or_insert_with(|| key.contains(name));
             *req &= o.nulls[j] == 0;
             fields.push(Field {
@@ -569,14 +696,15 @@ fn fold_table(
             .collect();
         let schema = Schema {
             schema_id: 0,
+            last_column_id: fields.iter().map(|f| f.id).max().unwrap_or(0),
             fields,
             identifier_field_ids,
-            last_column_id: last_id,
         };
         let id = match out.schemas.iter().find(|s| s.same_as(&schema)) {
             Some(s) => s.schema_id,
             None => {
-                let id = u32::try_from(out.schemas.len()).unwrap_or(u32::MAX);
+                let id = next_schema_id;
+                next_schema_id += 1;
                 out.schemas.push(Schema {
                     schema_id: id,
                     ..schema
@@ -584,7 +712,7 @@ fn fold_table(
                 id
             }
         };
-        extend(&mut out, id, o);
+        extend(&mut out, id, o, covered[i].1);
         schemas.push(id);
     }
     out.current_schema_id = out.runs.last().map_or(0, |r| r.schema_id);
@@ -616,12 +744,13 @@ fn lineage_type(
     }
 }
 
-/// Adds `o`, under schema `id`, to the last run or as a new one.
-fn extend(out: &mut History, id: u32, o: &Obs) {
-    if let Some(r) = out.runs.last_mut()
-        && r.schema_id == id
-        && r.version == o.version
-        && r.report == o.report
+/// Adds `o`, under schema `id`, to the last run or as a new one; `published`
+/// when `o` began a published run, which is then kept whole.
+fn extend(out: &mut History, id: u32, o: &Obs, published: bool) {
+    let same = |r: &Run| r.schema_id == id && r.version == o.version && r.report == o.report;
+    if !published
+        && let Some(r) = out.runs.last_mut()
+        && same(r)
     {
         if let Err(at) = r.kinds.binary_search(&o.kind) {
             r.kinds.insert(at, o.kind.clone());
@@ -647,13 +776,12 @@ fn extend(out: &mut History, id: u32, o: &Obs) {
             if r.report != o.report {
                 changes.push(Change::Report);
             }
-            let before = &out.schemas[r.schema_id as usize];
-            let earlier: Vec<&Schema> = out
-                .runs
-                .iter()
-                .map(|r| &out.schemas[r.schema_id as usize])
-                .collect();
-            let updates = updates(before, &out.schemas[id as usize], &earlier);
+            if same(r) {
+                changes.push(Change::Published);
+            }
+            let schema = |id| out.schema(id).expect("every run's schema is kept");
+            let earlier: Vec<&Schema> = out.runs.iter().map(|r| schema(r.schema_id)).collect();
+            let updates = updates(schema(r.schema_id), schema(id), &earlier);
             let overlaps = match (&r.to.data_time, &o.from.data_time) {
                 (Some(end), Some(start)) => start < end,
                 _ => false,

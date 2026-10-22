@@ -95,6 +95,7 @@
   "description": "This report delivers the calculated contribution factor value for each 5 minute trading interval for each constraint and FPP unit",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

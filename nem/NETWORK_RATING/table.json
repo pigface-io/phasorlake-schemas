@@ -65,6 +65,7 @@
   "description": "NETWORK_RATING defines a list of the equipment ratings that may be used as inputs to market constraints.\nIf the rating is flagged as dynamic then in real-time the rating will be dynamically determined and the static value will be used as a fallback value should the dynamic value fail.\nNote:\nIn some rare cases equipment has ratings provided from more than one TNSP. This is identified by a different SPD Id. The value used in the NEM is normally the more restrictive of the two values.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

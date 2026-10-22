@@ -47,6 +47,7 @@
   "description": "Publishes metering data associated with wholesale interconnectors for a given CASE_ID",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

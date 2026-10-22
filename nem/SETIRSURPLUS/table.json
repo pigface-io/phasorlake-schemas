@@ -71,6 +71,7 @@
   "description": "SETIRSURPLUS records the interregional residue calculation for each interconnector and each side of the interconnector.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

@@ -95,6 +95,7 @@
   "description": "Interconnector results for interval of max demand per day",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

@@ -59,6 +59,7 @@
   "description": "MTPASA_RESERVELIMITSOLUTION is obsolete from 2017 End of Year DM4.27 Release. \nMT PASA Solution table reporting whether a MT PASA Reserve requirement is binding for each day and LDC block of the run.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

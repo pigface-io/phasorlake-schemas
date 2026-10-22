@@ -311,6 +311,7 @@
   "description": "PREDISPATCHINTERSENSITIVITIES sets out the sensitivity flows for each interconnector by period.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

@@ -107,6 +107,7 @@
   "description": "This report delivers a summary of FCAS requirements as used by the FPP calculation (i.e. only RAISEREG / LOWERREG bid types)",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 2,
     "format-version": 3,
     "runs": [
       {

@@ -59,6 +59,7 @@
   "description": "This report delivers the forward estimated residual cost rate based on P5min runs. These high-level estimates (i.e. assuming that all is unused FCAS) will be provided for each constraint for each 5 minute pre-dispatch interval.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

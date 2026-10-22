@@ -179,6 +179,7 @@
   "description": "GENCONDATA sets out the generic constraints contained within a generic constraint set invoked in PASA, predispatch and dispatch.\nFields enable selective application of invoked constraints in the Dispatch, Predispatch, ST PASA or MT PASA processes.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 3,
     "format-version": 3,
     "runs": [
       {

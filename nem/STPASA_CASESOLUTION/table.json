@@ -119,6 +119,7 @@
   "description": "STPASA_CASESOLUTION holds one record containing results pertaining to each entire solution",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

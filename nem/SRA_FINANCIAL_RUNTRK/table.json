@@ -59,6 +59,7 @@
   "description": "Records details of the settlement process for the cancellation and purchase of SRA Auction Units",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

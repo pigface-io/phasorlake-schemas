@@ -71,6 +71,7 @@
   "description": "Constraint Summary results over aggregation periods",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

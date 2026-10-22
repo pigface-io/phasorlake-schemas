@@ -41,6 +41,7 @@
   "description": "Reflects the 30-minute average price (the pre-5MS trading price).",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

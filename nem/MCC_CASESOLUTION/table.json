@@ -11,6 +11,7 @@
   "description": "Top level table for each MCC dispatch rerun process. Note there will be one record for each dispatch interval",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

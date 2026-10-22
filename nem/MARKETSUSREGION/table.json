@@ -23,6 +23,7 @@
   "description": "MARKETSUSREGION  is obsolete from 2017 End of Year DM4.27 Release. \nMARKETSUSREGION sets out a regions affected by a market suspension.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

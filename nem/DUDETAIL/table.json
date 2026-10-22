@@ -209,6 +209,7 @@
   "description": "DUDETAIL sets out a records specific details for each unit including start type and whether normally on or off load. Much of this data is information only and is not used in dispatch or settlements.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 6,
     "format-version": 3,
     "runs": [
       {

@@ -71,6 +71,7 @@
   "description": "MTPASA_CONSTRAINTSOLUTION is obsolete from 2017 End of Year DM4.27 Release. \nThe MTPASA_CONSTRAINTSOLUTION table holds the binding and violated constraint results from the capacity evaluation, including the RHS value.\nChange Notice 379 announced the replacement of the MT PASA data model so all MTPASAxxx tables become obsolete, replaced by MTPASA_xxx tables.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

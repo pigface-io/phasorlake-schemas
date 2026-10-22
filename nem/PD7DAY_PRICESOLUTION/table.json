@@ -113,6 +113,7 @@
   "description": "PD7DAY price solution",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

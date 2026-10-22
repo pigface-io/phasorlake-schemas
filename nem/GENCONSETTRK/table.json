@@ -71,6 +71,7 @@
   "description": "GENCONSETTRK assists in determining the correct version of a generic constraint set that has been invoked in GENCONSETINVOKE.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

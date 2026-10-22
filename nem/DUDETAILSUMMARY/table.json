@@ -179,6 +179,7 @@
   "description": "DUDETAILSUMMARY sets out a single summary unit table so reducing the need for participants to use the various dispatchable unit detail and owner tables to establish generating unit specific details.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 3,
     "format-version": 3,
     "runs": [
       {

@@ -47,6 +47,7 @@
   "description": "A submission of expected plant availability for an intermittent generating unit cluster, by Trading Day and Trading Interval.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

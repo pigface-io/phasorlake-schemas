@@ -59,6 +59,7 @@
   "description": "This report delivers the forecast residual default contribution factors (DCF) effective for a billing period (aligned to the settlement week)",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

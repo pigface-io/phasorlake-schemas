@@ -89,6 +89,7 @@
   "description": "DISPATCHCONSTRAINT sets out details of all binding and interregion constraints in each dispatch run. Note: invoked constraints can be established from GENCONSETINVOKE. Binding constraints show as marginal value >$0. Interconnector constraints are listed so RHS (SCADA calculated limits) can be reported.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 2,
     "format-version": 3,
     "runs": [
       {

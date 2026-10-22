@@ -59,6 +59,7 @@
   "description": "This report delivers the curated 4 second measurement MW data for each FPP unit",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

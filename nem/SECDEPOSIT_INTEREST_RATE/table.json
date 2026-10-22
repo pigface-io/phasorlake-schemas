@@ -29,6 +29,7 @@
   "description": "The security deposit interest rate on a daily basis. This is the public table published when the business enter and authorise a new daily interest rate",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

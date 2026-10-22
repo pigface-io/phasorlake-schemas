@@ -47,6 +47,7 @@
   "description": "MT PASA input table defining a set of MT PASA Reserve Requirements. Note only one set can be active on a given date.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

@@ -275,6 +275,7 @@
   "description": "STPASA_REGIONSOLUTION shows the results of the regional capacity, maximum surplus reserve and maximum spare capacity evaluations for each period of the study. Note that the RELIABILITY_LRC and OUTAGE_LRC Run Types are no longer reported from 31 July 2025.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 3,
     "format-version": 3,
     "runs": [
       {

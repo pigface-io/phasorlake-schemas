@@ -47,6 +47,7 @@
   "description": "GENCONSET sets out generic constraint sets that are invoked and revoked, and may contain many generic constraints (GENCONDATA).",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

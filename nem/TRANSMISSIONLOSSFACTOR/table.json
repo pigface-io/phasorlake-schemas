@@ -47,6 +47,7 @@
   "description": "TRANSMISSIONLOSSFACTOR shows the Transmission Loss factors applied at each connection point.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

@@ -89,6 +89,7 @@
   "description": "APEVENTREGION is the Region detail for an administered pricing event defined through APEVENT.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 2,
     "format-version": 3,
     "runs": [
       {

@@ -65,6 +65,7 @@
   "description": "BILLINGREGIONEXPORTS sets out the region summary table of overall energy exported to and from each region for each billing run.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

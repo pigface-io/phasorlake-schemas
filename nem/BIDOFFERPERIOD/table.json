@@ -173,6 +173,7 @@
   "description": "BIDOFFERPERIOD shows 5-minute period-based Energy and Ancillary Service bid data.BIDOFFERPERIOD is a child table of BIDDAYOFFER",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 4,
     "format-version": 3,
     "runs": [
       {

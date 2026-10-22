@@ -65,6 +65,7 @@
   "description": "MARKETFEE sets out fee type and period for each market fee.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

@@ -197,6 +197,7 @@
   "description": "BIDPEROFFER_D shows the public summary of the energy and FCAS offers applicable in the Dispatch for the\nintervals identified. BIDPEROFFER_D is the child to BIDDAYOFFER_D.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 3,
     "format-version": 3,
     "runs": [
       {

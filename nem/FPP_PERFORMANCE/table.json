@@ -59,6 +59,7 @@
   "description": "This report delivers the calculated performance value for each 5 minute trading interval for each FPP unit",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

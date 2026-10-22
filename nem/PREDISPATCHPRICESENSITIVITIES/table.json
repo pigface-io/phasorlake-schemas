@@ -311,6 +311,7 @@
   "description": "PREDISPATCHPRICESENSITIVITIES sets out the sensitivity prices for each region by period.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

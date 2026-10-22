@@ -53,6 +53,7 @@
   "description": "TRADINGINTERCONNECT shows the Interconnector flows for the 5 minutes Trading Interval.\nPrior to 5 Minute Settlements, this was the average of the six 5 minute dispatch intervals within the 30 minute period.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {

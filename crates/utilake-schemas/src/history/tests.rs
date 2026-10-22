@@ -68,20 +68,36 @@ fn span_of(m: &str) -> (String, String) {
 /// A month's block: its release month, version, kind and columns.
 type Month<'a> = (&'a str, u16, &'a str, &'a [Col<'a>]);
 
-/// One block per month, in the order given, each spanning that month.
+/// One block per month, in the order given, each spanning that month,
+/// from a file named for the month.
 fn observe(blocks: &[Month<'_>]) -> Observations {
     let mut h = Observations::default();
-    for (i, (m, version, kind, cols)) in blocks.iter().enumerate() {
+    for (m, version, kind, cols) in blocks {
         let (start, end) = span_of(m);
         h.block(
             "DISPATCHPRICE",
             month(m),
-            (&format!("F{i}.zip"), 0),
+            (&format!("{m}.zip"), 0),
             &record(kind),
             &block(*version, Some((&start, &end)), cols),
         );
     }
     h
+}
+
+/// A run of report files of month `m`, ending on its day 29 so it sorts
+/// after the month's archive block, as one observation.
+fn report_run(h: &mut Observations, m: &str, cols: &[Col<'_>]) {
+    let (start, _) = span_of(m);
+    let end = format!("{}/{}/29 00:00:00", &m[..4], &m[5..]);
+    let (first, last) = (format!("R{m}a.csv"), format!("R{m}b.csv"));
+    h.run(
+        "DISPATCHPRICE",
+        month(m),
+        ((&first, "cd"), (&last, "ef"), 2),
+        &record("reports/archive"),
+        &block(1, Some((&start, &end)), cols),
+    );
 }
 
 /// The fold of `blocks` under `d`, kept to `published`.
@@ -159,7 +175,7 @@ fn a_column_keeps_one_type_until_its_values_turn_to_text() {
     assert_eq!((b.new_field_id, b.new_type.as_str()), (4, "string"));
     assert_eq!(
         (b.at.file.as_str(), b.at.release.as_str()),
-        ("F3.zip", "2024-04")
+        ("2024-04.zip", "2024-04")
     );
     assert_eq!(h.runs[1].updates, [Update::Delete { field_id: 3 }, add(4)]);
 }
@@ -425,18 +441,36 @@ fn instants_are_seconds_since_1970() {
 /// Folds `blocks[..k]` for each `k`, each kept to the one before, and
 /// checks every promise held; returns the last.
 fn chain(blocks: &[Month<'_>], d: &Declarations) -> History {
+    let order: Vec<usize> = (0..blocks.len()).collect();
+    chain_inserting(blocks, &order, d)
+}
+
+/// Folds the months `order[..k]` of `blocks` (in month order) for each
+/// `k`, each kept to the one before, and checks every promise held;
+/// returns the last. An order that is not the months' adds months before
+/// and between those published.
+fn chain_inserting(blocks: &[Month<'_>], order: &[usize], d: &Declarations) -> History {
+    let taken = |k: usize| -> Vec<Month<'_>> {
+        let mut ix: Vec<usize> = order[..k].to_vec();
+        ix.sort_unstable();
+        ix.iter().map(|&i| blocks[i]).collect()
+    };
     let mut published: Option<History> = None;
-    for k in 1..=blocks.len() {
-        let now = fold_with(&blocks[..k], d, published.as_ref()).unwrap();
+    for k in 1..=order.len() {
+        let now = fold_with(&taken(k), d, published.as_ref()).unwrap();
         if let Some(old) = &published {
-            assert_eq!(check(old, &now), [], "after {k} month(s)");
+            assert_eq!(check(old, &now), [], "after {k} month(s) of {order:?}");
         }
         // Without one, the fold of the same months as a baseline also
         // keeps it.
         if k > 1 {
-            let plain = fold_with(&blocks[..k - 1], d, None).unwrap();
-            let next = fold_with(&blocks[..k], d, Some(&plain)).unwrap();
-            assert_eq!(check(&plain, &next), [], "plain, after {k} month(s)");
+            let plain = fold_with(&taken(k - 1), d, None).unwrap();
+            let next = fold_with(&taken(k), d, Some(&plain)).unwrap();
+            assert_eq!(
+                check(&plain, &next),
+                [],
+                "plain, after {k} month(s) of {order:?}"
+            );
         }
         published = Some(now);
     }
@@ -512,6 +546,195 @@ fn every_fold_keeps_what_the_fold_before_it_published() {
             .map(|(m, v, k, c)| (m.as_str(), *v, *k, c.as_slice()))
             .collect();
         chain(&blocks, &decl());
+        // And in any order: months before and between those published.
+        let mut order: Vec<usize> = (0..blocks.len()).collect();
+        for i in (1..order.len()).rev() {
+            let j = usize::try_from(rng.below(i as u64 + 1)).unwrap();
+            order.swap(i, j);
+        }
+        chain_inserting(&blocks, &order, &decl());
+    }
+}
+
+// ── Evidence from before and between what was published ────────────────────
+
+/// Months published, then a month before them: every field and schema
+/// keeps its id, the published first run is kept whole after the new one.
+#[test]
+fn a_backfilled_month_keeps_every_published_id() {
+    let later: [Month<'_>; 3] = [
+        ("2024-02", 1, "dvd", &[T, R, P]),
+        ("2024-03", 1, "dvd", &[T, R, P]),
+        ("2024-04", 1, "dvd", &[T, R, P]),
+    ];
+    let published = months(&later);
+    let mut all = vec![("2024-01", 1, "dvd", &[T, R, P][..])];
+    all.extend_from_slice(&later);
+    let now = fold_with(&all, &decl(), Some(&published)).unwrap();
+    assert_eq!(check(&published, &now), []);
+    assert_eq!(now.schemas, published.schemas);
+    assert_eq!(now.fields(), published.fields());
+    assert_eq!(schemas_of(&now), [0, 0]);
+    assert_eq!(now.runs[0].changes, [Change::First]);
+    assert_eq!(now.runs[1].changes, [Change::Published]);
+    assert_eq!(now.runs[1].from.file, "2024-02.zip");
+    assert_eq!((now.runs[0].files, now.runs[1].files), (1, 3));
+    assert!(now.breaking.is_empty());
+    assert_eq!(now.current_schema_id, 0);
+    // The same fold, from scratch, is one run: the boundary is only kept.
+    assert_eq!(months(&all).runs.len(), 1);
+    // And another month later still grows the published run.
+    let mut more = all.clone();
+    more.push(("2024-05", 1, "dvd", &[T, R, P]));
+    let later = fold_with(&more, &decl(), Some(&now)).unwrap();
+    assert_eq!(check(&now, &later), []);
+    assert_eq!(later.runs[1].files, 4);
+}
+
+/// A month before the published ones whose values the published field
+/// cannot hold is a new field, which breaks into the published one where
+/// that begins; values it holds continue the published field back in
+/// time.
+#[test]
+fn a_lineage_before_a_published_one_takes_a_new_id() {
+    let later: [Month<'_>; 2] = [
+        ("2024-03", 1, "dvd", &[T, R, P]),
+        ("2024-04", 1, "dvd", &[T, R, P]),
+    ];
+    let published = months(&later);
+    let five_two = IcebergType::decimal(5, 2).unwrap();
+    assert_eq!(published.schemas[0].by_name("RRP").unwrap().ty, five_two);
+    // Text before: its own field, string, breaking into field 3.
+    let text = [T, R, ("RRP", Kind::Text, 0, 0, 0)];
+    let mut all = vec![("2024-02", 1, "dvd", &text[..])];
+    all.extend_from_slice(&later);
+    let now = fold_with(&all, &decl(), Some(&published)).unwrap();
+    assert_eq!(check(&published, &now), []);
+    assert_eq!(schemas_of(&now), [1, 0]);
+    assert_eq!(
+        now.schemas[1].by_name("RRP").map(|f| (f.id, f.ty)),
+        Some((4, IcebergType::String))
+    );
+    let b = &now.breaking[0];
+    assert_eq!((b.old_field_id, b.new_field_id), (4, 3));
+    assert_eq!(b.at.file, "2024-03.zip");
+    assert_eq!(
+        now.runs[1].updates,
+        [Update::Delete { field_id: 4 }, add(3)]
+    );
+    // Narrower numbers before: the published field, back in time.
+    let narrow = [T, R, ("RRP", Kind::Decimal, 2, 1, 0)];
+    all[0] = ("2024-02", 1, "dvd", &narrow);
+    let now = fold_with(&all, &decl(), Some(&published)).unwrap();
+    assert_eq!(check(&published, &now), []);
+    assert_eq!(now.schemas, published.schemas);
+    assert_eq!(schemas_of(&now), [0, 0]);
+    assert!(now.breaking.is_empty());
+    // Wider numbers before: a new field, as text was.
+    let wide = [T, R, ("RRP", Kind::Decimal, 9, 2, 0)];
+    all[0] = ("2024-02", 1, "dvd", &wide);
+    let now = fold_with(&all, &decl(), Some(&published)).unwrap();
+    assert_eq!(check(&published, &now), []);
+    assert_eq!(
+        now.schemas[1].by_name("RRP").map(|f| (f.id, f.ty)),
+        Some((4, IcebergType::decimal(11, 2).unwrap()))
+    );
+}
+
+/// A key column null in a month before the published ones is its own
+/// optional field there: the published field stays required.
+#[test]
+fn a_key_column_null_in_a_backfill_is_its_own_field() {
+    let later: [Month<'_>; 2] = [
+        ("2024-03", 1, "dvd", &[T, R, P]),
+        ("2024-04", 1, "dvd", &[T, R, P]),
+    ];
+    let published = months(&later);
+    assert!(published.schemas[0].by_name("REGIONID").unwrap().required);
+    let nulled = [T, ("REGIONID", Kind::Text, 0, 0, 1), P];
+    let mut all = vec![("2024-02", 1, "dvd", &nulled[..])];
+    all.extend_from_slice(&later);
+    let now = fold_with(&all, &decl(), Some(&published)).unwrap();
+    assert_eq!(check(&published, &now), []);
+    assert_eq!(now.schemas[0], published.schemas[0]);
+    let region = now.schemas[1].by_name("REGIONID").unwrap();
+    assert_eq!((region.id, region.required), (4, false));
+    assert_eq!(now.schemas[1].identifier_field_ids, [1]);
+    assert_eq!(schemas_of(&now), [1, 0]);
+    assert_eq!(
+        (now.breaking[0].old_field_id, now.breaking[0].new_field_id),
+        (4, 2)
+    );
+}
+
+/// Report files found later inside a published run, in a month between
+/// its files: the same values join the run; values the field cannot hold
+/// split it around a new field, and every published file keeps its
+/// schema.
+#[test]
+fn a_report_run_inside_a_published_run_keeps_its_schema() {
+    let blocks: [Month<'_>; 2] = [
+        ("2024-02", 1, "dvd", &[T, R, P]),
+        ("2024-04", 1, "dvd", &[T, R, P]),
+    ];
+    let published = months(&blocks);
+    let d = decl();
+    let floor = BTreeMap::from([("DISPATCHPRICE".to_owned(), published.clone())]);
+    let with = |cols: &[Col<'_>]| {
+        let mut obs = observe(&blocks);
+        report_run(&mut obs, "2024-03", cols);
+        obs.finish(&d, &floor)
+            .map(|mut t| t.remove("DISPATCHPRICE").unwrap())
+            .unwrap()
+    };
+    let same = with(&[T, R, P]);
+    assert_eq!(check(&published, &same), []);
+    assert_eq!(schemas_of(&same), [0]);
+    assert_eq!(same.runs[0].files, 4);
+    assert_eq!(same.runs[0].kinds, ["dvd", "reports/archive"]);
+    let wide = with(&[T, R, ("RRP", Kind::Decimal, 9, 2, 0)]);
+    assert_eq!(check(&published, &wide), []);
+    assert_eq!(schemas_of(&wide), [0, 1, 0]);
+    assert_eq!(wide.runs[1].from.file, "R2024-03a.csv");
+    assert_eq!(wide.runs[1].kinds, ["reports/archive"]);
+    let breaks: Vec<(u32, u32, &str)> = wide
+        .breaking
+        .iter()
+        .map(|b| (b.old_field_id, b.new_field_id, b.at.file.as_str()))
+        .collect();
+    assert_eq!(breaks, [(3, 4, "R2024-03a.csv"), (4, 3, "2024-04.zip")]);
+    assert_eq!(wide.runs[2].changes, [Change::Schema]);
+    assert_eq!(
+        wide.runs[2].updates,
+        [
+            Update::Delete { field_id: 4 },
+            Update::Restore { field_id: 3 }
+        ]
+    );
+}
+
+/// Two column lists that alternate keep their two schemas and ids when a
+/// month of either is added before them.
+#[test]
+fn schemas_that_alternate_keep_their_ids_under_backfill() {
+    let a: &[Col<'_>] = &[T, R, P];
+    let b: &[Col<'_>] = &[T, R, X, P];
+    let later: [Month<'_>; 4] = [
+        ("2024-03", 1, "dvd", a),
+        ("2024-04", 1, "dvd", b),
+        ("2024-05", 1, "dvd", a),
+        ("2024-06", 1, "dvd", b),
+    ];
+    let published = months(&later);
+    assert_eq!(schemas_of(&published), [0, 1, 0, 1]);
+    for (cols, runs) in [(b, [1, 0, 1, 0, 1]), (a, [0, 0, 1, 0, 1])] {
+        let mut all = vec![("2024-02", 1, "dvd", cols)];
+        all.extend_from_slice(&later);
+        let now = fold_with(&all, &decl(), Some(&published)).unwrap();
+        assert_eq!(check(&published, &now), []);
+        assert_eq!(now.schemas, published.schemas);
+        assert_eq!(schemas_of(&now), runs);
+        assert!(now.breaking.is_empty());
     }
 }
 
@@ -538,7 +761,7 @@ fn a_decimal_wider_than_published_splits_the_column() {
     assert_eq!((b.new_field_id, b.new_type.as_str()), (4, "decimal(11, 2)"));
     assert_eq!(
         (b.at.file.as_str(), b.at.release.as_str()),
-        ("F2.zip", "2024-03")
+        ("2024-03.zip", "2024-03")
     );
     assert_eq!(b.at.data_time.as_deref(), Some("2024-03-01T00:05:00+10:00"));
     assert_eq!(schemas_of(&now), [0, 1]);
@@ -569,15 +792,16 @@ fn a_fold_that_cannot_keep_the_promise_is_an_error() {
         ("2024-01", 1, "dvd", &[T, R, P]),
         ("2024-02", 1, "dvd", &[T, R, P]),
     ];
-    // Published under another name: the minted field is not it.
+    // Published under another name: no field of that name covers the
+    // column, so it is a new one, and the run begins another schema.
     let mut renamed = months(&blocks);
     for s in &mut renamed.schemas {
         s.fields[2].name = "PRICE".into();
     }
     let e = fold_with(&blocks, &decl(), Some(&renamed)).unwrap_err();
-    assert!(
-        e.to_string().starts_with("The history of DISPATCHPRICE breaks what nem/DISPATCHPRICE/table.json published: field 3 was PRICE decimal(5, 2) and is now RRP decimal(5, 2); "),
-        "{e}"
+    assert_eq!(
+        e.to_string(),
+        "The history of DISPATCHPRICE breaks what nem/DISPATCHPRICE/table.json published: run 0 has changed."
     );
     // Published with a type the census's own values do not fit: the
     // field cannot be kept, and a new one is minted at once.
@@ -586,7 +810,21 @@ fn a_fold_that_cannot_keep_the_promise_is_an_error() {
         s.fields[2].ty = IcebergType::Long;
     }
     let e = fold_with(&blocks, &decl(), Some(&narrow)).unwrap_err();
-    assert!(e.to_string().contains("field 3 is gone"), "{e}");
+    assert!(e.to_string().ends_with("run 0 has changed."), "{e}");
+    // Published from a file the census no longer has.
+    let mut moved = months(&blocks);
+    moved.runs[0].from.file = "Z.zip".into();
+    let e = fold_with(&blocks, &decl(), Some(&moved)).unwrap_err();
+    assert!(
+        e.to_string().ends_with("run 0's first file begins no run."),
+        "{e}"
+    );
+    // Published to a file after every observation of it: the first alone.
+    let mut cut = months(&blocks);
+    cut.runs[0].to = cut.runs[0].from.clone();
+    cut.runs[0].to.file = "Z.zip".into();
+    let now = fold_with(&blocks, &decl(), Some(&cut)).unwrap();
+    assert_eq!(check(&cut, &now), []);
     // A table published that no census holds.
     let mut gone = months(&blocks);
     gone.table = "GONE".into();
@@ -630,7 +868,7 @@ fn an_override_types_the_column_and_must_hold_its_values() {
     let e = fold_with(&blocks, &overridden("RRP", d16), None).unwrap_err();
     assert_eq!(
         e.to_string(),
-        "The override of RRP in DISPATCHPRICE as decimal(16, 6) cannot hold the values of F1.zip; tables/DISPATCHPRICE.toml needs another type."
+        "The override of RRP in DISPATCHPRICE as decimal(16, 6) cannot hold the values of 2024-02.zip; tables/DISPATCHPRICE.toml needs another type."
     );
     // A published field keeps its type; the override types the field that
     // follows it once the published type no longer holds the values.
@@ -647,7 +885,7 @@ fn an_override_types_the_column_and_must_hold_its_values() {
         (b.old_type.as_str(), b.new_type.as_str()),
         ("decimal(5, 2)", "string")
     );
-    assert_eq!(b.at.file, "F1.zip");
+    assert_eq!(b.at.file, "2024-02.zip");
     let e = fold_with(
         &blocks,
         &overridden("RRP", IcebergType::Long),
@@ -681,7 +919,7 @@ fn every_block_resolves_to_its_runs_fields() {
     .unwrap_err();
     assert!(matches!(
         &e,
-        HistoryError::Unresolved { file, schema: 0, resolved: Some(1), .. } if file == "F0.zip"
+        HistoryError::Unresolved { file, schema: 0, resolved: Some(1), .. } if file == "2024-06.zip"
     ));
     assert!(
         e.to_string()

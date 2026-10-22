@@ -137,6 +137,7 @@
   "description": "GENUNITS shows Genset details for each physical unit with the relevant station.",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

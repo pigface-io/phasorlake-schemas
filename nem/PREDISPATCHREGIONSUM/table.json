@@ -767,6 +767,7 @@
   "description": "PREDISPATCHREGIONSUM sets out the overall regional Pre-Dispatch results for base case details (excluding price).",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 6,
     "format-version": 3,
     "runs": [
       {

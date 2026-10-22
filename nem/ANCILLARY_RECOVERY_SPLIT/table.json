@@ -47,6 +47,7 @@
   "description": "ANCILLARY_RECOVERY_SPLIT holds the actual customer portion for each service and payment type. A single EFFECTIVEDATE/VERSIONNO combination applies to all services (i.e. the latest EFFECTIVEDATE/VERSIONNO is not retrieved for a single service, but applies to a data set).",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 1,
     "format-version": 3,
     "runs": [
       {

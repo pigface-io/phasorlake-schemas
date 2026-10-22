@@ -23,6 +23,7 @@
   "description": "Entity table for group",
   "iceberg": {
     "breaking": [],
+    "current-schema-id": 0,
     "format-version": 3,
     "runs": [
       {
