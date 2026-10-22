@@ -230,8 +230,8 @@ fn a_month_is_fetched_politely_once_and_recorded() {
     assert_eq!(read("DOCUMENTATION/README.txt"), b"rd");
     let all = crate::census::files_under(&out).unwrap();
     assert_eq!(all.len(), 5, "no .part left, nothing else fetched: {all:?}");
-    let tsv = sources_path(&repo, month);
-    assert!(tsv.ends_with("sources/2024-01.tsv"));
+    let tsv = sources_path(&repo, Market::Nem, month);
+    assert!(tsv.ends_with("sources/nem/2024-01.tsv"));
     let text = std::fs::read_to_string(&tsv).unwrap();
     let sha = crate::ctl::sha256;
     let want = format!(
@@ -375,7 +375,7 @@ fn a_refusal_stops_the_fetch_and_keeps_what_landed() {
                 .contains(&format!("HTTP {status}, so fetching stops"))
         );
         assert_eq!(s.urls().last(), Some(&second.as_str()), "nothing after it");
-        let recorded = read_sources(&sources_path(&repo, month)).unwrap();
+        let recorded = read_sources(&sources_path(&repo, Market::Nem, month)).unwrap();
         assert_eq!(recorded.len(), 1, "the control file, fetched first");
         // A listing refused stops it too.
         let mut s = Server::default();
@@ -471,8 +471,12 @@ fn what_cannot_be_fetched_or_written_is_an_error_naming_it() {
         FetchError::Write { .. }
     ));
     let ro = dir.path().join("ro");
-    std::fs::create_dir_all(ro.join("sources")).unwrap();
-    std::fs::set_permissions(ro.join("sources"), std::fs::Permissions::from_mode(0o555)).unwrap();
+    std::fs::create_dir_all(ro.join("sources/nem")).unwrap();
+    std::fs::set_permissions(
+        ro.join("sources/nem"),
+        std::fs::Permissions::from_mode(0o555),
+    )
+    .unwrap();
     let e = fetch(&mut s, &dir.path().join("other"), &ro);
     assert!(
         e.to_string().contains("2024-01.tsv could not be written"),
@@ -480,7 +484,7 @@ fn what_cannot_be_fetched_or_written_is_an_error_naming_it() {
     );
 
     // A sources file that is not one, or cannot be read.
-    let tsv = sources_path(&repo, month);
+    let tsv = sources_path(&repo, Market::Nem, month);
     std::fs::create_dir_all(tsv.parent().unwrap()).unwrap();
     std::fs::write(
         &tsv,

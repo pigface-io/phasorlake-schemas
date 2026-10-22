@@ -50,7 +50,7 @@ fn census(root: &Path, month: &str, int: u8) {
         (format!("SCADA_{month}.CSV"), file(scada_block(month, int))),
         (format!("OTHER_{month}.CSV"), file(other)),
     ]);
-    let path = census_path(root, month.parse().unwrap());
+    let path = census_path(root, Market::Nem, month.parse().unwrap());
     crate::files::write_atomic(&path, toml::to_string(&files).unwrap().as_bytes()).unwrap();
 }
 
@@ -68,7 +68,11 @@ fn publish(root: &Path, h: &History) {
     };
     let t = utilake_iceberg::to_metadata(&p, "l", "u").unwrap();
     let text = serde_json::to_string(&t.metadata).unwrap();
-    crate::files::write_atomic(&published_path(root, &h.table), text.as_bytes()).unwrap();
+    crate::files::write_atomic(
+        &published_path(root, Market::Nem, &h.table),
+        text.as_bytes(),
+    )
+    .unwrap();
 }
 
 /// A repository of the SCADA table, two months, a report folder at the
@@ -78,7 +82,11 @@ fn repo() -> (tempfile::TempDir, Catalog) {
     let root = dir.path();
     census(root, "2026-07", 3);
     census(root, "2026-08", 3);
-    std::fs::write(census_dir(root).join("README.md"), "not a month").unwrap();
+    std::fs::write(
+        census_dir(root, Market::Nem).join("README.md"),
+        "not a month",
+    )
+    .unwrap();
     let tally = |csv: &str| Tally {
         month: "2026-08".parse().unwrap(),
         csvs: 4,
@@ -99,10 +107,21 @@ fn repo() -> (tempfile::TempDir, Catalog) {
         blocks: vec![tally(csv)],
         ..FolderCensus::default()
     };
-    record_folder(root, "ARCHIVE", "", &folder("ROOT")).unwrap();
-    record_folder(root, "ARCHIVE", "Dispatch_SCADA/2026", &folder("NESTED")).unwrap();
+    record_folder(root, Market::Nem, "ARCHIVE", "", &folder("ROOT")).unwrap();
+    record_folder(
+        root,
+        Market::Nem,
+        "ARCHIVE",
+        "Dispatch_SCADA/2026",
+        &folder("NESTED"),
+    )
+    .unwrap();
     let model = "version = \"5.7\"\nmodel = \"m\"\ncreated = \"c\"\nscript_sha256 = \"s\"\nfirst_seen = \"2026-05\"\nlast_seen = \"2026-09\"\n\n[tables.DISPATCH_UNIT_SCADA]\nprimary_key = [\"SETTLEMENTDATE\", \"DUID\"]\ncolumns = [\n    [\"SETTLEMENTDATE\", \"TIMESTAMP(0)\", false, \"\"],\n    [\"scadavalue\", \"NUMERIC(16,6)\", true, \"\"],\n]\n";
-    crate::files::write_atomic(&crate::models::model_path(root, "5.7"), model.as_bytes()).unwrap();
+    crate::files::write_atomic(
+        &crate::models::model_path(root, Market::Nem, "5.7"),
+        model.as_bytes(),
+    )
+    .unwrap();
     (dir, scada())
 }
 
@@ -111,10 +130,10 @@ fn every_census_folds_into_one_file_per_table() {
     let (dir, cat) = repo();
     let root = dir.path();
     // A history of a table no census holds, and a file that is no history.
-    crate::files::write_atomic(&history_path(root, "GONE"), b"{}").unwrap();
-    std::fs::write(histories_dir(root).join("notes.txt"), "kept").unwrap();
+    crate::files::write_atomic(&history_path(root, Market::Nem, "GONE"), b"{}").unwrap();
+    std::fs::write(histories_dir(root, Market::Nem).join("notes.txt"), "kept").unwrap();
 
-    let would = fold(root, &cat, true, None).unwrap();
+    let would = fold(root, Market::Nem, &cat, true, None).unwrap();
     assert_eq!(
         would,
         Folded {
@@ -126,19 +145,20 @@ fn every_census_folds_into_one_file_per_table() {
         }
     );
     assert!(
-        !history_path(root, "DISPATCH_UNIT_SCADA").exists(),
+        !history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA").exists(),
         "a check writes nothing"
     );
-    assert_eq!(fold(root, &cat, false, None).unwrap(), would);
-    assert!(!history_path(root, "GONE").exists());
-    assert!(histories_dir(root).join("notes.txt").exists());
+    assert_eq!(fold(root, Market::Nem, &cat, false, None).unwrap(), would);
+    assert!(!history_path(root, Market::Nem, "GONE").exists());
+    assert!(histories_dir(root, Market::Nem).join("notes.txt").exists());
     assert_eq!(
-        fold(root, &cat, true, None).unwrap().changed,
+        fold(root, Market::Nem, &cat, true, None).unwrap().changed,
         0,
         "the same bytes again"
     );
 
-    let text = std::fs::read_to_string(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap();
+    let text =
+        std::fs::read_to_string(history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA")).unwrap();
     assert!(
         text.ends_with("}\n") && text.starts_with("{\n  \"breaking\": []"),
         "{text}"
@@ -161,9 +181,10 @@ fn every_census_folds_into_one_file_per_table() {
         Some("2026-07-01T00:05:00+10:00")
     );
     assert_eq!(run.to.sha256, "");
-    let other: History =
-        serde_json::from_slice(&std::fs::read(history_path(root, "DISPATCH_OTHER")).unwrap())
-            .unwrap();
+    let other: History = serde_json::from_slice(
+        &std::fs::read(history_path(root, Market::Nem, "DISPATCH_OTHER")).unwrap(),
+    )
+    .unwrap();
     assert!(other.schemas[0].identifier_field_ids.is_empty());
 }
 
@@ -171,10 +192,11 @@ fn every_census_folds_into_one_file_per_table() {
 fn the_published_history_is_kept_and_a_wider_month_splits() {
     let (dir, cat) = repo();
     let root = dir.path();
-    fold(root, &cat, false, None).unwrap();
+    fold(root, Market::Nem, &cat, false, None).unwrap();
     // Publish it as the export does, beside a directory that publishes
     // none and a table of format 2, whose history is in its table.json.
-    let text = std::fs::read_to_string(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap();
+    let text =
+        std::fs::read_to_string(history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA")).unwrap();
     let old: History = serde_json::from_str(&text).unwrap();
     publish(root, &old);
     std::fs::create_dir_all(root.join("nem/EMPTY")).unwrap();
@@ -182,9 +204,9 @@ fn the_published_history_is_kept_and_a_wider_month_splits() {
     let mut legacy = old.clone();
     legacy.table = "LEGACY".into();
     let plain = utilake_iceberg::table::TableMetadata::new("u", "l", &legacy.schemas[0], 0);
-    let meta = published_path(root, "LEGACY");
+    let meta = published_path(root, Market::Nem, "LEGACY");
     crate::files::write_atomic(&meta, serde_json::to_string(&plain).unwrap().as_bytes()).unwrap();
-    let err = |root: &Path| published(root).unwrap_err().to_string();
+    let err = |root: &Path| published(root, Market::Nem).unwrap_err().to_string();
     assert!(
         err(root).contains("LEGACY/table.json cannot be read"),
         "{}",
@@ -193,7 +215,7 @@ fn the_published_history_is_kept_and_a_wider_month_splits() {
     let doc = root.join("nem/LEGACY/table.json");
     std::fs::write(&doc, "{}").unwrap();
     assert_eq!(
-        published(root).unwrap().len(),
+        published(root, Market::Nem).unwrap().len(),
         1,
         "no iceberg block: no history"
     );
@@ -204,18 +226,19 @@ fn the_published_history_is_kept_and_a_wider_month_splits() {
         err(root)
     );
     std::fs::write(&doc, serde_json::json!({"iceberg": &legacy}).to_string()).unwrap();
-    let both = published(root).unwrap();
+    let both = published(root, Market::Nem).unwrap();
     assert_eq!(both.len(), 2);
     assert_eq!(both["LEGACY"], legacy);
     std::fs::remove_dir_all(root.join("nem/LEGACY")).unwrap();
-    assert_eq!(published(root).unwrap().len(), 1);
+    assert_eq!(published(root, Market::Nem).unwrap().len(), 1);
     // A September of 12 digits before the point: past decimal(16, 6).
     census(root, "2026-09", 12);
-    let folded = fold(root, &cat, false, None).unwrap();
+    let folded = fold(root, Market::Nem, &cat, false, None).unwrap();
     assert_eq!((folded.breaks, folded.changed), (1, 2));
-    let new: History =
-        serde_json::from_slice(&std::fs::read(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap())
-            .unwrap();
+    let new: History = serde_json::from_slice(
+        &std::fs::read(history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA")).unwrap(),
+    )
+    .unwrap();
     assert_eq!(check(&old, &new), []);
     let b = &new.breaking[0];
     assert_eq!(
@@ -234,24 +257,26 @@ fn the_published_history_is_kept_and_a_wider_month_splits() {
 fn a_rebaseline_keeps_nothing_and_records_why() {
     let (dir, cat) = repo();
     let root = dir.path();
-    fold(root, &cat, false, None).unwrap();
-    let text = std::fs::read_to_string(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap();
+    fold(root, Market::Nem, &cat, false, None).unwrap();
+    let text =
+        std::fs::read_to_string(history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA")).unwrap();
     publish(root, &serde_json::from_str(&text).unwrap());
-    assert_eq!(Baseline::read(root).unwrap(), Baseline::FIRST);
+    assert_eq!(Baseline::read(root, Market::Nem).unwrap(), Baseline::FIRST);
     census(root, "2026-09", 12);
     // Kept, this would be a split; not kept, one wider field. Every
     // history changes, and the record.
-    let would = fold(root, &cat, true, Some("wider evidence")).unwrap();
+    let would = fold(root, Market::Nem, &cat, true, Some("wider evidence")).unwrap();
     assert_eq!((would.breaks, would.changed), (0, would.tables + 1));
-    assert!(!baseline_path(root).exists());
-    let folded = fold(root, &cat, false, Some("wider evidence")).unwrap();
+    assert!(!baseline_path(root, Market::Nem).exists());
+    let folded = fold(root, Market::Nem, &cat, false, Some("wider evidence")).unwrap();
     assert_eq!(folded, would);
-    let new: History =
-        serde_json::from_slice(&std::fs::read(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap())
-            .unwrap();
+    let new: History = serde_json::from_slice(
+        &std::fs::read(history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA")).unwrap(),
+    )
+    .unwrap();
     assert!(new.breaking.is_empty());
     assert_eq!(new.schemas.len(), 1);
-    let b = Baseline::read(root).unwrap();
+    let b = Baseline::read(root, Market::Nem).unwrap();
     assert_eq!(
         b,
         Baseline {
@@ -261,23 +286,27 @@ fn a_rebaseline_keeps_nothing_and_records_why() {
     );
     assert_eq!(b.render(), "version = 2\nreason = \"wider evidence\"\n");
     // Again: version 3; a record that cannot be read is an error.
-    fold(root, &cat, false, Some("again")).unwrap();
-    assert_eq!(Baseline::read(root).unwrap().version, 3);
-    std::fs::write(baseline_path(root), "version = ").unwrap();
-    assert!(Baseline::read(root).is_err());
-    assert!(fold(root, &cat, false, Some("x")).is_err());
-    std::fs::remove_file(baseline_path(root)).unwrap();
-    std::fs::create_dir(baseline_path(root)).unwrap();
-    assert!(Baseline::read(root).is_err());
+    fold(root, Market::Nem, &cat, false, Some("again")).unwrap();
+    assert_eq!(Baseline::read(root, Market::Nem).unwrap().version, 3);
+    std::fs::write(baseline_path(root, Market::Nem), "version = ").unwrap();
+    assert!(Baseline::read(root, Market::Nem).is_err());
+    assert!(fold(root, Market::Nem, &cat, false, Some("x")).is_err());
+    std::fs::remove_file(baseline_path(root, Market::Nem)).unwrap();
+    std::fs::create_dir(baseline_path(root, Market::Nem)).unwrap();
+    assert!(Baseline::read(root, Market::Nem).is_err());
 }
 
 #[test]
 fn every_failure_names_its_file() {
     let (dir, cat) = repo();
     let root = dir.path();
-    let err = |root: &Path, cat: &Catalog| fold(root, cat, false, None).unwrap_err().to_string();
+    let err = |root: &Path, cat: &Catalog| {
+        fold(root, Market::Nem, cat, false, None)
+            .unwrap_err()
+            .to_string()
+    };
     // Published documents that cannot be read.
-    let table = published_path(root, "DISPATCH_UNIT_SCADA");
+    let table = published_path(root, Market::Nem, "DISPATCH_UNIT_SCADA");
     crate::files::write_atomic(&table, b"{").unwrap();
     assert!(
         err(root, &cat).starts_with("The published history "),
@@ -286,9 +315,9 @@ fn every_failure_names_its_file() {
     );
     let mut m: serde_json::Value = {
         std::fs::remove_file(&table).unwrap();
-        fold(root, &cat, false, None).unwrap();
+        fold(root, Market::Nem, &cat, false, None).unwrap();
         let h: History = serde_json::from_slice(
-            &std::fs::read(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap(),
+            &std::fs::read(history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA")).unwrap(),
         )
         .unwrap();
         publish(root, &h);
@@ -310,7 +339,7 @@ fn every_failure_names_its_file() {
     std::fs::write(root.join("nem"), "a file").unwrap();
     assert!(err(root, &cat).contains("nem cannot be read"));
     std::fs::remove_file(root.join("nem")).unwrap();
-    std::fs::remove_dir_all(histories_dir(root)).unwrap();
+    std::fs::remove_dir_all(histories_dir(root, Market::Nem)).unwrap();
 
     // An override that cannot hold the values.
     let mut t: TableDecl = cat.tables()[0].clone();
@@ -329,43 +358,48 @@ fn every_failure_names_its_file() {
     );
     let free = Catalog::new(vec![("p.toml".into(), decl("P", ("A", "B"), None))]).unwrap();
     assert_eq!(
-        fold(root, &free, true, None).unwrap().tables,
+        fold(root, Market::Nem, &free, true, None).unwrap().tables,
         2,
         "undeclared pairs are tables too"
     );
 
     // History files that cannot be written or removed.
-    std::fs::create_dir_all(history_path(root, "DISPATCH_UNIT_SCADA").join("x")).unwrap();
+    std::fs::create_dir_all(history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA").join("x"))
+        .unwrap();
     assert!(err(root, &cat).ends_with("DISPATCH_UNIT_SCADA.json could not be written."));
-    let stale = history_path(root, "STALE");
+    let stale = history_path(root, Market::Nem, "STALE");
     std::fs::create_dir_all(stale.join("x")).unwrap();
     assert!(err(root, &cat).contains("STALE.json could not be written"));
-    std::fs::remove_dir_all(histories_dir(root)).unwrap();
-    std::fs::write(histories_dir(root), "").unwrap();
-    assert!(err(root, &cat).contains("histories could not be written"));
-    std::fs::remove_file(histories_dir(root)).unwrap();
+    std::fs::remove_dir_all(histories_dir(root, Market::Nem)).unwrap();
+    std::fs::write(histories_dir(root, Market::Nem), "").unwrap();
+    assert!(err(root, &cat).contains("histories/nem could not be written"));
+    std::fs::remove_file(histories_dir(root, Market::Nem)).unwrap();
 
     // Model files and census files that cannot be read.
-    let model = crate::models::model_path(root, "5.7");
+    let model = crate::models::model_path(root, Market::Nem, "5.7");
     std::fs::write(&model, "version = ").unwrap();
     assert!(err(root, &cat).starts_with("The model file "));
     std::fs::remove_file(&model).unwrap();
-    let month = census_path(root, "2026-08".parse().unwrap());
+    let month = census_path(root, Market::Nem, "2026-08".parse().unwrap());
     std::fs::write(&month, "x = ").unwrap();
     assert!(err(root, &cat).contains("2026-08.toml cannot be read"));
-    std::fs::remove_dir_all(census_dir(root)).unwrap();
-    std::fs::write(census_dir(root), "").unwrap();
-    assert!(err(root, &cat).contains("census cannot be read"));
+    std::fs::remove_dir_all(census_dir(root, Market::Nem)).unwrap();
+    std::fs::write(census_dir(root, Market::Nem), "").unwrap();
+    assert!(err(root, &cat).contains("census/nem cannot be read"));
 }
 
 #[test]
 fn reports_folders_are_found_below_their_root() {
     let (dir, _) = repo();
-    let found = recorded_folders(dir.path(), "ARCHIVE").unwrap();
+    let found = recorded_folders(dir.path(), Market::Nem, "ARCHIVE").unwrap();
     assert_eq!(found, ["Dispatch_SCADA/2026", ""], "by path");
-    assert!(recorded_folders(dir.path(), "CURRENT").unwrap().is_empty());
     assert!(
-        recorded_months(&dir.path().join("none"))
+        recorded_folders(dir.path(), Market::Nem, "CURRENT")
+            .unwrap()
+            .is_empty()
+    );
+    assert!(
+        recorded_months(&dir.path().join("none"), Market::Nem)
             .unwrap()
             .is_empty()
     );

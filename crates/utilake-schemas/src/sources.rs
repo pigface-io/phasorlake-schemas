@@ -32,6 +32,7 @@ use crate::fetch::{FetchError, Source, sources_path, sources_text, write_sources
 use crate::fold::{recorded_folders, recorded_months};
 use crate::month::YearMonth;
 use crate::reports::{ROOTS, Sidecar, name_month, read_folder, sidecar, version_of};
+use utilake_iceberg::Market;
 
 /// Why `sources/` could not be made.
 #[derive(Debug, thiserror::Error)]
@@ -212,11 +213,14 @@ fn want_file(
 }
 
 /// The rows of one MMSDM month's census.
-fn month_rows(root: &Path, host: &Path, month: YearMonth) -> Listed {
+fn month_rows((root, market): (&Path, Market), host: &Path, month: YearMonth) -> Listed {
     let label = |name: &str| format!("{month}/{name}");
     let mut want = BTreeMap::new();
     let mut bad = Vec::new();
-    for f in read_month(root, month)?.unwrap_or_default().values() {
+    for f in read_month(root, market, month)?
+        .unwrap_or_default()
+        .values()
+    {
         let file = (f.source.as_str(), f.sha256.as_str(), Some(f.size));
         want_file(&mut want, &mut bad, file, label);
     }
@@ -232,14 +236,18 @@ fn month_rows(root: &Path, host: &Path, month: YearMonth) -> Listed {
 }
 
 /// The rows of one report folder's census, each with its month.
-fn folder_rows(root: &Path, host: &Path, (root_name, rel): (&str, &str)) -> Listed {
+fn folder_rows(
+    (root, market): (&Path, Market),
+    host: &Path,
+    (root_name, rel): (&str, &str),
+) -> Listed {
     let folder = if rel.is_empty() {
         format!("Reports/{root_name}")
     } else {
         format!("Reports/{root_name}/{rel}")
     };
     let label = |name: &str| format!("{folder}/{name}");
-    let census = read_folder(root, root_name, rel)?.unwrap_or_default();
+    let census = read_folder(root, market, root_name, rel)?.unwrap_or_default();
     let mut named: Vec<(&str, &str)> = Vec::new();
     for t in &census.blocks {
         named.push((&t.first_file, &t.first_sha256));
@@ -271,23 +279,28 @@ fn folder_rows(root: &Path, host: &Path, (root_name, rel): (&str, &str)) -> List
 /// Every sources file the censuses under `root` give, from the archive at
 /// `archive` (see [`host_dir`]), months and folders read on up to `jobs`
 /// threads.
-pub fn collect(root: &Path, archive: &Path, jobs: usize) -> Result<Sources, SourcesError> {
+pub fn collect(
+    root: &Path,
+    market: Market,
+    archive: &Path,
+    jobs: usize,
+) -> Result<Sources, SourcesError> {
     let host = host_dir(archive);
     let mut out = Sources::default();
-    let months = recorded_months(root)?;
+    let months = recorded_months(root, market)?;
     // Every month has a sources file, if only of its header.
     for &m in &months {
         out.months.entry(m).or_default();
     }
-    let mut done = crate::pool::map(jobs, &months, |_, &m| month_rows(root, &host, m));
+    let mut done = crate::pool::map(jobs, &months, |_, &m| month_rows((root, market), &host, m));
     let mut folders = Vec::new();
     for root_name in ROOTS {
-        for rel in recorded_folders(root, root_name)? {
+        for rel in recorded_folders(root, market, root_name)? {
             folders.push((root_name, rel));
         }
     }
     done.extend(crate::pool::map(jobs, &folders, |_, (r, rel)| {
-        folder_rows(root, &host, (r, rel.as_str()))
+        folder_rows((root, market), &host, (r, rel.as_str()))
     }));
     for r in done {
         let (rows, bad) = r?;
@@ -301,20 +314,20 @@ pub fn collect(root: &Path, archive: &Path, jobs: usize) -> Result<Sources, Sour
 
 /// The sources files under `root` that writing `s` would change.
 #[must_use]
-pub fn stale(root: &Path, s: &Sources) -> Vec<PathBuf> {
+pub fn stale(root: &Path, market: Market, s: &Sources) -> Vec<PathBuf> {
     s.months
         .iter()
-        .map(|(&m, rows)| (sources_path(root, m), sources_text(rows)))
+        .map(|(&m, rows)| (sources_path(root, market, m), sources_text(rows)))
         .filter(|(p, text)| std::fs::read_to_string(p).ok().as_deref() != Some(text.as_str()))
         .map(|(p, _)| p)
         .collect()
 }
 
 /// Writes every sources file of `s` that would change; returns how many.
-pub fn write(root: &Path, s: &Sources) -> Result<usize, SourcesError> {
-    let stale = stale(root, s);
+pub fn write(root: &Path, market: Market, s: &Sources) -> Result<usize, SourcesError> {
+    let stale = stale(root, market, s);
     for (&m, rows) in &s.months {
-        let path = sources_path(root, m);
+        let path = sources_path(root, market, m);
         if stale.contains(&path) {
             write_sources(&path, rows)?;
         }

@@ -4,10 +4,12 @@ history.
     uv run --with pyiceberg --with pyarrow --with duckdb python scripts/replay.py [DIR] [HISTORIES]
 
 DIR (default target/iceberg, as `utilake-schemas iceberg --out DIR` wrote
-it: the same tables the export publishes under nem/, at file locations)
-holds one table per directory with a `metadata/` in it; HISTORIES (default
-evidence/histories) holds each table's history. Every history must have a
-table and every table a history. Each table is loaded as a pyiceberg
+it: the same tables the export publishes under each market's directory, at
+file locations) holds one directory per market, each with one table per
+directory with a `metadata/` in it; HISTORIES (default evidence/histories)
+holds each market's histories under its directory. Every history must have
+a table and every table a history. A table of a market other than the NEM
+must name it in `utilake.market`; a NEM table must not. Each table is loaded as a pyiceberg
 `StaticTable` from the metadata its `version-hint.text` names, and must
 have the history's schemas by id, each with its fields' ids, names, types
 and nullability in order and its key, and the history's current schema as
@@ -100,17 +102,30 @@ def run_of(snapshot) -> tuple:
     )
 
 
+MARKETS = ("nem", "wem", "gas")
+
+
 def main() -> None:
     out = Path(sys.argv[1] if len(sys.argv) > 1 else "target/iceberg")
     histories = Path(sys.argv[2] if len(sys.argv) > 2 else "evidence/histories")
-    wanted = {p.stem: p for p in sorted(histories.glob("*.json"))}
-    written = {p.name for p in out.iterdir() if p.is_dir()} if out.is_dir() else set()
+    wanted = {
+        f"{market}/{p.stem}": (market, p)
+        for market in MARKETS
+        for p in sorted((histories / market).glob("*.json"))
+    }
+    written = {
+        f"{m.name}/{p.name}"
+        for m in out.iterdir()
+        if m.is_dir() and m.name in MARKETS
+        for p in m.iterdir()
+        if p.is_dir()
+    } if out.is_dir() else set()
     for name in sorted(written - wanted.keys()):
         fail(f"{out / name} has no history in {histories}")
     duck = duckdb.connect()
     duck.execute("INSTALL iceberg; LOAD iceberg;")
     snapshots = 0
-    for name, path in wanted.items():
+    for name, (market, path) in wanted.items():
         history = json.loads(path.read_text())
         meta = out / name / "metadata"
         if not meta.is_dir():
@@ -129,8 +144,11 @@ def main() -> None:
                 f"{name}: the current schema is {table.metadata.current_schema_id}, "
                 f"the history's is {current}"
             )
-        if table.properties.get("utilake.table") != name:
+        if table.properties.get("utilake.table") != path.stem:
             fail(f"{name}: the metadata names table {table.properties.get('utilake.table')!r}")
+        said = table.properties.get("utilake.market")
+        if said != (None if market == "nem" else market):
+            fail(f"{name}: the metadata names market {said!r}")
         # One snapshot per run, in order, saying what the run says.
         snaps = sorted(table.metadata.snapshots, key=lambda s: s.sequence_number)
         runs = [

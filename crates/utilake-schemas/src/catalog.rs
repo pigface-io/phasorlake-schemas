@@ -16,6 +16,7 @@ use std::path::{Path, PathBuf};
 
 use serde::{Deserialize, Serialize};
 use utilake_iceberg::IcebergType;
+use utilake_iceberg::Market;
 
 /// Why the declarations cannot be read or written.
 #[derive(Debug, thiserror::Error)]
@@ -262,6 +263,12 @@ fn read_error(path: &Path, e: &std::io::Error) -> CatalogError {
 }
 
 /// The `*.toml` files directly in `dir`, in name order.
+/// The directory of a market's declarations under the repository root:
+/// `tables/{market}/`.
+pub fn tables_dir(root: &Path, market: Market) -> PathBuf {
+    root.join("tables").join(market.id())
+}
+
 fn toml_files(dir: &Path) -> Result<Vec<PathBuf>, CatalogError> {
     let mut out = Vec::new();
     for e in std::fs::read_dir(dir).map_err(|e| read_error(dir, &e))? {

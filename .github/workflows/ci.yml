@@ -59,13 +59,13 @@ jobs:
           just export-check
       - run: just compat origin/main
         if: github.event_name == 'pull_request'
-      - name: Summarise what nem/ adds to main
+      - name: Summarise what the market directories add to main
         if: github.event_name == 'pull_request'
         run: just diff origin/main >> "$GITHUB_STEP_SUMMARY"
       - name: Scan the whole history for secrets
         run: just secrets
 
-  # Every table's Iceberg metadata under nem/, read back by pyiceberg and
+  # Every table's Iceberg metadata under its market directory, read back by pyiceberg and
   # held to its history.
   replay:
     runs-on: ubuntu-24.04

@@ -3,7 +3,7 @@
 
 use std::path::{Path, PathBuf};
 
-use super::{ExportError, OWNED, Rendered};
+use super::{ExportError, Rendered, owned};
 
 /// What one write did.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
@@ -12,7 +12,8 @@ pub struct Written {
     pub written: usize,
     /// Files already as rendered.
     pub kept: usize,
-    /// Files under `nem/` the render did not produce, removed.
+    /// Files under a market's directory the render did not produce,
+    /// removed.
     pub removed: usize,
 }
 
@@ -32,8 +33,8 @@ impl std::fmt::Display for Stale {
 }
 
 /// Writes every rendered file under `root`, each whole through a temporary
-/// file renamed into place, and removes every other file under `nem/` and
-/// the directories it leaves empty.
+/// file renamed into place, and removes every other file under the
+/// markets' directories and the directories it leaves empty.
 pub fn write(root: &Path, r: &Rendered) -> Result<Written, ExportError> {
     let mut done = Written::default();
     for (rel, bytes) in &r.files {
@@ -48,14 +49,18 @@ pub fn write(root: &Path, r: &Rendered) -> Result<Written, ExportError> {
     for path in extras(root, r)? {
         std::fs::remove_file(&path).map_err(|e| ExportError::io(&path, e))?;
         done.removed += 1;
-        prune(&path, &root.join(OWNED));
+        let stop = owned()
+            .map(|m| root.join(m))
+            .find(|m| path.starts_with(m))
+            .unwrap_or_else(|| root.to_path_buf());
+        prune(&path, &stop);
     }
     Ok(done)
 }
 
 /// Every file under `root` not as rendered, by path: rendered and
-/// `missing` or with other bytes (`differs`), or under `nem/` and not
-/// rendered (`extra`). Writes nothing.
+/// `missing` or with other bytes (`differs`), or under a market's
+/// directory and not rendered (`extra`). Writes nothing.
 pub fn check(root: &Path, r: &Rendered) -> Result<Vec<Stale>, ExportError> {
     let mut stale = Vec::new();
     for (rel, bytes) in &r.files {
@@ -88,10 +93,13 @@ fn relative(root: &Path, path: &Path) -> String {
         .replace('\\', "/")
 }
 
-/// The files under `root/nem/` the render did not produce, sorted.
+/// The files under the markets' directories the render did not produce,
+/// sorted.
 fn extras(root: &Path, r: &Rendered) -> Result<Vec<PathBuf>, ExportError> {
     let mut found = Vec::new();
-    walk(&root.join(OWNED), &mut found)?;
+    for m in owned() {
+        walk(&root.join(m), &mut found)?;
+    }
     found.retain(|p| !r.files.contains_key(&relative(root, p)));
     found.sort();
     Ok(found)

@@ -53,37 +53,37 @@ ratchet base="origin/main":
 fetch month dir:
     cargo run -q -p utilake-schemas -- fetch --month {{ month }} --dir {{ dir }}
 
-# record every block of every file of a month's directory under evidence/census/
-census month dir:
-    cargo run -q -p utilake-schemas -- census --month {{ month }} --dir {{ dir }}
+# record every block of every file of a month's directory under evidence/census/{market}/
+census month dir market="nem":
+    cargo run -q -p utilake-schemas -- census --month {{ month }} --dir {{ dir }} --market {{ market }}
 
-# record every folder of the report roots under evidence/census/reports/
-reports dir mmsdm="" mirror="":
-    cargo run -q -p utilake-schemas -- reports --dir {{ dir }} {{ if mmsdm == "" { "" } else { "--mmsdm " + mmsdm } }} {{ if mirror == "" { "" } else { "--mirror " + mirror } }}
+# record every folder of a market's report roots under evidence/census/{market}/reports/
+reports dir market="nem" mmsdm="" mirror="":
+    cargo run -q -p utilake-schemas -- reports --dir {{ dir }} --market {{ market }} {{ if mmsdm == "" { "" } else { "--mmsdm " + mmsdm } }} {{ if mirror == "" { "" } else { "--mirror " + mirror } }}
 
-# list every file each census read in sources/, from a mirror archive's sidecars
-sources archive:
-    cargo run -q -p utilake-schemas -- sources --archive {{ archive }}
+# list every file each census read in sources/{market}/, from a mirror archive's sidecars
+sources archive market="nem":
+    cargo run -q -p utilake-schemas -- sources --archive {{ archive }} --market {{ market }}
 
 # fail if listing the sources again would change any file, listing each
-sources-check archive:
-    cargo run -q -p utilake-schemas -- sources --archive {{ archive }} --check
+sources-check archive market="nem":
+    cargo run -q -p utilake-schemas -- sources --archive {{ archive }} --market {{ market }} --check
 
-# record the data-model releases a month's directory carries under evidence/models/
-models month dir:
-    cargo run -q -p utilake-schemas -- models --month {{ month }} --dir {{ dir }}
+# record the data-model releases a month's directory carries under evidence/models/{market}/
+models month dir market="nem":
+    cargo run -q -p utilake-schemas -- models --month {{ month }} --dir {{ dir }} --market {{ market }}
 
-# fold every census into each table's history under evidence/histories/
-fold:
-    cargo run -q -p utilake-schemas -- fold
+# fold every census of a market into each table's history under evidence/histories/{market}/
+fold market="nem":
+    cargo run -q -p utilake-schemas -- fold --market {{ market }}
 
-# fail if folding again would change any history
-fold-check:
-    cargo run -q -p utilake-schemas -- fold --check
+# fail if folding a market again would change any history
+fold-check market="nem":
+    cargo run -q -p utilake-schemas -- fold --check --market {{ market }}
 
 # ── export ───────────────────────────────────────────────────────────────────
 
-# write nem/ and manifest.json from every history
+# write every market's directory and manifest.json from every history
 export:
     cargo run -q -p utilake-schemas -- export
 
@@ -91,7 +91,7 @@ export:
 export-check:
     cargo run -q -p utilake-schemas -- export --check
 
-# fail if nem/ breaks a promise a revision published
+# fail if a market's directory breaks a promise a revision published
 compat base="origin/main":
     #!/usr/bin/env zsh
     set -eu
@@ -101,11 +101,11 @@ compat base="origin/main":
       echo "compat: {{ base }} does not exist yet; nothing was published to hold to"
     fi
 
-# what nem/ adds to a revision, per table, as Markdown
+# what the market directories add to a revision, per table, as Markdown
 diff base="origin/main":
     cargo run -q -p utilake-schemas -- diff --base {{ base }}
 
-# write every history as an Iceberg table without data, elsewhere than nem/
+# write every history as an Iceberg table without data, under {out}/{market}/
 iceberg out="target/iceberg":
     cargo run -q -p utilake-schemas -- iceberg --out {{ out }}
 

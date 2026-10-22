@@ -25,7 +25,7 @@ fn census(root: &Path, month: &str, files: &[(&str, &str, &str, u64)]) {
             (name, r)
         })
         .collect();
-    let path = census_path(root, month.parse().unwrap());
+    let path = census_path(root, Market::Nem, month.parse().unwrap());
     crate::files::write_atomic(&path, toml::to_string(&files).unwrap().as_bytes()).unwrap();
 }
 
@@ -95,11 +95,12 @@ fn agreeing() -> (tempfile::TempDir, tempfile::TempDir) {
 fn every_census_file_is_listed_from_its_sidecar() {
     let (repo, archive) = agreeing();
     let (root, a) = (repo.path(), archive.path());
-    let s = collect(root, a, 2).unwrap();
+    let s = collect(root, Market::Nem, a, 2).unwrap();
     assert_eq!(s.mismatches, Vec::new());
     assert_eq!(s.files(), 3, "the whole-month zip once");
-    assert_eq!(write(root, &s).unwrap(), 2);
-    let read = |m: &str| std::fs::read_to_string(root.join(format!("sources/{m}.tsv"))).unwrap();
+    assert_eq!(write(root, Market::Nem, &s).unwrap(), 2);
+    let read =
+        |m: &str| std::fs::read_to_string(root.join(format!("sources/nem/{m}.tsv"))).unwrap();
     let d = format!("https://{MMSDM}/2026/MMSDM_2026_04/MMSDM_Historical_Data_SQLLoader");
     assert_eq!(
         read("2026-04"),
@@ -114,14 +115,16 @@ fn every_census_file_is_listed_from_its_sidecar() {
         )
     );
     // What `fetch` reads back is what was written.
-    let back = crate::fetch::read_sources(&sources_path(root, "2009-07".parse().unwrap())).unwrap();
+    let back =
+        crate::fetch::read_sources(&sources_path(root, Market::Nem, "2009-07".parse().unwrap()))
+            .unwrap();
     assert_eq!(back, s.months[&"2009-07".parse().unwrap()]);
     // The archive's host directory may be given itself; the same again
     // writes nothing.
-    let again = collect(root, &a.join("www.nemweb.com.au"), 1).unwrap();
+    let again = collect(root, Market::Nem, &a.join("www.nemweb.com.au"), 1).unwrap();
     assert_eq!(again, s);
-    assert_eq!(stale(root, &again), Vec::<PathBuf>::new());
-    assert_eq!(write(root, &again).unwrap(), 0);
+    assert_eq!(stale(root, Market::Nem, &again), Vec::<PathBuf>::new());
+    assert_eq!(write(root, Market::Nem, &again).unwrap(), 0);
 }
 
 #[test]
@@ -156,7 +159,7 @@ fn an_older_sidecar_gives_its_times_from_the_text() {
     );
     sc("N.zip", "n1", "");
     sc("E.zip", "e1", r#","last_modified":"""#);
-    let s = collect(root, a, 1).unwrap();
+    let s = collect(root, Market::Nem, a, 1).unwrap();
     assert_eq!(s.mismatches, Vec::new());
     let rows = &s.months[&"2026-05".parse().unwrap()];
     let at = |n: &str| rows[&url(&format!("{dir}/{n}"))].last_modified.clone();
@@ -215,7 +218,7 @@ fn every_mismatch_is_named_and_nothing_is_written() {
         let rel = format!("{dir}/{sub}/DUP.zip");
         file(a, &rel, 1, sc(&rel, sha));
     }
-    let s = collect(root, a, 1).unwrap();
+    let s = collect(root, Market::Nem, a, 1).unwrap();
     let shown: Vec<String> = s.mismatches.iter().map(ToString::to_string).collect();
     assert_eq!(
         shown,
@@ -239,13 +242,13 @@ fn every_mismatch_is_named_and_nothing_is_written() {
 fn check_lists_each_file_that_would_change() {
     let (repo, archive) = agreeing();
     let (root, a) = (repo.path(), archive.path());
-    let s = collect(root, a, 1).unwrap();
+    let s = collect(root, Market::Nem, a, 1).unwrap();
     let all = vec![
-        sources_path(root, "2009-07".parse().unwrap()),
-        sources_path(root, "2026-04".parse().unwrap()),
+        sources_path(root, Market::Nem, "2009-07".parse().unwrap()),
+        sources_path(root, Market::Nem, "2026-04".parse().unwrap()),
     ];
-    assert_eq!(stale(root, &s), all, "none written yet");
-    write(root, &s).unwrap();
+    assert_eq!(stale(root, Market::Nem, &s), all, "none written yet");
+    write(root, Market::Nem, &s).unwrap();
     // A row changed by hand, and a sources file of a month no census has,
     // which is left alone.
     let path = &all[1];
@@ -253,12 +256,12 @@ fn check_lists_each_file_that_would_change() {
         .unwrap()
         .replace("\taa\t", "\tzz\t");
     std::fs::write(path, text).unwrap();
-    std::fs::write(root.join("sources/2001-01.tsv"), "kept").unwrap();
-    assert_eq!(stale(root, &s), vec![all[1].clone()]);
-    assert_eq!(write(root, &s).unwrap(), 1);
-    assert_eq!(stale(root, &s), Vec::<PathBuf>::new());
+    std::fs::write(root.join("sources/nem/2001-01.tsv"), "kept").unwrap();
+    assert_eq!(stale(root, Market::Nem, &s), vec![all[1].clone()]);
+    assert_eq!(write(root, Market::Nem, &s).unwrap(), 1);
+    assert_eq!(stale(root, Market::Nem, &s), Vec::<PathBuf>::new());
     assert_eq!(
-        std::fs::read_to_string(root.join("sources/2001-01.tsv")).unwrap(),
+        std::fs::read_to_string(root.join("sources/nem/2001-01.tsv")).unwrap(),
         "kept"
     );
 }
@@ -321,7 +324,7 @@ fn report_folders_list_their_runs_and_versions_by_month() {
         blocks: vec![tally(("", ""), ("R_20260801.zip", "r"))],
         ..FolderCensus::default()
     };
-    record_folder(root, "ARCHIVE", "", &old).unwrap();
+    record_folder(root, Market::Nem, "ARCHIVE", "", &old).unwrap();
     let gas = FolderCensus {
         blocks: vec![
             tally(("P_20260801.zip", "p1"), ("P_20260902.zip", "p2")),
@@ -339,7 +342,7 @@ fn report_folders_list_their_runs_and_versions_by_month() {
         }],
         ..FolderCensus::default()
     };
-    record_folder(root, "CURRENT", "VicGas/sub", &gas).unwrap();
+    record_folder(root, Market::Nem, "CURRENT", "VicGas/sub", &gas).unwrap();
     let sc = |rel: &str, sha: &str, rest: &str| {
         let rel = format!("{host}/{rel}");
         file(a, &rel, 2, Some(sidecar_json(&url(&rel), 2, sha, rest)));
@@ -350,7 +353,7 @@ fn report_folders_list_their_runs_and_versions_by_month() {
     // A name without a month: the month it was published, else fetched.
     sc("CURRENT/VicGas/sub/int.csv", "v1", NEW);
     sc("CURRENT/VicGas/sub/int.csv@20261021T191200+1000", "v2", "");
-    let s = collect(root, a, 2).unwrap();
+    let s = collect(root, Market::Nem, a, 2).unwrap();
     let shown: Vec<String> = s.mismatches.iter().map(ToString::to_string).collect();
     assert_eq!(
         shown,
@@ -384,18 +387,26 @@ fn report_folders_list_their_runs_and_versions_by_month() {
 fn a_census_or_sources_file_that_cannot_be_read_or_written_is_an_error() {
     let (repo, archive) = agreeing();
     let (root, a) = (repo.path(), archive.path());
-    let s = collect(root, a, 1).unwrap();
-    // `sources` is a file, so nothing can be written under it.
-    std::fs::write(root.join("sources"), "").unwrap();
-    assert!(matches!(write(root, &s), Err(SourcesError::Write(_))));
-    std::fs::write(census_path(root, "2026-04".parse().unwrap()), "not toml [").unwrap();
-    let e = collect(root, a, 1).unwrap_err();
+    let s = collect(root, Market::Nem, a, 1).unwrap();
+    // `sources/nem` is a file, so nothing can be written under it.
+    std::fs::create_dir_all(root.join("sources")).unwrap();
+    std::fs::write(root.join("sources/nem"), "").unwrap();
+    assert!(matches!(
+        write(root, Market::Nem, &s),
+        Err(SourcesError::Write(_))
+    ));
+    std::fs::write(
+        census_path(root, Market::Nem, "2026-04".parse().unwrap()),
+        "not toml [",
+    )
+    .unwrap();
+    let e = collect(root, Market::Nem, a, 1).unwrap_err();
     assert!(matches!(e, SourcesError::Census(_)), "{e}");
     let repo = tempfile::tempdir().unwrap();
-    let bad = crate::reports::folder_path(repo.path(), "CURRENT", "X");
+    let bad = crate::reports::folder_path(repo.path(), Market::Nem, "CURRENT", "X");
     crate::files::write_atomic(&bad, b"files = [").unwrap();
     assert!(
-        collect(repo.path(), a, 1)
+        collect(repo.path(), Market::Nem, a, 1)
             .unwrap_err()
             .to_string()
             .contains("X.toml")

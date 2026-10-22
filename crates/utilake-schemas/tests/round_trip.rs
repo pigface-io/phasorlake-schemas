@@ -6,13 +6,14 @@
 use std::collections::BTreeMap;
 use std::path::Path;
 
+use utilake_iceberg::Market;
 use utilake_iceberg::{Published, from_metadata, to_metadata};
 use utilake_schemas::export::read_histories;
 
 #[test]
 fn every_history_is_its_metadata_and_back() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
-    let histories = read_histories(&root).unwrap();
+    let histories = read_histories(&root, Market::Nem).unwrap();
     assert!(
         !histories.is_empty(),
         "no histories under {}",
@@ -20,7 +21,7 @@ fn every_history_is_its_metadata_and_back() {
     );
     for (table, h) in &histories {
         let p = Published {
-            market: utilake_iceberg::Market::Nem,
+            market: Market::Nem,
             history: h.clone(),
             declaration: None,
             description: None,

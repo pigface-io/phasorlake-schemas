@@ -34,6 +34,7 @@ use std::time::{Duration, Instant};
 use memchr::{memchr, memmem, memrchr};
 
 use crate::month::YearMonth;
+use utilake_iceberg::Market;
 
 /// nemweb.
 pub const BASE: &str = "https://www.nemweb.com.au";
@@ -494,9 +495,11 @@ pub struct Source {
     pub last_modified: Option<String>,
 }
 
-/// The sources file of `month`.
-pub fn sources_path(repo: &Path, month: YearMonth) -> PathBuf {
-    repo.join("sources").join(format!("{month}.tsv"))
+/// The sources file of `month`: `sources/{market}/{YYYY-MM}.tsv`.
+pub fn sources_path(repo: &Path, market: Market, month: YearMonth) -> PathBuf {
+    repo.join("sources")
+        .join(market.id())
+        .join(format!("{month}.tsv"))
 }
 
 /// The header line of a sources file.
@@ -631,7 +634,7 @@ pub fn fetch_month(
 ) -> Result<Fetched, FetchError> {
     let mut p = Polite::new(http, interval);
     let files = month_files(&mut p, base, month)?;
-    let tsv = sources_path(repo, month);
+    let tsv = sources_path(repo, Market::Nem, month);
     let mut sources = read_sources(&tsv)?;
     let mut done = Fetched {
         listed: files.len(),

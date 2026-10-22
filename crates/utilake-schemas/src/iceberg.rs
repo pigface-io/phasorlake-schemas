@@ -1,21 +1,37 @@
 //! `iceberg --out DIR`: every table as the export publishes it, at file
 //! locations, so any Iceberg reader can be pointed at it.
 //!
-//! `DIR/{TABLE}/metadata/v1.metadata.json` is the same table metadata the
-//! export writes under `nem/` ([`utilake_iceberg::publish`]), with `DIR`
-//! as its location instead of the published URL, and the same manifest
-//! lists beside it. `version-hint.text` names version 1: the digit alone,
+//! `DIR/{market}/{TABLE}/metadata/v1.metadata.json` is the same table
+//! metadata the export writes under `{market}/`
+//! ([`utilake_iceberg::publish`]), with `DIR` as its location instead of
+//! the published URL, and the same manifest lists beside it. `version-hint.text` names version 1: the digit alone,
 //! which readers that do not trim it need. The table's UUID is derived
 //! from its name, so the same history writes the same bytes.
 
 use std::path::Path;
 
 use crate::export::{DEFAULT_BASE_URL, Export, ExportError, text};
+use utilake_iceberg::Market;
 
-/// A UUID (version 8, RFC 9562) from the SHA-256 of the table's name.
+/// A UUID (version 8, RFC 9562) from the SHA-256 of a NEM table's name.
 pub fn table_uuid(table: &str) -> String {
+    uuid_of(&format!("utilake-schemas/{table}"))
+}
+
+/// The UUID of `table` in `market`: a NEM table's is of its name alone,
+/// as every NEM table was published before there were other markets; any
+/// other market's names the market too, so two markets' tables of one
+/// name are two tables.
+pub fn table_uuid_in(market: Market, table: &str) -> String {
+    match market {
+        Market::Nem => table_uuid(table),
+        other => uuid_of(&format!("utilake-schemas/{other}/{table}")),
+    }
+}
+
+fn uuid_of(name: &str) -> String {
     use sha2::Digest as _;
-    let hash = sha2::Sha256::digest(format!("utilake-schemas/{table}").as_bytes());
+    let hash = sha2::Sha256::digest(name.as_bytes());
     let mut b = [0u8; 16];
     b.copy_from_slice(&hash[..16]);
     // The version in the high nibble of byte 6, the variant `10` in the
@@ -33,15 +49,15 @@ pub fn table_uuid(table: &str) -> String {
     )
 }
 
-/// Writes every table under `root` as a table under `out`; returns the
-/// tables written.
+/// Writes every table under `root` as a table under `out/{market}`;
+/// returns the tables written.
 pub fn write_tables(root: &Path, out: &Path) -> Result<usize, ExportError> {
     let export = Export::load(root, DEFAULT_BASE_URL)?;
     let mut n = 0;
-    for table in export.tables() {
-        let dir = out.join(table);
+    for (market, table) in export.tables() {
+        let dir = out.join(market.id()).join(table);
         let t = export
-            .table(table, &dir.display().to_string())
+            .table(market, table, &dir.display().to_string())
             .expect("the table has a history")?;
         let meta = dir.join("metadata");
         let mut files = vec![
@@ -76,7 +92,7 @@ mod tests {
         let dir = exported();
         let out = dir.path().join("out");
         assert_eq!(write_tables(dir.path(), &out).unwrap(), 1);
-        let meta = out.join("DISPATCH_UNIT_SCADA/metadata");
+        let meta = out.join("nem/DISPATCH_UNIT_SCADA/metadata");
         assert_eq!(
             std::fs::read_to_string(meta.join("version-hint.text")).unwrap(),
             "1"
@@ -88,7 +104,7 @@ mod tests {
         assert_eq!(m.snapshots.len(), 2);
         assert_eq!(
             m.location,
-            out.join("DISPATCH_UNIT_SCADA").display().to_string()
+            out.join("nem/DISPATCH_UNIT_SCADA").display().to_string()
         );
         assert_eq!(m.table_uuid, table_uuid("DISPATCH_UNIT_SCADA"));
         // Each snapshot's manifest list is where the metadata says.
@@ -111,7 +127,7 @@ mod tests {
         std::fs::write(dir.path().join("file"), "x").unwrap();
         let e = write_tables(dir.path(), &dir.path().join("file")).unwrap_err();
         assert!(e.to_string().contains("v1.metadata.json"), "{e}");
-        std::fs::write(dir.path().join("evidence/histories/X.json"), "[").unwrap();
+        std::fs::write(dir.path().join("evidence/histories/nem/X.json"), "[").unwrap();
         assert!(write_tables(dir.path(), &out).is_err());
     }
 
@@ -122,5 +138,11 @@ mod tests {
         assert_eq!(&u[14..15], "8");
         assert!("89ab".contains(&u[19..20]), "{u}");
         assert_ne!(u, table_uuid("B"));
+        assert_eq!(table_uuid_in(Market::Nem, "A"), u);
+        assert_ne!(table_uuid_in(Market::Gas, "A"), u);
+        assert_ne!(
+            table_uuid_in(Market::Gas, "A"),
+            table_uuid_in(Market::Wem, "A")
+        );
     }
 }

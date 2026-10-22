@@ -1,5 +1,5 @@
-//! `diff --base REV`: what the working tree's `nem/` adds to what `REV`
-//! published, per table, as Markdown for a pull request.
+//! `diff --base REV`: what the working tree's market directories add to
+//! what `REV` published, per table, as Markdown for a pull request.
 //!
 //! Tables added and removed are listed by name. A table in both whose
 //! history changed gets a row: the schemas it gained, the runs added (no
@@ -151,25 +151,30 @@ mod tests {
         );
         grow(root);
         let mut now = Published::read(root).unwrap();
-        let mut more = now.tables["DISPATCH_UNIT_SCADA"].clone();
+        let mut more = now.tables["nem/DISPATCH_UNIT_SCADA"].clone();
         more.table = "NEW".into();
-        now.tables.insert("NEW".into(), more);
+        now.tables.insert("nem/NEW".into(), more);
         let mut old = base.clone();
-        let mut gone = old.tables["DISPATCH_UNIT_SCADA"].clone();
+        let mut gone = old.tables["nem/DISPATCH_UNIT_SCADA"].clone();
         gone.table = "GONE".into();
-        old.tables.insert("GONE".into(), gone);
+        old.tables.insert("nem/GONE".into(), gone);
         assert_eq!(
             diff("main", &old, &now),
             "## utilake-schemas against `main`\n\n\
-             - Tables added (1): `NEW`\n\
-             - Tables removed (1): `GONE`\n\n\
+             - Tables added (1): `nem/NEW`\n\
+             - Tables removed (1): `nem/GONE`\n\n\
              | Table | Schemas added | Runs added | Runs grown | Fields added | Breaks added |\n\
              |---|---|---|---|---|---|\n\
-             | `DISPATCH_UNIT_SCADA` | 2 | 1 | 1 | 4 SCADAVALUE | 1 |\n"
+             | `nem/DISPATCH_UNIT_SCADA` | 2 | 1 | 1 | 4 SCADAVALUE | 1 |\n"
         );
         // Nothing new but files at the end of a run.
         let mut grown = base.clone();
-        grown.tables.get_mut("DISPATCH_UNIT_SCADA").unwrap().runs[1].files += 1;
+        grown
+            .tables
+            .get_mut("nem/DISPATCH_UNIT_SCADA")
+            .unwrap()
+            .runs[1]
+            .files += 1;
         assert!(diff("main", &base, &grown).ends_with("| 0 | 1 | – | 0 |\n"));
         assert!(diff("main", &Published::default(), &base).contains("Tables added (1)"));
     }

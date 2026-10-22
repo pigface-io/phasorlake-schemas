@@ -1,2 +1,4 @@
 # The manifest lists the export writes are Avro container files.
 nem/**/*.avro binary
+wem/**/*.avro binary
+gas/**/*.avro binary

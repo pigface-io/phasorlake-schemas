@@ -56,6 +56,14 @@ impl Market {
     }
 }
 
+impl std::str::FromStr for Market {
+    type Err = String;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        Self::parse(s).ok_or_else(|| format!("{s:?} is not a market: nem, wem or gas"))
+    }
+}
+
 impl fmt::Display for Market {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.write_str(self.id())
@@ -84,6 +92,8 @@ mod tests {
             assert_eq!(rest, "00");
         }
         assert_eq!(Market::parse("x"), None);
+        assert_eq!("gas".parse::<Market>(), Ok(Market::Gas));
+        assert!("x".parse::<Market>().unwrap_err().contains("not a market"));
         assert_eq!(Market::default(), Market::Nem);
         assert_eq!(Market::Wem.offset_secs(), 28_800);
     }

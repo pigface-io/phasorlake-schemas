@@ -15,19 +15,19 @@ default_stages = ["pre-commit"]
 repo = "builtin"
 hooks = [
     # AEMO's files are kept byte for byte.
-    # The manifest lists under nem/ are Avro: bytes, not text.
+    # The manifest lists under the market directories are Avro: bytes, not text.
     { id = "trailing-whitespace", exclude = '^(testdata/|evidence/ctl/)|\.avro$' },
-    { id = "end-of-file-fixer", exclude = '^(testdata/|evidence/ctl/|nem/.*/metadata/version-hint\.text$)|\.avro$' },
+    { id = "end-of-file-fixer", exclude = '^(testdata/|evidence/ctl/|(nem|wem|gas)/.*/metadata/version-hint\.text$)|\.avro$' },
     { id = "check-yaml" },
     { id = "check-toml" },
     { id = "check-json" },
     { id = "check-merge-conflict" },
     # The evidence is text that git compresses well: a census month and a
     # data-model release are larger than code ever is.
-    { id = "check-added-large-files", args = ["--maxkb=200"], exclude = '^(evidence/(census|models|histories)/|nem/)' },
+    { id = "check-added-large-files", args = ["--maxkb=200"], exclude = '^(evidence/(census|models|histories)/|(nem|wem|gas)/)' },
     # A history and its table metadata grow with a table's runs: the
     # five-minute predispatch tables have hundreds.
-    { id = "check-added-large-files", args = ["--maxkb=1024"], files = '^(evidence/histories/|nem/)' },
+    { id = "check-added-large-files", args = ["--maxkb=1024"], files = '^(evidence/histories/|(nem|wem|gas)/)' },
     { id = "detect-private-key" },
 ]
 
@@ -101,7 +101,7 @@ pass_filenames = false
 
 [[repos.hooks]]
 id = "export-check"
-name = "export: nem/ is what the evidence exports"
+name = "export: the market directories are what the evidence exports"
 language = "system"
 entry = "just export-check"
 stages = ["pre-push"]
@@ -110,9 +110,9 @@ pass_filenames = false
 
 [[repos.hooks]]
 id = "compat"
-name = "export: nem/ keeps what origin/main published"
+name = "export: the market directories keep what origin/main published"
 language = "system"
 entry = "just compat"
 stages = ["pre-push"]
-files = '^nem/'
+files = '^(nem|wem|gas)/'
 pass_filenames = false

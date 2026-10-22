@@ -3,6 +3,7 @@ use std::io::Write as _;
 use utilake_iceberg::Kind;
 
 use super::*;
+use crate::catalog::tables_dir;
 use crate::catalog::tests::scada;
 
 pub(crate) const SCADA_CTL: &str = r#"LOAD DATA INFILE "PUBLIC_ARCHIVE#DISPATCH_UNIT_SCADA#FILE01#202608010000.CSV" APPEND INTO TABLE DISPATCH_UNIT_SCADA
@@ -237,11 +238,11 @@ fn every_block_of_every_file_of_a_month_is_recorded_with_its_rows() {
     // Recorded: every block with its rows and profile, read back as it
     // was.
     let root = dir.path().join("repo");
-    assert_eq!(read_month(&root, month).unwrap(), None);
-    assert_eq!(record(&root, &census).unwrap(), 3);
-    let path = census_path(&root, month);
-    assert!(path.ends_with("evidence/census/2026-08.toml"));
-    let recorded = read_month(&root, month).unwrap().unwrap();
+    assert_eq!(read_month(&root, Market::Nem, month).unwrap(), None);
+    assert_eq!(record(&root, Market::Nem, &census).unwrap(), 3);
+    let path = census_path(&root, Market::Nem, month);
+    assert!(path.ends_with("evidence/census/nem/2026-08.toml"));
+    let recorded = read_month(&root, Market::Nem, month).unwrap().unwrap();
     assert_eq!(recorded[zip_name], FileRecord::of(file));
     assert_eq!(recorded[zip_name].ids().len(), 3);
     let b = &recorded[zip_name].block[0];
@@ -251,7 +252,7 @@ fn every_block_of_every_file_of_a_month_is_recorded_with_its_rows() {
     assert_eq!(b.profile_of(9), ColumnProfile::default());
     // The same census again is the same bytes.
     let before = std::fs::read(&path).unwrap();
-    record(&root, &census).unwrap();
+    record(&root, Market::Nem, &census).unwrap();
     assert_eq!(std::fs::read(&path).unwrap(), before);
     let text = String::from_utf8(before).unwrap();
     assert!(
@@ -264,12 +265,14 @@ fn every_block_of_every_file_of_a_month_is_recorded_with_its_rows() {
 
     // A census file that is not one, or cannot be read, or written.
     std::fs::write(&path, "x = [").unwrap();
-    let e = read_month(&root, month).unwrap_err().to_string();
+    let e = read_month(&root, Market::Nem, month)
+        .unwrap_err()
+        .to_string();
     assert!(e.contains("2026-08.toml cannot be read"), "{e}");
     std::fs::remove_file(&path).unwrap();
     std::fs::create_dir(&path).unwrap();
-    assert!(read_month(&root, month).is_err());
-    let e = record(&root, &census).unwrap_err().to_string();
+    assert!(read_month(&root, Market::Nem, month).is_err());
+    let e = record(&root, Market::Nem, &census).unwrap_err().to_string();
     assert!(e.contains("2026-08.toml could not be written"), "{e}");
 
     // An empty directory says to download the month; a missing one cannot
@@ -512,7 +515,7 @@ fn the_heads_of_a_month_have_the_shapes_utilake_recorded() {
         columns: Vec<String>,
         ctl: String,
     }
-    let cat = Catalog::read(&repo().join("tables")).unwrap();
+    let cat = Catalog::read(&tables_dir(&repo(), Market::Nem)).unwrap();
     let dir = repo().join("testdata/bootstrap/MMSDM_2026_08");
     let text = std::fs::read_to_string(dir.join("utilake-census.toml")).unwrap();
     let expected: BTreeMap<String, Expected> = toml::from_str(&text).unwrap();
@@ -556,7 +559,7 @@ fn the_heads_of_a_month_have_the_shapes_utilake_recorded() {
 /// split file of a `_D` table by the daily control file.
 #[test]
 fn the_heads_of_an_old_month_are_typed_by_split_and_daily_control_files() {
-    let cat = Catalog::read(&repo().join("tables")).unwrap();
+    let cat = Catalog::read(&tables_dir(&repo(), Market::Nem)).unwrap();
     let dir = repo().join("testdata/bootstrap/MMSDM_2024_01");
     let files = month_files(&dir).unwrap();
     let tmp = tempfile::tempdir().unwrap();

@@ -1,7 +1,8 @@
 //! What an export published: every table's history, read from its table
-//! metadata, and every schema document under `nem/`, from a git revision
-//! or from a directory, so [`crate::compat`] and [`crate::diff`] can hold
-//! one to the other.
+//! metadata, and every schema document under each market's directory
+//! (`nem/`, `wem/`, `gas/`), from a git revision or from a directory, so
+//! [`crate::compat`] and [`crate::diff`] can hold one to the other. A
+//! table is keyed by its directory, `{market}/{TABLE}`.
 //!
 //! A revision from before the metadata carried the history (format 2)
 //! published it in the `iceberg` block of `nem/{TABLE}/table.json`; such a
@@ -14,8 +15,9 @@ use std::path::Path;
 use utilake_iceberg::table::TableMetadata;
 use utilake_iceberg::{History, from_metadata};
 
-use crate::export::{METADATA, OWNED};
+use crate::export::{METADATA, owned};
 use crate::fold::Baseline;
+use utilake_iceberg::Market;
 
 /// The manifest, read for its data version.
 const MANIFEST: &str = "manifest.json";
@@ -66,34 +68,43 @@ pub enum PublishedError {
     },
 }
 
-/// The published histories and schema documents, and the data version
-/// `manifest.json` names (the first, when it names none).
-#[derive(Debug, Clone, PartialEq, Eq)]
+/// The published histories and schema documents, and each market's data
+/// version as `manifest.json` names it (the first, when it names none).
+#[derive(Debug, Clone, PartialEq, Eq, Default)]
 pub struct Published {
-    /// Each table's history, by table.
+    /// Each table's history, by its directory `{market}/{TABLE}`.
     pub tables: BTreeMap<String, History>,
-    /// Each `nem/{TABLE}/schema-*.json`, by path.
+    /// Each `{market}/{TABLE}/schema-*.json`, by path.
     pub schemas: BTreeMap<String, Vec<u8>>,
-    /// The data version, and why it began.
-    pub baseline: Baseline,
+    /// Each market's data version, and why it began; a market absent is
+    /// at the first.
+    pub baselines: BTreeMap<Market, Baseline>,
     /// Whether any history was read from a `table.json` of format 2,
     /// whose schema documents were named by hash.
     pub legacy: bool,
 }
 
-impl Default for Published {
-    fn default() -> Self {
-        Self {
-            tables: BTreeMap::new(),
-            schemas: BTreeMap::new(),
-            baseline: Baseline::FIRST,
-            legacy: false,
-        }
+impl Published {
+    /// The data version of `market`.
+    pub fn baseline(&self, market: Market) -> Baseline {
+        self.baselines
+            .get(&market)
+            .cloned()
+            .unwrap_or(Baseline::FIRST)
+    }
+
+    /// The markets with a table.
+    pub fn markets(&self) -> impl Iterator<Item = Market> + '_ {
+        Market::ALL
+            .into_iter()
+            .filter(|m| self.tables.keys().any(|k| k.starts_with(&format!("{m}/"))))
     }
 }
 
-/// The baseline `manifest.json` names; the first when it names none.
-fn baseline_of(manifest: &[u8], at: &str) -> Result<Baseline, PublishedError> {
+/// The baselines `manifest.json` names, per market: under `markets`, or,
+/// in a manifest from before there were other markets, at the top for
+/// the NEM. The first when it names none.
+fn baseline_of(manifest: &[u8], at: &str) -> Result<BTreeMap<Market, Baseline>, PublishedError> {
     let bad = |message: String| PublishedError::Table {
         path: MANIFEST.to_owned(),
         at: at.to_owned(),
@@ -101,29 +112,50 @@ fn baseline_of(manifest: &[u8], at: &str) -> Result<Baseline, PublishedError> {
     };
     let doc: serde_json::Value =
         serde_json::from_slice(manifest).map_err(|e| bad(e.to_string()))?;
-    match doc.get("baseline") {
-        None => Ok(Baseline::FIRST),
-        Some(b) => serde_json::from_value(b.clone()).map_err(|e| bad(e.to_string())),
+    let mut out = BTreeMap::new();
+    if let Some(markets) = doc.get("markets").and_then(|m| m.as_object()) {
+        for (id, entry) in markets {
+            let market = Market::parse(id).ok_or_else(|| bad(format!("{id:?} is not a market")))?;
+            if let Some(b) = entry.get("baseline") {
+                let b = serde_json::from_value(b.clone()).map_err(|e| bad(e.to_string()))?;
+                out.insert(market, b);
+            }
+        }
+    } else if let Some(b) = doc.get("baseline") {
+        let b = serde_json::from_value(b.clone()).map_err(|e| bad(e.to_string()))?;
+        out.insert(Market::Nem, b);
     }
+    Ok(out)
 }
 
-/// Where a path under `nem/` falls: a table's metadata, a format-2 table
-/// document, a schema document, or neither.
-enum Kind<'a> {
-    Metadata(&'a str),
-    Legacy(&'a str),
+/// Where a path under a market's directory falls: a table's metadata, a
+/// format-2 table document, a schema document, or neither.
+enum Kind {
+    Metadata,
+    Legacy,
     Schema,
     Other,
 }
 
-fn kind(path: &str) -> Kind<'_> {
+fn kind(path: &str) -> Kind {
     let parts: Vec<&str> = path.split('/').collect();
     match parts.as_slice() {
-        [OWNED, table, "metadata", "v1.metadata.json"] => Kind::Metadata(table),
-        [OWNED, table, "table.json"] => Kind::Legacy(table),
-        [OWNED, _, file] if file.starts_with("schema-") && file.ends_with(".json") => Kind::Schema,
+        [m, _, "metadata", "v1.metadata.json"] if Market::parse(m).is_some() => Kind::Metadata,
+        ["nem", _, "table.json"] => Kind::Legacy,
+        [m, _, file]
+            if Market::parse(m).is_some()
+                && file.starts_with("schema-")
+                && file.ends_with(".json") =>
+        {
+            Kind::Schema
+        }
         _ => Kind::Other,
     }
+}
+
+/// The directory of the table a path names: `{market}/{TABLE}`.
+fn dir_of(path: &str) -> String {
+    path.splitn(3, '/').take(2).collect::<Vec<_>>().join("/")
 }
 
 /// The history a format-2 `table.json` holds in its `iceberg` block.
@@ -145,21 +177,21 @@ impl Published {
         let mut legacy: BTreeMap<String, (String, Vec<u8>)> = BTreeMap::new();
         for (path, bytes) in files {
             if path == MANIFEST {
-                out.baseline = baseline_of(&bytes, at)?;
+                out.baselines = baseline_of(&bytes, at)?;
                 continue;
             }
             match kind(&path) {
-                Kind::Metadata(table) => {
+                Kind::Metadata => {
                     let m: TableMetadata =
                         serde_json::from_slice(&bytes).map_err(|e| PublishedError::Table {
                             path: path.clone(),
                             at: at.to_owned(),
                             message: e.to_string(),
                         })?;
-                    metadata.insert(table.to_owned(), (path, m));
+                    metadata.insert(dir_of(&path), (path, m));
                 }
-                Kind::Legacy(table) => {
-                    legacy.insert(table.to_owned(), (path, bytes));
+                Kind::Legacy => {
+                    legacy.insert(dir_of(&path), (path, bytes));
                 }
                 Kind::Schema => {
                     out.schemas.insert(path, bytes);
@@ -190,7 +222,7 @@ impl Published {
         Ok(out)
     }
 
-    /// What `rev` published; empty when it has no `nem/`.
+    /// What `rev` published; empty when it has no market directory.
     pub fn at(git: &dyn Git, rev: &str) -> Result<Self, PublishedError> {
         let failed = |path: &str, source| PublishedError::Git {
             rev: rev.to_owned(),
@@ -198,12 +230,14 @@ impl Published {
             source,
         };
         let mut files = Vec::new();
-        for path in git.list(rev, OWNED).map_err(|e| failed(OWNED, e))? {
-            if matches!(kind(&path), Kind::Other) {
-                continue;
+        for dir in owned() {
+            for path in git.list(rev, dir).map_err(|e| failed(dir, e))? {
+                if matches!(kind(&path), Kind::Other) {
+                    continue;
+                }
+                let bytes = git.show(rev, &path).map_err(|e| failed(&path, e))?;
+                files.push((path, bytes));
             }
-            let bytes = git.show(rev, &path).map_err(|e| failed(&path, e))?;
-            files.push((path, bytes));
         }
         // A revision before the manifest named a version is of the first.
         if let Ok(bytes) = git.show(rev, MANIFEST) {
@@ -214,20 +248,24 @@ impl Published {
 
     /// What the working tree under `root` holds.
     pub fn read(root: &Path) -> Result<Self, PublishedError> {
-        let dir = root.join(OWNED);
         let read = |path: &Path, source| PublishedError::Read {
             path: path.display().to_string(),
             source,
         };
         let mut files = Vec::new();
-        let tables = match std::fs::read_dir(&dir) {
-            Ok(rd) => rd
-                .map(|e| e.map(|e| e.path()))
-                .collect::<std::io::Result<Vec<_>>>()
-                .map_err(|e| read(&dir, e))?,
-            Err(e) if e.kind() == std::io::ErrorKind::NotFound => Vec::new(),
-            Err(e) => return Err(read(&dir, e)),
-        };
+        let mut tables = Vec::new();
+        for m in owned() {
+            let dir = root.join(m);
+            match std::fs::read_dir(&dir) {
+                Ok(rd) => tables.extend(
+                    rd.map(|e| e.map(|e| e.path()))
+                        .collect::<std::io::Result<Vec<_>>>()
+                        .map_err(|e| read(&dir, e))?,
+                ),
+                Err(e) if e.kind() == std::io::ErrorKind::NotFound => {}
+                Err(e) => return Err(read(&dir, e)),
+            }
+        }
         for t in tables.iter().filter(|t| t.is_dir()) {
             let mut paths = Vec::new();
             for entry in std::fs::read_dir(t).map_err(|e| read(t, e))? {
@@ -283,7 +321,9 @@ pub(crate) mod tests {
             if let Ok(bytes) = std::fs::read(&manifest) {
                 files.insert(MANIFEST.to_owned(), bytes);
             }
-            for p in crate::census::files_under(&root.join(OWNED)).unwrap_or_default() {
+            for p in
+                owned().flat_map(|m| crate::census::files_under(&root.join(m)).unwrap_or_default())
+            {
                 let rel = p
                     .strip_prefix(root)
                     .unwrap()
@@ -330,11 +370,11 @@ pub(crate) mod tests {
         let now = Published::read(root).unwrap();
         assert_eq!(now.tables.len(), 1);
         assert_eq!(
-            now.tables["DISPATCH_UNIT_SCADA"],
+            now.tables["nem/DISPATCH_UNIT_SCADA"],
             crate::export::tests::sample()
         );
         assert_eq!(now.schemas.len(), 2);
-        assert_eq!(now.baseline, Baseline::FIRST);
+        assert_eq!(now.baseline(Market::Nem), Baseline::FIRST);
         assert!(!now.legacy);
         assert_eq!(Published::at(&git, "base").unwrap(), now);
         // The manifest names the data version; one that names none, or
@@ -345,17 +385,46 @@ pub(crate) mod tests {
             r#"{"baseline": {"version": 2, "reason": "why"}}"#,
         )
         .unwrap();
-        assert_eq!(Published::read(root).unwrap().baseline.version, 2);
+        assert_eq!(
+            Published::read(root).unwrap().baseline(Market::Nem).version,
+            2
+        );
         std::fs::write(&manifest, "{}").unwrap();
-        assert_eq!(Published::read(root).unwrap().baseline.version, 1);
+        assert_eq!(
+            Published::read(root).unwrap().baseline(Market::Nem).version,
+            1
+        );
+        // A manifest of many markets names each one's; a market it does not
+        // name is at the first; a market that is not one is an error.
+        std::fs::write(
+            &manifest,
+            r#"{"markets": {"gas": {"baseline": {"version": 3, "reason": "g"}}, "wem": {}}}"#,
+        )
+        .unwrap();
+        let many = Published::read(root).unwrap();
+        assert_eq!(many.baseline(Market::Gas).version, 3);
+        assert_eq!(many.baseline(Market::Wem).version, 1);
+        assert_eq!(many.baseline(Market::Nem).version, 1);
+        assert_eq!(many.markets().collect::<Vec<_>>(), [Market::Nem]);
+        std::fs::write(&manifest, r#"{"markets": {"mars": {}}}"#).unwrap();
+        assert!(Published::read(root).is_err());
         std::fs::write(&manifest, r#"{"baseline": 3}"#).unwrap();
         assert!(Published::read(root).is_err());
         std::fs::write(&manifest, "[").unwrap();
         assert!(Published::read(root).is_err());
         std::fs::remove_file(&manifest).unwrap();
-        assert_eq!(Published::read(root).unwrap().baseline.version, 1);
+        assert_eq!(
+            Published::read(root).unwrap().baseline(Market::Nem).version,
+            1
+        );
         git.broken.borrow_mut().push(MANIFEST.into());
-        assert_eq!(Published::at(&git, "base").unwrap().baseline.version, 1);
+        assert_eq!(
+            Published::at(&git, "base")
+                .unwrap()
+                .baseline(Market::Nem)
+                .version,
+            1
+        );
         git.broken.borrow_mut().clear();
         std::fs::create_dir(&manifest).unwrap();
         assert!(Published::read(root).is_err());
@@ -422,7 +491,7 @@ pub(crate) mod tests {
         .unwrap();
         let old = Published::read(root).unwrap();
         assert!(old.legacy);
-        assert_eq!(old.tables["DISPATCH_UNIT_SCADA"], h);
+        assert_eq!(old.tables["nem/DISPATCH_UNIT_SCADA"], h);
         std::fs::remove_file(&legacy).unwrap();
         std::fs::write(&table, &original).unwrap();
 

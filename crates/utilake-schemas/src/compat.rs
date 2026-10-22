@@ -1,5 +1,5 @@
-//! `compat --base REV`: holds what is under `nem/` now to what `REV`
-//! published.
+//! `compat --base REV`: holds what is under the markets' directories now to
+//! what `REV` published.
 //!
 //! Every table published at the base must still be published, its history
 //! kept to what it promised ([`utilake_iceberg::compat::check`]), and every
@@ -8,11 +8,15 @@
 //! against never changes. The words the data model gives a column
 //! (`description`, `x-model-type`) may change with a release.
 //!
-//! A data version is held only to the same version: a working tree
-//! re-based to a later one ([`crate::fold::Baseline`]) holds nothing of
-//! the base, and says so. A base from before the metadata carried the
+//! A data version is held only to the same version: a market re-based to
+//! a later one ([`crate::fold::Baseline`]) holds nothing of the base's
+//! tables of that market, and says so. A base from before the metadata carried the
 //! history named its schema documents by hash; its documents are not
 //! held, its histories are.
+
+use std::collections::BTreeMap;
+
+use utilake_iceberg::Market;
 
 use crate::export::METADATA;
 use crate::published::Published;
@@ -40,36 +44,35 @@ pub struct Compat {
     pub tables: usize,
     /// Schema documents the base published.
     pub schemas: usize,
-    /// The data versions, when the working tree's is not the base's:
-    /// nothing was held.
-    pub rebased: Option<(u32, u32)>,
+    /// The markets whose data version is not the base's, with both
+    /// versions: nothing of theirs was held.
+    pub rebased: BTreeMap<Market, (u32, u32)>,
 }
 
 /// Every promise `now` breaks of `base`, published at `rev`.
 pub fn compat(rev: &str, base: &Published, now: &Published) -> Compat {
     let mut violations = Vec::new();
-    let (was, is) = (base.baseline.version, now.baseline.version);
-    if was != is {
-        return Compat {
-            violations,
-            tables: base.tables.len(),
-            schemas: base.schemas.len(),
-            rebased: Some((was, is)),
-        };
-    }
-    for (table, old) in &base.tables {
+    let rebased: BTreeMap<Market, (u32, u32)> = base
+        .markets()
+        .filter_map(|m| {
+            let (was, is) = (base.baseline(m).version, now.baseline(m).version);
+            (was != is).then_some((m, (was, is)))
+        })
+        .collect();
+    let held = |key: &str| !rebased.keys().any(|m| key.starts_with(&format!("{m}/")));
+    for (table, old) in base.tables.iter().filter(|(k, _)| held(k)) {
         match now.tables.get(table) {
             None => violations.push(format!(
-                "nem/{table}/{METADATA}: published at {rev} and missing now"
+                "{table}/{METADATA}: published at {rev} and missing now"
             )),
             Some(new) => violations.extend(
                 utilake_iceberg::compat::check(old, new)
                     .iter()
-                    .map(|v| format!("nem/{table}/{METADATA}: {v}")),
+                    .map(|v| format!("{table}/{METADATA}: {v}")),
             ),
         }
     }
-    for (path, bytes) in base.schemas.iter().filter(|_| !base.legacy) {
+    for (path, bytes) in base.schemas.iter().filter(|(p, _)| !base.legacy && held(p)) {
         match now.schemas.get(path) {
             None => violations.push(format!("{path}: published at {rev} and missing now")),
             Some(b) if identity(b) != identity(bytes) => {
@@ -82,7 +85,7 @@ pub fn compat(rev: &str, base: &Published, now: &Published) -> Compat {
         violations,
         tables: base.tables.len(),
         schemas: base.schemas.len(),
-        rebased: None,
+        rebased,
     }
 }
 
@@ -104,7 +107,7 @@ mod tests {
                 held.schemas,
                 held.rebased
             ),
-            (0, 1, 2, None)
+            (0, 1, 2, BTreeMap::new())
         );
         assert!(
             compat("main", &Published::default(), &base)
@@ -119,7 +122,12 @@ mod tests {
 
         // A run rewritten, a schema document edited, one gone, a table gone.
         let mut broken = grown.clone();
-        broken.tables.get_mut("DISPATCH_UNIT_SCADA").unwrap().runs[0].schema_id = 1;
+        broken
+            .tables
+            .get_mut("nem/DISPATCH_UNIT_SCADA")
+            .unwrap()
+            .runs[0]
+            .schema_id = 1;
         let mut docs = broken.schemas.keys().cloned();
         let (first, second) = (docs.next().unwrap(), docs.next().unwrap());
         broken.schemas.insert(first.clone(), b"{}".to_vec());
@@ -170,9 +178,18 @@ mod tests {
         assert!(c.violations.is_empty());
         assert_eq!(c.schemas, 3);
         // Re-based: nothing is held, and the versions are named.
-        broken.baseline.version = 2;
+        broken.baselines.insert(
+            Market::Nem,
+            crate::fold::Baseline {
+                version: 2,
+                reason: "again".into(),
+            },
+        );
         let c = compat("main", &base, &broken);
         assert!(c.violations.is_empty());
-        assert_eq!((c.rebased, c.tables), (Some((1, 2)), 1));
+        assert_eq!(
+            (c.rebased, c.tables),
+            (BTreeMap::from([(Market::Nem, (1, 2))]), 1)
+        );
     }
 }

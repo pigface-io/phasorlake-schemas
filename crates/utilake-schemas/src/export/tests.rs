@@ -76,11 +76,11 @@ pub(crate) fn exported() -> tempfile::TempDir {
     let put = |rel: &str, text: &str| {
         crate::files::write_atomic(&root.join(rel), text.as_bytes()).unwrap();
     };
-    put("tables/DISPATCH_UNIT_SCADA.toml", SCADA);
-    put("evidence/models/5.6.toml", MODEL_56);
-    put("evidence/models/5.7.toml", MODEL_57);
+    put("tables/nem/DISPATCH_UNIT_SCADA.toml", SCADA);
+    put("evidence/models/nem/5.6.toml", MODEL_56);
+    put("evidence/models/nem/5.7.toml", MODEL_57);
     put(
-        "evidence/histories/DISPATCH_UNIT_SCADA.json",
+        "evidence/histories/nem/DISPATCH_UNIT_SCADA.json",
         &crate::fold::render(&sample()),
     );
     export(root);
@@ -121,7 +121,7 @@ pub(crate) fn grow(root: &Path) {
         "new-field-id": 4, "new-type": "string", "at": mark("D.zip", None)}]);
     let h: History = serde_json::from_value(v).unwrap();
     crate::files::write_atomic(
-        &history_path(root, &h.table),
+        &history_path(root, Market::Nem, &h.table),
         crate::fold::render(&h).as_bytes(),
     )
     .unwrap();
@@ -250,7 +250,7 @@ fn the_metadata_describes_the_table_and_holds_its_history() {
         let name = schema::file_name(s.schema_id);
         assert!(root.join("nem/DISPATCH_UNIT_SCADA").join(&name).is_file());
     }
-    let published = crate::fold::published(root).unwrap();
+    let published = crate::fold::published(root, Market::Nem).unwrap();
     assert_eq!(published["DISPATCH_UNIT_SCADA"], h);
 }
 
@@ -317,7 +317,7 @@ fn a_schema_document_is_named_by_its_id_and_its_fields_never_change() {
     );
     let p = Export::load(root, DEFAULT_BASE_URL)
         .unwrap()
-        .published("DISPATCH_UNIT_SCADA")
+        .published(Market::Nem, "DISPATCH_UNIT_SCADA")
         .unwrap();
     let types: Vec<serde_json::Value> = ["boolean", "long", "double", "date", "string"]
         .iter()
@@ -355,16 +355,26 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
     let root = dir.path();
     let m = read(root, "manifest.json");
     assert_eq!(m["format"], 3);
-    assert_eq!(m["market"], "nem");
+    assert!(m.get("market").is_none());
     assert_eq!(m["base_url"], DEFAULT_BASE_URL);
-    assert_eq!(m["baseline"], json!({"version": 1, "reason": ""}));
+    let nem = &m["markets"]["nem"];
+    assert_eq!(nem["baseline"], json!({"version": 1, "reason": ""}));
+    assert_eq!(
+        (nem["tables"].clone(), nem["schemas"].clone()),
+        (json!(1), json!(2))
+    );
+    assert_eq!(
+        m["markets"].as_object().unwrap().len(),
+        1,
+        "only the NEM is published"
+    );
     assert_eq!(
         (m["tables"].clone(), m["schemas"].clone()),
         (json!(1), json!(2))
     );
     // A re-based root says so.
     std::fs::write(
-        crate::fold::baseline_path(root),
+        crate::fold::baseline_path(root, Market::Nem),
         "version = 2\nreason = \"why\"\n",
     )
     .unwrap();
@@ -373,12 +383,15 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
         .render()
         .unwrap();
     let m: serde_json::Value = serde_json::from_slice(&r.files["manifest.json"]).unwrap();
-    assert_eq!(m["baseline"], json!({"version": 2, "reason": "why"}));
-    std::fs::write(crate::fold::baseline_path(root), "version = ").unwrap();
-    assert!(Export::load(root, DEFAULT_BASE_URL).is_err());
-    std::fs::remove_file(crate::fold::baseline_path(root)).unwrap();
     assert_eq!(
-        m["listed"],
+        m["markets"]["nem"]["baseline"],
+        json!({"version": 2, "reason": "why"})
+    );
+    std::fs::write(crate::fold::baseline_path(root, Market::Nem), "version = ").unwrap();
+    assert!(Export::load(root, DEFAULT_BASE_URL).is_err());
+    std::fs::remove_file(crate::fold::baseline_path(root, Market::Nem)).unwrap();
+    assert_eq!(
+        m["markets"]["nem"]["listed"],
         json!([{"name": "DISPATCH_UNIT_SCADA", "package": "DISPATCH", "declared": true,
                 "first_release": "2026-08", "last_release": "2026-08",
                 "schemas": 2, "runs": 2, "breaks": 0}])
@@ -454,12 +467,12 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
     let mut other = sample();
     other.table = "OTHER".into();
     crate::files::write_atomic(
-        &history_path(root, "OTHER"),
+        &history_path(root, Market::Nem, "OTHER"),
         crate::fold::render(&other).as_bytes(),
     )
     .unwrap();
     std::fs::write(
-        crate::fold::histories_dir(root).join("notes.txt"),
+        crate::fold::histories_dir(root, Market::Nem).join("notes.txt"),
         "not a history",
     )
     .unwrap();
@@ -520,7 +533,7 @@ fn what_cannot_be_read_or_written_is_named() {
     assert!(e(write(flat.path(), &Rendered::default())).contains("nem"));
 
     // Histories: misnamed, not a history, not a directory.
-    let hist = crate::fold::histories_dir(root);
+    let hist = crate::fold::histories_dir(root, Market::Nem);
     std::fs::write(hist.join("WRONG.json"), crate::fold::render(&sample())).unwrap();
     let err = Export::load(root, DEFAULT_BASE_URL)
         .unwrap_err()
@@ -532,15 +545,18 @@ fn what_cannot_be_read_or_written_is_named() {
     std::fs::create_dir(hist.join("DIR.json")).unwrap();
     assert!(Export::load(root, DEFAULT_BASE_URL).is_err());
     let flat = tempfile::tempdir().unwrap();
-    crate::files::write_atomic(&flat.path().join("evidence/histories"), b"x").unwrap();
-    let err = read_histories(flat.path()).unwrap_err().to_string();
+    crate::files::write_atomic(&flat.path().join("evidence/histories/nem"), b"x").unwrap();
+    let err = read_histories(flat.path(), Market::Nem)
+        .unwrap_err()
+        .to_string();
     assert!(
-        err.starts_with("The export could not read or write ") && err.ends_with("histories."),
+        err.starts_with("The export could not read or write ") && err.ends_with("histories/nem."),
         "{err}"
     );
+    assert!(Export::load(flat.path(), DEFAULT_BASE_URL).is_err());
     // No histories: an export of nothing.
     let empty = tempfile::tempdir().unwrap();
-    std::fs::create_dir(empty.path().join("tables")).unwrap();
+    std::fs::create_dir_all(empty.path().join("tables/nem")).unwrap();
     let r = Export::load(empty.path(), "b/").unwrap().render().unwrap();
     assert_eq!(
         r.files.keys().collect::<Vec<_>>(),
@@ -549,13 +565,13 @@ fn what_cannot_be_read_or_written_is_named() {
     assert!(
         Export::load(empty.path(), "b/")
             .unwrap()
-            .published("X")
+            .published(Market::Nem, "X")
             .is_none()
     );
     assert!(
         Export::load(empty.path(), "b/")
             .unwrap()
-            .table("X", "l")
+            .table(Market::Nem, "X", "l")
             .is_none()
     );
 
@@ -564,7 +580,7 @@ fn what_cannot_be_read_or_written_is_named() {
     let mut h = sample();
     h.runs[0].from.release = "August".into();
     crate::files::write_atomic(
-        &history_path(root, &h.table),
+        &history_path(root, Market::Nem, &h.table),
         crate::fold::render(&h).as_bytes(),
     )
     .unwrap();
@@ -578,14 +594,14 @@ fn what_cannot_be_read_or_written_is_named() {
         "The history of DISPATCH_UNIT_SCADA cannot be published: The run beginning at A.zip was released in \"August\", which is not a month (YYYY-MM)."
     );
     crate::files::write_atomic(
-        &history_path(root, "DISPATCH_UNIT_SCADA"),
+        &history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA"),
         crate::fold::render(&sample()).as_bytes(),
     )
     .unwrap();
 
     // Declarations and releases that do not read, and a declaration whose
     // temporal roles the published form does not name.
-    std::fs::write(root.join("tables/BAD.toml"), "x").unwrap();
+    std::fs::write(root.join("tables/nem/BAD.toml"), "x").unwrap();
     assert!(
         Export::load(root, DEFAULT_BASE_URL)
             .unwrap_err()
@@ -593,7 +609,7 @@ fn what_cannot_be_read_or_written_is_named() {
             .contains("BAD.toml")
     );
     std::fs::write(
-        root.join("tables/BAD.toml"),
+        root.join("tables/nem/BAD.toml"),
         SCADA
             .replace("DISPATCH_UNIT_SCADA", "BAD")
             .replace("UNIT_SCADA", "BAD")
@@ -607,8 +623,8 @@ fn what_cannot_be_read_or_written_is_named() {
         err.starts_with("The declaration of BAD cannot be published: its temporal roles are not the published ones: "),
         "{err}"
     );
-    std::fs::remove_file(root.join("tables/BAD.toml")).unwrap();
-    std::fs::write(root.join("evidence/models/5.8.toml"), "x").unwrap();
+    std::fs::remove_file(root.join("tables/nem/BAD.toml")).unwrap();
+    std::fs::write(root.join("evidence/models/nem/5.8.toml"), "x").unwrap();
     assert!(
         Export::load(root, DEFAULT_BASE_URL)
             .unwrap_err()
@@ -912,7 +928,7 @@ fn the_consumer_check_refuses_what_the_index_refuses() {
             .contains("not the manifest's")
     );
     let empty = tempfile::tempdir().unwrap();
-    std::fs::create_dir(empty.path().join("tables")).unwrap();
+    std::fs::create_dir_all(empty.path().join("tables/nem")).unwrap();
     export(empty.path());
     assert_eq!(
         import_check(empty.path()),

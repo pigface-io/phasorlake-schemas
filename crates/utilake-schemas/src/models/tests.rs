@@ -56,11 +56,11 @@ fn a_month_records_its_versions_and_a_second_month_widens_them() {
     );
 
     let oct = month("2025-10");
-    let r = record(&root, oct, &zips).unwrap();
+    let r = record(&root, Market::Nem, oct, &zips).unwrap();
     assert_eq!(r.new_versions, ["v5.6", "v5.7"]);
     assert_eq!(r.versions, ["v5.6", "v5.7"]);
     assert!(r.problems.is_empty(), "{:?}", r.problems);
-    let text = std::fs::read_to_string(model_path(&root, "v5.6")).unwrap();
+    let text = std::fs::read_to_string(model_path(&root, Market::Nem, "v5.6")).unwrap();
     assert!(text.starts_with(MODEL_HEADER), "{text}");
     assert!(text.contains("[tables.DISPATCHPRICE]\nprimary_key = [\"SETTLEMENTDATE\", \"REGIONID\"]\ncolumns = [\n    [\"SETTLEMENTDATE\", \"TIMESTAMP(0)\", false, \"\"],"), "{text}");
     assert!(text.contains("comment = \"The regions\""), "{text}");
@@ -68,36 +68,44 @@ fn a_month_records_its_versions_and_a_second_month_widens_them() {
         text.contains("[\"REGIONID\", \"VARCHAR(10)\", false, \"Region \\\"id\\\"\"]"),
         "{text}"
     );
-    let m = read_model(&root, "v5.6").unwrap().unwrap();
+    let m = read_model(&root, Market::Nem, "v5.6").unwrap().unwrap();
     assert_eq!((m.first_seen, m.last_seen), (oct, oct));
     assert_eq!(m.tables["REGION"].primary_key, ["REGIONID"]);
     assert_eq!(render(&m), text, "the file reads back to itself");
 
     let nov = month("2025-11");
-    let r = record(&root, nov, &[z57.as_path()]).unwrap();
+    let r = record(&root, Market::Nem, nov, &[z57.as_path()]).unwrap();
     assert!(r.new_versions.is_empty());
     assert_eq!(r.versions, ["v5.7"]);
-    let m = read_model(&root, "v5.7").unwrap().unwrap();
+    let m = read_model(&root, Market::Nem, "v5.7").unwrap().unwrap();
     assert_eq!((m.first_seen, m.last_seen), (oct, nov));
-    let months = read_months(&root).unwrap();
+    let months = read_months(&root, Market::Nem).unwrap();
     assert_eq!(months[&oct], ["v5.6", "v5.7"]);
     assert_eq!(months[&nov], ["v5.7"]);
-    let text = std::fs::read_to_string(months_path(&root)).unwrap();
+    let text = std::fs::read_to_string(months_path(&root, Market::Nem)).unwrap();
     assert_eq!(
         text,
         format!(
             "{MONTHS_HEADER}[months]\n\"2025-10\" = [\"v5.6\", \"v5.7\"]\n\"2025-11\" = [\"v5.7\"]\n"
         )
     );
-    let all = read_models(&root).unwrap();
+    let all = read_models(&root, Market::Nem).unwrap();
     assert_eq!(all.keys().collect::<Vec<_>>(), ["v5.6", "v5.7"]);
     let order: Vec<&str> = by_first_seen(&all)
         .iter()
         .map(|m| m.version.as_str())
         .collect();
     assert_eq!(order, ["v5.6", "v5.7"]);
-    assert!(read_months(&dir.path().join("nowhere")).unwrap().is_empty());
-    assert!(read_models(&dir.path().join("nowhere")).unwrap().is_empty());
+    assert!(
+        read_months(&dir.path().join("nowhere"), Market::Nem)
+            .unwrap()
+            .is_empty()
+    );
+    assert!(
+        read_models(&dir.path().join("nowhere"), Market::Nem)
+            .unwrap()
+            .is_empty()
+    );
 
     // The same version with a different script is reported and not rewritten.
     let changed = zip_with(
@@ -108,27 +116,27 @@ fn a_month_records_its_versions_and_a_second_month_widens_them() {
             .as_bytes(),
     );
     let dec = month("2025-12");
-    let r = record(&root, dec, &[changed.as_path()]).unwrap();
+    let r = record(&root, Market::Nem, dec, &[changed.as_path()]).unwrap();
     assert_eq!(r.problems.len(), 1);
     assert!(r.problems[0].contains("differs from the one recorded from 2025-10"));
-    let m = read_model(&root, "v5.6").unwrap().unwrap();
+    let m = read_model(&root, Market::Nem, "v5.6").unwrap().unwrap();
     assert_eq!(
         m.tables["REGION"].columns[1].1, "VARCHAR(64)",
         "the recorded one stays"
     );
     assert_eq!(m.last_seen, dec, "but the months widen");
     // Recorded again for an earlier month, its first month moves back.
-    record(&root, month("2025-09"), &[changed.as_path()]).unwrap();
-    let m = read_model(&root, "v5.6").unwrap().unwrap();
+    record(&root, Market::Nem, month("2025-09"), &[changed.as_path()]).unwrap();
+    let m = read_model(&root, Market::Nem, "v5.6").unwrap().unwrap();
     assert_eq!(m.first_seen, month("2025-09"));
 
     // A month with no zip changes nothing; files that are not models are
     // passed over.
-    std::fs::write(models_dir(&root).join("notes.txt"), "x").unwrap();
-    std::fs::create_dir_all(models_dir(&root).join(".toml")).unwrap();
-    let r = record(&root, month("2026-01"), &[]).unwrap();
+    std::fs::write(models_dir(&root, Market::Nem).join("notes.txt"), "x").unwrap();
+    std::fs::create_dir_all(models_dir(&root, Market::Nem).join(".toml")).unwrap();
+    let r = record(&root, Market::Nem, month("2026-01"), &[]).unwrap();
     assert!(r.versions.is_empty() && r.new_versions.is_empty());
-    assert_eq!(read_models(&root).unwrap().len(), 2);
+    assert_eq!(read_models(&root, Market::Nem).unwrap().len(), 2);
 }
 
 /// A cut of AEMO's 5.6 create script (two tables, as the 2025-10 archive
@@ -146,13 +154,13 @@ fn the_script_gives_the_bytes_utilake_recorded() {
     let root = dir.path().join("repo");
     for m in ["2026-09", "2025-10", "2026-01"] {
         assert!(
-            record(&root, month(m), &[zip.as_path()])
+            record(&root, Market::Nem, month(m), &[zip.as_path()])
                 .unwrap()
                 .problems
                 .is_empty()
         );
     }
-    let ours = std::fs::read_to_string(model_path(&root, "5.6")).unwrap();
+    let ours = std::fs::read_to_string(model_path(&root, Market::Nem, "5.6")).unwrap();
     let whole = "b1f932b1f43ea32385809b204a7a47cf2df5c0a09bb7c469eb2204ffc56fe1f6";
     let (first, rest) = recorded.split_once('\n').unwrap();
     assert_eq!(
@@ -189,7 +197,7 @@ fn broken_zips_and_files_are_problems_naming_them() {
     let root = dir.path().join("repo");
     let bad = dir.path().join("MMSDM_create_v9.9.zip");
     std::fs::write(&bad, b"not a zip").unwrap();
-    let r = record(&root, month("2025-10"), &[bad.as_path()]).unwrap();
+    let r = record(&root, Market::Nem, month("2025-10"), &[bad.as_path()]).unwrap();
     assert!(
         r.problems[0].contains("The data-model zip") && r.problems[0].contains("v9.9.zip"),
         "{:?}",
@@ -234,26 +242,32 @@ fn broken_zips_and_files_are_problems_naming_them() {
     assert!(e.contains("v9.6.zip cannot be read: postgreSQL/"), "{e}");
 
     // A model file that is not TOML.
-    std::fs::create_dir_all(models_dir(&root)).unwrap();
-    std::fs::write(model_path(&root, "v1.0"), "version = ").unwrap();
-    let e = read_model(&root, "v1.0").unwrap_err().to_string();
+    std::fs::create_dir_all(models_dir(&root, Market::Nem)).unwrap();
+    std::fs::write(model_path(&root, Market::Nem, "v1.0"), "version = ").unwrap();
+    let e = read_model(&root, Market::Nem, "v1.0")
+        .unwrap_err()
+        .to_string();
     assert!(
         e.starts_with("The model file ") && e.contains("v1.0.toml"),
         "{e}"
     );
-    assert!(read_models(&root).is_err());
-    std::fs::write(months_path(&root), "[months]\n\"2025-13\" = [\"v1.0\"]\n").unwrap();
-    let e = read_months(&root).unwrap_err().to_string();
+    assert!(read_models(&root, Market::Nem).is_err());
+    std::fs::write(
+        months_path(&root, Market::Nem),
+        "[months]\n\"2025-13\" = [\"v1.0\"]\n",
+    )
+    .unwrap();
+    let e = read_months(&root, Market::Nem).unwrap_err().to_string();
     assert!(e.contains("is not a month"), "{e}");
-    std::fs::write(months_path(&root), "[months").unwrap();
-    assert!(read_months(&root).is_err());
+    std::fs::write(months_path(&root, Market::Nem), "[months").unwrap();
+    assert!(read_months(&root, Market::Nem).is_err());
     // The models directory a file.
-    std::fs::remove_dir_all(models_dir(&root)).unwrap();
-    std::fs::write(models_dir(&root), "").unwrap();
-    assert!(read_models(&root).is_err());
-    assert!(read_model(&root, "v1").is_err());
+    std::fs::remove_dir_all(models_dir(&root, Market::Nem)).unwrap();
+    std::fs::write(models_dir(&root, Market::Nem), "").unwrap();
+    assert!(read_models(&root, Market::Nem).is_err());
+    assert!(read_model(&root, Market::Nem, "v1").is_err());
     let good = zip_with(dir.path(), "MMSDM_create_v5.6.zip", "v5.6", PG.as_bytes());
-    let e = record(&root, month("2025-10"), &[good.as_path()]).unwrap_err();
+    let e = record(&root, Market::Nem, month("2025-10"), &[good.as_path()]).unwrap_err();
     assert!(matches!(e, ModelError::Read { .. }), "{e}");
     // A file that cannot be written.
     let e = write_text(dir.path(), "x").unwrap_err().to_string();

@@ -29,6 +29,7 @@ use crate::history::{Declarations, HistoryError, Numeric, Observations};
 use crate::models::{ModelError, ModelType, by_first_seen, read_models};
 use crate::month::YearMonth;
 use crate::reports::{ROOTS, kind, read_folder};
+use utilake_iceberg::Market;
 
 /// Why the fold could not be done.
 #[derive(Debug, thiserror::Error)]
@@ -79,9 +80,10 @@ impl Baseline {
         reason: String::new(),
     };
 
-    /// The record under `root`, or the first version when there is none.
-    pub fn read(root: &Path) -> Result<Self, FoldError> {
-        let path = baseline_path(root);
+    /// The record of `market` under `root`, or the first version when
+    /// there is none.
+    pub fn read(root: &Path, market: Market) -> Result<Self, FoldError> {
+        let path = baseline_path(root, market);
         let bad = |message: String| FoldError::Published {
             path: path.display().to_string(),
             message,
@@ -99,9 +101,9 @@ impl Baseline {
     }
 }
 
-/// The baseline record of a root.
-pub fn baseline_path(root: &Path) -> PathBuf {
-    histories_dir(root).join("BASELINE.toml")
+/// The baseline record of a market.
+pub fn baseline_path(root: &Path, market: Market) -> PathBuf {
+    histories_dir(root, market).join("BASELINE.toml")
 }
 
 /// What a fold found, and what it wrote or would write.
@@ -141,19 +143,23 @@ pub fn market_time(text: &str) -> Option<String> {
     Some(format!("{date}T{time}+10:00"))
 }
 
-/// The directory of the histories under the repository root.
-pub fn histories_dir(root: &Path) -> PathBuf {
-    root.join("evidence").join("histories")
+/// The directory of a market's histories under the repository root:
+/// `evidence/histories/{market}/`.
+pub fn histories_dir(root: &Path, market: Market) -> PathBuf {
+    root.join("evidence").join("histories").join(market.id())
 }
 
 /// The history file of a table.
-pub fn history_path(root: &Path, table: &str) -> PathBuf {
-    histories_dir(root).join(format!("{table}.json"))
+pub fn history_path(root: &Path, market: Market, table: &str) -> PathBuf {
+    histories_dir(root, market).join(format!("{table}.json"))
 }
 
-/// The table metadata of the previous export.
-pub fn published_path(root: &Path, table: &str) -> PathBuf {
-    root.join("nem").join(table).join(crate::export::METADATA)
+/// The table metadata of the previous export:
+/// `{market}/{TABLE}/metadata/v1.metadata.json`.
+pub fn published_path(root: &Path, market: Market, table: &str) -> PathBuf {
+    root.join(market.id())
+        .join(table)
+        .join(crate::export::METADATA)
 }
 
 fn census_read(path: &Path, e: &std::io::Error) -> CensusError {
@@ -177,8 +183,8 @@ fn entries(dir: &Path) -> std::io::Result<Vec<PathBuf>> {
 }
 
 /// The months a census was recorded for, from the census directory.
-pub fn recorded_months(root: &Path) -> Result<Vec<YearMonth>, CensusError> {
-    let dir = census_dir(root);
+pub fn recorded_months(root: &Path, market: Market) -> Result<Vec<YearMonth>, CensusError> {
+    let dir = census_dir(root, market);
     let months = entries(&dir)
         .map_err(|e| census_read(&dir, &e))?
         .iter()
@@ -189,8 +195,12 @@ pub fn recorded_months(root: &Path) -> Result<Vec<YearMonth>, CensusError> {
 
 /// The folders of report root `root` whose census was recorded, as
 /// [`crate::reports::folder_path`] names them.
-pub fn recorded_folders(repo: &Path, root: &str) -> Result<Vec<String>, CensusError> {
-    let dir = census_dir(repo).join("reports").join(root);
+pub fn recorded_folders(
+    repo: &Path,
+    market: Market,
+    root: &str,
+) -> Result<Vec<String>, CensusError> {
+    let dir = census_dir(repo, market).join("reports").join(root);
     if !dir.is_dir() {
         return Ok(Vec::new());
     }
@@ -206,10 +216,14 @@ pub fn recorded_folders(repo: &Path, root: &str) -> Result<Vec<String>, CensusEr
 }
 
 /// Every block of every census recorded, by the table the catalog says.
-pub fn observe(root: &Path, catalog: &Catalog) -> Result<Observations, CensusError> {
+pub fn observe(
+    root: &Path,
+    market: Market,
+    catalog: &Catalog,
+) -> Result<Observations, CensusError> {
     let mut obs = Observations::default();
-    for month in recorded_months(root)? {
-        let files = read_month(root, month)?.unwrap_or_default();
+    for month in recorded_months(root, market)? {
+        let files = read_month(root, market, month)?.unwrap_or_default();
         for (file, f) in &files {
             for (i, b) in f.block.iter().enumerate() {
                 let table = catalog.table_of(&b.report.0, &b.report.1);
@@ -219,8 +233,8 @@ pub fn observe(root: &Path, catalog: &Catalog) -> Result<Observations, CensusErr
         }
     }
     for root_name in ROOTS {
-        for rel in recorded_folders(root, root_name)? {
-            let census = read_folder(root, root_name, &rel)?.unwrap_or_default();
+        for rel in recorded_folders(root, market, root_name)? {
+            let census = read_folder(root, market, root_name, &rel)?.unwrap_or_default();
             // A folder's files are not hashed one by one: a run's marks
             // name its first and last file, with theirs.
             let file = FileRecord {
@@ -262,8 +276,12 @@ pub fn observe(root: &Path, catalog: &Catalog) -> Result<Observations, CensusErr
 /// What is declared beyond the control files: each declared table's key
 /// and overrides, and the numeric columns of every data-model release
 /// recorded.
-pub fn declarations(root: &Path, catalog: &Catalog) -> Result<Declarations, ModelError> {
-    let models = read_models(root)?;
+pub fn declarations(
+    root: &Path,
+    market: Market,
+    catalog: &Catalog,
+) -> Result<Declarations, ModelError> {
+    let models = read_models(root, market)?;
     let releases = by_first_seen(&models)
         .into_iter()
         .map(|m| {
@@ -310,15 +328,15 @@ pub fn declarations(root: &Path, catalog: &Catalog) -> Result<Declarations, Mode
     })
 }
 
-/// The histories the previous export published: every
-/// `nem/{TABLE}/metadata/v1.metadata.json`, by table
+/// The histories the previous export published for `market`: every
+/// `{market}/{TABLE}/metadata/v1.metadata.json`, by table
 /// ([`utilake_iceberg::from_metadata`]). A directory without one
 /// published no history. Metadata from before the format carried the
 /// history (no `utilake.format`) is read from the `iceberg` block of the
 /// `table.json` beside it, so one fold can cross the format change.
-pub fn published(root: &Path) -> Result<BTreeMap<String, History>, FoldError> {
+pub fn published(root: &Path, market: Market) -> Result<BTreeMap<String, History>, FoldError> {
     let mut out = BTreeMap::new();
-    let nem = root.join("nem");
+    let nem = root.join(market.id());
     let dirs = entries(&nem).map_err(|e| FoldError::Published {
         path: nem.display().to_string(),
         message: e.to_string(),
@@ -377,33 +395,34 @@ fn write_error(path: &Path, source: std::io::Error) -> FoldError {
 /// kept, and the baseline record is raised to the next data version.
 pub fn fold(
     root: &Path,
+    market: Market,
     catalog: &Catalog,
     check: bool,
     rebaseline: Option<&str>,
 ) -> Result<Folded, FoldError> {
-    let obs = observe(root, catalog)?;
+    let obs = observe(root, market, catalog)?;
     let floor = match rebaseline {
         Some(_) => BTreeMap::new(),
-        None => published(root)?,
+        None => published(root, market)?,
     };
-    let tables = obs.finish(&declarations(root, catalog)?, &floor)?;
+    let tables = obs.finish(&declarations(root, market, catalog)?, &floor)?;
     let mut folded = Folded {
         tables: tables.len(),
         ..Folded::default()
     };
     if let Some(reason) = rebaseline {
         let next = Baseline {
-            version: Baseline::read(root)?.version + 1,
+            version: Baseline::read(root, market)?.version + 1,
             reason: reason.to_owned(),
         };
-        let path = baseline_path(root);
+        let path = baseline_path(root, market);
         folded.changed += 1;
         if !check {
             crate::files::write_atomic(&path, next.render().as_bytes())
                 .map_err(|e| write_error(&path, e))?;
         }
     }
-    let dir = histories_dir(root);
+    let dir = histories_dir(root, market);
     for stale in entries(&dir).map_err(|e| write_error(&dir, e))? {
         let table = stale
             .file_name()
@@ -419,7 +438,7 @@ pub fn fold(
         folded.schemas += h.schemas.len();
         folded.runs += h.runs.len();
         folded.breaks += h.breaking.len();
-        let path = history_path(root, table);
+        let path = history_path(root, market, table);
         let text = render(h);
         if std::fs::read(&path).ok().as_deref() == Some(text.as_bytes()) {
             continue;

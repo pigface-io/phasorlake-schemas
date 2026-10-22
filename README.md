@@ -12,12 +12,12 @@ it.
 
 | Path                  | What it holds                                                                                                                                |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tables/`             | One hand-kept declaration per table: its report pairs, key, time column, temporal roles, load mode, visibility and any column typed by hand. |
+| `tables/{market}/`    | One hand-kept declaration per table of a market (`nem`, `wem`, `gas`): its report pairs, key, time column, temporal roles, load mode, visibility and any column typed by hand. |
 | `sources/`             | Every file the evidence was taken from, per month: its URL, SHA-256, size and the time the server says it was published.                       |
 | `evidence/census/`    | For every block of every file AEMO published: its header, row count, data span and a profile of each column's values, with each month's control files. No row is copied. |
 | `evidence/models/`    | The data-model create scripts the monthly archives ship: each release's tables, columns, types and comments.                                 |
-| `evidence/histories/` | Each table's history as an Iceberg table, folded from all of the above; `BASELINE.toml` names the data version when one was re-based.         |
-| `nem/`                | The published tables: `nem/{TABLE}/metadata/` is the table as Iceberg table metadata (`v1.metadata.json`, `version-hint.text`, one empty manifest list per run); beside it one `schema-{id}.json` per schema, derived from the metadata; `nem/headers.json`; `manifest.json` names every file with its SHA-256. |
+| `evidence/histories/{market}/` | Each table's history as an Iceberg table, folded from all of the above; `BASELINE.toml` names the market's data version when one was re-based. The census, the models and the sources sit under a market directory the same way (`evidence/census/{market}/`, `evidence/models/{market}/`, `sources/{market}/`). |
+| `{market}/`           | The published tables of a market (`nem/`, `wem/`, `gas/`): `{market}/{TABLE}/metadata/` is the table as Iceberg table metadata (`v1.metadata.json`, `version-hint.text`, one empty manifest list per run); beside it one `schema-{id}.json` per schema, derived from the metadata; `{market}/headers.json`; `manifest.json` names every file with its SHA-256, and each market's data version and tables under `markets`. |
 | `crates/`             | `utilake-iceberg`, the Iceberg contract (no I/O): types, schemas, histories, the planner, metadata as bytes; `utilake-mms-decode`, AEMO's MMS files decoded; `utilake-plain-decode`, AEMO's header-row CSV and WEMDE JSON files decoded, with the naming, release and row-diff rules of every feed that is not MMSDM; `utilake-zip`, zips walked; `utilake-gates`, the gates every utilake repository runs; `utilake-schemas`, the tool; `xtask`, this repository's gates. utilake and pigface-io depend on the first five by git revision. |
 
 ## The pipeline
@@ -32,8 +32,8 @@ utilake-schemas census --month 2026-09 --dir mirror/MMSDM_2026_09  # evidence/ce
 utilake-schemas reports --dir mirror/Reports --mmsdm mirror        # evidence/census/reports/
 utilake-schemas sources --archive archive                          # sources/, for a census of a mirror archive
 utilake-schemas models --month 2026-09 --dir mirror/MMSDM_2026_09  # evidence/models/
-utilake-schemas fold                                               # evidence/histories/
-utilake-schemas export                                             # nem/, manifest.json
+utilake-schemas fold [--market nem]                                # evidence/histories/{market}/
+utilake-schemas export                                             # {market}/, manifest.json
 utilake-schemas iceberg --out target/iceberg                       # the same tables at file locations
 ```
 

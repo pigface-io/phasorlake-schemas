@@ -18,14 +18,20 @@ use serde::Deserialize;
 use utilake_iceberg::table::TableMetadata;
 use utilake_iceberg::{DataFile, PlanError, Target, duckdb_sql, from_metadata, plan};
 
-use crate::export::{METADATA, OWNED};
+use crate::export::METADATA;
+use utilake_iceberg::Market;
 
 /// Why the query could not be written.
 #[derive(Debug, thiserror::Error)]
 pub enum SqlError {
     /// No table of that name is published.
-    #[error("There is no published table {0} under nem/.")]
-    UnknownTable(String),
+    #[error("There is no published table {table} under {market}/.")]
+    UnknownTable {
+        /// The market.
+        market: Market,
+        /// The table.
+        table: String,
+    },
     /// The table's metadata that cannot be read.
     #[error("The table metadata {path} cannot be read: {message}")]
     Metadata {
@@ -161,16 +167,20 @@ fn time(s: &str) -> Result<i64, SqlError> {
 /// metadata is read under `root/nem/`.
 pub fn sql(
     root: &Path,
+    market: Market,
     table: &str,
     files: &Path,
     (from, to): (&str, &str),
     as_of: Option<u32>,
 ) -> Result<String, SqlError> {
-    let path = root.join(OWNED).join(table).join(METADATA);
+    let path = root.join(market.id()).join(table).join(METADATA);
     let text = match std::fs::read(&path) {
         Ok(t) => t,
         Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
-            return Err(SqlError::UnknownTable(table.to_owned()));
+            return Err(SqlError::UnknownTable {
+                market,
+                table: table.to_owned(),
+            });
         }
         Err(e) => {
             return Err(SqlError::Metadata {
@@ -279,7 +289,16 @@ mod tests {
                 {"path": "b.parquet", "schema_id": 1, "min_us": null, "max_us": null}]"#,
         )
         .unwrap();
-        let q = |from, to, as_of| sql(root, "DISPATCH_UNIT_SCADA", &files, (from, to), as_of);
+        let q = |from, to, as_of| {
+            sql(
+                root,
+                Market::Nem,
+                "DISPATCH_UNIT_SCADA",
+                &files,
+                (from, to),
+                as_of,
+            )
+        };
         let text = q("1970-01-01T00:00:00Z", "2024-08-01", None).unwrap();
         assert!(text.starts_with("SELECT \"SETTLEMENTDATE\""), "{text}");
         // One projection: the two schemas differ only in their order.
@@ -314,6 +333,7 @@ mod tests {
         assert_eq!(
             e(sql(
                 root,
+                Market::Nem,
                 "NONE",
                 &files,
                 ("2024-08-01", "2024-08-02"),
@@ -326,7 +346,7 @@ mod tests {
         std::fs::remove_file(&files).unwrap();
         assert!(e(q("2024-08-01", "2024-08-02", None)).starts_with("The file list "));
         // Metadata that is not JSON, not a published table, or a directory.
-        let meta = crate::fold::published_path(root, "DISPATCH_UNIT_SCADA");
+        let meta = crate::fold::published_path(root, Market::Nem, "DISPATCH_UNIT_SCADA");
         std::fs::write(&meta, "[").unwrap();
         assert!(e(q("2024-08-01", "2024-08-02", None)).contains("v1.metadata.json cannot be read"));
         std::fs::write(&meta, "{}").unwrap();

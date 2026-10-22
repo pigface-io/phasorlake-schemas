@@ -25,6 +25,7 @@ use serde::Deserialize;
 use crate::ctl::sha256;
 use crate::ddl::{self, Script};
 use crate::month::YearMonth;
+use utilake_iceberg::Market;
 
 /// The postgreSQL script's path inside the zip, with its version in place of `{v}`.
 const POSTGRES: &str = "postgreSQL/{v}/create_mms_data_model.sql";
@@ -191,19 +192,20 @@ pub fn model_zips(files: &[PathBuf]) -> Vec<&Path> {
     out
 }
 
-/// The directory of the model files under the repository root.
-pub fn models_dir(root: &Path) -> PathBuf {
-    root.join("evidence").join("models")
+/// The directory of a market's model files under the repository root:
+/// `evidence/models/{market}/`.
+pub fn models_dir(root: &Path, market: Market) -> PathBuf {
+    root.join("evidence").join("models").join(market.id())
 }
 
 /// The model file of a version.
-pub fn model_path(root: &Path, version: &str) -> PathBuf {
-    models_dir(root).join(format!("{version}.toml"))
+pub fn model_path(root: &Path, market: Market, version: &str) -> PathBuf {
+    models_dir(root, market).join(format!("{version}.toml"))
 }
 
 /// The month map.
-pub fn months_path(root: &Path) -> PathBuf {
-    models_dir(root).join("months.toml")
+pub fn months_path(root: &Path, market: Market) -> PathBuf {
+    models_dir(root, market).join("months.toml")
 }
 
 /// A TOML basic string.
@@ -315,8 +317,8 @@ fn write_text(path: &Path, text: &str) -> Result<(), ModelError> {
 }
 
 /// Reads one version's file, if recorded.
-pub fn read_model(root: &Path, version: &str) -> Result<Option<Model>, ModelError> {
-    let path = model_path(root, version);
+pub fn read_model(root: &Path, market: Market, version: &str) -> Result<Option<Model>, ModelError> {
+    let path = model_path(root, market, version);
     let Some(text) = read_text(&path)? else {
         return Ok(None);
     };
@@ -326,8 +328,8 @@ pub fn read_model(root: &Path, version: &str) -> Result<Option<Model>, ModelErro
 }
 
 /// Every version recorded, by version string.
-pub fn read_models(root: &Path) -> Result<BTreeMap<String, Model>, ModelError> {
-    let dir = models_dir(root);
+pub fn read_models(root: &Path, market: Market) -> Result<BTreeMap<String, Model>, ModelError> {
+    let dir = models_dir(root, market);
     let mut out = BTreeMap::new();
     let entries = match std::fs::read_dir(&dir) {
         Ok(e) => e,
@@ -343,7 +345,7 @@ pub fn read_models(root: &Path) -> Result<BTreeMap<String, Model>, ModelError> {
         if path.extension().is_none_or(|e| e != "toml") {
             continue;
         }
-        if let Some(m) = read_model(root, &stem)? {
+        if let Some(m) = read_model(root, market, &stem)? {
             out.insert(m.version.clone(), m);
         }
     }
@@ -351,13 +353,16 @@ pub fn read_models(root: &Path) -> Result<BTreeMap<String, Model>, ModelError> {
 }
 
 /// Which versions each month shipped, as recorded.
-pub fn read_months(root: &Path) -> Result<BTreeMap<YearMonth, Vec<String>>, ModelError> {
+pub fn read_months(
+    root: &Path,
+    market: Market,
+) -> Result<BTreeMap<YearMonth, Vec<String>>, ModelError> {
     #[derive(Deserialize)]
     struct File {
         #[serde(default)]
         months: BTreeMap<String, Vec<String>>,
     }
-    let path = months_path(root);
+    let path = months_path(root, market);
     let Some(text) = read_text(&path)? else {
         return Ok(BTreeMap::new());
     };
@@ -396,9 +401,14 @@ pub struct Recorded {
 /// What one month's zips said, recorded: a version seen before widens its
 /// months; a new one is written; a version whose script differs from the
 /// recorded one is a problem, and the recorded one stays.
-pub fn record(root: &Path, month: YearMonth, zips: &[&Path]) -> Result<Recorded, ModelError> {
+pub fn record(
+    root: &Path,
+    market: Market,
+    month: YearMonth,
+    zips: &[&Path],
+) -> Result<Recorded, ModelError> {
     let mut recorded = Recorded::default();
-    let mut months = read_months(root)?;
+    let mut months = read_months(root, market)?;
     let mut seen: BTreeSet<String> = BTreeSet::new();
     for zip in zips {
         let (version, sha, script) = match read_zip(zip) {
@@ -409,7 +419,7 @@ pub fn record(root: &Path, month: YearMonth, zips: &[&Path]) -> Result<Recorded,
             }
         };
         let fresh = from_script(&version, &sha, &script, month);
-        let model = match read_model(root, &version)? {
+        let model = match read_model(root, market, &version)? {
             Some(mut have) => {
                 if have.script_sha256 != sha && have.tables != fresh.tables {
                     recorded.problems.push(format!(
@@ -427,12 +437,12 @@ pub fn record(root: &Path, month: YearMonth, zips: &[&Path]) -> Result<Recorded,
                 fresh
             }
         };
-        write_text(&model_path(root, &version), &render(&model))?;
+        write_text(&model_path(root, market, &version), &render(&model))?;
         seen.insert(version);
     }
     if !seen.is_empty() {
         months.insert(month, seen.into_iter().collect());
-        write_text(&months_path(root), &render_months(&months))?;
+        write_text(&months_path(root, market), &render_months(&months))?;
     }
     recorded.versions = months.get(&month).cloned().unwrap_or_default();
     Ok(recorded)

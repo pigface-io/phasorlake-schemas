@@ -29,9 +29,10 @@ use serde_json::{Value, json};
 use utilake_iceberg::publish::{Declaration, PublishError, Published, Table, to_metadata};
 use utilake_iceberg::{History, from_metadata};
 
-use crate::catalog::{Catalog, CatalogError, TableDecl};
+use crate::catalog::{Catalog, CatalogError, TableDecl, tables_dir};
 use crate::fold::{Baseline, FoldError, histories_dir};
 use crate::models::{Model, ModelError, ModelTable, by_first_seen, read_models};
+use utilake_iceberg::Market;
 
 pub mod schema;
 mod write;
@@ -47,8 +48,10 @@ pub const FORMAT: u32 = utilake_iceberg::publish::FORMAT;
 /// path.
 pub const DEFAULT_BASE_URL: &str = "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/";
 
-/// The directory the export owns.
-pub const OWNED: &str = "nem";
+/// The directories the export owns: one per market, `nem/`, `wem/`, `gas/`.
+pub fn owned() -> impl Iterator<Item = &'static str> {
+    Market::ALL.into_iter().map(Market::id)
+}
 
 /// The table's metadata file under its directory.
 pub const METADATA: &str = "metadata/v1.metadata.json";
@@ -118,10 +121,14 @@ pub fn text(v: &Value) -> String {
     s
 }
 
-/// Every history under `evidence/histories/`, by table. A file must be
-/// named for its table; a file that is not `.json` is not a history.
-pub fn read_histories(root: &Path) -> Result<BTreeMap<String, History>, ExportError> {
-    let dir = histories_dir(root);
+/// Every history under `evidence/histories/{market}/`, by table. A file
+/// must be named for its table; a file that is not `.json` is not a
+/// history.
+pub fn read_histories(
+    root: &Path,
+    market: Market,
+) -> Result<BTreeMap<String, History>, ExportError> {
+    let dir = histories_dir(root, market);
     let mut paths: Vec<PathBuf> = match std::fs::read_dir(&dir) {
         Ok(rd) => rd
             .map(|e| e.map(|e| e.path()))
@@ -179,17 +186,24 @@ fn declaration(d: &TableDecl) -> Result<Declaration, ExportError> {
     })
 }
 
-/// Everything the export reads, loaded.
+/// What the export reads of one market.
 #[derive(Debug)]
-pub struct Export {
+struct MarketExport {
     histories: BTreeMap<String, History>,
     /// Each declared table's declaration in its published form.
     declarations: BTreeMap<String, Declaration>,
     /// The data-model releases, first shipped first.
     models: Vec<Model>,
-    base_url: String,
     /// The data version of the histories.
     baseline: Baseline,
+}
+
+/// Everything the export reads, loaded: each market that has declarations
+/// or histories.
+#[derive(Debug)]
+pub struct Export {
+    markets: BTreeMap<Market, MarketExport>,
+    base_url: String,
 }
 
 /// Every file one export writes, by path relative to the root.
@@ -203,31 +217,33 @@ pub struct Rendered {
     pub schemas: usize,
 }
 
-impl Export {
-    /// Reads the histories, the declarations and the data-model releases
-    /// under `root`; the documents will live under `base_url`.
-    pub fn load(root: &Path, base_url: &str) -> Result<Self, ExportError> {
-        let catalog = Catalog::read(&root.join("tables"))?;
-        let declarations = catalog
-            .tables()
-            .iter()
-            .map(|d| Ok((d.name.clone(), declaration(d)?)))
-            .collect::<Result<_, ExportError>>()?;
-        Ok(Self {
-            histories: read_histories(root)?,
+impl MarketExport {
+    /// Reads one market's declarations, histories, models and baseline;
+    /// none when the market has neither declarations nor histories.
+    fn load(root: &Path, market: Market) -> Result<Option<Self>, ExportError> {
+        let tables = tables_dir(root, market);
+        let histories = histories_dir(root, market);
+        if !tables.exists() && !histories.exists() {
+            return Ok(None);
+        }
+        let declarations = if tables.exists() {
+            Catalog::read(&tables)?
+                .tables()
+                .iter()
+                .map(|d| Ok((d.name.clone(), declaration(d)?)))
+                .collect::<Result<_, ExportError>>()?
+        } else {
+            BTreeMap::new()
+        };
+        Ok(Some(Self {
+            histories: read_histories(root, market)?,
             declarations,
-            models: by_first_seen(&read_models(root)?)
+            models: by_first_seen(&read_models(root, market)?)
                 .into_iter()
                 .cloned()
                 .collect(),
-            base_url: base_url.to_owned(),
-            baseline: Baseline::read(root)?,
-        })
-    }
-
-    /// The tables with a history, in order.
-    pub fn tables(&self) -> impl Iterator<Item = &str> {
-        self.histories.keys().map(String::as_str)
+            baseline: Baseline::read(root, market)?,
+        }))
     }
 
     /// The newest release's declaration of `table`.
@@ -246,15 +262,41 @@ impl Export {
                 (non_empty(comment), Some(ty.as_str()))
             })
     }
+}
 
-    /// `table` as published: its history, its declaration, and what the
-    /// data-model releases say of it and its columns.
-    pub fn published(&self, table: &str) -> Option<Published> {
-        let h = self.histories.get(table)?;
+impl Export {
+    /// Reads the histories, the declarations and the data-model releases
+    /// of every market under `root`; the documents will live under
+    /// `base_url`.
+    pub fn load(root: &Path, base_url: &str) -> Result<Self, ExportError> {
+        let mut markets = BTreeMap::new();
+        for market in Market::ALL {
+            if let Some(m) = MarketExport::load(root, market)? {
+                markets.insert(market, m);
+            }
+        }
+        Ok(Self {
+            markets,
+            base_url: base_url.to_owned(),
+        })
+    }
+
+    /// The tables with a history, by market then name.
+    pub fn tables(&self) -> impl Iterator<Item = (Market, &str)> {
+        self.markets
+            .iter()
+            .flat_map(|(m, e)| e.histories.keys().map(move |t| (*m, t.as_str())))
+    }
+
+    /// `table` of `market` as published: its history, its declaration, and
+    /// what the data-model releases say of it and its columns.
+    pub fn published(&self, market: Market, table: &str) -> Option<Published> {
+        let e = self.markets.get(&market)?;
+        let h = e.histories.get(table)?;
         let mut docs = BTreeMap::new();
         let mut model_types = BTreeMap::new();
         for f in h.fields() {
-            let (comment, model_type) = self.column(table, &f.name);
+            let (comment, model_type) = e.column(table, &f.name);
             if let Some(c) = comment {
                 docs.insert(f.id, c.to_owned());
             }
@@ -263,10 +305,10 @@ impl Export {
             }
         }
         Some(Published {
-            market: utilake_iceberg::Market::Nem,
+            market,
             history: h.clone(),
-            declaration: self.declarations.get(table).cloned(),
-            description: self
+            declaration: e.declarations.get(table).cloned(),
+            description: e
                 .model(table)
                 .and_then(|t| non_empty(&t.comment))
                 .map(str::to_owned),
@@ -277,16 +319,20 @@ impl Export {
         })
     }
 
-    /// `table` as Iceberg table metadata at `location`, with its manifest
-    /// lists; none when it has no history.
-    pub fn table(&self, table: &str, location: &str) -> Option<Result<Table, ExportError>> {
-        let p = self.published(table)?;
+    /// `table` of `market` as Iceberg table metadata at `location`, with
+    /// its manifest lists; none when it has no history.
+    pub fn table(
+        &self,
+        market: Market,
+        table: &str,
+        location: &str,
+    ) -> Option<Result<Table, ExportError>> {
+        let p = self.published(market, table)?;
+        let uuid = crate::iceberg::table_uuid_in(market, table);
         Some(
-            to_metadata(&p, location, &crate::iceberg::table_uuid(table)).map_err(|source| {
-                ExportError::Publish {
-                    table: table.to_owned(),
-                    source,
-                }
+            to_metadata(&p, location, &uuid).map_err(|source| ExportError::Publish {
+                table: table.to_owned(),
+                source,
             }),
         )
     }
@@ -294,41 +340,57 @@ impl Export {
     /// Renders every file.
     pub fn render(&self) -> Result<Rendered, ExportError> {
         let mut out = Rendered::default();
-        let mut listed = Vec::new();
-        let mut histories = Vec::new();
-        for table in self.tables() {
-            let dir = format!("{OWNED}/{table}");
-            let location = format!("{}{dir}", self.base_url);
-            let t = self
-                .table(table, &location)
-                .expect("the table has a history")?;
+        let mut markets = serde_json::Map::new();
+        for (market, e) in &self.markets {
+            let mut listed = Vec::new();
+            let mut histories = Vec::new();
+            for table in e.histories.keys() {
+                let dir = format!("{market}/{table}");
+                let location = format!("{}{dir}", self.base_url);
+                let t = self
+                    .table(*market, table, &location)
+                    .expect("the table has a history")?;
+                out.files.insert(
+                    format!("{dir}/{METADATA}"),
+                    text(&serde_json::to_value(&t.metadata).expect("metadata serialises")).into(),
+                );
+                out.files
+                    .insert(format!("{dir}/metadata/version-hint.text"), b"1".to_vec());
+                for ml in t.manifest_lists {
+                    out.files.insert(format!("{dir}/{}", ml.path), ml.bytes);
+                }
+                // Everything else is read back out of the metadata.
+                let p = from_metadata(&t.metadata).expect("what was published reads back");
+                debug_assert_eq!(
+                    p,
+                    self.published(*market, table)
+                        .expect("the table has a history")
+                );
+                for s in &p.history.schemas {
+                    let path = format!("{dir}/{}", schema::file_name(s.schema_id));
+                    let doc = schema::document(&self.base_url, table, &path, s, &p);
+                    out.files.insert(path, doc.into());
+                }
+                out.schemas += p.history.schemas.len();
+                listed.push(listing(&p));
+                histories.push(p.history);
+            }
+            out.tables += histories.len();
             out.files.insert(
-                format!("{dir}/{METADATA}"),
-                text(&serde_json::to_value(&t.metadata).expect("metadata serialises")).into(),
+                format!("{market}/headers.json"),
+                text(&headers(histories.iter())).into(),
             );
-            out.files
-                .insert(format!("{dir}/metadata/version-hint.text"), b"1".to_vec());
-            for ml in t.manifest_lists {
-                out.files.insert(format!("{dir}/{}", ml.path), ml.bytes);
-            }
-            // Everything else is read back out of the metadata.
-            let p = from_metadata(&t.metadata).expect("what was published reads back");
-            debug_assert_eq!(p, self.published(table).expect("the table has a history"));
-            for s in &p.history.schemas {
-                let path = format!("{dir}/{}", schema::file_name(s.schema_id));
-                let doc = schema::document(&self.base_url, table, &path, s, &p);
-                out.files.insert(path, doc.into());
-            }
-            out.schemas += p.history.schemas.len();
-            listed.push(listing(&p));
-            histories.push(p.history);
+            markets.insert(
+                market.id().to_owned(),
+                json!({
+                    "baseline": {"version": e.baseline.version, "reason": e.baseline.reason},
+                    "tables": histories.len(),
+                    "schemas": histories.iter().map(|h| h.schemas.len()).sum::<usize>(),
+                    "listed": listed,
+                }),
+            );
         }
-        out.tables = histories.len();
-        out.files.insert(
-            format!("{OWNED}/headers.json"),
-            text(&headers(histories.iter())).into(),
-        );
-        let manifest = manifest(&self.base_url, &self.baseline, &listed, &out);
+        let manifest = manifest(&self.base_url, &markets, &out);
         out.files
             .insert("manifest.json".to_owned(), manifest.into());
         Ok(out)
@@ -424,10 +486,11 @@ fn non_empty(s: &str) -> Option<&str> {
     Some(s).filter(|s| !s.is_empty())
 }
 
-/// The manifest: what was written, the data version (`baseline`: the
-/// version, and the reason it was begun), each table's line
-/// ([`listing`]) and the SHA-256 of every file under `nem/`.
-fn manifest(base_url: &str, baseline: &Baseline, listed: &[Value], r: &Rendered) -> String {
+/// The manifest: what was written, each market's data version
+/// (`baseline`: the version, and the reason it was begun), its counts and
+/// its tables' lines ([`listing`]) under `markets`, and the SHA-256 of
+/// every file under every market's directory.
+fn manifest(base_url: &str, markets: &serde_json::Map<String, Value>, r: &Rendered) -> String {
     let hashes: BTreeMap<&str, String> = r
         .files
         .iter()
@@ -435,12 +498,10 @@ fn manifest(base_url: &str, baseline: &Baseline, listed: &[Value], r: &Rendered)
         .collect();
     text(&json!({
         "format": FORMAT,
-        "market": "nem",
         "base_url": base_url,
-        "baseline": {"version": baseline.version, "reason": baseline.reason},
+        "markets": markets,
         "tables": r.tables,
         "schemas": r.schemas,
-        "listed": listed,
         "sha256": hashes,
     }))
 }

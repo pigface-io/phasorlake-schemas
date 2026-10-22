@@ -25,7 +25,8 @@ use std::process::ExitCode;
 use std::time::Duration;
 
 use clap::{Parser, Subcommand};
-use utilake_schemas::catalog::Catalog;
+use utilake_iceberg::Market;
+use utilake_schemas::catalog::{Catalog, tables_dir};
 use utilake_schemas::fetch::{DEFAULT_INTERVAL_MS, Http, Response};
 use utilake_schemas::month::YearMonth;
 
@@ -59,7 +60,7 @@ enum Cmd {
         root: PathBuf,
     },
     /// Record every block of every file of a month's directory in
-    /// `{root}/evidence/census/{YYYY-MM}.toml`.
+    /// `{root}/evidence/census/{market}/{YYYY-MM}.toml`.
     Census {
         /// The month, `YYYY-MM`.
         #[arg(long)]
@@ -67,7 +68,10 @@ enum Cmd {
         /// The month's directory.
         #[arg(long)]
         dir: PathBuf,
-        /// The repository root, whose `tables/` declares the tables.
+        /// The market: `nem`, `wem` or `gas`.
+        #[arg(long, default_value = "nem")]
+        market: Market,
+        /// The repository root, whose `tables/{market}/` declares the tables.
         #[arg(long, default_value = ".")]
         root: PathBuf,
         /// Files read at once: one per core by default. The census is bound
@@ -75,14 +79,18 @@ enum Cmd {
         #[arg(long, default_value_t = utilake_schemas::pool::default_jobs())]
         jobs: usize,
     },
-    /// List every file each census read in `{root}/sources/{YYYY-MM}.tsv`,
-    /// from the sidecars of a mirror archive; exit 1 naming each file whose
-    /// sidecar is missing or disagrees with the census, writing nothing.
+    /// List every file each census read in
+    /// `{root}/sources/{market}/{YYYY-MM}.tsv`, from the sidecars of a
+    /// mirror archive; exit 1 naming each file whose sidecar is missing or
+    /// disagrees with the census, writing nothing.
     Sources {
         /// The mirror archive: the directory holding `www.nemweb.com.au/`,
         /// or that directory itself.
         #[arg(long)]
         archive: PathBuf,
+        /// The market: `nem`, `wem` or `gas`.
+        #[arg(long, default_value = "nem")]
+        market: Market,
         /// Write nothing; exit 3 if any sources file would change, listing
         /// each.
         #[arg(long)]
@@ -95,11 +103,14 @@ enum Cmd {
         jobs: usize,
     },
     /// Record every folder of the report roots in
-    /// `{root}/evidence/census/reports/{ROOT}/{folder}.toml`.
+    /// `{root}/evidence/census/{market}/reports/{ROOT}/{folder}.toml`.
     Reports {
         /// The directory holding `ARCHIVE/` and `CURRENT/`.
         #[arg(long)]
         dir: PathBuf,
+        /// The market: `nem`, `wem` or `gas`.
+        #[arg(long, default_value = "nem")]
+        market: Market,
         /// The directory of MMSDM months (`MMSDM_{YYYY}_{MM}/CTL/`) whose
         /// control files type the blocks; without it nothing is typed.
         #[arg(long)]
@@ -118,9 +129,9 @@ enum Cmd {
     },
     /// Record the data-model create scripts a month's archive carries
     /// (`DOCUMENTATION/MMS Data Model/v5.x/MMSDM_create_v5.x.zip`, from
-    /// 2022-10 on) in `{root}/evidence/models/{version}.toml`, one file per
-    /// release with the months it shipped in, and `months.toml`. A version
-    /// already recorded only widens its months.
+    /// 2022-10 on) in `{root}/evidence/models/{market}/{version}.toml`, one
+    /// file per release with the months it shipped in, and `months.toml`. A
+    /// version already recorded only widens its months.
     Models {
         /// The month, `YYYY-MM`.
         #[arg(long)]
@@ -128,13 +139,16 @@ enum Cmd {
         /// The month's directory.
         #[arg(long)]
         dir: PathBuf,
+        /// The market: `nem`, `wem` or `gas`.
+        #[arg(long, default_value = "nem")]
+        market: Market,
         /// The repository root.
         #[arg(long, default_value = ".")]
         root: PathBuf,
     },
-    /// Fold every census into each table's history, kept to the history
-    /// `{root}/nem/{TABLE}/metadata/v1.metadata.json` published, and write
-    /// `{root}/evidence/histories/{TABLE}.json`.
+    /// Fold every census of a market into each table's history, kept to
+    /// the history `{root}/{market}/{TABLE}/metadata/v1.metadata.json`
+    /// published, and write `{root}/evidence/histories/{market}/{TABLE}.json`.
     Fold {
         /// Write nothing; exit 3 if any history file would change.
         #[arg(long)]
@@ -143,14 +157,18 @@ enum Cmd {
         /// the next data version with this reason.
         #[arg(long, value_name = "REASON")]
         rebaseline: Option<String>,
-        /// The repository root, whose `tables/` declares the tables.
+        /// The market: `nem`, `wem` or `gas`.
+        #[arg(long, default_value = "nem")]
+        market: Market,
+        /// The repository root, whose `tables/{market}/` declares the tables.
         #[arg(long, default_value = ".")]
         root: PathBuf,
     },
-    /// Write every table as `{root}/nem/{TABLE}/metadata/` (Iceberg table
-    /// metadata and its manifest lists) and `schema-{id}.json`, with
-    /// `{root}/nem/headers.json` and `{root}/manifest.json`; remove every
-    /// other file under `{root}/nem/`.
+    /// Write every table of every market as
+    /// `{root}/{market}/{TABLE}/metadata/` (Iceberg table metadata and its
+    /// manifest lists) and `schema-{id}.json`, with
+    /// `{root}/{market}/headers.json` and `{root}/manifest.json`; remove
+    /// every other file under the markets' directories.
     Export {
         /// Write nothing; exit 3 if any file would change, listing each.
         #[arg(long)]
@@ -162,8 +180,8 @@ enum Cmd {
         #[arg(long, default_value = ".")]
         root: PathBuf,
     },
-    /// Hold every table under `{root}/nem/` to what a git revision
-    /// published; exit 1 with one line per broken promise.
+    /// Hold every table under the markets' directories to what a git
+    /// revision published; exit 1 with one line per broken promise.
     Compat {
         /// The revision.
         #[arg(long)]
@@ -172,8 +190,8 @@ enum Cmd {
         #[arg(long, default_value = ".")]
         root: PathBuf,
     },
-    /// Summarise what `{root}/nem/` adds to a git revision, per table, as
-    /// Markdown.
+    /// Summarise what the markets' directories add to a git revision, per
+    /// table, as Markdown.
     Diff {
         /// The revision.
         #[arg(long)]
@@ -187,6 +205,9 @@ enum Cmd {
     Sql {
         /// The table.
         table: String,
+        /// The market: `nem`, `wem` or `gas`.
+        #[arg(long, default_value = "nem")]
+        market: Market,
         /// The data files, `[{path, schema_id, min_us, max_us}]`.
         #[arg(long)]
         files: PathBuf,
@@ -204,7 +225,7 @@ enum Cmd {
         root: PathBuf,
     },
     /// Write every history as an Iceberg table without data under
-    /// `{out}/{TABLE}`.
+    /// `{out}/{market}/{TABLE}`.
     Iceberg {
         /// Where the tables go.
         #[arg(long)]
@@ -309,8 +330,8 @@ fn scratch() -> Result<tempfile::TempDir, ExitCode> {
     tempfile::tempdir().map_err(|e| fail(&e))
 }
 
-fn catalog(root: &Path) -> Result<Catalog, ExitCode> {
-    Catalog::read(&root.join("tables")).map_err(|e| fail(&e))
+fn catalog(root: &Path, market: Market) -> Result<Catalog, ExitCode> {
+    Catalog::read(&tables_dir(root, market)).map_err(|e| fail(&e))
 }
 
 fn main() -> ExitCode {
@@ -350,10 +371,11 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         Cmd::Census {
             month,
             dir,
+            market,
             root,
             jobs,
         } => {
-            let cat = catalog(&root)?;
+            let cat = catalog(&root, market)?;
             let files = utilake_schemas::census::month_files(&dir).map_err(|e| fail(&e))?;
             let tmp = scratch()?;
             let census =
@@ -361,7 +383,8 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             for p in &census.problems {
                 eprintln!("error: {}: {}", p.file, p.error);
             }
-            let blocks = utilake_schemas::census::record(&root, &census).map_err(|e| fail(&e))?;
+            let blocks =
+                utilake_schemas::census::record(&root, market, &census).map_err(|e| fail(&e))?;
             println!(
                 "{month}: {} file(s), {blocks} block(s), {} unread",
                 census.files.len(),
@@ -373,12 +396,13 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         }
         Cmd::Sources {
             archive,
+            market,
             check,
             root,
             jobs,
         } => {
             use utilake_schemas::sources;
-            let s = sources::collect(&root, &archive, jobs).map_err(|e| fail(&e))?;
+            let s = sources::collect(&root, market, &archive, jobs).map_err(|e| fail(&e))?;
             for m in &s.mismatches {
                 eprintln!("error: {m}");
             }
@@ -393,7 +417,7 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                 return Ok(ExitCode::FAILURE);
             }
             if check {
-                let stale = sources::stale(&root, &s);
+                let stale = sources::stale(&root, market, &s);
                 for p in &stale {
                     eprintln!("stale: {}", p.display());
                 }
@@ -402,26 +426,27 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                     return Ok(ExitCode::from(3));
                 }
             } else {
-                let n = sources::write(&root, &s).map_err(|e| fail(&e))?;
+                let n = sources::write(&root, market, &s).map_err(|e| fail(&e))?;
                 println!("{counts}; {n} file(s) written");
             }
         }
         Cmd::Reports {
             dir,
+            market,
             mmsdm,
             mirror,
             root,
             jobs,
         } => {
             use utilake_schemas::reports;
-            let cat = catalog(&root)?;
+            let cat = catalog(&root, market)?;
             let tmp = scratch()?;
             let journals = mirror.as_deref().map(reports::journals);
             let taken = reports::census_reports(
                 &cat,
                 &dir,
                 (mmsdm.as_deref(), journals.as_deref()),
-                &root,
+                (&root, market),
                 tmp.path(),
                 jobs,
             )
@@ -439,10 +464,16 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                 return Ok(ExitCode::from(3));
             }
         }
-        Cmd::Models { month, dir, root } => {
+        Cmd::Models {
+            month,
+            dir,
+            market,
+            root,
+        } => {
             let files = utilake_schemas::census::files_under(&dir).map_err(|e| fail(&e))?;
             let zips = utilake_schemas::models::model_zips(&files);
-            let r = utilake_schemas::models::record(&root, month, &zips).map_err(|e| fail(&e))?;
+            let r = utilake_schemas::models::record(&root, market, month, &zips)
+                .map_err(|e| fail(&e))?;
             for p in &r.problems {
                 eprintln!("error: {p}");
             }
@@ -459,10 +490,11 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         Cmd::Fold {
             check,
             rebaseline,
+            market,
             root,
         } => {
-            let cat = catalog(&root)?;
-            let f = utilake_schemas::fold::fold(&root, &cat, check, rebaseline.as_deref())
+            let cat = catalog(&root, market)?;
+            let f = utilake_schemas::fold::fold(&root, market, &cat, check, rebaseline.as_deref())
                 .map_err(|e| fail(&e))?;
             println!(
                 "{} table(s), {} schema(s), {} run(s), {} break(s); {} file(s) {}",
@@ -512,7 +544,7 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         Cmd::Compat { base, root } => {
             let (old, now) = published(&root, &base)?;
             if old.tables.is_empty() && old.schemas.is_empty() {
-                println!("compat: {base} has no nem/; nothing to hold to");
+                println!("compat: {base} published no table; nothing to hold to");
                 return Ok(ExitCode::SUCCESS);
             }
             let c = utilake_schemas::compat::compat(&base, &old, &now);
@@ -522,12 +554,13 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             if !c.violations.is_empty() {
                 return Ok(ExitCode::FAILURE);
             }
-            if let Some((was, is)) = c.rebased {
+            for (market, (was, is)) in &c.rebased {
                 println!(
-                    "compat: data version {was} at {base} was re-based to {is}: {}; nothing held",
-                    now.baseline.reason
+                    "compat: {market}'s data version {was} at {base} was re-based to {is}: {}; nothing of it held",
+                    now.baseline(*market).reason
                 );
-            } else {
+            }
+            if c.rebased.is_empty() {
                 println!(
                     "compat: the {} table(s) and {} schema document(s) {base} published hold",
                     c.tables, c.schemas
@@ -540,13 +573,14 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         }
         Cmd::Sql {
             table,
+            market,
             files,
             from,
             to,
             as_of,
             root,
         } => {
-            let q = utilake_schemas::sql::sql(&root, &table, &files, (&from, &to), as_of)
+            let q = utilake_schemas::sql::sql(&root, market, &table, &files, (&from, &to), as_of)
                 .map_err(|e| fail(&e))?;
             print!("{q}");
         }
