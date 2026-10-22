@@ -152,7 +152,7 @@ fn time(s: &str) -> Result<i64, SqlError> {
 }
 
 /// The DuckDB query reading `[from, to)` of `table`'s files listed in
-/// `files`, projected onto schema `as_of` or the latest; the table's
+/// `files`, projected onto schema `as_of` or the current one; the table's
 /// history and time column are read under `root`.
 pub fn sql(
     root: &Path,
@@ -189,7 +189,7 @@ pub fn sql(
         })
         .collect();
     let target = as_of.map_or(Target::Latest, Target::AsOf);
-    let reads = plan(&h.schemas, &data, interval, target).map_err(|source| SqlError::Plan {
+    let reads = plan(&h, &data, interval, target).map_err(|source| SqlError::Plan {
         table: table.to_owned(),
         source,
     })?;

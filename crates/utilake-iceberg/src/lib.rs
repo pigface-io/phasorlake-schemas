@@ -22,6 +22,6 @@ mod types;
 
 pub use evidence::{Choice, Declared, Evidence, Kind, choose, holds};
 pub use history::History;
-pub use plan::{Column, DataFile, PlanError, Read, Target, duckdb_sql, plan};
+pub use plan::{Column, DataFile, PlanError, Read, Target, casts_to, duckdb_sql, plan};
 pub use schema::{Field, Schema};
 pub use types::IcebergType;
