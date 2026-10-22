@@ -33,11 +33,11 @@ pub enum IcebergType {
 
 impl IcebergType {
     /// Whether a column of this type may become `to` in metadata alone:
-    /// the same type, a decimal of larger precision and the same scale, or a
-    /// date that becomes a time (format version 3).
+    /// the same type, or a decimal of larger precision and the same scale.
+    /// A date never becomes a `timestamptz`: the specification promotes a
+    /// date to a `timestamp` without a zone only, and this crate has none.
     pub fn promotes_to(self, to: Self) -> bool {
         match (self, to) {
-            (Self::Date, Self::Timestamptz) => true,
             (
                 Self::Decimal { precision, scale },
                 Self::Decimal {
@@ -146,8 +146,9 @@ mod tests {
         assert!(!d(10, 2).promotes_to(d(18, 3)));
         assert!(IcebergType::Long.promotes_to(IcebergType::Long));
         assert!(!IcebergType::Long.promotes_to(IcebergType::Double));
-        assert!(IcebergType::Date.promotes_to(IcebergType::Timestamptz));
+        assert!(!IcebergType::Date.promotes_to(IcebergType::Timestamptz));
         assert!(!IcebergType::Timestamptz.promotes_to(IcebergType::Date));
+        assert!(IcebergType::Date.promotes_to(IcebergType::Date));
         assert!(!IcebergType::Double.promotes_to(d(18, 2)));
     }
 
