@@ -26,6 +26,8 @@ fn block(version: u16, span: Option<(&str, &str)>, cols: &[Col<'_>]) -> BlockRec
         report: ("DISPATCH".into(), "PRICE".into()),
         version,
         rows: 10,
+        rows_repeated: 0,
+        headers: Vec::new(),
         time: span.map(|_| "SETTLEMENTDATE".into()),
         first: span.map(|s| s.0.into()),
         last: span.map(|s| s.1.into()),

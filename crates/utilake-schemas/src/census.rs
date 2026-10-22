@@ -25,6 +25,7 @@ use crate::catalog::Catalog;
 use crate::ctl::CtlFile;
 use utilake_mms_decode::scan::{Flow, Never, Pos, ScanOptions, ScanStats, Sink, scan_with};
 use utilake_mms_decode::{IRow, Row, RowError, RowFailure};
+use utilake_plain_decode::{BlockName, Header, PlainOptions, PlainRowError, PlainSink, RowSet};
 
 /// A scan's failure: the census's sinks never fail of their own.
 pub type ScanError = utilake_mms_decode::ScanError<Never, Never>;
@@ -80,8 +81,14 @@ pub struct BlockShape {
     pub shape: CanonicalShape,
     /// The version AEMO stamped on it.
     pub version: u16,
-    /// Its D rows.
+    /// Its rows: every D row, or, for a file that restates the one before
+    /// it, the rows absent from that one.
     pub rows: u64,
+    /// Its rows the file before it already held, when files are compared.
+    pub rows_repeated: u64,
+    /// The header each column was written under, where the column's name
+    /// was made from it; empty when every header is its column's name.
+    pub headers: Vec<String>,
     /// Where its rows lie in time, when a date-like column was there.
     pub span: Option<Span>,
     /// What the month's control file declares each column as, in column
@@ -200,8 +207,14 @@ pub struct RawBlock {
     pub version: u16,
     /// Column names, normalised.
     pub columns: Vec<String>,
+    /// The headers the columns were written under, where they differ from
+    /// the names; empty otherwise.
+    pub headers: Vec<String>,
     /// D rows.
     pub rows: u64,
+    /// Of them, the rows the file before this one did not hold: every row
+    /// when files are not compared.
+    pub rows_new: u64,
     /// For every column whose first value is written as a date
     /// (`YYYY/MM/DD…`): its index, and the least and greatest value over
     /// every D row, as written.
@@ -248,58 +261,142 @@ fn date_like(v: &[u8]) -> bool {
             .all(|&i| v[i].is_ascii_digit())
 }
 
+/// The rows of the last file of each block, for the next file of it to be
+/// compared against: a file that restates the one before it adds only the
+/// rows absent from it. Keyed by report pair and version; the columns
+/// named in `time_columns` (the file's own report time) are not compared.
+#[derive(Debug, Default)]
+pub struct Differ {
+    /// Where a row's data fields start: 4 past an MMS row's prefix, 0 in
+    /// a plain row.
+    from: usize,
+    time_columns: Vec<String>,
+    prev: HashMap<(String, String, u16), RowSet>,
+    next: HashMap<(String, String, u16), RowSet>,
+}
+
+impl Differ {
+    /// Compares rows whose data starts at field `from`, leaving out the
+    /// columns called `time_columns`.
+    pub fn new(from: usize, time_columns: &[&str]) -> Self {
+        Self {
+            from,
+            time_columns: time_columns.iter().map(|c| (*c).to_owned()).collect(),
+            prev: HashMap::new(),
+            next: HashMap::new(),
+        }
+    }
+
+    /// A block begins in the file being read: its rows gather in a set
+    /// of their own.
+    fn begin(&mut self, key: (String, String, u16), columns: &[String]) {
+        let skip = columns
+            .iter()
+            .enumerate()
+            .filter(|(_, c)| self.time_columns.iter().any(|t| t == *c))
+            .map(|(j, _)| self.from + j);
+        self.next
+            .entry(key)
+            .or_insert_with(|| RowSet::new(self.from, skip));
+    }
+
+    /// Takes a row of the block `key`; `true` when the file before held
+    /// no such row.
+    fn is_new(&mut self, key: &(String, String, u16), row: &Row<'_>) -> bool {
+        let set = self.next.get_mut(key).expect("begin() came first");
+        set.insert(row);
+        !self.prev.get(key).is_some_and(|p| p.contains(row))
+    }
+
+    /// The file is read: its blocks' rows are what the next file of each
+    /// is compared against.
+    pub fn commit(&mut self) {
+        for (k, v) in self.next.drain() {
+            self.prev.insert(k, v);
+        }
+    }
+
+    /// Forgets the file being read: a repeat of one read before.
+    pub fn discard(&mut self) {
+        self.next.clear();
+    }
+}
+
+fn key_of(b: &RawBlock) -> (String, String, u16) {
+    (b.report_type.clone(), b.report_subtype.clone(), b.version)
+}
+
+/// Takes one data row into the last block: its fields profiled, its
+/// date-like columns bounded, and, when files are compared, counted as
+/// new or repeated.
+fn take_row(b: &mut RawBlock, row: &Row<'_>, from: usize, differ: &mut Option<&mut Differ>) {
+    b.rows += 1;
+    let new = match differ {
+        Some(d) => d.is_new(&key_of(b), row),
+        None => true,
+    };
+    b.rows_new += u64::from(new);
+    // A column is bounded by its dated values alone: one empty or not a
+    // date, in any row, bounds nothing.
+    for (j, p) in b.profile.iter_mut().enumerate() {
+        let v = row.get(from + j);
+        p.observe(v);
+        let Some(v) = v.filter(|v| date_like(v)) else {
+            continue;
+        };
+        match b.bounds.binary_search_by_key(&j, |(i, ..)| *i) {
+            Ok(at) => {
+                let (_, min, max) = &mut b.bounds[at];
+                if v < min.as_slice() {
+                    min.clear();
+                    min.extend_from_slice(v);
+                } else if v > max.as_slice() {
+                    max.clear();
+                    max.extend_from_slice(v);
+                }
+            }
+            Err(at) => b.bounds.insert(at, (j, v.to_vec(), v.to_vec())),
+        }
+    }
+}
+
 /// A sink that keeps the I rows, counts the D rows of each block and
 /// tracks the least and greatest value of every date-like column.
 #[derive(Default)]
-struct Blocks {
+struct Blocks<'d> {
     blocks: Vec<RawBlock>,
+    differ: Option<&'d mut Differ>,
 }
 
-impl Sink for Blocks {
+impl Sink for Blocks<'_> {
     type Reject = Never;
     type Fatal = Never;
     fn comment(&mut self, _: &Row<'_>, _: Pos) -> Result<(), Never> {
         Ok(())
     }
     fn header(&mut self, irow: &IRow<'_>, _: Pos) -> Result<(), Never> {
-        self.blocks.push(RawBlock {
+        let b = RawBlock {
             report_type: irow.report_type.to_owned(),
             report_subtype: irow.report_subtype.to_owned(),
             version: irow.version,
             columns: irow.columns.iter().map(|c| (*c).to_owned()).collect(),
+            headers: Vec::new(),
             rows: 0,
+            rows_new: 0,
             bounds: Vec::new(),
             profile: vec![ColumnProfile::default(); irow.columns.len()],
-        });
+        };
+        if let Some(d) = self.differ.as_deref_mut() {
+            d.begin(key_of(&b), &b.columns);
+        }
+        self.blocks.push(b);
         Ok(())
     }
     fn row(&mut self, row: &Row<'_>, _: Pos) -> Result<(), RowFailure<Never, Never>> {
-        // The scanner refuses a D row before any I row.
+        // The scanner refuses a D row before any I row. Data fields follow
+        // the four D,type,subtype,version cells.
         let b = self.blocks.last_mut().expect("a D row follows an I row");
-        b.rows += 1;
-        // Data fields follow the four D,type,subtype,version cells. A
-        // column is bounded by its dated values alone: one empty or not a
-        // date, in any row, bounds nothing.
-        for (j, p) in b.profile.iter_mut().enumerate() {
-            let v = row.get(4 + j);
-            p.observe(v);
-            let Some(v) = v.filter(|v| date_like(v)) else {
-                continue;
-            };
-            match b.bounds.binary_search_by_key(&j, |(i, ..)| *i) {
-                Ok(at) => {
-                    let (_, min, max) = &mut b.bounds[at];
-                    if v < min.as_slice() {
-                        min.clear();
-                        min.extend_from_slice(v);
-                    } else if v > max.as_slice() {
-                        max.clear();
-                        max.extend_from_slice(v);
-                    }
-                }
-                Err(at) => b.bounds.insert(at, (j, v.to_vec(), v.to_vec())),
-            }
-        }
+        take_row(b, row, 4, &mut self.differ);
         Ok(())
     }
     fn bad_row(&mut self, _: &[u8], _: Pos, _: &RowError<Never>) -> Flow {
@@ -317,13 +414,124 @@ pub fn read_blocks(
     reader: impl std::io::Read,
     buf: &mut Vec<u8>,
 ) -> Result<(Vec<RawBlock>, ScanStats), ScanError> {
-    let mut blocks = Blocks::default();
+    read_blocks_with(reader, buf, None)
+}
+
+/// [`read_blocks`], with each block's rows compared against the last
+/// file's through `differ` when one is given.
+pub fn read_blocks_with(
+    reader: impl std::io::Read,
+    buf: &mut Vec<u8>,
+    differ: Option<&mut Differ>,
+) -> Result<(Vec<RawBlock>, ScanStats), ScanError> {
+    let mut blocks = Blocks {
+        blocks: Vec::new(),
+        differ,
+    };
     let opts = ScanOptions {
         max_bad_rows: u64::MAX,
         ..Default::default()
     };
     let stats = scan_with(reader, &mut blocks, &opts, buf)?;
     Ok((blocks.blocks, stats))
+}
+
+/// A sink for the blocks of a plain CSV or a JSON document: the block is
+/// named by the file (and, in a document, the array), its columns by the
+/// header, and `true`/`false` are booleans.
+struct PlainBlocks<'d> {
+    name: BlockName,
+    blocks: Vec<RawBlock>,
+    differ: Option<&'d mut Differ>,
+}
+
+impl PlainSink for PlainBlocks<'_> {
+    type Fatal = Never;
+    fn header(&mut self, array: Option<&str>, header: &Header, _: Pos) -> Result<(), Never> {
+        let name = array.map_or_else(|| self.name.clone(), |a| self.name.with_array(a));
+        let differs = header.raw.iter().zip(&header.names).any(|(r, n)| r != n);
+        let b = RawBlock {
+            report_type: name.family,
+            report_subtype: name.name,
+            version: name.version,
+            columns: header.names.clone(),
+            headers: if differs {
+                header.raw.clone()
+            } else {
+                Vec::new()
+            },
+            rows: 0,
+            rows_new: 0,
+            bounds: Vec::new(),
+            profile: vec![
+                ColumnProfile {
+                    booleans: true,
+                    ..ColumnProfile::default()
+                };
+                header.len()
+            ],
+        };
+        if let Some(d) = self.differ.as_deref_mut() {
+            d.begin(key_of(&b), &b.columns);
+        }
+        self.blocks.push(b);
+        Ok(())
+    }
+    fn row(&mut self, row: &Row<'_>, _: Pos) -> Result<(), Never> {
+        let b = self.blocks.last_mut().expect("a row follows a header");
+        take_row(b, row, 0, &mut self.differ);
+        Ok(())
+    }
+    fn bad_row(&mut self, _: &[u8], _: Pos, _: &PlainRowError) -> Flow {
+        Flow::Continue
+    }
+}
+
+/// What a plain scan counted beyond the blocks: rows refused.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct PlainCounted {
+    /// Rows refused: more fields than the header has columns.
+    pub bad_rows: u64,
+}
+
+/// The one block of a header-row CSV named `name`, its rows counted,
+/// dates bounded and, through `differ`, compared against the last file
+/// of the block.
+pub fn read_plain_blocks(
+    reader: impl std::io::Read,
+    name: &BlockName,
+    opts: &PlainOptions<'_>,
+    differ: Option<&mut Differ>,
+) -> Result<(Vec<RawBlock>, PlainCounted), utilake_plain_decode::PlainError<Never>> {
+    let mut sink = PlainBlocks {
+        name: name.clone(),
+        blocks: Vec::new(),
+        differ,
+    };
+    let stats = utilake_plain_decode::csv::scan(reader, &mut sink, opts)?;
+    Ok((
+        sink.blocks,
+        PlainCounted {
+            bad_rows: stats.bad_rows,
+        },
+    ))
+}
+
+/// Every block of a JSON document whose dataset is `name`: one per array,
+/// named `{name}_{ARRAY}`.
+pub fn read_json_blocks(
+    reader: impl std::io::Read,
+    name: &BlockName,
+    opts: &PlainOptions<'_>,
+    differ: Option<&mut Differ>,
+) -> Result<Vec<RawBlock>, utilake_plain_decode::JsonError<Never>> {
+    let mut sink = PlainBlocks {
+        name: name.clone(),
+        blocks: Vec::new(),
+        differ,
+    };
+    utilake_plain_decode::json::scan(reader, &mut sink, opts)?;
+    Ok(sink.blocks)
 }
 
 /// What a scan counted that the blocks do not say: rows refused, and
@@ -698,7 +906,9 @@ pub fn block_shape(
     };
     BlockShape {
         version: b.version,
-        rows: b.rows,
+        rows: b.rows_new,
+        rows_repeated: b.rows - b.rows_new,
+        headers: b.headers,
         span,
         ctl: b.columns.iter().map(|c| class(c)).collect(),
         profile: b.profile,
@@ -769,8 +979,16 @@ pub struct BlockRecord {
     pub report: (String, String),
     /// The version AEMO stamped on it.
     pub version: u16,
-    /// Its D rows.
+    /// Its rows: every D row, or, where files restate the ones before
+    /// them, the rows the file added.
     pub rows: u64,
+    /// The rows the file before already held, when files are compared.
+    #[serde(default, skip_serializing_if = "is_zero")]
+    pub rows_repeated: u64,
+    /// The headers the columns were written under, where they differ from
+    /// the column names.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub headers: Vec<String>,
     /// The time column its span is of.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub time: Option<String>,
@@ -818,6 +1036,8 @@ impl BlockRecord {
             report: (b.shape.report_type.clone(), b.shape.report_subtype.clone()),
             version: b.version,
             rows: b.rows,
+            rows_repeated: b.rows_repeated,
+            headers: b.headers.clone(),
             time: b.span.as_ref().map(|s| s.column.clone()),
             first: b.span.as_ref().map(|s| s.first.clone()),
             last: b.span.as_ref().map(|s| s.last.clone()),

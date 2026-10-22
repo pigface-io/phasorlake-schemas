@@ -1,13 +1,19 @@
-//! The census of AEMO's report folders: every block of every file under
-//! `Reports/ARCHIVE` and `Reports/CURRENT`, nested zips included.
+//! The census of a feed's folders: every block of every file under each
+//! root of a feed ([`utilake_plain_decode::Feed`]), nested zips included.
+//! The NEM's report folders (`Reports/ARCHIVE`, `Reports/CURRENT`) are
+//! one feed; the gas markets' (GBB, GSH, STTM, DWGM) and the WEM's
+//! (datafiles, WEMDE) are others, each read by its decoder: MMS rows,
+//! header-row CSV, or JSON documents.
 //!
 //! The MMSDM archive publishes a table a month at a time; the report
 //! folders publish the same tables (and others) as they are produced, so a
 //! layout AEMO has just changed shows there first. Each CSV's month comes
 //! from the first date in its name (`PUBLIC_DISPATCHIS_202610200245_….CSV`
-//! is 2026-10), else its zip's. Its blocks are typed by the control files
-//! of that MMSDM month, or the last month before it that has them; a table
-//! no control file loads has columns of unknown type.
+//! is 2026-10), else its zip's; a plain file's by its feed's rule
+//! ([`Feed::release_month`]), else the month its sidecar says it was
+//! listed. The NEM's blocks are typed by the control files of that MMSDM
+//! month, or the last month before it that has them; a table no control
+//! file loads has columns of unknown type.
 //!
 //! A folder holds many thousands of five-minute files, so the census of a
 //! folder is a list of runs, not of files: CSVs in name order (their names
@@ -31,6 +37,13 @@
 //! with every version classed against the ones before it. The folder's
 //! journal in the mirror notes every listing, so it also gives how often
 //! a file was listed again with nothing new.
+//!
+//! A feed whose files restate the ones before them ([`Dedupe::VersionDiff`])
+//! has each file's rows compared against the last file of the same block:
+//! a run's `rows` are the rows its files added, `rows_repeated` the rest.
+//! An entry found again under another name (a daily slot zip holds the
+//! month's files; a loose file is also in its slot) is read once: a
+//! second with the same name and SHA-256 is `repeated`, not counted.
 
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::io::Read;
@@ -42,25 +55,48 @@ use utilake_iceberg::Kind;
 
 use crate::catalog::Catalog;
 use crate::census::{
-    BlockRecord, BlockShape, CensusError, Ctls, Span, Unread, base, block_shape, census_dir,
-    files_under, read_blocks, read_text, write_text,
+    BlockRecord, BlockShape, CensusError, Counted, Ctls, Differ, RawBlock, Span, Unread, base,
+    block_shape, census_dir, files_under, read_blocks_with, read_json_blocks, read_plain_blocks,
+    read_text, write_text,
 };
 use crate::files::HashedFile;
 use crate::month::YearMonth;
 use crate::shape::TypeClass;
-use crate::zip::{ArchiveError, WalkError, walk_csv_entries, walk_csv_entries_in};
+use crate::zip::{Accepts, ArchiveError, WalkError, walk_entries, walk_entries_in};
 use utilake_iceberg::Market;
+use utilake_plain_decode::PlainOptions;
+pub use utilake_plain_decode::feeds::{Decoder, Dedupe, Feed, feed, feeds_of};
+use utilake_plain_decode::names::block_name;
 
-/// The report roots under `Reports/`.
+/// The NEM's report roots under `Reports/`, as the NEM reports feed names
+/// them.
 pub const ROOTS: [&str; 2] = ["ARCHIVE", "CURRENT"];
+
+/// The NEM's report feed: `Reports/ARCHIVE` and `Reports/CURRENT`, less
+/// the gas folders.
+pub fn nem_reports() -> &'static Feed {
+    feed("reports").expect("the NEM reports feed is in the table")
+}
+
+/// The directory a feed's folder censuses sit in under the market's
+/// census directory: `reports` for the NEM's report folders, as they
+/// were first recorded, else the feed's id.
+pub fn census_sub(feed: &Feed) -> &str {
+    if feed.market == "nem" && feed.id == "reports" {
+        "reports"
+    } else {
+        feed.id
+    }
+}
 
 /// How far back a report month looks for an MMSDM month's control files.
 const CTL_LOOKBACK_MONTHS: usize = 24;
 
-/// The kind of a file of a report root: `reports/archive` or
-/// `reports/current`.
-pub fn kind(root: &str) -> String {
-    format!("reports/{}", root.to_ascii_lowercase())
+/// The kind of a file of a feed's root: `reports/archive` or
+/// `reports/current` for the NEM's report folders, else
+/// `{feed}/{label}` (`gbb/current`, `gsh/archive`, `datafiles/datafiles`).
+pub fn kind(feed: &Feed, label: &str) -> String {
+    format!("{}/{}", census_sub(feed), label.to_ascii_lowercase())
 }
 
 /// CSVs in a row that held one table in one shape and version, in one
@@ -110,6 +146,10 @@ pub struct FolderCensus {
     /// CSVs whose footer count was not their lines, when any.
     #[serde(default, skip_serializing_if = "is_zero")]
     pub footer_mismatches: u64,
+    /// Entries read again under another file with the same name and
+    /// bytes, counted once, when any.
+    #[serde(default, skip_serializing_if = "is_zero")]
+    pub repeated: u64,
     /// Every run, in the order its first CSV was read.
     #[serde(default, rename = "block")]
     pub blocks: Vec<Tally>,
@@ -353,6 +393,10 @@ impl Gather {
         }
         let m = &mut a.merged;
         m.rows += b.rows;
+        m.rows_repeated += b.rows_repeated;
+        if m.headers.is_empty() {
+            m.headers = b.headers;
+        }
         // Spans of one column merge; of two, the run keeps the one it has.
         m.span = match (m.span.take(), b.span) {
             (Some(x), Some(y)) if x.column == y.column => Some(Span {
@@ -408,14 +452,11 @@ pub fn version_of(name: &str) -> (&str, Option<&str>) {
     }
 }
 
-/// Where nemweb-mirror's journals of the report folders are, under its
-/// home: `{mirror}/mirror/journal/{host}/Reports`.
+/// Where nemweb-mirror's journals are, under its home:
+/// `{mirror}/mirror/journal`, with a folder's at `{host}/{folder}/changes.ndjson`.
 #[must_use]
 pub fn journals(mirror: &Path) -> PathBuf {
-    let host = crate::fetch::BASE
-        .split_once("://")
-        .map_or(crate::fetch::BASE, |(_, h)| h);
-    mirror.join("mirror/journal").join(host).join("Reports")
+    mirror.join("mirror/journal")
 }
 
 /// What the census reads of a file's sidecar, `{path}.json`. Fields it
@@ -700,17 +741,109 @@ fn classed(
     }
 }
 
-/// The census of the `files` of one folder. `journal` is the folder's
-/// journal in nemweb-mirror, when there is one to count.
+/// A SHA-256 taken of a stream as it is read through.
+struct Sha<R> {
+    inner: R,
+    hasher: sha2::Sha256,
+}
+
+impl<R: Read> Sha<R> {
+    fn new(inner: R) -> Self {
+        Self {
+            inner,
+            hasher: sha2::Sha256::new(),
+        }
+    }
+
+    /// The hash of everything read so far, hex.
+    fn finish(self) -> String {
+        crate::files::hex(&self.hasher.finalize())
+    }
+}
+
+impl<R: Read> Read for Sha<R> {
+    fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+        let n = self.inner.read(buf)?;
+        self.hasher.update(&buf[..n]);
+        Ok(n)
+    }
+}
+
+/// Where a folder's files are: the feed, the root they are under (as the
+/// feed names it) and the folder's path below the root, `/`-joined and
+/// empty for the root itself.
+#[derive(Debug, Clone, Copy)]
+pub struct Where<'a> {
+    /// The feed.
+    pub feed: &'a Feed,
+    /// The root under the host: `Reports/ARCHIVE`, `Reports/CURRENT/GBB`.
+    pub root: &'a str,
+    /// The folder below the root.
+    pub rel: &'a str,
+}
+
+impl Where<'_> {
+    /// The root's label: `ARCHIVE`, `CURRENT`, `datafiles`.
+    pub fn label(&self) -> &str {
+        Feed::label(self.root)
+    }
+
+    /// The folder's path under the host.
+    pub fn folder(&self) -> String {
+        if self.rel.is_empty() {
+            self.root.to_owned()
+        } else {
+            format!("{}/{}", self.root, self.rel)
+        }
+    }
+}
+
+/// The month an RFC 3339 instant falls in.
+fn month_of_instant(at: &str) -> Option<YearMonth> {
+    let (y, m) = (at.get(0..4)?, at.get(5..7)?);
+    YearMonth::new(y.parse().ok()?, m.parse().ok()?)
+}
+
+/// Whether `name` is the sidecar of another file among `names`: `{file}.json`
+/// beside `{file}`. In a feed that is not JSON every `.json` is one.
+fn is_sidecar(name: &str, names: &HashSet<&str>, feed: &Feed) -> bool {
+    match name.strip_suffix(".json") {
+        None => false,
+        Some(_) if feed.decoder != Decoder::Json => true,
+        Some(file) => names.contains(file),
+    }
+}
+
+/// The census of the `files` of one folder at `at`. `journal` is the
+/// folder's journal in nemweb-mirror, when there is one to count.
 pub fn census_folder(
     catalog: &Catalog,
     ctls: &mut CtlSource,
+    at: Where<'_>,
     files: &[PathBuf],
     journal: Option<&Path>,
     tmp: &Path,
 ) -> FolderCensus {
+    let feed = at.feed;
     let mut g = Gather::default();
     let mut scan_buf = Vec::new();
+    // A row that does not fit its header is counted, as the MMS scanner
+    // counts a D row it refuses; the file is still read.
+    let opts = PlainOptions {
+        offset: feed.offset_text(),
+        max_bad_rows: u64::MAX,
+        ..PlainOptions::default()
+    };
+    let from = if feed.decoder == Decoder::Mms { 4 } else { 0 };
+    let mut differ =
+        (feed.dedupe == Dedupe::VersionDiff).then(|| Differ::new(from, feed.time_columns));
+    let no_ctls = Ctls::default();
+    let names: HashSet<&str> = files
+        .iter()
+        .filter_map(|p| p.file_name()?.to_str())
+        .collect();
+    // An entry read once under one name and bytes is a repeat elsewhere.
+    let mut seen: HashSet<(String, String)> = HashSet::new();
     let rewrites = rewrites(files, &journal_counts(journal));
     // A version of a file rewritten in place is printed and hashed as it
     // is read; any other file only read.
@@ -719,70 +852,159 @@ pub fn census_folder(
         .flat_map(|r| r.versions.iter().map(|(i, _)| *i))
         .collect();
     let mut read: HashMap<usize, (Option<String>, String)> = HashMap::new();
+    let folder = at.folder();
     for (i, path) in files.iter().enumerate() {
         let name = base(&path.to_string_lossy()).to_owned();
         let (file, _) = version_of(&name);
-        // The mirror's sidecars are records of the files, not files.
-        if crate::zip::has_extension(file, ".json") {
+        // The mirror's sidecars are records of the files, not files; a
+        // `._` file is what macOS keeps beside a file on some disks.
+        if name.starts_with("._") || is_sidecar(file, &names, feed) {
             continue;
         }
-        let outer_month = name_month(file);
+        let rel_path = format!("{folder}/{name}");
+        let outer_month = match feed.decoder {
+            Decoder::Mms => name_month(file),
+            _ => feed.release_month(&rel_path).or_else(|| {
+                sidecar(path)
+                    .and_then(|s| s.listed_modified_at)
+                    .as_deref()
+                    .and_then(month_of_instant)
+            }),
+        };
         g.census.files += 1;
         let hashed = versions.contains(&i);
         // The print of each CSV read, by entry name (a loose CSV's empty);
         // none once one cannot be taken.
         let mut prints = hashed.then(Vec::new);
-        let mut one_csv =
-            |csv: &str, r: &mut dyn std::io::Read, g: &mut Gather| -> Result<(), String> {
-                let read = if let Some(parts) = prints.as_mut() {
-                    let mut p = Print::new(r);
-                    let read = read_blocks(&mut p, &mut scan_buf);
-                    match p.finish() {
-                        Ok(print) => {
-                            let entry = if csv == name { "" } else { csv };
-                            parts.push((entry.to_owned(), print));
-                        }
-                        Err(_) => prints = None,
-                    }
-                    read
+        let mut one_entry =
+            |entry: &str, r: &mut dyn std::io::Read, g: &mut Gather| -> Result<(), String> {
+                let loose = entry == name;
+                let full = if loose {
+                    rel_path.clone()
                 } else {
-                    read_blocks(r, &mut scan_buf)
+                    format!("{rel_path}!{entry}")
                 };
-                let (blocks, stats) = read.map_err(|e| {
+                let named = match feed.decoder {
+                    Decoder::Mms => None,
+                    _ => Some(block_name(feed, &full).ok_or_else(|| {
+                        prints = None;
+                        format!("no rule of the {} feed names the block of {entry}", feed.id)
+                    })?),
+                };
+                let mut sha = Sha::new(r);
+                let mut counted = Counted::default();
+                let blocks = {
+                    let mut decode = |r: &mut dyn Read| -> Result<Vec<RawBlock>, String> {
+                        match (&named, feed.decoder) {
+                            (_, Decoder::Mms) => {
+                                let (blocks, stats) =
+                                    read_blocks_with(r, &mut scan_buf, differ.as_mut())
+                                        .map_err(|e| e.to_string())?;
+                                counted.add(&stats);
+                                Ok(blocks)
+                            }
+                            (n, Decoder::Csv) => {
+                                let n = n.as_ref().expect("a plain file was named above");
+                                let (blocks, c) = read_plain_blocks(r, n, &opts, differ.as_mut())
+                                    .map_err(|e| e.to_string())?;
+                                counted.bad_rows += c.bad_rows;
+                                Ok(blocks)
+                            }
+                            (n, Decoder::Json) => {
+                                let n = n.as_ref().expect("a plain file was named above");
+                                read_json_blocks(r, n, &opts, differ.as_mut())
+                                    .map_err(|e| e.to_string())
+                            }
+                        }
+                    };
+                    if let Some(parts) = prints.as_mut() {
+                        let mut p = Print::new(&mut sha);
+                        let read = decode(&mut p);
+                        match p.finish() {
+                            Ok(print) => {
+                                let entry_name = if loose { "" } else { entry };
+                                parts.push((entry_name.to_owned(), print));
+                            }
+                            Err(_) => prints = None,
+                        }
+                        read
+                    } else {
+                        decode(&mut sha)
+                    }
+                };
+                let blocks = blocks.inspect_err(|_| {
                     prints = None;
-                    e.to_string()
+                    if let Some(d) = differ.as_mut() {
+                        d.discard();
+                    }
                 })?;
+                let entry_sha = sha.finish();
+                if !seen.insert((base(entry).to_owned(), entry_sha)) {
+                    g.census.repeated += 1;
+                    if let Some(d) = differ.as_mut() {
+                        d.discard();
+                    }
+                    return Ok(());
+                }
+                if let Some(d) = differ.as_mut() {
+                    d.commit();
+                }
                 g.census.csvs += 1;
-                g.census.bad_rows += stats.bad_rows;
-                g.census.footer_mismatches += u64::from(stats.footer_mismatch());
+                g.census.bad_rows += counted.bad_rows;
+                g.census.footer_mismatches += counted.footer_mismatches;
                 // A loose file's version stamp is not its month.
-                let month = name_month(version_of(base(csv)).0).or(outer_month);
+                let month = match feed.decoder {
+                    Decoder::Mms => name_month(version_of(base(entry)).0).or(outer_month),
+                    _ => feed.release_month(&full).or(outer_month),
+                };
                 let Some(month) = month else {
                     g.undated += 1;
                     return Ok(());
                 };
-                let c = ctls.for_month(month);
+                let c = if feed.decoder == Decoder::Mms && feed.market == "nem" {
+                    ctls.for_month(month)
+                } else {
+                    &no_ctls
+                };
+                // An MMS CSV is named by its entry, whose name carries its
+                // time; a plain file's entry is named alike in every version
+                // of its zip, so the archived name orders them.
+                let csv = match feed.decoder {
+                    Decoder::Mms => base(entry).to_owned(),
+                    _ if loose => name.clone(),
+                    _ => format!("{name}!{entry}"),
+                };
                 for raw in blocks {
                     let b = block_shape(catalog, c, None, raw);
-                    g.add(month, base(csv), path, b);
+                    g.add(month, &csv, path, b);
                 }
                 g.end_csv();
                 Ok(())
             };
         let is = |ext: &str| crate::zip::has_extension(file, ext);
+        let (loose_ext, accepts) = match feed.decoder {
+            Decoder::Json => (
+                ".json",
+                Accepts {
+                    accepts: &|n: &str| crate::zip::has_extension(n, ".json"),
+                    wanted: ".json",
+                },
+            ),
+            _ => (".csv", crate::zip::CSV),
+        };
         let mut tally = None;
-        if is(".csv") {
+        if is(loose_ext) {
             let res = if hashed {
                 HashedFile::open(path)
                     .map_err(|e| e.to_string())
                     .and_then(|(mut f, t)| {
                         tally = Some(t);
-                        one_csv(&name, &mut f, &mut g)
+                        one_entry(&name, &mut f, &mut g)
                     })
             } else {
                 std::fs::File::open(path)
                     .map_err(|e| e.to_string())
-                    .and_then(|mut f| one_csv(&name, &mut f, &mut g))
+                    .and_then(|mut f| one_entry(&name, &mut f, &mut g))
             };
             if let Err(error) = res {
                 prints = None;
@@ -791,7 +1013,7 @@ pub fn census_folder(
         } else if is(".zip") {
             // An entry that does not read is listed; the rest are read.
             let mut on_entry = |e: crate::zip::Entry<'_>| {
-                if let Err(error) = one_csv(&e.name, e.reader, &mut g) {
+                if let Err(error) = one_entry(&e.name, e.reader, &mut g) {
                     g.census.unread.push(Unread {
                         file: format!("{name}!{}", e.name),
                         error,
@@ -804,7 +1026,7 @@ pub fn census_folder(
                 match HashedFile::open(path) {
                     Ok((f, t)) => {
                         tally = Some(t);
-                        walk_csv_entries_in(f, &shown, tmp, &mut on_entry, &mut |_| {})
+                        walk_entries_in(f, &shown, tmp, accepts, &mut on_entry, &mut |_| {})
                     }
                     Err(e) => Err(WalkError::Archive(ArchiveError::Open {
                         path: shown,
@@ -812,7 +1034,7 @@ pub fn census_folder(
                     })),
                 }
             } else {
-                walk_csv_entries(path, tmp, &mut on_entry, &mut |_| {})
+                walk_entries(path, tmp, accepts, &mut on_entry, &mut |_| {})
             };
             match walked {
                 Ok(w) => {
@@ -918,13 +1140,15 @@ pub fn folders(dir: &Path, under: &Path) -> Result<BTreeMap<String, Vec<PathBuf>
     Ok(out)
 }
 
-/// Where the census of folder `rel` of report root `root` is written.
+/// Where the census of folder `rel` under root `label` of `feed` is
+/// written: `evidence/census/{market}/{feed}/{label}/{rel}.toml`, with the
+/// NEM's report folders under `reports/` as they were first recorded.
 #[must_use]
-pub fn folder_path(repo: &Path, market: Market, root: &str, rel: &str) -> PathBuf {
+pub fn folder_path(repo: &Path, market: Market, feed: &Feed, label: &str, rel: &str) -> PathBuf {
     let name = if rel.is_empty() { "_root" } else { rel };
     census_dir(repo, market)
-        .join("reports")
-        .join(root)
+        .join(census_sub(feed))
+        .join(label)
         .join(format!("{name}.toml"))
 }
 
@@ -932,25 +1156,24 @@ pub fn folder_path(repo: &Path, market: Market, root: &str, rel: &str) -> PathBu
 pub fn record_folder(
     repo: &Path,
     market: Market,
-    root: &str,
-    rel: &str,
+    (feed, label, rel): (&Feed, &str, &str),
     census: &FolderCensus,
 ) -> Result<(), CensusError> {
     let text = format!(
-        "# Generated by `utilake-schemas reports`: every shape of Reports/{root}/{rel}, per month, and what each column held.\n{}",
+        "# Generated by `utilake-schemas reports`: every shape of {}/{label}/{rel}, per month, and what each column held.\n{}",
+        census_sub(feed),
         toml::to_string(census).expect("a folder census serialises")
     );
-    write_text(&folder_path(repo, market, root, rel), &text)
+    write_text(&folder_path(repo, market, feed, label, rel), &text)
 }
 
 /// The census of a folder as written, if it was.
 pub fn read_folder(
     repo: &Path,
     market: Market,
-    root: &str,
-    rel: &str,
+    (feed, label, rel): (&Feed, &str, &str),
 ) -> Result<Option<FolderCensus>, CensusError> {
-    let path = folder_path(repo, market, root, rel);
+    let path = folder_path(repo, market, feed, label, rel);
     let Some(text) = read_text(&path)? else {
         return Ok(None);
     };
@@ -971,26 +1194,34 @@ pub struct Taken {
     pub census: FolderCensus,
 }
 
-/// The census of every folder of both report roots under `reports` (the
-/// directory holding `ARCHIVE/` and `CURRENT/`), each recorded under
-/// `repo` as it is taken. `mmsdm` holds the MMSDM months whose control
-/// files type the blocks; `journals` the folders' journals in
-/// nemweb-mirror (see [`journals`]); `tmp` takes nested zips while they
-/// are read.
+/// The census of every folder of every root of a market's feeds under
+/// `host` (the directory of the host, `…/www.nemweb.com.au`), or of the
+/// one feed `only` names, each recorded under `repo` as it is taken.
+/// `mmsdm` holds the MMSDM months whose control files type the NEM's
+/// blocks; `journals` the mirror's journals (see [`journals`]); `tmp`
+/// takes nested zips while they are read. A root the host does not hold
+/// is passed over.
 pub fn census_reports(
     catalog: &Catalog,
-    reports: &Path,
+    host: &Path,
     (mmsdm, journals): (Option<&Path>, Option<&Path>),
     (repo, market): (&Path, Market),
     tmp: &Path,
     jobs: usize,
+    only: Option<&str>,
 ) -> Result<Vec<Taken>, CensusError> {
     let mut work = Vec::new();
-    for root in ROOTS {
-        let dir = reports.join(root);
-        for top in top_folders(&dir) {
-            for (rel, files) in folders(&dir, &top)? {
-                work.push((root, rel, files));
+    for feed in feeds_of(market.id()).filter(|f| only.is_none_or(|o| o == f.id)) {
+        for root in feed.roots {
+            let dir = host.join(root);
+            if !dir.is_dir() {
+                continue;
+            }
+            for (rel, files) in folders(&dir, &dir)? {
+                if rel.split('/').next().is_some_and(|top| feed.ignores(top)) {
+                    continue;
+                }
+                work.push((feed, *root, rel, files));
             }
         }
     }
@@ -999,17 +1230,20 @@ pub fn census_reports(
     let ctls: Vec<std::sync::Mutex<CtlSource>> = (0..jobs.max(1))
         .map(|_| std::sync::Mutex::new(CtlSource::new(mmsdm)))
         .collect();
-    let taken = crate::pool::map(jobs, &work, |w, (root, rel, files)| {
+    let taken = crate::pool::map(jobs, &work, |w, (feed, root, rel, files)| {
         let spool = tmp.join(format!("thread-{w}"));
         let _ = std::fs::create_dir_all(&spool);
         let mut c = ctls[w]
             .lock()
             .unwrap_or_else(std::sync::PoisonError::into_inner);
-        let journal = journals.map(|j| j.join(root).join(rel).join("changes.ndjson"));
-        let census = census_folder(catalog, &mut c, files, journal.as_deref(), &spool);
-        record_folder(repo, market, root, rel, &census)?;
-        let folder = format!("Reports/{root}/{rel}");
-        Ok(Taken { folder, census })
+        let at = Where { feed, root, rel };
+        let journal = journals.map(|j| j.join(feed.host).join(at.folder()).join("changes.ndjson"));
+        let census = census_folder(catalog, &mut c, at, files, journal.as_deref(), &spool);
+        record_folder(repo, market, (feed, at.label(), rel), &census)?;
+        Ok(Taken {
+            folder: at.folder(),
+            census,
+        })
     });
     taken.into_iter().collect()
 }
@@ -1018,11 +1252,21 @@ pub fn census_reports(
 mod tests {
     use super::*;
     use crate::catalog::tests::scada;
+
+    /// The NEM reports feed's folder `rel` under `root`.
+    fn at<'a>(root: &'a str, rel: &'a str) -> Where<'a> {
+        Where {
+            feed: nem_reports(),
+            root,
+            rel,
+        }
+    }
     use crate::census::tests::{SCADA_CTL, put, three_tables, zip_of};
     use crate::shape::CanonicalShape;
 
-    /// The folder [`put_version`] writes into, under `Reports/`.
-    const VIC_GAS: &str = "CURRENT/VicGas";
+    /// The folder [`put_version`] writes into, under `Reports/`: a NEM
+    /// report folder whose files nemweb rewrites in place.
+    const VIC_GAS: &str = "CURRENT/Mixed";
 
     /// The URL of `file` of [`VIC_GAS`].
     fn vic_gas_url(file: &str) -> String {
@@ -1073,10 +1317,7 @@ mod tests {
         ] {
             assert_eq!(version_of(plain), (plain, None), "{plain}");
         }
-        assert_eq!(
-            journals(Path::new("/m")),
-            Path::new("/m/mirror/journal/www.nemweb.com.au/Reports")
-        );
+        assert_eq!(journals(Path::new("/m")), Path::new("/m/mirror/journal"));
     }
 
     #[test]
@@ -1242,7 +1483,10 @@ mod tests {
         files.sort();
 
         let mirror = dir.path().join("mirror-home");
-        let journal = journals(&mirror).join(VIC_GAS).join("changes.ndjson");
+        let journal = journals(&mirror)
+            .join("www.nemweb.com.au/Reports")
+            .join(VIC_GAS)
+            .join("changes.ndjson");
         let line = |f: &str, event: &str| {
             format!("{{\"url\":\"{}\",\"event\":\"{event}\"}}\n", vic_gas_url(f))
         };
@@ -1260,10 +1504,11 @@ mod tests {
         let cat = scada();
         let mut ctls = CtlSource::new(None);
         // Without a journal, only the files of more than one version.
-        let census = census_folder(&cat, &mut ctls, &files, None, tmp.path());
+        let mixed = at("Reports/CURRENT", "Mixed");
+        let census = census_folder(&cat, &mut ctls, mixed, &files, None, tmp.path());
         let names: Vec<&str> = census.rewritten.iter().map(|w| w.file.as_str()).collect();
         assert_eq!(names, [bad, day, gone, worse, gas, pdf]);
-        let census = census_folder(&cat, &mut ctls, &files, Some(&journal), tmp.path());
+        let census = census_folder(&cat, &mut ctls, mixed, &files, Some(&journal), tmp.path());
         let by: HashMap<&str, &Rewritten> = census
             .rewritten
             .iter()
@@ -1296,23 +1541,29 @@ mod tests {
 
         // Recorded, read back, and taken by the census of the roots.
         let repo = dir.path().join("repo");
-        record_folder(&repo, Market::Nem, "CURRENT", "VicGas", &census).unwrap();
-        let text =
-            std::fs::read_to_string(folder_path(&repo, Market::Nem, "CURRENT", "VicGas")).unwrap();
+        let here = (nem_reports(), "CURRENT", "Mixed");
+        record_folder(&repo, Market::Nem, here, &census).unwrap();
+        let text = std::fs::read_to_string(folder_path(
+            &repo,
+            Market::Nem,
+            nem_reports(),
+            "CURRENT",
+            "Mixed",
+        ))
+        .unwrap();
         assert!(text.contains("[[rewritten.version]]"), "{text}");
         assert_eq!(
-            read_folder(&repo, Market::Nem, "CURRENT", "VicGas")
-                .unwrap()
-                .unwrap(),
+            read_folder(&repo, Market::Nem, here).unwrap().unwrap(),
             census
         );
         let taken = census_reports(
             &cat,
-            &reports,
+            dir.path(),
             (None, Some(&journals(&mirror))),
             (&repo, Market::Nem),
             tmp.path(),
             2,
+            None,
         )
         .unwrap();
         // There the versions gone from disk are not listed, and the
@@ -1347,8 +1598,13 @@ mod tests {
             "month 13 is not a month"
         );
         assert_eq!(m("PUBLIC_TER_DAILY.zip"), None);
-        assert_eq!(kind("ARCHIVE"), "reports/archive");
-        assert_eq!(kind("CURRENT"), "reports/current");
+        assert_eq!(kind(nem_reports(), "ARCHIVE"), "reports/archive");
+        assert_eq!(kind(nem_reports(), "CURRENT"), "reports/current");
+        assert_eq!(kind(feed("gbb").unwrap(), "CURRENT"), "gbb/current");
+        assert_eq!(
+            kind(feed("datafiles").unwrap(), "datafiles"),
+            "datafiles/datafiles"
+        );
     }
 
     #[test]
@@ -1472,7 +1728,7 @@ mod tests {
         assert_eq!(gsh.keys().collect::<Vec<_>>(), ["GSH/Benchmark_Price"]);
         assert!(folders(&root_dir, &root_dir.join("none")).is_err());
         assert!(
-            folder_path(Path::new("s"), Market::Nem, "ARCHIVE", "")
+            folder_path(Path::new("s"), Market::Nem, nem_reports(), "ARCHIVE", "")
                 .ends_with("reports/ARCHIVE/_root.toml")
         );
 
@@ -1483,9 +1739,23 @@ mod tests {
                 .for_table(&["DISPATCH_UNIT_SCADA"])
                 .is_none()
         );
-        let census = census_folder(&cat, &mut ctls, &all["Dispatch_SCADA"], None, tmp.path());
+        let census = census_folder(
+            &cat,
+            &mut ctls,
+            at("Reports/ARCHIVE", "Dispatch_SCADA"),
+            &all["Dispatch_SCADA"],
+            None,
+            tmp.path(),
+        );
         assert_eq!((census.files, census.other), (12, 1));
-        assert_eq!(census.csvs, 8, "three nested, five loose");
+        assert_eq!(
+            census.csvs, 7,
+            "three nested, five loose, less the loose copy of the zip's entry"
+        );
+        assert_eq!(
+            census.repeated, 1,
+            "PUBLIC_UNDATED.CSV, the same bytes twice"
+        );
         let unread: Vec<&str> = census.unread.iter().map(|u| u.file.as_str()).collect();
         assert_eq!(
             unread,
@@ -1493,12 +1763,10 @@ mod tests {
                 "PUBLIC_BADENTRY_20260803.zip!PUBLIC_BADENTRY_20260803.CSV",
                 "PUBLIC_BAD_20260801.zip",
                 "PUBLIC_BAD_20260802.CSV",
-                ""
             ],
             "{:?}",
             census.unread
         );
-        assert_eq!(census.unread[3].error, "1 CSV(s) whose month no name gives");
         let scada: Vec<&Tally> = census
             .blocks
             .iter()
@@ -1550,59 +1818,83 @@ mod tests {
 
         // Recorded, and read back as it was.
         let repo = dir.path().join("repo");
-        record_folder(&repo, Market::Nem, "ARCHIVE", "Dispatch_SCADA", &census).unwrap();
+        let nem = nem_reports();
+        let scada_at = (nem, "ARCHIVE", "Dispatch_SCADA");
+        record_folder(&repo, Market::Nem, scada_at, &census).unwrap();
         assert_eq!(
-            read_folder(&repo, Market::Nem, "ARCHIVE", "Dispatch_SCADA")
-                .unwrap()
-                .unwrap(),
+            read_folder(&repo, Market::Nem, scada_at).unwrap().unwrap(),
             census
         );
         assert_eq!(
-            read_folder(&repo, Market::Nem, "ARCHIVE", "None").unwrap(),
+            read_folder(&repo, Market::Nem, (nem, "ARCHIVE", "None")).unwrap(),
             None
         );
         std::fs::write(
-            folder_path(&repo, Market::Nem, "ARCHIVE", "Broken"),
+            folder_path(&repo, Market::Nem, nem, "ARCHIVE", "Broken"),
             "files = [",
         )
         .unwrap();
-        let e = read_folder(&repo, Market::Nem, "ARCHIVE", "Broken")
+        let e = read_folder(&repo, Market::Nem, (nem, "ARCHIVE", "Broken"))
             .unwrap_err()
             .to_string();
         assert!(e.contains("Broken.toml cannot be read"), "{e}");
-        std::fs::create_dir_all(folder_path(&repo, Market::Nem, "ARCHIVE", "Dir")).unwrap();
-        assert!(read_folder(&repo, Market::Nem, "ARCHIVE", "Dir").is_err());
+        std::fs::create_dir_all(folder_path(&repo, Market::Nem, nem, "ARCHIVE", "Dir")).unwrap();
+        assert!(read_folder(&repo, Market::Nem, (nem, "ARCHIVE", "Dir")).is_err());
 
-        // Every folder of both roots at once, each recorded.
+        // Every folder of the NEM's roots at once, each recorded: the gas
+        // folder is the gas feeds', not the NEM's.
         let taken = census_reports(
             &cat,
-            &reports,
+            dir.path(),
             (Some(&mmsdm), None),
             (&repo, Market::Nem),
             tmp.path(),
             2,
+            None,
         )
         .unwrap();
         let names: Vec<&str> = taken.iter().map(|t| t.folder.as_str()).collect();
-        assert_eq!(
-            names,
-            [
-                "Reports/ARCHIVE/Dispatch_SCADA",
-                "Reports/ARCHIVE/GSH/Benchmark_Price"
-            ]
-        );
+        assert_eq!(names, ["Reports/ARCHIVE/Dispatch_SCADA"]);
         assert_eq!(taken[0].census, census);
-        assert!(folder_path(&repo, Market::Nem, "ARCHIVE", "GSH/Benchmark_Price").is_file());
+        let gsh = feed("gsh").unwrap();
+        let taken = census_reports(
+            &cat,
+            dir.path(),
+            (None, None),
+            (&repo, Market::Gas),
+            tmp.path(),
+            2,
+            Some("gsh"),
+        )
+        .unwrap();
+        let names: Vec<&str> = taken.iter().map(|t| t.folder.as_str()).collect();
+        assert_eq!(names, ["Reports/ARCHIVE/GSH/Benchmark_Price"]);
+        assert!(folder_path(&repo, Market::Gas, gsh, "ARCHIVE", "Benchmark_Price").is_file());
+        assert!(
+            census_reports(
+                &cat,
+                dir.path(),
+                (None, None),
+                (&repo, Market::Gas),
+                tmp.path(),
+                2,
+                Some("gbb")
+            )
+            .unwrap()
+            .is_empty(),
+            "a root the host lacks is passed over"
+        );
         let blocked = dir.path().join("blocked");
         std::fs::write(&blocked, "a file").unwrap();
         assert!(
             census_reports(
                 &cat,
-                &reports,
+                dir.path(),
                 (None, None),
                 (&blocked, Market::Nem),
                 tmp.path(),
-                2
+                2,
+                None,
             )
             .is_err()
         );
@@ -1618,6 +1910,343 @@ mod tests {
     /// Blocks whose spans are of two columns (a CSV whose time column is
     /// empty throughout falls back to another) merge the rows, not the
     /// spans: the run keeps the span it has.
+    /// A plain feed's sidecar for `rel` under `host`, listed at `listed`.
+    fn sidecar_for(host: &Path, rel: &str, listed: &str) {
+        let json = format!(
+            r#"{{"url":"https://x/{rel}","size":1,"sha256":"x","fetched_at":"2026-10-21T09:00:00Z","listed_modified_at":"{listed}","tool":"t"}}"#
+        );
+        put(host, &format!("{rel}.json"), json.as_bytes());
+    }
+
+    #[test]
+    fn a_plain_feed_is_read_by_its_file_names_and_its_versions_compared() {
+        let dir = tempfile::tempdir().unwrap();
+        let tmp = tempfile::tempdir().unwrap();
+        let host = dir.path();
+        let gbb = feed("gbb").unwrap();
+        let root = "Reports/CURRENT/GBB";
+        let f = |name: &str| format!("{root}/{name}");
+        // A cumulative file: its first version, and a later one that adds
+        // a row and revises another. The header is not the column names.
+        let v1 = "GasDate,FacilityName,facilityid,Demand,LastUpdated\n2026/09/20,A,1,8.5,2026/10/08 17:00:00\n2026/09/20,B,2,1.0,2026/10/08 17:00:00\n";
+        let v2 = "GasDate,FacilityName,facilityid,Demand,LastUpdated\n2026/09/20,A,1,8.5,2026/10/08 17:00:00\n2026/09/20,B,2,1.5,2026/10/09 17:00:00\n2026/09/21,A,1,9.0,2026/10/09 17:00:00\n";
+        put(
+            host,
+            &f("GasBBActualFlowStorage.zip"),
+            &zip_of(&[("GasBBActualFlowStorage.CSV", v1.as_bytes())]),
+        );
+        put(
+            host,
+            &f("GasBBActualFlowStorage.zip@20261021T221100+1000"),
+            &zip_of(&[("GasBBActualFlowStorage.CSV", v2.as_bytes())]),
+        );
+        sidecar_for(
+            host,
+            &f("GasBBActualFlowStorage.zip"),
+            "2026-10-20T22:10:00+10:00",
+        );
+        sidecar_for(
+            host,
+            &f("GasBBActualFlowStorage.zip@20261021T221100+1000"),
+            "2026-10-21T22:11:00+10:00",
+        );
+        // A file whose name gives no month: its sidecar's listing does.
+        put(
+            host,
+            &f("GasBBBasins.csv"),
+            b"BasinId,BasinName,Active\n10000,Surat,true\n10001,Bowen,false,one too many\n",
+        );
+        sidecar_for(host, &f("GasBBBasins.csv"), "2026-10-21T19:00:00+10:00");
+        // Neither month nor sidecar: undated. A name no rule reads: unread.
+        put(host, &f("GasBBLocationsList.CSV"), b"LOCATIONID\n1\n");
+        put(host, &f("GasBB.csv"), b"a\n1\n");
+        // What is not a report, and what is not a file of the feed.
+        put(host, &f("notes.pdf"), b"%PDF");
+        put(host, &f("._GasBBBasins.csv"), b"\x00\x05");
+        let mut files = files_under(&host.join(root)).unwrap();
+        // `files_under` leaves the `._` file out; a list that has it still
+        // reads nothing of it.
+        files.push(host.join(f("._GasBBBasins.csv")));
+        let mut ctls = CtlSource::new(None);
+        let here = Where {
+            feed: gbb,
+            root,
+            rel: "",
+        };
+        assert_eq!(here.folder(), root);
+        assert_eq!(here.label(), "CURRENT");
+        let census = census_folder(&scada(), &mut ctls, here, &files, None, tmp.path());
+        let unread: Vec<(&str, &str)> = census
+            .unread
+            .iter()
+            .map(|u| (u.file.as_str(), u.error.as_str()))
+            .collect();
+        assert_eq!(
+            unread,
+            [
+                (
+                    "GasBB.csv",
+                    "no rule of the gbb feed names the block of GasBB.csv"
+                ),
+                ("", "1 CSV(s) whose month no name gives"),
+            ]
+        );
+        assert_eq!((census.files, census.csvs, census.other), (6, 4, 1));
+        assert_eq!(census.repeated, 0);
+        assert_eq!(census.bad_rows, 1, "the basins row with one field too many");
+        // The cumulative file is one run of two versions: five rows seen,
+        // two of them the first version's again.
+        let flow = census
+            .blocks
+            .iter()
+            .find(|t| t.block.report == ("GBB".into(), "ACTUAL_FLOW_STORAGE".into()))
+            .unwrap();
+        assert_eq!(
+            (flow.csvs, flow.block.rows, flow.block.rows_repeated),
+            (2, 4, 1)
+        );
+        assert_eq!(flow.month.to_string(), "2026-10");
+        assert_eq!(
+            flow.block.columns,
+            [
+                "GASDATE",
+                "FACILITYNAME",
+                "FACILITYID",
+                "DEMAND",
+                "LASTUPDATED"
+            ]
+        );
+        assert_eq!(
+            flow.block.headers,
+            [
+                "GasDate",
+                "FacilityName",
+                "facilityid",
+                "Demand",
+                "LastUpdated"
+            ]
+        );
+        assert_eq!(flow.block.first.as_deref(), Some("2026/09/20"));
+        assert_eq!(flow.block.last.as_deref(), Some("2026/09/21"));
+        assert_eq!(flow.block.kinds, "Dsidt");
+        assert_eq!(flow.first_file, "GasBBActualFlowStorage.zip");
+        assert_eq!(
+            flow.last_file,
+            "GasBBActualFlowStorage.zip@20261021T221100+1000"
+        );
+        assert_eq!(flow.block.ctl, "?????", "no control file types a gas table");
+        // The basins file: its month from its sidecar, a boolean column,
+        // headers that are their column names.
+        let basins = census
+            .blocks
+            .iter()
+            .find(|t| t.block.report.1 == "BASINS")
+            .unwrap();
+        assert_eq!(basins.month.to_string(), "2026-10");
+        assert_eq!(basins.block.kinds, "isb");
+        assert_eq!(basins.block.headers, ["BasinId", "BasinName", "Active"]);
+        assert_eq!(basins.block.rows_repeated, 0);
+        // Recorded under the feed, read back.
+        let repo = dir.path().join("repo");
+        let at = (gbb, "CURRENT", "");
+        record_folder(&repo, Market::Gas, at, &census).unwrap();
+        assert_eq!(
+            read_folder(&repo, Market::Gas, at).unwrap().unwrap(),
+            census
+        );
+        assert!(
+            folder_path(&repo, Market::Gas, gbb, "CURRENT", "")
+                .ends_with("evidence/census/gas/gbb/CURRENT/_root.toml")
+        );
+        let text =
+            std::fs::read_to_string(folder_path(&repo, Market::Gas, gbb, "CURRENT", "")).unwrap();
+        assert!(text.contains("rows_repeated = 1"), "{text}");
+        assert!(text.contains("headers = ["), "{text}");
+    }
+
+    #[test]
+    fn slot_zips_repeat_their_entries_and_restated_rows_are_not_new() {
+        let dir = tempfile::tempdir().unwrap();
+        let tmp = tempfile::tempdir().unwrap();
+        let host = dir.path();
+        let sttm = feed("sttm").unwrap();
+        let root = "Reports/CURRENT/STTM";
+        let f = |name: &str| format!("{root}/{name}");
+        let entry = "int651_v1_ex_ante_market_price_rpt_1~20261001113227.csv";
+        let rows1 = "gas_date,hub_identifier,ex_ante_market_price,report_datetime\n02 Oct 2026,ADL,11.0944,01 Oct 2026 11:32:27\n";
+        // The same entry in the day's slot and in the current day's zip; a
+        // later publish of the same price, its report time alone later.
+        put(host, &f("Day01.zip"), &zip_of(&[(entry, rows1.as_bytes())]));
+        put(
+            host,
+            &f("CurrentDay.zip"),
+            &zip_of(&[(entry, rows1.as_bytes())]),
+        );
+        let later = "int651_v1_ex_ante_market_price_rpt_1~20261001133000.csv";
+        let rows2 = "gas_date,hub_identifier,ex_ante_market_price,report_datetime\n02 Oct 2026,ADL,11.0944,01 Oct 2026 13:30:00\n03 Oct 2026,ADL,11.2,01 Oct 2026 13:30:00\n";
+        put(host, &f("Day02.zip"), &zip_of(&[(later, rows2.as_bytes())]));
+        // An entry that does not read: its rows are not compared.
+        put(
+            host,
+            &f("Day03.zip"),
+            &zip_of(&[("int652_v1_x_rpt_1~20261003000000.csv", b"(),\n1\n")]),
+        );
+        let files = files_under(&host.join(root)).unwrap();
+        let mut ctls = CtlSource::new(None);
+        let here = Where {
+            feed: sttm,
+            root,
+            rel: "",
+        };
+        let census = census_folder(&scada(), &mut ctls, here, &files, None, tmp.path());
+        assert_eq!(census.repeated, 1, "the entry in two zips");
+        assert_eq!(census.csvs, 2);
+        assert_eq!(census.unread.len(), 1);
+        assert!(
+            census.unread[0].file.starts_with("Day03.zip!int652"),
+            "{:?}",
+            census.unread
+        );
+        let run = &census.blocks[0];
+        assert_eq!(run.block.report.1, "INT651_EX_ANTE_MARKET_PRICE_RPT_1");
+        assert_eq!(run.block.version, 1);
+        // Three rows seen; the second file's first row only republished.
+        assert_eq!(
+            (run.csvs, run.block.rows, run.block.rows_repeated),
+            (2, 2, 1)
+        );
+        assert_eq!(run.month.to_string(), "2026-10");
+        // CurrentDay.zip is read first, by name; Day01.zip's copy is the
+        // repeat.
+        assert_eq!(run.first_csv, format!("CurrentDay.zip!{entry}"));
+        assert_eq!(run.last_csv, format!("Day02.zip!{later}"));
+        assert_eq!(
+            (run.first_file.as_str(), run.last_file.as_str()),
+            ("CurrentDay.zip", "Day02.zip")
+        );
+        assert_eq!(run.block.first.as_deref(), Some("2026/10/02"));
+        assert_eq!(run.block.last.as_deref(), Some("2026/10/03"));
+    }
+
+    #[test]
+    fn a_json_feed_is_blocks_per_array_and_its_sidecars_are_told_apart() {
+        let dir = tempfile::tempdir().unwrap();
+        let tmp = tempfile::tempdir().unwrap();
+        let host = dir.path();
+        let wemde = feed("wemde").unwrap();
+        let root = "public/market-data/wemde";
+        let rel = "referenceTradingPrice/previous";
+        let f = |name: &str| format!("{root}/{rel}/{name}");
+        let doc = r#"{"transactionId":"t1","data":{"tradingDay":"2026-10-21","referenceTradingPrices":[
+            {"tradingInterval":"2026-10-21T08:00:00+08:00","referenceTradingPrice":93.85,"isPublished":true},
+            {"tradingInterval":"2026-10-21T08:30:00+08:00","referenceTradingPrice":88.1,"isPublished":false}]}}"#;
+        put(
+            host,
+            &f("ReferenceTradingPrice_20261021.zip"),
+            &zip_of(&[("ReferenceTradingPrice_2026-10-21.json", doc.as_bytes())]),
+        );
+        // The zip's sidecar is a record; a loose document is a document.
+        sidecar_for(
+            host,
+            &f("ReferenceTradingPrice_20261021.zip"),
+            "2026-10-22T01:00:00+08:00",
+        );
+        put(
+            host,
+            &f("ReferenceTradingPrice_2026-10-22.json"),
+            doc.replace("2026-10-21", "2026-10-22").as_bytes(),
+        );
+        let files = files_under(&host.join(root).join(rel)).unwrap();
+        let mut ctls = CtlSource::new(None);
+        let here = Where {
+            feed: wemde,
+            root,
+            rel,
+        };
+        assert_eq!(here.folder(), format!("{root}/{rel}"));
+        let census = census_folder(&scada(), &mut ctls, here, &files, None, tmp.path());
+        assert!(census.unread.is_empty(), "{:?}", census.unread);
+        assert_eq!((census.files, census.csvs, census.repeated), (2, 2, 0));
+        let months: Vec<String> = census.blocks.iter().map(|t| t.month.to_string()).collect();
+        assert_eq!(months, ["2026-10"]);
+        let run = &census.blocks[0];
+        assert_eq!(
+            run.block.report,
+            (
+                "WEMDE".into(),
+                "REFERENCE_TRADING_PRICE_REFERENCE_TRADING_PRICES".into()
+            )
+        );
+        assert_eq!(
+            run.block.columns,
+            [
+                "IS_PUBLISHED",
+                "REFERENCE_TRADING_PRICE",
+                "TRADING_DAY",
+                "TRADING_INTERVAL",
+                "TRANSACTION_ID"
+            ]
+        );
+        assert_eq!(
+            run.block.headers,
+            [
+                "isPublished",
+                "referenceTradingPrice",
+                "tradingDay",
+                "tradingInterval",
+                "transactionId"
+            ]
+        );
+        assert_eq!(run.block.kinds, "bdDts");
+        assert_eq!((run.csvs, run.block.rows), (2, 4));
+        assert_eq!(run.block.time.as_deref(), Some("TRADING_DAY"));
+        assert_eq!(run.block.first.as_deref(), Some("2026/10/21"));
+        assert_eq!(run.block.last.as_deref(), Some("2026/10/22"));
+        assert_eq!(kind(wemde, here.label()), "wemde/wemde");
+    }
+
+    #[test]
+    fn an_mms_feed_whose_files_restate_each_other_counts_new_rows() {
+        let dir = tempfile::tempdir().unwrap();
+        let tmp = tempfile::tempdir().unwrap();
+        let host = dir.path();
+        let gsh = feed("gsh").unwrap();
+        let root = "Reports/CURRENT/GSH";
+        let rel = "Benchmark_Price";
+        let f = |name: &str| format!("{root}/{rel}/{name}");
+        put(
+            host,
+            &f("PUBLIC_X_20260717.zip"),
+            &zip_of(&[("PUBLIC_X_20260717.CSV", &three_tables(3))]),
+        );
+        put(
+            host,
+            &f("PUBLIC_X_20260718.zip"),
+            &zip_of(&[("PUBLIC_X_20260718.CSV", &three_tables(4))]),
+        );
+        let files = files_under(&host.join(root).join(rel)).unwrap();
+        let mut ctls = CtlSource::new(None);
+        let here = Where {
+            feed: gsh,
+            root,
+            rel,
+        };
+        let census = census_folder(&scada(), &mut ctls, here, &files, None, tmp.path());
+        let scada: Vec<&Tally> = census
+            .blocks
+            .iter()
+            .filter(|t| t.block.report.1 == "UNIT_SCADA")
+            .collect();
+        assert_eq!(scada.len(), 1);
+        // Three rows, then the same three and one more.
+        assert_eq!((scada[0].block.rows, scada[0].block.rows_repeated), (4, 3));
+        assert_eq!(
+            scada[0].block.ctl, "???",
+            "no control file types a gas table"
+        );
+        assert_eq!(kind(gsh, here.label()), "gsh/current");
+    }
+
     #[test]
     fn a_run_keeps_the_span_of_one_column() {
         let shape = |span: Option<(&str, &str, &str)>| BlockShape {
@@ -1628,6 +2257,8 @@ mod tests {
             },
             version: 1,
             rows: 1,
+            rows_repeated: 0,
+            headers: Vec::new(),
             span: span.map(|(first, last, column)| Span {
                 first: first.into(),
                 last: last.into(),
@@ -1692,7 +2323,14 @@ mod tests {
             })
             .collect();
         let mut ctls = CtlSource::new(None);
-        let census = census_folder(&scada(), &mut ctls, &files, None, dir.path());
+        let census = census_folder(
+            &scada(),
+            &mut ctls,
+            at("Reports/ARCHIVE", "X"),
+            &files,
+            None,
+            dir.path(),
+        );
         let runs: Vec<(u16, u64, &str)> = census
             .blocks
             .iter()

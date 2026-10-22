@@ -85,13 +85,46 @@ impl Feed {
     }
 
     /// The release month a file's name gives under this feed's rule, or
-    /// `None` when only its sidecar can say.
+    /// `None` when only its sidecar can say. `name` may be a zip and an
+    /// entry joined with `!`: the entry's name is asked first, then the
+    /// zip's.
     pub fn release_month(&self, name: &str) -> Option<YearMonth> {
-        let file = name.rsplit('/').next().unwrap_or(name);
+        let container = name.split('!').next().unwrap_or(name);
+        let entry = name.rsplit('!').next().unwrap_or(name);
+        let file_of = |p: &str| p.rsplit('/').next().unwrap_or(p).to_owned();
+        let (entry_file, container_file) = (file_of(entry), file_of(container));
+        let by_name = || {
+            name_month(&entry_file).or_else(|| {
+                (entry != container)
+                    .then(|| name_month(&container_file))
+                    .flatten()
+            })
+        };
+        let by_stamp = || {
+            stamp_month(&entry_file).or_else(|| {
+                (entry != container)
+                    .then(|| stamp_month(&container_file))
+                    .flatten()
+            })
+        };
         match self.release {
-            Release::NameMonth => name_month(file).or_else(|| stamp_month(name)),
-            Release::StampMonth => stamp_month(name),
+            Release::NameMonth => by_name().or_else(by_stamp),
+            Release::StampMonth => by_stamp().or_else(by_name),
         }
+    }
+
+    /// The label of one of this feed's roots: `ARCHIVE` or `CURRENT` when
+    /// the root is under one of nemweb's report roots, else the root's
+    /// last folder (`datafiles`, `wemde`, `market-data`).
+    pub fn label(root: &str) -> &str {
+        let segments: Vec<&str> = root.split('/').filter(|s| !s.is_empty()).collect();
+        segments
+            .iter()
+            .rev()
+            .find(|s| s.eq_ignore_ascii_case("ARCHIVE") || s.eq_ignore_ascii_case("CURRENT"))
+            .or(segments.last())
+            .copied()
+            .unwrap_or(root)
     }
 
     /// Whether `folder` (one path segment) is a folder this feed skips.
@@ -305,6 +338,45 @@ mod tests {
         );
         assert_eq!(
             wem.release_month("MarketClearingPrices-2024.csv@20261021T083000+0800"),
+            YearMonth::new(2026, 10)
+        );
+    }
+
+    #[test]
+    fn labels() {
+        assert_eq!(Feed::label("Reports/ARCHIVE/GSH"), "ARCHIVE");
+        assert_eq!(Feed::label("Reports/CURRENT"), "CURRENT");
+        assert_eq!(Feed::label("public/public-data/datafiles"), "datafiles");
+        assert_eq!(Feed::label("public/market-data/wemde/"), "wemde");
+        assert_eq!(Feed::label(""), "");
+    }
+
+    #[test]
+    fn entries_give_their_month_before_their_zip() {
+        let sttm = feed("sttm").unwrap();
+        assert_eq!(
+            sttm.release_month(
+                "Reports/CURRENT/STTM/Day01.zip@20261101T190000+1000!int651_v1_x~20261001113227.csv"
+            ),
+            YearMonth::new(2026, 10)
+        );
+        assert_eq!(
+            sttm.release_month("Day01.zip@20261101T190000+1000!int651_v1_x.csv"),
+            YearMonth::new(2026, 11)
+        );
+        let gsh = feed("gsh").unwrap();
+        assert_eq!(
+            gsh.release_month(
+                "PUBLIC_X_20260901.zip!PUBLIC_X_20260917_0000000535574168.zip!PUBLIC_X_20260917.CSV"
+            ),
+            YearMonth::new(2026, 9)
+        );
+        assert_eq!(gsh.release_month("PUBLIC_X.zip!x.csv"), None);
+        let gbb = feed("gbb").unwrap();
+        assert_eq!(
+            gbb.release_month(
+                "GasBBActualFlowStorage.zip@20261021T221100+1000!GasBBActualFlowStorage.CSV"
+            ),
             YearMonth::new(2026, 10)
         );
     }

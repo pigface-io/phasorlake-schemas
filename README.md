@@ -29,7 +29,7 @@ the output.
 ```sh
 utilake-schemas fetch --month 2026-09 --dir mirror/MMSDM_2026_09   # sources/2026-09.tsv
 utilake-schemas census --month 2026-09 --dir mirror/MMSDM_2026_09  # evidence/census/2026-09.toml, evidence/ctl/
-utilake-schemas reports --dir mirror/Reports --mmsdm mirror        # evidence/census/reports/
+utilake-schemas reports --dir archive/www.nemweb.com.au [--market gas] [--feed gbb] [--mmsdm mirror]  # evidence/census/{market}/{feed}/
 utilake-schemas sources --archive archive                          # sources/, for a census of a mirror archive
 utilake-schemas models --month 2026-09 --dir mirror/MMSDM_2026_09  # evidence/models/
 utilake-schemas fold [--market nem]                                # evidence/histories/{market}/
@@ -139,8 +139,9 @@ What the metadata means, beyond Iceberg:
   its time is the start of the month the run's first file was released
   in, so snapshots rise in release order; its manifest list is empty.
   Kinds are `dvd` and `archive` (AEMO's monthly archive; `#all` for a
-  file of every forecast run), `other`, and `reports/archive` and
-  `reports/current` (the report folders). What changed at a run's start
+  file of every forecast run), `other`, `reports/archive` and
+  `reports/current` (the NEM's report folders), and `{feed}/{root}` for
+  every other feed (`gbb/current`, `gsh/archive`, `datafiles/datafiles`). What changed at a run's start
   and the schema updates from the run before are not stored: they follow
   from the snapshots in order, and `utilake_iceberg::history::derive`
   computes them as the fold did.

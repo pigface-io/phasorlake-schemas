@@ -28,7 +28,7 @@ use crate::census::{CensusError, FileRecord, census_dir, files_under, read_month
 use crate::history::{Declarations, HistoryError, Numeric, Observations};
 use crate::models::{ModelError, ModelType, by_first_seen, read_models};
 use crate::month::YearMonth;
-use crate::reports::{ROOTS, kind, read_folder};
+use crate::reports::{Feed, census_sub, feeds_of, kind, read_folder};
 use utilake_iceberg::Market;
 
 /// Why the fold could not be done.
@@ -193,14 +193,14 @@ pub fn recorded_months(root: &Path, market: Market) -> Result<Vec<YearMonth>, Ce
     Ok(months)
 }
 
-/// The folders of report root `root` whose census was recorded, as
-/// [`crate::reports::folder_path`] names them.
+/// The folders under root `label` of `feed` whose census was recorded,
+/// as [`crate::reports::folder_path`] names them.
 pub fn recorded_folders(
     repo: &Path,
     market: Market,
-    root: &str,
+    (feed, label): (&Feed, &str),
 ) -> Result<Vec<String>, CensusError> {
-    let dir = census_dir(repo, market).join("reports").join(root);
+    let dir = census_dir(repo, market).join(census_sub(feed)).join(label);
     if !dir.is_dir() {
         return Ok(Vec::new());
     }
@@ -232,16 +232,19 @@ pub fn observe(
             }
         }
     }
-    for root_name in ROOTS {
-        for rel in recorded_folders(root, market, root_name)? {
-            let census = read_folder(root, market, root_name, &rel)?.unwrap_or_default();
+    for (feed, feed_root) in
+        feeds_of(market.id()).flat_map(|f| f.roots.iter().map(move |r| (f, *r)))
+    {
+        let label = Feed::label(feed_root);
+        for rel in recorded_folders(root, market, (feed, label))? {
+            let census = read_folder(root, market, (feed, label, &rel))?.unwrap_or_default();
             // A folder's files are not hashed one by one: a run's marks
             // name its first and last file, with theirs.
             let file = FileRecord {
-                source: format!("Reports/{root_name}/{rel}"),
+                source: format!("{feed_root}/{rel}"),
                 sha256: String::new(),
                 size: 0,
-                kind: kind(root_name),
+                kind: kind(feed, label),
                 bad_rows: 0,
                 footer_mismatches: 0,
                 block: Vec::new(),

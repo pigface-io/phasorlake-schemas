@@ -10,7 +10,7 @@
 //! utilake-schemas fetch --month 2024-01 --dir mirror/MMSDM_2024_01 [--interval-ms 1000] [--root .]
 //! utilake-schemas census --month 2024-01 --dir mirror/MMSDM_2024_01 [--root .]
 //! utilake-schemas sources --archive /data/mirror/archive [--check] [--root .]
-//! utilake-schemas reports --dir mirror/Reports [--mmsdm mirror] [--mirror ~/.nemweb-mirror] [--root .]
+//! utilake-schemas reports --dir mirror/archive/www.nemweb.com.au [--market gas] [--feed gbb] [--mmsdm mirror] [--mirror ~/.nemweb-mirror] [--root .]
 //! utilake-schemas models --month 2025-10 --dir mirror/MMSDM_2025_10 [--root .]
 //! utilake-schemas fold [--check] [--rebaseline REASON] [--root .]
 //! utilake-schemas export [--check] [--base-url URL] [--root .]
@@ -102,15 +102,21 @@ enum Cmd {
         #[arg(long, default_value_t = utilake_schemas::pool::default_jobs())]
         jobs: usize,
     },
-    /// Record every folder of the report roots in
-    /// `{root}/evidence/census/{market}/reports/{ROOT}/{folder}.toml`.
+    /// Record every folder of every root of a market's feeds in
+    /// `{root}/evidence/census/{market}/{feed}/{ROOT}/{folder}.toml` (the
+    /// NEM's report folders under `reports/`).
     Reports {
-        /// The directory holding `ARCHIVE/` and `CURRENT/`.
+        /// The directory of the host in the mirror archive:
+        /// `…/archive/www.nemweb.com.au`, holding `Reports/`.
         #[arg(long)]
         dir: PathBuf,
         /// The market: `nem`, `wem` or `gas`.
         #[arg(long, default_value = "nem")]
         market: Market,
+        /// One feed of the market (`gbb`, `gsh`, `sttm`, `dwgm`,
+        /// `datafiles`, `wemde`); every feed when not given.
+        #[arg(long)]
+        feed: Option<String>,
         /// The directory of MMSDM months (`MMSDM_{YYYY}_{MM}/CTL/`) whose
         /// control files type the blocks; without it nothing is typed.
         #[arg(long)]
@@ -433,12 +439,19 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
         Cmd::Reports {
             dir,
             market,
+            feed,
             mmsdm,
             mirror,
             root,
             jobs,
         } => {
             use utilake_schemas::reports;
+            if let Some(f) = &feed
+                && !reports::feeds_of(market.id()).any(|x| x.id == f)
+            {
+                eprintln!("error: {market} has no feed {f:?}");
+                return Ok(ExitCode::FAILURE);
+            }
             let cat = catalog(&root, market)?;
             let tmp = scratch()?;
             let journals = mirror.as_deref().map(reports::journals);
@@ -449,6 +462,7 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                 (&root, market),
                 tmp.path(),
                 jobs,
+                feed.as_deref(),
             )
             .map_err(|e| fail(&e))?;
             let mut unread = 0;

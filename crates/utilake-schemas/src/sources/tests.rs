@@ -1,7 +1,7 @@
 use super::*;
 use crate::census::tests::put;
 use crate::census::{BlockRecord, FileRecord, census_path};
-use crate::reports::{FolderCensus, Rewritten, Tally, Version, record_folder};
+use crate::reports::{FolderCensus, Rewritten, Tally, Version, nem_reports, record_folder};
 use crate::shape::ShapeId;
 
 /// The MMSDM directory of the archive's host.
@@ -272,6 +272,8 @@ fn record(report: &str) -> BlockRecord {
         report: ("DISPATCH".into(), report.into()),
         version: 1,
         rows: 1,
+        rows_repeated: 0,
+        headers: Vec::new(),
         time: None,
         first: None,
         last: None,
@@ -324,7 +326,7 @@ fn report_folders_list_their_runs_and_versions_by_month() {
         blocks: vec![tally(("", ""), ("R_20260801.zip", "r"))],
         ..FolderCensus::default()
     };
-    record_folder(root, Market::Nem, "ARCHIVE", "", &old).unwrap();
+    record_folder(root, Market::Nem, (nem_reports(), "ARCHIVE", ""), &old).unwrap();
     let gas = FolderCensus {
         blocks: vec![
             tally(("P_20260801.zip", "p1"), ("P_20260902.zip", "p2")),
@@ -342,7 +344,13 @@ fn report_folders_list_their_runs_and_versions_by_month() {
         }],
         ..FolderCensus::default()
     };
-    record_folder(root, Market::Nem, "CURRENT", "VicGas/sub", &gas).unwrap();
+    record_folder(
+        root,
+        Market::Nem,
+        (nem_reports(), "CURRENT", "VicGas/sub"),
+        &gas,
+    )
+    .unwrap();
     let sc = |rel: &str, sha: &str, rest: &str| {
         let rel = format!("{host}/{rel}");
         file(a, &rel, 2, Some(sidecar_json(&url(&rel), 2, sha, rest)));
@@ -403,7 +411,7 @@ fn a_census_or_sources_file_that_cannot_be_read_or_written_is_an_error() {
     let e = collect(root, Market::Nem, a, 1).unwrap_err();
     assert!(matches!(e, SourcesError::Census(_)), "{e}");
     let repo = tempfile::tempdir().unwrap();
-    let bad = crate::reports::folder_path(repo.path(), Market::Nem, "CURRENT", "X");
+    let bad = crate::reports::folder_path(repo.path(), Market::Nem, nem_reports(), "CURRENT", "X");
     crate::files::write_atomic(&bad, b"files = [").unwrap();
     assert!(
         collect(repo.path(), Market::Nem, a, 1)

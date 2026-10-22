@@ -32,6 +32,9 @@ pub struct ColumnProfile {
     /// compared with them: every value is compared with both, and this
     /// spares reading the bounds' digits again each time.
     pub(crate) plain_bounds: [Option<Plain>; 2],
+    /// Whether `true` and `false` are booleans here: they are in a plain
+    /// CSV or a JSON document, never in an MMS file, where no column is.
+    pub booleans: bool,
 }
 
 /// Two profiles are the same when what they record is: the bounds' digits
@@ -69,6 +72,16 @@ impl ColumnProfile {
             self.nulls += 1;
             return;
         };
+        if self.booleans && (v == b"true" || v == b"false") {
+            self.kind = self.kind.join(Kind::Boolean);
+            self.max_len = self.max_len.max(u32::try_from(v.len()).unwrap_or(u32::MAX));
+            if self.kind == Kind::Text {
+                self.min = None;
+                self.max = None;
+                self.plain_bounds = [None; 2];
+            }
+            return;
+        }
         let (kind, int_digits, scale, sig, pv) = scan(v);
         self.kind = self.kind.join(kind);
         self.int_digits = self.int_digits.max(int_digits);
@@ -358,6 +371,29 @@ fn number(v: &[u8]) -> Option<(Kind, u8, u8, u8, Option<Plain>)> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn booleans_are_booleans_only_where_a_column_may_hold_them() {
+        let mut p = ColumnProfile {
+            booleans: true,
+            ..ColumnProfile::default()
+        };
+        p.observe(Some(b"true"));
+        p.observe(Some(b"false"));
+        assert_eq!((p.kind, p.max_len, p.nulls), (Kind::Boolean, 5, 0));
+        p.observe(Some(b"7"));
+        assert_eq!(p.kind, Kind::Text);
+        let mut q = ColumnProfile {
+            booleans: true,
+            ..ColumnProfile::default()
+        };
+        q.observe(Some(b"2026/10/21"));
+        q.observe(Some(b"true"));
+        assert_eq!((q.kind, q.min, q.max), (Kind::Text, None, None));
+        let mut mms = ColumnProfile::default();
+        mms.observe(Some(b"true"));
+        assert_eq!(mms.kind, Kind::Text);
+    }
 
     fn c3(v: &[u8]) -> (Kind, u8, u8) {
         let (k, i, s, _) = classify(v);

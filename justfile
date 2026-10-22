@@ -57,9 +57,9 @@ fetch month dir:
 census month dir market="nem":
     cargo run -q -p utilake-schemas -- census --month {{ month }} --dir {{ dir }} --market {{ market }}
 
-# record every folder of a market's report roots under evidence/census/{market}/reports/
-reports dir market="nem" mmsdm="" mirror="":
-    cargo run -q -p utilake-schemas -- reports --dir {{ dir }} --market {{ market }} {{ if mmsdm == "" { "" } else { "--mmsdm " + mmsdm } }} {{ if mirror == "" { "" } else { "--mirror " + mirror } }}
+# record every folder of a market's feeds under evidence/census/{market}/, from the host directory of a mirror archive
+reports host market="nem" feed="" mmsdm="" mirror="":
+    cargo run -q -p utilake-schemas -- reports --dir {{ host }} --market {{ market }} {{ if feed == "" { "" } else { "--feed " + feed } }} {{ if mmsdm == "" { "" } else { "--mmsdm " + mmsdm } }} {{ if mirror == "" { "" } else { "--mirror " + mirror } }}
 
 # list every file each census read in sources/{market}/, from a mirror archive's sidecars
 sources archive market="nem":

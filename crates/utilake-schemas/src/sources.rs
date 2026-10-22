@@ -31,7 +31,7 @@ use crate::census::{CensusError, base, files_under, read_month};
 use crate::fetch::{FetchError, Source, sources_path, sources_text, write_sources};
 use crate::fold::{recorded_folders, recorded_months};
 use crate::month::YearMonth;
-use crate::reports::{ROOTS, Sidecar, name_month, read_folder, sidecar, version_of};
+use crate::reports::{Feed, Sidecar, feeds_of, read_folder, sidecar};
 use utilake_iceberg::Market;
 
 /// Why `sources/` could not be made.
@@ -77,13 +77,10 @@ impl Sources {
     }
 }
 
-/// The directory of the archive's host: `archive` itself when it is that
-/// directory, else `{archive}/www.nemweb.com.au`.
+/// The directory of the archive's host `host`: `archive` itself when it
+/// is that directory, else `{archive}/{host}`.
 #[must_use]
-pub fn host_dir(archive: &Path) -> PathBuf {
-    let host = crate::fetch::BASE
-        .split_once("://")
-        .map_or(crate::fetch::BASE, |(_, h)| h);
+pub fn host_dir(archive: &Path, host: &str) -> PathBuf {
     let under = archive.join(host);
     if under.is_dir() {
         under
@@ -235,19 +232,21 @@ fn month_rows((root, market): (&Path, Market), host: &Path, month: YearMonth) ->
     Ok((rows, bad))
 }
 
-/// The rows of one report folder's census, each with its month.
+/// The rows of one folder's census, each with its month.
 fn folder_rows(
     (root, market): (&Path, Market),
-    host: &Path,
-    (root_name, rel): (&str, &str),
+    archive: &Path,
+    (feed, feed_root, rel): (&Feed, &str, &str),
 ) -> Listed {
+    let host = host_dir(archive, feed.host);
     let folder = if rel.is_empty() {
-        format!("Reports/{root_name}")
+        feed_root.to_owned()
     } else {
-        format!("Reports/{root_name}/{rel}")
+        format!("{feed_root}/{rel}")
     };
     let label = |name: &str| format!("{folder}/{name}");
-    let census = read_folder(root, market, root_name, rel)?.unwrap_or_default();
+    let census =
+        read_folder(root, market, (feed, Feed::label(feed_root), rel))?.unwrap_or_default();
     let mut named: Vec<(&str, &str)> = Vec::new();
     for t in &census.blocks {
         named.push((&t.first_file, &t.first_sha256));
@@ -271,7 +270,7 @@ fn folder_rows(
     // A sidecar that reads always gives a month: its fetch's at least.
     let rows = found
         .into_iter()
-        .filter_map(|(name, (url, s, at))| Some((name_month(version_of(&name).0).or(at)?, url, s)))
+        .filter_map(|(name, (url, s, at))| Some((feed.release_month(&name).or(at)?, url, s)))
         .collect();
     Ok((rows, bad))
 }
@@ -285,7 +284,7 @@ pub fn collect(
     archive: &Path,
     jobs: usize,
 ) -> Result<Sources, SourcesError> {
-    let host = host_dir(archive);
+    let host = host_dir(archive, crate::reports::nem_reports().host);
     let mut out = Sources::default();
     let months = recorded_months(root, market)?;
     // Every month has a sources file, if only of its header.
@@ -294,13 +293,15 @@ pub fn collect(
     }
     let mut done = crate::pool::map(jobs, &months, |_, &m| month_rows((root, market), &host, m));
     let mut folders = Vec::new();
-    for root_name in ROOTS {
-        for rel in recorded_folders(root, market, root_name)? {
-            folders.push((root_name, rel));
+    for feed in feeds_of(market.id()) {
+        for feed_root in feed.roots {
+            for rel in recorded_folders(root, market, (feed, Feed::label(feed_root)))? {
+                folders.push((feed, *feed_root, rel));
+            }
         }
     }
-    done.extend(crate::pool::map(jobs, &folders, |_, (r, rel)| {
-        folder_rows((root, market), &host, (r, rel.as_str()))
+    done.extend(crate::pool::map(jobs, &folders, |_, (f, r, rel)| {
+        folder_rows((root, market), archive, (f, r, rel.as_str()))
     }));
     for r in done {
         let (rows, bad) = r?;

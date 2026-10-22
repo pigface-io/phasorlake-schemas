@@ -4,6 +4,7 @@ use super::*;
 use crate::catalog::tests::{decl, scada};
 use crate::catalog::{Override, TableDecl};
 use crate::census::{BlockRecord, census_path};
+use crate::reports::nem_reports;
 use crate::reports::{FolderCensus, Tally, record_folder};
 use crate::shape::ShapeId;
 
@@ -16,6 +17,8 @@ fn scada_block(month: &str, int: u8) -> BlockRecord {
         report: ("DISPATCH".into(), "UNIT_SCADA".into()),
         version: 1,
         rows: 3,
+        rows_repeated: 0,
+        headers: Vec::new(),
         time: Some("SETTLEMENTDATE".into()),
         first: Some(format!("{day} 00:05:00")),
         last: Some(format!("{day} 00:15:00")),
@@ -107,12 +110,17 @@ fn repo() -> (tempfile::TempDir, Catalog) {
         blocks: vec![tally(csv)],
         ..FolderCensus::default()
     };
-    record_folder(root, Market::Nem, "ARCHIVE", "", &folder("ROOT")).unwrap();
     record_folder(
         root,
         Market::Nem,
-        "ARCHIVE",
-        "Dispatch_SCADA/2026",
+        (nem_reports(), "ARCHIVE", ""),
+        &folder("ROOT"),
+    )
+    .unwrap();
+    record_folder(
+        root,
+        Market::Nem,
+        (nem_reports(), "ARCHIVE", "Dispatch_SCADA/2026"),
         &folder("NESTED"),
     )
     .unwrap();
@@ -391,10 +399,10 @@ fn every_failure_names_its_file() {
 #[test]
 fn reports_folders_are_found_below_their_root() {
     let (dir, _) = repo();
-    let found = recorded_folders(dir.path(), Market::Nem, "ARCHIVE").unwrap();
+    let found = recorded_folders(dir.path(), Market::Nem, (nem_reports(), "ARCHIVE")).unwrap();
     assert_eq!(found, ["Dispatch_SCADA/2026", ""], "by path");
     assert!(
-        recorded_folders(dir.path(), Market::Nem, "CURRENT")
+        recorded_folders(dir.path(), Market::Nem, (nem_reports(), "CURRENT"))
             .unwrap()
             .is_empty()
     );
