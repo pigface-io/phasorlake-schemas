@@ -65,7 +65,8 @@ jobs:
       - name: Scan the whole history for secrets
         run: just secrets
 
-  # Every history as an Iceberg table without data, read back by pyiceberg.
+  # Every table's Iceberg metadata under nem/, read back by pyiceberg and
+  # held to its history.
   replay:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -77,8 +78,7 @@ jobs:
       - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
         with:
           version: ${{ env.UV_VERSION }}
-      - run: just iceberg target/iceberg
-      - run: just replay target/iceberg
+      - run: just replay
 
   # Known vulnerabilities in the Rust crates, against the lock file.
   audit:

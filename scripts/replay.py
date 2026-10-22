@@ -1,16 +1,17 @@
-"""Read every table `utilake-schemas iceberg` wrote with pyiceberg, and hold it
-to its history.
+"""Read every table's Iceberg metadata with pyiceberg, and hold it to its
+history.
 
     uv run --with pyiceberg python scripts/replay.py [DIR] [HISTORIES]
 
-DIR (default target/iceberg) holds one table per directory, as
-`utilake-schemas iceberg --out DIR` writes them; HISTORIES (default
-evidence/histories) holds each table's history. Every history must have a
-table and every table a history. Each table is loaded as a pyiceberg
-`StaticTable` from the metadata its `version-hint.text` names, and must
-have the history's schemas by id, each with its fields' ids, names and
-nullability in order and its key, and the schema of the last run as its
-current schema. Exits 1 on the first table that does not, naming it.
+DIR (default nem, as the export writes it; or what `utilake-schemas
+iceberg --out DIR` wrote) holds one table per directory with a `metadata/`
+in it; HISTORIES (default evidence/histories) holds each table's history.
+Every history must have a table and every table a history. Each table is
+loaded as a pyiceberg `StaticTable` from the metadata its
+`version-hint.text` names, and must have the history's schemas by id,
+each with its fields' ids, names, types and nullability in order and its
+key, and the history's current schema as its current schema. Exits 1 on
+the first table that does not, naming it.
 
 The tables hold no data, so the files are read with a FileIO of this
 script's own (`LocalFileIO`): no pyarrow or fsspec is needed.
@@ -56,10 +57,10 @@ def fail(message: str) -> None:
 
 
 def expected(history: dict) -> dict:
-    """Each schema id's fields as (id, name, required) and its key."""
+    """Each schema id's fields as (id, name, type, required) and its key."""
     return {
         s["schema-id"]: (
-            [(f["id"], f["name"], f["required"]) for f in s["fields"]],
+            [(f["id"], f["name"], f["type"], f["required"]) for f in s["fields"]],
             sorted(s.get("identifier-field-ids", [])),
         )
         for s in history["schemas"]
@@ -70,7 +71,7 @@ def loaded(table: StaticTable) -> dict:
     """The same, as pyiceberg reads the table's metadata."""
     return {
         s.schema_id: (
-            [(f.field_id, f.name, f.required) for f in s.fields],
+            [(f.field_id, f.name, str(f.field_type), f.required) for f in s.fields],
             sorted(s.identifier_field_ids),
         )
         for s in table.metadata.schemas
@@ -78,7 +79,7 @@ def loaded(table: StaticTable) -> dict:
 
 
 def main() -> None:
-    out = Path(sys.argv[1] if len(sys.argv) > 1 else "target/iceberg")
+    out = Path(sys.argv[1] if len(sys.argv) > 1 else "nem")
     histories = Path(sys.argv[2] if len(sys.argv) > 2 else "evidence/histories")
     wanted = {p.stem: p for p in sorted(histories.glob("*.json"))}
     written = {p.name for p in out.iterdir() if p.is_dir()} if out.is_dir() else set()
@@ -97,12 +98,11 @@ def main() -> None:
         want, have = expected(history), loaded(table)
         if want != have:
             fail(f"{name}: pyiceberg reads schemas {have}, the history has {want}")
-        runs = history["runs"]
-        current = runs[-1]["schema-id"] if runs else min(want, default=0)
+        current = history.get("current-schema-id", 0)
         if table.metadata.current_schema_id != current:
             fail(
                 f"{name}: the current schema is {table.metadata.current_schema_id}, "
-                f"the last run's is {current}"
+                f"the history's is {current}"
             )
     print(f"replay: {len(wanted)} table(s) read back as their histories say")
 

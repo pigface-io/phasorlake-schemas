@@ -105,12 +105,12 @@ compat base="origin/main":
 diff base="origin/main":
     cargo run -q -p utilake-schemas -- diff --base {{ base }}
 
-# write every history as an Iceberg table without data
+# write every history as an Iceberg table without data, elsewhere than nem/
 iceberg out="target/iceberg":
     cargo run -q -p utilake-schemas -- iceberg --out {{ out }}
 
-# read every table under a directory with pyiceberg, held to its history
-replay dir="target/iceberg":
+# read every table's Iceberg metadata under a directory with pyiceberg, held to its history
+replay dir="nem":
     uv run --with pyiceberg python scripts/replay.py {{ dir }}
 
 # ── secrets ──────────────────────────────────────────────────────────────────

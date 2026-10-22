@@ -190,6 +190,10 @@ impl Published {
         for t in tables.iter().filter(|t| t.is_dir()) {
             for entry in std::fs::read_dir(t).map_err(|e| read(t, e))? {
                 let path = entry.map_err(|e| read(t, e))?.path();
+                // The table's Iceberg metadata is a directory of its own.
+                if path.is_dir() {
+                    continue;
+                }
                 let rel = path
                     .strip_prefix(root)
                     .unwrap_or(&path)
@@ -331,11 +335,21 @@ pub(crate) mod tests {
         std::fs::write(&table, r#"{"iceberg": {}}"#).unwrap();
         assert!(Published::read(root).is_err());
 
-        // Unreadable: a directory where a document is, a file where nem/ is.
+        // A directory where a document is holds nothing (the metadata
+        // directory is one); a document that cannot be read, or a file
+        // where nem/ is, is an error.
         std::fs::remove_file(&table).unwrap();
         std::fs::create_dir(&table).unwrap();
-        let e = Published::read(root).unwrap_err();
-        assert!(e.to_string().starts_with("The published file "), "{e}");
+        assert!(Published::read(root).unwrap().tables.is_empty());
+        std::fs::remove_dir(&table).unwrap();
+        {
+            use std::os::unix::fs::PermissionsExt as _;
+            let doc = root.join("nem/DISPATCH_UNIT_SCADA/schema-2e75294ff617bace.json");
+            std::fs::set_permissions(&doc, std::fs::Permissions::from_mode(0o000)).unwrap();
+            let e = Published::read(root).unwrap_err();
+            assert!(e.to_string().starts_with("The published file "), "{e}");
+            std::fs::set_permissions(&doc, std::fs::Permissions::from_mode(0o644)).unwrap();
+        }
         let flat = tempfile::tempdir().unwrap();
         std::fs::write(flat.path().join("nem"), "a file").unwrap();
         assert!(Published::read(flat.path()).is_err());

@@ -4,10 +4,15 @@
 //! `nem/{TABLE}/table.json` describes the table: its declaration from
 //! `tables/`, its description and each column's comment and model type
 //! from the latest data-model release under `evidence/models/` that has
-//! them, and its history as an Iceberg table (`iceberg`), each schema's
-//! document named in `schema-files`. Per schema, `nem/{TABLE}/schema-{hash}.json`
-//! is a JSON Schema of a row ([`schema`]). Beside them, `manifest.json`
-//! names every file under `nem/` with its SHA-256.
+//! them, each column's Iceberg type and the releases it spans, and its
+//! history as an Iceberg table (`iceberg`), each schema's document named
+//! in `schema-files`. Per schema, `nem/{TABLE}/schema-{hash}.json` is a
+//! JSON Schema of a row ([`schema`]). `nem/{TABLE}/metadata/v1.metadata.json`
+//! (with `version-hint.text`) is the table as Iceberg table metadata, with
+//! no data, for any Iceberg reader. `nem/headers.json` maps every header
+//! AEMO's files carry (report pair, version, columns) to its table and
+//! schemas. Beside them, `manifest.json` names every file under `nem/`
+//! with its SHA-256, and lists the tables.
 //!
 //! Everything is a function of the files read: no clock, no git. Every
 //! document is pretty JSON with its keys sorted and a newline at the end,
@@ -183,6 +188,7 @@ impl Export {
     /// Renders every file.
     pub fn render(&self) -> Rendered {
         let mut out = Rendered::default();
+        let mut listed = Vec::new();
         for (table, h) in &self.histories {
             let mut files = BTreeMap::new();
             for s in &h.schemas {
@@ -193,12 +199,28 @@ impl Export {
                 files.insert(s.schema_id.to_string(), json!(name));
             }
             out.schemas += h.schemas.len();
-            let doc = self.table(h, self.catalog.table(table), &files);
+            let decl = self.catalog.table(table);
+            let doc = self.table(h, decl, &files);
             out.files
                 .insert(format!("{OWNED}/{table}/table.json"), text(&doc));
+            let location = format!("{}{OWNED}/{table}", self.base_url);
+            let meta = crate::iceberg::metadata(h, &location);
+            out.files.insert(
+                format!("{OWNED}/{table}/metadata/v1.metadata.json"),
+                text(&serde_json::to_value(&meta).expect("metadata serialises")),
+            );
+            out.files.insert(
+                format!("{OWNED}/{table}/metadata/version-hint.text"),
+                "1".to_owned(),
+            );
+            listed.push(listing(h, decl));
         }
         out.tables = self.histories.len();
-        let manifest = manifest(&self.base_url, &self.baseline, &out);
+        out.files.insert(
+            format!("{OWNED}/headers.json"),
+            text(&headers(self.histories.values())),
+        );
+        let manifest = manifest(&self.base_url, &self.baseline, &listed, &out);
         out.files.insert("manifest.json".to_owned(), manifest);
         out
     }
@@ -216,7 +238,16 @@ impl Export {
             .iter()
             .map(|f| {
                 let (comment, model_type) = self.column(name, &f.name);
-                json!({"id": f.id, "name": f.name, "comment": comment, "model_type": model_type})
+                let (first, last) = span_of(h, |s| s.field(f.id).is_some());
+                json!({
+                    "id": f.id,
+                    "name": f.name,
+                    "iceberg_type": f.ty.name(),
+                    "comment": comment,
+                    "model_type": model_type,
+                    "first_release": first,
+                    "last_release": last,
+                })
             })
             .collect();
         let mut iceberg = serde_json::to_value(h).expect("a history serialises");
@@ -240,14 +271,98 @@ impl Export {
     }
 }
 
+/// The first and last release month of the runs whose schema `has`;
+/// none when no run's does.
+fn span_of(h: &History, has: impl Fn(&utilake_iceberg::Schema) -> bool) -> (Value, Value) {
+    let runs = h
+        .runs
+        .iter()
+        .filter(|r| h.schema(r.schema_id).is_some_and(&has));
+    let first = runs.clone().map(|r| r.from.release.as_str()).min();
+    let last = runs.map(|r| r.to.release.as_str()).max();
+    (json!(first), json!(last))
+}
+
+/// The table's line in the manifest: its name, package, whether it is
+/// declared, the releases its runs span, and its counts.
+fn listing(h: &History, decl: Option<&TableDecl>) -> Value {
+    let (first, last) = span_of(h, |_| true);
+    json!({
+        "name": h.table,
+        "package": decl.and_then(|d| d.package.as_deref()),
+        "declared": decl.is_some(),
+        "first_release": first,
+        "last_release": last,
+        "schemas": h.schemas.len(),
+        "runs": h.runs.len(),
+        "breaks": h.breaking.len(),
+    })
+}
+
+/// `nem/headers.json`: every header AEMO's files carry, in the order
+/// of report pair, version and columns, with its table and the schemas it
+/// was read with, each with the releases of its runs. A reader of a file
+/// resolves its header as [`History::resolve`] does: the last schema whose
+/// first release is at or before the file's, else the first.
+fn headers<'a>(histories: impl Iterator<Item = &'a History>) -> Value {
+    /// A header: report pair, version, columns.
+    type Header = ([String; 2], u16, Vec<String>);
+    let mut out: BTreeMap<Header, (String, Vec<Value>)> = BTreeMap::new();
+    for h in histories {
+        for r in &h.runs {
+            let Some(s) = h.schema(r.schema_id) else {
+                continue;
+            };
+            let columns: Vec<String> = s.fields.iter().map(|f| f.name.clone()).collect();
+            let key = (r.report.clone(), r.version, columns);
+            let (_, schemas) = out
+                .entry(key)
+                .or_insert_with(|| (h.table.clone(), Vec::new()));
+            let last = schemas
+                .iter_mut()
+                .find(|v| v["schema-id"] == json!(r.schema_id));
+            match last {
+                Some(v) => {
+                    v["runs"] = json!(v["runs"].as_u64().unwrap_or(0) + 1);
+                    let later = v["last-release"]
+                        .as_str()
+                        .is_none_or(|l| r.to.release.as_str() > l);
+                    if later {
+                        v["last-release"] = json!(r.to.release);
+                    }
+                }
+                None => schemas.push(json!({
+                    "schema-id": r.schema_id,
+                    "first-release": r.from.release,
+                    "last-release": r.to.release,
+                    "runs": 1,
+                })),
+            }
+        }
+    }
+    let headers: Vec<Value> = out
+        .into_iter()
+        .map(|((report, version, columns), (table, schemas))| {
+            json!({
+                "report": report,
+                "version": version,
+                "columns": columns,
+                "table": table,
+                "schemas": schemas,
+            })
+        })
+        .collect();
+    json!({"x-format": FORMAT, "headers": headers})
+}
+
 fn non_empty(s: &str) -> Option<&str> {
     Some(s).filter(|s| !s.is_empty())
 }
 
 /// The manifest: what was written, the data version (`baseline`: the
-/// version, and the reason it was begun) and the SHA-256 of every file
-/// under `nem/`.
-fn manifest(base_url: &str, baseline: &Baseline, r: &Rendered) -> String {
+/// version, and the reason it was begun), each table's line
+/// ([`listing`]) and the SHA-256 of every file under `nem/`.
+fn manifest(base_url: &str, baseline: &Baseline, listed: &[Value], r: &Rendered) -> String {
     let hashes: BTreeMap<&str, String> = r
         .files
         .iter()
@@ -260,6 +375,7 @@ fn manifest(base_url: &str, baseline: &Baseline, r: &Rendered) -> String {
         "baseline": {"version": baseline.version, "reason": baseline.reason},
         "tables": r.tables,
         "schemas": r.schemas,
+        "listed": listed,
         "sha256": hashes,
     }))
 }
