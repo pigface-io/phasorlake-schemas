@@ -9,6 +9,12 @@
 //! the same evidence writes the same bytes. Each file is written whole,
 //! through a temporary file renamed into place, and a history of a table
 //! no census holds any more is removed.
+//!
+//! Once, a fold may be taken with no published history to keep
+//! (`rebaseline`): every id is minted anew, and
+//! `evidence/histories/BASELINE.toml` records the data version that
+//! began and why ([`Baseline`]). The export carries the version into
+//! `manifest.json`, and `compat` holds a version only to the same version.
 
 use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
@@ -52,6 +58,49 @@ pub enum FoldError {
         #[source]
         source: std::io::Error,
     },
+}
+
+/// The data version the histories are of: raised, with a reason, by the
+/// one fold that keeps no published history. `evidence/histories/BASELINE.toml`,
+/// absent for version 1.
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub struct Baseline {
+    /// The data version: 1 before any re-baseline, one more each time.
+    pub version: u32,
+    /// Why the published history was not kept.
+    pub reason: String,
+}
+
+impl Baseline {
+    /// The version of a root with no record.
+    pub const FIRST: Self = Self {
+        version: 1,
+        reason: String::new(),
+    };
+
+    /// The record under `root`, or the first version when there is none.
+    pub fn read(root: &Path) -> Result<Self, FoldError> {
+        let path = baseline_path(root);
+        let bad = |message: String| FoldError::Published {
+            path: path.display().to_string(),
+            message,
+        };
+        match std::fs::read_to_string(&path) {
+            Ok(text) => toml::from_str(&text).map_err(|e| bad(e.to_string())),
+            Err(e) if e.kind() == std::io::ErrorKind::NotFound => Ok(Self::FIRST),
+            Err(e) => Err(bad(e.to_string())),
+        }
+    }
+
+    /// The record as its file holds it.
+    pub fn render(&self) -> String {
+        toml::to_string(self).expect("a baseline serialises")
+    }
+}
+
+/// The baseline record of a root.
+pub fn baseline_path(root: &Path) -> PathBuf {
+    histories_dir(root).join("BASELINE.toml")
 }
 
 /// What a fold found, and what it wrote or would write.
@@ -307,14 +356,36 @@ fn write_error(path: &Path, source: std::io::Error) -> FoldError {
 
 /// Folds every recorded census into each table's history and writes
 /// `evidence/histories/`, or with `check` only counts the files that
-/// would change.
-pub fn fold(root: &Path, catalog: &Catalog, check: bool) -> Result<Folded, FoldError> {
+/// would change. With `rebaseline`, the reason, no published history is
+/// kept, and the baseline record is raised to the next data version.
+pub fn fold(
+    root: &Path,
+    catalog: &Catalog,
+    check: bool,
+    rebaseline: Option<&str>,
+) -> Result<Folded, FoldError> {
     let obs = observe(root, catalog)?;
-    let tables = obs.finish(&declarations(root, catalog)?, &published(root)?)?;
+    let floor = match rebaseline {
+        Some(_) => BTreeMap::new(),
+        None => published(root)?,
+    };
+    let tables = obs.finish(&declarations(root, catalog)?, &floor)?;
     let mut folded = Folded {
         tables: tables.len(),
         ..Folded::default()
     };
+    if let Some(reason) = rebaseline {
+        let next = Baseline {
+            version: Baseline::read(root)?.version + 1,
+            reason: reason.to_owned(),
+        };
+        let path = baseline_path(root);
+        folded.changed += 1;
+        if !check {
+            crate::files::write_atomic(&path, next.render().as_bytes())
+                .map_err(|e| write_error(&path, e))?;
+        }
+    }
     let dir = histories_dir(root);
     for stale in entries(&dir).map_err(|e| write_error(&dir, e))? {
         let table = stale

@@ -269,10 +269,23 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
     assert_eq!(m["format"], 2);
     assert_eq!(m["market"], "nem");
     assert_eq!(m["base_url"], DEFAULT_BASE_URL);
+    assert_eq!(m["baseline"], json!({"version": 1, "reason": ""}));
     assert_eq!(
         (m["tables"].clone(), m["schemas"].clone()),
         (json!(1), json!(2))
     );
+    // A re-based root says so.
+    std::fs::write(
+        crate::fold::baseline_path(root),
+        "version = 2\nreason = \"why\"\n",
+    )
+    .unwrap();
+    let r = Export::load(root, DEFAULT_BASE_URL).unwrap().render();
+    let m: serde_json::Value = serde_json::from_str(&r.files["manifest.json"]).unwrap();
+    assert_eq!(m["baseline"], json!({"version": 2, "reason": "why"}));
+    std::fs::write(crate::fold::baseline_path(root), "version = ").unwrap();
+    assert!(Export::load(root, DEFAULT_BASE_URL).is_err());
+    std::fs::remove_file(crate::fold::baseline_path(root)).unwrap();
     let listed = m["sha256"].as_object().unwrap();
     assert_eq!(listed.len(), 3);
     for (p, sha) in listed {

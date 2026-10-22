@@ -5,6 +5,10 @@
 //! kept to what it promised ([`utilake_iceberg::compat::check`]), and every
 //! schema document published at the base must be there with the same
 //! bytes: a document's `$id` is a promise that it never changes.
+//!
+//! A data version is held only to the same version: a working tree
+//! re-based to a later one ([`crate::fold::Baseline`]) holds nothing of
+//! the base, and says so.
 
 use crate::published::Published;
 
@@ -17,11 +21,23 @@ pub struct Compat {
     pub tables: usize,
     /// Schema documents the base published.
     pub schemas: usize,
+    /// The data versions, when the working tree's is not the base's:
+    /// nothing was held.
+    pub rebased: Option<(u32, u32)>,
 }
 
 /// Every promise `now` breaks of `base`, published at `rev`.
 pub fn compat(rev: &str, base: &Published, now: &Published) -> Compat {
     let mut violations = Vec::new();
+    let (was, is) = (base.baseline.version, now.baseline.version);
+    if was != is {
+        return Compat {
+            violations,
+            tables: base.tables.len(),
+            schemas: base.schemas.len(),
+            rebased: Some((was, is)),
+        };
+    }
     for (table, old) in &base.tables {
         match now.tables.get(table) {
             None => violations.push(format!(
@@ -45,6 +61,7 @@ pub fn compat(rev: &str, base: &Published, now: &Published) -> Compat {
         violations,
         tables: base.tables.len(),
         schemas: base.schemas.len(),
+        rebased: None,
     }
 }
 
@@ -60,8 +77,13 @@ mod tests {
         let base = Published::read(root).unwrap();
         let held = compat("main", &base, &base);
         assert_eq!(
-            (held.violations.len(), held.tables, held.schemas),
-            (0, 1, 2)
+            (
+                held.violations.len(),
+                held.tables,
+                held.schemas,
+                held.rebased
+            ),
+            (0, 1, 2, None)
         );
         assert!(
             compat("main", &Published::default(), &base)
@@ -95,5 +117,10 @@ mod tests {
             compat("main", &base, &broken).violations[0],
             "nem/DISPATCH_UNIT_SCADA/table.json: published at main and missing now"
         );
+        // Re-based: nothing is held, and the versions are named.
+        broken.baseline.version = 2;
+        let c = compat("main", &base, &broken);
+        assert!(c.violations.is_empty());
+        assert_eq!((c.rebased, c.tables), (Some((1, 2)), 1));
     }
 }

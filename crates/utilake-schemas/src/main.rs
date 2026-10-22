@@ -12,7 +12,7 @@
 //! utilake-schemas sources --archive /data/mirror/archive [--check] [--root .]
 //! utilake-schemas reports --dir mirror/Reports [--mmsdm mirror] [--mirror ~/.nemweb-mirror] [--root .]
 //! utilake-schemas models --month 2025-10 --dir mirror/MMSDM_2025_10 [--root .]
-//! utilake-schemas fold [--check] [--root .]
+//! utilake-schemas fold [--check] [--rebaseline REASON] [--root .]
 //! utilake-schemas export [--check] [--base-url URL] [--root .]
 //! utilake-schemas compat --base origin/main [--root .]
 //! utilake-schemas diff --base origin/main [--root .]
@@ -139,6 +139,10 @@ enum Cmd {
         /// Write nothing; exit 3 if any history file would change.
         #[arg(long)]
         check: bool,
+        /// Keep no published history, once: mint every id anew and record
+        /// the next data version with this reason.
+        #[arg(long, value_name = "REASON")]
+        rebaseline: Option<String>,
         /// The repository root, whose `tables/` declares the tables.
         #[arg(long, default_value = ".")]
         root: PathBuf,
@@ -451,9 +455,14 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                 return Ok(ExitCode::from(3));
             }
         }
-        Cmd::Fold { check, root } => {
+        Cmd::Fold {
+            check,
+            rebaseline,
+            root,
+        } => {
             let cat = catalog(&root)?;
-            let f = utilake_schemas::fold::fold(&root, &cat, check).map_err(|e| fail(&e))?;
+            let f = utilake_schemas::fold::fold(&root, &cat, check, rebaseline.as_deref())
+                .map_err(|e| fail(&e))?;
             println!(
                 "{} table(s), {} schema(s), {} run(s), {} break(s); {} file(s) {}",
                 f.tables,
@@ -511,10 +520,17 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             if !c.violations.is_empty() {
                 return Ok(ExitCode::FAILURE);
             }
-            println!(
-                "compat: the {} table(s) and {} schema document(s) {base} published hold",
-                c.tables, c.schemas
-            );
+            if let Some((was, is)) = c.rebased {
+                println!(
+                    "compat: data version {was} at {base} was re-based to {is}: {}; nothing held",
+                    now.baseline.reason
+                );
+            } else {
+                println!(
+                    "compat: the {} table(s) and {} schema document(s) {base} published hold",
+                    c.tables, c.schemas
+                );
+            }
         }
         Cmd::Diff { base, root } => {
             let (old, now) = published(&root, &base)?;

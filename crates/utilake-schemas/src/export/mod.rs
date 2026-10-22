@@ -22,7 +22,7 @@ use serde_json::{Value, json};
 use utilake_iceberg::History;
 
 use crate::catalog::{Catalog, CatalogError, TableDecl};
-use crate::fold::histories_dir;
+use crate::fold::{Baseline, FoldError, histories_dir};
 use crate::models::{Model, ModelError, ModelTable, by_first_seen, read_models};
 
 pub mod schema;
@@ -51,6 +51,9 @@ pub enum ExportError {
     /// A data-model release cannot be read.
     #[error(transparent)]
     Models(#[from] ModelError),
+    /// The baseline record that cannot be read.
+    #[error(transparent)]
+    Baseline(#[from] FoldError),
     /// A history file that cannot be read.
     #[error("The history {path} cannot be read: {message}")]
     History {
@@ -129,6 +132,8 @@ pub struct Export {
     /// The data-model releases, first shipped first.
     models: Vec<Model>,
     base_url: String,
+    /// The data version of the histories.
+    baseline: Baseline,
 }
 
 /// Every file one export writes, by path relative to the root.
@@ -154,6 +159,7 @@ impl Export {
                 .cloned()
                 .collect(),
             base_url: base_url.to_owned(),
+            baseline: Baseline::read(root)?,
         })
     }
 
@@ -192,7 +198,7 @@ impl Export {
                 .insert(format!("{OWNED}/{table}/table.json"), text(&doc));
         }
         out.tables = self.histories.len();
-        let manifest = manifest(&self.base_url, &out);
+        let manifest = manifest(&self.base_url, &self.baseline, &out);
         out.files.insert("manifest.json".to_owned(), manifest);
         out
     }
@@ -238,9 +244,10 @@ fn non_empty(s: &str) -> Option<&str> {
     Some(s).filter(|s| !s.is_empty())
 }
 
-/// The manifest: what was written, and the SHA-256 of every file under
-/// `nem/`.
-fn manifest(base_url: &str, r: &Rendered) -> String {
+/// The manifest: what was written, the data version (`baseline`: the
+/// version, and the reason it was begun) and the SHA-256 of every file
+/// under `nem/`.
+fn manifest(base_url: &str, baseline: &Baseline, r: &Rendered) -> String {
     let hashes: BTreeMap<&str, String> = r
         .files
         .iter()
@@ -250,6 +257,7 @@ fn manifest(base_url: &str, r: &Rendered) -> String {
         "format": FORMAT,
         "market": "nem",
         "base_url": base_url,
+        "baseline": {"version": baseline.version, "reason": baseline.reason},
         "tables": r.tables,
         "schemas": r.schemas,
         "sha256": hashes,

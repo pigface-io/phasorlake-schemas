@@ -9,6 +9,10 @@ use serde::Deserialize as _;
 use utilake_iceberg::History;
 
 use crate::export::OWNED;
+use crate::fold::Baseline;
+
+/// The manifest, read for its data version.
+const MANIFEST: &str = "manifest.json";
 
 /// The git a revision is read from.
 pub trait Git {
@@ -56,13 +60,41 @@ pub enum PublishedError {
     },
 }
 
-/// The published histories and schema documents.
-#[derive(Debug, Clone, Default, PartialEq, Eq)]
+/// The published histories and schema documents, and the data version
+/// `manifest.json` names (the first, when it names none).
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Published {
     /// Each `nem/{TABLE}/table.json`'s history, by table.
     pub tables: BTreeMap<String, History>,
     /// Each `nem/{TABLE}/schema-*.json`, by path.
     pub schemas: BTreeMap<String, Vec<u8>>,
+    /// The data version, and why it began.
+    pub baseline: Baseline,
+}
+
+impl Default for Published {
+    fn default() -> Self {
+        Self {
+            tables: BTreeMap::new(),
+            schemas: BTreeMap::new(),
+            baseline: Baseline::FIRST,
+        }
+    }
+}
+
+/// The baseline `manifest.json` names; the first when it names none.
+fn baseline_of(manifest: &[u8], at: &str) -> Result<Baseline, PublishedError> {
+    let bad = |message: String| PublishedError::Table {
+        path: MANIFEST.to_owned(),
+        at: at.to_owned(),
+        message,
+    };
+    let doc: serde_json::Value =
+        serde_json::from_slice(manifest).map_err(|e| bad(e.to_string()))?;
+    match doc.get("baseline") {
+        None => Ok(Baseline::FIRST),
+        Some(b) => serde_json::from_value(b.clone()).map_err(|e| bad(e.to_string())),
+    }
 }
 
 /// Where a path under `nem/` falls: a table document, a schema document,
@@ -91,6 +123,10 @@ impl Published {
     ) -> Result<Self, PublishedError> {
         let mut out = Self::default();
         for (path, bytes) in files {
+            if path == MANIFEST {
+                out.baseline = baseline_of(&bytes, at)?;
+                continue;
+            }
             match kind(&path) {
                 Kind::Table(table) => {
                     let bad = |message: String| PublishedError::Table {
@@ -128,6 +164,10 @@ impl Published {
             let bytes = git.show(rev, &path).map_err(|e| failed(&path, e))?;
             files.push((path, bytes));
         }
+        // A revision before the manifest named a version is of the first.
+        if let Ok(bytes) = git.show(rev, MANIFEST) {
+            files.push((MANIFEST.to_owned(), bytes));
+        }
         Self::from_files(files, rev)
     }
 
@@ -159,6 +199,12 @@ impl Published {
                 files.push((rel, bytes));
             }
         }
+        let manifest = root.join(MANIFEST);
+        match std::fs::read(&manifest) {
+            Ok(bytes) => files.push((MANIFEST.to_owned(), bytes)),
+            Err(e) if e.kind() == std::io::ErrorKind::NotFound => {}
+            Err(e) => return Err(read(&manifest, e)),
+        }
         Self::from_files(files, "working tree")
     }
 }
@@ -181,6 +227,10 @@ pub(crate) mod tests {
         /// A revision holding every file under `root`'s `nem/`.
         pub fn commit(&mut self, rev: &str, root: &Path) {
             let mut files = BTreeMap::new();
+            let manifest = root.join(MANIFEST);
+            if let Ok(bytes) = std::fs::read(&manifest) {
+                files.insert(MANIFEST.to_owned(), bytes);
+            }
             for p in crate::census::files_under(&root.join(OWNED)).unwrap_or_default() {
                 let rel = p
                     .strip_prefix(root)
@@ -226,7 +276,38 @@ pub(crate) mod tests {
         let now = Published::read(root).unwrap();
         assert_eq!(now.tables.len(), 1);
         assert_eq!(now.schemas.len(), 2);
+        assert_eq!(now.baseline, Baseline::FIRST);
         assert_eq!(Published::at(&git, "base").unwrap(), now);
+        // The manifest names the data version; one that names none, or
+        // is gone, is of the first; one that cannot be read is an error.
+        let manifest = root.join(MANIFEST);
+        std::fs::write(
+            &manifest,
+            r#"{"baseline": {"version": 2, "reason": "why"}}"#,
+        )
+        .unwrap();
+        assert_eq!(Published::read(root).unwrap().baseline.version, 2);
+        std::fs::write(&manifest, "{}").unwrap();
+        assert_eq!(Published::read(root).unwrap().baseline.version, 1);
+        std::fs::write(&manifest, r#"{"baseline": 3}"#).unwrap();
+        assert!(Published::read(root).is_err());
+        std::fs::write(&manifest, "[").unwrap();
+        assert!(Published::read(root).is_err());
+        std::fs::remove_file(&manifest).unwrap();
+        assert_eq!(Published::read(root).unwrap().baseline.version, 1);
+        git.broken.borrow_mut().push(MANIFEST.into());
+        assert_eq!(Published::at(&git, "base").unwrap().baseline.version, 1);
+        git.broken.borrow_mut().clear();
+        std::fs::create_dir(&manifest).unwrap();
+        assert!(Published::read(root).is_err());
+        std::fs::remove_dir(&manifest).unwrap();
+        crate::export::write(
+            root,
+            &crate::export::Export::load(root, crate::export::DEFAULT_BASE_URL)
+                .unwrap()
+                .render(),
+        )
+        .unwrap();
 
         let e = Published::at(&git, "nope").unwrap_err();
         assert_eq!(e.to_string(), "git could not read nem at nope.");

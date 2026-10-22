@@ -95,7 +95,7 @@ fn every_census_folds_into_one_file_per_table() {
     crate::files::write_atomic(&history_path(root, "GONE"), b"{}").unwrap();
     std::fs::write(histories_dir(root).join("notes.txt"), "kept").unwrap();
 
-    let would = fold(root, &cat, true).unwrap();
+    let would = fold(root, &cat, true, None).unwrap();
     assert_eq!(
         would,
         Folded {
@@ -110,11 +110,11 @@ fn every_census_folds_into_one_file_per_table() {
         !history_path(root, "DISPATCH_UNIT_SCADA").exists(),
         "a check writes nothing"
     );
-    assert_eq!(fold(root, &cat, false).unwrap(), would);
+    assert_eq!(fold(root, &cat, false, None).unwrap(), would);
     assert!(!history_path(root, "GONE").exists());
     assert!(histories_dir(root).join("notes.txt").exists());
     assert_eq!(
-        fold(root, &cat, true).unwrap().changed,
+        fold(root, &cat, true, None).unwrap().changed,
         0,
         "the same bytes again"
     );
@@ -152,7 +152,7 @@ fn every_census_folds_into_one_file_per_table() {
 fn the_published_history_is_kept_and_a_wider_month_splits() {
     let (dir, cat) = repo();
     let root = dir.path();
-    fold(root, &cat, false).unwrap();
+    fold(root, &cat, false, None).unwrap();
     // Publish it as the export does, beside documents that publish none.
     let text = std::fs::read_to_string(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap();
     let old: History = serde_json::from_str(&text).unwrap();
@@ -165,7 +165,7 @@ fn the_published_history_is_kept_and_a_wider_month_splits() {
     assert_eq!(published(root).unwrap().len(), 1);
     // A September of 12 digits before the point: past decimal(16, 6).
     census(root, "2026-09", 12);
-    let folded = fold(root, &cat, false).unwrap();
+    let folded = fold(root, &cat, false, None).unwrap();
     assert_eq!((folded.breaks, folded.changed), (1, 2));
     let new: History =
         serde_json::from_slice(&std::fs::read(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap())
@@ -182,11 +182,56 @@ fn the_published_history_is_kept_and_a_wider_month_splits() {
     );
 }
 
+/// A fold that keeps no published history: the ids are minted anew, and
+/// the baseline record says which data version began and why.
+#[test]
+fn a_rebaseline_keeps_nothing_and_records_why() {
+    let (dir, cat) = repo();
+    let root = dir.path();
+    fold(root, &cat, false, None).unwrap();
+    let text = std::fs::read_to_string(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap();
+    let doc = format!("{{\"table\": \"DISPATCH_UNIT_SCADA\", \"iceberg\": {text}}}");
+    crate::files::write_atomic(&published_path(root, "DISPATCH_UNIT_SCADA"), doc.as_bytes())
+        .unwrap();
+    assert_eq!(Baseline::read(root).unwrap(), Baseline::FIRST);
+    census(root, "2026-09", 12);
+    // Kept, this would be a split; not kept, one wider field. Every
+    // history changes, and the record.
+    let would = fold(root, &cat, true, Some("wider evidence")).unwrap();
+    assert_eq!((would.breaks, would.changed), (0, would.tables + 1));
+    assert!(!baseline_path(root).exists());
+    let folded = fold(root, &cat, false, Some("wider evidence")).unwrap();
+    assert_eq!(folded, would);
+    let new: History =
+        serde_json::from_slice(&std::fs::read(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap())
+            .unwrap();
+    assert!(new.breaking.is_empty());
+    assert_eq!(new.schemas.len(), 1);
+    let b = Baseline::read(root).unwrap();
+    assert_eq!(
+        b,
+        Baseline {
+            version: 2,
+            reason: "wider evidence".into()
+        }
+    );
+    assert_eq!(b.render(), "version = 2\nreason = \"wider evidence\"\n");
+    // Again: version 3; a record that cannot be read is an error.
+    fold(root, &cat, false, Some("again")).unwrap();
+    assert_eq!(Baseline::read(root).unwrap().version, 3);
+    std::fs::write(baseline_path(root), "version = ").unwrap();
+    assert!(Baseline::read(root).is_err());
+    assert!(fold(root, &cat, false, Some("x")).is_err());
+    std::fs::remove_file(baseline_path(root)).unwrap();
+    std::fs::create_dir(baseline_path(root)).unwrap();
+    assert!(Baseline::read(root).is_err());
+}
+
 #[test]
 fn every_failure_names_its_file() {
     let (dir, cat) = repo();
     let root = dir.path();
-    let err = |root: &Path, cat: &Catalog| fold(root, cat, false).unwrap_err().to_string();
+    let err = |root: &Path, cat: &Catalog| fold(root, cat, false, None).unwrap_err().to_string();
     // Published documents that cannot be read.
     let table = published_path(root, "DISPATCH_UNIT_SCADA");
     crate::files::write_atomic(&table, b"{").unwrap();
@@ -222,7 +267,7 @@ fn every_failure_names_its_file() {
     );
     let free = Catalog::new(vec![("p.toml".into(), decl("P", ("A", "B"), None))]).unwrap();
     assert_eq!(
-        fold(root, &free, true).unwrap().tables,
+        fold(root, &free, true, None).unwrap().tables,
         2,
         "undeclared pairs are tables too"
     );
