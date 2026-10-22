@@ -726,6 +726,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "utilake-plain-decode"
+version = "0.1.0"
+dependencies = [
+ "memchr",
+ "serde_json",
+ "thiserror",
+ "utilake-mms-decode",
+ "xxhash-rust",
+]
+
+[[package]]
 name = "utilake-schemas"
 version = "0.1.0"
 dependencies = [

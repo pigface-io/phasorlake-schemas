@@ -18,7 +18,7 @@ it.
 | `evidence/models/`    | The data-model create scripts the monthly archives ship: each release's tables, columns, types and comments.                                 |
 | `evidence/histories/` | Each table's history as an Iceberg table, folded from all of the above; `BASELINE.toml` names the data version when one was re-based.         |
 | `nem/`                | The published tables: `nem/{TABLE}/metadata/` is the table as Iceberg table metadata (`v1.metadata.json`, `version-hint.text`, one empty manifest list per run); beside it one `schema-{id}.json` per schema, derived from the metadata; `nem/headers.json`; `manifest.json` names every file with its SHA-256. |
-| `crates/`             | `utilake-iceberg`, the Iceberg contract (no I/O): types, schemas, histories, the planner, metadata as bytes; `utilake-mms-decode`, AEMO's MMS files decoded; `utilake-zip`, zips walked; `utilake-gates`, the gates every utilake repository runs; `utilake-schemas`, the tool; `xtask`, this repository's gates. utilake and pigface-io depend on the first four by git revision. |
+| `crates/`             | `utilake-iceberg`, the Iceberg contract (no I/O): types, schemas, histories, the planner, metadata as bytes; `utilake-mms-decode`, AEMO's MMS files decoded; `utilake-plain-decode`, AEMO's header-row CSV and WEMDE JSON files decoded, with the naming, release and row-diff rules of every feed that is not MMSDM; `utilake-zip`, zips walked; `utilake-gates`, the gates every utilake repository runs; `utilake-schemas`, the tool; `xtask`, this repository's gates. utilake and pigface-io depend on the first five by git revision. |
 
 ## The pipeline
 

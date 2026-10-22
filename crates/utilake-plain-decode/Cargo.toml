@@ -1,0 +1,19 @@
+[package]
+name = "utilake-plain-decode"
+description = "AEMO's files that are not MMS rows: plain CSV with a header row, and WEMDE JSON documents, read as blocks of rows with every date in the one MMS form; the names, release months and row-diff rules each feed follows. Pure: knows no registry and no lake."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+memchr.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+utilake-mms-decode.workspace = true
+xxhash-rust.workspace = true
