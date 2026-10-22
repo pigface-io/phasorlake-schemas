@@ -1,5 +1,13 @@
-//! Walking a zip, including zips inside zips, and handing each `.CSV`
-//! entry to a callback as a streaming reader.
+//! Walking a zip, including zips inside zips, and handing each wanted
+//! entry (every `.CSV`, by default) to a callback as a streaming reader.
+//!
+//! The walk is in archive order. An entry that cannot be read, or a nested
+//! zip that cannot be opened or is nested too deep, is left behind in
+//! [`Walked::failed`] and the walk goes on; only an archive that cannot be
+//! opened at all is an error, and so is the callback's own. An entry whose
+//! local header disagrees with the central directory (AEMO's monthly
+//! archives have such) is read from where the directory says, and refused
+//! unless it inflates to the directory's size and CRC-32.
 
 use std::fs::File;
 use std::io::{BufReader, Read, Seek, SeekFrom, Write as _};
@@ -39,11 +47,13 @@ pub enum ArchiveError {
         /// Depth reached.
         depth: u8,
     },
-    /// No `.CSV` entry, at any depth.
-    #[error("The archive {path} has no .CSV entry at any depth.")]
-    NoCsv {
-        /// The file.
+    /// No wanted entry, at any depth.
+    #[error("The archive {path} has no {wanted} entry at any depth.")]
+    NoEntry {
+        /// The archive.
         path: String,
+        /// What was looked for, e.g. `.CSV`.
+        wanted: String,
     },
     /// Spooling a nested zip to disk failed.
     #[error("Spooling nested entry {entry} of {path} to {tmp} failed.")]
@@ -70,36 +80,74 @@ pub struct Entry<'a> {
     pub reader: &'a mut dyn Read,
 }
 
+/// Which entries a walk hands to `on_entry`: those whose name `accepts`,
+/// named for the message when there is none.
+#[derive(Clone, Copy)]
+pub struct Accepts<'a> {
+    /// Whether an entry name (nested names joined with `!`) is wanted.
+    pub accepts: &'a dyn Fn(&str) -> bool,
+    /// What is wanted, for the message when nothing is: `.CSV`.
+    pub wanted: &'a str,
+}
+
+/// Every `.CSV` entry.
+pub const CSV: Accepts<'static> = Accepts {
+    accepts: &|name| has_extension(name, ".csv"),
+    wanted: ".CSV",
+};
+
 /// Whether `name` ends in `ext`, in any case.
 pub fn has_extension(name: &str, ext: &str) -> bool {
     name.len() >= ext.len() && name[name.len() - ext.len()..].eq_ignore_ascii_case(ext)
 }
 
-/// Walks every `.CSV` entry of the zip at `path`, nested zips included,
-/// in archive order. `on_entry` may return an error to stop the walk. An
-/// entry that cannot be read, or a nested zip that cannot be opened or
-/// is nested too deep, is left behind in [`Walked::failed`] and the walk
-/// goes on; only an archive that cannot be opened at all is an error.
+/// Walks every entry of the zip at `path` that `accepts` wants, nested
+/// zips included, in archive order. `on_entry` may return an error to
+/// stop the walk. An entry that cannot be read, or a nested zip that
+/// cannot be opened or is nested too deep, is left behind in
+/// [`Walked::failed`] and the walk goes on; only an archive that cannot be
+/// opened at all is an error.
 ///
 /// A nested zip is walked in memory up to 64 MiB, else from a temporary
 /// file in `tmp_dir`, removed once read: the zip format needs a seekable
 /// central directory. Every other entry (a control file, a README) goes to
 /// `on_other` with its reader.
+pub fn walk_entries<E>(
+    path: &Path,
+    tmp_dir: &Path,
+    accepts: Accepts<'_>,
+    on_entry: &mut dyn FnMut(Entry<'_>) -> Result<(), E>,
+    on_other: &mut dyn FnMut(Entry<'_>),
+) -> Result<Walked, WalkError<E>> {
+    walk(
+        path,
+        tmp_dir,
+        NESTED_IN_MEMORY,
+        0,
+        "",
+        accepts,
+        on_entry,
+        on_other,
+    )
+}
+
+/// [`walk_entries`] over every `.CSV` entry.
 pub fn walk_csv_entries<E>(
     path: &Path,
     tmp_dir: &Path,
     on_entry: &mut dyn FnMut(Entry<'_>) -> Result<(), E>,
     on_other: &mut dyn FnMut(Entry<'_>),
 ) -> Result<Walked, WalkError<E>> {
-    walk(path, tmp_dir, NESTED_IN_MEMORY, 0, "", on_entry, on_other)
+    walk_entries(path, tmp_dir, CSV, on_entry, on_other)
 }
 
-/// [`walk_csv_entries`] over a zip already open as `reader` (read through
-/// a large buffer here), named `label` in errors.
-pub fn walk_csv_entries_in<R: Read + Seek, E>(
+/// [`walk_entries`] over a zip already open as `reader` (read through a
+/// large buffer here), named `label` in errors.
+pub fn walk_entries_in<R: Read + Seek, E>(
     reader: R,
     label: &str,
     tmp_dir: &Path,
+    accepts: Accepts<'_>,
     on_entry: &mut dyn FnMut(Entry<'_>) -> Result<(), E>,
     on_other: &mut dyn FnMut(Entry<'_>),
 ) -> Result<Walked, WalkError<E>> {
@@ -112,17 +160,29 @@ pub fn walk_csv_entries_in<R: Read + Seek, E>(
         NESTED_IN_MEMORY,
         0,
         "",
+        accepts,
         on_entry,
         on_other,
     )
+}
+
+/// [`walk_entries_in`] over every `.CSV` entry.
+pub fn walk_csv_entries_in<R: Read + Seek, E>(
+    reader: R,
+    label: &str,
+    tmp_dir: &Path,
+    on_entry: &mut dyn FnMut(Entry<'_>) -> Result<(), E>,
+    on_other: &mut dyn FnMut(Entry<'_>),
+) -> Result<Walked, WalkError<E>> {
+    walk_entries_in(reader, label, tmp_dir, CSV, on_entry, on_other)
 }
 
 /// What a walk found: how many `.CSV` entries it handed on, and the
 /// entries it could not read, each left behind while the walk went on.
 #[derive(Debug, Default)]
 pub struct Walked {
-    /// `.CSV` entries handed to `on_entry`.
-    pub csvs: usize,
+    /// Wanted entries handed to `on_entry`.
+    pub entries: usize,
     /// Entries that could not be read, nested zips among them.
     pub failed: Vec<ArchiveError>,
 }
@@ -133,7 +193,7 @@ impl Walked {
     fn take<E>(&mut self, r: Result<Self, WalkError<E>>) -> Result<(), WalkError<E>> {
         match r {
             Ok(w) => {
-                self.csvs += w.csvs;
+                self.entries += w.entries;
                 self.failed.extend(w.failed);
                 Ok(())
             }
@@ -168,12 +228,14 @@ const NESTED_IN_MEMORY: u64 = 64 << 20;
 /// Write buffer of a nested zip spooled to disk.
 const SPOOL_BUFFER: usize = 1 << 20;
 
+#[allow(clippy::too_many_arguments)]
 fn walk<E>(
     path: &Path,
     tmp_dir: &Path,
     in_memory: u64,
     depth: u8,
     prefix: &str,
+    accepts: Accepts<'_>,
     on_entry: &mut dyn FnMut(Entry<'_>) -> Result<(), E>,
     on_other: &mut dyn FnMut(Entry<'_>),
 ) -> Result<Walked, WalkError<E>> {
@@ -182,14 +244,15 @@ fn walk<E>(
     let archive = zip::ZipArchive::new(BufReader::with_capacity(ZIP_READ_BUFFER, file))
         .map_err(|e| open_error(&p, e.to_string()))?;
     walk_zip(
-        archive, &p, tmp_dir, in_memory, depth, prefix, on_entry, on_other,
+        archive, &p, tmp_dir, in_memory, depth, prefix, accepts, on_entry, on_other,
     )
 }
 
 /// Where to look for what a walk wants, and what to do with it.
-struct Walk<'w, E> {
+struct Walk<'w, 'a, E> {
     tmp_dir: &'w Path,
     in_memory: u64,
+    accepts: Accepts<'a>,
     on_entry: &'w mut dyn FnMut(Entry<'_>) -> Result<(), E>,
     on_other: &'w mut dyn FnMut(Entry<'_>),
 }
@@ -205,12 +268,14 @@ fn walk_zip<R: Read + Seek, E>(
     in_memory: u64,
     depth: u8,
     prefix: &str,
+    accepts: Accepts<'_>,
     on_entry: &mut dyn FnMut(Entry<'_>) -> Result<(), E>,
     on_other: &mut dyn FnMut(Entry<'_>),
 ) -> Result<Walked, WalkError<E>> {
     let mut w = Walk {
         tmp_dir,
         in_memory,
+        accepts,
         on_entry,
         on_other,
     };
@@ -256,9 +321,10 @@ fn walk_zip<R: Read + Seek, E>(
             ))?;
         }
     }
-    if depth == 0 && found.csvs == 0 && found.failed.is_empty() {
-        return Err(WalkError::Archive(ArchiveError::NoCsv {
+    if depth == 0 && found.entries == 0 && found.failed.is_empty() {
+        return Err(WalkError::Archive(ArchiveError::NoEntry {
             path: p.to_owned(),
+            wanted: w.accepts.wanted.to_owned(),
         }));
     }
     Ok(found)
@@ -299,7 +365,7 @@ fn joined(prefix: &str, name: &str) -> String {
 /// `on_entry` when a `.CSV`, walked when a zip, else handed to `on_other`.
 /// Returns what it held.
 fn visit<E>(
-    w: &mut Walk<'_, E>,
+    w: &mut Walk<'_, '_, E>,
     p: &str,
     depth: u8,
     prefix: &str,
@@ -308,7 +374,7 @@ fn visit<E>(
     entry: &mut dyn Read,
 ) -> Result<Walked, WalkError<E>> {
     let full = joined(prefix, name);
-    if has_extension(&full, ".csv") {
+    if (w.accepts.accepts)(&full) {
         let mut reader = Counting {
             inner: entry,
             path: p,
@@ -325,7 +391,7 @@ fn visit<E>(
         }
         result.map_err(WalkError::Callback)?;
         return Ok(Walked {
-            csvs: 1,
+            entries: 1,
             failed: Vec::new(),
         });
     }
@@ -362,6 +428,7 @@ fn visit<E>(
             w.in_memory,
             depth + 1,
             &full,
+            w.accepts,
             w.on_entry,
             w.on_other,
         );
@@ -393,6 +460,7 @@ fn visit<E>(
         w.in_memory,
         depth + 1,
         &full,
+        w.accepts,
         w.on_entry,
         w.on_other,
     )
@@ -643,6 +711,7 @@ mod tests {
             in_memory,
             0,
             "",
+            CSV,
             &mut |e| {
                 let mut buf = Vec::new();
                 e.reader.read_to_end(&mut buf)?;
@@ -709,7 +778,7 @@ mod tests {
         make_zip(&empty, &[("a.txt", b"x")]);
         let e = collect(&empty, &tmp).unwrap_err();
         assert!(
-            matches!(e, WalkError::Archive(ArchiveError::NoCsv { .. })),
+            matches!(e, WalkError::Archive(ArchiveError::NoEntry { .. })),
             "{e}"
         );
         assert_eq!(

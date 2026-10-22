@@ -585,7 +585,7 @@ impl Reading {
                     });
                 }
             }
-            Err(WalkError::Archive(ArchiveError::NoCsv { .. })) => {}
+            Err(WalkError::Archive(ArchiveError::NoEntry { .. })) => {}
             Err(WalkError::Archive(a)) => self.unread(&name, shown, a.to_string()),
             Err(WalkError::Callback(never)) => match never {},
         }

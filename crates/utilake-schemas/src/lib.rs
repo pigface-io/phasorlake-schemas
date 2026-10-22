@@ -20,8 +20,8 @@
 //!
 //! The readers they are built on:
 //!
-//! - [`zip`] walks an archived zip, zips inside zips included, and hands
-//!   each `.CSV` entry over as a stream;
+//! - [`utilake_zip`] walks an archived zip, zips inside zips included, and
+//!   hands each `.CSV` entry over as a stream;
 //! - [`utilake_mms_decode`] scans a CSV's C, I and D rows into a
 //!   [`utilake_mms_decode::Sink`];
 //! - [`profile`] says what each column's values were;
@@ -54,7 +54,7 @@ pub mod sources;
 pub mod sql;
 pub mod stamp;
 pub mod text;
-pub mod zip;
 
 pub use utilake_mms_decode::filename as names;
 pub use utilake_mms_decode::{month, shape};
+pub use utilake_zip as zip;

@@ -741,7 +741,18 @@ dependencies = [
  "ureq",
  "utilake-iceberg",
  "utilake-mms-decode",
+ "utilake-zip",
  "xxhash-rust",
+ "zip",
+]
+
+[[package]]
+name = "utilake-zip"
+version = "0.1.0"
+dependencies = [
+ "flate2",
+ "tempfile",
+ "thiserror",
  "zip",
 ]
 

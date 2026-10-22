@@ -823,7 +823,7 @@ pub fn census_folder(
                         });
                     }
                 }
-                Err(WalkError::Archive(ArchiveError::NoCsv { .. })) => {}
+                Err(WalkError::Archive(ArchiveError::NoEntry { .. })) => {}
                 Err(WalkError::Archive(a)) => {
                     prints = None;
                     g.census.unread.push(Unread {

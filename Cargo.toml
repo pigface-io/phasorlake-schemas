@@ -6,6 +6,8 @@
 #                Pure: no I/O.
 #   utilake-schemas  the tool: fetches AEMO's files, takes their census, folds
 #                the census into each table's history, exports nem/.
+#   utilake-zip      walking a zip, zips inside zips included, entries whose
+#                local header lies read from the central directory. Pure.
 #   utilake-gates    the repository gates every utilake repository runs from
 #                its xtask: coverage floors, their ratchet, benchmark budgets,
 #                the agent index, the error catalogue.
@@ -17,6 +19,7 @@ members = [
     "crates/utilake-iceberg",
     "crates/utilake-mms-decode",
     "crates/utilake-schemas",
+    "crates/utilake-zip",
     "crates/xtask",
 ]
 
@@ -56,6 +59,7 @@ uninlined_format_args = "deny"
 utilake-gates = { path = "crates/utilake-gates" }
 utilake-iceberg = { path = "crates/utilake-iceberg" }
 utilake-mms-decode = { path = "crates/utilake-mms-decode" }
+utilake-zip = { path = "crates/utilake-zip" }
 
 anyhow = "1"
 clap = { version = "4.6", features = ["derive", "env", "wrap_help"] }
