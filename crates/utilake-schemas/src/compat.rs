@@ -76,7 +76,7 @@ mod tests {
 
         // A run rewritten, a schema document edited, one gone, a table gone.
         let mut broken = grown.clone();
-        broken.tables.get_mut("DISPATCH_UNIT_SCADA").unwrap().runs[0].rows = 1;
+        broken.tables.get_mut("DISPATCH_UNIT_SCADA").unwrap().runs[0].schema_id = 1;
         let mut docs = broken.schemas.keys().cloned();
         let (first, second) = (docs.next().unwrap(), docs.next().unwrap());
         broken.schemas.insert(first.clone(), b"{}".to_vec());

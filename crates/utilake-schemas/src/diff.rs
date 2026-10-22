@@ -2,9 +2,9 @@
 //! published, per table, as Markdown for a pull request.
 //!
 //! Tables added and removed are listed by name. A table in both whose
-//! history changed gets a row: the schemas it gained, the runs added, the
-//! runs that took in more files, the fields added, and the columns that
-//! broke.
+//! history changed gets a row: the schemas it gained, the runs added (no
+//! published file begins them), the runs that are not as they were, the
+//! fields added, and the columns that broke.
 
 use std::fmt::Write as _;
 
@@ -17,9 +17,10 @@ use crate::published::Published;
 pub struct Changed {
     /// Schema ids the base lacks.
     pub schemas: Vec<u32>,
-    /// Runs after the base's last.
+    /// Runs no file of the base's runs begins.
     pub runs_added: usize,
-    /// Runs the base has that are not as they were (they grew).
+    /// Runs the base has that are not as they were: they grew, split or
+    /// took in files before them.
     pub runs_grown: usize,
     /// Fields the base lacks, as `id NAME`.
     pub fields: Vec<String>,
@@ -37,12 +38,15 @@ pub fn changed(old: &History, new: &History) -> Changed {
             .map(|s| s.schema_id)
             .filter(|id| old.schema(*id).is_none())
             .collect(),
-        runs_added: new.runs.len().saturating_sub(old.runs.len()),
+        runs_added: new
+            .runs
+            .iter()
+            .filter(|n| !old.runs.iter().any(|o| o.from == n.from))
+            .count(),
         runs_grown: old
             .runs
             .iter()
-            .zip(&new.runs)
-            .filter(|(a, b)| a != b)
+            .filter(|o| new.runs.iter().find(|n| n.from == o.from) != Some(o))
             .count(),
         fields: new
             .fields()

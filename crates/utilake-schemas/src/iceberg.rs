@@ -3,7 +3,7 @@
 //!
 //! `DIR/{TABLE}/metadata/v1.metadata.json` is the table's first metadata
 //! ([`utilake_iceberg::table::TableMetadata`]): every schema of the history,
-//! the current one the schema of its last run, and no snapshot. Beside it,
+//! the current one the history's, and no snapshot. Beside it,
 //! `version-hint.text` names version 1: the digit alone, which readers
 //! that do not trim it need. The table's UUID is derived from its name and
 //! its times are zero, so the same history writes the same bytes.
@@ -47,7 +47,7 @@ pub fn metadata(h: &History, location: &str) -> TableMetadata {
         .flat_map(|s| s.fields.iter().map(|f| f.id))
         .max()
         .unwrap_or(0);
-    m.current_schema_id = h.runs.last().map_or(first.schema_id, |r| r.schema_id);
+    m.current_schema_id = h.current_schema_id;
     m
 }
 
@@ -121,7 +121,7 @@ mod tests {
         assert!("89ab".contains(&u[19..20]), "{u}");
         assert_ne!(u, table_uuid("B"));
         let mut h = sample();
-        h.runs.clear();
+        h.current_schema_id = 0;
         assert_eq!(metadata(&h, "x").current_schema_id, 0);
         h.schemas.clear();
         assert_eq!(metadata(&h, "x").last_column_id, 0);

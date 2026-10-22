@@ -505,6 +505,7 @@ fn fold_table(
     let mut out = History {
         table: table.to_owned(),
         format_version: 3,
+        current_schema_id: 0,
         schemas: Vec::new(),
         runs: Vec::new(),
         breaking: Vec::new(),
@@ -586,6 +587,7 @@ fn fold_table(
         extend(&mut out, id, o);
         schemas.push(id);
     }
+    out.current_schema_id = out.runs.last().map_or(0, |r| r.schema_id);
     Ok((out, schemas))
 }
 

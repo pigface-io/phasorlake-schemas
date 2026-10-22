@@ -23,6 +23,10 @@ pub struct History {
     pub table: String,
     /// The Iceberg format version: 3.
     pub format_version: u8,
+    /// The schema of the last run: what a reader of the table today gets.
+    /// A document from before the field was written has schema 0.
+    #[serde(default)]
+    pub current_schema_id: u32,
     /// Every schema, by id.
     #[serde(with = "crate::schema::serde_list")]
     pub schemas: Vec<Schema>,
@@ -60,6 +64,9 @@ pub enum Change {
     Version,
     /// Another report pair.
     Report,
+    /// A run the published history began here, kept whole: the files
+    /// before it, added later, do not join it.
+    Published,
 }
 
 /// An Iceberg schema update from one run's schema to the next.
@@ -220,6 +227,7 @@ pub(crate) mod tests {
         json!({
             "table": "UNIT",
             "format-version": 3,
+            "current-schema-id": 1,
             "schemas": [
                 {"type": "struct", "schema-id": 0, "identifier-field-ids": [1], "fields": [
                     {"id": 1, "name": "SETTLEMENTDATE", "type": "timestamptz", "required": true},
@@ -257,6 +265,15 @@ pub(crate) mod tests {
         let h: History = serde_json::from_value(v.clone()).unwrap();
         assert_eq!(serde_json::to_value(&h).unwrap(), v);
         assert_eq!(h.runs[1].changes, [Change::Schema, Change::Version]);
+        assert_eq!(h.current_schema_id, 1);
+        let mut old = v.clone();
+        old.as_object_mut().unwrap().remove("current-schema-id");
+        let h: History = serde_json::from_value(old).unwrap();
+        assert_eq!(h.current_schema_id, 0);
+        assert_eq!(
+            serde_json::to_value(Change::Published).unwrap(),
+            json!("published")
+        );
         assert_eq!(h.runs[1].updates[0], Update::Add { field_id: 3 });
         assert_eq!(h.schema(1).map(|s| s.fields.len()), Some(3));
         assert!(h.schema(7).is_none());

@@ -5,14 +5,19 @@
 //!   gets a new field; the old one is never retyped.
 //! - A schema id keeps its fields, their order and nullability, and its
 //!   key, so a published schema document never changes.
-//! - Runs only grow: every run but the last stays as it was, and the last
-//!   may only take in more files. The list of breaking columns only grows.
+//! - A file keeps its schema: the file that began a published run still
+//!   begins a run of the same schema, report pair and version, and the
+//!   file that ended it is still under that schema. Runs may split, take
+//!   in files, or have others before them, as evidence from before or
+//!   between them is added.
+//! - A breaking column stays broken: its new field is still what the
+//!   column became.
 //!
 //! A history may gain fields, schemas, runs and breaks freely.
 
 use std::fmt;
 
-use crate::history::{History, Run};
+use crate::history::History;
 
 /// A promise the new history breaks.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -41,21 +46,26 @@ pub enum Violation {
         /// The schema.
         id: u32,
     },
-    /// A run is not what it was.
-    RunChanged {
-        /// Its position.
+    /// The file that began a run begins none now.
+    RunGone {
+        /// The run's position in the old history.
         index: usize,
     },
-    /// Fewer runs than before.
-    RunsGone {
-        /// Runs before.
-        was: usize,
-        /// Runs now.
-        now: usize,
+    /// The file that began a run begins one of another schema, report
+    /// pair or version.
+    RunChanged {
+        /// The run's position in the old history.
+        index: usize,
     },
-    /// A breaking column is not what it was, or is gone.
+    /// The file that ended a run is no longer under its schema: no run of
+    /// that schema, report pair and version reaches its data.
+    RunCut {
+        /// The run's position in the old history.
+        index: usize,
+    },
+    /// A breaking column no longer breaks into the field it did.
     BreakChanged {
-        /// Its position.
+        /// Its position in the old history.
         index: usize,
     },
 }
@@ -69,26 +79,14 @@ impl fmt::Display for Violation {
             }
             Self::SchemaGone { id } => write!(f, "schema {id} is gone"),
             Self::SchemaChanged { id } => write!(f, "schema {id} has changed"),
+            Self::RunGone { index } => write!(f, "run {index}'s first file begins no run"),
             Self::RunChanged { index } => write!(f, "run {index} has changed"),
-            Self::RunsGone { was, now } => write!(f, "{was} runs became {now}"),
+            Self::RunCut { index } => {
+                write!(f, "run {index}'s last file is no longer under its schema")
+            }
             Self::BreakChanged { index } => write!(f, "breaking column {index} has changed"),
         }
     }
-}
-
-/// Whether `new` is `old` with more files at its end: the same run up to
-/// its last file, which may be later.
-fn grown(old: &Run, new: &Run) -> bool {
-    old.schema_id == new.schema_id
-        && old.report == new.report
-        && old.version == new.version
-        && old.from == new.from
-        && old.changes == new.changes
-        && old.updates == new.updates
-        && old.overlaps == new.overlaps
-        && new.files >= old.files
-        && new.rows >= old.rows
-        && old.kinds.iter().all(|k| new.kinds.contains(k))
 }
 
 /// Every promise `new` breaks of `old`, the history of the same table.
@@ -114,21 +112,31 @@ pub fn check(old: &History, new: &History) -> Vec<Violation> {
             Some(_) => {}
         }
     }
-    if new.runs.len() < old.runs.len() {
-        out.push(Violation::RunsGone {
-            was: old.runs.len(),
-            now: new.runs.len(),
-        });
-    }
-    let last = old.runs.len().saturating_sub(1);
-    for (index, (o, n)) in old.runs.iter().zip(&new.runs).enumerate() {
-        let kept = if index == last { grown(o, n) } else { o == n };
-        if !kept {
-            out.push(Violation::RunChanged { index });
+    for (index, o) in old.runs.iter().enumerate() {
+        let same = |n: &&crate::history::Run| {
+            n.schema_id == o.schema_id && n.report == o.report && n.version == o.version
+        };
+        match new.runs.iter().find(|n| n.from == o.from) {
+            None => out.push(Violation::RunGone { index }),
+            Some(n) if !same(&n) => out.push(Violation::RunChanged { index }),
+            Some(_) => {
+                let reached = new
+                    .runs
+                    .iter()
+                    .filter(same)
+                    .any(|n| n.to.data_time >= o.to.data_time);
+                if !reached {
+                    out.push(Violation::RunCut { index });
+                }
+            }
         }
     }
-    for (index, o) in old.breaking.iter().enumerate() {
-        if new.breaking.get(index) != Some(o) {
+    for (index, b) in old.breaking.iter().enumerate() {
+        let kept = new
+            .breaking
+            .iter()
+            .any(|n| n.column == b.column && n.new_field_id == b.new_field_id);
+        if !kept {
             out.push(Violation::BreakChanged { index });
         }
     }
@@ -140,23 +148,52 @@ mod tests {
     use super::*;
     use crate::IcebergType;
     use crate::history::tests::sample;
+    use crate::history::{Change, Mark};
 
     fn history() -> History {
         serde_json::from_value(sample()).unwrap()
     }
 
+    fn mark(file: &str, t: Option<&str>) -> Mark {
+        Mark {
+            file: file.into(),
+            sha256: "ab".into(),
+            release: "2024-07".into(),
+            data_time: t.map(str::to_owned),
+        }
+    }
+
+    /// Evidence from before, between and after the published runs: a run
+    /// before the first, the first split around a run of another schema,
+    /// files at the end of the last, a new schema, run and break.
     #[test]
-    fn a_history_may_grow() {
+    fn a_history_may_grow_at_either_end_and_between() {
         let old = history();
         assert!(check(&old, &old).is_empty());
         let mut new = old.clone();
-        let last = new.runs.last_mut().unwrap();
+        let mut before = old.runs[0].clone();
+        before.from = mark("0.zip", Some("2024-07-01T00:05:00+10:00"));
+        before.to = mark("0.zip", Some("2024-07-31T00:00:00+10:00"));
+        let mut head = old.runs[0].clone();
+        head.to = head.from.clone();
+        head.files = 1;
+        head.changes = vec![Change::Schema, Change::Published];
+        let mut between = old.runs[1].clone();
+        between.from = mark("A2.zip", None);
+        between.to = between.from.clone();
+        let mut tail = old.runs[0].clone();
+        tail.from = tail.to.clone();
+        tail.files = 1;
+        new.runs = vec![before, head, between, tail];
+        let mut last = old.runs[1].clone();
         last.files += 4;
         last.rows += 40;
         last.kinds.push("other".into());
-        last.to.file = "D.zip".into();
-        let mut extra = last.clone();
+        last.to = mark("D.zip", Some("2024-09-01T00:00:00+10:00"));
+        new.runs.push(last);
+        let mut extra = old.runs[1].clone();
         extra.schema_id = 2;
+        extra.from = mark("E.zip", None);
         new.runs.push(extra);
         let mut s = new.schemas[1].clone();
         s.schema_id = 2;
@@ -178,8 +215,9 @@ mod tests {
             }
         }
         new.schemas[1].fields[1].name = "FLAG2".into();
-        new.runs[0].files = 1;
-        new.runs[1].kinds.clear();
+        // Run 0 begins another schema; run 1's first file begins nothing.
+        new.runs[0].schema_id = 1;
+        new.runs[1].from.file = "Z.zip".into();
         new.breaking.clear();
         let v = check(&old, &new);
         assert_eq!(
@@ -198,10 +236,25 @@ mod tests {
                 Violation::SchemaChanged { id: 0 },
                 Violation::SchemaChanged { id: 1 },
                 Violation::RunChanged { index: 0 },
-                Violation::RunChanged { index: 1 },
+                Violation::RunGone { index: 1 },
                 Violation::BreakChanged { index: 0 },
             ]
         );
+        // A break into another field is a change; the same column into the
+        // same field, from elsewhere, is not.
+        let mut moved = old.clone();
+        moved.breaking[0].old_field_id = 7;
+        moved.breaking[0].at = mark("Q.zip", None);
+        assert!(check(&old, &moved).is_empty());
+        moved.breaking[0].new_field_id = 9;
+        assert_eq!(check(&old, &moved), [Violation::BreakChanged { index: 0 }]);
+        // The last file of run 0 no longer reached under its schema.
+        let mut old2 = old.clone();
+        old2.runs[0].to.data_time = Some("2024-08-02T00:00:00+10:00".into());
+        let mut cut = old2.clone();
+        cut.runs[0].to.data_time = Some("2024-08-01T12:00:00+10:00".into());
+        assert_eq!(check(&old2, &cut), [Violation::RunCut { index: 0 }]);
+        // Files that went: a schema and a run gone.
         let mut gone = old.clone();
         gone.schemas.truncate(1);
         gone.runs.truncate(1);
@@ -211,7 +264,7 @@ mod tests {
             [
                 Violation::FieldGone { id: 3 },
                 Violation::SchemaGone { id: 1 },
-                Violation::RunsGone { was: 2, now: 1 }
+                Violation::RunGone { index: 1 }
             ]
         );
         let text: Vec<String> = [
@@ -223,8 +276,9 @@ mod tests {
             },
             Violation::SchemaGone { id: 1 },
             Violation::SchemaChanged { id: 1 },
+            Violation::RunGone { index: 0 },
             Violation::RunChanged { index: 1 },
-            Violation::RunsGone { was: 2, now: 1 },
+            Violation::RunCut { index: 2 },
             Violation::BreakChanged { index: 0 },
         ]
         .iter()
@@ -237,8 +291,9 @@ mod tests {
                 "field 2 was A long and is now A string",
                 "schema 1 is gone",
                 "schema 1 has changed",
+                "run 0's first file begins no run",
                 "run 1 has changed",
-                "2 runs became 1",
+                "run 2's last file is no longer under its schema",
                 "breaking column 0 has changed"
             ]
         );

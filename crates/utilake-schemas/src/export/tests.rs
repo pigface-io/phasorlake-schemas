@@ -43,6 +43,7 @@ pub(crate) fn sample() -> History {
     serde_json::from_value(json!({
         "table": "DISPATCH_UNIT_SCADA",
         "format-version": 3,
+        "current-schema-id": 1,
         "schemas": [
             {"type": "struct", "schema-id": 0, "identifier-field-ids": [1, 2],
              "fields": [t, duid, scada]},
@@ -105,9 +106,12 @@ pub(crate) fn grow(root: &Path) {
     v["schemas"].as_array_mut().unwrap().push(s2);
     let mut run = v["runs"][1].clone();
     run["schema-id"] = json!(2);
+    run["from"] = mark("D.zip", None);
+    run["to"] = mark("D.zip", None);
     run["changes"] = json!(["schema"]);
     run["updates"] = json!([{"action": "delete", "field-id": 3}, {"action": "add", "field-id": 4}]);
     v["runs"].as_array_mut().unwrap().push(run);
+    v["current-schema-id"] = json!(2);
     v["breaking"] = json!([{"column": "SCADAVALUE", "old-field-id": 3, "old-type": "decimal(16, 6)",
         "new-field-id": 4, "new-type": "string", "at": mark("D.zip", None)}]);
     let h: History = serde_json::from_value(v).unwrap();
