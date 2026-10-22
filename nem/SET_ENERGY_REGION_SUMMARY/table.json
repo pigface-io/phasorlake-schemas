@@ -2,79 +2,118 @@
   "columns": [
     {
       "comment": "The Settlement Date of the Billing Week",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": "The Settlement Run No",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(3, 0)",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "VERSIONNO"
     },
     {
       "comment": "The Period ID Identifier",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(3, 0)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "PERIODID"
     },
     {
       "comment": "The NEM Region Id Identifier",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "The Consumed Energy summary for the Region Id",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "CE_MWH"
     },
     {
       "comment": "The UFEA Energy summary for the Region Id",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "UFEA_MWH"
     },
     {
       "comment": "The Adjusted Consumed Energy summary for the Region Id",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "ACE_MWH"
     },
     {
       "comment": "The Adjusted Sent Out Energy summary for the Region Id",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "ASOE_MWH"
     },
     {
       "comment": "The Adjusted Consumed Energy Amount for the Region Id",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "ACE_AMOUNT"
     },
     {
       "comment": "The Adjusted Sent Out Energy Amount for the Region Id",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "ASOE_AMOUNT"
     },
     {
       "comment": "The Total Energy summary for the Region Id",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "TOTAL_MWH"
     },
     {
       "comment": "The Total Dollar Amount summary for the Region Id",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "TOTAL_AMOUNT"
     },
     {
       "comment": "The Last changed Date time of the record",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 13,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

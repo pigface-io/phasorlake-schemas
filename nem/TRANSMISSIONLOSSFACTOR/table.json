@@ -2,43 +2,64 @@
   "columns": [
     {
       "comment": "Used in Bidding, Dispatch and Settlements. For Bidding and Dispatch, where the DUID is a BDU with DISPATCHTYPE of BIDIRECTIONAL, the TLF for the load component of the BDU. For Settlements, where dual TLFs apply, the primary TLF is applied to all energy (load and generation) when the Net Energy Flow of the ConnectionPointID in the interval is negative (net load).",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "TRANSMISSIONLOSSFACTOR"
     },
     {
       "comment": "Effective date of record",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": "Version no of record for given effective date",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(22,0)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Connection Point ID",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "CONNECTIONPOINTID"
     },
     {
       "comment": "Region Identifier",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "REGIONID"
     },
     {
       "comment": "Record creation timestamp",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "Used in Bidding, Dispatch and Settlements, only populated where Dual TLFs apply. For Bidding and Dispatch, the TLF for the generation component of a BDU, when null the TRANSMISSIONLOSSFACTOR is used for both the load and generation components. For Settlements, the secondary TLF is applied to all energy (load and generation) when the Net Energy Flow of the ConnectionPointID in the interval is positive (net generation).",
+      "first_release": "2015-07",
+      "iceberg_type": "decimal(18, 8)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "SECONDARY_TLF"
     }

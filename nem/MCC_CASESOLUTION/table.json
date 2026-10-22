@@ -2,7 +2,10 @@
   "columns": [
     {
       "comment": "5-minute Dispatch Run identifier",
+      "first_release": "2010-11",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     }

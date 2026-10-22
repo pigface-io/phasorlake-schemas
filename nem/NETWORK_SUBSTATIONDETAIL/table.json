@@ -2,43 +2,64 @@
   "columns": [
     {
       "comment": "ID uniquely identifying this substation",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "SUBSTATIONID"
     },
     {
       "comment": "The record is valid from this date (inclusive)",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(3)",
       "name": "VALIDFROM"
     },
     {
       "comment": "The record is valid up until this date (exclusive)",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(3)",
       "name": "VALIDTO"
     },
     {
       "comment": "Description of the substation",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(100)",
       "name": "DESCRIPTION"
     },
     {
       "comment": "The NEM region the substation is in",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "REGIONID"
     },
     {
       "comment": "The TNSP who is responsible for this substation",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "OWNERID"
     },
     {
       "comment": "The time that this record was last changed.",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(3)",
       "name": "LASTCHANGED"
     }

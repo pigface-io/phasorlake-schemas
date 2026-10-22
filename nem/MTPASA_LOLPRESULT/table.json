@@ -2,73 +2,109 @@
   "columns": [
     {
       "comment": "Date processing of the run begins.",
+      "first_release": "2018-05",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "Unique run id.",
+      "first_release": "2018-05",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4)",
       "name": "RUN_NO"
     },
     {
       "comment": "Type of run. Always LOLP",
+      "first_release": "2018-05",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "RUNTYPE"
     },
     {
       "comment": "Day this result is for",
+      "first_release": "2018-05",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "DAY"
     },
     {
       "comment": "The unique region identifier",
+      "first_release": "2018-05",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "The half hourly interval period with the highest LOLP, or highest region demand if LOLP = 0 for all intervals (1..48)",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(3, 0)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "WORST_INTERVAL_PERIODID"
     },
     {
       "comment": "The Abstract Operational Demand for the worst interval in this region (MW)",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(12, 2)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "WORST_INTERVAL_DEMAND"
     },
     {
       "comment": "The half hourly aggregate intermittent generation for the worst interval in this region (MW)",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(12, 2)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "WORST_INTERVAL_INTGEN"
     },
     {
       "comment": "The half hourly aggregate demand side participation for the worst interval period in this region (MW)",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(12, 2)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "WORST_INTERVAL_DSP"
     },
     {
       "comment": "Loss of Load Probability for the worst interval in this region",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(8, 5)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(8,5)",
       "name": "LOSSOFLOADPROBABILITY"
     },
     {
       "comment": "Loss of Load Magnitude for the worst interval in this region. Values are LOW, MEDIUM, HIGH",
+      "first_release": "2018-05",
+      "iceberg_type": "string",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "LOSSOFLOADMAGNITUDE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2018-05",
+      "iceberg_type": "timestamptz",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

@@ -2,49 +2,73 @@
   "columns": [
     {
       "comment": "Date time this forecast was produced",
+      "first_release": "2016-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "VERSION_DATETIME"
     },
     {
       "comment": "Region identifier",
+      "first_release": "2016-08",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "The forecast half-hour interval (time ending)",
+      "first_release": "2016-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "The average forecast value in MW at the interval end",
+      "first_release": "2016-08",
+      "iceberg_type": "decimal(12, 3)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,3)",
       "name": "POWERMEAN"
     },
     {
       "comment": "50% probability of exceedance forecast value in MW at the interval end",
+      "first_release": "2016-08",
+      "iceberg_type": "decimal(12, 3)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,3)",
       "name": "POWERPOE50"
     },
     {
       "comment": "90% probability of exceedance forecast value in MW at the interval end",
+      "first_release": "2016-08",
+      "iceberg_type": "decimal(12, 3)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,3)",
       "name": "POWERPOELOW"
     },
     {
       "comment": "10% probability of exceedance forecast value in MW at the interval end",
+      "first_release": "2016-08",
+      "iceberg_type": "decimal(12, 3)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,3)",
       "name": "POWERPOEHIGH"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2016-08",
+      "iceberg_type": "timestamptz",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

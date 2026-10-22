@@ -2,37 +2,55 @@
   "columns": [
     {
       "comment": "Unique identifier for this suspension event",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(13, 1)",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "SUSPENSION_ID"
     },
     {
       "comment": "Region(s) covered by this evolution of the event",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "First Dispatch interval from which this regime applies",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "START_INTERVAL"
     },
     {
       "comment": "Last Dispatch interval for which this regime applies",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "END_INTERVAL"
     },
     {
       "comment": "Pricing Regime applied",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "PRICING_REGIME"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

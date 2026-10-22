@@ -2,55 +2,82 @@
   "columns": [
     {
       "comment": "Generic Equation Identifier",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "EQUATIONID"
     },
     {
       "comment": "Generic Equation Description",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(256)",
       "name": "DESCRIPTION"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "The device(s) affected by the constraint (e.g. Interconnector, Generator(s) or Cutset)",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(64)",
       "name": "IMPACT"
     },
     {
       "comment": "The source of the constraint formulation",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(128)",
       "name": "SOURCE"
     },
     {
       "comment": "The limit type of the constraint e.g. Transient Stability, Voltage Stability",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(64)",
       "name": "LIMITTYPE"
     },
     {
       "comment": "The contingency or reason for the constraint",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(256)",
       "name": "REASON"
     },
     {
       "comment": "Details of the changes made to this version of the generic equation RHS",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(256)",
       "name": "MODIFICATIONS"
     },
     {
       "comment": "Extra notes on the constraint",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(256)",
       "name": "ADDITIONALNOTES"
     }

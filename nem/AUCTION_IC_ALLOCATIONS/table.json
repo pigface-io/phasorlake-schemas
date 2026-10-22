@@ -2,73 +2,109 @@
   "columns": [
     {
       "comment": "SRA Contracted Year",
+      "first_release": "2009-09",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4,0)",
       "name": "CONTRACTYEAR"
     },
     {
       "comment": "SRA Contracted Quarter",
+      "first_release": "2009-09",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "QUARTER"
     },
     {
       "comment": "Version of data for other key data - a higher version for same key data takes precedence",
+      "first_release": "2009-09",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Contracted Interconnector Identifier",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "INTERCONNECTORID"
     },
     {
       "comment": "Nominated source region for Interconnector",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "FROMREGIONID"
     },
     {
       "comment": "Number of units on the interconnector",
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(5, 0)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5,0)",
       "name": "MAXIMUMUNITS"
     },
     {
       "comment": "Percentage of the total residue for each Unit",
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(8, 5)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(8,5)",
       "name": "PROPORTION"
     },
     {
       "comment": "Daily auction fee",
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(17, 5)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(17,5)",
       "name": "AUCTIONFEE"
     },
     {
       "comment": "Authorisation date",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "CHANGEDATE"
     },
     {
       "comment": "Name of person authorising this data set",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(15)",
       "name": "CHANGEDBY"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "Fees for Cancelled Units.",
+      "first_release": "2019-10",
+      "iceberg_type": "decimal(18, 8)",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "AUCTIONFEE_SALES"
     }

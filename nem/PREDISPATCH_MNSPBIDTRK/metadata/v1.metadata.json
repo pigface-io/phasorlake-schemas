@@ -1,0 +1,97 @@
+{
+  "current-schema-id": 0,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 9,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PREDISPATCH_MNSPBIDTRK",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "LINKID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "PERIODID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "PARTICIPANTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "OFFERDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 8,
+          "name": "DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "3e19c8dd-07f3-8ebc-86cd-a6bdc92965dd"
+}

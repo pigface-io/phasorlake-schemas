@@ -1,0 +1,135 @@
+{
+  "current-schema-id": 0,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 16,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PMS_GROUPSERVICE",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GROUPSERVICEID",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 2,
+          "name": "GROUPID",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONFROM",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "VERSIONTO",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "STARTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "ENDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "MARKET",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "SERVICETYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "ENTITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "ENTITYID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "MRC",
+          "required": false,
+          "type": "decimal(10, 3)"
+        },
+        {
+          "id": 12,
+          "name": "MRCREASON",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "MAXIMUMRAMPRATEPERMIN",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 14,
+          "name": "REGION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "APPROVEDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 16,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "24af073e-5ba7-8590-8be3-d58ab2a846df"
+}

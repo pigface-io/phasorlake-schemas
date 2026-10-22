@@ -1,0 +1,196 @@
+{
+  "current-schema-id": 1,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 14,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SETFCASREGIONRECOVERY",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "BIDTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "PERIODID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 6,
+          "name": "GENERATORREGIONENERGY",
+          "required": false,
+          "type": "decimal(16, 8)"
+        },
+        {
+          "id": 7,
+          "name": "CUSTOMERREGIONENERGY",
+          "required": false,
+          "type": "decimal(16, 8)"
+        },
+        {
+          "id": 8,
+          "name": "REGIONRECOVERY",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "BIDTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "PERIODID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 6,
+          "name": "GENERATORREGIONENERGY",
+          "required": false,
+          "type": "decimal(16, 8)"
+        },
+        {
+          "id": 7,
+          "name": "CUSTOMERREGIONENERGY",
+          "required": false,
+          "type": "decimal(16, 8)"
+        },
+        {
+          "id": 8,
+          "name": "REGIONRECOVERY",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "REGION_ACE_MWH",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 11,
+          "name": "REGION_ASOE_MWH",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 12,
+          "name": "REGIONRECOVERYAMOUNT_ACE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 13,
+          "name": "REGIONRECOVERYAMOUNT_ASOE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 14,
+          "name": "REGIONRECOVERYAMOUNT",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "79741bd1-d265-8c98-9a41-c3b324b6be7b"
+}

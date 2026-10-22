@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "Date and Time when the forecast applies (dispatch interval ending)",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "DUID (or Area for non-scheduled) where this forecast applies",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "DUID"
     },
     {
       "comment": "Date and Time when this forecast submission was loaded",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "OFFERDATETIME"
     },
     {
       "comment": "Date and Time when the forecast applies (dispatch interval ending)",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Origin of this forecast (PARTICIPANTID, AWEFS/ASEFS, or another vendor)",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "ORIGIN"
     },
     {
       "comment": "Unsuppressed forecasts with higher priority values are used in Dispatch in preference to unsuppressed forecasts with lower priority values",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(10,0)",
       "name": "FORECAST_PRIORITY"
     },
     {
       "comment": "Forecast MW value for this interval_DateTime",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "FORECAST_MEAN"
     },
     {
       "comment": "Forecast 10% POE MW value for this interval_DateTime",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "FORECAST_POE10"
     },
     {
       "comment": "Forecast 50% POE MW value for this interval_DateTime. Used in Dispatch.",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "FORECAST_POE50"
     },
     {
       "comment": "Forecast 90% POE MW value for this interval_DateTime",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "FORECAST_POE90"
     }

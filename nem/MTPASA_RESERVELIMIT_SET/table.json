@@ -2,43 +2,64 @@
   "columns": [
     {
       "comment": "Trade date when the set of reserve requirements become effective",
+      "first_release": "2010-05",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": "Timestamp when the set of reserve requirements become effective",
+      "first_release": "2010-05",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "VERSION_DATETIME"
     },
     {
       "comment": "MT PASA LRC Reserve Requirement Set Identifier",
+      "first_release": "2010-05",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "RESERVELIMIT_SET_ID"
     },
     {
       "comment": "Description of this set of Reserve Requirements",
+      "first_release": "2010-05",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(200)",
       "name": "DESCRIPTION"
     },
     {
       "comment": "Date the requirement set was authorised",
+      "first_release": "2010-05",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "AUTHORISEDDATE"
     },
     {
       "comment": "User authorising this requirement set",
+      "first_release": "2010-05",
+      "iceberg_type": "string",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "AUTHORISEDBY"
     },
     {
       "comment": "Timestamp the record was last modified",
+      "first_release": "2010-05",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

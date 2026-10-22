@@ -2,43 +2,64 @@
   "columns": [
     {
       "comment": "Unique ID for the Constraint Set",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "GENCONSETID"
     },
     {
       "comment": "Date this record becomes effective",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": "Version no of the record for the given effective date",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Generic Contraint ID",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "GENCONID"
     },
     {
       "comment": "Since market start in 1998 these fields have not been used and any data that has been populated in the fields should be ignored",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "GENCONEFFDATE"
     },
     {
       "comment": "Since market start in 1998 these fields have not been used and any data that has been populated in the fields should be ignored",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(3, 0)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "GENCONVERSIONNO"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

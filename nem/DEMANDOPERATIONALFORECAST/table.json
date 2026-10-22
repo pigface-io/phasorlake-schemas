@@ -2,43 +2,64 @@
   "columns": [
     {
       "comment": "Forecast for a particular date time interval",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Region identifier",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "Date time this forecast was produced",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LOAD_DATE"
     },
     {
       "comment": "10% probability of exceedance operational demand forecast value",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(15, 2)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,2)",
       "name": "OPERATIONAL_DEMAND_POE10"
     },
     {
       "comment": "50% probability of exceedance operational demand forecast value",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(15, 2)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,2)",
       "name": "OPERATIONAL_DEMAND_POE50"
     },
     {
       "comment": "90% probability of exceedance operational demand forecast value",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(15, 2)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,2)",
       "name": "OPERATIONAL_DEMAND_POE90"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

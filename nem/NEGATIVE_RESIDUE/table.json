@@ -2,97 +2,145 @@
   "columns": [
     {
       "comment": "Dispatch Interval",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": "The time that residue information is processed",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "NRM_DATETIME"
     },
     {
       "comment": "Negative residue related direction interconnector id",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "DIRECTIONAL_INTERCONNECTORID"
     },
     {
       "comment": "Is 1 if negative residue process is on, else is 0",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(1, 0)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "NRM_ACTIVATED_FLAG"
     },
     {
       "comment": "Negative residue triggering amount",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(15, 5)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "CUMUL_NEGRESIDUE_AMOUNT"
     },
     {
       "comment": "Previous trading interval cumulative negative residue amount",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(15, 5)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "CUMUL_NEGRESIDUE_PREV_TI"
     },
     {
       "comment": "Current trading interval negative residue amount",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(15, 5)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "NEGRESIDUE_CURRENT_TI"
     },
     {
       "comment": "The cumulative negative residue for the next trading interval (PD)",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(15, 5)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "NEGRESIDUE_PD_NEXT_TI"
     },
     {
       "comment": "SubjectToReview, Indeterminate, Accepted or Rejected",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "PRICE_REVISION"
     },
     {
       "comment": "Predispatch sequence number",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(10, 0)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "PREDISPATCHSEQNO"
     },
     {
       "comment": "The starting DI when NRM event is active",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EVENT_ACTIVATED_DI"
     },
     {
       "comment": "The finishing DI when NRM event stops being active.",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EVENT_DEACTIVATED_DI"
     },
     {
       "comment": "Count of the number of DIs not binding by this constraint",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(2, 0)",
       "id": 13,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(2,0)",
       "name": "DI_NOTBINDING_COUNT"
     },
     {
       "comment": "Count of the number of DIs violated by this constraint",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(2, 0)",
       "id": 14,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(2,0)",
       "name": "DI_VIOLATED_COUNT"
     },
     {
       "comment": "1 if constraint is blocked, else 0",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 15,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "NRMCONSTRAINT_BLOCKED_FLAG"
     },
     {
       "comment": "NRM Loop Flag controls monitoring behaviour: \n0 = Individual NRM monitoring suppressed (loop operational with aggregate IRSR >= 0)\n1 = Individual NRM monitoring active (applies to: loop not operational, aggregate loop IRSR < 0, or non-loop interconnection)\nThis flag is evaluated and set for ALL interconnections in each dispatch interval",
+      "first_release": "2026-05",
+      "iceberg_type": "long",
       "id": 16,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "NRM_LOOP_FLAG"
     }

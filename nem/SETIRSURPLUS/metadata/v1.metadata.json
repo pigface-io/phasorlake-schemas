@@ -1,0 +1,190 @@
+{
+  "current-schema-id": 1,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 11,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SETIRSURPLUS",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "SETTLEMENTRUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "PERIODID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "INTERCONNECTORID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "MWFLOW",
+          "required": false,
+          "type": "decimal(15, 8)"
+        },
+        {
+          "id": 7,
+          "name": "LOSSFACTOR",
+          "required": false,
+          "type": "decimal(15, 8)"
+        },
+        {
+          "id": 8,
+          "name": "SURPLUSVALUE",
+          "required": false,
+          "type": "decimal(15, 8)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "UNADJUSTED_IRSR",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 11,
+          "name": "CSP_DEROGATION_AMOUNT",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "SETTLEMENTRUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "PERIODID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "INTERCONNECTORID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "MWFLOW",
+          "required": false,
+          "type": "decimal(15, 8)"
+        },
+        {
+          "id": 7,
+          "name": "LOSSFACTOR",
+          "required": false,
+          "type": "decimal(15, 8)"
+        },
+        {
+          "id": 8,
+          "name": "SURPLUSVALUE",
+          "required": false,
+          "type": "decimal(15, 8)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 11,
+          "name": "CSP_DEROGATION_AMOUNT",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 10,
+          "name": "UNADJUSTED_IRSR",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "133b1c3b-003f-865b-992e-323ffe4452be"
+}

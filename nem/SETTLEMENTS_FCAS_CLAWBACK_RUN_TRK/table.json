@@ -2,43 +2,64 @@
   "columns": [
     {
       "comment": null,
+      "first_release": "2026-01",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": null,
+      "first_release": "2026-01",
+      "iceberg_type": "decimal(2, 0)",
       "id": 2,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "VERSIONNO"
     },
     {
       "comment": null,
+      "first_release": "2026-01",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": null,
+      "first_release": "2026-01",
+      "iceberg_type": "decimal(1, 0)",
       "id": 4,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "RUNNO"
     },
     {
       "comment": null,
+      "first_release": "2026-01",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "CLAWBACK_DATE"
     },
     {
       "comment": null,
+      "first_release": "2026-01",
+      "iceberg_type": "string",
       "id": 6,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "PREV_DATA_SOURCE"
     },
     {
       "comment": null,
+      "first_release": "2026-01",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "LASTCHANGED"
     }

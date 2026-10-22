@@ -1,0 +1,132 @@
+{
+  "current-schema-id": 1,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 7,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/TRANSMISSIONLOSSFACTOR",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRANSMISSIONLOSSFACTOR",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 2,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        2,
+        3,
+        4
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRANSMISSIONLOSSFACTOR",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 2,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "SECONDARY_TLF",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [
+        2,
+        3,
+        4
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "1a635f73-0cd8-855a-b3c4-ca7310c6c968"
+}

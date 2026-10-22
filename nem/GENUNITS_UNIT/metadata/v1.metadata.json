@@ -1,0 +1,122 @@
+{
+  "current-schema-id": 0,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 13,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GENUNITS_UNIT",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GENSETID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "UNIT_GROUPING_LABEL",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "UNIT_COUNT",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 6,
+          "name": "UNIT_SIZE",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 7,
+          "name": "UNIT_MAX_SIZE",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 8,
+          "name": "AGGREGATION_FLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "UNITMINSIZE",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 11,
+          "name": "MAXSTORAGECAPACITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "REGISTEREDCAPACITY",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 13,
+          "name": "REGISTEREDMINCAPACITY",
+          "required": false,
+          "type": "decimal(8, 3)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "f581485f-ceed-8f73-889e-520d9a93a349"
+}

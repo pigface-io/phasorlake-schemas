@@ -2,67 +2,100 @@
   "columns": [
     {
       "comment": "Date processing of the run begins.",
+      "first_release": "2018-05",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "Unique run id.",
+      "first_release": "2018-05",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4)",
       "name": "RUN_NO"
     },
     {
       "comment": "Type of run. Always RELIABILITY",
+      "first_release": "2018-05",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "RUNTYPE"
     },
     {
       "comment": "Demand POE type used. Value is POE10 or POE50",
+      "first_release": "2018-05",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "DEMAND_POE_TYPE"
     },
     {
       "comment": "Period data is aggregated over. Values are YEAR",
+      "first_release": "2018-05",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "AGGREGATION_PERIOD"
     },
     {
       "comment": "Datetime of day at end of period (i.e. last day of year reported)",
+      "first_release": "2018-05",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "PERIOD_ENDING"
     },
     {
       "comment": "The unique region identifier",
+      "first_release": "2018-05",
+      "iceberg_type": "string",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "Iteration ID, only produced for iterations showing unserved energy>0",
+      "first_release": "2018-05",
+      "iceberg_type": "long",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "USE_ITERATION_ID"
     },
     {
       "comment": "Number of half hours showing unserved energy over year, for iteration",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(12, 2)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "USE_ITERATION_EVENT_NUMBER"
     },
     {
       "comment": "Average unserved energy event size for iteration over year (MW)",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(12, 2)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "USE_ITERATION_EVENT_AVERAGE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2018-05",
+      "iceberg_type": "timestamptz",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

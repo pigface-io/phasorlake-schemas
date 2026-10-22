@@ -2,91 +2,136 @@
   "columns": [
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "DUID"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "STATIONID"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "REGIONID"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(6, 0)",
       "id": 4,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "ID"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "INSTRUCTIONTYPEID"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 6,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "INSTRUCTIONSUBTYPEID"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 7,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "INSTRUCTIONCLASSID"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 8,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "REASON"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(4, 0)",
       "id": 9,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "INSTLEVEL"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "AUTHORISEDDATE"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 11,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "AUTHORISEDBY"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 12,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "PARTICIPANTID"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 13,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "ISSUEDTIME"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 14,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "TARGETTIME"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 15,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "LASTCHANGED"
     }

@@ -1,0 +1,227 @@
+{
+  "current-schema-id": 0,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 30,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_REGIONSUMMARY",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUN_NO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "RUNTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "DEMAND_POE_TYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "AGGREGATION_PERIOD",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "PERIOD_ENDING",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "NATIVEDEMAND",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 9,
+          "name": "USE_PERCENTILE10",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 10,
+          "name": "USE_PERCENTILE20",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 11,
+          "name": "USE_PERCENTILE30",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 12,
+          "name": "USE_PERCENTILE40",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 13,
+          "name": "USE_PERCENTILE50",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 14,
+          "name": "USE_PERCENTILE60",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 15,
+          "name": "USE_PERCENTILE70",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 16,
+          "name": "USE_PERCENTILE80",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 17,
+          "name": "USE_PERCENTILE90",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 18,
+          "name": "USE_PERCENTILE100",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 19,
+          "name": "USE_AVERAGE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 20,
+          "name": "NUMBEROFITERATIONS",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 21,
+          "name": "USE_NUMBEROFITERATIONS",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 22,
+          "name": "USE_EVENT_MAX",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 23,
+          "name": "USE_EVENT_UPPERQUARTILE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 24,
+          "name": "USE_EVENT_MEDIAN",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 25,
+          "name": "USE_EVENT_LOWERQUARTILE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 26,
+          "name": "USE_EVENT_MIN",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 27,
+          "name": "WEIGHT",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 28,
+          "name": "USE_WEIGHTED_AVG",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 29,
+          "name": "LRC",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 30,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "84e78db7-9405-8699-a083-78b7803777ba"
+}

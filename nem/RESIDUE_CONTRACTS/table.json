@@ -2,109 +2,163 @@
   "columns": [
     {
       "comment": "SRA Contracted Year",
+      "first_release": "2009-09",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4,0)",
       "name": "CONTRACTYEAR"
     },
     {
       "comment": "SRA Contracted Quarter",
+      "first_release": "2009-09",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "QUARTER"
     },
     {
       "comment": "Label identifying the arbitrary segmented share of the Interconnector flow",
+      "first_release": "2009-09",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(2,0)",
       "name": "TRANCHE"
     },
     {
       "comment": "Unique identifier for each SRA Contract as specified by AEMO",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "CONTRACTID"
     },
     {
       "comment": "SRA Quarter start date",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "STARTDATE"
     },
     {
       "comment": "SRA Quarter end date",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "ENDDATE"
     },
     {
       "comment": "Open date of bidding, calculated as RNOTIFYDATE business days before the auction date",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "NOTIFYDATE"
     },
     {
       "comment": "Close date of bidding, calculated as RAUCDATE business days before the contract start date",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "AUCTIONDATE"
     },
     {
       "comment": "Identifies methodology used",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CALCMETHOD"
     },
     {
       "comment": "Authorisation date for this record",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "AUTHORISEDDATE"
     },
     {
       "comment": "Name of authorising officer or process",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(15)",
       "name": "AUTHORISEDBY"
     },
     {
       "comment": "Date notification posted",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "NOTIFYPOSTDATE"
     },
     {
       "comment": "Name of notifying person",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 13,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(15)",
       "name": "NOTIFYBY"
     },
     {
       "comment": "Date of publishing the auction results",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 14,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "POSTDATE"
     },
     {
       "comment": "Name of publishing officer or process",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 15,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(15)",
       "name": "POSTEDBY"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 16,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "Description of Contract",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 17,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(80)",
       "name": "DESCRIPTION"
     },
     {
       "comment": "Unique id for each auction date (new in March 2003 to support SRA Inter-Temporal Linking)",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 18,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "AUCTIONID"
     }

@@ -2,31 +2,46 @@
   "columns": [
     {
       "comment": "The effective date of the data set",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": "The version number of the data set",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "VERSIONNO"
     },
     {
       "comment": "The BAS classification",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "BAS_CLASS"
     },
     {
       "comment": "The GST rate that applies to this BAS classification",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(8, 5)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(8,5)",
       "name": "GST_RATE"
     },
     {
       "comment": "Last date and time the record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

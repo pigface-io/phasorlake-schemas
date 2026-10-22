@@ -2,43 +2,64 @@
   "columns": [
     {
       "comment": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "first_release": "2024-12",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "Version (FPP run number from the FPP database)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(5, 0)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "BIDTYPE"
     },
     {
       "comment": "RCR (the calculated requirement for corrective response from FPP database)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 5)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,5)",
       "name": "RCR"
     },
     {
       "comment": "The reason flag showing the decision matrix for the requirement for corrective response (RCR) calculation Supported values are: 0 = RCR is calculated based on good input data 1 = RCR is 0 as FM is unreliable 2 = RCR is 0 as the percentage of units with unavailable input or bad data is greater than the threshold percentage",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(5, 0)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "RCR_REASON_FLAG"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2026-05",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

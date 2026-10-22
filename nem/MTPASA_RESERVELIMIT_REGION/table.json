@@ -2,37 +2,55 @@
   "columns": [
     {
       "comment": "Trade date when the set of reserve requirements become effective",
+      "first_release": "2010-05",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": "Timestamp when the set of reserve requirements become effective",
+      "first_release": "2010-05",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "VERSION_DATETIME"
     },
     {
       "comment": "MT PASA Reserve requirement identifier",
+      "first_release": "2010-05",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "RESERVELIMITID"
     },
     {
       "comment": "Region ID - identifier of a NEM region included in this requirement",
+      "first_release": "2010-05",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "Coefficient for the region in this reserve requirement",
+      "first_release": "2010-05",
+      "iceberg_type": "decimal(16, 6)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(16,6)",
       "name": "COEF"
     },
     {
       "comment": "Timestamp the record was last modified",
+      "first_release": "2010-05",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

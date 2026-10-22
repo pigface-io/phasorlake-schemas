@@ -1,0 +1,218 @@
+{
+  "current-schema-id": 1,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 14,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/GENCONSETINVOKE",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "INVOCATION_ID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "STARTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "STARTPERIOD",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 4,
+          "name": "GENCONSETID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "ENDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "ENDPERIOD",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 7,
+          "name": "STARTAUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "ENDAUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "ASCONSTRAINTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "STARTINTERVALDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "ENDINTERVALDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 14,
+          "name": "SYSTEMNORMAL",
+          "required": false,
+          "type": "decimal(1, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 2,
+          "name": "STARTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "STARTPERIOD",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 4,
+          "name": "GENCONSETID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "ENDDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "ENDPERIOD",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 7,
+          "name": "STARTAUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "ENDAUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "ASCONSTRAINTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "STARTINTERVALDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "ENDINTERVALDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 14,
+          "name": "SYSTEMNORMAL",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 1,
+          "name": "INVOCATION_ID",
+          "required": true,
+          "type": "long"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "2194f216-b939-844b-b8d8-857d18a4658b"
+}

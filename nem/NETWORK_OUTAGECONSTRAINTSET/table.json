@@ -2,25 +2,37 @@
   "columns": [
     {
       "comment": "ID uniquely identifying the outage",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,0)",
       "name": "OUTAGEID"
     },
     {
       "comment": "ID for the constraint set",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(50)",
       "name": "GENCONSETID"
     },
     {
       "comment": "The dispatch interval that this constraint applies from",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "STARTINTERVAL"
     },
     {
       "comment": "The dispatch interval that this constraint applies until.",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "ENDINTERVAL"
     }

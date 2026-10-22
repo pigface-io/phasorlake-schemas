@@ -2,67 +2,100 @@
   "columns": [
     {
       "comment": "Unique ID for the Constraint Set",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "GENCONSETID"
     },
     {
       "comment": "Date this record becomes effective",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": "Version no of the record for the given effective date",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Description of the constraint",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(256)",
       "name": "DESCRIPTION"
     },
     {
       "comment": "The person who authorised the constraint set",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(15)",
       "name": "AUTHORISEDBY"
     },
     {
       "comment": "The date and time of authorising the constraint set",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "AUTHORISEDDATE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "The region the constraint set is located in or a special grouping (e.g. CHIMERA)",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(64)",
       "name": "COVERAGE"
     },
     {
       "comment": "Details of the changes made to this version of the constraint set",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(256)",
       "name": "MODIFICATIONS"
     },
     {
       "comment": "Not used as of 2005 End of Year Release [was Flag to indicate if the constraint set is a system normal (1) or and an outage set (0)]",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(1, 0)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(1)",
       "name": "SYSTEMNORMAL"
     },
     {
       "comment": "Detail of the plant that is not in service",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(256)",
       "name": "OUTAGE"
     }

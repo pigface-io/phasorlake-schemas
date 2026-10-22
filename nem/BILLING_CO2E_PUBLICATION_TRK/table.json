@@ -2,25 +2,37 @@
   "columns": [
     {
       "comment": "Billing contract year",
+      "first_release": "2011-10",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4)",
       "name": "CONTRACTYEAR"
     },
     {
       "comment": "Billing week no",
+      "first_release": "2011-10",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3)",
       "name": "WEEKNO"
     },
     {
       "comment": "Billing run no",
+      "first_release": "2011-10",
+      "iceberg_type": "decimal(3, 0)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3)",
       "name": "BILLRUNNO"
     },
     {
       "comment": "Last changed date time",
+      "first_release": "2011-10",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

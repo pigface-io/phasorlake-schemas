@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "Calendar Settlement Date",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": "Not Used",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "REGIONID"
     },
     {
       "comment": "This is to determine whether the Settlement Run is a valid run or not.",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(15)",
       "name": "EXANTERUNSTATUS"
     },
     {
       "comment": "Not Used",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "EXANTERUNNO"
     },
     {
       "comment": "Estimate for DAILY/INITIAL and Actual for PRELIM/FINAL and REVISE.",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(15)",
       "name": "EXPOSTRUNSTATUS"
     },
     {
       "comment": "Settlement Run No",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "EXPOSTRUNNO"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "Length of a settlement interval, in minutes (was 30 minutes, will be 5 minutes starting the commencement of 5MS rule change date).",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(3, 0)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "SETTLEMENTINTERVALLENGTH"
     },
     {
       "comment": "The Metering Case Id used for the Settlement Run. For Estimate Daily Run this will be 0",
+      "first_release": "2025-04",
+      "iceberg_type": "decimal(5, 0)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5,0)",
       "name": "METER_CASEID"
     },
     {
       "comment": "The Type of Settlement Run(ESTIMATE/PRELIM/FINAL/REVISE)",
+      "first_release": "2025-04",
+      "iceberg_type": "string",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "METER_RUNTYPE"
     }

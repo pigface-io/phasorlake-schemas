@@ -2,49 +2,73 @@
   "columns": [
     {
       "comment": "Market date starting at 04:05",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-06",
       "model_type": "TIMESTAMP(0)",
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": "Dispatch run no; always 1",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-06",
       "model_type": "NUMERIC(3,0)",
       "name": "RUNNO"
     },
     {
       "comment": "Participant that owns unit during effective record period",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-06",
       "model_type": "VARCHAR(10)",
       "name": "PARTICIPANTID"
     },
     {
       "comment": "Identifier for each of the two MNSP Interconnector Links. Each link pertains to the direction from and to.",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-06",
       "model_type": "VARCHAR(10)",
       "name": "LINKID"
     },
     {
       "comment": "Offer date for bid",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-06",
       "model_type": "TIMESTAMP(0)",
       "name": "OFFERSETTLEMENTDATE"
     },
     {
       "comment": "Time this bid was processed and loaded",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-06",
       "model_type": "TIMESTAMP(3)",
       "name": "OFFEREFFECTIVEDATE"
     },
     {
       "comment": "VersionNo of the bid/offer used",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(3, 0)",
       "id": 7,
+      "last_release": "2026-06",
       "model_type": "NUMERIC(3,0)",
       "name": "OFFERVERSIONNO"
     },
     {
       "comment": "Record creation timestamp",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 8,
+      "last_release": "2026-06",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

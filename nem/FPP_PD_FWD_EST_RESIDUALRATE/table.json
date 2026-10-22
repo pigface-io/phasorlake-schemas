@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "Predispatch sequence number for the 30 minute predispatch case that triggers the constraint FCAS processor run",
+      "first_release": "2025-01",
+      "iceberg_type": "decimal(10, 0)",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "PREDISPATCHSEQNO"
     },
     {
       "comment": "The run date and time of the 30 minute predispatch case that was the trigger for the constraint FCAS processor execution (as the FCAS requirement data is the basis of these forward estimates)",
+      "first_release": "2025-01",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "The 30 minute predispatch case run number that was the trigger for the constraint FCAS processor execution (as the FCAS requirement data is the basis for these forward estimates)",
+      "first_release": "2025-01",
+      "iceberg_type": "decimal(5, 0)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "RUNNO"
     },
     {
       "comment": "Date and time of the 30 minute predispatch interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "first_release": "2025-01",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2025-01",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "The version number of the effective default contribution factor for the unit / constraint combination taken from the FPP_FORECAST_DEFAULT_CF table",
+      "first_release": "2025-01",
+      "iceberg_type": "decimal(5, 0)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2025-01",
+      "iceberg_type": "string",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "BIDTYPE"
     },
     {
       "comment": "Relevant regions (a comma separated list of the relevant regions for the constraint from FCAS data)",
+      "first_release": "2025-01",
+      "iceberg_type": "string",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(200)",
       "name": "RELEVANT_REGIONS"
     },
     {
       "comment": "Estimated unused recovery FCAS in AUD/MWh (the forward financial estimate of the recovery of unused FCAS, assuming that all is unused FCAS). This value will be either 0 (nil), or a negative value (debit) only. For details on the calculation, please see FPP procedure and supporting documentation. Please note that there may be cases where there is not yet a residual default contribution factor for the constraint (for example if there is a new constraint binding in predispatch that has not yet bound in dispatch). In these scenarios there will be no EST_UNUSED_FCAS row sent for the constraint, as this is currently incalculable until a corresponding residual default contribution factor is calculated from a dispatch run with this constraint binding.",
+      "first_release": "2025-01",
+      "iceberg_type": "decimal(18, 8)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "EST_UNUSED_FCAS"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2026-05",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

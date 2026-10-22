@@ -2,67 +2,100 @@
   "columns": [
     {
       "comment": "SRA Contract unique identifier as specified by AEMO",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-08",
       "model_type": "VARCHAR(30)",
       "name": "CONTRACTID"
     },
     {
       "comment": "Identifier for the Contracted Interconnector",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-08",
       "model_type": "VARCHAR(10)",
       "name": "INTERCONNECTORID"
     },
     {
       "comment": "Nominated source region for Interconnector",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-08",
       "model_type": "VARCHAR(10)",
       "name": "FROMREGIONID"
     },
     {
       "comment": "Actual number of units allocated based on the auction default percentage for the tranche and the total number of units to be auctioned for this quarter",
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(5, 0)",
       "id": 4,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(5,0)",
       "name": "DEFAULTUNITS"
     },
     {
       "comment": "Units reallocated from the previous tranche of this quarter",
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(5, 0)",
       "id": 5,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(5,0)",
       "name": "ROLLOVERUNITS"
     },
     {
       "comment": "Units reallocated from the previous tranche of this quarter because they were not taken up by the participant",
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(5, 0)",
       "id": 6,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(5,0)",
       "name": "REALLOCATEDUNITS"
     },
     {
       "comment": "Total units offered for Contract",
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(5, 0)",
       "id": 7,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(5,0)",
       "name": "UNITSOFFERED"
     },
     {
       "comment": "Average reserve price calculated from the selected estimates",
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(9, 2)",
       "id": 8,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(9,2)",
       "name": "MEANRESERVEPRICE"
     },
     {
       "comment": "Scaling factor for regional Frequency control Ancillary Service requirement",
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(8, 5)",
       "id": 9,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(8,5)",
       "name": "SCALEFACTOR"
     },
     {
       "comment": "Actual reserve price",
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(9, 2)",
       "id": 10,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(9,2)",
       "name": "ACTUALRESERVEPRICE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 11,
+      "last_release": "2026-08",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

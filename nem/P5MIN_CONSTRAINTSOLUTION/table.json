@@ -2,79 +2,118 @@
   "columns": [
     {
       "comment": "Unique Timestamp Identifier for this study",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "The unique identifier for the interval within this study",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Constraint identifier (synonymous with GenConID)",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "Right Hand Side value in the capacity evaluation",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "RHS"
     },
     {
       "comment": "Marginal cost of constraint (>0 if binding)",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 6)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "MARGINALVALUE"
     },
     {
       "comment": "Amount of Violation (>0 if  violating)",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "VIOLATIONDEGREE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 8,
+      "last_release": "2024-07",
       "model_type": null,
       "name": "CONFIDENTIAL_TO"
     },
     {
       "comment": "Effective date of the Generic Constraint (ConstraintID). This field is used to track the version of this generic constraint applied in this dispatch interval",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "GENCONID_EFFECTIVEDATE"
     },
     {
       "comment": "Version number of the Generic Constraint (ConstraintID). This field is used to track the version of this generic constraint applied in this dispatch interval",
+      "first_release": "2009-07",
+      "iceberg_type": "double",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(22,0)",
       "name": "GENCONID_VERSIONNO"
     },
     {
       "comment": "Aggregation of the constraints LHS term solution values",
+      "first_release": "2010-11",
+      "iceberg_type": "decimal(15, 5)",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "LHS"
     },
     {
       "comment": "Flag to indicate if this result set was sourced from the pricing run (INTERVENTION=0) or the physical run(INTERVENTION=1). In the event there is not intervention in the market, both pricing and physical runs correspond to INTERVENTION=0)",
+      "first_release": "2018-12",
+      "iceberg_type": "decimal(2, 0)",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(2,0)",
       "name": "INTERVENTION"
     },
     {
       "comment": "DUID to which the Constraint is confidential. Null denotes non-confidential",
+      "first_release": "2018-12",
+      "iceberg_type": "string",
       "id": 13,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "DUID"
     }

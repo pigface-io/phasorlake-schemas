@@ -2,25 +2,37 @@
   "columns": [
     {
       "comment": "Instruction type",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "INSTRUCTIONTYPEID"
     },
     {
       "comment": "Subtype for each dispatch instruction type, for example governor off.",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "INSTRUCTIONSUBTYPEID"
     },
     {
       "comment": "Description of instruction subtype",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(64)",
       "name": "DESCRIPTION"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

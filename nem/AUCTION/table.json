@@ -2,55 +2,82 @@
   "columns": [
     {
       "comment": "Unique id for each auction date",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "AUCTIONID"
     },
     {
       "comment": "Auction date",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "AUCTIONDATE"
     },
     {
       "comment": null,
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "NOTIFYDATE"
     },
     {
       "comment": "Open date for bidding",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "STARTDATE"
     },
     {
       "comment": "Close date for bidding",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "ENDDATE"
     },
     {
       "comment": "Description of an auction",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(100)",
       "name": "DESCRIPTION"
     },
     {
       "comment": null,
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "AUTHORISEDDATE"
     },
     {
       "comment": null,
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "AUTHORISEDBY"
     },
     {
       "comment": null,
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

@@ -2,25 +2,37 @@
   "columns": [
     {
       "comment": "Trading Date of the end of the enablement",
+      "first_release": "2025-11",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "END_TRADINGDATE"
     },
     {
       "comment": "Primary Service type associated.",
+      "first_release": "2025-11",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(40)",
       "name": "ENABLEMENT_REASON"
     },
     {
       "comment": "Cost estimation for the service type.",
+      "first_release": "2025-11",
+      "iceberg_type": "decimal(18, 8)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "ESTIMATED_COSTS"
     },
     {
       "comment": "Last time record was changed.",
+      "first_release": "2025-11",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

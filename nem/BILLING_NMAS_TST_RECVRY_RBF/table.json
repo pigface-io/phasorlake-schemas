@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "AEMO Contract Year number starting in week containing 1 January",
+      "first_release": "2024-10",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4,0)",
       "name": "CONTRACTYEAR"
     },
     {
       "comment": "Week no within the contract year. Week no 1 is the week containing 1 January",
+      "first_release": "2024-10",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "WEEKNO"
     },
     {
       "comment": "The current Billing RunNo for the week",
+      "first_release": "2024-10",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "BILLRUNNO"
     },
     {
       "comment": "The type of NSCAS service. Current value values are:\n- REACTIVE\n- LOADSHED",
+      "first_release": "2024-10",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "SERVICE"
     },
     {
       "comment": "The NMAS Contract Id",
+      "first_release": "2024-10",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "CONTRACTID"
     },
     {
       "comment": "The region from where the amount is recovered",
+      "first_release": "2024-10",
+      "iceberg_type": "string",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "REGIONID"
     },
     {
       "comment": "The Benefitting Factor for the RegionId",
+      "first_release": "2024-10",
+      "iceberg_type": "decimal(18, 8)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "RBF"
     },
     {
       "comment": "The total Testing Payment Amount to recover from all benefitting regions",
+      "first_release": "2024-10",
+      "iceberg_type": "decimal(18, 8)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "PAYMENT_AMOUNT"
     },
     {
       "comment": "The Testing Payment amount to recover from RegionId",
+      "first_release": "2024-10",
+      "iceberg_type": "decimal(18, 8)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "RECOVERY_AMOUNT"
     },
     {
       "comment": "The Last Updated date and time",
+      "first_release": "2024-10",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

@@ -2,37 +2,55 @@
   "columns": [
     {
       "comment": "Unique Instruction Identifier",
+      "first_release": "2025-11",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "INSTRUCTION_ID"
     },
     {
       "comment": "Dispatchable Unit Identifier",
+      "first_release": "2025-11",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "DUID"
     },
     {
       "comment": "The first Dispatch Interval the unit is enabled for SSM Services.",
+      "first_release": "2025-11",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "ENABLEMENT_START_INTERVAL"
     },
     {
       "comment": "The last Dispatch Interval the unit is enabled for SSM Services.",
+      "first_release": "2025-11",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "ENABLEMENT_END_INTERVAL"
     },
     {
       "comment": "Reason for the enablement.",
+      "first_release": "2025-11",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(40)",
       "name": "ENABLEMENT_REASON"
     },
     {
       "comment": "Last time record was changed.",
+      "first_release": "2025-11",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

@@ -2,85 +2,127 @@
   "columns": [
     {
       "comment": "Unique identifier for this administered pricing event",
+      "first_release": "2009-11",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(22,0)",
       "name": "APEVENTID"
     },
     {
       "comment": "Date-Time of the first Dispatch Interval to which the administered event applies",
+      "first_release": "2009-11",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "REGIONID"
     },
     {
       "comment": "Date Time of the final Dispatch Interval to which the administered event applies",
+      "first_release": "2009-11",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "flag indicating if the apevent covers an energy AP",
+      "first_release": "2009-11",
+      "iceberg_type": "decimal(1, 0)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "ENERGYAPFLAG"
     },
     {
       "comment": "flag indicating if the apevent covers a raise6sec AP",
+      "first_release": "2009-11",
+      "iceberg_type": "decimal(1, 0)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "RAISE6SECAPFLAG"
     },
     {
       "comment": "flag indicating if the apevent covers a raise60sec AP",
+      "first_release": "2009-11",
+      "iceberg_type": "decimal(1, 0)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "RAISE60SECAPFLAG"
     },
     {
       "comment": "flag indicating if the apevent covers a raise5min AP",
+      "first_release": "2009-11",
+      "iceberg_type": "decimal(1, 0)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "RAISE5MINAPFLAG"
     },
     {
       "comment": "flag indicating if the apevent covers a raisereg AP",
+      "first_release": "2009-11",
+      "iceberg_type": "decimal(1, 0)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "RAISEREGAPFLAG"
     },
     {
       "comment": "flag indicating if the apevent covers a lower6sec AP",
+      "first_release": "2009-11",
+      "iceberg_type": "decimal(1, 0)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "LOWER6SECAPFLAG"
     },
     {
       "comment": "flag indicating if the apevent covers a lower60sec AP\nflag indicating if the apevent covers a lower5min AP\nflag indicating if the apevent covers a lowerreg AP\nflag indicating if the apevent covers a lower60sec AP",
+      "first_release": "2009-11",
+      "iceberg_type": "decimal(1, 0)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "LOWER60SECAPFLAG"
     },
     {
       "comment": "flag indicating if the apevent covers a lower5min AP",
+      "first_release": "2009-11",
+      "iceberg_type": "decimal(1, 0)",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "LOWER5MINAPFLAG"
     },
     {
       "comment": "flag indicating if the apevent covers a lowerreg AP",
+      "first_release": "2009-11",
+      "iceberg_type": "decimal(1, 0)",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "LOWERREGAPFLAG"
     },
     {
       "comment": "Flag indicating if the APEvent covers a Raise1Sec AP",
+      "first_release": "2024-05",
+      "iceberg_type": "decimal(3, 0)",
       "id": 13,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "RAISE1SECAPFLAG"
     },
     {
       "comment": "Flag indicating if the APEvent covers a Lower1Sec AP",
+      "first_release": "2024-05",
+      "iceberg_type": "decimal(3, 0)",
       "id": 14,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "LOWER1SECAPFLAG"
     }

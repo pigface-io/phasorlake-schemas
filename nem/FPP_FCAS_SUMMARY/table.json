@@ -2,103 +2,154 @@
   "columns": [
     {
       "comment": "The run date and time of the dispatch case that was the trigger for the constraint FCAS processor execution",
+      "first_release": "2024-12",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "The dispatch case run number that was the trigger for the constraint FCAS processor execution",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(5, 0)",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "RUNNO"
     },
     {
       "comment": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "first_release": "2024-12",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "The version number. In most cases this version will be the FPP run number from the FPP database, however there are some cases (like a new pricing run of the constraint FCAS processor received by the FPP system) where the version number listed here will be the financial estimate run number from the FPP database (this number is a different sequence from the FPP run number because there is no recalculation of performance or contribution, just changes to pricing / p regulation hence only the financial estimation is performed).",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(10, 0)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(10)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations, i.e. RAISEREG or LOWERREG)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "BIDTYPE"
     },
     {
       "comment": "Relevant regions (a comma separated list of the relevant regions for the constraint from FCAS data)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(200)",
       "name": "RELEVANT_REGIONS"
     },
     {
       "comment": "Enabled regulation MW used in the FPP calculation (from FPP database)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "REGULATION_MW"
     },
     {
       "comment": "Marginal value in AUD/MW per hour related to the constraint (from FCAS data used for FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "CONSTRAINT_MARGINAL_VALUE"
     },
     {
       "comment": "P regulation value in AUD/MW per hour related to the constraint (from FCAS data used for FPP calculations also known as adjusted marginal value)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "P_REGULATION"
     },
     {
       "comment": "Base cost in AUD related to the constraint (from FCAS data used for FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "BASE_COST"
     },
     {
       "comment": "TSFCAS in AUD related to the constraint (FCAS recovery amount related to the constraint also known as adjusted cost)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "TSFCAS"
     },
     {
       "comment": "Total amount of FPP in AUD changing hands related to the constraint (note that this is not the sum of FPP)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 13,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "TOTAL_FPP"
     },
     {
       "comment": "RCR MW (the calculated requirement for corrective response from FPP database). Note that this is a join back to the FPP_RCR table.",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 5)",
       "id": 14,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,5)",
       "name": "RCR"
     },
     {
       "comment": "Usage (calculation of the proportion of regulation FCAS that was calculated to be used). Note that this is a join back to the FPP_USAGE table.",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 15,
+      "last_release": "2025-03",
       "model_type": "NUMERIC(18,8)",
       "name": "USAGE"
     },
     {
       "comment": "Usage (calculation of the proportion of regulation FCAS that was calculated to be used). Note that this is a join back to the FPP_USAGE table.",
+      "first_release": "2025-04",
+      "iceberg_type": "decimal(18, 8)",
       "id": 16,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "USAGE_VALUE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2026-05",
+      "iceberg_type": "timestamptz",
       "id": 17,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

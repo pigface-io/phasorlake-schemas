@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "STPASA run, identified by the nominal start time of the run.",
+      "first_release": "2025-07",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "Half hour ended interval",
+      "first_release": "2025-07",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "NEM Dispatchable Unit Identifier",
+      "first_release": "2025-07",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "DUID"
     },
     {
       "comment": "Available Capacity for a scheduled generating unit, semi-scheduled generating unit, BDU (Gen side), WDR or MNSP.",
+      "first_release": "2025-07",
+      "iceberg_type": "decimal(12, 6)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,6)",
       "name": "GENERATION_MAX_AVAILABILITY"
     },
     {
       "comment": "PASA Availability for a scheduled generating unit, BDU (Gen side), WDR or MNSP. Null for a semi-scheduled generating unit.",
+      "first_release": "2025-07",
+      "iceberg_type": "decimal(12, 0)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,0)",
       "name": "GENERATION_PASA_AVAILABILITY"
     },
     {
       "comment": "Recall Period associated with the PASA Availability for a scheduled generating unit, BDU (Gen side), WDR or MNSP. Null for a semi-scheduled generating unit.",
+      "first_release": "2025-07",
+      "iceberg_type": "decimal(8, 3)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(8,3)",
       "name": "GENERATION_RECALL_PERIOD"
     },
     {
       "comment": "Available Capacity for a scheduled load or BDU(Load side).",
+      "first_release": "2025-07",
+      "iceberg_type": "decimal(12, 6)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,6)",
       "name": "LOAD_MAX_AVAILABILITY"
     },
     {
       "comment": "PASA Availability for a scheduled load or BDU(Load side).",
+      "first_release": "2025-07",
+      "iceberg_type": "decimal(12, 0)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,0)",
       "name": "LOAD_PASA_AVAILABILITY"
     },
     {
       "comment": "Recall Period associated with the PASA Availability for a scheduled load or BDU(Load side).",
+      "first_release": "2025-07",
+      "iceberg_type": "decimal(8, 3)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(8,3)",
       "name": "LOAD_RECALL_PERIOD"
     },
     {
       "comment": "Report Creation Date Time.",
+      "first_release": "2025-07",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

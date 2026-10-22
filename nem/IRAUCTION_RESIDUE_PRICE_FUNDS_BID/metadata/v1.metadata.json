@@ -1,0 +1,87 @@
+{
+  "current-schema-id": 0,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 8,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/IRAUCTION_RESIDUE_PRICE_FUNDS_BID",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CONTRACTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "INTERCONNECTORID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FROMREGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "UNITS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 5,
+          "name": "BIDPRICE",
+          "required": false,
+          "type": "decimal(12, 6)"
+        },
+        {
+          "id": 6,
+          "name": "LINKEDBIDFLAG",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 7,
+          "name": "AUCTIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "836215e6-4a21-8c52-9387-2098c444d2a0"
+}

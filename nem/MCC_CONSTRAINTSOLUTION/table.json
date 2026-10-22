@@ -2,25 +2,37 @@
   "columns": [
     {
       "comment": "5-minute Dispatch Run identifier",
+      "first_release": "2010-11",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "Generic Constraint identifier (synonymous with GenConID)",
+      "first_release": "2010-11",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "Generic Constraint RHS Value for this MCC run",
+      "first_release": "2010-11",
+      "iceberg_type": "decimal(15, 5)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "RHS"
     },
     {
       "comment": "Generic Constraint Marginal Value for this MCC run",
+      "first_release": "2010-11",
+      "iceberg_type": "decimal(15, 5)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "MARGINALVALUE"
     }

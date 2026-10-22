@@ -2,49 +2,73 @@
   "columns": [
     {
       "comment": "Billing contract year",
+      "first_release": "2011-10",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4)",
       "name": "CONTRACTYEAR"
     },
     {
       "comment": "Billing week no",
+      "first_release": "2011-10",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3)",
       "name": "WEEKNO"
     },
     {
       "comment": "Billing run no",
+      "first_release": "2011-10",
+      "iceberg_type": "decimal(3, 0)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3)",
       "name": "BILLRUNNO"
     },
     {
       "comment": "Settlement Date (Calendar)",
+      "first_release": "2011-10",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": "Region identifier",
+      "first_release": "2011-10",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "Total sent out energy for region (MWh)",
+      "first_release": "2011-10",
+      "iceberg_type": "decimal(18, 8)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "SENTOUTENERGY"
     },
     {
       "comment": "Total generator emissions for region (Co2-e)",
+      "first_release": "2011-10",
+      "iceberg_type": "decimal(18, 8)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "GENERATOREMISSIONS"
     },
     {
       "comment": "Carbon Dioxide Intensity index for region (CO2-e/MWh)",
+      "first_release": "2011-10",
+      "iceberg_type": "decimal(18, 16)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "INTENSITYINDEX"
     }

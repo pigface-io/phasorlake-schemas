@@ -2,25 +2,37 @@
   "columns": [
     {
       "comment": "Date Time the report was published.",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "PUBLISH_DATETIME"
     },
     {
       "comment": "First date of the report inclusive.",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "STARTDATE"
     },
     {
       "comment": "Last date of the report inclusive.",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "ENDDATE"
     },
     {
       "comment": "Date Time of the latest offer used in the report.",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LATEST_OFFER_DATETIME"
     }

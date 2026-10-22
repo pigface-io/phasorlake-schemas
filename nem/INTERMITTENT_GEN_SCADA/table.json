@@ -2,37 +2,55 @@
   "columns": [
     {
       "comment": "Date Time of the dispatch interval (interval ending)",
+      "first_release": "2024-12",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "Dispatchable Unit Identifier",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "DUID"
     },
     {
       "comment": "SCADA snapshot for intermittent generating unit at start of interval for a specified SCADA signal type. ELAV = Total Elements Available (# turbines for wind farms, # inverters for solar farms); LOCL = Local Limit (MW).",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "SCADA_TYPE"
     },
     {
       "comment": "SCADA value snapshot for intermittent generating unit at start of interval for a specified SCADA signal type.",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(15, 5)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "SCADA_VALUE"
     },
     {
       "comment": "SCADA quality snapshot for intermittent generating unit at start of interval for a specified SCADA signal type.",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "SCADA_QUALITY"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2024-12",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

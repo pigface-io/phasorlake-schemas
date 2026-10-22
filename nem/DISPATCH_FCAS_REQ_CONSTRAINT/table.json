@@ -2,97 +2,145 @@
   "columns": [
     {
       "comment": "The run date and time of the dispatch case that triggers the constraint FCAS processor run",
+      "first_release": "2024-12",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "The dispatch case run number that has triggers the constraint FCAS processor run",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(5, 0)",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "RUNNO"
     },
     {
       "comment": "The trading interval date and time of the dispatch interval that was processed by the constraint FCAS processor",
+      "first_release": "2024-12",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "ConstraintID join to table GenConData",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "Region identifier",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "DUID offered type",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "BIDTYPE"
     },
     {
       "comment": "Constraints summed LHS - aggregate LHS Solution values from the physical run from the DISPATCHCONSTRAINT table",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(15, 5)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "LHS"
     },
     {
       "comment": "Constraints RHS value used in the solution - may be either dynamic (calculated) or static from the physical run from the DISPATCHCONSTRAINT table",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(15, 5)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "RHS"
     },
     {
       "comment": "Shadow price of constraint from the DISPATCHCONSTRAINT table from the physical run.",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(15, 5)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "MARGINALVALUE"
     },
     {
       "comment": "Bid type prices for the region coming from the pricing run of the DISPATCHREGIONSUM table",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(15, 5)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "RRP"
     },
     {
       "comment": "The dispatched MW for the bid type inside the region from the physical run of the DISPATCHREGIONSUM table",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(15, 5)",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "REGIONAL_ENABLEMENT"
     },
     {
       "comment": "MW enabled for this bid type within the constraint",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(15, 5)",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "CONSTRAINT_ENABLEMENT"
     },
     {
       "comment": "The regional payment allocated to the constraint for the interval pro-rated based on marginal value ratios over the binding constraints for that service in that region (this is an intermediate calculation to get to the base cost)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 13,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "REGION_BASE_COST"
     },
     {
       "comment": "The base cost of the constraint, before the regulation/contingency split",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 14,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "BASE_COST"
     },
     {
       "comment": "The adjusted cost of the constraint for this service, after the regulation/contingency split",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 15,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "ADJUSTED_COST"
     },
     {
       "comment": "The adjusted marginal value of the constraint for FPP recovery (blank for constraints without REG terms)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 16,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "P_REGULATION"
     }

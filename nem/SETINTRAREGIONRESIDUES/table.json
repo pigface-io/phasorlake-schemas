@@ -2,73 +2,109 @@
   "columns": [
     {
       "comment": "Settlement Date",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": "Settlement run number",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3)",
       "name": "RUNNO"
     },
     {
       "comment": "Settlements Trading Interval.",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3)",
       "name": "PERIODID"
     },
     {
       "comment": "Region Identifier",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "REGIONID"
     },
     {
       "comment": "Energy payments to generators. NULL for Settlement dates post the IESS rule effective date",
+      "first_release": "2009-07",
+      "iceberg_type": "double",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "EP"
     },
     {
       "comment": "Energy purchased by customers. NULL for Settlement dates post the IESS rule effective date",
+      "first_release": "2009-07",
+      "iceberg_type": "double",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "EC"
     },
     {
       "comment": "Regional price",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 8)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "RRP"
     },
     {
       "comment": "Net import in MWh into the region calculated at the regional reference node (export is negative)",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 8)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "EXP"
     },
     {
       "comment": "Intra-regional surplus (a negative sign indicates surplus, and a positive sign indicates a deficiency)",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 8)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "IRSS"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "The Adjusted Consumed Energy Dollar Amount for the Region used in the calculation of IRSS (Intra Residue Amount). NULL for Settlement dates prior to the IESS rule effective date",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "ACE_AMOUNT"
     },
     {
       "comment": "The Adjusted Sent Out Energy Dollar Amount for the Region used in the calculation of IRSS (Intra Residue Amount). NULL for Settlement dates prior to the IESS rule effective date",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "ASOE_AMOUNT"
     }

@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "AEMO Contract Year number starting in week containing 1st January",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4,0)",
       "name": "CONTRACTYEAR"
     },
     {
       "comment": "Week no within the contract year. Week no 1 is the week containing 1st January",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "WEEKNO"
     },
     {
       "comment": "Unique run no within a given contract year and week no",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "BILLRUNNO"
     },
     {
       "comment": "Unique region identifier",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "REGIONID"
     },
     {
       "comment": "Region energy imported from",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "IMPORTFROM"
     },
     {
       "comment": "Amount of energy imported",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(16, 8)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(16,6)",
       "name": "ENERGY"
     },
     {
       "comment": "Value of energy imported",
+      "first_release": "2009-07",
+      "iceberg_type": "double",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "VALUE"
     },
     {
       "comment": "Populated with 0",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(16, 8)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(16,6)",
       "name": "SURPLUSENERGY"
     },
     {
       "comment": "Interregional residue",
+      "first_release": "2009-07",
+      "iceberg_type": "double",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "SURPLUSVALUE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

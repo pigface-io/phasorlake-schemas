@@ -1,0 +1,462 @@
+{
+  "current-schema-id": 1,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 39,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_REGIONRESULT",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUN_NO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "RUNTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "DEMAND_POE_TYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "DAY",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 8,
+          "name": "DEMAND",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 9,
+          "name": "AGGREGATEINSTALLEDCAPACITY",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 10,
+          "name": "NUMBEROFITERATIONS",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 11,
+          "name": "USE_NUMBEROFITERATIONS",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 12,
+          "name": "USE_MAX",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 13,
+          "name": "USE_UPPERQUARTILE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 14,
+          "name": "USE_MEDIAN",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 15,
+          "name": "USE_LOWERQUARTILE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 16,
+          "name": "USE_MIN",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 17,
+          "name": "USE_AVERAGE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 18,
+          "name": "USE_EVENT_AVERAGE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 19,
+          "name": "TOTALSCHEDULEDGEN90",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 20,
+          "name": "TOTALSCHEDULEDGEN50",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 21,
+          "name": "TOTALSCHEDULEDGEN10",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 22,
+          "name": "TOTALINTERMITTENTGEN90",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 23,
+          "name": "TOTALINTERMITTENTGEN50",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 24,
+          "name": "TOTALINTERMITTENTGEN10",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 25,
+          "name": "DEMANDSIDEPARTICIPATION90",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 26,
+          "name": "DEMANDSIDEPARTICIPATION50",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 27,
+          "name": "DEMANDSIDEPARTICIPATION10",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 28,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 29,
+          "name": "TOTALSEMISCHEDULEDGEN90",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 30,
+          "name": "TOTALSEMISCHEDULEDGEN50",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 31,
+          "name": "TOTALSEMISCHEDULEDGEN10",
+          "required": false,
+          "type": "decimal(6, 2)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUN_NO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "RUNTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "DEMAND_POE_TYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "DAY",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 8,
+          "name": "DEMAND",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 9,
+          "name": "AGGREGATEINSTALLEDCAPACITY",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 10,
+          "name": "NUMBEROFITERATIONS",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 11,
+          "name": "USE_NUMBEROFITERATIONS",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 12,
+          "name": "USE_MAX",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 13,
+          "name": "USE_UPPERQUARTILE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 14,
+          "name": "USE_MEDIAN",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 15,
+          "name": "USE_LOWERQUARTILE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 16,
+          "name": "USE_MIN",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 17,
+          "name": "USE_AVERAGE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 18,
+          "name": "USE_EVENT_AVERAGE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 19,
+          "name": "TOTALSCHEDULEDGEN90",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 20,
+          "name": "TOTALSCHEDULEDGEN50",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 21,
+          "name": "TOTALSCHEDULEDGEN10",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 22,
+          "name": "TOTALINTERMITTENTGEN90",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 23,
+          "name": "TOTALINTERMITTENTGEN50",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 24,
+          "name": "TOTALINTERMITTENTGEN10",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 25,
+          "name": "DEMANDSIDEPARTICIPATION90",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 26,
+          "name": "DEMANDSIDEPARTICIPATION50",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 27,
+          "name": "DEMANDSIDEPARTICIPATION10",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 28,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 32,
+          "name": "TOTALSEMISCHEDULEGEN90",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 33,
+          "name": "TOTALSEMISCHEDULEGEN50",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 34,
+          "name": "TOTALSEMISCHEDULEGEN10",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 35,
+          "name": "TOTALAVAILABLEGENMIN",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 36,
+          "name": "TOTALAVAILABLEGEN10",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 37,
+          "name": "TOTALAVAILABLEGEN50",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 38,
+          "name": "TOTALAVAILABLEGEN90",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 39,
+          "name": "TOTALAVAILABLEGENMAX",
+          "required": false,
+          "type": "decimal(12, 2)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "80da8c25-2dd0-87c0-a1d3-f8c79c3db144"
+}

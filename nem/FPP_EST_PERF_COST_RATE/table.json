@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "first_release": "2024-12",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "The version number. In most cases this version will be the FPP run number from the FPP database, however there are some cases (like a new pricing run of the constraint FCAS processor received by the FPP system) where the version number listed here will be the financial estimate run number from the FPP database (this number is a different sequence from the FPP run number because there is no recalculation of performance or contribution, just changes to pricing / p regulation hence only the financial estimation is performed).",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(10, 0)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(10)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "BIDTYPE"
     },
     {
       "comment": "Relevant regions (a comma separated list of the relevant regions for the constraint from FCAS data)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(200)",
       "name": "RELEVANT_REGIONS"
     },
     {
       "comment": "The payment rate for FPP in AUD / MWHz (the denominator used is the sum of positive performance for the constraint calculated by contribution factor calculation). This value will be either 0 (nil), or a positive value (credit) only. For details on the calculation, please see FPP procedure and supporting documentation.",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "FPP_PAYMENT_RATE"
     },
     {
       "comment": "The recovery rate for FPP in AUD / MWHz (the denominator used is the absolute sum of negative performance for the constraint calculated by the contribution factor calculation). This value will be either 0 (nil), or a negative value (debit) only. For details on the calculation, please see FPP procedure and supporting documentation.",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "FPP_RECOVERY_RATE"
     },
     {
       "comment": "The rate for used FCAS in AUD / MWHz (the denominator used is the absolute sum of negative performance for the constraint calculated by the negative contribution factor calculation). This value will be either 0 (nil), or a negative value (debit) only. For details on the calculation, please see FPP procedure and supporting documentation.",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "USED_FCAS_RATE"
     },
     {
       "comment": "The rate for unused FCAS in AUD / MWHz (the denominator used is the absolute sum of negative performance for the constraint calculated by the default contribution factor calculation). This value will be either 0 (nil), or a negative value (debit) only. For details on the calculation, please see FPP procedure and supporting documentation.",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "UNUSED_FCAS_RATE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2026-05",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

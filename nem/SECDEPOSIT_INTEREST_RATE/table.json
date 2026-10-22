@@ -2,25 +2,37 @@
   "columns": [
     {
       "comment": "The interest account ID for calculating the interest payment",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "INTEREST_ACCT_ID"
     },
     {
       "comment": "The effective date of the interest rate change",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": "Date Time this record was added",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "VERSION_DATETIME"
     },
     {
       "comment": "The interest rate for the interest account ID as on the effective date.",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "INTEREST_RATE"
     }

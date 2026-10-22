@@ -2,37 +2,55 @@
   "columns": [
     {
       "comment": "AEMO Contract Year number starting in week containing 1 January",
+      "first_release": "2024-12",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(4,0)",
       "name": "CONTRACTYEAR"
     },
     {
       "comment": "Week no within the contract year. Week no 1 is the week containing 1 January",
+      "first_release": "2024-12",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(3,0)",
       "name": "WEEKNO"
     },
     {
       "comment": "The current Billing RunNo for the week",
+      "first_release": "2024-12",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(3,0)",
       "name": "BILLRUNNO"
     },
     {
       "comment": "AEMO Contract Year for energy data used in recovery calculation",
+      "first_release": "2024-12",
+      "iceberg_type": "long",
       "id": 4,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(4,0)",
       "name": "RECOVERY_CONTRACTYEAR"
     },
     {
       "comment": "Week no for energy data used in recovery calculation",
+      "first_release": "2024-12",
+      "iceberg_type": "long",
       "id": 5,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(3,0)",
       "name": "RECOVERY_WEEKNO"
     },
     {
       "comment": "Billing RunNo for energy data used in recovery calculation",
+      "first_release": "2024-12",
+      "iceberg_type": "long",
       "id": 6,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(3,0)",
       "name": "RECOVERY_BILLRUNNO"
     }

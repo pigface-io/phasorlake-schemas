@@ -2,55 +2,82 @@
   "columns": [
     {
       "comment": "Unique identifier for this administered pricing event",
+      "first_release": "2009-11",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(22,0)",
       "name": "APEVENTID"
     },
     {
       "comment": "Date Time of the first Dispatch Interval to which the administered event applies",
+      "first_release": "2009-11",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEFROMINTERVAL"
     },
     {
       "comment": "Date Time of the final Dispatch Interval to which the administered event applies",
+      "first_release": "2009-11",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVETOINTERVAL"
     },
     {
       "comment": "Description of the driver for the Event",
+      "first_release": "2009-11",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(2000)",
       "name": "REASON"
     },
     {
       "comment": "Authorising staff for start of AP event",
+      "first_release": "2009-11",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(15)",
       "name": "STARTAUTHORISEDBY"
     },
     {
       "comment": "Date-Time start authorised",
+      "first_release": "2009-11",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "STARTAUTHORISEDDATE"
     },
     {
       "comment": "Authorising staff for end of AP event",
+      "first_release": "2009-11",
+      "iceberg_type": "string",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(15)",
       "name": "ENDAUTHORISEDBY"
     },
     {
       "comment": "Date Time end authorised",
+      "first_release": "2009-11",
+      "iceberg_type": "timestamptz",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "ENDAUTHORISEDDATE"
     },
     {
       "comment": "Date-Time the record was last modified",
+      "first_release": "2009-11",
+      "iceberg_type": "timestamptz",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

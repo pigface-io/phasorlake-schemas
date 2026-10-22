@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "SRA Contracted Year",
+      "first_release": "2009-09",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4,0)",
       "name": "CONTRACTYEAR"
     },
     {
       "comment": "SRA Contracted Quarter",
+      "first_release": "2009-09",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "QUARTER"
     },
     {
       "comment": "Version of data for other key data - a higher version for same key data will take precedence",
+      "first_release": "2009-09",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Label identifying the arbitrary segmented share of the Interconnector flow",
+      "first_release": "2009-09",
+      "iceberg_type": "long",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(2,0)",
       "name": "TRANCHE"
     },
     {
       "comment": "Default date of the auction",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "AUCTIONDATE"
     },
     {
       "comment": "Default date participants notified of details",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "NOTIFYDATE"
     },
     {
       "comment": "Percentage of units allocated to the tranche",
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(18, 8)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "UNITALLOCATION"
     },
     {
       "comment": "Date of changing this record",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "CHANGEDATE"
     },
     {
       "comment": "Name of person who changed this record",
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(15)",
       "name": "CHANGEDBY"
     },
     {
       "comment": "Date and time record was last changed",
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

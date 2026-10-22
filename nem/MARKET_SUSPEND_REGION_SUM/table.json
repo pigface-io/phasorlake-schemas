@@ -2,37 +2,55 @@
   "columns": [
     {
       "comment": "Unique identifier for this suspension event",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(13, 1)",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "SUSPENSION_ID"
     },
     {
       "comment": "Region(s) covered by the Suspension event",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "Initial interval of the Suspension event",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INITIAL_INTERVAL"
     },
     {
       "comment": "Last Dispatch interval for the Suspension event for this Region",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "END_REGION_INTERVAL"
     },
     {
       "comment": "Last Dispatch interval for the Suspension event",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "END_SUSPENSION_INTERVAL"
     },
     {
       "comment": "Last DateTime the Suspension was administered",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

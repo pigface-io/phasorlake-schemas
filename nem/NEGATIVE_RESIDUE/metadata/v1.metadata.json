@@ -1,0 +1,240 @@
+{
+  "current-schema-id": 1,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 16,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/NEGATIVE_RESIDUE",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "NRM_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "DIRECTIONAL_INTERCONNECTORID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "NRM_ACTIVATED_FLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "CUMUL_NEGRESIDUE_AMOUNT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "CUMUL_NEGRESIDUE_PREV_TI",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "NEGRESIDUE_CURRENT_TI",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "NEGRESIDUE_PD_NEXT_TI",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "PRICE_REVISION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 11,
+          "name": "EVENT_ACTIVATED_DI",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "EVENT_DEACTIVATED_DI",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "DI_NOTBINDING_COUNT",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 14,
+          "name": "DI_VIOLATED_COUNT",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 15,
+          "name": "NRMCONSTRAINT_BLOCKED_FLAG",
+          "required": false,
+          "type": "long"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "NRM_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "DIRECTIONAL_INTERCONNECTORID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "NRM_ACTIVATED_FLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "CUMUL_NEGRESIDUE_AMOUNT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "CUMUL_NEGRESIDUE_PREV_TI",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "NEGRESIDUE_CURRENT_TI",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "NEGRESIDUE_PD_NEXT_TI",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "PRICE_REVISION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 11,
+          "name": "EVENT_ACTIVATED_DI",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "EVENT_DEACTIVATED_DI",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "DI_NOTBINDING_COUNT",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 14,
+          "name": "DI_VIOLATED_COUNT",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 15,
+          "name": "NRMCONSTRAINT_BLOCKED_FLAG",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 16,
+          "name": "NRM_LOOP_FLAG",
+          "required": false,
+          "type": "long"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "5a8afc6d-3af0-88d3-9478-64dd42ac7cf3"
+}

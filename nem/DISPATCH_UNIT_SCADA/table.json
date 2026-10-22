@@ -2,25 +2,37 @@
   "columns": [
     {
       "comment": "Date Time of the Dispatch Interval",
+      "first_release": "2010-11",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": "Dispatchable Unit Identifier",
+      "first_release": "2010-11",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "DUID"
     },
     {
       "comment": "Instantaneous MW reading from SCADA at the start of the Dispatch interval",
+      "first_release": "2010-11",
+      "iceberg_type": "decimal(16, 6)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(16,6)",
       "name": "SCADAVALUE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2024-10",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

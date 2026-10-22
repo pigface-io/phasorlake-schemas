@@ -2,91 +2,136 @@
   "columns": [
     {
       "comment": "Date processing of the run begins.",
+      "first_release": "2018-05",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "Unique run id.",
+      "first_release": "2018-05",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4)",
       "name": "RUN_NO"
     },
     {
       "comment": "Type of run. Always RELIABILITY",
+      "first_release": "2018-05",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "RUNTYPE"
     },
     {
       "comment": "Demand POE type used. Value is POE10",
+      "first_release": "2018-05",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "DEMAND_POE_TYPE"
     },
     {
       "comment": "Day this result is for",
+      "first_release": "2018-05",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "DAY"
     },
     {
       "comment": "The unique identifier for the interconnector",
+      "first_release": "2018-05",
+      "iceberg_type": "string",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "INTERCONNECTORID"
     },
     {
       "comment": "Half hourly period reported, selected as period of maximum NEM scheduled demand (calculated as maximum of scheduled demands, averaged across iterations and reference years)",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(3, 0)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "PERIODID"
     },
     {
       "comment": "The 90th percentile for flows, across iterations and reference years. Positive values indicate exporting, negative values indicate importing (MW)",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(12, 2)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "FLOW90"
     },
     {
       "comment": "The 50th percentile for flows, across iterations and reference years. Positive values indicate exporting, negative values indicate importing (MW)",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(12, 2)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "FLOW50"
     },
     {
       "comment": "The 10th percentile for flows, across iterations and reference years. Positive values indicate exporting, negative values indicate importing (MW)",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(12, 2)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "FLOW10"
     },
     {
       "comment": "Proportion of iterations and reference years with interconnector constrained when exporting",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(8, 5)",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(8,5)",
       "name": "PROBABILITYOFBINDINGEXPORT"
     },
     {
       "comment": "Proportion of iterations and reference years with interconnector constrained when importing",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(8, 5)",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(8,5)",
       "name": "PROBABILITYOFBINDINGIMPORT"
     },
     {
       "comment": "Calculated Interconnector limit of exporting energy on the basis of invoked constraints and static interconnector export limit, averaged across iterations and reference years",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(12, 2)",
       "id": 13,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "CALCULATEDEXPORTLIMIT"
     },
     {
       "comment": "Calculated Interconnector limit of importing energy on the basis of invoked constraints and static interconnector import limit, averaged across iterations and reference years",
+      "first_release": "2018-05",
+      "iceberg_type": "decimal(12, 2)",
       "id": 14,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "CALCULATEDIMPORTLIMIT"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2018-05",
+      "iceberg_type": "timestamptz",
       "id": 15,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

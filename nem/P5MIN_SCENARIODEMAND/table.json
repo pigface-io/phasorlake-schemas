@@ -2,31 +2,46 @@
   "columns": [
     {
       "comment": "The effective date of this set of scenarios",
+      "first_release": "2021-06",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": "The version of this set of scenarios",
+      "first_release": "2021-06",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "VERSION_DATETIME"
     },
     {
       "comment": "The scenario identifier",
+      "first_release": "2021-06",
+      "iceberg_type": "decimal(2, 0)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(2,0)",
       "name": "SCENARIO"
     },
     {
       "comment": "The region to which to apply the deltaMW for this SCENARIO",
+      "first_release": "2021-06",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "The MW offset to apply to region total demand for this SCENARIO",
+      "first_release": "2021-06",
+      "iceberg_type": "decimal(4, 0)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4,0)",
       "name": "DELTAMW"
     }

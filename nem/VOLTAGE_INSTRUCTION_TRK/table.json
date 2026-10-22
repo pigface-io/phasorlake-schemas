@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "MVAr Interval - a timestamp of when instructions issued",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "Either 'SIGNAL' (childless) or 'INSTRUCTION'",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "FILE_TYPE"
     },
     {
       "comment": "Datetime the file was published by VDS - Versions differ from Run_DateTime only for Supplemental runs",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "VERSION_DATETIME"
     },
     {
       "comment": "State Estimator start time, when a snapshot is taken of SCADA values",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "SE_DATETIME"
     },
     {
       "comment": "VDS solver solution category. Valid values: SUCCESS, WARNING, FAILURE",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(60)",
       "name": "SOLUTION_CATEGORY"
     },
     {
       "comment": "VDS solver solution status. Valid values: NOACTCNV [Solved with no instructions], NOVIOACT, CONVERGE, UNMANAGE, UNMANCTG, CTGDIV, SENHDIV [Failed with too many violations], BCDIV",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(60)",
       "name": "SOLUTION_STATUS"
     },
     {
       "comment": "The current VDS operating mode. Valid values: AUTO, AUTO-VERFIED, MANUAL",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(60)",
       "name": "OPERATING_MODE"
     },
     {
       "comment": "Unstructured code and message from AEMO",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(100)",
       "name": "OPERATING_STATUS"
     },
     {
       "comment": "Estimated expiry time of current Instruction set",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EST_EXPIRY"
     },
     {
       "comment": "Estimated issue time of next Instruction set",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EST_NEXT_INSTRUCTION"
     }

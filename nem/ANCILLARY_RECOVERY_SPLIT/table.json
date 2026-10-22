@@ -2,43 +2,64 @@
   "columns": [
     {
       "comment": "Calendar settlement date record becomes effective.",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": "Version number of the record for the given date.",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Ancillary service name (e.g. AGC, FCASCOMP)",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "SERVICE"
     },
     {
       "comment": "A payment type associated with the service (can be ENABLING, AVAILABILITY, USAGE, or COMPENSATION).",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "PAYMENTTYPE"
     },
     {
       "comment": "The percentage value of the recovery funded by market customers.",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(8, 5)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(8,5)",
       "name": "CUSTOMER_PORTION"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "The percentage value of the recovery funded using the ACE MWh Values. This field is only used for Settlement post IESS rule effective date.",
+      "first_release": "2024-05",
+      "iceberg_type": "decimal(18, 8)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "ACE_PORTION"
     }

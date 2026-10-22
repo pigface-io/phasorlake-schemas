@@ -2,55 +2,82 @@
   "columns": [
     {
       "comment": "Year of the Tranche",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4)",
       "name": "SRA_YEAR"
     },
     {
       "comment": "Relevant Quarter of the Tranche",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3)",
       "name": "SRA_QUARTER"
     },
     {
       "comment": "SRA Run Number",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3)",
       "name": "SRA_RUNNO"
     },
     {
       "comment": "The type of SRA run",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "RUNTYPE"
     },
     {
       "comment": "The date and time the run was triggered",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUNDATE"
     },
     {
       "comment": "The date/time the run was posted",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "POSTEDDATE"
     },
     {
       "comment": "Version number of the interest component used in the payments run",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3)",
       "name": "INTEREST_VERSIONNO"
     },
     {
       "comment": "Version number of the makeup component used in the makeup run",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3)",
       "name": "MAKEUP_VERSIONNO"
     },
     {
       "comment": "The date and time this record was last modified",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

@@ -2,43 +2,64 @@
   "columns": [
     {
       "comment": "Case Identifier",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,0)",
       "name": "CASE_ID"
     },
     {
       "comment": "Settlement date within the case",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": "Interconnector Identifier",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "INTERCONNECTORID"
     },
     {
       "comment": "Trading Interval.",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "PERIODID"
     },
     {
       "comment": "The import direction value for the meter read (MWh)",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "IMPORTVALUE"
     },
     {
       "comment": "The export direction value for the meter read (MWh)",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "EXPORTVALUE"
     },
     {
       "comment": "Last changed date for the record",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

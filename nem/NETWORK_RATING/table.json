@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "ID defining this data source for use in constraints",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(21)",
       "name": "SPD_ID"
     },
     {
       "comment": "The date that this record is applies from (inclusive)",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "VALIDFROM"
     },
     {
       "comment": "The date that this record applies until (exclusive)",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "VALIDTO"
     },
     {
       "comment": "The region that this rating is for",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "REGIONID"
     },
     {
       "comment": "The substation the equipment is located at",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "SUBSTATIONID"
     },
     {
       "comment": "The type of equipment. Valid values are:\nLINE = Line\nTRANS = Transformer\nCB = Circuit breaker\nISOL = Isolator\nCAP = Capacitor\nREAC = Reactor\nUNIT = Unit",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "EQUIPMENTTYPE"
     },
     {
       "comment": "A unique identifier for this equipment at this substation, and based on its type",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "EQUIPMENTID"
     },
     {
       "comment": "The rating level of the value used, one of:\nNORM = Continuous rating value. Applied under pre-contingent conditions.\nEMER = Continuous rating value. Applied under pre-contingent conditions\nLDSH = Load Shedding",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "RATINGLEVEL"
     },
     {
       "comment": "One of:\n1 = Normally uses dynamic ratings\n0 = No dynamic ratings, static ratings are used",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(1, 0)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "ISDYNAMIC"
     },
     {
       "comment": "The time that this record was last changed",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

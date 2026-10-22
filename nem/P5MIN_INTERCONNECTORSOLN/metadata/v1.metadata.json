@@ -1,0 +1,407 @@
+{
+  "current-schema-id": 2,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 22,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/P5MIN_INTERCONNECTORSOLN",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "INTERCONNECTORID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "METEREDMWFLOW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 5,
+          "name": "MWFLOW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "MWLOSSES",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "MNSP",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 10,
+          "name": "EXPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "IMPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "MARGINALLOSS",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "EXPORTGENCONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "IMPORTGENCONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "FCASEXPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "FCASIMPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 18,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 2,
+          "name": "INTERCONNECTORID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "METEREDMWFLOW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 5,
+          "name": "MWFLOW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "MWLOSSES",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "MNSP",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 10,
+          "name": "EXPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "IMPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "MARGINALLOSS",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "EXPORTGENCONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "IMPORTGENCONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "FCASEXPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "FCASIMPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "INTERCONNECTORID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "METEREDMWFLOW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 5,
+          "name": "MWFLOW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "MWLOSSES",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "MNSP",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 10,
+          "name": "EXPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "IMPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "MARGINALLOSS",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "EXPORTGENCONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "IMPORTGENCONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "FCASEXPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "FCASIMPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 19,
+          "name": "LOCAL_PRICE_ADJUSTMENT_EXPORT",
+          "required": false,
+          "type": "decimal(10, 2)"
+        },
+        {
+          "id": 20,
+          "name": "LOCALLY_CONSTRAINED_EXPORT",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 21,
+          "name": "LOCAL_PRICE_ADJUSTMENT_IMPORT",
+          "required": false,
+          "type": "decimal(10, 2)"
+        },
+        {
+          "id": 22,
+          "name": "LOCALLY_CONSTRAINED_IMPORT",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 18,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 2,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "a20cdbe5-d9aa-8761-9bef-d0cc8848136d"
+}

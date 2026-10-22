@@ -2,49 +2,73 @@
   "columns": [
     {
       "comment": "Calendar date that this record becomes effective",
+      "first_release": "2009-11",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": "version no for the effective date",
+      "first_release": "2009-11",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4,0)",
       "name": "VERSIONNO"
     },
     {
       "comment": "value of lost load if total supply falls short of demand after load management then involuntary load",
+      "first_release": "2009-11",
+      "iceberg_type": "decimal(15, 5)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "VOLL"
     },
     {
       "comment": "The floor price that the spot market price will not fall below.",
+      "first_release": "2009-11",
+      "iceberg_type": "decimal(15, 5)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "MARKETPRICEFLOOR"
     },
     {
       "comment": "Threshold value beyond which Aggregate Prices per Region over 336 Trade Intervals (Energy), or 2016 Dispatch Intervals (FCAS), will result in an Administered Price declaration",
+      "first_release": "2009-11",
+      "iceberg_type": "decimal(15, 5)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "ADMINISTERED_PRICE_THRESHOLD"
     },
     {
       "comment": "date data authorised",
+      "first_release": "2009-11",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "AUTHORISEDDATE"
     },
     {
       "comment": "user authorising",
+      "first_release": "2009-11",
+      "iceberg_type": "string",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(15)",
       "name": "AUTHORISEDBY"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-11",
+      "iceberg_type": "timestamptz",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

@@ -2,13 +2,19 @@
   "columns": [
     {
       "comment": null,
+      "first_release": "2025-02",
+      "iceberg_type": "decimal(10, 0)",
       "id": 1,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "PREDISPATCHSEQNO"
     },
     {
       "comment": null,
+      "first_release": "2025-02",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "CONSTRAINTID"
     }

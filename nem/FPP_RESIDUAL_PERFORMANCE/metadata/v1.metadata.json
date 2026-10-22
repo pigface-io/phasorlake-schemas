@@ -1,0 +1,136 @@
+{
+  "current-schema-id": 1,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 8,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/FPP_RESIDUAL_PERFORMANCE",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 4,
+          "name": "RAISE_PERFORMANCE",
+          "required": false,
+          "type": "decimal(18, 5)"
+        },
+        {
+          "id": 5,
+          "name": "RAISE_REASON_FLAG",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 6,
+          "name": "LOWER_PERFORMANCE",
+          "required": false,
+          "type": "decimal(18, 5)"
+        },
+        {
+          "id": 7,
+          "name": "LOWER_REASON_FLAG",
+          "required": false,
+          "type": "decimal(5, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 4,
+          "name": "RAISE_PERFORMANCE",
+          "required": false,
+          "type": "decimal(18, 5)"
+        },
+        {
+          "id": 5,
+          "name": "RAISE_REASON_FLAG",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 6,
+          "name": "LOWER_PERFORMANCE",
+          "required": false,
+          "type": "decimal(18, 5)"
+        },
+        {
+          "id": 7,
+          "name": "LOWER_REASON_FLAG",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 8,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "97e2db05-9ee1-82f8-ae66-fe29e4ebaa06"
+}

@@ -2,31 +2,46 @@
   "columns": [
     {
       "comment": "Trading Day for which this unit availability submission applies",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "TRADINGDATE"
     },
     {
       "comment": "Unique Identifier of Dispatchable Unit",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "DUID"
     },
     {
       "comment": "Date and Time when this unit availability submission was loaded",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "OFFERDATETIME"
     },
     {
       "comment": "Trading interval number (1...48) within this TRADINGDATE for which UPPERMWLIMIT applies",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "PERIODID"
     },
     {
       "comment": "Maximum imposed MW limit (down regulation in AWEFS/ASEFS). Value between 0 and the registered DUID Maximum Capacity. Value = -1 means no limit applies.",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(6, 0)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(6)",
       "name": "UPPERMWLIMIT"
     }

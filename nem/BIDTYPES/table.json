@@ -2,55 +2,82 @@
   "columns": [
     {
       "comment": "Bid Type Identifier",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "BIDTYPE"
     },
     {
       "comment": "Market date starting at 04:30 inclusive",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": "Record version number",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Description of this Bid Type",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(64)",
       "name": "DESCRIPTION"
     },
     {
       "comment": "Number of active bands (1 to 10)",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(3, 0)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "NUMBEROFBANDS"
     },
     {
       "comment": "Number of days prior to the Market Day when prices are locked from 12:30pm",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(2, 0)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(2,0)",
       "name": "NUMDAYSAHEADPRICELOCKED"
     },
     {
       "comment": "ENERGY or AS validation rules to apply.",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "VALIDATIONRULE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "Alias for this BIDTYPE used in the SPD Solver",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "SPDALIAS"
     }

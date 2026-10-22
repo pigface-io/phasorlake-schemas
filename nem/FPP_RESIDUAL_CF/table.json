@@ -2,73 +2,109 @@
   "columns": [
     {
       "comment": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "first_release": "2024-12",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "Version (FPP run number from the FPP database)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(5, 0)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "BIDTYPE"
     },
     {
       "comment": "Residual Contribution Factor (the calculated residual contribution factor for the constraint ID for that trading interval) - for further details please see the FPP procedure document",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "RESIDUAL_CF"
     },
     {
       "comment": "Negative Residual Contribution Factor (the calculated negative residual contribution factor for the constraint ID for that trading interval) - for further details please see the FPP procedure document",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "NEGATIVE_RESIDUAL_CF"
     },
     {
       "comment": "The Residual Default Contribution Factor (the calculated residual default contribution factor based on historical performance for the constraint ID for that trading interval) that is effective for this trading interval, which joins back to FPP_FORECAST_RESIDUAL_DCF - for further details please see the FPP procedure document",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "RESIDUAL_DCF"
     },
     {
       "comment": "The reason flag showing the decision matrix for the residual contribution factor (CF) Supported values are: 0 = CF is calculated based on good input data 8 = CF is 0 because FM is unreliable. 16 = CF is 0 because more than 50 percent input is bad or not available.",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(5, 0)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "RESIDUAL_CF_REASON_FLAG"
     },
     {
       "comment": "The sum of absolute positive performance in MWHz for the combination of constraint / bid type (raise or lower). This is used as the denominator in normalising contribution factors (CF) where a units performance is positive. For further details please see the FPP procedure document. >0 = Performance was calculated for the units NULL = Performance for the units was unavailable",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "CF_ABS_POSITIVE_PERF_TOTAL"
     },
     {
       "comment": "The sum of absolute negative performance in MWHz for the combination of constraint / bid type (raise or lower). This is used as the denominator in normalising contribution factors (CF) where a units performance is negative. For further details please see the FPP procedure document. >0 = Performance was calculated for the units NULL = Performance for the units was unavailable",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "CF_ABS_NEGATIVE_PERF_TOTAL"
     },
     {
       "comment": "The sum of absolute negative performance in MWHz for the combination of constraint / bid type (raise or lower). This is used as the denominator in normalising negative contribution factors (NCF). For further details please see the FPP procedure document. >0 = Performance was calculated for the units NULL = Performance for the units was unavailable 0 = When NCF is zero (i.e. CF is positive), then this total will be represented as zero",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "NCF_ABS_NEGATIVE_PERF_TOTAL"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2026-05",
+      "iceberg_type": "timestamptz",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

@@ -2,91 +2,136 @@
   "columns": [
     {
       "comment": "Generic Constraint Identifier",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "GENCONID"
     },
     {
       "comment": "Effective date of this record",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": "Version no of this record for the effective date",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(22,0)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Scope of RHS term (DS, PD, ST or EQ)",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(2)",
       "name": "SCOPE"
     },
     {
       "comment": "The unique identifier for the a constraint RHS term",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(4,0)",
       "name": "TERMID"
     },
     {
       "comment": "ID of super-term, if this is a sub-term",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(3, 0)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "GROUPID"
     },
     {
       "comment": "ID defining data source",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(21)",
       "name": "SPD_ID"
     },
     {
       "comment": "ID describing type of data source",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(1)",
       "name": "SPD_TYPE"
     },
     {
       "comment": "Multiplier applied to operator result",
+      "first_release": "2009-07",
+      "iceberg_type": "double",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(16,6)",
       "name": "FACTOR"
     },
     {
       "comment": "Unitary operator to apply to data value",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "OPERATION"
     },
     {
       "comment": "Default value if primary source given by SPD_ID and SPD_TYPE not available.",
+      "first_release": "2009-07",
+      "iceberg_type": "double",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(16,6)",
       "name": "DEFAULTVALUE"
     },
     {
       "comment": "The unique identifier for the first term (logic expression) to use in a Branch term",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(3, 0)",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(12)",
       "name": "PARAMETERTERM1"
     },
     {
       "comment": "The unique identifier for the second term (logic<=0 result) to use in a Branch term",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(3, 0)",
       "id": 13,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(12)",
       "name": "PARAMETERTERM2"
     },
     {
       "comment": "The unique identifier for the third term (logic>0 result) to use in a Branch term",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(3, 0)",
       "id": 14,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(12)",
       "name": "PARAMETERTERM3"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 15,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

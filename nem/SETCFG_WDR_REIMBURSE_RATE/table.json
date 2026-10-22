@@ -2,37 +2,55 @@
   "columns": [
     {
       "comment": "Unique identifier for the period to which the WDRRR applies. For quarter-based periods, this will be equal to YYYY[Q]NN, e.g. 2020Q3 for 2020 Quarter 3.",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "WDRRRPERIOD"
     },
     {
       "comment": "Unique identifier for the region",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "The Version Date time of the latest changes.",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(3)",
       "name": "VERSION_DATETIME"
     },
     {
       "comment": "WDRRR value for the period and region ($/MWh)",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(18, 8)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "WDRRR"
     },
     {
       "comment": "A flag to indicate that the WDRRR value is FIRM for the period and region, i.e. it is based on a complete set of firm prices from dispatch. Possible Values are 1 and 0",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(3, 0)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "ISFIRM"
     },
     {
       "comment": "Last changed date for the record",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(3)",
       "name": "LASTCHANGED"
     }

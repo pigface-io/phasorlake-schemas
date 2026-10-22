@@ -14,11 +14,10 @@ it.
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `tables/`             | One hand-kept declaration per table: its report pairs, key, time column, temporal roles, load mode, visibility and any column typed by hand. |
 | `sources/`             | Every file the evidence was taken from, per month: its URL, SHA-256, size and the time the server says it was published.                       |
-| `evidence/census/`    | For every block of every file AEMO published: its header, row count, data span and a profile of each column's values. No row is copied.      |
-| `evidence/ctl/`       | AEMO's control files, byte for byte, named by their SHA-256.                                                                                 |
+| `evidence/census/`    | For every block of every file AEMO published: its header, row count, data span and a profile of each column's values, with each month's control files. No row is copied. |
 | `evidence/models/`    | The data-model create scripts the monthly archives ship: each release's tables, columns, types and comments.                                 |
-| `evidence/histories/` | Each table's history as an Iceberg table, folded from all of the above.                                                                      |
-| `nem/`                | The published documents: `nem/{TABLE}/table.json` and one `schema-{hash}.json` per schema; `manifest.json` names each with its SHA-256.      |
+| `evidence/histories/` | Each table's history as an Iceberg table, folded from all of the above; `BASELINE.toml` names the data version when one was re-based.         |
+| `nem/`                | The published documents: `nem/{TABLE}/table.json`, one `schema-{hash}.json` per schema and the table's Iceberg metadata under `metadata/`; `nem/headers.json`; `manifest.json` names each with its SHA-256. |
 | `crates/`             | `utilake-iceberg`, the Iceberg contract (no I/O); `utilake-schemas`, the tool; `xtask`, the repository's gates.                                      |
 
 ## The pipeline
@@ -61,7 +60,11 @@ the same entries (`repacked`). A sidecar written before nemweb-mirror kept
 its `_at` instants has them read from the text beside them.
 `fold` keeps every history to the one `nem/` last
 published: a field keeps its id, name and type, a schema its id, and
-data a field's type cannot hold gets a new field, recorded as breaking.
+every file its schema, however much evidence from before or between the
+published files is added later; data a field's type cannot hold gets a
+new field, recorded as breaking. Once, `fold --rebaseline REASON` keeps
+nothing and begins the next data version, recorded in
+`evidence/histories/BASELINE.toml` and `manifest.json`.
 Each step has a `just` recipe of the same name.
 
 ## Checking it from AEMO's files
@@ -83,30 +86,64 @@ just export-check                         # nem/ follows from the histories
 ## Reading a table
 
 `nem/{TABLE}/table.json` holds the table's declaration, each column's
-comment and model type from the latest data-model release that has it,
-and its history (`iceberg`): schemas, runs, the updates between them and
-the breaking columns. Each `schema-{hash}.json` is a JSON Schema of a row
+Iceberg type, comment and model type (from the latest data-model release
+that has it) and the releases it spans, and its history (`iceberg`):
+schemas, the current schema, runs, the updates between them and the
+breaking columns. Each `schema-{hash}.json` is a JSON Schema of a row
 under one Iceberg schema; its name is a hash of its fields and key, so a
-published document never changes.
-
-To read the histories with an Iceberg library, write them as tables
-without data:
-
-```sh
-utilake-schemas iceberg --out target/iceberg   # target/iceberg/{TABLE}/metadata/
-just replay                                # every table read back by pyiceberg
-```
+published document never changes. `nem/{TABLE}/metadata/v1.metadata.json`
+is the table as Iceberg table metadata (format version 3, no data files),
+which any Iceberg reader loads as it is:
 
 ```python
 from pyiceberg.table import StaticTable
-t = StaticTable.from_metadata("target/iceberg/DISPATCHPRICE/metadata/v1.metadata.json")
+t = StaticTable.from_metadata("nem/DISPATCHPRICE/metadata/v1.metadata.json")
 print(t.schemas())
 ```
 
 ```sql
 -- DuckDB, with the iceberg extension: the columns, no rows
-DESCRIBE SELECT * FROM iceberg_scan('target/iceberg/DISPATCHPRICE');
+DESCRIBE SELECT * FROM iceberg_scan('nem/DISPATCHPRICE');
 ```
+
+`just replay` reads every table back with pyiceberg and holds it to its
+history. `nem/headers.json` maps every header AEMO's files carry (report
+pair, version, columns in order) to its table and the schemas it was read
+with, each with the releases of its runs: a file resolves to the last
+schema whose first release is at or before the file's, else the first.
+
+What the documents mean, beyond Iceberg:
+
+- **Runs.** A run is AEMO's files in release order under one schema,
+  report version and report pair: its first and last file (name, SHA-256,
+  release month, where its data starts and ends), the kinds of file it
+  came in, files and rows, what changed at its start (`first`, `schema`,
+  `version`, `report`; `published` where a run the published history
+  began is kept whole), the Iceberg updates from the run before, and
+  whether its data overlaps the run before. Kinds are `dvd` and `archive`
+  (AEMO's monthly archive; `#all` for a file of every forecast run),
+  `other`, and `reports/archive` and `reports/current` (the report
+  folders).
+- **One type for life.** A field keeps one type. Values a field's type
+  cannot hold (a wider scale, a float printed in full, text) get a new
+  field under the same name, listed under `breaking` with the old and
+  new field and the file it happened in. Iceberg's own promotions
+  (a wider decimal precision) are never needed: a type is chosen over
+  everything the column ever held.
+- **Reading across a break.** An Iceberg reader reads a file from
+  before a break as null for the new field. `utilake-schemas sql` reads
+  the old field as the new one when every value of the old type is a
+  value of the new (a wider decimal, a double), and null when the column
+  turned to text. This is a read rule of the tool, not a promotion: the
+  table metadata never claims it.
+- **Restored fields.** A table whose files alternate between two column
+  lists has two schemas, and a field left out of one is `delete`d and
+  `restore`d with its id rather than minted again. Iceberg's metadata
+  allows it; its schema-update API would mint a new id.
+- **The current schema** is the last run's, as `current-schema-id`.
+- **Data versions.** `manifest.json` names the data version
+  (`baseline`). Within one version every published id keeps its meaning;
+  a later version was re-based for the reason given, and ids may differ.
 
 To read an interval of a table's Parquet files written under different
 schemas, list them and plan the read; the output is one DuckDB query that

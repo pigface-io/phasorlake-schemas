@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "first_release": "2024-12",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "Version (FPP run number from the FPP database)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(5, 0)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "BIDTYPE"
     },
     {
       "comment": "Enabled regulation MW used in the FPP calculation (from FPP database)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "REGULATION_MW"
     },
     {
       "comment": "Maximum used regulation MW value (quantity of regulation FCAS that was calculated to be used in MW)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "USED_MW"
     },
     {
       "comment": "Usage (calculation of the proportion of regulation FCAS that was calculated to be used)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 7,
+      "last_release": "2025-03",
       "model_type": "NUMERIC(18,8)",
       "name": "USAGE"
     },
     {
       "comment": "The reason flag showing the decision matrix for the usage calculation Supported values are: 0 = Usage is calculated based on good input data 1 = Usage is 0 as FM is unreliable 2 = Usage is 0 as the percentage of units with unavailable input or bad data is greater than the threshold percentage",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(5, 0)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "USAGE_REASON_FLAG"
     },
     {
       "comment": "Usage (calculation of the proportion of regulation FCAS that was calculated to be used)",
+      "first_release": "2025-04",
+      "iceberg_type": "decimal(18, 8)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "USAGE_VALUE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2026-05",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

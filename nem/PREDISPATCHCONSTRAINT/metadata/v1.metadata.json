@@ -1,0 +1,308 @@
+{
+  "current-schema-id": 2,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 15,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PREDISPATCHCONSTRAINT",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "CONSTRAINTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 5,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 6,
+          "name": "RHS",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 11,
+          "name": "CONFIDENTIAL_TO",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "GENCONID_EFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "GENCONID_VERSIONNO",
+          "required": false,
+          "type": "double"
+        }
+      ],
+      "identifier-field-ids": [
+        3,
+        10
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "CONSTRAINTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 5,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 6,
+          "name": "RHS",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 11,
+          "name": "CONFIDENTIAL_TO",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "GENCONID_EFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "GENCONID_VERSIONNO",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 14,
+          "name": "LHS",
+          "required": false,
+          "type": "decimal(15, 5)"
+        }
+      ],
+      "identifier-field-ids": [
+        3,
+        10
+      ],
+      "schema-id": 1,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "CONSTRAINTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 5,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 6,
+          "name": "RHS",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 15,
+          "name": "DUID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "GENCONID_EFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "GENCONID_VERSIONNO",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 14,
+          "name": "LHS",
+          "required": false,
+          "type": "decimal(15, 5)"
+        }
+      ],
+      "identifier-field-ids": [
+        3,
+        10
+      ],
+      "schema-id": 2,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "76177e4b-93cf-8bb4-81da-e22df858cda5"
+}

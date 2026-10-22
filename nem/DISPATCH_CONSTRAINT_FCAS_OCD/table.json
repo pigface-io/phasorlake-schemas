@@ -2,55 +2,82 @@
   "columns": [
     {
       "comment": "Dispatch interval that the prices were loaded to",
+      "first_release": "2024-10",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-08",
       "model_type": "TIMESTAMP(0)",
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": "Dispatch run no; always 1",
+      "first_release": "2024-10",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(3)",
       "name": "RUNNO"
     },
     {
       "comment": "Intervention 0/1",
+      "first_release": "2024-10",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(2)",
       "name": "INTERVENTION"
     },
     {
       "comment": "ConstraintID/GenconID",
+      "first_release": "2024-10",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-08",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "VersionNo",
+      "first_release": "2024-10",
+      "iceberg_type": "long",
       "id": 5,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(3)",
       "name": "VERSIONNO"
     },
     {
       "comment": "The datetime that the record was last changed",
+      "first_release": "2024-10",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-08",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "RHS from OCD re-run",
+      "first_release": "2024-10",
+      "iceberg_type": "decimal(15, 5)",
       "id": 7,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(15,5)",
       "name": "RHS"
     },
     {
       "comment": "marginalvalue from OCD re-run",
+      "first_release": "2024-10",
+      "iceberg_type": "decimal(15, 5)",
       "id": 8,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(15,5)",
       "name": "MARGINALVALUE"
     },
     {
       "comment": "The violation degree of this constraint in the solution result",
+      "first_release": "2024-10",
+      "iceberg_type": "decimal(15, 5)",
       "id": 9,
+      "last_release": "2026-08",
       "model_type": "NUMERIC(15,5)",
       "name": "VIOLATIONDEGREE"
     }

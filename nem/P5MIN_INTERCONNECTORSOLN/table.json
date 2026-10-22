@@ -2,133 +2,199 @@
   "columns": [
     {
       "comment": "Unique Timestamp Identifier for this study",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "Interconnector identifier",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "INTERCONNECTORID"
     },
     {
       "comment": "The unique identifier for the interval within this study",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "SCADA MW Flow measured at Run start. For periods subsequent to the first period of a P5MIN run, this value represents the cleared target for the previous period of that P5MIN run.",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "METEREDMWFLOW"
     },
     {
       "comment": "Cleared Interconnector loading level (MW)",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "MWFLOW"
     },
     {
       "comment": "Interconnector Losses at cleared flow",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "MWLOSSES"
     },
     {
       "comment": "Marginal cost of Interconnector standing data limits (if binding)",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "MARGINALVALUE"
     },
     {
       "comment": "Violation of Interconnector standing data limits",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "VIOLATIONDEGREE"
     },
     {
       "comment": "Flag indicating MNSP registration",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(1, 0)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "MNSP"
     },
     {
       "comment": "Calculated Interconnector limit of exporting energy on the basis of invoked constraints and static interconnector export limit",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "EXPORTLIMIT"
     },
     {
       "comment": "Calculated Interconnector limit of importing energy on the basis of invoked constraints and static interconnector import limit. Note unlike the input interconnector import limit this is a directional quantity and should be defined with respect to the interconnector flow.",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "IMPORTLIMIT"
     },
     {
       "comment": "Marginal loss factor at the cleared flow",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "MARGINALLOSS"
     },
     {
       "comment": "Generic Constraint setting the export limit",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 13,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "EXPORTGENCONID"
     },
     {
       "comment": "Generic Constraint setting the import limit",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 14,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "IMPORTGENCONID"
     },
     {
       "comment": "Calculated export limit applying to energy + Frequency Controlled Ancillary Services.",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 15,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "FCASEXPORTLIMIT"
     },
     {
       "comment": "Calculated import limit applying to energy + Frequency Controlled Ancillary Services.",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 5)",
       "id": 16,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "FCASIMPORTLIMIT"
     },
     {
       "comment": "Last changed date of this record",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 17,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "Flag to indicate if this result set was sourced from the pricing run (INTERVENTION=0) or the physical run (INTERVENTION=1). In the event there is not intervention in the market, both pricing and physical runs correspond to INTERVENTION=0)",
+      "first_release": "2018-12",
+      "iceberg_type": "decimal(2, 0)",
       "id": 18,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(2,0)",
       "name": "INTERVENTION"
     },
     {
       "comment": "Aggregate Constraint contribution cost of this Interconnector: Sum(MarginalValue x Factor) for all relevant Constraints, for Export (Factor >= 0)",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(10, 2)",
       "id": 19,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(10,2)",
       "name": "LOCAL_PRICE_ADJUSTMENT_EXPORT"
     },
     {
       "comment": "Key for Local_Price_Adjustment_Export: 2 = at least one Outage Constraint; 1 = at least 1 System Normal Constraint (and no Outage Constraint); 0 = No System Normal or Outage Constraints",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(1, 0)",
       "id": 20,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "LOCALLY_CONSTRAINED_EXPORT"
     },
     {
       "comment": "Aggregate Constraint contribution cost of this Interconnector: Sum(MarginalValue x Factor) for all relevant Constraints, for Import (Factor >= 0)",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(10, 2)",
       "id": 21,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(10,2)",
       "name": "LOCAL_PRICE_ADJUSTMENT_IMPORT"
     },
     {
       "comment": "Key for Local_Price_Adjustment_Import: 2 = at least one Outage Constraint; 1 = at least 1 System Normal Constraint (and no Outage Constraint); 0 = No System Normal or Outage Constraints",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(1, 0)",
       "id": 22,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(1,0)",
       "name": "LOCALLY_CONSTRAINED_IMPORT"
     }

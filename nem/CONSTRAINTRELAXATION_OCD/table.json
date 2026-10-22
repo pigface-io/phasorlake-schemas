@@ -2,37 +2,55 @@
   "columns": [
     {
       "comment": "End date and time of the dispatch interval",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": "Dispatch run no",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "RUNNO"
     },
     {
       "comment": "Constraint identifier",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "Relaxed RHS used in attempt to avoid constraint violation",
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(16, 6)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(16,6)",
       "name": "RHS"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "Version Number",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "VERSIONNO"
     }

@@ -2,25 +2,37 @@
   "columns": [
     {
       "comment": null,
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "EFFECTIVEDATE"
     },
     {
       "comment": null,
+      "first_release": "2024-08",
+      "iceberg_type": "decimal(1, 0)",
       "id": 2,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "VERSIONNO"
     },
     {
       "comment": null,
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 3,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "AUTHORISEDDATE"
     },
     {
       "comment": null,
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 4,
+      "last_release": "2026-07",
       "model_type": null,
       "name": "LASTCHANGED"
     }

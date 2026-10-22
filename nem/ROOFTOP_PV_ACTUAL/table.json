@@ -2,37 +2,55 @@
   "columns": [
     {
       "comment": "The forecast half-hour interval (time ending)",
+      "first_release": "2016-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Region identifier",
+      "first_release": "2016-08",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "REGIONID"
     },
     {
       "comment": "Estimated generation in MW at the interval end",
+      "first_release": "2016-08",
+      "iceberg_type": "decimal(12, 3)",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,3)",
       "name": "POWER"
     },
     {
       "comment": "Quality indicator. Represents the quality of the estimate.",
+      "first_release": "2016-08",
+      "iceberg_type": "decimal(2, 1)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(2,1)",
       "name": "QI"
     },
     {
       "comment": "One of DAILY, MEASUREMENT or SATELLITE. DAILY- best quality estimated actuals, available day after. MEASUREMENT- best quality estimated actuals on day, delayed by 1 half hour. SATELLITE- estimated actuals using satellite imagery, delayed by 1 half hour.",
+      "first_release": "2016-08",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "TYPE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2016-08",
+      "iceberg_type": "timestamptz",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

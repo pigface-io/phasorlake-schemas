@@ -2,31 +2,46 @@
   "columns": [
     {
       "comment": "Settlement date of the settlement run",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": "Settlement run number of the settlement run",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "SETTLEMENTRUNNO"
     },
     {
       "comment": "Unique identifier for the local area",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "LOCALAREAID"
     },
     {
       "comment": "Unique identifier for a TNI constituent to the local area as at the settlement run",
+      "first_release": "2024-08",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(30)",
       "name": "TNI"
     },
     {
       "comment": "Last changed date time for the record",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

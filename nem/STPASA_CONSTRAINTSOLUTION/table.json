@@ -2,55 +2,82 @@
   "columns": [
     {
       "comment": "Unique Timestamp Identifier for this study",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "The unique identifier for the interval within this study",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Constraint identifier (synonymous with GenConID)",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "The RHS value in the capacity evaluation.",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(12, 2)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "CAPACITYRHS"
     },
     {
       "comment": "Capacity adequacy assessment marginal value, 0 if not binding",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(12, 2)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "CAPACITYMARGINALVALUE"
     },
     {
       "comment": "Capacity adequacy assessment violation degree for generic constraint; 0 if not violating",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(12, 2)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "CAPACITYVIOLATIONDEGREE"
     },
     {
       "comment": "Last changed date of this record",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "Type of run. Values are RELIABILITY_LRC, OUTAGE_LRC and LOR. Note that the STPASA RELIABILITY_LRC and OUTAGE_LRC Run Types are discontinued from 31 July 2025, with only the LOR Run Type reported.",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "RUNTYPE"
     },
     {
       "comment": "Primary Region for LP Solve (or MARKET if none).",
+      "first_release": "2021-02",
+      "iceberg_type": "string",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "STUDYREGIONID"
     }

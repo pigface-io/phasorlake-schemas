@@ -1,0 +1,141 @@
+{
+  "current-schema-id": 0,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 17,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/RESERVE_DATA_RESERVE",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "LOWER5MIN",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "LOWER60SEC",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 7,
+          "name": "LOWER6SEC",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 8,
+          "name": "RAISE5MIN",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 9,
+          "name": "RAISE60SEC",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 10,
+          "name": "RAISE6SEC",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 11,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "PASARESERVE",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 13,
+          "name": "LOADREJECTIONRESERVEREQ",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 14,
+          "name": "RAISEREG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 15,
+          "name": "LOWERREG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 16,
+          "name": "LOR1LEVEL",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 17,
+          "name": "LOR2LEVEL",
+          "required": false,
+          "type": "decimal(4, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "7876fd2d-e655-80f1-acf5-a5c7b1ba1ddf"
+}

@@ -1,0 +1,165 @@
+{
+  "current-schema-id": 0,
+  "default-sort-order-id": 0,
+  "default-spec-id": 0,
+  "format-version": 3,
+  "last-column-id": 21,
+  "last-partition-id": 999,
+  "last-sequence-number": 0,
+  "last-updated-ms": 0,
+  "location": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_CASESOLUTION",
+  "metadata-log": [],
+  "next-row-id": 0,
+  "partition-specs": [
+    {
+      "fields": [],
+      "spec-id": 0
+    }
+  ],
+  "properties": {},
+  "refs": {},
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUN_NO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "PASAVERSION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "RESERVECONDITION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "LORCONDITION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "CAPACITYOBJFUNCTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 7,
+          "name": "CAPACITYOPTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 8,
+          "name": "MAXSURPLUSRESERVEOPTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 9,
+          "name": "MAXSPARECAPACITYOPTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 10,
+          "name": "INTERCONNECTORFLOWPENALTY",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 11,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "RUNTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "RELIABILITYLRCDEMANDOPTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 14,
+          "name": "OUTAGELRCDEMANDOPTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 15,
+          "name": "LORDEMANDOPTION",
+          "required": false,
+          "type": "decimal(12, 3)"
+        },
+        {
+          "id": 16,
+          "name": "RELIABILITYLRCCAPACITYOPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "OUTAGELRCCAPACITYOPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "LORCAPACITYOPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "LORUIGFOPTION",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 20,
+          "name": "RELIABILITYLRCUIGFOPTION",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 21,
+          "name": "OUTAGELRCUIGFOPTION",
+          "required": false,
+          "type": "decimal(3, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "snapshot-log": [],
+  "snapshots": [],
+  "sort-orders": [
+    {
+      "fields": [],
+      "order-id": 0
+    }
+  ],
+  "table-uuid": "eee6b536-fc06-80d4-87de-28ea68c3c618"
+}

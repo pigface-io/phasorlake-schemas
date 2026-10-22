@@ -2,13 +2,19 @@
   "columns": [
     {
       "comment": "The prudential date of the run.",
+      "first_release": "2024-08",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "PRUDENTIAL_DATE"
     },
     {
       "comment": "The prudential run number for the run",
+      "first_release": "2024-08",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(8)",
       "name": "PRUDENTIAL_RUNNO"
     }

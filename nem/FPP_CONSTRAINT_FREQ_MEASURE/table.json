@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "Date and time of the trading interval (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "first_release": "2024-12",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Date and time of the SCADA data (DD/MM/YYYY HH24:MI:SS) fixed to the UTC+10 time zone (NEM time)",
+      "first_release": "2024-12",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "MEASUREMENT_DATETIME"
     },
     {
       "comment": "Constraint ID (binding constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "CONSTRAINTID"
     },
     {
       "comment": "Version (FPP run number from the FPP database)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(5, 0)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "VERSIONNO"
     },
     {
       "comment": "Bid type (the bid type saved in relation to constraint ID from FCAS data used in FPP calculations)",
+      "first_release": "2024-12",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "BIDTYPE"
     },
     {
       "comment": "Calculated 4 second Frequency Measure in Hz for that constraint from the FPP database. Frequency Measure data is split across these two raise and lower columns in the following ways: >0 = Allocated to the FM_RAISE_HZ column <0 = Allocated to the FM_LOWER_HZ column 0 = To fill any gaps where the alternative column is not applicable (or no deviation from 50 Hz)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "FM_RAISE_HZ"
     },
     {
       "comment": "Calculated 4 second Frequency Measure in Hz for that constraint from the FPP database. Frequency Measure data is split across these two raise and lower columns in the following ways: >0 = Allocated to the FM_RAISE_HZ column <0 = Allocated to the FM_LOWER_HZ column 0 = To fill any gaps where the alternative column is not applicable (or no deviation from 50 Hz)",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(18, 8)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "FM_LOWER_HZ"
     },
     {
       "comment": "Flag to indicate the result of the Frequency Measure alignment check between Mainland and Tasmania for global constraints. Supported values are: 0 = Not used in RCR calculation as the signs for the frequency measures between Mainland and Tasmania do not align 1 = Used in the RCR calculation as the signs for the frequency measures between Mainland and Tasmania do align in the case of global constraints. For non-global constraints this flag is set to 1",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(5, 0)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "USED_IN_RCR_FLAG"
     },
     {
       "comment": "Flag to indicate the result of the Frequency Measure correlation check between regions in the same constraint. Supported values are: 0 = Frequency measures in this constraint are not correlated (e.g. system separation between two regions) 1 = Frequency measures in this constraint are correlated",
+      "first_release": "2024-12",
+      "iceberg_type": "decimal(5, 0)",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(5)",
       "name": "CORRELATION_FLAG"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2026-05",
+      "iceberg_type": "timestamptz",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     }

@@ -2,49 +2,73 @@
   "columns": [
     {
       "comment": null,
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": null,
       "name": "CONTRACTID"
     },
     {
       "comment": null,
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": null,
       "name": "INTERCONNECTORID"
     },
     {
       "comment": null,
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": null,
       "name": "FROMREGIONID"
     },
     {
       "comment": null,
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(3, 0)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": null,
       "name": "UNITS"
     },
     {
       "comment": null,
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(12, 6)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": null,
       "name": "BIDPRICE"
     },
     {
       "comment": null,
+      "first_release": "2009-09",
+      "iceberg_type": "decimal(6, 0)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": null,
       "name": "LINKEDBIDFLAG"
     },
     {
       "comment": null,
+      "first_release": "2009-09",
+      "iceberg_type": "string",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": null,
       "name": "AUCTIONID"
     },
     {
       "comment": null,
+      "first_release": "2009-09",
+      "iceberg_type": "timestamptz",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": null,
       "name": "LASTCHANGED"
     }

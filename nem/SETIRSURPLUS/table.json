@@ -2,67 +2,100 @@
   "columns": [
     {
       "comment": "Settlement date",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "SETTLEMENTDATE"
     },
     {
       "comment": "Settlement run number",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "SETTLEMENTRUNNO"
     },
     {
       "comment": "Settlements Trading Interval.",
+      "first_release": "2009-07",
+      "iceberg_type": "long",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(3,0)",
       "name": "PERIODID"
     },
     {
       "comment": "Interconnector",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "INTERCONNECTORID"
     },
     {
       "comment": "Side of interconnector",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "REGIONID"
     },
     {
       "comment": "Net flow at the regional node (MWh), including losses",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 8)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,6)",
       "name": "MWFLOW"
     },
     {
       "comment": "MW losses along interconnector NOTE: This is not a loss factor, but a loss figure expressed in MWH",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 8)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "LOSSFACTOR"
     },
     {
       "comment": "Amount of surplus in $",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(15, 8)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(15,5)",
       "name": "SURPLUSVALUE"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "The SRA amount unadjusted by CSP",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(18, 8)",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "UNADJUSTED_IRSR"
     },
     {
       "comment": "The CSP derogation amount applied as an adjustment to SRA",
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(18, 8)",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(18,8)",
       "name": "CSP_DEROGATION_AMOUNT"
     }

@@ -2,61 +2,91 @@
   "columns": [
     {
       "comment": "Identifier for Market Fee",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "MARKETFEEID"
     },
     {
       "comment": "Period type - PERIOD, DAILY, WEEKLY",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "MARKETFEEPERIOD"
     },
     {
       "comment": "Type - MW or $",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(12)",
       "name": "MARKETFEETYPE"
     },
     {
       "comment": "Description of market fee",
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(64)",
       "name": "DESCRIPTION"
     },
     {
       "comment": "Last date and time record changed",
+      "first_release": "2009-07",
+      "iceberg_type": "timestamptz",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(2, 0)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(15)",
       "name": "GL_TCODE"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "decimal(4, 0)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "GL_FINANCIALCODE"
     },
     {
       "comment": null,
+      "first_release": "2009-07",
+      "iceberg_type": "string",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(40)",
       "name": "FEE_CLASS"
     },
     {
       "comment": "The Energy Type for the Market Fees Calculation. E.g of Meter Types are CUSTOMER, GENERATOR, NREG, BDU etc. If Meter Type is mentioned as ALL then all the Meter Types for that Participant Category will be used in the Fee calculation",
+      "first_release": "2024-05",
+      "iceberg_type": "string",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "METER_TYPE"
     },
     {
       "comment": "The Meter Sub Type values are ACE, ASOE or ALL. ACE represent ACE_MWH value , ASOE represent ASOE_MWH value and ALL represent sum of ACE_MWh and ASOE_MWh",
+      "first_release": "2024-05",
+      "iceberg_type": "string",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "METER_SUBTYPE"
     }

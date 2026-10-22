@@ -2,79 +2,118 @@
   "columns": [
     {
       "comment": "Unique Timestamp Identifier for this study",
+      "first_release": "2021-02",
+      "iceberg_type": "timestamptz",
       "id": 1,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "RUN_DATETIME"
     },
     {
       "comment": "The unique identifier for the interval within this study",
+      "first_release": "2021-02",
+      "iceberg_type": "timestamptz",
       "id": 2,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "INTERVAL_DATETIME"
     },
     {
       "comment": "Interconnector Identifier",
+      "first_release": "2021-02",
+      "iceberg_type": "string",
       "id": 3,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(10)",
       "name": "INTERCONNECTORID"
     },
     {
       "comment": "Interconnector loading level (MW) that can be reached in case of capacity scarcity in neighbouring regions subject to network and energy constraints",
+      "first_release": "2021-02",
+      "iceberg_type": "decimal(12, 2)",
       "id": 4,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "CAPACITYMWFLOW"
     },
     {
       "comment": "Capacity adequacy assessment marginal value, 0 if not binding",
+      "first_release": "2021-02",
+      "iceberg_type": "decimal(12, 2)",
       "id": 5,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "CAPACITYMARGINALVALUE"
     },
     {
       "comment": "Capacity adequacy assessment violation degree for interconnector capacity; 0 if not violating",
+      "first_release": "2021-02",
+      "iceberg_type": "decimal(12, 2)",
       "id": 6,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "CAPACITYVIOLATIONDEGREE"
     },
     {
       "comment": "Calculated Interconnector limit of exporting energy on the basis of invoked constraints and static interconnector export limit",
+      "first_release": "2021-02",
+      "iceberg_type": "decimal(12, 2)",
       "id": 7,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "CALCULATEDEXPORTLIMIT"
     },
     {
       "comment": "Calculated Interconnector limit of importing energy on the basis of invoked constraints and static interconnector import limit. Note unlike the input interconnector import limit this is a directional quantity and should be defined with respect to the interconnector flow.",
+      "first_release": "2021-02",
+      "iceberg_type": "decimal(12, 2)",
       "id": 8,
+      "last_release": "2026-09",
       "model_type": "NUMERIC(12,2)",
       "name": "CALCULATEDIMPORTLIMIT"
     },
     {
       "comment": "Last changed date of this record",
+      "first_release": "2021-02",
+      "iceberg_type": "timestamptz",
       "id": 9,
+      "last_release": "2026-09",
       "model_type": "TIMESTAMP(0)",
       "name": "LASTCHANGED"
     },
     {
       "comment": "Type of run. Values are OUTAGE_LRC and LOR. Note that the PDPASA OUTAGE_LRC Run Type is discontinued from 31 July 2025, with only the LOR Run Type reported.",
+      "first_release": "2021-02",
+      "iceberg_type": "string",
       "id": 10,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "RUNTYPE"
     },
     {
       "comment": "ID of the constraint that sets the Interconnector Export Limit",
+      "first_release": "2021-02",
+      "iceberg_type": "string",
       "id": 11,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "EXPORTLIMITCONSTRAINTID"
     },
     {
       "comment": "ID of the constraint that sets the Interconnector Import Limit",
+      "first_release": "2021-02",
+      "iceberg_type": "string",
       "id": 12,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "IMPORTLIMITCONSTRAINTID"
     },
     {
       "comment": "Primary Region for LP Solve (or MARKET if none).",
+      "first_release": "2021-02",
+      "iceberg_type": "string",
       "id": 13,
+      "last_release": "2026-09",
       "model_type": "VARCHAR(20)",
       "name": "STUDYREGIONID"
     }
