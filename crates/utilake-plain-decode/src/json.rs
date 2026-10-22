@@ -468,12 +468,18 @@ mod tests {
             scan_bytes(RTP.as_bytes(), &mut Fail(false), &opts),
             Err(JsonError::Sink("row"))
         ));
-        struct SecondBlock(u8);
-        impl PlainSink for SecondBlock {
+        /// Fails when block `n` begins: the arrays of a document are any
+        /// number of blocks, and a sink may refuse any of them.
+        struct FailsAtBlock(u8, u8);
+        impl PlainSink for FailsAtBlock {
             type Fatal = &'static str;
             fn header(&mut self, _: Option<&str>, _: &Header, _: Pos) -> Result<(), &'static str> {
                 self.0 += 1;
-                if self.0 == 2 { Err("child") } else { Ok(()) }
+                if self.0 == self.1 {
+                    Err("refused")
+                } else {
+                    Ok(())
+                }
             }
             fn row(&mut self, _: &crate::Row<'_>, _: Pos) -> Result<(), &'static str> {
                 Ok(())
@@ -487,13 +493,24 @@ mod tests {
             observed: 2,
         };
         assert_eq!(
-            SecondBlock(0).bad_row(b"", Pos::default(), &err),
+            FailsAtBlock(0, 9).bad_row(b"", Pos::default(), &err),
             crate::Flow::Continue
         );
-        let doc = r#"{"data":{"a":[{"k":1,"s":[{"x":1}]}]}}"#;
-        assert!(matches!(
-            scan_bytes(doc.as_bytes(), &mut SecondBlock(0), &opts),
-            Err(JsonError::Sink("child"))
-        ));
+        // Four blocks: three arrays, one of them with a child array.
+        let doc = r#"{"data":{"a":[{"k":1,"s":[{"x":1}]}],"b":[{"k":2}],"c":[{"k":3}]}}"#;
+        for n in 1..=4 {
+            assert!(
+                matches!(
+                    scan_bytes(doc.as_bytes(), &mut FailsAtBlock(0, n), &opts),
+                    Err(JsonError::Sink("refused"))
+                ),
+                "block {n}"
+            );
+        }
+        let mut c = Collect::default();
+        let stats = scan_bytes(doc.as_bytes(), &mut c, &opts).unwrap();
+        assert_eq!(stats.blocks, 4);
+        let names: Vec<_> = c.blocks.iter().map(|(a, _)| a.clone().unwrap()).collect();
+        assert_eq!(names, ["a", "a.s", "b", "c"]);
     }
 }
