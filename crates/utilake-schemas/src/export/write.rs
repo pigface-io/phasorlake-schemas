@@ -36,14 +36,13 @@ impl std::fmt::Display for Stale {
 /// the directories it leaves empty.
 pub fn write(root: &Path, r: &Rendered) -> Result<Written, ExportError> {
     let mut done = Written::default();
-    for (rel, text) in &r.files {
+    for (rel, bytes) in &r.files {
         let path = root.join(rel);
-        if std::fs::read(&path).ok().as_deref() == Some(text.as_bytes()) {
+        if std::fs::read(&path).ok().as_deref() == Some(bytes.as_slice()) {
             done.kept += 1;
             continue;
         }
-        crate::files::write_atomic(&path, text.as_bytes())
-            .map_err(|e| ExportError::io(&path, e))?;
+        crate::files::write_atomic(&path, bytes).map_err(|e| ExportError::io(&path, e))?;
         done.written += 1;
     }
     for path in extras(root, r)? {
@@ -59,10 +58,10 @@ pub fn write(root: &Path, r: &Rendered) -> Result<Written, ExportError> {
 /// rendered (`extra`). Writes nothing.
 pub fn check(root: &Path, r: &Rendered) -> Result<Vec<Stale>, ExportError> {
     let mut stale = Vec::new();
-    for (rel, text) in &r.files {
+    for (rel, bytes) in &r.files {
         let path = root.join(rel);
         let why = match std::fs::read(&path) {
-            Ok(now) if now == text.as_bytes() => continue,
+            Ok(now) if now == *bytes => continue,
             Ok(_) => "differs",
             Err(e) if e.kind() == std::io::ErrorKind::NotFound => "missing",
             Err(e) => return Err(ExportError::io(&path, e)),

@@ -1,6 +1,9 @@
 //! `sql TABLE --files FILES.json --from T --to T [--as-of SCHEMA_ID]`: the
 //! DuckDB query that reads an interval of a table's Parquet files across
 //! its schemas ([`utilake_iceberg::plan`], [`utilake_iceberg::duckdb_sql`]).
+//! The table's schemas, breaks and time column are read from what the
+//! export published, `nem/{TABLE}/metadata/v1.metadata.json`, and nothing
+//! else: the metadata alone plans a read.
 //!
 //! `FILES.json` lists the table's data files, `[{path, schema_id, min_us,
 //! max_us}]`: where each is, the schema it was written under, and its
@@ -12,23 +15,25 @@
 use std::path::Path;
 
 use serde::Deserialize;
-use utilake_iceberg::{DataFile, PlanError, Target, duckdb_sql, plan};
+use utilake_iceberg::table::TableMetadata;
+use utilake_iceberg::{DataFile, PlanError, Target, duckdb_sql, from_metadata, plan};
 
-use crate::catalog::{Catalog, CatalogError};
-use crate::export::{ExportError, read_histories};
+use crate::export::{METADATA, OWNED};
 
 /// Why the query could not be written.
 #[derive(Debug, thiserror::Error)]
 pub enum SqlError {
-    /// The histories cannot be read.
-    #[error(transparent)]
-    Histories(#[from] ExportError),
-    /// The declarations cannot be read.
-    #[error(transparent)]
-    Catalog(#[from] CatalogError),
-    /// No history of the table.
-    #[error("There is no history of {0} under evidence/histories/.")]
+    /// No table of that name is published.
+    #[error("There is no published table {0} under nem/.")]
     UnknownTable(String),
+    /// The table's metadata that cannot be read.
+    #[error("The table metadata {path} cannot be read: {message}")]
+    Metadata {
+        /// The file.
+        path: String,
+        /// What is wrong.
+        message: String,
+    },
     /// The file list that cannot be read.
     #[error("The file list {path} cannot be read: {message}")]
     Files {
@@ -153,7 +158,7 @@ fn time(s: &str) -> Result<i64, SqlError> {
 
 /// The DuckDB query reading `[from, to)` of `table`'s files listed in
 /// `files`, projected onto schema `as_of` or the current one; the table's
-/// history and time column are read under `root`.
+/// metadata is read under `root/nem/`.
 pub fn sql(
     root: &Path,
     table: &str,
@@ -161,11 +166,27 @@ pub fn sql(
     (from, to): (&str, &str),
     as_of: Option<u32>,
 ) -> Result<String, SqlError> {
-    let mut histories = read_histories(root)?;
-    let h = histories
-        .remove(table)
-        .ok_or_else(|| SqlError::UnknownTable(table.to_owned()))?;
-    let catalog = Catalog::read(&root.join("tables"))?;
+    let path = root.join(OWNED).join(table).join(METADATA);
+    let text = match std::fs::read(&path) {
+        Ok(t) => t,
+        Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
+            return Err(SqlError::UnknownTable(table.to_owned()));
+        }
+        Err(e) => {
+            return Err(SqlError::Metadata {
+                path: path.display().to_string(),
+                message: e.to_string(),
+            });
+        }
+    };
+    let published = serde_json::from_slice::<TableMetadata>(&text)
+        .map_err(|e| e.to_string())
+        .and_then(|m| from_metadata(&m).map_err(|e| e.to_string()))
+        .map_err(|message| SqlError::Metadata {
+            path: path.display().to_string(),
+            message,
+        })?;
+    let h = published.history;
     let bad = |message: String| SqlError::Files {
         path: files.display().to_string(),
         message,
@@ -193,7 +214,10 @@ pub fn sql(
         table: table.to_owned(),
         source,
     })?;
-    let column = catalog.table(table).and_then(|t| t.time_column.as_deref());
+    let column = published
+        .declaration
+        .as_ref()
+        .and_then(|d| d.time_column.as_deref());
     let mut out = duckdb_sql(&reads, column, interval);
     out.push('\n');
     Ok(out)
@@ -295,15 +319,20 @@ mod tests {
                 ("2024-08-01", "2024-08-02"),
                 None
             )),
-            "There is no history of NONE under evidence/histories/."
+            "There is no published table NONE under nem/."
         );
         std::fs::write(&files, r#"[{"path": 1}]"#).unwrap();
         assert!(e(q("2024-08-01", "2024-08-02", None)).starts_with("The file list "));
         std::fs::remove_file(&files).unwrap();
         assert!(e(q("2024-08-01", "2024-08-02", None)).starts_with("The file list "));
-        std::fs::write(root.join("tables/BAD.toml"), "x").unwrap();
-        assert!(e(q("2024-08-01", "2024-08-02", None)).contains("BAD.toml"));
-        std::fs::write(crate::fold::history_path(root, "DISPATCH_UNIT_SCADA"), "[").unwrap();
-        assert!(e(q("2024-08-01", "2024-08-02", None)).contains("DISPATCH_UNIT_SCADA.json"));
+        // Metadata that is not JSON, not a published table, or a directory.
+        let meta = crate::fold::published_path(root, "DISPATCH_UNIT_SCADA");
+        std::fs::write(&meta, "[").unwrap();
+        assert!(e(q("2024-08-01", "2024-08-02", None)).contains("v1.metadata.json cannot be read"));
+        std::fs::write(&meta, "{}").unwrap();
+        assert!(e(q("2024-08-01", "2024-08-02", None)).contains("v1.metadata.json cannot be read"));
+        std::fs::remove_file(&meta).unwrap();
+        std::fs::create_dir(&meta).unwrap();
+        assert!(e(q("2024-08-01", "2024-08-02", None)).contains("v1.metadata.json cannot be read"));
     }
 }

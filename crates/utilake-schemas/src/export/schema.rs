@@ -1,18 +1,19 @@
-//! One JSON Schema per Iceberg schema of a table.
+//! One JSON Schema per Iceberg schema of a table, derived from the
+//! table's metadata.
 //!
-//! A schema's document is named by a hash of its fields and key, so its
-//! name never changes as the history grows: `nem/{TABLE}/schema-{hash}.json`,
-//! the hash the first 16 hex digits of the SHA-256 of
-//! `{"fields": …, "identifier-field-ids": …}` as compact JSON with its keys
-//! sorted, the name utilake gives the same schema. A row read under the
-//! schema validates against the document; `x-fields` gives each field's id,
-//! name and Iceberg type. Nothing in it says which files were written under
-//! the schema, so a published document never changes.
+//! A schema's document is named by its id, `nem/{TABLE}/schema-{id}.json`:
+//! a schema id never changes meaning within a data version. A row read
+//! under the schema validates against the document; each property carries
+//! its field's id and Iceberg type, and, when the data model documents the
+//! column, its words (`description`) and its type there (`x-model-type`);
+//! `x-fields` gives each field's id, name and Iceberg type in order.
+//! Nothing in it says which files were written under the schema.
 
 use serde_json::{Map, Value, json};
+use utilake_iceberg::publish::Published;
 use utilake_iceberg::{IcebergType, Schema};
 
-use super::{FORMAT, text};
+use super::{FORMAT, METADATA, text};
 
 /// The JSON Schema of a value of an Iceberg type, as a row holds it.
 fn value_schema(ty: IcebergType) -> Value {
@@ -26,19 +27,20 @@ fn value_schema(ty: IcebergType) -> Value {
     }
 }
 
-/// The file name of a schema's document: `schema-{hash16}.json`.
-pub fn file_name(schema: &Schema) -> String {
-    let v = schema.to_json();
-    let identity = json!({
-        "fields": v["fields"],
-        "identifier-field-ids": v["identifier-field-ids"],
-    });
-    let hash = crate::ctl::sha256(identity.to_string().as_bytes());
-    format!("schema-{}.json", &hash[..16])
+/// The file name of schema `id`'s document.
+pub fn file_name(id: u32) -> String {
+    format!("schema-{id}.json")
 }
 
-/// The document of `schema` of `table`, published at `{base}{path}`.
-pub fn document(base: &str, table: &str, path: &str, schema: &Schema) -> String {
+/// The document of `schema` of `table`, published at `{base}{path}`,
+/// with what `published` documents of its columns.
+pub fn document(
+    base: &str,
+    table: &str,
+    path: &str,
+    schema: &Schema,
+    published: &Published,
+) -> String {
     let mut properties = Map::new();
     let mut required = Vec::new();
     for f in &schema.fields {
@@ -48,8 +50,14 @@ pub fn document(base: &str, table: &str, path: &str, schema: &Schema) -> String 
         } else {
             p["type"] = json!([p["type"].take(), "null"]);
         }
+        if let Some(d) = published.docs.get(&f.id) {
+            p["description"] = json!(d);
+        }
         p["x-field-id"] = json!(f.id);
         p["x-iceberg-type"] = json!(f.ty.name());
+        if let Some(t) = published.model_types.get(&f.id) {
+            p["x-model-type"] = json!(t);
+        }
         properties.insert(f.name.clone(), p);
     }
     text(&json!({
@@ -61,7 +69,7 @@ pub fn document(base: &str, table: &str, path: &str, schema: &Schema) -> String 
         "required": required,
         "properties": properties,
         "x-format": FORMAT,
-        "x-table": {"name": table, "$ref": "table.json"},
+        "x-table": {"name": table, "$ref": METADATA},
         "x-schema-id": schema.schema_id,
         "x-identifier-field-ids": schema.identifier_field_ids,
         "x-fields": schema

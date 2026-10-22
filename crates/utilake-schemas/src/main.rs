@@ -133,7 +133,7 @@ enum Cmd {
         root: PathBuf,
     },
     /// Fold every census into each table's history, kept to the history
-    /// `{root}/nem/{TABLE}/table.json` published, and write
+    /// `{root}/nem/{TABLE}/metadata/v1.metadata.json` published, and write
     /// `{root}/evidence/histories/{TABLE}.json`.
     Fold {
         /// Write nothing; exit 3 if any history file would change.
@@ -147,9 +147,10 @@ enum Cmd {
         #[arg(long, default_value = ".")]
         root: PathBuf,
     },
-    /// Write every history as `{root}/nem/{TABLE}/table.json` and
-    /// `schema-{hash}.json`, and `{root}/manifest.json`; remove every other
-    /// file under `{root}/nem/`.
+    /// Write every table as `{root}/nem/{TABLE}/metadata/` (Iceberg table
+    /// metadata and its manifest lists) and `schema-{id}.json`, with
+    /// `{root}/nem/headers.json` and `{root}/manifest.json`; remove every
+    /// other file under `{root}/nem/`.
     Export {
         /// Write nothing; exit 3 if any file would change, listing each.
         #[arg(long)]
@@ -484,7 +485,8 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             use utilake_schemas::export;
             let r = export::Export::load(&root, &base_url)
                 .map_err(|e| fail(&e))?
-                .render();
+                .render()
+                .map_err(|e| fail(&e))?;
             if check {
                 let stale = export::check(&root, &r).map_err(|e| fail(&e))?;
                 for s in &stale {

@@ -15,8 +15,9 @@ default_stages = ["pre-commit"]
 repo = "builtin"
 hooks = [
     # AEMO's files are kept byte for byte.
-    { id = "trailing-whitespace", exclude = '^(testdata/|evidence/ctl/)' },
-    { id = "end-of-file-fixer", exclude = '^(testdata/|evidence/ctl/|nem/.*/metadata/version-hint\.text$)' },
+    # The manifest lists under nem/ are Avro: bytes, not text.
+    { id = "trailing-whitespace", exclude = '^(testdata/|evidence/ctl/)|\.avro$' },
+    { id = "end-of-file-fixer", exclude = '^(testdata/|evidence/ctl/|nem/.*/metadata/version-hint\.text$)|\.avro$' },
     { id = "check-yaml" },
     { id = "check-toml" },
     { id = "check-json" },
@@ -24,8 +25,8 @@ hooks = [
     # The evidence is text that git compresses well: a census month and a
     # data-model release are larger than code ever is.
     { id = "check-added-large-files", args = ["--maxkb=200"], exclude = '^(evidence/(census|models|histories)/|nem/)' },
-    # A history and its table.json grow with a table's runs: the five-minute
-    # predispatch tables have hundreds.
+    # A history and its table metadata grow with a table's runs: the
+    # five-minute predispatch tables have hundreds.
     { id = "check-added-large-files", args = ["--maxkb=1024"], files = '^(evidence/histories/|nem/)' },
     { id = "detect-private-key" },
 ]

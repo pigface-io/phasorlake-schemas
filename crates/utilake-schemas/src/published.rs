@@ -1,14 +1,20 @@
-//! What an export published: every table's history and every schema
-//! document under `nem/`, read from a git revision or from a directory, so
-//! [`crate::compat`] and [`crate::diff`] can hold one to the other.
+//! What an export published: every table's history, read from its table
+//! metadata, and every schema document under `nem/`, from a git revision
+//! or from a directory, so [`crate::compat`] and [`crate::diff`] can hold
+//! one to the other.
+//!
+//! A revision from before the metadata carried the history (format 2)
+//! published it in the `iceberg` block of `nem/{TABLE}/table.json`; such a
+//! revision is read from there, and marked `legacy`, so a table can be
+//! held across the format change once.
 
 use std::collections::BTreeMap;
 use std::path::Path;
 
-use serde::Deserialize as _;
-use utilake_iceberg::History;
+use utilake_iceberg::table::TableMetadata;
+use utilake_iceberg::{History, from_metadata};
 
-use crate::export::OWNED;
+use crate::export::{METADATA, OWNED};
 use crate::fold::Baseline;
 
 /// The manifest, read for its data version.
@@ -48,7 +54,7 @@ pub enum PublishedError {
         #[source]
         source: std::io::Error,
     },
-    /// A table document without a history in it.
+    /// A table document that is not a published table.
     #[error("The table document {path} ({at}) holds no history: {message}")]
     Table {
         /// The file.
@@ -64,12 +70,15 @@ pub enum PublishedError {
 /// `manifest.json` names (the first, when it names none).
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Published {
-    /// Each `nem/{TABLE}/table.json`'s history, by table.
+    /// Each table's history, by table.
     pub tables: BTreeMap<String, History>,
     /// Each `nem/{TABLE}/schema-*.json`, by path.
     pub schemas: BTreeMap<String, Vec<u8>>,
     /// The data version, and why it began.
     pub baseline: Baseline,
+    /// Whether any history was read from a `table.json` of format 2,
+    /// whose schema documents were named by hash.
+    pub legacy: bool,
 }
 
 impl Default for Published {
@@ -78,6 +87,7 @@ impl Default for Published {
             tables: BTreeMap::new(),
             schemas: BTreeMap::new(),
             baseline: Baseline::FIRST,
+            legacy: false,
         }
     }
 }
@@ -97,10 +107,11 @@ fn baseline_of(manifest: &[u8], at: &str) -> Result<Baseline, PublishedError> {
     }
 }
 
-/// Where a path under `nem/` falls: a table document, a schema document,
-/// or neither.
+/// Where a path under `nem/` falls: a table's metadata, a format-2 table
+/// document, a schema document, or neither.
 enum Kind<'a> {
-    Table(&'a str),
+    Metadata(&'a str),
+    Legacy(&'a str),
     Schema,
     Other,
 }
@@ -108,10 +119,18 @@ enum Kind<'a> {
 fn kind(path: &str) -> Kind<'_> {
     let parts: Vec<&str> = path.split('/').collect();
     match parts.as_slice() {
-        [OWNED, table, "table.json"] => Kind::Table(table),
+        [OWNED, table, "metadata", "v1.metadata.json"] => Kind::Metadata(table),
+        [OWNED, table, "table.json"] => Kind::Legacy(table),
         [OWNED, _, file] if file.starts_with("schema-") && file.ends_with(".json") => Kind::Schema,
         _ => Kind::Other,
     }
+}
+
+/// The history a format-2 `table.json` holds in its `iceberg` block.
+fn legacy_history(doc: &[u8]) -> Result<History, String> {
+    let doc: serde_json::Value = serde_json::from_slice(doc).map_err(|e| e.to_string())?;
+    let iceberg = doc.get("iceberg").ok_or_else(|| "no iceberg".to_owned())?;
+    serde_json::from_value(iceberg.clone()).map_err(|e| e.to_string())
 }
 
 impl Published {
@@ -122,29 +141,51 @@ impl Published {
         at: &str,
     ) -> Result<Self, PublishedError> {
         let mut out = Self::default();
+        let mut metadata: BTreeMap<String, (String, TableMetadata)> = BTreeMap::new();
+        let mut legacy: BTreeMap<String, (String, Vec<u8>)> = BTreeMap::new();
         for (path, bytes) in files {
             if path == MANIFEST {
                 out.baseline = baseline_of(&bytes, at)?;
                 continue;
             }
             match kind(&path) {
-                Kind::Table(table) => {
-                    let bad = |message: String| PublishedError::Table {
-                        path: path.clone(),
-                        at: at.to_owned(),
-                        message,
-                    };
-                    let doc: serde_json::Value =
-                        serde_json::from_slice(&bytes).map_err(|e| bad(e.to_string()))?;
-                    let iceberg = doc.get("iceberg").ok_or_else(|| bad("no iceberg".into()))?;
-                    let h = History::deserialize(iceberg).map_err(|e| bad(e.to_string()))?;
-                    out.tables.insert(table.to_owned(), h);
+                Kind::Metadata(table) => {
+                    let m: TableMetadata =
+                        serde_json::from_slice(&bytes).map_err(|e| PublishedError::Table {
+                            path: path.clone(),
+                            at: at.to_owned(),
+                            message: e.to_string(),
+                        })?;
+                    metadata.insert(table.to_owned(), (path, m));
+                }
+                Kind::Legacy(table) => {
+                    legacy.insert(table.to_owned(), (path, bytes));
                 }
                 Kind::Schema => {
                     out.schemas.insert(path, bytes);
                 }
                 Kind::Other => {}
             }
+        }
+        for (table, (path, m)) in metadata {
+            let bad = |path: &str, message: String| PublishedError::Table {
+                path: path.to_owned(),
+                at: at.to_owned(),
+                message,
+            };
+            // Metadata from before the format carried the history: the
+            // table.json beside it does.
+            if !m.properties.contains_key("utilake.format") {
+                let (lpath, doc) = legacy
+                    .get(&table)
+                    .ok_or_else(|| bad(&path, "no utilake.format, and no table.json".into()))?;
+                let h = legacy_history(doc).map_err(|e| bad(lpath, e))?;
+                out.tables.insert(table, h);
+                out.legacy = true;
+                continue;
+            }
+            let p = from_metadata(&m).map_err(|e| bad(&path, e.to_string()))?;
+            out.tables.insert(table, p.history);
         }
         Ok(out)
     }
@@ -188,18 +229,25 @@ impl Published {
             Err(e) => return Err(read(&dir, e)),
         };
         for t in tables.iter().filter(|t| t.is_dir()) {
+            let mut paths = Vec::new();
             for entry in std::fs::read_dir(t).map_err(|e| read(t, e))? {
                 let path = entry.map_err(|e| read(t, e))?.path();
-                // The table's Iceberg metadata is a directory of its own.
-                if path.is_dir() {
-                    continue;
+                if !path.is_dir() {
+                    paths.push(path);
                 }
+            }
+            paths.push(t.join(METADATA));
+            for path in paths.into_iter().filter(|p| !p.is_dir()) {
                 let rel = path
                     .strip_prefix(root)
                     .unwrap_or(&path)
                     .to_string_lossy()
                     .replace('\\', "/");
-                let bytes = std::fs::read(&path).map_err(|e| read(&path, e))?;
+                let bytes = match std::fs::read(&path) {
+                    Ok(b) => b,
+                    Err(e) if e.kind() == std::io::ErrorKind::NotFound => continue,
+                    Err(e) => return Err(read(&path, e)),
+                };
                 files.push((rel, bytes));
             }
         }
@@ -269,6 +317,8 @@ pub(crate) mod tests {
         }
     }
 
+    const TABLE: &str = "nem/DISPATCH_UNIT_SCADA/metadata/v1.metadata.json";
+
     #[test]
     fn reads_a_revision_and_the_working_tree_alike() {
         let dir = crate::export::tests::exported();
@@ -279,8 +329,13 @@ pub(crate) mod tests {
         git.commit("base", root);
         let now = Published::read(root).unwrap();
         assert_eq!(now.tables.len(), 1);
+        assert_eq!(
+            now.tables["DISPATCH_UNIT_SCADA"],
+            crate::export::tests::sample()
+        );
         assert_eq!(now.schemas.len(), 2);
         assert_eq!(now.baseline, Baseline::FIRST);
+        assert!(!now.legacy);
         assert_eq!(Published::at(&git, "base").unwrap(), now);
         // The manifest names the data version; one that names none, or
         // is gone, is of the first; one that cannot be read is an error.
@@ -309,42 +364,77 @@ pub(crate) mod tests {
             root,
             &crate::export::Export::load(root, crate::export::DEFAULT_BASE_URL)
                 .unwrap()
-                .render(),
+                .render()
+                .unwrap(),
         )
         .unwrap();
 
         let e = Published::at(&git, "nope").unwrap_err();
         assert_eq!(e.to_string(), "git could not read nem at nope.");
-        git.broken
-            .borrow_mut()
-            .push("nem/DISPATCH_UNIT_SCADA/table.json".into());
+        git.broken.borrow_mut().push(TABLE.into());
         let e = Published::at(&git, "base").unwrap_err();
-        assert!(e.to_string().contains("table.json at base"), "{e}");
+        assert!(e.to_string().contains("v1.metadata.json at base"), "{e}");
 
-        // A table document without its history, or not JSON.
-        let table = root.join("nem/DISPATCH_UNIT_SCADA/table.json");
+        // Metadata that is not metadata, or holds no history.
+        let table = root.join(TABLE);
+        let original = std::fs::read(&table).unwrap();
         std::fs::write(&table, "{}").unwrap();
         let e = Published::read(root).unwrap_err();
         assert!(
-            e.to_string()
-                .ends_with("(working tree) holds no history: no iceberg"),
+            e.to_string().contains("(working tree) holds no history: "),
             "{e}"
         );
         std::fs::write(&table, "[").unwrap();
         assert!(Published::read(root).is_err());
-        std::fs::write(&table, r#"{"iceberg": {}}"#).unwrap();
-        assert!(Published::read(root).is_err());
+        let mut m: serde_json::Value = serde_json::from_slice(&original).unwrap();
+        m["properties"]["utilake.declared"] = serde_json::json!("maybe");
+        std::fs::write(&table, m.to_string()).unwrap();
+        let e = Published::read(root).unwrap_err();
+        assert!(e.to_string().contains("utilake.declared"), "{e}");
 
-        // A directory where a document is holds nothing (the metadata
-        // directory is one); a document that cannot be read, or a file
-        // where nem/ is, is an error.
+        // A table of format 2: the history is in table.json, and the set
+        // is legacy. Without the table.json, it holds no history.
+        m["properties"] = serde_json::json!({});
+        std::fs::write(&table, m.to_string()).unwrap();
+        let e = Published::read(root).unwrap_err();
+        assert!(
+            e.to_string()
+                .contains("no utilake.format, and no table.json"),
+            "{e}"
+        );
+        let legacy = root.join("nem/DISPATCH_UNIT_SCADA/table.json");
+        std::fs::write(&legacy, "{}").unwrap();
+        let e = Published::read(root).unwrap_err();
+        assert!(
+            e.to_string()
+                .ends_with("table.json (working tree) holds no history: no iceberg"),
+            "{e}"
+        );
+        std::fs::write(&legacy, "[").unwrap();
+        assert!(Published::read(root).is_err());
+        std::fs::write(&legacy, r#"{"iceberg": {}}"#).unwrap();
+        assert!(Published::read(root).is_err());
+        let h = crate::export::tests::sample();
+        std::fs::write(
+            &legacy,
+            serde_json::json!({"iceberg": serde_json::to_value(&h).unwrap()}).to_string(),
+        )
+        .unwrap();
+        let old = Published::read(root).unwrap();
+        assert!(old.legacy);
+        assert_eq!(old.tables["DISPATCH_UNIT_SCADA"], h);
+        std::fs::remove_file(&legacy).unwrap();
+        std::fs::write(&table, &original).unwrap();
+
+        // A directory where the metadata is holds nothing; a document that
+        // cannot be read, or a file where nem/ is, is an error.
         std::fs::remove_file(&table).unwrap();
         std::fs::create_dir(&table).unwrap();
         assert!(Published::read(root).unwrap().tables.is_empty());
         std::fs::remove_dir(&table).unwrap();
         {
             use std::os::unix::fs::PermissionsExt as _;
-            let doc = root.join("nem/DISPATCH_UNIT_SCADA/schema-2e75294ff617bace.json");
+            let doc = root.join("nem/DISPATCH_UNIT_SCADA/schema-0.json");
             std::fs::set_permissions(&doc, std::fs::Permissions::from_mode(0o000)).unwrap();
             let e = Published::read(root).unwrap_err();
             assert!(e.to_string().starts_with("The published file "), "{e}");

@@ -1,6 +1,7 @@
 use std::collections::{BTreeMap, BTreeSet};
 
 use serde_json::json;
+use utilake_iceberg::table::{TableMetadata, read_manifest_list};
 
 use super::*;
 use crate::fold::history_path;
@@ -25,6 +26,8 @@ cutoff = "LASTCHANGED"
 /// table without SCADAVALUE.
 const MODEL_56: &str = "version = \"5.6\"\nmodel = \"m\"\ncreated = \"c\"\nscript_sha256 = \"s\"\nfirst_seen = \"2025-01\"\nlast_seen = \"2026-04\"\n\n[tables.DISPATCH_UNIT_SCADA]\ncomment = \"Old words\"\nprimary_key = [\"SETTLEMENTDATE\", \"DUID\"]\ncolumns = [\n    [\"SETTLEMENTDATE\", \"DATE\", false, \"Old\"],\n    [\"scadavalue\", \"NUMERIC(16,6)\", true, \"MW\"],\n]\n";
 const MODEL_57: &str = "version = \"5.7\"\nmodel = \"m\"\ncreated = \"c\"\nscript_sha256 = \"t\"\nfirst_seen = \"2026-05\"\nlast_seen = \"2026-09\"\n\n[tables.DISPATCH_UNIT_SCADA]\ncomment = \"Unit SCADA\"\nprimary_key = [\"SETTLEMENTDATE\", \"DUID\"]\ncolumns = [\n    [\"SETTLEMENTDATE\", \"TIMESTAMP(0)\", false, \"Interval end\"],\n    [\"DUID\", \"VARCHAR(20)\", false, \"\"],\n]\n";
+
+const TABLE: &str = "nem/DISPATCH_UNIT_SCADA/metadata/v1.metadata.json";
 
 fn mark(file: &str, t: Option<&str>) -> serde_json::Value {
     json!({"file": file, "sha256": "ab", "release": "2026-08", "data-time": t})
@@ -57,8 +60,7 @@ pub(crate) fn sample() -> History {
             {"schema-id": 1, "report": ["DISPATCH", "UNIT_SCADA"], "version": 2, "kinds": ["archive"],
              "from": mark("C.zip", None), "to": mark("C.zip", None), "files": 1, "rows": 3,
              "changes": ["schema", "version"],
-             "updates": [{"action": "move", "field-id": 3},
-                         {"action": "set-identifier-fields", "field-ids": [1, 2]}],
+             "updates": [{"action": "move", "field-id": 3}],
              "overlaps": false},
         ],
         "breaking": [],
@@ -86,7 +88,10 @@ pub(crate) fn exported() -> tempfile::TempDir {
 }
 
 fn export(root: &Path) -> Rendered {
-    let r = Export::load(root, DEFAULT_BASE_URL).unwrap().render();
+    let r = Export::load(root, DEFAULT_BASE_URL)
+        .unwrap()
+        .render()
+        .unwrap();
     write(root, &r).unwrap();
     r
 }
@@ -128,56 +133,10 @@ fn read(root: &Path, rel: &str) -> serde_json::Value {
 }
 
 #[test]
-fn table_json_describes_the_table_and_holds_its_history() {
+fn the_metadata_describes_the_table_and_holds_its_history() {
     let dir = exported();
     let root = dir.path();
-    let t = read(root, "nem/DISPATCH_UNIT_SCADA/table.json");
-    let keys: Vec<&String> = t.as_object().unwrap().keys().collect();
-    assert_eq!(
-        keys,
-        [
-            "columns",
-            "declared",
-            "description",
-            "iceberg",
-            "load_mode",
-            "name",
-            "package",
-            "primary_key",
-            "report_pairs",
-            "temporal",
-            "time_column",
-            "visibility",
-            "x-format"
-        ]
-    );
-    assert_eq!(t["x-format"], 2);
-    assert_eq!(t["declared"], true);
-    assert_eq!(
-        t["description"], "Unit SCADA",
-        "the latest release with the table"
-    );
-    assert_eq!(t["package"], "DISPATCH");
-    assert_eq!(t["primary_key"], json!(["SETTLEMENTDATE", "DUID"]));
-    assert_eq!(t["report_pairs"], json!([["DISPATCH", "UNIT_SCADA"]]));
-    assert_eq!(t["time_column"], "SETTLEMENTDATE");
-    assert_eq!(t["load_mode"], "append");
-    assert_eq!(t["visibility"], "PUBLIC");
-    assert_eq!(t["temporal"]["valid"]["kind"], "interval_end");
-    assert_eq!(
-        t["columns"],
-        json!([
-            {"id": 1, "name": "SETTLEMENTDATE", "iceberg_type": "timestamptz", "comment": "Interval end",
-             "model_type": "TIMESTAMP(0)", "first_release": "2026-08", "last_release": "2026-08"},
-            {"id": 2, "name": "DUID", "iceberg_type": "string", "comment": null, "model_type": "VARCHAR(20)",
-             "first_release": "2026-08", "last_release": "2026-08"},
-            // Only 5.6 has it: the latest release with the column.
-            {"id": 3, "name": "SCADAVALUE", "iceberg_type": "decimal(16, 6)", "comment": "MW",
-             "model_type": "NUMERIC(16,6)", "first_release": "2026-08", "last_release": "2026-08"},
-        ])
-    );
-    // The table as Iceberg metadata, at its published location.
-    let m = read(root, "nem/DISPATCH_UNIT_SCADA/metadata/v1.metadata.json");
+    let m = read(root, TABLE);
     assert_eq!(m["format-version"], 3);
     assert_eq!(m["current-schema-id"], 1);
     assert_eq!(m["schemas"].as_array().unwrap().len(), 2);
@@ -190,9 +149,61 @@ fn table_json_describes_the_table_and_holds_its_history() {
             .unwrap(),
         "1"
     );
+    // The declaration and the data model's words are properties.
+    let p = &m["properties"];
+    assert_eq!(p["utilake.format"], "3");
+    assert_eq!(p["utilake.table"], "DISPATCH_UNIT_SCADA");
+    assert_eq!(p["utilake.declared"], "true");
+    assert_eq!(
+        p["comment"], "Unit SCADA",
+        "the latest release with the table"
+    );
+    assert_eq!(p["utilake.package"], "DISPATCH");
+    assert_eq!(p["utilake.key"], r#"["SETTLEMENTDATE","DUID"]"#);
+    assert_eq!(p["utilake.reports"], r#"[["DISPATCH","UNIT_SCADA"]]"#);
+    assert_eq!(p["utilake.time"], "SETTLEMENTDATE");
+    assert_eq!(p["utilake.load"], "append");
+    assert_eq!(p["utilake.visibility"], "PUBLIC");
+    assert_eq!(p["utilake.temporal.valid.kind"], "interval_end");
+    assert_eq!(p["utilake.temporal.order"], r#"["LASTCHANGED"]"#);
+    // Only 5.6 has SCADAVALUE: the latest release with the column.
+    assert_eq!(
+        p["utilake.model-types"],
+        r#"{"1":"TIMESTAMP(0)","2":"VARCHAR(20)","3":"NUMERIC(16,6)"}"#
+    );
+    assert!(p.get("utilake.breaks").is_none());
+    // Each column's words are its field's doc, on every schema's copy.
+    for s in m["schemas"].as_array().unwrap() {
+        for f in s["fields"].as_array().unwrap() {
+            let doc = f.get("doc").and_then(|d| d.as_str());
+            match f["id"].as_u64().unwrap() {
+                1 => assert_eq!(doc, Some("Interval end")),
+                2 => assert_eq!(doc, None, "no words for DUID"),
+                _ => assert_eq!(doc, Some("MW")),
+            }
+        }
+    }
+    // The runs are the snapshots, each with an empty manifest list of its
+    // own under nem/.
+    let snaps = m["snapshots"].as_array().unwrap();
+    assert_eq!(snaps.len(), 2);
+    assert_eq!(snaps[0]["summary"]["utilake.report-subtype"], "UNIT_SCADA");
+    assert_eq!(snaps[1]["summary"]["utilake.version"], "2");
+    assert_eq!(snaps[1]["schema-id"], 1);
+    assert_eq!(m["current-snapshot-id"], snaps[1]["snapshot-id"]);
+    for s in snaps {
+        let list = s["manifest-list"].as_str().unwrap();
+        let rel = list.strip_prefix(DEFAULT_BASE_URL).unwrap();
+        assert!(
+            rel.starts_with("nem/DISPATCH_UNIT_SCADA/metadata/snap-"),
+            "{rel}"
+        );
+        let bytes = std::fs::read(root.join(rel)).unwrap();
+        assert_eq!(read_manifest_list(&bytes).unwrap(), []);
+    }
     // Every header, with its table and schemas.
     let hs = read(root, "nem/headers.json");
-    assert_eq!(hs["x-format"], 2);
+    assert_eq!(hs["x-format"], 3);
     assert_eq!(
         hs["headers"],
         json!([
@@ -231,20 +242,14 @@ fn table_json_describes_the_table_and_holds_its_history() {
                 .map(|i| u32::try_from(i).unwrap())
         );
     }
-    // The history as the fold wrote it, each schema's document named.
-    let mut iceberg = t["iceberg"].clone();
-    let files = iceberg
-        .as_object_mut()
-        .unwrap()
-        .remove("schema-files")
-        .unwrap();
-    assert_eq!(iceberg, serde_json::to_value(&h).unwrap());
+    // The history as the fold wrote it comes back out of the metadata,
+    // and each schema's document is there by id.
+    let meta: TableMetadata = serde_json::from_value(m).unwrap();
+    assert_eq!(from_metadata(&meta).unwrap().history, h);
     for s in &h.schemas {
-        let name = schema::file_name(s);
-        assert_eq!(files[s.schema_id.to_string()], json!(name));
+        let name = schema::file_name(s.schema_id);
         assert!(root.join("nem/DISPATCH_UNIT_SCADA").join(&name).is_file());
     }
-    // The fold reads the history back out of it.
     let published = crate::fold::published(root).unwrap();
     assert_eq!(published["DISPATCH_UNIT_SCADA"], h);
 }
@@ -276,26 +281,19 @@ fn headers_count_their_runs_and_reach_their_last_release() {
 }
 
 #[test]
-fn a_schema_document_is_named_by_its_fields_and_never_changes() {
+fn a_schema_document_is_named_by_its_id_and_its_fields_never_change() {
     let dir = exported();
     let root = dir.path();
-    let h = sample();
-    let name = schema::file_name(&h.schemas[0]);
-    assert_eq!(name, "schema-2e75294ff617bace.json");
-    // The id is not part of the name, the order is.
-    let mut renumbered = h.schemas[0].clone();
-    renumbered.schema_id = 7;
-    assert_eq!(schema::file_name(&renumbered), name);
-    assert_ne!(schema::file_name(&h.schemas[1]), name);
-    let rel = format!("nem/DISPATCH_UNIT_SCADA/{name}");
-    let before = std::fs::read(root.join(&rel)).unwrap();
+    assert_eq!(schema::file_name(0), "schema-0.json");
+    let rel = "nem/DISPATCH_UNIT_SCADA/schema-0.json";
+    let before = std::fs::read(root.join(rel)).unwrap();
     let d: serde_json::Value = serde_json::from_slice(&before).unwrap();
     assert_eq!(d["$id"], format!("{DEFAULT_BASE_URL}{rel}"));
     assert_eq!(d["$schema"], "https://json-schema.org/draft/2020-12/schema");
-    assert_eq!(d["x-format"], 2);
+    assert_eq!(d["x-format"], 3);
     assert_eq!(
         d["x-table"],
-        json!({"name": "DISPATCH_UNIT_SCADA", "$ref": "table.json"})
+        json!({"name": "DISPATCH_UNIT_SCADA", "$ref": "metadata/v1.metadata.json"})
     );
     assert_eq!(d["x-schema-id"], 0);
     assert_eq!(d["x-identifier-field-ids"], json!([1, 2]));
@@ -305,41 +303,48 @@ fn a_schema_document_is_named_by_its_fields_and_never_changes() {
     let p = &d["properties"];
     assert_eq!(
         p["SETTLEMENTDATE"],
-        json!({"type": "string", "format": "date-time", "x-field-id": 1, "x-iceberg-type": "timestamptz"})
+        json!({"type": "string", "format": "date-time", "description": "Interval end",
+               "x-field-id": 1, "x-iceberg-type": "timestamptz", "x-model-type": "TIMESTAMP(0)"})
     );
     assert_eq!(p["SCADAVALUE"]["type"], json!(["number", "null"]));
+    assert_eq!(p["DUID"].get("description"), None);
     assert!(d.get("x-runs").is_none());
     grow(root);
     assert_eq!(
-        std::fs::read(root.join(&rel)).unwrap(),
+        std::fs::read(root.join(rel)).unwrap(),
         before,
         "more runs, the same bytes"
     );
+    let p = Export::load(root, DEFAULT_BASE_URL)
+        .unwrap()
+        .published("DISPATCH_UNIT_SCADA")
+        .unwrap();
     let types: Vec<serde_json::Value> = ["boolean", "long", "double", "date", "string"]
         .iter()
         .map(|t| {
             let s = one_column(t);
             let doc: serde_json::Value =
-                serde_json::from_str(&schema::document("b/", "T", "p", &s)).unwrap();
+                serde_json::from_str(&schema::document("b/", "T", "p", &s, &p)).unwrap();
             doc["properties"]["C"].clone()
         })
         .collect();
     assert_eq!(
         types,
         [
-            json!({"type": "boolean", "x-field-id": 1, "x-iceberg-type": "boolean"}),
-            json!({"type": ["integer", "null"], "x-field-id": 1, "x-iceberg-type": "long"}),
-            json!({"type": ["number", "null"], "x-field-id": 1, "x-iceberg-type": "double"}),
-            json!({"type": ["string", "null"], "format": "date", "x-field-id": 1, "x-iceberg-type": "date"}),
-            json!({"type": ["string", "null"], "x-field-id": 1, "x-iceberg-type": "string"}),
+            json!({"type": "boolean", "x-field-id": 9, "x-iceberg-type": "boolean"}),
+            json!({"type": ["integer", "null"], "x-field-id": 9, "x-iceberg-type": "long"}),
+            json!({"type": ["number", "null"], "x-field-id": 9, "x-iceberg-type": "double"}),
+            json!({"type": ["string", "null"], "format": "date", "x-field-id": 9, "x-iceberg-type": "date"}),
+            json!({"type": ["string", "null"], "x-field-id": 9, "x-iceberg-type": "string"}),
         ]
     );
 }
 
-/// A schema of one column `C` of type `ty`, required when boolean.
+/// A schema of one column `C` (field 9, undocumented) of type `ty`,
+/// required when boolean.
 fn one_column(ty: &str) -> utilake_iceberg::Schema {
     utilake_iceberg::Schema::from_json(
-        &json!({"schema-id": 0, "fields": [field(1, "C", ty, ty == "boolean")]}),
+        &json!({"schema-id": 0, "fields": [field(9, "C", ty, ty == "boolean")]}),
     )
     .unwrap()
 }
@@ -349,7 +354,7 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
     let dir = exported();
     let root = dir.path();
     let m = read(root, "manifest.json");
-    assert_eq!(m["format"], 2);
+    assert_eq!(m["format"], 3);
     assert_eq!(m["market"], "nem");
     assert_eq!(m["base_url"], DEFAULT_BASE_URL);
     assert_eq!(m["baseline"], json!({"version": 1, "reason": ""}));
@@ -363,8 +368,11 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
         "version = 2\nreason = \"why\"\n",
     )
     .unwrap();
-    let r = Export::load(root, DEFAULT_BASE_URL).unwrap().render();
-    let m: serde_json::Value = serde_json::from_str(&r.files["manifest.json"]).unwrap();
+    let r = Export::load(root, DEFAULT_BASE_URL)
+        .unwrap()
+        .render()
+        .unwrap();
+    let m: serde_json::Value = serde_json::from_slice(&r.files["manifest.json"]).unwrap();
     assert_eq!(m["baseline"], json!({"version": 2, "reason": "why"}));
     std::fs::write(crate::fold::baseline_path(root), "version = ").unwrap();
     assert!(Export::load(root, DEFAULT_BASE_URL).is_err());
@@ -375,8 +383,11 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
                 "first_release": "2026-08", "last_release": "2026-08",
                 "schemas": 2, "runs": 2, "breaks": 0}])
     );
+    // Metadata, its hint, two manifest lists, two schema documents, and
+    // the headers.
     let listed = m["sha256"].as_object().unwrap();
-    assert_eq!(listed.len(), 6);
+    assert_eq!(listed.len(), 7);
+    assert_eq!(listed.keys().filter(|k| k.ends_with(".avro")).count(), 2);
     for (p, sha) in listed {
         assert_eq!(
             crate::ctl::sha256(&std::fs::read(root.join(p)).unwrap()),
@@ -386,14 +397,23 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
     assert!(!root.join("provenance.json").exists());
 
     // Again: the same bytes, nothing written.
-    let r = Export::load(root, DEFAULT_BASE_URL).unwrap().render();
-    assert_eq!(r, Export::load(root, DEFAULT_BASE_URL).unwrap().render());
+    let r = Export::load(root, DEFAULT_BASE_URL)
+        .unwrap()
+        .render()
+        .unwrap();
+    assert_eq!(
+        r,
+        Export::load(root, DEFAULT_BASE_URL)
+            .unwrap()
+            .render()
+            .unwrap()
+    );
     assert!(check(root, &r).unwrap().is_empty());
     assert_eq!(
         write(root, &r).unwrap(),
         Written {
             written: 0,
-            kept: 7,
+            kept: 8,
             removed: 0
         }
     );
@@ -401,10 +421,9 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
     // Stale: a file of nobody's, one edited, one gone.
     std::fs::create_dir_all(root.join("nem/OLD/deep")).unwrap();
     std::fs::write(root.join("nem/OLD/deep/x.json"), "{}").unwrap();
-    std::fs::write(root.join("nem/DISPATCH_UNIT_SCADA/old.json"), "{}").unwrap();
+    std::fs::write(root.join("nem/DISPATCH_UNIT_SCADA/table.json"), "{}").unwrap();
     std::fs::write(root.join("manifest.json"), "{}").unwrap();
-    let table = root.join("nem/DISPATCH_UNIT_SCADA/table.json");
-    std::fs::remove_file(&table).unwrap();
+    std::fs::remove_file(root.join(TABLE)).unwrap();
     let stale: Vec<String> = check(root, &r)
         .unwrap()
         .iter()
@@ -414,8 +433,8 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
         stale,
         [
             "manifest.json differs",
-            "nem/DISPATCH_UNIT_SCADA/old.json extra",
-            "nem/DISPATCH_UNIT_SCADA/table.json missing",
+            "nem/DISPATCH_UNIT_SCADA/metadata/v1.metadata.json missing",
+            "nem/DISPATCH_UNIT_SCADA/table.json extra",
             "nem/OLD/deep/x.json extra"
         ]
     );
@@ -423,7 +442,7 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
         write(root, &r).unwrap(),
         Written {
             written: 2,
-            kept: 5,
+            kept: 6,
             removed: 2
         }
     );
@@ -446,24 +465,30 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
     .unwrap();
     let r = export(root);
     assert_eq!((r.tables, r.schemas), (2, 4));
-    let t = read(root, "nem/OTHER/table.json");
-    assert_eq!(t["declared"], false);
+    let t = read(root, "nem/OTHER/metadata/v1.metadata.json");
+    let p = t["properties"].as_object().unwrap();
+    assert_eq!(p["utilake.declared"], "false");
     for k in [
-        "description",
-        "primary_key",
-        "report_pairs",
-        "time_column",
-        "temporal",
-        "load_mode",
-        "visibility",
+        "comment",
+        "utilake.key",
+        "utilake.reports",
+        "utilake.time",
+        "utilake.temporal.valid.kind",
+        "utilake.load",
+        "utilake.visibility",
+        "utilake.model-types",
     ] {
-        assert_eq!(t[k], json!(null), "{k}");
+        assert!(!p.contains_key(k), "{k}");
     }
-    assert_eq!(
-        t["columns"][0],
-        json!({"id": 1, "name": "SETTLEMENTDATE", "iceberg_type": "timestamptz", "comment": null,
-               "model_type": null, "first_release": "2026-08", "last_release": "2026-08"})
+    assert!(t["schemas"][0]["fields"][0].get("doc").is_none());
+    let d = read(root, "nem/OTHER/schema-0.json");
+    assert!(
+        d["properties"]["SETTLEMENTDATE"]
+            .get("description")
+            .is_none()
     );
+    let m = read(root, "manifest.json");
+    assert_eq!(m["listed"][1]["package"], json!(null));
     assert_eq!(import_check(root), Ok(2));
 }
 
@@ -471,19 +496,22 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
 fn what_cannot_be_read_or_written_is_named() {
     let dir = exported();
     let root = dir.path();
-    let r = Export::load(root, DEFAULT_BASE_URL).unwrap().render();
+    let r = Export::load(root, DEFAULT_BASE_URL)
+        .unwrap()
+        .render()
+        .unwrap();
     let e = |x: Result<Written, ExportError>| x.unwrap_err().to_string();
     // A directory where a file is to be.
-    let table = root.join("nem/DISPATCH_UNIT_SCADA/table.json");
+    let table = root.join(TABLE);
     std::fs::remove_file(&table).unwrap();
     std::fs::create_dir(&table).unwrap();
     assert!(
         check(root, &r)
             .unwrap_err()
             .to_string()
-            .ends_with("table.json.")
+            .ends_with("v1.metadata.json.")
     );
-    assert!(e(write(root, &r)).ends_with("table.json."));
+    assert!(e(write(root, &r)).ends_with("v1.metadata.json."));
     std::fs::remove_dir(&table).unwrap();
     // A file where nem/ is.
     let flat = tempfile::tempdir().unwrap();
@@ -513,20 +541,71 @@ fn what_cannot_be_read_or_written_is_named() {
     // No histories: an export of nothing.
     let empty = tempfile::tempdir().unwrap();
     std::fs::create_dir(empty.path().join("tables")).unwrap();
-    let r = Export::load(empty.path(), "b/").unwrap().render();
+    let r = Export::load(empty.path(), "b/").unwrap().render().unwrap();
     assert_eq!(
         r.files.keys().collect::<Vec<_>>(),
         ["manifest.json", "nem/headers.json"]
     );
+    assert!(
+        Export::load(empty.path(), "b/")
+            .unwrap()
+            .published("X")
+            .is_none()
+    );
+    assert!(
+        Export::load(empty.path(), "b/")
+            .unwrap()
+            .table("X", "l")
+            .is_none()
+    );
 
-    // Declarations and releases that do not read.
+    // A history that cannot be published: a run released in no month.
     std::fs::remove_dir(hist.join("DIR.json")).unwrap();
+    let mut h = sample();
+    h.runs[0].from.release = "August".into();
+    crate::files::write_atomic(
+        &history_path(root, &h.table),
+        crate::fold::render(&h).as_bytes(),
+    )
+    .unwrap();
+    let err = Export::load(root, DEFAULT_BASE_URL)
+        .unwrap()
+        .render()
+        .unwrap_err()
+        .to_string();
+    assert_eq!(
+        err,
+        "The history of DISPATCH_UNIT_SCADA cannot be published: The run beginning at A.zip was released in \"August\", which is not a month (YYYY-MM)."
+    );
+    crate::files::write_atomic(
+        &history_path(root, "DISPATCH_UNIT_SCADA"),
+        crate::fold::render(&sample()).as_bytes(),
+    )
+    .unwrap();
+
+    // Declarations and releases that do not read, and a declaration whose
+    // temporal roles the published form does not name.
     std::fs::write(root.join("tables/BAD.toml"), "x").unwrap();
     assert!(
         Export::load(root, DEFAULT_BASE_URL)
             .unwrap_err()
             .to_string()
             .contains("BAD.toml")
+    );
+    std::fs::write(
+        root.join("tables/BAD.toml"),
+        SCADA
+            .replace("DISPATCH_UNIT_SCADA", "BAD")
+            .replace("UNIT_SCADA", "BAD")
+            .replace("cutoff = ", "horizon = "),
+    )
+    .unwrap();
+    let err = Export::load(root, DEFAULT_BASE_URL)
+        .unwrap_err()
+        .to_string();
+    assert!(
+        err.starts_with("The declaration of BAD cannot be published: its temporal roles are not the published ones: "),
+        "{err}"
     );
     std::fs::remove_file(root.join("tables/BAD.toml")).unwrap();
     std::fs::write(root.join("evidence/models/5.8.toml"), "x").unwrap();
@@ -540,18 +619,13 @@ fn what_cannot_be_read_or_written_is_named() {
 
 // ── The consumer ─────────────────────────────────────────────────────────
 //
-// What pigface-io's `crates/schemaviz-index/src/import.rs` (`import`,
-// `read_table`) requires of an export, check by check, with the lines of
-// that file each mirrors. It returns the tables read, or the first
+// What pigface-io's `crates/schemaviz-index/src/import.rs` requires of an
+// export, check by check. It returns the tables read, or the first
 // requirement an export breaks.
 
 fn get<'a>(v: &'a serde_json::Value, key: &str, at: &str) -> Result<&'a serde_json::Value, String> {
     v.get(key)
         .ok_or_else(|| format!("{at}: {key:?} is missing"))
-}
-
-fn opt<'a>(v: &'a serde_json::Value, key: &str) -> Option<&'a serde_json::Value> {
-    v.get(key).filter(|v| !v.is_null())
 }
 
 fn s<'a>(v: &'a serde_json::Value, at: &str) -> Result<&'a str, String> {
@@ -564,56 +638,14 @@ fn u(v: &serde_json::Value, at: &str) -> Result<u64, String> {
         .ok_or_else(|| format!("{at}: {v} is not a whole number"))
 }
 
-fn u32_(v: &serde_json::Value, at: &str) -> Result<u32, String> {
-    u32::try_from(u(v, at)?).map_err(|_| format!("{at}: {v} is not a 32-bit number"))
-}
-
-fn arr<'a>(v: &'a serde_json::Value, at: &str) -> Result<&'a Vec<serde_json::Value>, String> {
-    v.as_array()
-        .ok_or_else(|| format!("{at}: {v} is not a list"))
-}
-
-fn strings(v: &serde_json::Value, at: &str) -> Result<Vec<String>, String> {
-    arr(v, at)?
-        .iter()
-        .map(|x| s(x, at).map(str::to_owned))
-        .collect()
-}
-
-fn opt_str(v: &serde_json::Value, key: &str, at: &str) -> Result<(), String> {
-    opt(v, key).map(|x| s(x, at)).transpose().map(drop)
-}
-
-/// import.rs 375-388 (`mark`), with `time_of` (161-170) and `month_start`
-/// (364-373).
-fn check_mark(m: &serde_json::Value, at: &str) -> Result<(), String> {
-    if let Some(r) = opt(m, "release") {
-        let r = s(r, at)?;
-        let ok = r.len() == 7
-            && r.as_bytes()[4] == b'-'
-            && r[5..].parse::<u32>().is_ok_and(|m| (1..=12).contains(&m));
-        ok.then_some(())
-            .ok_or_else(|| format!("{at}: {r:?} is not a month"))?;
-    }
-    s(get(m, "file", at)?, at)?;
-    let t = get(m, "data-time", at)?;
-    if !t.is_null() {
-        let t = s(t, at)?;
-        crate::sql::parse_time(t)
-            .filter(|_| t.len() >= 20)
-            .ok_or_else(|| format!("{at}: {t:?} is not RFC 3339"))?;
-    }
-    Ok(())
-}
-
-/// import.rs 240-325 (`import`) and 391-583 (`read_table`).
+/// The importer, check by check.
 fn import_check(dir: &Path) -> Result<usize, String> {
-    // 241-255: the manifest, its format, base URL and hashes.
+    // The manifest: its format, base URL and hashes.
     let manifest = read(dir, "manifest.json");
-    if u(get(&manifest, "format", "manifest.json")?, "manifest.json")? != 2 {
-        return Err("manifest.json: format is not 2".into());
+    if u(get(&manifest, "format", "manifest.json")?, "manifest.json")? != 3 {
+        return Err("manifest.json: format is not 3".into());
     }
-    s(
+    let base = s(
         get(&manifest, "base_url", "manifest.json")?,
         "manifest.json",
     )?;
@@ -623,7 +655,7 @@ fn import_check(dir: &Path) -> Result<usize, String> {
         .iter()
         .map(|(k, v)| s(v, "manifest.json").map(|v| (k.clone(), v.to_owned())))
         .collect::<Result<_, _>>()?;
-    // 257-263: every file under nem/ is listed.
+    // Every file under nem/ is listed.
     let present: BTreeSet<String> = crate::census::files_under(&dir.join("nem"))
         .unwrap()
         .iter()
@@ -637,150 +669,91 @@ fn import_check(dir: &Path) -> Result<usize, String> {
     if let Some(p) = present.iter().find(|p| !listed.contains_key(*p)) {
         return Err(format!("{p}: is under nem/ but not in the manifest"));
     }
-    // 265-275: every listed file is there with its hash, and JSON when it
-    // is a `.json`.
+    // Every listed file is there with its hash; JSON parses, Avro is a
+    // manifest list.
     let mut docs = BTreeMap::new();
+    let mut lists = BTreeMap::new();
     for (rel, want) in &listed {
         let bytes = std::fs::read(dir.join(rel)).map_err(|e| format!("{rel}: {e}"))?;
         if crate::ctl::sha256(&bytes) != *want {
             return Err(format!("{rel}: the SHA-256 is not the manifest's"));
         }
-        if !rel.ends_with(".json") {
-            continue;
+        if rel.ends_with(".json") {
+            let v: serde_json::Value =
+                serde_json::from_slice(&bytes).map_err(|e| format!("{rel}: {e}"))?;
+            docs.insert(rel.clone(), v);
+        } else if rel.ends_with(".avro") {
+            let entries = read_manifest_list(&bytes).map_err(|e| format!("{rel}: {e}"))?;
+            lists.insert(rel.clone(), entries.len());
         }
-        let v: serde_json::Value =
-            serde_json::from_slice(&bytes).map_err(|e| format!("{rel}: {e}"))?;
-        docs.insert(rel.clone(), v);
     }
     let mut tables = 0;
-    for (rel, doc) in docs.iter().filter(|(k, _)| k.ends_with("/table.json")) {
+    for (rel, doc) in docs
+        .iter()
+        .filter(|(k, _)| k.ends_with("/metadata/v1.metadata.json"))
+    {
         let at = rel.as_str();
-        // 299-309: named for its directory, x-format 2.
-        let name = s(get(doc, "name", at)?, at)?;
-        if *rel != format!("nem/{name}/table.json") {
+        // The metadata reads as a published table, named for its
+        // directory, format version 3.
+        let m: TableMetadata =
+            serde_json::from_value(doc.clone()).map_err(|e| format!("{at}: {e}"))?;
+        let p = from_metadata(&m).map_err(|e| format!("{at}: {e}"))?;
+        let name = p.history.table.as_str();
+        if *rel != format!("nem/{name}/metadata/v1.metadata.json") {
             return Err(format!("{at}: names table {name:?}"));
         }
-        if u(get(doc, "x-format", at)?, at)? != 2 {
-            return Err(format!("{at}: x-format is not 2"));
+        if m.format_version != 3 {
+            return Err(format!("{at}: format-version is not 3"));
         }
-        // 397-401: declared, the iceberg block, format version 3.
-        let declared = get(doc, "declared", at)?
-            .as_bool()
-            .ok_or(format!("{at}: declared"))?;
-        let iceberg = get(doc, "iceberg", at)?;
-        if u(get(iceberg, "format-version", at)?, at)? != 3 {
-            return Err(format!("{at}: iceberg.format-version is not 3"));
-        }
-        // 345-360: columns, each an id, a name, a comment and a model type.
-        if let Some(cols) = opt(doc, "columns") {
-            for c in arr(cols, at)? {
-                u32_(get(c, "id", at)?, at)?;
-                s(get(c, "name", at)?, at)?;
-                opt_str(c, "comment", at)?;
-                opt_str(c, "model_type", at)?;
-            }
-        }
-        // 403-475: schemas, fields of one name and type each, and each
-        // schema's document listed and naming the schema and table.
-        let files = get(iceberg, "schema-files", at)?;
+        // Fields of one name and type each; each schema's document listed
+        // and naming the schema and table.
         let mut fields: BTreeMap<u32, (String, String)> = BTreeMap::new();
-        for sc in arr(get(iceberg, "schemas", at)?, at)? {
-            let id = u32_(get(sc, "schema-id", at)?, at)?;
-            if let Some(k) = opt(sc, "identifier-field-ids") {
-                for i in arr(k, at)? {
-                    u32_(i, at)?;
+        for sc in &p.history.schemas {
+            for f in &sc.fields {
+                let had = fields.entry(f.id).or_insert((f.name.clone(), f.ty.name()));
+                if *had != (f.name.clone(), f.ty.name()) {
+                    return Err(format!("{at}: field {} has two names or types", f.id));
                 }
             }
-            for f in arr(get(sc, "fields", at)?, at)? {
-                let fid = u32_(get(f, "id", at)?, at)?;
-                let fname = s(get(f, "name", at)?, at)?.to_owned();
-                let ty = s(get(f, "type", at)?, at)?.to_owned();
-                utilake_iceberg::IcebergType::parse(&ty)
-                    .ok_or(format!("{at}: {ty:?} is not a field type"))?;
-                get(f, "required", at)?
-                    .as_bool()
-                    .ok_or(format!("{at}: required"))?;
-                let had = fields.entry(fid).or_insert((fname.clone(), ty.clone()));
-                if *had != (fname, ty) {
-                    return Err(format!("{at}: field {fid} has two names or types"));
-                }
-            }
-            let file = s(get(files, &id.to_string(), at)?, at)?;
-            let doc_rel = format!("nem/{name}/{file}");
+            let doc_rel = format!("nem/{name}/schema-{}.json", sc.schema_id);
             let sdoc = docs
                 .get(&doc_rel)
                 .ok_or(format!("{at}: {doc_rel} is not in the manifest"))?;
             let xt = get(sdoc, "x-table", &doc_rel)?;
-            if u(get(sdoc, "x-schema-id", &doc_rel)?, &doc_rel)? != u64::from(id)
+            if u(get(sdoc, "x-schema-id", &doc_rel)?, &doc_rel)? != u64::from(sc.schema_id)
                 || s(get(xt, "name", &doc_rel)?, &doc_rel)? != name
             {
-                return Err(format!("{doc_rel}: is not schema {id} of {name}"));
+                return Err(format!(
+                    "{doc_rel}: is not schema {} of {name}",
+                    sc.schema_id
+                ));
             }
         }
-        // 476-490: a declared key names fields.
-        if declared {
-            for k in strings(get(doc, "primary_key", at)?, at)? {
-                if !fields.values().any(|f| f.0 == k) {
+        // A declared key names fields.
+        if let Some(d) = &p.declaration {
+            for k in &d.primary_key {
+                if !fields.values().any(|f| f.0 == *k) {
                     return Err(format!("{at}: key column {k:?} is in no schema"));
                 }
             }
         }
-        // 491-552: runs.
-        for r in arr(get(iceberg, "runs", at)?, at)? {
-            if strings(get(r, "report", at)?, at)?.len() != 2 {
-                return Err(format!("{at}: a run's report is not [type, subtype]"));
+        // Each snapshot's manifest list is under the table, listed, and
+        // empty.
+        for sn in &m.snapshots {
+            let list = sn
+                .manifest_list
+                .strip_prefix(base)
+                .filter(|l| l.starts_with(&format!("nem/{name}/metadata/")))
+                .ok_or(format!("{at}: snapshot {} lists elsewhere", sn.snapshot_id))?;
+            match lists.get(list) {
+                Some(0) => {}
+                Some(_) => return Err(format!("{list}: lists data files")),
+                None => return Err(format!("{at}: {list} is not in the manifest")),
             }
-            for c in strings(get(r, "changes", at)?, at)? {
-                if !["first", "schema", "version", "report", "published"].contains(&c.as_str()) {
-                    return Err(format!("{at}: {c:?} is not a change"));
-                }
-            }
-            for up in arr(get(r, "updates", at)?, at)? {
-                let a = s(get(up, "action", at)?, at)?;
-                match a {
-                    "set-identifier-fields" => {
-                        for i in arr(get(up, "field-ids", at)?, at)? {
-                            u32_(i, at)?;
-                        }
-                    }
-                    "add" | "restore" | "delete" | "move" | "make-optional" => {
-                        u32_(get(up, "field-id", at)?, at)?;
-                    }
-                    _ => return Err(format!("{at}: {a:?} is not a schema update")),
-                }
-            }
-            u32_(get(r, "schema-id", at)?, at)?;
-            u16::try_from(u(get(r, "version", at)?, at)?).map_err(|_| format!("{at}: version"))?;
-            strings(get(r, "kinds", at)?, at)?;
-            check_mark(get(r, "from", at)?, at)?;
-            check_mark(get(r, "to", at)?, at)?;
-            u32_(get(r, "files", at)?, at)?;
-            u(get(r, "rows", at)?, at)?;
-            get(r, "overlaps", at)?
-                .as_bool()
-                .ok_or(format!("{at}: overlaps"))?;
-        }
-        // 553-564: breaking columns.
-        for b in arr(get(iceberg, "breaking", at)?, at)? {
-            u32_(get(b, "old-field-id", at)?, at)?;
-            u32_(get(b, "new-field-id", at)?, at)?;
-            check_mark(get(b, "at", at)?, at)?;
-        }
-        // 565-576 with `kind` (219-237): description, package, time column;
-        // a declared table's temporal roles and load mode.
-        opt_str(doc, "description", at)?;
-        opt_str(doc, "package", at)?;
-        opt_str(doc, "time_column", at)?;
-        if declared {
-            if let Some(t) = opt(doc, "temporal") {
-                s(get(get(t, "valid", at)?, "kind", at)?, at)?;
-                strings(get(t, "order", at)?, at)?;
-            }
-            s(get(doc, "load_mode", at)?, at)?;
         }
         tables += 1;
     }
-    // 316-318: at least one table.
+    // At least one table.
     if tables == 0 {
         return Err("manifest.json: names no table".into());
     }
@@ -800,117 +773,130 @@ fn the_export_reads_as_the_index_reads_it() {
 fn the_consumer_check_refuses_what_the_index_refuses() {
     let dir = exported();
     let root = dir.path();
-    let table = "nem/DISPATCH_UNIT_SCADA/table.json";
-    // Each edit of table.json, rehashed into the manifest, and what the
+    // Each edit of the metadata, rehashed into the manifest, and what the
     // check says.
     type Edit = Box<dyn Fn(&mut serde_json::Value)>;
     let cases: Vec<(Edit, &str)> = vec![
-        (Box::new(|t| t["name"] = json!("X")), "names table"),
-        (Box::new(|t| t["x-format"] = json!(1)), "x-format is not 2"),
         (
-            Box::new(|t| t["iceberg"]["format-version"] = json!(2)),
+            Box::new(|t| t["properties"]["utilake.table"] = json!("X")),
+            "names table",
+        ),
+        (
+            Box::new(|t| t["properties"]["utilake.format"] = json!("2")),
+            "not format 3",
+        ),
+        (
+            Box::new(|t| t["format-version"] = json!(2)),
             "format-version is not 3",
         ),
         (
-            Box::new(|t| t["columns"][0]["id"] = json!(-1)),
-            "is not a whole number",
+            Box::new(|t| t["schemas"][0]["fields"][0]["type"] = json!("uuid")),
+            "not a schema these types hold",
         ),
         (
-            Box::new(|t| t["columns"][0]["id"] = json!(5_000_000_000_u64)),
-            "is not a 32-bit number",
-        ),
-        (Box::new(|t| t["columns"] = json!({})), "is not a list"),
-        (
-            Box::new(|t| t["columns"][0]["comment"] = json!(1)),
-            "is not a string",
-        ),
-        (
-            Box::new(|t| t["iceberg"]["schemas"][0]["fields"][0]["type"] = json!("uuid")),
-            "is not a field type",
-        ),
-        (
-            Box::new(|t| t["iceberg"]["schemas"][1]["fields"][0]["name"] = json!("T")),
+            Box::new(|t| t["schemas"][1]["fields"][0]["name"] = json!("T")),
             "has two names or types",
         ),
         (
-            Box::new(|t| t["iceberg"]["schemas"][0]["identifier-field-ids"] = json!(["a"])),
-            "is not a whole number",
-        ),
-        (
-            Box::new(|t| t["iceberg"]["schema-files"]["0"] = json!("schema-none.json")),
-            "is not in the manifest",
-        ),
-        (
             Box::new(|t| {
-                t["iceberg"]["schema-files"]["0"] = t["iceberg"]["schema-files"]["1"].clone();
+                let mut s = t["schemas"][1].clone();
+                s["schema-id"] = json!(7);
+                t["schemas"].as_array_mut().unwrap().push(s);
             }),
-            "is not schema 0",
+            "schema-7.json is not in the manifest",
         ),
         (
-            Box::new(|t| t["primary_key"] = json!(["NOPE"])),
+            Box::new(|t| t["properties"]["utilake.key"] = json!("[\"NOPE\"]")),
             "is in no schema",
         ),
         (
-            Box::new(|t| t["iceberg"]["runs"][0]["report"] = json!(["A"])),
-            "is not [type, subtype]",
+            Box::new(|t| t["properties"]["utilake.declared"] = json!("yes")),
+            "utilake.declared",
         ),
         (
-            Box::new(|t| t["iceberg"]["runs"][0]["changes"] = json!(["x"])),
-            "is not a change",
+            Box::new(|t| t["snapshots"][0]["manifest-list"] = json!("file:///elsewhere.avro")),
+            "lists elsewhere",
         ),
         (
-            Box::new(|t| t["iceberg"]["runs"][1]["updates"][0]["action"] = json!("x")),
-            "is not a schema update",
+            Box::new(|t| {
+                let list = t["snapshots"][0]["manifest-list"].as_str().unwrap();
+                let list = list.replace("snap-", "snap-x");
+                t["snapshots"][0]["manifest-list"] = json!(list);
+            }),
+            "is not in the manifest",
         ),
         (
-            Box::new(|t| t["iceberg"]["runs"][0]["version"] = json!(70_000)),
-            "version",
-        ),
-        (
-            Box::new(|t| t["iceberg"]["runs"][0]["from"]["release"] = json!("2026-13")),
-            "is not a month",
-        ),
-        (
-            Box::new(|t| t["iceberg"]["runs"][0]["from"]["data-time"] = json!("2026-08-01")),
-            "is not RFC 3339",
-        ),
-        (
-            Box::new(|t| t["iceberg"]["runs"][0]["overlaps"] = json!(1)),
-            "overlaps",
-        ),
-        (
-            Box::new(|t| t["iceberg"]["breaking"] = json!([{"old-field-id": 1}])),
-            "\"new-field-id\" is missing",
-        ),
-        (Box::new(|t| t["declared"] = json!("yes")), "declared"),
-        (
-            Box::new(|t| t["temporal"] = json!({"valid": {}})),
-            "\"kind\" is missing",
-        ),
-        (
-            Box::new(|t| t["iceberg"]["schemas"][0]["fields"][0]["required"] = json!(null)),
-            "required",
+            Box::new(|t| t["snapshots"][0]["summary"]["utilake.rows"] = json!("many")),
+            "not a number",
         ),
     ];
-    let original = std::fs::read(root.join(table)).unwrap();
+    let original = std::fs::read(root.join(TABLE)).unwrap();
     let manifest = std::fs::read(root.join("manifest.json")).unwrap();
     for (edit, says) in cases {
         let mut t: serde_json::Value = serde_json::from_slice(&original).unwrap();
         edit(&mut t);
         let text = text(&t);
-        std::fs::write(root.join(table), &text).unwrap();
+        std::fs::write(root.join(TABLE), &text).unwrap();
         let mut m: serde_json::Value = serde_json::from_slice(&manifest).unwrap();
-        m["sha256"][table] = json!(crate::ctl::sha256(text.as_bytes()));
+        m["sha256"][TABLE] = json!(crate::ctl::sha256(text.as_bytes()));
         std::fs::write(root.join("manifest.json"), super::text(&m)).unwrap();
         let e = import_check(root).unwrap_err();
         assert!(e.contains(says), "{says}: {e}");
     }
+    std::fs::write(root.join(TABLE), &original).unwrap();
+    // A schema document of another schema or table.
+    let doc = "nem/DISPATCH_UNIT_SCADA/schema-0.json";
+    let original_doc = std::fs::read(root.join(doc)).unwrap();
+    let mut d: serde_json::Value = serde_json::from_slice(&original_doc).unwrap();
+    d["x-schema-id"] = json!(1);
+    let text = text(&d);
+    std::fs::write(root.join(doc), &text).unwrap();
+    let mut m: serde_json::Value = serde_json::from_slice(&manifest).unwrap();
+    m["sha256"][doc] = json!(crate::ctl::sha256(text.as_bytes()));
+    std::fs::write(root.join("manifest.json"), super::text(&m)).unwrap();
+    assert!(import_check(root).unwrap_err().contains("is not schema 0"));
+    std::fs::write(root.join(doc), &original_doc).unwrap();
+    m["sha256"][doc] = json!(crate::ctl::sha256(&original_doc));
+    // A manifest list that is not one, or lists a data file.
+    let list = m["sha256"]
+        .as_object()
+        .unwrap()
+        .keys()
+        .find(|k| k.ends_with(".avro"))
+        .unwrap()
+        .clone();
+    let original_list = std::fs::read(root.join(&list)).unwrap();
+    std::fs::write(root.join(&list), b"Obj\x01nope").unwrap();
+    m["sha256"][&list] = json!(crate::ctl::sha256(b"Obj\x01nope"));
+    std::fs::write(root.join("manifest.json"), super::text(&m)).unwrap();
+    assert!(import_check(root).unwrap_err().contains(".avro: "));
+    let full = utilake_iceberg::table::write_manifest_list(
+        1,
+        None,
+        1,
+        0,
+        &[utilake_iceberg::table::ManifestFile {
+            path: "m.avro".into(),
+            length: 1,
+            sequence_number: 1,
+            min_sequence_number: 1,
+            added_snapshot_id: 1,
+            added_files: 1,
+            added_rows: 1,
+            first_row_id: None,
+        }],
+    )
+    .unwrap();
+    std::fs::write(root.join(&list), &full).unwrap();
+    m["sha256"][&list] = json!(crate::ctl::sha256(&full));
+    std::fs::write(root.join("manifest.json"), super::text(&m)).unwrap();
+    assert!(import_check(root).unwrap_err().contains("lists data files"));
+    std::fs::write(root.join(&list), &original_list).unwrap();
     // The manifest and the files under nem/.
-    std::fs::write(root.join(table), &original).unwrap();
     let mut m: serde_json::Value = serde_json::from_slice(&manifest).unwrap();
     m["format"] = json!(1);
-    std::fs::write(root.join("manifest.json"), text(&m)).unwrap();
-    assert!(import_check(root).unwrap_err().contains("format is not 2"));
+    std::fs::write(root.join("manifest.json"), super::text(&m)).unwrap();
+    assert!(import_check(root).unwrap_err().contains("format is not 3"));
     std::fs::write(root.join("manifest.json"), &manifest).unwrap();
     std::fs::write(root.join("nem/extra.json"), "{}").unwrap();
     assert!(
@@ -919,7 +905,7 @@ fn the_consumer_check_refuses_what_the_index_refuses() {
             .contains("not in the manifest")
     );
     std::fs::remove_file(root.join("nem/extra.json")).unwrap();
-    std::fs::write(root.join(table), b"{}").unwrap();
+    std::fs::write(root.join(TABLE), b"{}").unwrap();
     assert!(
         import_check(root)
             .unwrap_err()

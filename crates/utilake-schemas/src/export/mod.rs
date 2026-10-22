@@ -1,30 +1,33 @@
 //! `export`: every table's history as the documents under `nem/`.
 //!
-//! Per table with a history (`evidence/histories/{TABLE}.json`),
-//! `nem/{TABLE}/table.json` describes the table: its declaration from
-//! `tables/`, its description and each column's comment and model type
-//! from the latest data-model release under `evidence/models/` that has
-//! them, each column's Iceberg type and the releases it spans, and its
-//! history as an Iceberg table (`iceberg`), each schema's document named
-//! in `schema-files`. Per schema, `nem/{TABLE}/schema-{hash}.json` is a
-//! JSON Schema of a row ([`schema`]). `nem/{TABLE}/metadata/v1.metadata.json`
-//! (with `version-hint.text`) is the table as Iceberg table metadata, with
-//! no data, for any Iceberg reader. `nem/headers.json` maps every header
-//! AEMO's files carry (report pair, version, columns) to its table and
-//! schemas. Beside them, `manifest.json` names every file under `nem/`
-//! with its SHA-256, and lists the tables.
+//! Per table with a history (`evidence/histories/{TABLE}.json`), the
+//! table is published as Iceberg table metadata,
+//! `nem/{TABLE}/metadata/v1.metadata.json` ([`utilake_iceberg::publish`]):
+//! its schemas, its runs as snapshots, its declaration from `tables/`,
+//! and its description, each column's comment and model type from the
+//! latest data-model release under `evidence/models/` that has them.
+//! Beside it, `version-hint.text` names version 1, and one empty manifest
+//! list per snapshot lets any Iceberg reader open the table and read no
+//! rows. Everything else is derived from the metadata, read back through
+//! [`utilake_iceberg::from_metadata`], never from the history: per schema,
+//! `nem/{TABLE}/schema-{id}.json` is a JSON Schema of a row ([`schema`]);
+//! `nem/headers.json` maps every header AEMO's files carry (report pair,
+//! version, columns) to its table and schemas; `manifest.json` names every
+//! file under `nem/` with its SHA-256, and lists the tables.
 //!
 //! Everything is a function of the files read: no clock, no git. Every
 //! document is pretty JSON with its keys sorted and a newline at the end,
-//! so the same evidence writes the same bytes. The export owns `nem/`
-//! whole: a file there it did not write is removed ([`write()`]), or
-//! reported by a check ([`check`]).
+//! and the manifest lists are bytes of the table's content, so the same
+//! evidence writes the same bytes. The export owns `nem/` whole: a file
+//! there it did not write is removed ([`write()`]), or reported by a check
+//! ([`check`]).
 
 use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 
 use serde_json::{Value, json};
-use utilake_iceberg::History;
+use utilake_iceberg::publish::{Declaration, PublishError, Published, Table, to_metadata};
+use utilake_iceberg::{History, from_metadata};
 
 use crate::catalog::{Catalog, CatalogError, TableDecl};
 use crate::fold::{Baseline, FoldError, histories_dir};
@@ -37,8 +40,8 @@ pub use write::{Stale, Written, check, write};
 
 /// The generation of the documents' layout: the files, the `x-` keys and
 /// their meaning. Raised when a reader of this format would misread a
-/// document.
-pub const FORMAT: u32 = 2;
+/// document. It is the published layout's ([`utilake_iceberg::publish::FORMAT`]).
+pub const FORMAT: u32 = utilake_iceberg::publish::FORMAT;
 
 /// Where the documents are published: a document's `$id` is this and its
 /// path.
@@ -46,6 +49,9 @@ pub const DEFAULT_BASE_URL: &str = "https://raw.githubusercontent.com/g0itb4/uti
 
 /// The directory the export owns.
 pub const OWNED: &str = "nem";
+
+/// The table's metadata file under its directory.
+pub const METADATA: &str = "metadata/v1.metadata.json";
 
 /// Why the export could not be done.
 #[derive(Debug, thiserror::Error)]
@@ -66,6 +72,23 @@ pub enum ExportError {
         path: String,
         /// What is wrong.
         message: String,
+    },
+    /// A declaration the published form cannot hold.
+    #[error("The declaration of {table} cannot be published: {message}")]
+    Declaration {
+        /// The table.
+        table: String,
+        /// What is wrong.
+        message: String,
+    },
+    /// A history that cannot be written as table metadata.
+    #[error("The history of {table} cannot be published: {source}")]
+    Publish {
+        /// The table.
+        table: String,
+        /// Cause.
+        #[source]
+        source: PublishError,
     },
     /// A file that cannot be read, written or removed.
     #[error("The export could not read or write {path}.")]
@@ -129,11 +152,39 @@ pub fn read_histories(root: &Path) -> Result<BTreeMap<String, History>, ExportEr
     Ok(out)
 }
 
+/// A table's declaration in its published form; the temporal roles must
+/// be the ones the form names.
+fn declaration(d: &TableDecl) -> Result<Declaration, ExportError> {
+    let bad = |message: String| ExportError::Declaration {
+        table: d.name.clone(),
+        message,
+    };
+    let temporal = serde_json::to_value(&d.temporal).map_err(|e| bad(e.to_string()))?;
+    let load_mode = serde_json::to_value(d.load_mode).map_err(|e| bad(e.to_string()))?;
+    Ok(Declaration {
+        package: d.package.clone(),
+        report_pairs: d.report_pairs.clone(),
+        primary_key: d.primary_key.clone(),
+        time_column: d.time_column.clone(),
+        load_mode: load_mode
+            .as_str()
+            .ok_or_else(|| bad("the load mode is not a word".into()))?
+            .to_owned(),
+        visibility: d.visibility.clone(),
+        temporal: serde_json::from_value(temporal).map_err(|e| {
+            bad(format!(
+                "its temporal roles are not the published ones: {e}"
+            ))
+        })?,
+    })
+}
+
 /// Everything the export reads, loaded.
 #[derive(Debug)]
 pub struct Export {
     histories: BTreeMap<String, History>,
-    catalog: Catalog,
+    /// Each declared table's declaration in its published form.
+    declarations: BTreeMap<String, Declaration>,
     /// The data-model releases, first shipped first.
     models: Vec<Model>,
     base_url: String,
@@ -144,8 +195,8 @@ pub struct Export {
 /// Every file one export writes, by path relative to the root.
 #[derive(Debug, Clone, Default, PartialEq, Eq)]
 pub struct Rendered {
-    /// Path to text: every `nem/` document and `manifest.json`.
-    pub files: BTreeMap<String, String>,
+    /// Path to bytes: every file under `nem/` and `manifest.json`.
+    pub files: BTreeMap<String, Vec<u8>>,
     /// Tables written.
     pub tables: usize,
     /// Schema documents written.
@@ -156,9 +207,15 @@ impl Export {
     /// Reads the histories, the declarations and the data-model releases
     /// under `root`; the documents will live under `base_url`.
     pub fn load(root: &Path, base_url: &str) -> Result<Self, ExportError> {
+        let catalog = Catalog::read(&root.join("tables"))?;
+        let declarations = catalog
+            .tables()
+            .iter()
+            .map(|d| Ok((d.name.clone(), declaration(d)?)))
+            .collect::<Result<_, ExportError>>()?;
         Ok(Self {
             histories: read_histories(root)?,
-            catalog: Catalog::read(&root.join("tables"))?,
+            declarations,
             models: by_first_seen(&read_models(root)?)
                 .into_iter()
                 .cloned()
@@ -166,6 +223,11 @@ impl Export {
             base_url: base_url.to_owned(),
             baseline: Baseline::read(root)?,
         })
+    }
+
+    /// The tables with a history, in order.
+    pub fn tables(&self) -> impl Iterator<Item = &str> {
+        self.histories.keys().map(String::as_str)
     }
 
     /// The newest release's declaration of `table`.
@@ -185,89 +247,88 @@ impl Export {
             })
     }
 
-    /// Renders every file.
-    pub fn render(&self) -> Rendered {
-        let mut out = Rendered::default();
-        let mut listed = Vec::new();
-        for (table, h) in &self.histories {
-            let mut files = BTreeMap::new();
-            for s in &h.schemas {
-                let name = schema::file_name(s);
-                let path = format!("{OWNED}/{table}/{name}");
-                let doc = schema::document(&self.base_url, table, &path, s);
-                out.files.insert(path, doc);
-                files.insert(s.schema_id.to_string(), json!(name));
+    /// `table` as published: its history, its declaration, and what the
+    /// data-model releases say of it and its columns.
+    pub fn published(&self, table: &str) -> Option<Published> {
+        let h = self.histories.get(table)?;
+        let mut docs = BTreeMap::new();
+        let mut model_types = BTreeMap::new();
+        for f in h.fields() {
+            let (comment, model_type) = self.column(table, &f.name);
+            if let Some(c) = comment {
+                docs.insert(f.id, c.to_owned());
             }
-            out.schemas += h.schemas.len();
-            let decl = self.catalog.table(table);
-            let doc = self.table(h, decl, &files);
-            out.files
-                .insert(format!("{OWNED}/{table}/table.json"), text(&doc));
-            let location = format!("{}{OWNED}/{table}", self.base_url);
-            let meta = crate::iceberg::metadata(h, &location);
-            out.files.insert(
-                format!("{OWNED}/{table}/metadata/v1.metadata.json"),
-                text(&serde_json::to_value(&meta).expect("metadata serialises")),
-            );
-            out.files.insert(
-                format!("{OWNED}/{table}/metadata/version-hint.text"),
-                "1".to_owned(),
-            );
-            listed.push(listing(h, decl));
+            if let Some(t) = model_type {
+                model_types.insert(f.id, t.to_owned());
+            }
         }
-        out.tables = self.histories.len();
-        out.files.insert(
-            format!("{OWNED}/headers.json"),
-            text(&headers(self.histories.values())),
-        );
-        let manifest = manifest(&self.base_url, &self.baseline, &listed, &out);
-        out.files.insert("manifest.json".to_owned(), manifest);
-        out
+        Some(Published {
+            history: h.clone(),
+            declaration: self.declarations.get(table).cloned(),
+            description: self
+                .model(table)
+                .and_then(|t| non_empty(&t.comment))
+                .map(str::to_owned),
+            docs,
+            model_types,
+        })
     }
 
-    /// The table's document.
-    fn table(
-        &self,
-        h: &History,
-        decl: Option<&TableDecl>,
-        files: &BTreeMap<String, Value>,
-    ) -> Value {
-        let name = h.table.as_str();
-        let columns: Vec<Value> = h
-            .fields()
-            .iter()
-            .map(|f| {
-                let (comment, model_type) = self.column(name, &f.name);
-                let (first, last) = span_of(h, |s| s.field(f.id).is_some());
-                json!({
-                    "id": f.id,
-                    "name": f.name,
-                    "iceberg_type": f.ty.name(),
-                    "comment": comment,
-                    "model_type": model_type,
-                    "first_release": first,
-                    "last_release": last,
-                })
-            })
-            .collect();
-        let mut iceberg = serde_json::to_value(h).expect("a history serialises");
-        iceberg["schema-files"] = json!(files);
-        let description = self.model(name).and_then(|t| non_empty(&t.comment));
-        json!({
-            "name": name,
-            "x-format": FORMAT,
-            "declared": decl.is_some(),
-            "description": description,
-            "package": decl.and_then(|d| d.package.as_deref()),
-            "primary_key": decl.map(|d| &d.primary_key),
-            "report_pairs": decl.map(|d| &d.report_pairs),
-            "time_column": decl.and_then(|d| d.time_column.as_deref()),
-            "temporal": decl.map(|d| serde_json::to_value(&d.temporal).unwrap_or(Value::Null)),
-            "load_mode": decl.map(|d| d.load_mode),
-            "visibility": decl.map(|d| &d.visibility),
-            "columns": columns,
-            "iceberg": iceberg,
-        })
+    /// `table` as Iceberg table metadata at `location`, with its manifest
+    /// lists; none when it has no history.
+    pub fn table(&self, table: &str, location: &str) -> Option<Result<Table, ExportError>> {
+        let p = self.published(table)?;
+        Some(
+            to_metadata(&p, location, &crate::iceberg::table_uuid(table)).map_err(|source| {
+                ExportError::Publish {
+                    table: table.to_owned(),
+                    source,
+                }
+            }),
+        )
+    }
+
+    /// Renders every file.
+    pub fn render(&self) -> Result<Rendered, ExportError> {
+        let mut out = Rendered::default();
+        let mut listed = Vec::new();
+        let mut histories = Vec::new();
+        for table in self.tables() {
+            let dir = format!("{OWNED}/{table}");
+            let location = format!("{}{dir}", self.base_url);
+            let t = self
+                .table(table, &location)
+                .expect("the table has a history")?;
+            out.files.insert(
+                format!("{dir}/{METADATA}"),
+                text(&serde_json::to_value(&t.metadata).expect("metadata serialises")).into(),
+            );
+            out.files
+                .insert(format!("{dir}/metadata/version-hint.text"), b"1".to_vec());
+            for ml in t.manifest_lists {
+                out.files.insert(format!("{dir}/{}", ml.path), ml.bytes);
+            }
+            // Everything else is read back out of the metadata.
+            let p = from_metadata(&t.metadata).expect("what was published reads back");
+            debug_assert_eq!(p, self.published(table).expect("the table has a history"));
+            for s in &p.history.schemas {
+                let path = format!("{dir}/{}", schema::file_name(s.schema_id));
+                let doc = schema::document(&self.base_url, table, &path, s, &p);
+                out.files.insert(path, doc.into());
+            }
+            out.schemas += p.history.schemas.len();
+            listed.push(listing(&p));
+            histories.push(p.history);
+        }
+        out.tables = histories.len();
+        out.files.insert(
+            format!("{OWNED}/headers.json"),
+            text(&headers(histories.iter())).into(),
+        );
+        let manifest = manifest(&self.base_url, &self.baseline, &listed, &out);
+        out.files
+            .insert("manifest.json".to_owned(), manifest.into());
+        Ok(out)
     }
 }
 
@@ -285,12 +346,13 @@ fn span_of(h: &History, has: impl Fn(&utilake_iceberg::Schema) -> bool) -> (Valu
 
 /// The table's line in the manifest: its name, package, whether it is
 /// declared, the releases its runs span, and its counts.
-fn listing(h: &History, decl: Option<&TableDecl>) -> Value {
+fn listing(p: &Published) -> Value {
+    let h = &p.history;
     let (first, last) = span_of(h, |_| true);
     json!({
         "name": h.table,
-        "package": decl.and_then(|d| d.package.as_deref()),
-        "declared": decl.is_some(),
+        "package": p.declaration.as_ref().and_then(|d| d.package.as_deref()),
+        "declared": p.declaration.is_some(),
         "first_release": first,
         "last_release": last,
         "schemas": h.schemas.len(),
@@ -366,7 +428,7 @@ fn manifest(base_url: &str, baseline: &Baseline, listed: &[Value], r: &Rendered)
     let hashes: BTreeMap<&str, String> = r
         .files
         .iter()
-        .map(|(p, t)| (p.as_str(), crate::ctl::sha256(t.as_bytes())))
+        .map(|(p, bytes)| (p.as_str(), crate::ctl::sha256(bytes)))
         .collect();
     text(&json!({
         "format": FORMAT,

@@ -3,7 +3,7 @@
 //! The fold reads every month's census (`evidence/census/{YYYY-MM}.toml`),
 //! every report folder's (`evidence/census/reports/**`), the data-model
 //! releases (`evidence/models/`), the declarations (`tables/`) and the
-//! histories last published (the `iceberg` block of `nem/{TABLE}/table.json`),
+//! histories last published (`nem/{TABLE}/metadata/v1.metadata.json`),
 //! and writes each table's history ([`crate::history`]) from scratch to
 //! `evidence/histories/{TABLE}.json`: pretty JSON with its keys sorted, so
 //! the same evidence writes the same bytes. Each file is written whole,
@@ -20,7 +20,8 @@ use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 
 use serde::Deserialize as _;
-use utilake_iceberg::History;
+use utilake_iceberg::table::TableMetadata;
+use utilake_iceberg::{History, from_metadata};
 
 use crate::catalog::Catalog;
 use crate::census::{CensusError, FileRecord, census_dir, files_under, read_month};
@@ -150,9 +151,9 @@ pub fn history_path(root: &Path, table: &str) -> PathBuf {
     histories_dir(root).join(format!("{table}.json"))
 }
 
-/// The table document of the previous export.
+/// The table metadata of the previous export.
 pub fn published_path(root: &Path, table: &str) -> PathBuf {
-    root.join("nem").join(table).join("table.json")
+    root.join("nem").join(table).join(crate::export::METADATA)
 }
 
 fn census_read(path: &Path, e: &std::io::Error) -> CensusError {
@@ -309,9 +310,12 @@ pub fn declarations(root: &Path, catalog: &Catalog) -> Result<Declarations, Mode
     })
 }
 
-/// The histories the previous export published: the `iceberg` block of
-/// every `nem/{TABLE}/table.json`, by table. A document without one
-/// published no history.
+/// The histories the previous export published: every
+/// `nem/{TABLE}/metadata/v1.metadata.json`, by table
+/// ([`utilake_iceberg::from_metadata`]). A directory without one
+/// published no history. Metadata from before the format carried the
+/// history (no `utilake.format`) is read from the `iceberg` block of the
+/// `table.json` beside it, so one fold can cross the format change.
 pub fn published(root: &Path) -> Result<BTreeMap<String, History>, FoldError> {
     let mut out = BTreeMap::new();
     let nem = root.join("nem");
@@ -320,22 +324,33 @@ pub fn published(root: &Path) -> Result<BTreeMap<String, History>, FoldError> {
         message: e.to_string(),
     })?;
     for dir in dirs.iter().filter(|d| d.is_dir()) {
-        let path = dir.join("table.json");
-        let bad = |message: String| FoldError::Published {
+        let path = dir.join(crate::export::METADATA);
+        let bad = |path: &Path, message: String| FoldError::Published {
             path: path.display().to_string(),
             message,
         };
         let text = match std::fs::read_to_string(&path) {
             Ok(t) => t,
             Err(e) if e.kind() == std::io::ErrorKind::NotFound => continue,
-            Err(e) => return Err(bad(e.to_string())),
+            Err(e) => return Err(bad(&path, e.to_string())),
         };
-        let doc: serde_json::Value = serde_json::from_str(&text).map_err(|e| bad(e.to_string()))?;
-        let Some(iceberg) = doc.get("iceberg") else {
+        let m: TableMetadata =
+            serde_json::from_str(&text).map_err(|e| bad(&path, e.to_string()))?;
+        if !m.properties.contains_key("utilake.format") {
+            let legacy = dir.join("table.json");
+            let doc: serde_json::Value = std::fs::read_to_string(&legacy)
+                .map_err(|e| e.to_string())
+                .and_then(|t| serde_json::from_str(&t).map_err(|e| e.to_string()))
+                .map_err(|e| bad(&legacy, e))?;
+            let Some(iceberg) = doc.get("iceberg") else {
+                continue;
+            };
+            let h = History::deserialize(iceberg).map_err(|e| bad(&legacy, e.to_string()))?;
+            out.insert(h.table.clone(), h);
             continue;
-        };
-        let h = History::deserialize(iceberg).map_err(|e| bad(e.to_string()))?;
-        out.insert(h.table.clone(), h);
+        }
+        let p = from_metadata(&m).map_err(|e| bad(&path, e.to_string()))?;
+        out.insert(p.history.table.clone(), p.history);
     }
     Ok(out)
 }

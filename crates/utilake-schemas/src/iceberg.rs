@@ -1,19 +1,16 @@
-//! `iceberg --out DIR`: every table's history as an Iceberg table with no
-//! data, so any Iceberg reader can be asked what its schemas are.
+//! `iceberg --out DIR`: every table as the export publishes it, at file
+//! locations, so any Iceberg reader can be pointed at it.
 //!
-//! `DIR/{TABLE}/metadata/v1.metadata.json` is the table's first metadata
-//! ([`utilake_iceberg::table::TableMetadata`]): every schema of the history,
-//! the current one the history's, and no snapshot. Beside it,
-//! `version-hint.text` names version 1: the digit alone, which readers
-//! that do not trim it need. The table's UUID is derived from its name and
-//! its times are zero, so the same history writes the same bytes.
+//! `DIR/{TABLE}/metadata/v1.metadata.json` is the same table metadata the
+//! export writes under `nem/` ([`utilake_iceberg::publish`]), with `DIR`
+//! as its location instead of the published URL, and the same manifest
+//! lists beside it. `version-hint.text` names version 1: the digit alone,
+//! which readers that do not trim it need. The table's UUID is derived
+//! from its name, so the same history writes the same bytes.
 
-use std::path::{Path, PathBuf};
+use std::path::Path;
 
-use utilake_iceberg::History;
-use utilake_iceberg::table::TableMetadata;
-
-use crate::export::{ExportError, read_histories, text};
+use crate::export::{DEFAULT_BASE_URL, Export, ExportError, text};
 
 /// A UUID (version 8, RFC 9562) from the SHA-256 of the table's name.
 pub fn table_uuid(table: &str) -> String {
@@ -36,48 +33,43 @@ pub fn table_uuid(table: &str) -> String {
     )
 }
 
-/// The table's metadata at `location`.
-pub fn metadata(h: &History, location: &str) -> TableMetadata {
-    let first = h.schemas.first().cloned().unwrap_or_default();
-    let mut m = TableMetadata::new(&table_uuid(&h.table), location, &first, 0);
-    m.schemas.clone_from(&h.schemas);
-    m.last_column_id = h
-        .schemas
-        .iter()
-        .flat_map(|s| s.fields.iter().map(|f| f.id))
-        .max()
-        .unwrap_or(0);
-    m.current_schema_id = h.current_schema_id;
-    m
-}
-
-/// Writes every history under `root` as a table under `out`; returns the
+/// Writes every table under `root` as a table under `out`; returns the
 /// tables written.
 pub fn write_tables(root: &Path, out: &Path) -> Result<usize, ExportError> {
-    let histories = read_histories(root)?;
-    for (table, h) in &histories {
+    let export = Export::load(root, DEFAULT_BASE_URL)?;
+    let mut n = 0;
+    for table in export.tables() {
         let dir = out.join(table);
-        let m = metadata(h, &dir.display().to_string());
+        let t = export
+            .table(table, &dir.display().to_string())
+            .expect("the table has a history")?;
         let meta = dir.join("metadata");
-        let files: [(PathBuf, String); 2] = [
+        let mut files = vec![
             (
                 meta.join("v1.metadata.json"),
-                text(&serde_json::to_value(&m).expect("metadata serialises")),
+                text(&serde_json::to_value(&t.metadata).expect("metadata serialises")).into_bytes(),
             ),
-            (meta.join("version-hint.text"), "1".to_owned()),
+            (meta.join("version-hint.text"), b"1".to_vec()),
         ];
+        files.extend(
+            t.manifest_lists
+                .into_iter()
+                .map(|ml| (dir.join(ml.path), ml.bytes)),
+        );
         for (path, body) in files {
-            crate::files::write_atomic(&path, body.as_bytes())
-                .map_err(|e| ExportError::io(&path, e))?;
+            crate::files::write_atomic(&path, &body).map_err(|e| ExportError::io(&path, e))?;
         }
+        n += 1;
     }
-    Ok(histories.len())
+    Ok(n)
 }
 
 #[cfg(test)]
 mod tests {
+    use utilake_iceberg::table::TableMetadata;
+
     use super::*;
-    use crate::export::tests::{exported, sample};
+    use crate::export::tests::exported;
 
     #[test]
     fn one_data_free_table_per_history() {
@@ -93,12 +85,22 @@ mod tests {
         let m: TableMetadata = serde_json::from_str(&text).unwrap();
         assert_eq!(m.schemas.len(), 2);
         assert_eq!((m.current_schema_id, m.last_column_id), (1, 3));
-        assert!(m.snapshots.is_empty() && m.current_snapshot_id.is_none());
+        assert_eq!(m.snapshots.len(), 2);
         assert_eq!(
             m.location,
             out.join("DISPATCH_UNIT_SCADA").display().to_string()
         );
         assert_eq!(m.table_uuid, table_uuid("DISPATCH_UNIT_SCADA"));
+        // Each snapshot's manifest list is where the metadata says.
+        for s in &m.snapshots {
+            let path = Path::new(&s.manifest_list);
+            assert!(path.starts_with(&meta), "{}", s.manifest_list);
+            let bytes = std::fs::read(path).unwrap();
+            assert_eq!(
+                utilake_iceberg::table::read_manifest_list(&bytes).unwrap(),
+                []
+            );
+        }
         // The same history, the same bytes.
         write_tables(dir.path(), &out).unwrap();
         assert_eq!(
@@ -120,10 +122,5 @@ mod tests {
         assert_eq!(&u[14..15], "8");
         assert!("89ab".contains(&u[19..20]), "{u}");
         assert_ne!(u, table_uuid("B"));
-        let mut h = sample();
-        h.current_schema_id = 0;
-        assert_eq!(metadata(&h, "x").current_schema_id, 0);
-        h.schemas.clear();
-        assert_eq!(metadata(&h, "x").last_column_id, 0);
     }
 }

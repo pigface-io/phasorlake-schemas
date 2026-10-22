@@ -54,6 +54,20 @@ fn census(root: &Path, month: &str, int: u8) {
     crate::files::write_atomic(&path, toml::to_string(&files).unwrap().as_bytes()).unwrap();
 }
 
+/// Publishes `h` as the export does: as table metadata, undeclared.
+fn publish(root: &Path, h: &History) {
+    let p = utilake_iceberg::Published {
+        history: h.clone(),
+        declaration: None,
+        description: None,
+        docs: BTreeMap::new(),
+        model_types: BTreeMap::new(),
+    };
+    let t = utilake_iceberg::to_metadata(&p, "l", "u").unwrap();
+    let text = serde_json::to_string(&t.metadata).unwrap();
+    crate::files::write_atomic(&published_path(root, &h.table), text.as_bytes()).unwrap();
+}
+
 /// A repository of the SCADA table, two months, a report folder at the
 /// root of ARCHIVE and one below it, and a data-model release.
 fn repo() -> (tempfile::TempDir, Catalog) {
@@ -155,15 +169,42 @@ fn the_published_history_is_kept_and_a_wider_month_splits() {
     let (dir, cat) = repo();
     let root = dir.path();
     fold(root, &cat, false, None).unwrap();
-    // Publish it as the export does, beside documents that publish none.
+    // Publish it as the export does, beside a directory that publishes
+    // none and a table of format 2, whose history is in its table.json.
     let text = std::fs::read_to_string(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap();
     let old: History = serde_json::from_str(&text).unwrap();
-    let doc = format!("{{\"table\": \"DISPATCH_UNIT_SCADA\", \"iceberg\": {text}}}");
-    crate::files::write_atomic(&published_path(root, "DISPATCH_UNIT_SCADA"), doc.as_bytes())
-        .unwrap();
-    crate::files::write_atomic(&published_path(root, "NONE"), b"{\"table\": \"NONE\"}").unwrap();
+    publish(root, &old);
     std::fs::create_dir_all(root.join("nem/EMPTY")).unwrap();
     std::fs::write(root.join("nem/README.md"), "x").unwrap();
+    let mut legacy = old.clone();
+    legacy.table = "LEGACY".into();
+    let plain = utilake_iceberg::table::TableMetadata::new("u", "l", &legacy.schemas[0], 0);
+    let meta = published_path(root, "LEGACY");
+    crate::files::write_atomic(&meta, serde_json::to_string(&plain).unwrap().as_bytes()).unwrap();
+    let err = |root: &Path| published(root).unwrap_err().to_string();
+    assert!(
+        err(root).contains("LEGACY/table.json cannot be read"),
+        "{}",
+        err(root)
+    );
+    let doc = root.join("nem/LEGACY/table.json");
+    std::fs::write(&doc, "{}").unwrap();
+    assert_eq!(
+        published(root).unwrap().len(),
+        1,
+        "no iceberg block: no history"
+    );
+    std::fs::write(&doc, r#"{"iceberg": {"table": 1}}"#).unwrap();
+    assert!(
+        err(root).contains("LEGACY/table.json cannot be read"),
+        "{}",
+        err(root)
+    );
+    std::fs::write(&doc, serde_json::json!({"iceberg": &legacy}).to_string()).unwrap();
+    let both = published(root).unwrap();
+    assert_eq!(both.len(), 2);
+    assert_eq!(both["LEGACY"], legacy);
+    std::fs::remove_dir_all(root.join("nem/LEGACY")).unwrap();
     assert_eq!(published(root).unwrap().len(), 1);
     // A September of 12 digits before the point: past decimal(16, 6).
     census(root, "2026-09", 12);
@@ -192,9 +233,7 @@ fn a_rebaseline_keeps_nothing_and_records_why() {
     let root = dir.path();
     fold(root, &cat, false, None).unwrap();
     let text = std::fs::read_to_string(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap();
-    let doc = format!("{{\"table\": \"DISPATCH_UNIT_SCADA\", \"iceberg\": {text}}}");
-    crate::files::write_atomic(&published_path(root, "DISPATCH_UNIT_SCADA"), doc.as_bytes())
-        .unwrap();
+    publish(root, &serde_json::from_str(&text).unwrap());
     assert_eq!(Baseline::read(root).unwrap(), Baseline::FIRST);
     census(root, "2026-09", 12);
     // Kept, this would be a split; not kept, one wider field. Every
@@ -242,15 +281,33 @@ fn every_failure_names_its_file() {
         "{}",
         err(root, &cat)
     );
-    crate::files::write_atomic(&table, b"{\"iceberg\": {\"table\": 1}}").unwrap();
-    assert!(err(root, &cat).contains("table.json cannot be read"));
+    let mut m: serde_json::Value = {
+        std::fs::remove_file(&table).unwrap();
+        fold(root, &cat, false, None).unwrap();
+        let h: History = serde_json::from_slice(
+            &std::fs::read(history_path(root, "DISPATCH_UNIT_SCADA")).unwrap(),
+        )
+        .unwrap();
+        publish(root, &h);
+        serde_json::from_slice(&std::fs::read(&table).unwrap()).unwrap()
+    };
+    m["properties"]["utilake.declared"] = serde_json::json!("maybe");
+    crate::files::write_atomic(&table, m.to_string().as_bytes()).unwrap();
+    assert!(
+        err(root, &cat).contains(
+            "v1.metadata.json cannot be read: In the table's properties, utilake.declared"
+        ),
+        "{}",
+        err(root, &cat)
+    );
     std::fs::remove_file(&table).unwrap();
     std::fs::create_dir_all(&table).unwrap();
-    assert!(err(root, &cat).contains("table.json cannot be read"));
+    assert!(err(root, &cat).contains("v1.metadata.json cannot be read"));
     std::fs::remove_dir_all(root.join("nem")).unwrap();
     std::fs::write(root.join("nem"), "a file").unwrap();
     assert!(err(root, &cat).contains("nem cannot be read"));
     std::fs::remove_file(root.join("nem")).unwrap();
+    std::fs::remove_dir_all(histories_dir(root)).unwrap();
 
     // An override that cannot hold the values.
     let mut t: TableDecl = cat.tables()[0].clone();
