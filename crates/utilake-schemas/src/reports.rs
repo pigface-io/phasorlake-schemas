@@ -64,9 +64,9 @@ use crate::month::YearMonth;
 use crate::shape::TypeClass;
 use crate::zip::{Accepts, ArchiveError, WalkError, walk_entries, walk_entries_in};
 use utilake_iceberg::Market;
-use utilake_plain_decode::PlainOptions;
 pub use utilake_plain_decode::feeds::{Decoder, Dedupe, Feed, feed, feeds_of};
 use utilake_plain_decode::names::block_name;
+use utilake_plain_decode::{Format, PlainOptions, peek, sniff};
 
 /// The NEM's report roots under `Reports/`, as the NEM reports feed names
 /// them.
@@ -894,33 +894,45 @@ pub fn census_folder(
                 let mut sha = Sha::new(r);
                 let mut counted = Counted::default();
                 let blocks = {
-                    let mut decode = |r: &mut dyn Read| -> Result<Vec<RawBlock>, String> {
+                    // `None`: not a report at all (markup named `.csv`).
+                    let mut decode = |r: &mut dyn Read| -> Result<Option<Vec<RawBlock>>, String> {
+                        let mut mms = |r: &mut dyn Read| {
+                            let (blocks, stats) =
+                                read_blocks_with(r, &mut scan_buf, differ.as_mut())
+                                    .map_err(|e| e.to_string())?;
+                            counted.add(&stats);
+                            Ok(Some(blocks))
+                        };
                         match (&named, feed.decoder) {
-                            (_, Decoder::Mms) => {
-                                let (blocks, stats) =
-                                    read_blocks_with(r, &mut scan_buf, differ.as_mut())
-                                        .map_err(|e| e.to_string())?;
-                                counted.add(&stats);
-                                Ok(blocks)
-                            }
+                            (_, Decoder::Mms) => mms(r),
                             (n, Decoder::Csv) => {
                                 let n = n.as_ref().expect("a plain file was named above");
-                                let (blocks, c) = read_plain_blocks(
-                                    r,
-                                    n,
-                                    &PlainOptions {
-                                        unpivot: feed.unpivot_of(&n.name),
-                                        ..opts
-                                    },
-                                    differ.as_mut(),
-                                )
-                                .map_err(|e| e.to_string())?;
-                                counted.bad_rows += c.bad_rows;
-                                Ok(blocks)
+                                // A plain folder holds the odd MMS file, and
+                                // the odd HTML fragment named `.csv`.
+                                let (head, mut r) = peek(r).map_err(|e| e.to_string())?;
+                                match sniff(&head) {
+                                    Format::Mms => mms(&mut r),
+                                    Format::Markup => Ok(None),
+                                    Format::Csv => {
+                                        let (blocks, c) = read_plain_blocks(
+                                            r,
+                                            n,
+                                            &PlainOptions {
+                                                unpivot: feed.unpivot_of(&n.name),
+                                                ..opts
+                                            },
+                                            differ.as_mut(),
+                                        )
+                                        .map_err(|e| e.to_string())?;
+                                        counted.bad_rows += c.bad_rows;
+                                        Ok(Some(blocks))
+                                    }
+                                }
                             }
                             (n, Decoder::Json) => {
                                 let n = n.as_ref().expect("a plain file was named above");
                                 read_json_blocks(r, n, &opts, differ.as_mut())
+                                    .map(Some)
                                     .map_err(|e| e.to_string())
                             }
                         }
@@ -946,6 +958,15 @@ pub fn census_folder(
                         d.discard();
                     }
                 })?;
+                let Some(blocks) = blocks else {
+                    // Not a report: nothing to compare.
+                    prints = None;
+                    if let Some(d) = differ.as_mut() {
+                        d.discard();
+                    }
+                    g.census.other += 1;
+                    return Ok(());
+                };
                 let entry_sha = sha.finish();
                 if !seen.insert((base(entry).to_owned(), entry_sha)) {
                     g.census.repeated += 1;
@@ -1968,6 +1989,24 @@ mod tests {
         // Neither month nor sidecar: undated. A name no rule reads: unread.
         put(host, &f("GasBBLocationsList.CSV"), b"LOCATIONID\n1\n");
         put(host, &f("GasBB.csv"), b"a\n1\n");
+        // An MMS file in a plain folder is read by its I row; an HTML
+        // fragment named `.csv` is not a report.
+        put(
+            host,
+            &f("GasBBGSHGasTrades.CSV"),
+            b"C,NEMP.WORLD,GSH_GAS_TRADES_WEB,AEMO,PUBLIC,2026/10/20,05:59:04,0000000543826287,,0000000543826287\nI,GSH,GAS_TRADES,1,TRADE_DATE,TRADE_PRICE\nD,GSH,GAS_TRADES,1,\"2026/10/19 00:00:00\",11.90\nC,\"END OF REPORT\",3\n",
+        );
+        sidecar_for(
+            host,
+            &f("GasBBGSHGasTrades.CSV"),
+            "2026-10-20T06:01:00+10:00",
+        );
+        put(
+            host,
+            &f("GasBBPrices.csv"),
+            b"<!--\nprices\n-->\n<div>x</div>\n",
+        );
+        sidecar_for(host, &f("GasBBPrices.csv"), "2026-10-20T06:01:00+10:00");
         // What is not a report, and what is not a file of the feed.
         put(host, &f("notes.pdf"), b"%PDF");
         put(host, &f("._GasBBBasins.csv"), b"\x00\x05");
@@ -1999,9 +2038,16 @@ mod tests {
                 ("", "1 CSV(s) whose month no name gives"),
             ]
         );
-        assert_eq!((census.files, census.csvs, census.other), (6, 4, 1));
+        assert_eq!((census.files, census.csvs, census.other), (8, 5, 2));
         assert_eq!(census.repeated, 0);
         assert_eq!(census.bad_rows, 1, "the basins row with one field too many");
+        let trades = census
+            .blocks
+            .iter()
+            .find(|t| t.block.report == ("GSH".into(), "GAS_TRADES".into()))
+            .expect("the MMS file's block, named by its I row");
+        assert_eq!((trades.block.rows, trades.csvs), (1, 1));
+        assert_eq!(trades.block.columns, ["TRADE_DATE", "TRADE_PRICE"]);
         // The cumulative file is one run of two versions: five rows seen,
         // two of them the first version's again.
         let flow = census

@@ -16,6 +16,8 @@
 //! - [`feeds`]: every feed that is not MMSDM: its host, roots, decoder and
 //!   the rules its files follow.
 //! - [`diff`]: the rows a version of a file adds to its previous version.
+//! - [`mod@sniff`]: what a file's first bytes say it is, when a folder holds
+//!   the odd file of another kind.
 //!
 //! Pure: no I/O beyond the reader handed in, no registry, no lake.
 
@@ -25,10 +27,12 @@ pub mod diff;
 pub mod feeds;
 pub mod json;
 pub mod names;
+pub mod sniff;
 
 pub use csv::{Header, PlainError, PlainOptions, PlainRowError, PlainSink, PlainStats, Rows};
 pub use diff::RowSet;
 pub use feeds::{Decoder, Dedupe, FEEDS, Feed, Release};
 pub use json::{JsonError, JsonStats};
 pub use names::{BlockName, column_name};
+pub use sniff::{Format, peek, sniff};
 pub use utilake_mms_decode::{Flow, Pos, Row};
