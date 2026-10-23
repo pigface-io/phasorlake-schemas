@@ -905,8 +905,16 @@ pub fn census_folder(
                             }
                             (n, Decoder::Csv) => {
                                 let n = n.as_ref().expect("a plain file was named above");
-                                let (blocks, c) = read_plain_blocks(r, n, &opts, differ.as_mut())
-                                    .map_err(|e| e.to_string())?;
+                                let (blocks, c) = read_plain_blocks(
+                                    r,
+                                    n,
+                                    &PlainOptions {
+                                        unpivot: feed.unpivot_of(&n.name),
+                                        ..opts
+                                    },
+                                    differ.as_mut(),
+                                )
+                                .map_err(|e| e.to_string())?;
                                 counted.bad_rows += c.bad_rows;
                                 Ok(blocks)
                             }

@@ -73,6 +73,10 @@ pub struct Feed {
     pub ignore: &'static [&'static str],
     /// The market's offset from UTC, in seconds.
     pub offset_secs: i32,
+    /// Blocks whose header names dates (a column per forecast day, so the
+    /// header changes every day): read with those columns unpivoted into
+    /// the two named, the date and the value.
+    pub unpivot: &'static [(&'static str, (&'static str, &'static str))],
 }
 
 impl Feed {
@@ -131,6 +135,15 @@ impl Feed {
     pub fn ignores(&self, folder: &str) -> bool {
         self.ignore.iter().any(|f| f.eq_ignore_ascii_case(folder))
     }
+
+    /// The date and value columns the block `name`'s dated header columns
+    /// unpivot into, when it is such a block.
+    pub fn unpivot_of(&self, name: &str) -> Option<(&'static str, &'static str)> {
+        self.unpivot
+            .iter()
+            .find(|(n, _)| *n == name)
+            .map(|(_, into)| *into)
+    }
 }
 
 const NEMWEB: &str = "www.nemweb.com.au";
@@ -165,6 +178,7 @@ pub const FEEDS: &[Feed] = &[
         time_columns: &[],
         ignore: GAS_FOLDERS,
         offset_secs: AEST,
+        unpivot: &[],
     },
     Feed {
         market: "gas",
@@ -178,6 +192,7 @@ pub const FEEDS: &[Feed] = &[
         time_columns: &[],
         ignore: &[],
         offset_secs: AEST,
+        unpivot: &[],
     },
     Feed {
         market: "gas",
@@ -191,6 +206,7 @@ pub const FEEDS: &[Feed] = &[
         time_columns: &[],
         ignore: &[],
         offset_secs: AEST,
+        unpivot: &[("FORECAST_UTILISATION", ("FORECAST_DATE", "QUANTITY"))],
     },
     Feed {
         market: "gas",
@@ -204,6 +220,7 @@ pub const FEEDS: &[Feed] = &[
         time_columns: &["REPORT_DATETIME"],
         ignore: &["MOS Estimates", "Contingency_Gas"],
         offset_secs: AEST,
+        unpivot: &[],
     },
     Feed {
         market: "gas",
@@ -217,6 +234,7 @@ pub const FEEDS: &[Feed] = &[
         time_columns: &["CURRENT_DATE", "CURRENT_DATETIME"],
         ignore: &[],
         offset_secs: AEST,
+        unpivot: &[],
     },
     Feed {
         market: "wem",
@@ -230,6 +248,7 @@ pub const FEEDS: &[Feed] = &[
         time_columns: &["EXTRACTED_AT"],
         ignore: &["temp"],
         offset_secs: AWST,
+        unpivot: &[],
     },
     Feed {
         market: "wem",
@@ -243,6 +262,7 @@ pub const FEEDS: &[Feed] = &[
         time_columns: &[],
         ignore: &["current"],
         offset_secs: AWST,
+        unpivot: &[],
     },
     Feed {
         market: "wem",
@@ -256,6 +276,7 @@ pub const FEEDS: &[Feed] = &[
         time_columns: &[],
         ignore: &["wemde", "current"],
         offset_secs: AWST,
+        unpivot: &[],
     },
 ];
 
@@ -378,6 +399,20 @@ mod tests {
                 "GasBBActualFlowStorage.zip@20261021T221100+1000!GasBBActualFlowStorage.CSV"
             ),
             YearMonth::new(2026, 10)
+        );
+    }
+
+    #[test]
+    fn dated_headers_unpivot_where_a_feed_says() {
+        let gbb = feed("gbb").unwrap();
+        assert_eq!(
+            gbb.unpivot_of("FORECAST_UTILISATION"),
+            Some(("FORECAST_DATE", "QUANTITY"))
+        );
+        assert_eq!(gbb.unpivot_of("ACTUAL_FLOW_STORAGE"), None);
+        assert_eq!(
+            feed("sttm").unwrap().unpivot_of("FORECAST_UTILISATION"),
+            None
         );
     }
 

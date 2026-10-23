@@ -83,7 +83,7 @@ fn push_digits(out: &mut Vec<u8>, n: u32, width: usize) {
 }
 
 fn parse<'a>(v: &'a [u8], offset: &str) -> Option<Parts<'a>> {
-    let v = trim(v);
+    let v = strip_weekday(trim(v));
     if v.len() < 8 {
         return None;
     }
@@ -101,6 +101,29 @@ fn parse<'a>(v: &'a [u8], offset: &str) -> Option<Parts<'a>> {
     let (mut parts, rest) = p;
     parts.time = time_of(rest, offset)?;
     valid(parts).then_some(parts)
+}
+
+/// `v` without a leading day name (`Thursday 5 Aug 2021`), as the GBB's
+/// forecast headers write their dates.
+fn strip_weekday(v: &[u8]) -> &[u8] {
+    const DAYS: [&[u8]; 7] = [
+        b"monday",
+        b"tuesday",
+        b"wednesday",
+        b"thursday",
+        b"friday",
+        b"saturday",
+        b"sunday",
+    ];
+    let Some(sp) = v.iter().position(|b| *b == b' ') else {
+        return v;
+    };
+    let word = v[..sp].to_ascii_lowercase();
+    if DAYS.contains(&word.as_slice()) {
+        trim(&v[sp + 1..])
+    } else {
+        v
+    }
 }
 
 fn trim(v: &[u8]) -> &[u8] {
@@ -296,6 +319,9 @@ mod tests {
         );
         assert_eq!(mms("2026-10-21T08:00:00").unwrap(), "2026/10/21 08:00:00");
         assert_eq!(mms(" 2018/09/30 13:20 ").unwrap(), "2018/09/30 13:20:00");
+        assert_eq!(mms("Thursday 5 Aug 2021").unwrap(), "2021/08/05");
+        assert_eq!(mms("Sunday  8 Aug 2021").unwrap(), "2021/08/08");
+        assert!(mms("Someday 5 Aug 2021").is_none());
     }
 
     #[test]

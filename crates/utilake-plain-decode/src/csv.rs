@@ -29,6 +29,11 @@ pub struct PlainOptions<'a> {
     pub max_record_bytes: usize,
     /// Bad rows tolerated before the file fails.
     pub max_bad_rows: u64,
+    /// When given, header fields that are dates (`Thursday 5 Aug 2021`)
+    /// are not columns: each row is read as one row per such field, the
+    /// other fields repeated, with the date in the first column named and
+    /// the field's value in the second.
+    pub unpivot: Option<(&'a str, &'a str)>,
 }
 
 impl Default for PlainOptions<'static> {
@@ -37,7 +42,36 @@ impl Default for PlainOptions<'static> {
             offset: "+10:00",
             max_record_bytes: 64 << 20,
             max_bad_rows: 0,
+            unpivot: None,
         }
+    }
+}
+
+/// How a header's dated fields are read, when they are.
+struct Unpivot {
+    /// The fields that are not dates, in order.
+    fixed: Vec<usize>,
+    /// Each dated field and its date in the MMS form.
+    dated: Vec<(usize, Vec<u8>)>,
+}
+
+impl Unpivot {
+    /// The unpivot of `raw`, when any field is a date.
+    fn of(raw: &[String], offset: &str) -> Option<Self> {
+        let mut fixed = Vec::new();
+        let mut dated = Vec::new();
+        let mut buf = Vec::new();
+        for (j, field) in raw.iter().enumerate() {
+            let v = field.as_bytes();
+            if dates::to_mms(v, offset, &mut buf) {
+                dated.push((j, buf.clone()));
+            } else if dates::is_date(v, offset) {
+                dated.push((j, v.to_vec()));
+            } else {
+                fixed.push(j);
+            }
+        }
+        (!dated.is_empty()).then_some(Self { fixed, dated })
     }
 }
 
@@ -271,6 +305,8 @@ pub fn scan<R: Read, S: PlainSink>(
     let mut header: Option<Header> = None;
     let mut first_bad: Option<(u64, PlainRowError)> = None;
     let mut first = true;
+    let mut unpivot: Option<(Unpivot, (&str, &str))> = None;
+    let mut source_width = 0usize;
     loop {
         let pos = Pos {
             line: stats.lines + 1,
@@ -310,25 +346,43 @@ pub fn scan<R: Read, S: PlainSink>(
                 .iter()
                 .map(|f| String::from_utf8_lossy(f).into_owned())
                 .collect();
-            let h = Header::from_raw(fields.iter().map(String::as_str)).map_err(|column| {
-                PlainError::BadHeader {
-                    line: pos.line,
-                    column,
-                    text: fields[column].clone(),
+            let bad = |column: usize, text: &str| PlainError::BadHeader {
+                line: pos.line,
+                column,
+                text: text.to_owned(),
+            };
+            source_width = fields.len();
+            unpivot = Unpivot::of(&fields, opts.offset).zip(opts.unpivot);
+            let h = match &unpivot {
+                Some((u, (date, value))) => {
+                    let names = u
+                        .fixed
+                        .iter()
+                        .map(|&j| fields[j].as_str())
+                        .chain([*date, *value]);
+                    Header::from_raw(names).map_err(|column| {
+                        let text = u.fixed.get(column).map_or("", |&j| fields[j].as_str());
+                        bad(column, text)
+                    })?
                 }
-            })?;
+                None => Header::from_raw(fields.iter().map(String::as_str))
+                    .map_err(|column| bad(column, &fields[column]))?,
+            };
             sink.header(None, &h, pos).map_err(PlainError::Sink)?;
             header = Some(h);
             continue;
         };
         let row = splitter.split(line);
         let n = h.len();
-        if row.len() > n {
+        // A row wider than its header: the header's width before any
+        // unpivot, which is what the row was written against.
+        let width = if unpivot.is_some() { source_width } else { n };
+        if row.len() > width {
             let observed = row.len_trimmed();
-            if observed > n {
+            if observed > width {
                 stats.bad_rows += 1;
                 let err = PlainRowError::TooManyFields {
-                    declared: n,
+                    declared: width,
                     observed,
                 };
                 if sink.bad_row(line, pos, &err) == Flow::Stop {
@@ -346,10 +400,25 @@ pub fn scan<R: Read, S: PlainSink>(
                 continue;
             }
         }
-        let (rebuilt, rewritten) = rows.build(row.iter(), n, opts.offset);
-        stats.rewritten += rewritten;
-        sink.row(&rebuilt, pos).map_err(PlainError::Sink)?;
-        stats.rows += 1;
+        let Some((u, _)) = &unpivot else {
+            let (rebuilt, rewritten) = rows.build(row.iter(), n, opts.offset);
+            stats.rewritten += rewritten;
+            sink.row(&rebuilt, pos).map_err(PlainError::Sink)?;
+            stats.rows += 1;
+            continue;
+        };
+        // One row per dated field: the fixed fields, the date, the value.
+        for (j, date) in &u.dated {
+            let fields = u
+                .fixed
+                .iter()
+                .map(|&k| row.get(k).unwrap_or_default())
+                .chain([date.as_slice(), row.get(*j).unwrap_or_default()]);
+            let (rebuilt, rewritten) = rows.build(fields, n, opts.offset);
+            stats.rewritten += rewritten;
+            sink.row(&rebuilt, pos).map_err(PlainError::Sink)?;
+            stats.rows += 1;
+        }
     }
     if header.is_none() {
         return Err(PlainError::HeaderMissing);
@@ -696,6 +765,54 @@ pub(crate) mod tests {
                 }
             }
         }
+    }
+
+    #[test]
+    fn dated_header_fields_unpivot_into_a_date_and_a_value() {
+        let text = b"State,Units,\"Thursday 5 Aug 2021\",\"Friday 6 Aug 2021\"\nNSW,TJ/day,-436.388,-286.616\nQLD,TJ/day,1.5,\nVIC,TJ/day,1,2,3\n";
+        let opts = PlainOptions {
+            unpivot: Some(("FORECAST_DATE", "QUANTITY")),
+            max_bad_rows: 1,
+            ..PlainOptions::default()
+        };
+        let (c, r) = run(text, &opts);
+        let stats = r.unwrap();
+        assert_eq!(
+            c.blocks[0].1.names,
+            ["STATE", "UNITS", "FORECAST_DATE", "QUANTITY"]
+        );
+        assert_eq!(
+            c.blocks[0].1.raw,
+            ["State", "Units", "FORECAST_DATE", "QUANTITY"]
+        );
+        assert_eq!(
+            c.rows,
+            [
+                ["NSW", "TJ/day", "2021/08/05", "-436.388"],
+                ["NSW", "TJ/day", "2021/08/06", "-286.616"],
+                ["QLD", "TJ/day", "2021/08/05", "1.5"],
+                ["QLD", "TJ/day", "2021/08/06", ""],
+            ]
+        );
+        assert_eq!(
+            (stats.rows, stats.bad_rows),
+            (4, 1),
+            "the row with one field too many"
+        );
+        assert_eq!(c.bad.len(), 1);
+        // A header with no dated field reads as it is; one whose fixed field
+        // names nothing is bad; a date already in the MMS form is dated too.
+        let (c, r) = run(b"a,b\n1,2\n", &opts);
+        r.unwrap();
+        assert_eq!(c.blocks[0].1.names, ["A", "B"]);
+        let r = run(b"(),\"Thursday 5 Aug 2021\"\n1,2\n", &opts).1;
+        assert!(
+            matches!(r, Err(PlainError::BadHeader { column: 0, .. })),
+            "{r:?}"
+        );
+        let (c, r) = run(b"a,2021/08/05\nx,7\n", &opts);
+        r.unwrap();
+        assert_eq!(c.rows, [["x", "2021/08/05", "7"]]);
     }
 
     #[test]
