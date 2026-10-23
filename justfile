@@ -109,8 +109,8 @@ diff base="origin/main":
 iceberg out="target/iceberg":
     cargo run -q -p utilake-schemas -- iceberg --out {{ out }}
 
-# read every table written by `just iceberg` with pyiceberg and DuckDB, held to its history, and scan it empty
-replay dir="target/iceberg":
+# write every table under {dir} (`just iceberg`), then read each with pyiceberg and DuckDB, held to its history, and scan it empty
+replay dir="target/iceberg": (iceberg dir)
     uv run --with pyiceberg --with pyarrow --with duckdb python scripts/replay.py {{ dir }}
 
 # ── secrets ──────────────────────────────────────────────────────────────────

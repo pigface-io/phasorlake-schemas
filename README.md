@@ -113,7 +113,7 @@ just models 2026-09 mirror/MMSDM_2026_09
 git diff --exit-code evidence/            # the same bytes
 just fold-check                           # the histories follow from the evidence
 just export-check                         # every market directory follows from the histories
-just iceberg && just replay               # two Iceberg readers read every table as its history says
+just replay                               # two Iceberg readers read every table as its history says
 ```
 
 ## Reading a table
