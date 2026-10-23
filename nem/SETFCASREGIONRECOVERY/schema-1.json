@@ -182,11 +182,6 @@
       "decimal(18, 8)"
     ],
     [
-      9,
-      "LASTCHANGED",
-      "timestamptz"
-    ],
-    [
       10,
       "REGION_ACE_MWH",
       "decimal(18, 8)"
@@ -210,6 +205,11 @@
       14,
       "REGIONRECOVERYAMOUNT",
       "decimal(18, 8)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
     ]
   ],
   "x-format": 3,

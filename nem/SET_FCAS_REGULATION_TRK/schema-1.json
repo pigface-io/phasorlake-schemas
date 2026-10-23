@@ -155,11 +155,6 @@
       "decimal(18, 8)"
     ],
     [
-      9,
-      "LASTCHANGED",
-      "timestamptz"
-    ],
-    [
       10,
       "USESUBSTITUTEDEMAND",
       "decimal(1, 0)"
@@ -168,6 +163,11 @@
       11,
       "REQUIREMENTDEMAND",
       "decimal(18, 8)"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
     ]
   ],
   "x-format": 3,

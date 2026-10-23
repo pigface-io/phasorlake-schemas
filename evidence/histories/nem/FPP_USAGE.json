@@ -1,6 +1,6 @@
 {
   "breaking": [],
-  "current-schema-id": 2,
+  "current-schema-id": 3,
   "format-version": 3,
   "runs": [
     {
@@ -37,7 +37,7 @@
       "changes": [
         "schema"
       ],
-      "files": 13,
+      "files": 6,
       "from": {
         "data-time": "2024-12-09T11:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202504010000.zip",
@@ -52,13 +52,13 @@
         "FPP",
         "FPP_USAGE"
       ],
-      "rows": 4950103,
+      "rows": 1554500,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-05-08T15:35:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "4673f2c284fe93e7c45c54ced4077206d1b1c31002fb56cb5d9afe5aec8c448d"
+        "data-time": "2025-10-08T03:50:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "9d40888be54b8913529693680537981c2c6bbc32e9ea769b4c9f0ba291c46c8b"
       },
       "updates": [
         {
@@ -76,7 +76,627 @@
       "changes": [
         "schema"
       ],
-      "files": 5,
+      "files": 6911,
+      "from": {
+        "data-time": "2025-10-08T00:05:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20251008.zip",
+        "release": "2025-10",
+        "sha256": "6514aecfc4190a90233a8ca0b5e16068c894ce24b6f81410ffa105458d29b4cf"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 27426,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-10-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20251031.zip",
+        "release": "2025-10",
+        "sha256": "7e7302c69a199c29b1235fcb068fda75132a612929340dffc37d626103c2a5ee"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "2d72498441adad62b4dcf7003048ce329a813f43160d3733d9fd84f109bf6c27"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 392087,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-11-18T19:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "2d72498441adad62b4dcf7003048ce329a813f43160d3733d9fd84f109bf6c27"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20251031.zip",
+        "release": "2025-11",
+        "sha256": "7e7302c69a199c29b1235fcb068fda75132a612929340dffc37d626103c2a5ee"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 34455,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-11-30T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20251130.zip",
+        "release": "2025-11",
+        "sha256": "0be39772f87efeecc3e266bdb8a6801c32ce9426b5bc16213c8f7e6fa334490a"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "fac77f3107b81def656056992287ebdce7baf071401c60d9b7dc1ba77df837a1"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 414702,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-12-08T15:25:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "fac77f3107b81def656056992287ebdce7baf071401c60d9b7dc1ba77df837a1"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20251130.zip",
+        "release": "2025-12",
+        "sha256": "0be39772f87efeecc3e266bdb8a6801c32ce9426b5bc16213c8f7e6fa334490a"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 35207,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-12-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20251231.zip",
+        "release": "2025-12",
+        "sha256": "905b6e0e2f55be732dc8f57b6deff97bc27154d6874f4f880e686459337ce751"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "cad8bfedc4396a5f7c4e4c0b21d7d410e6702dce3d94c4642ca410a1570c36f7"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 454289,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-12T11:15:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "cad8bfedc4396a5f7c4e4c0b21d7d410e6702dce3d94c4642ca410a1570c36f7"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20251231.zip",
+        "release": "2026-01",
+        "sha256": "905b6e0e2f55be732dc8f57b6deff97bc27154d6874f4f880e686459337ce751"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 35014,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-01-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260131.zip",
+        "release": "2026-01",
+        "sha256": "05446f6cb82364545df7a8161db5acfdbef9fe337fc21b91763677a2f2b627bf"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "70697fb924f7fe2f3eff20d616108c1e2420126d742991f6bb73705924a38a55"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 486156,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-09T18:45:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "70697fb924f7fe2f3eff20d616108c1e2420126d742991f6bb73705924a38a55"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8065,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260131.zip",
+        "release": "2026-02",
+        "sha256": "05446f6cb82364545df7a8161db5acfdbef9fe337fc21b91763677a2f2b627bf"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 31391,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-02-28T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260228.zip",
+        "release": "2026-02",
+        "sha256": "d240aea655df922baa5bd272d923b10d5f636f5cbb1bb66307d2fc586fe83675"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "6771b8550cde9ba052dca9bd431133771c64b816a3eaab3fba4409d1d5cbb8a6"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 517269,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-03-09T12:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "6771b8550cde9ba052dca9bd431133771c64b816a3eaab3fba4409d1d5cbb8a6"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260228.zip",
+        "release": "2026-03",
+        "sha256": "d240aea655df922baa5bd272d923b10d5f636f5cbb1bb66307d2fc586fe83675"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 34715,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-03-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260331.zip",
+        "release": "2026-03",
+        "sha256": "5d94e86971b5ba232ab46d7e2a533c71ff6947dd89bb939a84d89f50c17a22fd"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "c393b3c58c4e68f7b3e4a590e07f094bfdc38f964f92a42e600607d0a2e6e6a4"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 545523,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-07T14:50:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "c393b3c58c4e68f7b3e4a590e07f094bfdc38f964f92a42e600607d0a2e6e6a4"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260331.zip",
+        "release": "2026-04",
+        "sha256": "5d94e86971b5ba232ab46d7e2a533c71ff6947dd89bb939a84d89f50c17a22fd"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 34093,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-04-30T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260430.zip",
+        "release": "2026-04",
+        "sha256": "e6f5b92b2458ad26758ebf6e794577e07f1738ffc9fa2b8ce5fb8c08ac7dd395"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "4673f2c284fe93e7c45c54ced4077206d1b1c31002fb56cb5d9afe5aec8c448d"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 585577,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-08T15:35:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "4673f2c284fe93e7c45c54ced4077206d1b1c31002fb56cb5d9afe5aec8c448d"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 3875,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260430.zip",
+        "release": "2026-05",
+        "sha256": "e6f5b92b2458ad26758ebf6e794577e07f1738ffc9fa2b8ce5fb8c08ac7dd395"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 15439,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-05-14T10:50:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260514.zip",
+        "release": "2026-05",
+        "sha256": "044f7c7f474ee59cec1dc88624cb7b3bf35c4551ccc375a51314993b719a644b"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 5055,
+      "from": {
+        "data-time": "2026-05-14T10:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260514.zip",
+        "release": "2026-05",
+        "sha256": "044f7c7f474ee59cec1dc88624cb7b3bf35c4551ccc375a51314993b719a644b"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 20220,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-05-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260531.zip",
+        "release": "2026-05",
+        "sha256": "67a0a53e20a0a2c955993526cb91d5abd85943e9d771cde1c678b8377b4fd10d"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
       "from": {
         "data-time": "2024-12-09T11:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202605010000.zip",
@@ -91,8 +711,321 @@
         "FPP",
         "FPP_USAGE"
       ],
-      "rows": 2039857,
-      "schema-id": 2,
+      "rows": 622399,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-06-09T14:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "031ef63d404aeb7ad6ffdf40f472f8acec2d4a4574cbb8bb856108bd98007102"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8641,
+      "from": {
+        "data-time": "2026-06-25T09:25:00+10:00",
+        "file": "PUBLIC_FPP_RUN_202606250925_0000000524184631.zip",
+        "release": "2026-06",
+        "sha256": "60663adfbaa957ee98a7fec7d96e55ae14179ae36bcf716fa0b0c9a918be90a1"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 34417,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-06-30T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260630.zip",
+        "release": "2026-06",
+        "sha256": "01bebd8f15763d097d03818961a55dd6aaafcabae7cc840ece3065d04573b732"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "fc2bc7f65ce406c6721bd2037e9b3bc30b909d9bd9ac958cdb7390ed0d6cb0a1"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 655975,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-07-08T22:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "fc2bc7f65ce406c6721bd2037e9b3bc30b909d9bd9ac958cdb7390ed0d6cb0a1"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260630.zip",
+        "release": "2026-07",
+        "sha256": "01bebd8f15763d097d03818961a55dd6aaafcabae7cc840ece3065d04573b732"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 35573,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-07-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260731.zip",
+        "release": "2026-07",
+        "sha256": "48c723f427ba6f46038ed14b761dcaf25dfdc2ecb0776eb01b899efe05bc153f"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "1f7a734c2f5e4fd757105e56a8cb3aacab2fc2799318a80de3ef5141e5be70ce"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 691258,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-08-08T15:45:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "1f7a734c2f5e4fd757105e56a8cb3aacab2fc2799318a80de3ef5141e5be70ce"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260731.zip",
+        "release": "2026-08",
+        "sha256": "48c723f427ba6f46038ed14b761dcaf25dfdc2ecb0776eb01b899efe05bc153f"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 35691,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-08-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260831.zip",
+        "release": "2026-08",
+        "sha256": "9fdf88a1af8fb185b6c350fa022dd26feb4f4cbd3fe3a1154ca8d76184a1c96a"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "af02aa0ca03decf22901b7e593566ee5db7252a0c77173e96d468394e85b6d30"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 35695,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "af02aa0ca03decf22901b7e593566ee5db7252a0c77173e96d468394e85b6d30"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260831.zip",
+        "release": "2026-09",
+        "sha256": "9fdf88a1af8fb185b6c350fa022dd26feb4f4cbd3fe3a1154ca8d76184a1c96a"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 34530,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-09-30T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260930.zip",
+        "release": "2026-09",
+        "sha256": "fc4eb56ccc0d806c4d4aa24925fbb7999dffffb4be812ce551dfd654bc2176dc"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-09-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "a7a038ae83f49863c253e54e4039abc94bde51b7a1060322429ee4f4b48bfc23"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 34530,
+      "schema-id": 4,
       "to": {
         "data-time": "2026-10-01T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_USAGE#FILE01#202609010000.zip",
@@ -101,8 +1034,52 @@
       },
       "updates": [
         {
-          "action": "add",
-          "field-id": 10
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6609,
+      "from": {
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260930.zip",
+        "release": "2026-10",
+        "sha256": "fc4eb56ccc0d806c4d4aa24925fbb7999dffffb4be812ce551dfd654bc2176dc"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "FPP_USAGE"
+      ],
+      "rows": 25958,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-10-22T08:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_202610220855_0000000544203622.zip",
+        "release": "2026-10",
+        "sha256": "9efc3d46231354432218d491fa407faa01add6cee0530a5ea1133ee0de370b16"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 8
         }
       ],
       "version": 1
@@ -258,6 +1235,134 @@
           "type": "decimal(18, 8)"
         },
         {
+          "id": 7,
+          "name": "USAGE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 8,
+          "name": "USAGE_REASON_FLAG",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 9,
+          "name": "USAGE_VALUE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 2,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "CONSTRAINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 4,
+          "name": "BIDTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "REGULATION_MW",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 6,
+          "name": "USED_MW",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 7,
+          "name": "USAGE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 8,
+          "name": "USAGE_REASON_FLAG",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 9,
+          "name": "USAGE_VALUE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 10,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 3,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "CONSTRAINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 4,
+          "name": "BIDTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "REGULATION_MW",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 6,
+          "name": "USED_MW",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
           "id": 9,
           "name": "USAGE_VALUE",
           "required": false,
@@ -277,7 +1382,7 @@
         }
       ],
       "identifier-field-ids": [],
-      "schema-id": 2,
+      "schema-id": 4,
       "type": "struct"
     }
   ],

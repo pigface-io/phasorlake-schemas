@@ -1,0 +1,8616 @@
+{
+  "breaking": [],
+  "current-schema-id": 1,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-09-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20250901.zip",
+        "release": "2025-09",
+        "sha256": "f32a1de67b3dde4bb2090f93af680c207ab9f9cc02e8f7be41591cc604412af0"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-10-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20250901.zip",
+        "release": "2025-09",
+        "sha256": "f32a1de67b3dde4bb2090f93af680c207ab9f9cc02e8f7be41591cc604412af0"
+      },
+      "updates": [],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-09-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20250901.zip",
+        "release": "2025-09",
+        "sha256": "f32a1de67b3dde4bb2090f93af680c207ab9f9cc02e8f7be41591cc604412af0"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-10-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20250901.zip",
+        "release": "2025-09",
+        "sha256": "f32a1de67b3dde4bb2090f93af680c207ab9f9cc02e8f7be41591cc604412af0"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 117
+        },
+        {
+          "action": "add",
+          "field-id": 118
+        },
+        {
+          "action": "add",
+          "field-id": 119
+        },
+        {
+          "action": "add",
+          "field-id": 120
+        },
+        {
+          "action": "add",
+          "field-id": 121
+        },
+        {
+          "action": "add",
+          "field-id": 122
+        },
+        {
+          "action": "add",
+          "field-id": 123
+        },
+        {
+          "action": "add",
+          "field-id": 124
+        },
+        {
+          "action": "add",
+          "field-id": 125
+        },
+        {
+          "action": "add",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-09-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20250901.zip",
+        "release": "2025-09",
+        "sha256": "37c5b707e88caa722fbb2eff188e1608f89c4a7e1750e66158cce47590a5c0c2"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-10-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20250901.zip",
+        "release": "2025-09",
+        "sha256": "37c5b707e88caa722fbb2eff188e1608f89c4a7e1750e66158cce47590a5c0c2"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "add",
+          "field-id": 127
+        },
+        {
+          "action": "add",
+          "field-id": 128
+        },
+        {
+          "action": "add",
+          "field-id": 129
+        },
+        {
+          "action": "add",
+          "field-id": 130
+        },
+        {
+          "action": "add",
+          "field-id": 131
+        },
+        {
+          "action": "add",
+          "field-id": 132
+        },
+        {
+          "action": "add",
+          "field-id": 133
+        },
+        {
+          "action": "add",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-09-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20250901.zip",
+        "release": "2025-09",
+        "sha256": "37c5b707e88caa722fbb2eff188e1608f89c4a7e1750e66158cce47590a5c0c2"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-10-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20250901.zip",
+        "release": "2025-09",
+        "sha256": "37c5b707e88caa722fbb2eff188e1608f89c4a7e1750e66158cce47590a5c0c2"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6911,
+      "from": {
+        "data-time": "2025-10-08T00:05:00+10:00",
+        "file": "PUBLIC_DISPATCH_20251008.zip",
+        "release": "2025-10",
+        "sha256": "f55307b6231d29833fe3fd02e4ba50135485f27685126ebc3df6e0fb5636657b"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 34555,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-10-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCH_20251031.zip",
+        "release": "2025-10",
+        "sha256": "147eaed6d4e963e87f919ee9a49342704bb0406b0f69b90c210ee567c9d0e810"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-10-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20251001.zip",
+        "release": "2025-10",
+        "sha256": "4750cfef08b9799af763b819db95baa5019f635f9b0d014adc3957b4fa49f44f"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-11-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20251001.zip",
+        "release": "2025-10",
+        "sha256": "4750cfef08b9799af763b819db95baa5019f635f9b0d014adc3957b4fa49f44f"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-10-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20251001.zip",
+        "release": "2025-10",
+        "sha256": "4750cfef08b9799af763b819db95baa5019f635f9b0d014adc3957b4fa49f44f"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-11-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20251001.zip",
+        "release": "2025-10",
+        "sha256": "4750cfef08b9799af763b819db95baa5019f635f9b0d014adc3957b4fa49f44f"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-10-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20251001.zip",
+        "release": "2025-10",
+        "sha256": "39a187e686d654db6c22f1a64c310f8ed7f9518cbdf6ea8de23cd3f08c91e950"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-11-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20251001.zip",
+        "release": "2025-10",
+        "sha256": "39a187e686d654db6c22f1a64c310f8ed7f9518cbdf6ea8de23cd3f08c91e950"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-10-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20251001.zip",
+        "release": "2025-10",
+        "sha256": "39a187e686d654db6c22f1a64c310f8ed7f9518cbdf6ea8de23cd3f08c91e950"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-11-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20251001.zip",
+        "release": "2025-10",
+        "sha256": "39a187e686d654db6c22f1a64c310f8ed7f9518cbdf6ea8de23cd3f08c91e950"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCH_20251031.zip",
+        "release": "2025-11",
+        "sha256": "147eaed6d4e963e87f919ee9a49342704bb0406b0f69b90c210ee567c9d0e810"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-11-30T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCH_20251130.zip",
+        "release": "2025-11",
+        "sha256": "e527d746186028261728db11b4d235ab2a2557657a1315cacdfd0f0cdc84b0f9"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-11-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20251101.zip",
+        "release": "2025-11",
+        "sha256": "dfa6659a0bdff4a34831e0fa609ebb277c417e50588ec907dcc0a4c0e7b4f2ee"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-12-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20251101.zip",
+        "release": "2025-11",
+        "sha256": "dfa6659a0bdff4a34831e0fa609ebb277c417e50588ec907dcc0a4c0e7b4f2ee"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-11-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20251101.zip",
+        "release": "2025-11",
+        "sha256": "dfa6659a0bdff4a34831e0fa609ebb277c417e50588ec907dcc0a4c0e7b4f2ee"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-12-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20251101.zip",
+        "release": "2025-11",
+        "sha256": "dfa6659a0bdff4a34831e0fa609ebb277c417e50588ec907dcc0a4c0e7b4f2ee"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-11-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20251101.zip",
+        "release": "2025-11",
+        "sha256": "9d86023a7869c976a30cd41bcaa58d4dd52974a90187359f73119ff47cbcfb05"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-12-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20251101.zip",
+        "release": "2025-11",
+        "sha256": "9d86023a7869c976a30cd41bcaa58d4dd52974a90187359f73119ff47cbcfb05"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-11-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20251101.zip",
+        "release": "2025-11",
+        "sha256": "9d86023a7869c976a30cd41bcaa58d4dd52974a90187359f73119ff47cbcfb05"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-12-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20251101.zip",
+        "release": "2025-11",
+        "sha256": "9d86023a7869c976a30cd41bcaa58d4dd52974a90187359f73119ff47cbcfb05"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCH_20251130.zip",
+        "release": "2025-12",
+        "sha256": "e527d746186028261728db11b4d235ab2a2557657a1315cacdfd0f0cdc84b0f9"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-12-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCH_20251231.zip",
+        "release": "2025-12",
+        "sha256": "b6980eda17c97f318100dbd2a78801f04e589d62ad23e55fcf520b58a51d9f45"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-12-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20251201.zip",
+        "release": "2025-12",
+        "sha256": "47ac12d2fc353a8e3662c7e5170b9c79d102f6e61cddc93aced80bc2f894e517"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-01-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20251201.zip",
+        "release": "2025-12",
+        "sha256": "47ac12d2fc353a8e3662c7e5170b9c79d102f6e61cddc93aced80bc2f894e517"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-12-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20251201.zip",
+        "release": "2025-12",
+        "sha256": "47ac12d2fc353a8e3662c7e5170b9c79d102f6e61cddc93aced80bc2f894e517"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20251201.zip",
+        "release": "2025-12",
+        "sha256": "47ac12d2fc353a8e3662c7e5170b9c79d102f6e61cddc93aced80bc2f894e517"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-12-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20251201.zip",
+        "release": "2025-12",
+        "sha256": "b55537ae1b1988e61d431335a043c5ddb63db40a3a568ebe099b143a869d189a"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-01-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20251201.zip",
+        "release": "2025-12",
+        "sha256": "b55537ae1b1988e61d431335a043c5ddb63db40a3a568ebe099b143a869d189a"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-12-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20251201.zip",
+        "release": "2025-12",
+        "sha256": "b55537ae1b1988e61d431335a043c5ddb63db40a3a568ebe099b143a869d189a"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-01-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20251201.zip",
+        "release": "2025-12",
+        "sha256": "b55537ae1b1988e61d431335a043c5ddb63db40a3a568ebe099b143a869d189a"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCH_20251231.zip",
+        "release": "2026-01",
+        "sha256": "b6980eda17c97f318100dbd2a78801f04e589d62ad23e55fcf520b58a51d9f45"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260131.zip",
+        "release": "2026-01",
+        "sha256": "dfe764b0ab28eba6759d1b6125bb697b4674bb7eb30b7b4062b56349c582bc96"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-01-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260101.zip",
+        "release": "2026-01",
+        "sha256": "00d3fce0f66d152becee73165d743c23a055d3cf8f66757ea4cc39cd1e992ad8"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-02-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260101.zip",
+        "release": "2026-01",
+        "sha256": "00d3fce0f66d152becee73165d743c23a055d3cf8f66757ea4cc39cd1e992ad8"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-01-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260101.zip",
+        "release": "2026-01",
+        "sha256": "00d3fce0f66d152becee73165d743c23a055d3cf8f66757ea4cc39cd1e992ad8"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260101.zip",
+        "release": "2026-01",
+        "sha256": "00d3fce0f66d152becee73165d743c23a055d3cf8f66757ea4cc39cd1e992ad8"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-01-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260101.zip",
+        "release": "2026-01",
+        "sha256": "21925cd15ec40d9a41b057c79839d8b4d6e5049f663c84561e048dd3838b789b"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-02-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260101.zip",
+        "release": "2026-01",
+        "sha256": "21925cd15ec40d9a41b057c79839d8b4d6e5049f663c84561e048dd3838b789b"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-01-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260101.zip",
+        "release": "2026-01",
+        "sha256": "21925cd15ec40d9a41b057c79839d8b4d6e5049f663c84561e048dd3838b789b"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-02-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260101.zip",
+        "release": "2026-01",
+        "sha256": "21925cd15ec40d9a41b057c79839d8b4d6e5049f663c84561e048dd3838b789b"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8064,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260131.zip",
+        "release": "2026-02",
+        "sha256": "dfe764b0ab28eba6759d1b6125bb697b4674bb7eb30b7b4062b56349c582bc96"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 40320,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-28T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260228.zip",
+        "release": "2026-02",
+        "sha256": "bfe65c5bb98fa891708871f51dcaaf6e2983a233773e4111c1e4df62082ca9f0"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 28,
+      "from": {
+        "data-time": "2026-02-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260201.zip",
+        "release": "2026-02",
+        "sha256": "2697335b89119a4f7209e6a236f6bdeb210dd1352c7f7dfcbce481df4ad79142"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 40320,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-03-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260201.zip",
+        "release": "2026-02",
+        "sha256": "2697335b89119a4f7209e6a236f6bdeb210dd1352c7f7dfcbce481df4ad79142"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 28,
+      "from": {
+        "data-time": "2026-02-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260201.zip",
+        "release": "2026-02",
+        "sha256": "2697335b89119a4f7209e6a236f6bdeb210dd1352c7f7dfcbce481df4ad79142"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 40320,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-03-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260201.zip",
+        "release": "2026-02",
+        "sha256": "2697335b89119a4f7209e6a236f6bdeb210dd1352c7f7dfcbce481df4ad79142"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 28,
+      "from": {
+        "data-time": "2026-02-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260201.zip",
+        "release": "2026-02",
+        "sha256": "1c2070a63c4f2637a753e527f10ff6afaadeae74e61d86abb60a998cb0f6982f"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 40320,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-03-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260201.zip",
+        "release": "2026-02",
+        "sha256": "1c2070a63c4f2637a753e527f10ff6afaadeae74e61d86abb60a998cb0f6982f"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 28,
+      "from": {
+        "data-time": "2026-02-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260201.zip",
+        "release": "2026-02",
+        "sha256": "1c2070a63c4f2637a753e527f10ff6afaadeae74e61d86abb60a998cb0f6982f"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 40320,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-03-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260201.zip",
+        "release": "2026-02",
+        "sha256": "1c2070a63c4f2637a753e527f10ff6afaadeae74e61d86abb60a998cb0f6982f"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8910,
+      "from": {
+        "data-time": "2026-03-03T13:45:00+10:00",
+        "file": "PUBLIC_DISPATCH_202603031345_20260303134015_LEGACY.zip",
+        "release": "2026-03",
+        "sha256": "bbe437a71d852dbf208489ad45536a9ae6960a0fac2f6104018d301e44318f8a"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44550,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-03-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260331.zip",
+        "release": "2026-03",
+        "sha256": "62f820fe769b3ba7a43b28770a72fdeb1c40d3ffb6a63f513ecdb4d351bb3c91"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-03-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260301.zip",
+        "release": "2026-03",
+        "sha256": "eae07c3364f3037446034ecd2501a8019ef68c8272fe14a29ade0181b8767e6d"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260301.zip",
+        "release": "2026-03",
+        "sha256": "eae07c3364f3037446034ecd2501a8019ef68c8272fe14a29ade0181b8767e6d"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-03-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260301.zip",
+        "release": "2026-03",
+        "sha256": "eae07c3364f3037446034ecd2501a8019ef68c8272fe14a29ade0181b8767e6d"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260301.zip",
+        "release": "2026-03",
+        "sha256": "eae07c3364f3037446034ecd2501a8019ef68c8272fe14a29ade0181b8767e6d"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-03-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260301.zip",
+        "release": "2026-03",
+        "sha256": "7e18f7668e61a585cc11bd4e71cf51e009e490c6a73778e5a439f59dab920cbb"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-04-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260301.zip",
+        "release": "2026-03",
+        "sha256": "7e18f7668e61a585cc11bd4e71cf51e009e490c6a73778e5a439f59dab920cbb"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-03-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260301.zip",
+        "release": "2026-03",
+        "sha256": "7e18f7668e61a585cc11bd4e71cf51e009e490c6a73778e5a439f59dab920cbb"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-04-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260301.zip",
+        "release": "2026-03",
+        "sha256": "7e18f7668e61a585cc11bd4e71cf51e009e490c6a73778e5a439f59dab920cbb"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260331.zip",
+        "release": "2026-04",
+        "sha256": "62f820fe769b3ba7a43b28770a72fdeb1c40d3ffb6a63f513ecdb4d351bb3c91"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-30T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260430.zip",
+        "release": "2026-04",
+        "sha256": "b46185e1669686b3e40c9c52d90ae3167e8f76a5bd4a700cdc276b35396d27cc"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-04-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260401.zip",
+        "release": "2026-04",
+        "sha256": "92875d2a61b2fba7b201843fc38faf77a318f094445cdf6ae3440cae2e91872e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260401.zip",
+        "release": "2026-04",
+        "sha256": "92875d2a61b2fba7b201843fc38faf77a318f094445cdf6ae3440cae2e91872e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-04-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260401.zip",
+        "release": "2026-04",
+        "sha256": "92875d2a61b2fba7b201843fc38faf77a318f094445cdf6ae3440cae2e91872e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260401.zip",
+        "release": "2026-04",
+        "sha256": "92875d2a61b2fba7b201843fc38faf77a318f094445cdf6ae3440cae2e91872e"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-04-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260401.zip",
+        "release": "2026-04",
+        "sha256": "af74dff01d447f246354a7598dbfcf6821ac58d6ce793f96de9b7e6ce922e381"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-05-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260401.zip",
+        "release": "2026-04",
+        "sha256": "af74dff01d447f246354a7598dbfcf6821ac58d6ce793f96de9b7e6ce922e381"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-04-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260401.zip",
+        "release": "2026-04",
+        "sha256": "af74dff01d447f246354a7598dbfcf6821ac58d6ce793f96de9b7e6ce922e381"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-05-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260401.zip",
+        "release": "2026-04",
+        "sha256": "af74dff01d447f246354a7598dbfcf6821ac58d6ce793f96de9b7e6ce922e381"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260430.zip",
+        "release": "2026-05",
+        "sha256": "b46185e1669686b3e40c9c52d90ae3167e8f76a5bd4a700cdc276b35396d27cc"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260531.zip",
+        "release": "2026-05",
+        "sha256": "3264d2cbdcd59deac2e68c4d192057a66f8285270819b421ded03bc7ca8d6614"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-05-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260501.zip",
+        "release": "2026-05",
+        "sha256": "67c79098014dcb16ab99ae5a2042c6bdbc8e7ecafd2e4d8233bf86039274b327"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-06-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260501.zip",
+        "release": "2026-05",
+        "sha256": "67c79098014dcb16ab99ae5a2042c6bdbc8e7ecafd2e4d8233bf86039274b327"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-05-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260501.zip",
+        "release": "2026-05",
+        "sha256": "67c79098014dcb16ab99ae5a2042c6bdbc8e7ecafd2e4d8233bf86039274b327"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-06-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260501.zip",
+        "release": "2026-05",
+        "sha256": "67c79098014dcb16ab99ae5a2042c6bdbc8e7ecafd2e4d8233bf86039274b327"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-05-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260501.zip",
+        "release": "2026-05",
+        "sha256": "6231d5582aeb601f6b0f9b7a0e94f1dd88c2c9972e283e35f3c07221e984e567"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-06-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260501.zip",
+        "release": "2026-05",
+        "sha256": "6231d5582aeb601f6b0f9b7a0e94f1dd88c2c9972e283e35f3c07221e984e567"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-05-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260501.zip",
+        "release": "2026-05",
+        "sha256": "6231d5582aeb601f6b0f9b7a0e94f1dd88c2c9972e283e35f3c07221e984e567"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-06-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260501.zip",
+        "release": "2026-05",
+        "sha256": "6231d5582aeb601f6b0f9b7a0e94f1dd88c2c9972e283e35f3c07221e984e567"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260531.zip",
+        "release": "2026-06",
+        "sha256": "3264d2cbdcd59deac2e68c4d192057a66f8285270819b421ded03bc7ca8d6614"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-06-30T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260630.zip",
+        "release": "2026-06",
+        "sha256": "aed539bba9967c7270da5ab09ce54e99afa337497d6d52a03e4065b3fd420751"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-06-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260601.zip",
+        "release": "2026-06",
+        "sha256": "308c01e89a77ac59da367d2a11c2ea43a311cdebd203a1c07d669ed5eb21ac4c"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-07-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260601.zip",
+        "release": "2026-06",
+        "sha256": "308c01e89a77ac59da367d2a11c2ea43a311cdebd203a1c07d669ed5eb21ac4c"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-06-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260601.zip",
+        "release": "2026-06",
+        "sha256": "308c01e89a77ac59da367d2a11c2ea43a311cdebd203a1c07d669ed5eb21ac4c"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-07-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260601.zip",
+        "release": "2026-06",
+        "sha256": "308c01e89a77ac59da367d2a11c2ea43a311cdebd203a1c07d669ed5eb21ac4c"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-06-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260601.zip",
+        "release": "2026-06",
+        "sha256": "bb665db2db427a1f11979f3491e8351566d8cd6f2d86c3ae1c1890899c4aff62"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-07-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260601.zip",
+        "release": "2026-06",
+        "sha256": "bb665db2db427a1f11979f3491e8351566d8cd6f2d86c3ae1c1890899c4aff62"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-06-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260601.zip",
+        "release": "2026-06",
+        "sha256": "bb665db2db427a1f11979f3491e8351566d8cd6f2d86c3ae1c1890899c4aff62"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-07-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260601.zip",
+        "release": "2026-06",
+        "sha256": "bb665db2db427a1f11979f3491e8351566d8cd6f2d86c3ae1c1890899c4aff62"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260630.zip",
+        "release": "2026-07",
+        "sha256": "aed539bba9967c7270da5ab09ce54e99afa337497d6d52a03e4065b3fd420751"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-07-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260731.zip",
+        "release": "2026-07",
+        "sha256": "3a80b0993c9d7bb87068b8711d15ba626cff4e4a462d5045579f3a322db8a8fb"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-07-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260701.zip",
+        "release": "2026-07",
+        "sha256": "ce0f100340f57bd3dae21ba6ade2617f0027e5c5e9d703ed4d31e544fafa92a7"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260701.zip",
+        "release": "2026-07",
+        "sha256": "ce0f100340f57bd3dae21ba6ade2617f0027e5c5e9d703ed4d31e544fafa92a7"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-07-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260701.zip",
+        "release": "2026-07",
+        "sha256": "ce0f100340f57bd3dae21ba6ade2617f0027e5c5e9d703ed4d31e544fafa92a7"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-08-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260701.zip",
+        "release": "2026-07",
+        "sha256": "ce0f100340f57bd3dae21ba6ade2617f0027e5c5e9d703ed4d31e544fafa92a7"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-07-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260701.zip",
+        "release": "2026-07",
+        "sha256": "5832a37130e60653a16f8059e6e361e07a243b1288bcf8d24ad9b8cbb440ad2e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-08-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260701.zip",
+        "release": "2026-07",
+        "sha256": "5832a37130e60653a16f8059e6e361e07a243b1288bcf8d24ad9b8cbb440ad2e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-07-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260701.zip",
+        "release": "2026-07",
+        "sha256": "5832a37130e60653a16f8059e6e361e07a243b1288bcf8d24ad9b8cbb440ad2e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-08-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260701.zip",
+        "release": "2026-07",
+        "sha256": "5832a37130e60653a16f8059e6e361e07a243b1288bcf8d24ad9b8cbb440ad2e"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260731.zip",
+        "release": "2026-08",
+        "sha256": "3a80b0993c9d7bb87068b8711d15ba626cff4e4a462d5045579f3a322db8a8fb"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-08-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260831.zip",
+        "release": "2026-08",
+        "sha256": "10afc45a5491b31c192ac4879eef25b0b7efca7ce083cc3ffbe76e6b0021fdae"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-08-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260801.zip",
+        "release": "2026-08",
+        "sha256": "780dfd7e3af123bcca14fb2d90ef7693e281a25cfea79ad1e35f3d59d1c49cf1"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260801.zip",
+        "release": "2026-08",
+        "sha256": "780dfd7e3af123bcca14fb2d90ef7693e281a25cfea79ad1e35f3d59d1c49cf1"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-08-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20260801.zip",
+        "release": "2026-08",
+        "sha256": "780dfd7e3af123bcca14fb2d90ef7693e281a25cfea79ad1e35f3d59d1c49cf1"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-09-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_20260801.zip",
+        "release": "2026-08",
+        "sha256": "780dfd7e3af123bcca14fb2d90ef7693e281a25cfea79ad1e35f3d59d1c49cf1"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 11,
+      "from": {
+        "data-time": "2026-08-21T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_202608210000_20260822040503.zip",
+        "release": "2026-08",
+        "sha256": "a900c2aab53f9d60077d94856535c0da8ac91aeaedd1f099a31a4cf49aac80ce"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 15840,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_202608310000_20260901040506.zip",
+        "release": "2026-08",
+        "sha256": "316bf5d2ffc8e0ee12018b64e91027d4108d51dd88633895ee4ec6900c236415"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 11,
+      "from": {
+        "data-time": "2026-08-21T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_202608210000_20260822040503.zip",
+        "release": "2026-08",
+        "sha256": "a900c2aab53f9d60077d94856535c0da8ac91aeaedd1f099a31a4cf49aac80ce"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 15840,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-09-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_202608310000_20260901040506.zip",
+        "release": "2026-08",
+        "sha256": "316bf5d2ffc8e0ee12018b64e91027d4108d51dd88633895ee4ec6900c236415"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-08-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260801.zip",
+        "release": "2026-08",
+        "sha256": "f031fb8ae0884765d9716ae602a5f7bc21ed22870c6565ee21b7fe82bd1b98f0"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-09-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260801.zip",
+        "release": "2026-08",
+        "sha256": "f031fb8ae0884765d9716ae602a5f7bc21ed22870c6565ee21b7fe82bd1b98f0"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-08-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_20260801.zip",
+        "release": "2026-08",
+        "sha256": "f031fb8ae0884765d9716ae602a5f7bc21ed22870c6565ee21b7fe82bd1b98f0"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 44640,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-09-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_20260801.zip",
+        "release": "2026-08",
+        "sha256": "f031fb8ae0884765d9716ae602a5f7bc21ed22870c6565ee21b7fe82bd1b98f0"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 11,
+      "from": {
+        "data-time": "2026-08-21T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_202608210000_20260822040502.zip",
+        "release": "2026-08",
+        "sha256": "d0729b190aae94d40bbefa9547f1f3c5a143aea71a0662d20b8e0a1b3680f24e"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 15840,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-09-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_202608310000_20260901040503.zip",
+        "release": "2026-08",
+        "sha256": "623fefb5501956afe3f166f918ce15e39847d4d2291e518d5bc06e98d57b3482"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 11,
+      "from": {
+        "data-time": "2026-08-21T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_202608210000_20260822040502.zip",
+        "release": "2026-08",
+        "sha256": "d0729b190aae94d40bbefa9547f1f3c5a143aea71a0662d20b8e0a1b3680f24e"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 15840,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-09-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_202608310000_20260901040503.zip",
+        "release": "2026-08",
+        "sha256": "623fefb5501956afe3f166f918ce15e39847d4d2291e518d5bc06e98d57b3482"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260831.zip",
+        "release": "2026-09",
+        "sha256": "10afc45a5491b31c192ac4879eef25b0b7efca7ce083cc3ffbe76e6b0021fdae"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-09-30T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260930.zip",
+        "release": "2026-09",
+        "sha256": "0d90889e5e248a7a4bca12c7e4e10ab3b9f8c45e63c66ad5af15d9a9866c49b0"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-09-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_202609010000_20260902040505.zip",
+        "release": "2026-09",
+        "sha256": "b627cfb097495c06ce323f8fbadeedc47d6b61a651dff93feb0eedb1fc855b52"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_202609300000_20261001040503.zip",
+        "release": "2026-09",
+        "sha256": "dde0105f76b4d3d029a49a8ee6aa34eead78b37ef9a238abd7891765c6437ed1"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-09-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_202609010000_20260902040505.zip",
+        "release": "2026-09",
+        "sha256": "b627cfb097495c06ce323f8fbadeedc47d6b61a651dff93feb0eedb1fc855b52"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-01T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_202609300000_20261001040503.zip",
+        "release": "2026-09",
+        "sha256": "dde0105f76b4d3d029a49a8ee6aa34eead78b37ef9a238abd7891765c6437ed1"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-09-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_202609010000_20260902040503.zip",
+        "release": "2026-09",
+        "sha256": "669eb1bd3e72bacb76d9e29acce633ded3ee15d3e4e69bc19507eca4ac8eb3e8"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-10-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_202609300000_20261001040502.zip",
+        "release": "2026-09",
+        "sha256": "18f978150b43f6ee27c949b735e9c025c76099c49b7e175184bf937679475de2"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-09-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_202609010000_20260902040503.zip",
+        "release": "2026-09",
+        "sha256": "669eb1bd3e72bacb76d9e29acce633ded3ee15d3e4e69bc19507eca4ac8eb3e8"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 43200,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-10-01T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_202609300000_20261001040502.zip",
+        "release": "2026-09",
+        "sha256": "18f978150b43f6ee27c949b735e9c025c76099c49b7e175184bf937679475de2"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 5473,
+      "from": {
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCH_20260930.zip",
+        "release": "2026-10",
+        "sha256": "0d90889e5e248a7a4bca12c7e4e10ab3b9f8c45e63c66ad5af15d9a9866c49b0"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 27365,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCH_20261019.zip",
+        "release": "2026-10",
+        "sha256": "1a4e3df48b71906e7554bbb37744efda68889d6d7ca262a9c7a8ef13e4774ea0"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 20,
+      "from": {
+        "data-time": "2026-10-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_202610010000_20261002040510.zip",
+        "release": "2026-10",
+        "sha256": "780178b548a94394012f201686519d52ba73e5b48d648cf7711ecbca704a0a8d"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 28800,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-10-21T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_202610200000_20261021040504.zip",
+        "release": "2026-10",
+        "sha256": "e0b7086843375b7360f2e90e530c967ad103ab5cc7740353fb109ab5eb9da423"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 20,
+      "from": {
+        "data-time": "2026-10-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_202610010000_20261002040510.zip",
+        "release": "2026-10",
+        "sha256": "780178b548a94394012f201686519d52ba73e5b48d648cf7711ecbca704a0a8d"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 28800,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-10-21T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_202610200000_20261021040504.zip",
+        "release": "2026-10",
+        "sha256": "e0b7086843375b7360f2e90e530c967ad103ab5cc7740353fb109ab5eb9da423"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2026-10-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_202610010000_20261002040503.zip",
+        "release": "2026-10",
+        "sha256": "85fe9c08ca71313733d01f616d8dc9c4a89c90b5043d87c3543e93e2a37d43ca"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 30240,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-22T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_202610210000_20261022040504.zip",
+        "release": "2026-10",
+        "sha256": "bac06517d803861e78b6fe9e026953010ff38c78a9744595a735f4b156b84ed1"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 117
+        },
+        {
+          "action": "delete",
+          "field-id": 118
+        },
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "delete",
+          "field-id": 120
+        },
+        {
+          "action": "delete",
+          "field-id": 121
+        },
+        {
+          "action": "delete",
+          "field-id": 122
+        },
+        {
+          "action": "delete",
+          "field-id": 123
+        },
+        {
+          "action": "delete",
+          "field-id": 124
+        },
+        {
+          "action": "delete",
+          "field-id": 125
+        },
+        {
+          "action": "delete",
+          "field-id": 126
+        },
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "delete",
+          "field-id": 128
+        },
+        {
+          "action": "delete",
+          "field-id": 129
+        },
+        {
+          "action": "delete",
+          "field-id": 130
+        },
+        {
+          "action": "delete",
+          "field-id": 131
+        },
+        {
+          "action": "delete",
+          "field-id": 132
+        },
+        {
+          "action": "delete",
+          "field-id": 133
+        },
+        {
+          "action": "delete",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1177,
+      "from": {
+        "data-time": "2026-10-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_202610010000_20261002040503.zip",
+        "release": "2026-10",
+        "sha256": "85fe9c08ca71313733d01f616d8dc9c4a89c90b5043d87c3543e93e2a37d43ca"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 36020,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-22T09:05:00+10:00",
+        "file": "PUBLIC_DISPATCH_202610220905_20261022090010_LEGACY.zip",
+        "release": "2026-10",
+        "sha256": "b8096c5f4d1334a0d687a40a1abdff0449817f78441044b16bf39189b1a2017f"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "RRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 6,
+          "name": "EEP",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 7,
+          "name": "ROP",
+          "required": false,
+          "type": "decimal(12, 5)"
+        },
+        {
+          "id": 8,
+          "name": "APCFLAG",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 9,
+          "name": "MARKETSUSPENDEDFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 10,
+          "name": "TOTALDEMAND",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 11,
+          "name": "DEMANDFORECAST",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 12,
+          "name": "DISPATCHABLEGENERATION",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 13,
+          "name": "DISPATCHABLELOAD",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 14,
+          "name": "NETINTERCHANGE",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 15,
+          "name": "EXCESSGENERATION",
+          "required": false,
+          "type": "decimal(4, 2)"
+        },
+        {
+          "id": 16,
+          "name": "LOWER5MINDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "LOWER5MINIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "LOWER5MINLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 19,
+          "name": "LOWER5MINLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 20,
+          "name": "LOWER5MINLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 21,
+          "name": "LOWER5MINPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 22,
+          "name": "LOWER5MINREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 23,
+          "name": "LOWER5MINSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 24,
+          "name": "LOWER60SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 25,
+          "name": "LOWER60SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 26,
+          "name": "LOWER60SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 27,
+          "name": "LOWER60SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 28,
+          "name": "LOWER60SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 29,
+          "name": "LOWER60SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 30,
+          "name": "LOWER60SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 31,
+          "name": "LOWER60SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 32,
+          "name": "LOWER6SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 33,
+          "name": "LOWER6SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 34,
+          "name": "LOWER6SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 35,
+          "name": "LOWER6SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 36,
+          "name": "LOWER6SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 37,
+          "name": "LOWER6SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 38,
+          "name": "LOWER6SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 39,
+          "name": "LOWER6SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 40,
+          "name": "RAISE5MINDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 41,
+          "name": "RAISE5MINIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 42,
+          "name": "RAISE5MINLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 43,
+          "name": "RAISE5MINLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 44,
+          "name": "RAISE5MINLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 45,
+          "name": "RAISE5MINPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 46,
+          "name": "RAISE5MINREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 47,
+          "name": "RAISE5MINSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 48,
+          "name": "RAISE60SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 49,
+          "name": "RAISE60SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 50,
+          "name": "RAISE60SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 51,
+          "name": "RAISE60SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 52,
+          "name": "RAISE60SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 53,
+          "name": "RAISE60SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 54,
+          "name": "RAISE60SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 55,
+          "name": "RAISE60SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 56,
+          "name": "RAISE6SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 57,
+          "name": "RAISE6SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 58,
+          "name": "RAISE6SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 59,
+          "name": "RAISE6SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 60,
+          "name": "RAISE6SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 61,
+          "name": "RAISE6SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 62,
+          "name": "RAISE6SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 63,
+          "name": "RAISE6SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 64,
+          "name": "AGGREGATEDISPATCHERROR",
+          "required": false,
+          "type": "decimal(7, 5)"
+        },
+        {
+          "id": 65,
+          "name": "AVAILABLEGENERATION",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 66,
+          "name": "AVAILABLELOAD",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 67,
+          "name": "INITIALSUPPLY",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 68,
+          "name": "CLEAREDSUPPLY",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 69,
+          "name": "LOWERREGIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 70,
+          "name": "LOWERREGLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 71,
+          "name": "LOWERREGLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 72,
+          "name": "LOWERREGREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 73,
+          "name": "RAISEREGIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 74,
+          "name": "RAISEREGLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 75,
+          "name": "RAISEREGLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 76,
+          "name": "RAISEREGREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 77,
+          "name": "RAISE5MINLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 78,
+          "name": "RAISEREGLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 79,
+          "name": "RAISE60SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 80,
+          "name": "RAISE6SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 81,
+          "name": "LOWER5MINLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 82,
+          "name": "LOWERREGLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 83,
+          "name": "LOWER60SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 84,
+          "name": "LOWER6SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 85,
+          "name": "RAISE5MINVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 86,
+          "name": "RAISEREGVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 87,
+          "name": "RAISE60SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 88,
+          "name": "RAISE6SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 89,
+          "name": "LOWER5MINVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 90,
+          "name": "LOWERREGVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 91,
+          "name": "LOWER60SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 92,
+          "name": "LOWER6SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 93,
+          "name": "RAISE6SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 94,
+          "name": "RAISE6SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 95,
+          "name": "RAISE6SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 96,
+          "name": "RAISE60SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 97,
+          "name": "RAISE60SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 98,
+          "name": "RAISE60SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 99,
+          "name": "RAISE5MINRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 100,
+          "name": "RAISE5MINROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 101,
+          "name": "RAISE5MINAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 102,
+          "name": "RAISEREGRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 103,
+          "name": "RAISEREGROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 104,
+          "name": "RAISEREGAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 105,
+          "name": "LOWER6SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 106,
+          "name": "LOWER6SECROP",
+          "required": false,
+          "type": "decimal(11, 5)"
+        },
+        {
+          "id": 107,
+          "name": "LOWER6SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 108,
+          "name": "LOWER60SECRRP",
+          "required": false,
+          "type": "decimal(8, 5)"
+        },
+        {
+          "id": 109,
+          "name": "LOWER60SECROP",
+          "required": false,
+          "type": "decimal(8, 5)"
+        },
+        {
+          "id": 110,
+          "name": "LOWER60SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 111,
+          "name": "LOWER5MINRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 112,
+          "name": "LOWER5MINROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 113,
+          "name": "LOWER5MINAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 114,
+          "name": "LOWERREGRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 115,
+          "name": "LOWERREGROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 116,
+          "name": "LOWERREGAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "RRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 6,
+          "name": "EEP",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 7,
+          "name": "ROP",
+          "required": false,
+          "type": "decimal(12, 5)"
+        },
+        {
+          "id": 8,
+          "name": "APCFLAG",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 9,
+          "name": "MARKETSUSPENDEDFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 10,
+          "name": "TOTALDEMAND",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 11,
+          "name": "DEMANDFORECAST",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 12,
+          "name": "DISPATCHABLEGENERATION",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 13,
+          "name": "DISPATCHABLELOAD",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 14,
+          "name": "NETINTERCHANGE",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 15,
+          "name": "EXCESSGENERATION",
+          "required": false,
+          "type": "decimal(4, 2)"
+        },
+        {
+          "id": 16,
+          "name": "LOWER5MINDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "LOWER5MINIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "LOWER5MINLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 19,
+          "name": "LOWER5MINLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 20,
+          "name": "LOWER5MINLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 21,
+          "name": "LOWER5MINPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 22,
+          "name": "LOWER5MINREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 23,
+          "name": "LOWER5MINSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 24,
+          "name": "LOWER60SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 25,
+          "name": "LOWER60SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 26,
+          "name": "LOWER60SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 27,
+          "name": "LOWER60SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 28,
+          "name": "LOWER60SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 29,
+          "name": "LOWER60SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 30,
+          "name": "LOWER60SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 31,
+          "name": "LOWER60SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 32,
+          "name": "LOWER6SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 33,
+          "name": "LOWER6SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 34,
+          "name": "LOWER6SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 35,
+          "name": "LOWER6SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 36,
+          "name": "LOWER6SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 37,
+          "name": "LOWER6SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 38,
+          "name": "LOWER6SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 39,
+          "name": "LOWER6SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 40,
+          "name": "RAISE5MINDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 41,
+          "name": "RAISE5MINIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 42,
+          "name": "RAISE5MINLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 43,
+          "name": "RAISE5MINLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 44,
+          "name": "RAISE5MINLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 45,
+          "name": "RAISE5MINPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 46,
+          "name": "RAISE5MINREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 47,
+          "name": "RAISE5MINSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 48,
+          "name": "RAISE60SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 49,
+          "name": "RAISE60SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 50,
+          "name": "RAISE60SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 51,
+          "name": "RAISE60SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 52,
+          "name": "RAISE60SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 53,
+          "name": "RAISE60SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 54,
+          "name": "RAISE60SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 55,
+          "name": "RAISE60SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 56,
+          "name": "RAISE6SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 57,
+          "name": "RAISE6SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 58,
+          "name": "RAISE6SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 59,
+          "name": "RAISE6SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 60,
+          "name": "RAISE6SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 61,
+          "name": "RAISE6SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 62,
+          "name": "RAISE6SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 63,
+          "name": "RAISE6SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 64,
+          "name": "AGGREGATEDISPATCHERROR",
+          "required": false,
+          "type": "decimal(7, 5)"
+        },
+        {
+          "id": 65,
+          "name": "AVAILABLEGENERATION",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 66,
+          "name": "AVAILABLELOAD",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 67,
+          "name": "INITIALSUPPLY",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 68,
+          "name": "CLEAREDSUPPLY",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 69,
+          "name": "LOWERREGIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 70,
+          "name": "LOWERREGLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 71,
+          "name": "LOWERREGLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 72,
+          "name": "LOWERREGREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 73,
+          "name": "RAISEREGIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 74,
+          "name": "RAISEREGLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 75,
+          "name": "RAISEREGLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 76,
+          "name": "RAISEREGREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 77,
+          "name": "RAISE5MINLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 78,
+          "name": "RAISEREGLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 79,
+          "name": "RAISE60SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 80,
+          "name": "RAISE6SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 81,
+          "name": "LOWER5MINLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 82,
+          "name": "LOWERREGLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 83,
+          "name": "LOWER60SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 84,
+          "name": "LOWER6SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 85,
+          "name": "RAISE5MINVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 86,
+          "name": "RAISEREGVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 87,
+          "name": "RAISE60SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 88,
+          "name": "RAISE6SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 89,
+          "name": "LOWER5MINVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 90,
+          "name": "LOWERREGVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 91,
+          "name": "LOWER60SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 92,
+          "name": "LOWER6SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 93,
+          "name": "RAISE6SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 94,
+          "name": "RAISE6SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 95,
+          "name": "RAISE6SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 96,
+          "name": "RAISE60SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 97,
+          "name": "RAISE60SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 98,
+          "name": "RAISE60SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 99,
+          "name": "RAISE5MINRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 100,
+          "name": "RAISE5MINROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 101,
+          "name": "RAISE5MINAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 102,
+          "name": "RAISEREGRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 103,
+          "name": "RAISEREGROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 104,
+          "name": "RAISEREGAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 105,
+          "name": "LOWER6SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 106,
+          "name": "LOWER6SECROP",
+          "required": false,
+          "type": "decimal(11, 5)"
+        },
+        {
+          "id": 107,
+          "name": "LOWER6SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 108,
+          "name": "LOWER60SECRRP",
+          "required": false,
+          "type": "decimal(8, 5)"
+        },
+        {
+          "id": 109,
+          "name": "LOWER60SECROP",
+          "required": false,
+          "type": "decimal(8, 5)"
+        },
+        {
+          "id": 110,
+          "name": "LOWER60SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 111,
+          "name": "LOWER5MINRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 112,
+          "name": "LOWER5MINROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 113,
+          "name": "LOWER5MINAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 114,
+          "name": "LOWERREGRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 115,
+          "name": "LOWERREGROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 116,
+          "name": "LOWERREGAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 117,
+          "name": "RAISE6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 118,
+          "name": "RAISE60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 119,
+          "name": "RAISE5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 120,
+          "name": "RAISEREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 121,
+          "name": "LOWER6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 122,
+          "name": "LOWER60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 123,
+          "name": "LOWER5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 124,
+          "name": "LOWERREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 125,
+          "name": "LORSURPLUS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 126,
+          "name": "LRCSURPLUS",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 1,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "RRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 6,
+          "name": "EEP",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 7,
+          "name": "ROP",
+          "required": false,
+          "type": "decimal(12, 5)"
+        },
+        {
+          "id": 8,
+          "name": "APCFLAG",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 9,
+          "name": "MARKETSUSPENDEDFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 10,
+          "name": "TOTALDEMAND",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 11,
+          "name": "DEMANDFORECAST",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 12,
+          "name": "DISPATCHABLEGENERATION",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 13,
+          "name": "DISPATCHABLELOAD",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 14,
+          "name": "NETINTERCHANGE",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 15,
+          "name": "EXCESSGENERATION",
+          "required": false,
+          "type": "decimal(4, 2)"
+        },
+        {
+          "id": 16,
+          "name": "LOWER5MINDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "LOWER5MINIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "LOWER5MINLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 19,
+          "name": "LOWER5MINLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 20,
+          "name": "LOWER5MINLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 21,
+          "name": "LOWER5MINPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 22,
+          "name": "LOWER5MINREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 23,
+          "name": "LOWER5MINSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 24,
+          "name": "LOWER60SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 25,
+          "name": "LOWER60SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 26,
+          "name": "LOWER60SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 27,
+          "name": "LOWER60SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 28,
+          "name": "LOWER60SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 29,
+          "name": "LOWER60SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 30,
+          "name": "LOWER60SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 31,
+          "name": "LOWER60SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 32,
+          "name": "LOWER6SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 33,
+          "name": "LOWER6SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 34,
+          "name": "LOWER6SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 35,
+          "name": "LOWER6SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 36,
+          "name": "LOWER6SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 37,
+          "name": "LOWER6SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 38,
+          "name": "LOWER6SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 39,
+          "name": "LOWER6SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 40,
+          "name": "RAISE5MINDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 41,
+          "name": "RAISE5MINIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 42,
+          "name": "RAISE5MINLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 43,
+          "name": "RAISE5MINLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 44,
+          "name": "RAISE5MINLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 45,
+          "name": "RAISE5MINPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 46,
+          "name": "RAISE5MINREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 47,
+          "name": "RAISE5MINSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 48,
+          "name": "RAISE60SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 49,
+          "name": "RAISE60SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 50,
+          "name": "RAISE60SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 51,
+          "name": "RAISE60SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 52,
+          "name": "RAISE60SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 53,
+          "name": "RAISE60SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 54,
+          "name": "RAISE60SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 55,
+          "name": "RAISE60SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 56,
+          "name": "RAISE6SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 57,
+          "name": "RAISE6SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 58,
+          "name": "RAISE6SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 59,
+          "name": "RAISE6SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 60,
+          "name": "RAISE6SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 61,
+          "name": "RAISE6SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 62,
+          "name": "RAISE6SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 63,
+          "name": "RAISE6SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 64,
+          "name": "AGGREGATEDISPATCHERROR",
+          "required": false,
+          "type": "decimal(7, 5)"
+        },
+        {
+          "id": 65,
+          "name": "AVAILABLEGENERATION",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 66,
+          "name": "AVAILABLELOAD",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 67,
+          "name": "INITIALSUPPLY",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 68,
+          "name": "CLEAREDSUPPLY",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 69,
+          "name": "LOWERREGIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 70,
+          "name": "LOWERREGLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 71,
+          "name": "LOWERREGLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 72,
+          "name": "LOWERREGREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 73,
+          "name": "RAISEREGIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 74,
+          "name": "RAISEREGLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 75,
+          "name": "RAISEREGLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 76,
+          "name": "RAISEREGREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 77,
+          "name": "RAISE5MINLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 78,
+          "name": "RAISEREGLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 79,
+          "name": "RAISE60SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 80,
+          "name": "RAISE6SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 81,
+          "name": "LOWER5MINLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 82,
+          "name": "LOWERREGLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 83,
+          "name": "LOWER60SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 84,
+          "name": "LOWER6SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 85,
+          "name": "RAISE5MINVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 86,
+          "name": "RAISEREGVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 87,
+          "name": "RAISE60SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 88,
+          "name": "RAISE6SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 89,
+          "name": "LOWER5MINVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 90,
+          "name": "LOWERREGVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 91,
+          "name": "LOWER60SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 92,
+          "name": "LOWER6SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 93,
+          "name": "RAISE6SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 94,
+          "name": "RAISE6SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 95,
+          "name": "RAISE6SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 96,
+          "name": "RAISE60SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 97,
+          "name": "RAISE60SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 98,
+          "name": "RAISE60SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 99,
+          "name": "RAISE5MINRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 100,
+          "name": "RAISE5MINROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 101,
+          "name": "RAISE5MINAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 102,
+          "name": "RAISEREGRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 103,
+          "name": "RAISEREGROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 104,
+          "name": "RAISEREGAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 105,
+          "name": "LOWER6SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 106,
+          "name": "LOWER6SECROP",
+          "required": false,
+          "type": "decimal(11, 5)"
+        },
+        {
+          "id": 107,
+          "name": "LOWER6SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 108,
+          "name": "LOWER60SECRRP",
+          "required": false,
+          "type": "decimal(8, 5)"
+        },
+        {
+          "id": 109,
+          "name": "LOWER60SECROP",
+          "required": false,
+          "type": "decimal(8, 5)"
+        },
+        {
+          "id": 110,
+          "name": "LOWER60SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 111,
+          "name": "LOWER5MINRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 112,
+          "name": "LOWER5MINROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 113,
+          "name": "LOWER5MINAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 114,
+          "name": "LOWERREGRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 115,
+          "name": "LOWERREGROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 116,
+          "name": "LOWERREGAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 127,
+          "name": "LOWER1SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 128,
+          "name": "LOWER1SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 129,
+          "name": "LOWER1SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 130,
+          "name": "RAISE1SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 131,
+          "name": "RAISE1SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 132,
+          "name": "RAISE1SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 133,
+          "name": "RAISE1SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 134,
+          "name": "LOWER1SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 2,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "RRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 6,
+          "name": "EEP",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 7,
+          "name": "ROP",
+          "required": false,
+          "type": "decimal(12, 5)"
+        },
+        {
+          "id": 8,
+          "name": "APCFLAG",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 9,
+          "name": "MARKETSUSPENDEDFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 10,
+          "name": "TOTALDEMAND",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 11,
+          "name": "DEMANDFORECAST",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 12,
+          "name": "DISPATCHABLEGENERATION",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 13,
+          "name": "DISPATCHABLELOAD",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 14,
+          "name": "NETINTERCHANGE",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 15,
+          "name": "EXCESSGENERATION",
+          "required": false,
+          "type": "decimal(4, 2)"
+        },
+        {
+          "id": 16,
+          "name": "LOWER5MINDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "LOWER5MINIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "LOWER5MINLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 19,
+          "name": "LOWER5MINLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 20,
+          "name": "LOWER5MINLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 21,
+          "name": "LOWER5MINPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 22,
+          "name": "LOWER5MINREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 23,
+          "name": "LOWER5MINSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 24,
+          "name": "LOWER60SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 25,
+          "name": "LOWER60SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 26,
+          "name": "LOWER60SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 27,
+          "name": "LOWER60SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 28,
+          "name": "LOWER60SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 29,
+          "name": "LOWER60SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 30,
+          "name": "LOWER60SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 31,
+          "name": "LOWER60SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 32,
+          "name": "LOWER6SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 33,
+          "name": "LOWER6SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 34,
+          "name": "LOWER6SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 35,
+          "name": "LOWER6SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 36,
+          "name": "LOWER6SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 37,
+          "name": "LOWER6SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 38,
+          "name": "LOWER6SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 39,
+          "name": "LOWER6SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 40,
+          "name": "RAISE5MINDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 41,
+          "name": "RAISE5MINIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 42,
+          "name": "RAISE5MINLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 43,
+          "name": "RAISE5MINLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 44,
+          "name": "RAISE5MINLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 45,
+          "name": "RAISE5MINPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 46,
+          "name": "RAISE5MINREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 47,
+          "name": "RAISE5MINSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 48,
+          "name": "RAISE60SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 49,
+          "name": "RAISE60SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 50,
+          "name": "RAISE60SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 51,
+          "name": "RAISE60SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 52,
+          "name": "RAISE60SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 53,
+          "name": "RAISE60SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 54,
+          "name": "RAISE60SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 55,
+          "name": "RAISE60SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 56,
+          "name": "RAISE6SECDISPATCH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 57,
+          "name": "RAISE6SECIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 58,
+          "name": "RAISE6SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 59,
+          "name": "RAISE6SECLOCALPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 60,
+          "name": "RAISE6SECLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 61,
+          "name": "RAISE6SECPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 62,
+          "name": "RAISE6SECREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 63,
+          "name": "RAISE6SECSUPPLYPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 64,
+          "name": "AGGREGATEDISPATCHERROR",
+          "required": false,
+          "type": "decimal(7, 5)"
+        },
+        {
+          "id": 65,
+          "name": "AVAILABLEGENERATION",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 66,
+          "name": "AVAILABLELOAD",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 67,
+          "name": "INITIALSUPPLY",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 68,
+          "name": "CLEAREDSUPPLY",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 69,
+          "name": "LOWERREGIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 70,
+          "name": "LOWERREGLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 71,
+          "name": "LOWERREGLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 72,
+          "name": "LOWERREGREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 73,
+          "name": "RAISEREGIMPORT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 74,
+          "name": "RAISEREGLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 75,
+          "name": "RAISEREGLOCALREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 76,
+          "name": "RAISEREGREQ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 77,
+          "name": "RAISE5MINLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 78,
+          "name": "RAISEREGLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 79,
+          "name": "RAISE60SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 80,
+          "name": "RAISE6SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 81,
+          "name": "LOWER5MINLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 82,
+          "name": "LOWERREGLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 83,
+          "name": "LOWER60SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 84,
+          "name": "LOWER6SECLOCALVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 85,
+          "name": "RAISE5MINVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 86,
+          "name": "RAISEREGVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 87,
+          "name": "RAISE60SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 88,
+          "name": "RAISE6SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 89,
+          "name": "LOWER5MINVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 90,
+          "name": "LOWERREGVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 91,
+          "name": "LOWER60SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 92,
+          "name": "LOWER6SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 93,
+          "name": "RAISE6SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 94,
+          "name": "RAISE6SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 95,
+          "name": "RAISE6SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 96,
+          "name": "RAISE60SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 97,
+          "name": "RAISE60SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 98,
+          "name": "RAISE60SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 99,
+          "name": "RAISE5MINRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 100,
+          "name": "RAISE5MINROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 101,
+          "name": "RAISE5MINAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 102,
+          "name": "RAISEREGRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 103,
+          "name": "RAISEREGROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 104,
+          "name": "RAISEREGAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 105,
+          "name": "LOWER6SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 106,
+          "name": "LOWER6SECROP",
+          "required": false,
+          "type": "decimal(11, 5)"
+        },
+        {
+          "id": 107,
+          "name": "LOWER6SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 108,
+          "name": "LOWER60SECRRP",
+          "required": false,
+          "type": "decimal(8, 5)"
+        },
+        {
+          "id": 109,
+          "name": "LOWER60SECROP",
+          "required": false,
+          "type": "decimal(8, 5)"
+        },
+        {
+          "id": 110,
+          "name": "LOWER60SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 111,
+          "name": "LOWER5MINRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 112,
+          "name": "LOWER5MINROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 113,
+          "name": "LOWER5MINAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 114,
+          "name": "LOWERREGRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 115,
+          "name": "LOWERREGROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 116,
+          "name": "LOWERREGAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 117,
+          "name": "RAISE6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 118,
+          "name": "RAISE60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 119,
+          "name": "RAISE5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 120,
+          "name": "RAISEREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 121,
+          "name": "LOWER6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 122,
+          "name": "LOWER60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 123,
+          "name": "LOWER5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 124,
+          "name": "LOWERREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(10, 6)"
+        },
+        {
+          "id": 125,
+          "name": "LORSURPLUS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 126,
+          "name": "LRCSURPLUS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 127,
+          "name": "LOWER1SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 128,
+          "name": "LOWER1SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 129,
+          "name": "LOWER1SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 130,
+          "name": "RAISE1SECRRP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 131,
+          "name": "RAISE1SECROP",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 132,
+          "name": "RAISE1SECAPCFLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 133,
+          "name": "RAISE1SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 134,
+          "name": "LOWER1SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(5, 2)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 3,
+      "type": "struct"
+    }
+  ],
+  "table": "DREGION"
+}

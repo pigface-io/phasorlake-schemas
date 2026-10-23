@@ -1,0 +1,215 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/INTERMITTENT_DS_RUN/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUTHORISEDBY": {
+      "description": "Authorising officer of this forecast (applicable for participant forecasts only). This column is not made available to the public.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "COMMENTS": {
+      "description": "Comments relating to the forecast. This column is not made available to the public.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(200)"
+    },
+    "DUID": {
+      "description": "DUID (or Area for non-scheduled) where this forecast applies",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "FORECAST_PRIORITY": {
+      "description": "Unsuppressed forecasts with higher priority values are used in Dispatch in preference to unsuppressed forecasts with lower priority values.",
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(10,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time the record changed.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "MODEL": {
+      "description": "Metadata relating to the forecast. This column is not made available to the public.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "OFFERDATETIME": {
+      "description": "Date and Time when this forecast submission was loaded.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "ORIGIN": {
+      "description": "Origin of this forecast (PARTICIPANTID, AWEFS/ASEFS, or another vendor)",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "PARTICIPANT_TIMESTAMP": {
+      "description": "Participant can document when the forecast was created",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "RUN_DATETIME": {
+      "description": "Date and Time where the forecast applies (dispatch interval ending)",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "SUPPRESSED_AEMO": {
+      "description": "Was this forecast suppressed by AEMO? Suppressed = 1,Not suppressed =0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "SUPPRESSED_PARTICIPANT": {
+      "description": "Was this forecast suppressed by the participant? Suppressed submissions may not be used,  Suppressed = 1, Not suppressed =0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "TRANSACTION_ID": {
+      "description": "Uniquely identifies this interaction",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(100)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "DUID",
+    "OFFERDATETIME",
+    "ORIGIN",
+    "FORECAST_PRIORITY"
+  ],
+  "title": "INTERMITTENT_DS_RUN, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      5,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "ORIGIN",
+      "string"
+    ],
+    [
+      4,
+      "FORECAST_PRIORITY",
+      "long"
+    ],
+    [
+      11,
+      "AUTHORISEDBY",
+      "string"
+    ],
+    [
+      12,
+      "COMMENTS",
+      "string"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      13,
+      "MODEL",
+      "string"
+    ],
+    [
+      6,
+      "PARTICIPANT_TIMESTAMP",
+      "timestamptz"
+    ],
+    [
+      8,
+      "SUPPRESSED_AEMO",
+      "decimal(1, 0)"
+    ],
+    [
+      7,
+      "SUPPRESSED_PARTICIPANT",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "TRANSACTION_ID",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    5,
+    3,
+    4
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "INTERMITTENT_DS_RUN"
+  }
+}

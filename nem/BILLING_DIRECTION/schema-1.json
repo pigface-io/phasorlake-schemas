@@ -1,0 +1,374 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLING_DIRECTION/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "COMPENSATION_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "CRA": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "DIRECTION_DESC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "DIRECTION_END_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DIRECTION_END_INTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DIRECTION_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "DIRECTION_SERVICE_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "string"
+    },
+    "DIRECTION_START_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DIRECTION_START_INTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DIRECTION_TYPE_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "INDEPENDENT_EXPERT_FEE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(8, 8)"
+    },
+    "INTEREST_AMOUNT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(8, 8)"
+    },
+    "NSW_ACE_ENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "NSW_ASOE_ENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "NSW_RBF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(8, 8)"
+    },
+    "QLD_ACE_ENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "QLD_ASOE_ENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "QLD_RBF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(8, 8)"
+    },
+    "SA_ACE_ENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(13, 8)"
+    },
+    "SA_ASOE_ENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-iceberg-type": "decimal(13, 8)"
+    },
+    "SA_RBF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(9, 8)"
+    },
+    "TAS_ACE_ENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(13, 8)"
+    },
+    "TAS_ASOE_ENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "decimal(13, 8)"
+    },
+    "TAS_RBF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(8, 8)"
+    },
+    "VIC_ACE_ENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "VIC_ASOE_ENERGY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "decimal(14, 8)"
+    },
+    "VIC_RBF": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(8, 8)"
+    }
+  },
+  "required": [],
+  "title": "BILLING_DIRECTION, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DIRECTION_ID",
+      "string"
+    ],
+    [
+      27,
+      "DIRECTION_SERVICE_ID",
+      "string"
+    ],
+    [
+      2,
+      "DIRECTION_DESC",
+      "string"
+    ],
+    [
+      3,
+      "DIRECTION_TYPE_ID",
+      "string"
+    ],
+    [
+      4,
+      "DIRECTION_START_DATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "DIRECTION_END_DATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "DIRECTION_START_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      7,
+      "DIRECTION_END_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      8,
+      "COMPENSATION_AMOUNT",
+      "decimal(14, 8)"
+    ],
+    [
+      9,
+      "INTEREST_AMOUNT",
+      "decimal(8, 8)"
+    ],
+    [
+      10,
+      "INDEPENDENT_EXPERT_FEE",
+      "decimal(8, 8)"
+    ],
+    [
+      11,
+      "CRA",
+      "decimal(14, 8)"
+    ],
+    [
+      28,
+      "NSW_ACE_ENERGY",
+      "decimal(14, 8)"
+    ],
+    [
+      29,
+      "QLD_ACE_ENERGY",
+      "decimal(14, 8)"
+    ],
+    [
+      30,
+      "SA_ACE_ENERGY",
+      "decimal(13, 8)"
+    ],
+    [
+      31,
+      "VIC_ACE_ENERGY",
+      "decimal(14, 8)"
+    ],
+    [
+      32,
+      "TAS_ACE_ENERGY",
+      "decimal(13, 8)"
+    ],
+    [
+      33,
+      "NSW_ASOE_ENERGY",
+      "decimal(14, 8)"
+    ],
+    [
+      34,
+      "QLD_ASOE_ENERGY",
+      "decimal(14, 8)"
+    ],
+    [
+      35,
+      "SA_ASOE_ENERGY",
+      "decimal(13, 8)"
+    ],
+    [
+      36,
+      "TAS_ASOE_ENERGY",
+      "decimal(13, 8)"
+    ],
+    [
+      37,
+      "VIC_ASOE_ENERGY",
+      "decimal(14, 8)"
+    ],
+    [
+      22,
+      "NSW_RBF",
+      "decimal(8, 8)"
+    ],
+    [
+      23,
+      "QLD_RBF",
+      "decimal(8, 8)"
+    ],
+    [
+      24,
+      "SA_RBF",
+      "decimal(9, 8)"
+    ],
+    [
+      25,
+      "VIC_RBF",
+      "decimal(8, 8)"
+    ],
+    [
+      26,
+      "TAS_RBF",
+      "decimal(8, 8)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "BILLING_DIRECTION"
+  }
+}

@@ -30,36 +30,6 @@
       "x-iceberg-type": "decimal(18, 8)",
       "x-model-type": "NUMERIC(18,8)"
     },
-    "DRCF": {
-      "description": "The DRCF Value from the FPP Inputs for the Constraint Id used to calculate Unused Residual Amount",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 24,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
-    "FPP_AMOUNT": {
-      "description": "The total FPP Amount from Eligible Units for the Constraint Id",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 12,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
-    "FPP_RESIDUAL_AMOUNT": {
-      "description": "The total FPP Residual Amount for the Constraint Id",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 13,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
     "INTERVAL_DATETIME": {
       "description": "Dispatch Interval Date Time",
       "format": "date-time",
@@ -78,46 +48,6 @@
       "x-field-id": 9,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
-    },
-    "NRCF": {
-      "description": "The NRCF Value from the FPP Inputs for the Constraint Id used to calculate Used Residual Amount",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 23,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
-    "P_REGULATION": {
-      "description": "The PRegulation Value from Constraints FCAS Requirement data",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 18,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
-    "RCF": {
-      "description": "The RCF Value from the FPP Inputs for the Constraint Id used to calculate FPP Residual",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 22,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
-    "RCR": {
-      "description": "The RCR Value from the FPP Inputs for the Constraint Id used to calculate FPP Amount",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 20,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
     },
     "RECOVERY_FACTOR_CMPF": {
       "description": "Recovery factor for CMPF based recovery. This column is NULL for Settlement Dates past FPP Rule Effective Date",
@@ -149,16 +79,6 @@
       "x-iceberg-type": "decimal(18, 8)",
       "x-model-type": "NUMERIC(18,8)"
     },
-    "RESIDUALTOTAL_MWH": {
-      "description": "The total residual MWh(ABS(ACE_MWh) + ASOE(MWh)) of the requirement regions.",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 25,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
     "SETTLEMENTDATE": {
       "description": "Settlement Date",
       "format": "date-time",
@@ -166,66 +86,6 @@
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
-    },
-    "TSFCAS": {
-      "description": "The Adjusted Cost Value from Constraints FCAS Requirement data",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 19,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
-    "UNUSED_AMOUNT": {
-      "description": "The total Reg Unused Amount from Eligible Units for the Constraint Id",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 16,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
-    "UNUSED_RESIDUAL_AMOUNT": {
-      "description": "The total Reg Unused Residual Amount for the Constraint Id",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 17,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
-    "USAGE_VALUE": {
-      "description": "The Usage Value from the FPP Inputs for the Constraint Id used to calculate Used Amount",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 21,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
-    "USED_AMOUNT": {
-      "description": "The total Reg Used Amount from Eligible Units for the Constraint Id",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 14,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
-    "USED_RESIDUAL_AMOUNT": {
-      "description": "The total Reg Used Residual Amount for the Constraint Id",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 15,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
     },
     "USESUBSTITUTEDEMAND": {
       "description": "Flag to indication that substitute demand was used to recover this requirement",
@@ -307,76 +167,6 @@
     [
       11,
       "REQUIREMENTDEMAND",
-      "decimal(18, 8)"
-    ],
-    [
-      12,
-      "FPP_AMOUNT",
-      "decimal(18, 8)"
-    ],
-    [
-      13,
-      "FPP_RESIDUAL_AMOUNT",
-      "decimal(18, 8)"
-    ],
-    [
-      14,
-      "USED_AMOUNT",
-      "decimal(18, 8)"
-    ],
-    [
-      15,
-      "USED_RESIDUAL_AMOUNT",
-      "decimal(18, 8)"
-    ],
-    [
-      16,
-      "UNUSED_AMOUNT",
-      "decimal(18, 8)"
-    ],
-    [
-      17,
-      "UNUSED_RESIDUAL_AMOUNT",
-      "decimal(18, 8)"
-    ],
-    [
-      18,
-      "P_REGULATION",
-      "decimal(18, 8)"
-    ],
-    [
-      19,
-      "TSFCAS",
-      "decimal(18, 8)"
-    ],
-    [
-      20,
-      "RCR",
-      "decimal(18, 8)"
-    ],
-    [
-      21,
-      "USAGE_VALUE",
-      "decimal(18, 8)"
-    ],
-    [
-      22,
-      "RCF",
-      "decimal(18, 8)"
-    ],
-    [
-      23,
-      "NRCF",
-      "decimal(18, 8)"
-    ],
-    [
-      24,
-      "DRCF",
-      "decimal(18, 8)"
-    ],
-    [
-      25,
-      "RESIDUALTOTAL_MWH",
       "decimal(18, 8)"
     ]
   ],

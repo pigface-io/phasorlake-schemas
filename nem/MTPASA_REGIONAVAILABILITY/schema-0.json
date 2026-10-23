@@ -28,7 +28,7 @@
         "null"
       ],
       "x-field-id": 9,
-      "x-iceberg-type": "decimal(12, 2)",
+      "x-iceberg-type": "decimal(12, 6)",
       "x-model-type": "NUMERIC(12,2)"
     },
     "DEMAND10MAX": {
@@ -58,7 +58,7 @@
         "null"
       ],
       "x-field-id": 10,
-      "x-iceberg-type": "decimal(12, 2)",
+      "x-iceberg-type": "decimal(12, 6)",
       "x-model-type": "NUMERIC(12,2)"
     },
     "DEMAND50MAX": {
@@ -150,7 +150,7 @@
         "null"
       ],
       "x-field-id": 8,
-      "x-iceberg-type": "decimal(12, 2)",
+      "x-iceberg-type": "decimal(12, 6)",
       "x-model-type": "NUMERIC(12,2)"
     },
     "PASAAVAILABILITY_SCHEDULED": {
@@ -225,17 +225,17 @@
     [
       8,
       "NONSCHEDULEDGENERATION",
-      "decimal(12, 2)"
+      "decimal(12, 6)"
     ],
     [
       9,
       "DEMAND10",
-      "decimal(12, 2)"
+      "decimal(12, 6)"
     ],
     [
       10,
       "DEMAND50",
-      "decimal(12, 2)"
+      "decimal(12, 6)"
     ],
     [
       11,

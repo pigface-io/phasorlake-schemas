@@ -44,7 +44,7 @@
         "null"
       ],
       "x-field-id": 7,
-      "x-iceberg-type": "decimal(15, 5)",
+      "x-iceberg-type": "double",
       "x-model-type": "NUMERIC(15,5)"
     },
     "LASTCHANGED": {
@@ -154,7 +154,7 @@
     [
       7,
       "IRLF",
-      "decimal(15, 5)"
+      "double"
     ],
     [
       8,

@@ -1,0 +1,109 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/ROOFTOP_PV_ACTUAL/schema-2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AREAID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "The forecast half-hour interval (time ending)",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "POWER": {
+      "description": "Estimated generation in MW at the interval end",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(12, 3)",
+      "x-model-type": "NUMERIC(12,3)"
+    },
+    "QI": {
+      "description": "Quality indicator. Represents the quality of the estimate.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(2, 1)",
+      "x-model-type": "NUMERIC(2,1)"
+    },
+    "TYPE": {
+      "description": "One of DAILY, MEASUREMENT or SATELLITE. DAILY- best quality estimated actuals, available day after. MEASUREMENT- best quality estimated actuals on day, delayed by 1 half hour. SATELLITE- estimated actuals using satellite imagery, delayed by 1 half hour.",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    }
+  },
+  "required": [
+    "INTERVAL_DATETIME",
+    "TYPE"
+  ],
+  "title": "ROOFTOP_PV_ACTUAL, Iceberg schema 2",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      7,
+      "AREAID",
+      "string"
+    ],
+    [
+      3,
+      "POWER",
+      "decimal(12, 3)"
+    ],
+    [
+      4,
+      "QI",
+      "decimal(2, 1)"
+    ],
+    [
+      5,
+      "TYPE",
+      "string"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    5
+  ],
+  "x-schema-id": 2,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "ROOFTOP_PV_ACTUAL"
+  }
+}

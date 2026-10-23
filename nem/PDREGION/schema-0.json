@@ -1,0 +1,1412 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PDREGION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AVAILABLEGENERATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 60,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "AVAILABLELOAD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 61,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "CLEAREDSUPPLY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 63,
+      "x-iceberg-type": "decimal(7, 2)"
+    },
+    "DECAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 104,
+      "x-iceberg-type": "decimal(11, 6)"
+    },
+    "DISPATCHABLEGENERATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(7, 2)"
+    },
+    "DISPATCHABLELOAD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "EEP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "EXCESSGENERATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "INITIALSUPPLY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 62,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "INTERVENTION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 107,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LORSURPLUS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 105,
+      "x-iceberg-type": "string"
+    },
+    "LOWER5MINACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 102,
+      "x-iceberg-type": "decimal(10, 6)"
+    },
+    "LOWER5MINDISPATCH": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string"
+    },
+    "LOWER5MINIMPORT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string"
+    },
+    "LOWER5MINLOCALDISPATCH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "LOWER5MINLOCALPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string"
+    },
+    "LOWER5MINLOCALREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "string"
+    },
+    "LOWER5MINLOCALVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 76,
+      "x-iceberg-type": "string"
+    },
+    "LOWER5MINPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string"
+    },
+    "LOWER5MINREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string"
+    },
+    "LOWER5MINRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 94,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "LOWER5MINSUPPLYPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "string"
+    },
+    "LOWER5MINVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 84,
+      "x-iceberg-type": "string"
+    },
+    "LOWER60SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 101,
+      "x-iceberg-type": "decimal(10, 6)"
+    },
+    "LOWER60SECDISPATCH": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "string"
+    },
+    "LOWER60SECIMPORT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "string"
+    },
+    "LOWER60SECLOCALDISPATCH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "LOWER60SECLOCALPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "string"
+    },
+    "LOWER60SECLOCALREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "string"
+    },
+    "LOWER60SECLOCALVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 78,
+      "x-iceberg-type": "string"
+    },
+    "LOWER60SECPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "string"
+    },
+    "LOWER60SECREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "string"
+    },
+    "LOWER60SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 93,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "LOWER60SECSUPPLYPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "string"
+    },
+    "LOWER60SECVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 86,
+      "x-iceberg-type": "string"
+    },
+    "LOWER6SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 100,
+      "x-iceberg-type": "decimal(10, 6)"
+    },
+    "LOWER6SECDISPATCH": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "string"
+    },
+    "LOWER6SECIMPORT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "string"
+    },
+    "LOWER6SECLOCALDISPATCH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "LOWER6SECLOCALPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "string"
+    },
+    "LOWER6SECLOCALREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "string"
+    },
+    "LOWER6SECLOCALVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 79,
+      "x-iceberg-type": "string"
+    },
+    "LOWER6SECPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "string"
+    },
+    "LOWER6SECREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "string"
+    },
+    "LOWER6SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 92,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "LOWER6SECSUPPLYPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-iceberg-type": "string"
+    },
+    "LOWER6SECVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 87,
+      "x-iceberg-type": "string"
+    },
+    "LOWERREGACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 103,
+      "x-iceberg-type": "decimal(10, 6)"
+    },
+    "LOWERREGIMPORT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 64,
+      "x-iceberg-type": "string"
+    },
+    "LOWERREGLOCALDISPATCH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 65,
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "LOWERREGLOCALREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 66,
+      "x-iceberg-type": "string"
+    },
+    "LOWERREGLOCALVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 77,
+      "x-iceberg-type": "string"
+    },
+    "LOWERREGREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 67,
+      "x-iceberg-type": "string"
+    },
+    "LOWERREGRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 95,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "LOWERREGVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 85,
+      "x-iceberg-type": "string"
+    },
+    "LRCSURPLUS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 106,
+      "x-iceberg-type": "string"
+    },
+    "NETINTERCHANGE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "PERIODID": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz"
+    },
+    "PREDISPATCHSEQNO": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "RAISE5MINACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 98,
+      "x-iceberg-type": "decimal(10, 6)"
+    },
+    "RAISE5MINDISPATCH": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MINIMPORT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MINLOCALDISPATCH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 38,
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "RAISE5MINLOCALPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 39,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MINLOCALREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 40,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MINLOCALVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 72,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MINPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 41,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MINREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 42,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MINRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 90,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "RAISE5MINSUPPLYPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 43,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MINVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 80,
+      "x-iceberg-type": "string"
+    },
+    "RAISE60SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 97,
+      "x-iceberg-type": "decimal(10, 6)"
+    },
+    "RAISE60SECDISPATCH": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 44,
+      "x-iceberg-type": "string"
+    },
+    "RAISE60SECIMPORT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 45,
+      "x-iceberg-type": "string"
+    },
+    "RAISE60SECLOCALDISPATCH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 46,
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "RAISE60SECLOCALPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 47,
+      "x-iceberg-type": "string"
+    },
+    "RAISE60SECLOCALREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 48,
+      "x-iceberg-type": "string"
+    },
+    "RAISE60SECLOCALVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 74,
+      "x-iceberg-type": "string"
+    },
+    "RAISE60SECPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 49,
+      "x-iceberg-type": "string"
+    },
+    "RAISE60SECREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 50,
+      "x-iceberg-type": "string"
+    },
+    "RAISE60SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 89,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "RAISE60SECSUPPLYPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 51,
+      "x-iceberg-type": "string"
+    },
+    "RAISE60SECVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 82,
+      "x-iceberg-type": "string"
+    },
+    "RAISE6SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 96,
+      "x-iceberg-type": "decimal(10, 6)"
+    },
+    "RAISE6SECDISPATCH": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 52,
+      "x-iceberg-type": "string"
+    },
+    "RAISE6SECIMPORT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 53,
+      "x-iceberg-type": "string"
+    },
+    "RAISE6SECLOCALDISPATCH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 54,
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "RAISE6SECLOCALPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 55,
+      "x-iceberg-type": "string"
+    },
+    "RAISE6SECLOCALREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 56,
+      "x-iceberg-type": "string"
+    },
+    "RAISE6SECLOCALVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 75,
+      "x-iceberg-type": "string"
+    },
+    "RAISE6SECPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 57,
+      "x-iceberg-type": "string"
+    },
+    "RAISE6SECREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 58,
+      "x-iceberg-type": "string"
+    },
+    "RAISE6SECRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 88,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "RAISE6SECSUPPLYPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 59,
+      "x-iceberg-type": "string"
+    },
+    "RAISE6SECVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 83,
+      "x-iceberg-type": "string"
+    },
+    "RAISEREGACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 99,
+      "x-iceberg-type": "decimal(10, 6)"
+    },
+    "RAISEREGIMPORT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 68,
+      "x-iceberg-type": "string"
+    },
+    "RAISEREGLOCALDISPATCH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 69,
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "RAISEREGLOCALREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 70,
+      "x-iceberg-type": "string"
+    },
+    "RAISEREGLOCALVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 73,
+      "x-iceberg-type": "string"
+    },
+    "RAISEREGREQ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 71,
+      "x-iceberg-type": "string"
+    },
+    "RAISEREGRRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 91,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "RAISEREGVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 81,
+      "x-iceberg-type": "string"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "RRP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "TOTALDEMAND": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(7, 2)"
+    }
+  },
+  "required": [],
+  "title": "PDREGION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PREDISPATCHSEQNO",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "timestamptz"
+    ],
+    [
+      5,
+      "RRP",
+      "decimal(10, 5)"
+    ],
+    [
+      6,
+      "EEP",
+      "decimal(1, 0)"
+    ],
+    [
+      7,
+      "TOTALDEMAND",
+      "decimal(7, 2)"
+    ],
+    [
+      8,
+      "DISPATCHABLEGENERATION",
+      "decimal(7, 2)"
+    ],
+    [
+      9,
+      "DISPATCHABLELOAD",
+      "decimal(6, 2)"
+    ],
+    [
+      10,
+      "NETINTERCHANGE",
+      "decimal(6, 2)"
+    ],
+    [
+      11,
+      "EXCESSGENERATION",
+      "decimal(5, 2)"
+    ],
+    [
+      12,
+      "LOWER5MINDISPATCH",
+      "string"
+    ],
+    [
+      13,
+      "LOWER5MINIMPORT",
+      "string"
+    ],
+    [
+      14,
+      "LOWER5MINLOCALDISPATCH",
+      "decimal(5, 2)"
+    ],
+    [
+      15,
+      "LOWER5MINLOCALPRICE",
+      "string"
+    ],
+    [
+      16,
+      "LOWER5MINLOCALREQ",
+      "string"
+    ],
+    [
+      17,
+      "LOWER5MINPRICE",
+      "string"
+    ],
+    [
+      18,
+      "LOWER5MINREQ",
+      "string"
+    ],
+    [
+      19,
+      "LOWER5MINSUPPLYPRICE",
+      "string"
+    ],
+    [
+      20,
+      "LOWER60SECDISPATCH",
+      "string"
+    ],
+    [
+      21,
+      "LOWER60SECIMPORT",
+      "string"
+    ],
+    [
+      22,
+      "LOWER60SECLOCALDISPATCH",
+      "decimal(5, 2)"
+    ],
+    [
+      23,
+      "LOWER60SECLOCALPRICE",
+      "string"
+    ],
+    [
+      24,
+      "LOWER60SECLOCALREQ",
+      "string"
+    ],
+    [
+      25,
+      "LOWER60SECPRICE",
+      "string"
+    ],
+    [
+      26,
+      "LOWER60SECREQ",
+      "string"
+    ],
+    [
+      27,
+      "LOWER60SECSUPPLYPRICE",
+      "string"
+    ],
+    [
+      28,
+      "LOWER6SECDISPATCH",
+      "string"
+    ],
+    [
+      29,
+      "LOWER6SECIMPORT",
+      "string"
+    ],
+    [
+      30,
+      "LOWER6SECLOCALDISPATCH",
+      "decimal(5, 2)"
+    ],
+    [
+      31,
+      "LOWER6SECLOCALPRICE",
+      "string"
+    ],
+    [
+      32,
+      "LOWER6SECLOCALREQ",
+      "string"
+    ],
+    [
+      33,
+      "LOWER6SECPRICE",
+      "string"
+    ],
+    [
+      34,
+      "LOWER6SECREQ",
+      "string"
+    ],
+    [
+      35,
+      "LOWER6SECSUPPLYPRICE",
+      "string"
+    ],
+    [
+      36,
+      "RAISE5MINDISPATCH",
+      "string"
+    ],
+    [
+      37,
+      "RAISE5MINIMPORT",
+      "string"
+    ],
+    [
+      38,
+      "RAISE5MINLOCALDISPATCH",
+      "decimal(5, 2)"
+    ],
+    [
+      39,
+      "RAISE5MINLOCALPRICE",
+      "string"
+    ],
+    [
+      40,
+      "RAISE5MINLOCALREQ",
+      "string"
+    ],
+    [
+      41,
+      "RAISE5MINPRICE",
+      "string"
+    ],
+    [
+      42,
+      "RAISE5MINREQ",
+      "string"
+    ],
+    [
+      43,
+      "RAISE5MINSUPPLYPRICE",
+      "string"
+    ],
+    [
+      44,
+      "RAISE60SECDISPATCH",
+      "string"
+    ],
+    [
+      45,
+      "RAISE60SECIMPORT",
+      "string"
+    ],
+    [
+      46,
+      "RAISE60SECLOCALDISPATCH",
+      "decimal(5, 2)"
+    ],
+    [
+      47,
+      "RAISE60SECLOCALPRICE",
+      "string"
+    ],
+    [
+      48,
+      "RAISE60SECLOCALREQ",
+      "string"
+    ],
+    [
+      49,
+      "RAISE60SECPRICE",
+      "string"
+    ],
+    [
+      50,
+      "RAISE60SECREQ",
+      "string"
+    ],
+    [
+      51,
+      "RAISE60SECSUPPLYPRICE",
+      "string"
+    ],
+    [
+      52,
+      "RAISE6SECDISPATCH",
+      "string"
+    ],
+    [
+      53,
+      "RAISE6SECIMPORT",
+      "string"
+    ],
+    [
+      54,
+      "RAISE6SECLOCALDISPATCH",
+      "decimal(5, 2)"
+    ],
+    [
+      55,
+      "RAISE6SECLOCALPRICE",
+      "string"
+    ],
+    [
+      56,
+      "RAISE6SECLOCALREQ",
+      "string"
+    ],
+    [
+      57,
+      "RAISE6SECPRICE",
+      "string"
+    ],
+    [
+      58,
+      "RAISE6SECREQ",
+      "string"
+    ],
+    [
+      59,
+      "RAISE6SECSUPPLYPRICE",
+      "string"
+    ],
+    [
+      60,
+      "AVAILABLEGENERATION",
+      "decimal(10, 5)"
+    ],
+    [
+      61,
+      "AVAILABLELOAD",
+      "decimal(4, 0)"
+    ],
+    [
+      62,
+      "INITIALSUPPLY",
+      "decimal(10, 5)"
+    ],
+    [
+      63,
+      "CLEAREDSUPPLY",
+      "decimal(7, 2)"
+    ],
+    [
+      64,
+      "LOWERREGIMPORT",
+      "string"
+    ],
+    [
+      65,
+      "LOWERREGLOCALDISPATCH",
+      "decimal(5, 2)"
+    ],
+    [
+      66,
+      "LOWERREGLOCALREQ",
+      "string"
+    ],
+    [
+      67,
+      "LOWERREGREQ",
+      "string"
+    ],
+    [
+      68,
+      "RAISEREGIMPORT",
+      "string"
+    ],
+    [
+      69,
+      "RAISEREGLOCALDISPATCH",
+      "decimal(5, 2)"
+    ],
+    [
+      70,
+      "RAISEREGLOCALREQ",
+      "string"
+    ],
+    [
+      71,
+      "RAISEREGREQ",
+      "string"
+    ],
+    [
+      72,
+      "RAISE5MINLOCALVIOLATION",
+      "string"
+    ],
+    [
+      73,
+      "RAISEREGLOCALVIOLATION",
+      "string"
+    ],
+    [
+      74,
+      "RAISE60SECLOCALVIOLATION",
+      "string"
+    ],
+    [
+      75,
+      "RAISE6SECLOCALVIOLATION",
+      "string"
+    ],
+    [
+      76,
+      "LOWER5MINLOCALVIOLATION",
+      "string"
+    ],
+    [
+      77,
+      "LOWERREGLOCALVIOLATION",
+      "string"
+    ],
+    [
+      78,
+      "LOWER60SECLOCALVIOLATION",
+      "string"
+    ],
+    [
+      79,
+      "LOWER6SECLOCALVIOLATION",
+      "string"
+    ],
+    [
+      80,
+      "RAISE5MINVIOLATION",
+      "string"
+    ],
+    [
+      81,
+      "RAISEREGVIOLATION",
+      "string"
+    ],
+    [
+      82,
+      "RAISE60SECVIOLATION",
+      "string"
+    ],
+    [
+      83,
+      "RAISE6SECVIOLATION",
+      "string"
+    ],
+    [
+      84,
+      "LOWER5MINVIOLATION",
+      "string"
+    ],
+    [
+      85,
+      "LOWERREGVIOLATION",
+      "string"
+    ],
+    [
+      86,
+      "LOWER60SECVIOLATION",
+      "string"
+    ],
+    [
+      87,
+      "LOWER6SECVIOLATION",
+      "string"
+    ],
+    [
+      88,
+      "RAISE6SECRRP",
+      "decimal(10, 5)"
+    ],
+    [
+      89,
+      "RAISE60SECRRP",
+      "decimal(10, 5)"
+    ],
+    [
+      90,
+      "RAISE5MINRRP",
+      "decimal(10, 5)"
+    ],
+    [
+      91,
+      "RAISEREGRRP",
+      "decimal(10, 5)"
+    ],
+    [
+      92,
+      "LOWER6SECRRP",
+      "decimal(10, 5)"
+    ],
+    [
+      93,
+      "LOWER60SECRRP",
+      "decimal(9, 5)"
+    ],
+    [
+      94,
+      "LOWER5MINRRP",
+      "decimal(10, 5)"
+    ],
+    [
+      95,
+      "LOWERREGRRP",
+      "decimal(10, 5)"
+    ],
+    [
+      96,
+      "RAISE6SECACTUALAVAILABILITY",
+      "decimal(10, 6)"
+    ],
+    [
+      97,
+      "RAISE60SECACTUALAVAILABILITY",
+      "decimal(10, 6)"
+    ],
+    [
+      98,
+      "RAISE5MINACTUALAVAILABILITY",
+      "decimal(10, 6)"
+    ],
+    [
+      99,
+      "RAISEREGACTUALAVAILABILITY",
+      "decimal(10, 6)"
+    ],
+    [
+      100,
+      "LOWER6SECACTUALAVAILABILITY",
+      "decimal(10, 6)"
+    ],
+    [
+      101,
+      "LOWER60SECACTUALAVAILABILITY",
+      "decimal(10, 6)"
+    ],
+    [
+      102,
+      "LOWER5MINACTUALAVAILABILITY",
+      "decimal(10, 6)"
+    ],
+    [
+      103,
+      "LOWERREGACTUALAVAILABILITY",
+      "decimal(10, 6)"
+    ],
+    [
+      104,
+      "DECAVAILABILITY",
+      "decimal(11, 6)"
+    ],
+    [
+      105,
+      "LORSURPLUS",
+      "string"
+    ],
+    [
+      106,
+      "LRCSURPLUS",
+      "string"
+    ],
+    [
+      107,
+      "INTERVENTION",
+      "decimal(1, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "PDREGION"
+  }
+}

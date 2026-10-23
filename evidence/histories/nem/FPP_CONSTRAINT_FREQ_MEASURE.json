@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 17,
+      "files": 62932,
       "from": {
         "data-time": "2024-12-09T11:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_CONSTRAINT_FREQ_MEASURE#FILE01#202412010000.zip",
@@ -15,20 +15,21 @@
         "sha256": "97437695d1cd20bdb49c6eeb6b83d0e1d804722574abd85fc98b56cdb15339ce"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive"
       ],
       "overlaps": false,
       "report": [
         "FPP",
         "CONSTRAINT_FREQ_MEASURE"
       ],
-      "rows": 398642925,
+      "rows": 417223425,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-05-08T15:45:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_CONSTRAINT_FREQ_MEASURE#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "fa6ac9be63a066c6266cea42203fbeb752139f38c82dc44f3b22be4704edb264"
+        "data-time": "2026-05-14T10:50:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260514.zip",
+        "release": "2026-05",
+        "sha256": "044f7c7f474ee59cec1dc88624cb7b3bf35c4551ccc375a51314993b719a644b"
       },
       "updates": [],
       "version": 1
@@ -37,28 +38,30 @@
       "changes": [
         "schema"
       ],
-      "files": 6,
+      "files": 46807,
       "from": {
-        "data-time": "2024-12-09T11:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_CONSTRAINT_FREQ_MEASURE#FILE01#202605010000.zip",
+        "data-time": "2026-05-14T10:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260514.zip",
         "release": "2026-05",
-        "sha256": "bcb627ef630b42db1206e66a9d4d5025568df8b25c6278831dd9bcafef07b724"
+        "sha256": "044f7c7f474ee59cec1dc88624cb7b3bf35c4551ccc375a51314993b719a644b"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
-      "overlaps": true,
+      "overlaps": false,
       "report": [
         "FPP",
         "CONSTRAINT_FREQ_MEASURE"
       ],
-      "rows": 152985825,
+      "rows": 166965000,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_CONSTRAINT_FREQ_MEASURE#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "43ac43691faf1738e294c34115b66cd9c840042c0681978206a0b7be8ebf5d2d"
+        "data-time": "2026-10-22T08:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_202610220855_0000000544203622.zip",
+        "release": "2026-10",
+        "sha256": "9efc3d46231354432218d491fa407faa01add6cee0530a5ea1133ee0de370b16"
       },
       "updates": [
         {

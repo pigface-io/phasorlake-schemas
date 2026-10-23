@@ -1,6 +1,6 @@
 {
   "breaking": [],
-  "current-schema-id": 0,
+  "current-schema-id": 1,
   "format-version": 3,
   "runs": [
     {
@@ -9,32 +9,198 @@
       ],
       "files": 26,
       "from": {
-        "data-time": "2023-12-31T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#BILLING_DIRECTION_RECON_OTHER#FILE01#202408010000.zip",
-        "release": "2024-08",
-        "sha256": "f49046dedba7d000c3b8087371a6ad16f7326df210ebd898861ff48555452be2"
+        "data-time": "2017-02-09T00:00:00+10:00",
+        "file": "PUBLIC_BILLING_20170308113829_0000000281601177.zip",
+        "release": "2017-03",
+        "sha256": "759df3ba66803fe870f40e288d39b3bcb5f5cdeb89365121d967078edcc22384"
       },
       "kinds": [
-        "archive"
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "BILLING",
         "BILLING_DIRECTION_RECON_OTHER"
       ],
-      "rows": 10565,
+      "rows": 250,
       "schema-id": 0,
+      "to": {
+        "data-time": "2017-12-02T00:00:00+10:00",
+        "file": "PUBLIC_BILLING_20171229102451_0000000290553604.zip",
+        "release": "2017-12",
+        "sha256": "0edb78b2b6181559ac24eec4e9418e8be27fc803c81effeec29942059e5c0cf2"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 135,
+      "from": {
+        "data-time": "2023-12-31T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#BILLING_DIRECTION_RECON_OTHER#FILE01#202408010000.zip",
+        "release": "2024-08",
+        "sha256": "f49046dedba7d000c3b8087371a6ad16f7326df210ebd898861ff48555452be2"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BILLING",
+        "BILLING_DIRECTION_RECON_OTHER"
+      ],
+      "rows": 13280,
+      "schema-id": 1,
       "to": {
         "data-time": "2026-08-29T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#BILLING_DIRECTION_RECON_OTHER#FILE01#202609010000.zip",
         "release": "2026-09",
         "sha256": "bb3853a11f68e01bd688d121dfb5a2f7cc83b24814a0eaf333524f9986681a84"
       },
-      "updates": [],
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 19
+        },
+        {
+          "action": "add",
+          "field-id": 20
+        },
+        {
+          "action": "add",
+          "field-id": 21
+        }
+      ],
       "version": 2
     }
   ],
   "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CONTRACTYEAR",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "WEEKNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "BILLRUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "DIRECTION_ID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "DIRECTION_DESC",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "DIRECTION_TYPE_ID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DIRECTION_START_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 9,
+          "name": "DIRECTION_END_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "DIRECTION_START_INTERVAL",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 11,
+          "name": "DIRECTION_END_INTERVAL",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "COMPENSATION_AMOUNT",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 13,
+          "name": "INTEREST_AMOUNT",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 14,
+          "name": "INDEPENDENT_EXPERT_FEE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 15,
+          "name": "CRA",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 16,
+          "name": "REGIONAL_CUSTOMER_ENERGY",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 17,
+          "name": "REGIONAL_GENERATOR_ENERGY",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 18,
+          "name": "REGIONAL_BENEFIT_FACTOR",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
     {
       "fields": [
         {
@@ -171,7 +337,7 @@
         4,
         5
       ],
-      "schema-id": 0,
+      "schema-id": 1,
       "type": "struct"
     }
   ],

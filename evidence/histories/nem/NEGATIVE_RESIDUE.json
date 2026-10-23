@@ -1,13 +1,13 @@
 {
   "breaking": [],
-  "current-schema-id": 1,
+  "current-schema-id": 2,
   "format-version": 3,
   "runs": [
     {
       "changes": [
         "first"
       ],
-      "files": 21,
+      "files": 14,
       "from": {
         "data-time": "2024-08-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202408010000.zip",
@@ -22,7 +22,545 @@
         "DISPATCH",
         "NEGATIVE_RESIDUE"
       ],
-      "rows": 1102117,
+      "rows": 735900,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-10-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "0f7b2724f27dd5f24830cf2f99e73e16850a28d1ab572916b84de5e3c6729f03"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6910,
+      "from": {
+        "data-time": "2025-10-08T00:05:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20251008.zip",
+        "release": "2025-10",
+        "sha256": "9f0614670128e9cb065b7816ccf00fe6daf65fd7b6e2ef17c8693e2638f99fde"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 41462,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-10-31T23:55:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20251031.zip",
+        "release": "2025-10",
+        "sha256": "eb3c395bfeb074f672cfeab332be1dad75f5743691cd7ae3a8f9e09008a3ba78"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "add",
+          "field-id": 16
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-10-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "9b7f9c11a9e7a485945bb3e9bc667fd285daea9c958242fe72086184b44cfe34"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 53564,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "9b7f9c11a9e7a485945bb3e9bc667fd285daea9c958242fe72086184b44cfe34"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 16
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8637,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20251031.zip",
+        "release": "2025-11",
+        "sha256": "eb3c395bfeb074f672cfeab332be1dad75f5743691cd7ae3a8f9e09008a3ba78"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 51822,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-11-30T23:55:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20251130.zip",
+        "release": "2025-11",
+        "sha256": "5b06761d2fcb18975aac5a9cb46804b52ee44ff841ede2b8b922fef5c9d2ce19"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 16
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-11-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "46085d37e142419bc7fe91ec9583986c3a6ed448678ea56edf5cddf487f0e533"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 51822,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "46085d37e142419bc7fe91ec9583986c3a6ed448678ea56edf5cddf487f0e533"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 16
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8926,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20251130.zip",
+        "release": "2025-12",
+        "sha256": "5b06761d2fcb18975aac5a9cb46804b52ee44ff841ede2b8b922fef5c9d2ce19"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 53559,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-12-31T23:55:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20251231.zip",
+        "release": "2025-12",
+        "sha256": "36c95c1412cfff71f61d58247aed9f1478404da008d85d77edd698596a33d92d"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 16
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-12-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "e048144665a49909878d99f3ed641dbf9c5132ef75119b1084adf44235d58620"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 53559,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "e048144665a49909878d99f3ed641dbf9c5132ef75119b1084adf44235d58620"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 16
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8926,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20251231.zip",
+        "release": "2026-01",
+        "sha256": "36c95c1412cfff71f61d58247aed9f1478404da008d85d77edd698596a33d92d"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 53556,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-31T23:55:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260131.zip",
+        "release": "2026-01",
+        "sha256": "7230d121d25c7ac93a0593399efcec51f60ac52f035436a97230ab268ffd7caa"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 16
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-01-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "9035fe0d3b6dd8c0690404b421252b5b530bb397c197314e8db4a2fbeb34bbce"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 53556,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "9035fe0d3b6dd8c0690404b421252b5b530bb397c197314e8db4a2fbeb34bbce"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 16
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8063,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260131.zip",
+        "release": "2026-02",
+        "sha256": "7230d121d25c7ac93a0593399efcec51f60ac52f035436a97230ab268ffd7caa"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 48378,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-28T23:55:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260228.zip",
+        "release": "2026-02",
+        "sha256": "84f05649c5f2b71ccd9d29a50eff1ae34cdbece5de4a5748d02a0d1a9acd11d0"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 16
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-02-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "ca675383070695bf19726db4be4f437d0bd332dc2f359e38fea8c9fc0bc93c74"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 48378,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "ca675383070695bf19726db4be4f437d0bd332dc2f359e38fea8c9fc0bc93c74"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 16
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8875,
+      "from": {
+        "data-time": "2026-03-03T13:45:00+10:00",
+        "file": "PUBLIC_DISPATCH_NEGATIVE_RESIDUE_202603031345_0000000506102388.zip",
+        "release": "2026-03",
+        "sha256": "aba1e5a6d703e46bc6974e24017fc9031916e825f1ccf38b8cfb5e4cd6d56fa5"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 53269,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-03-31T23:55:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260331.zip",
+        "release": "2026-03",
+        "sha256": "e16ad6aea2b750e68aa4816e2b31493ad48e873761e1b028b6f63105bf46edd5"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 16
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-03-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "b882c87eb848a3c38aa403ab329768fd219f6f0f8655249419e06acfc42b5db4"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 53515,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "b882c87eb848a3c38aa403ab329768fd219f6f0f8655249419e06acfc42b5db4"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 16
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8637,
+      "from": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260331.zip",
+        "release": "2026-04",
+        "sha256": "e16ad6aea2b750e68aa4816e2b31493ad48e873761e1b028b6f63105bf46edd5"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 51835,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-30T23:55:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260430.zip",
+        "release": "2026-04",
+        "sha256": "25d77e144a62af27fb4797b02e684e2dcef30e349b203ed8be5a1878bec03381"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 16
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-04-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "28e036bbf3a25687c8ab0d3dd3300bf7a4637b3b41b43cf0ab24dff2bc368cd3"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 51823,
       "schema-id": 0,
       "to": {
         "data-time": "2026-05-01T00:00:00+10:00",
@@ -30,7 +568,55 @@
         "release": "2026-04",
         "sha256": "28e036bbf3a25687c8ab0d3dd3300bf7a4637b3b41b43cf0ab24dff2bc368cd3"
       },
-      "updates": [],
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 16
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 3876,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260430.zip",
+        "release": "2026-05",
+        "sha256": "25d77e144a62af27fb4797b02e684e2dcef30e349b203ed8be5a1878bec03381"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 23256,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-14T11:00:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260514.zip",
+        "release": "2026-05",
+        "sha256": "f82f47e4946d4d0e2f2433991594773b041d4b75967b89b17f46eb57d5e83c0a"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 16
+        }
+      ],
       "version": 1
     },
     {
@@ -38,7 +624,42 @@
         "schema",
         "version"
       ],
-      "files": 5,
+      "files": 5048,
+      "from": {
+        "data-time": "2026-05-14T11:05:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260514.zip",
+        "release": "2026-05",
+        "sha256": "f82f47e4946d4d0e2f2433991594773b041d4b75967b89b17f46eb57d5e83c0a"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 30288,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-05-31T23:55:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260531.zip",
+        "release": "2026-05",
+        "sha256": "7ff1f2453e444bf5755bd04d9a6cc56032f456e2c84a6a531d1a3b79175e9afa"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 17
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
       "from": {
         "data-time": "2026-05-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202605010000.zip",
@@ -48,13 +669,325 @@
       "kinds": [
         "archive"
       ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 53538,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "6c35e21679a4d4383a9b2023a1ad97d1ae3f4383a3c4de505c830f572393f4b6"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 16
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260531.zip",
+        "release": "2026-06",
+        "sha256": "7ff1f2453e444bf5755bd04d9a6cc56032f456e2c84a6a531d1a3b79175e9afa"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "NEGATIVE_RESIDUE"
       ],
-      "rows": 317975,
-      "schema-id": 1,
+      "rows": 52146,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-06-30T23:55:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260630.zip",
+        "release": "2026-06",
+        "sha256": "1f0ca76b75512a1896697b857c209dde4f6761ea7befb711534fcdeced55fdd8"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 16
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-06-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "77e1445d18128c892b6a38cb8285079782b866c65b566b3ebfc57507736c863e"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 52148,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "77e1445d18128c892b6a38cb8285079782b866c65b566b3ebfc57507736c863e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 16
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8925,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260630.zip",
+        "release": "2026-07",
+        "sha256": "1f0ca76b75512a1896697b857c209dde4f6761ea7befb711534fcdeced55fdd8"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 71400,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-07-31T23:55:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260731.zip",
+        "release": "2026-07",
+        "sha256": "1c05b62cd6b60fa8a574c3ed4095148dbcba0671e10d6d36bd23706438e10106"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 16
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-07-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "4d8d69cfd1924c94856029481b8642a57478b4295a5829742b69cad89f2879d1"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 71400,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "4d8d69cfd1924c94856029481b8642a57478b4295a5829742b69cad89f2879d1"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 16
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8927,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260731.zip",
+        "release": "2026-08",
+        "sha256": "1c05b62cd6b60fa8a574c3ed4095148dbcba0671e10d6d36bd23706438e10106"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 71416,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-08-31T23:55:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260831.zip",
+        "release": "2026-08",
+        "sha256": "4a85714c165a017a0d8a9f32948e6887ac16892360c25220e70a0e9fc35bc1a6"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 16
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "6bce41db73b7cf58ef4a554dc37c3e67341eac22daac0fb675075af451c20a8a"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 71416,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "6bce41db73b7cf58ef4a554dc37c3e67341eac22daac0fb675075af451c20a8a"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 16
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8644,
+      "from": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260831.zip",
+        "release": "2026-09",
+        "sha256": "4a85714c165a017a0d8a9f32948e6887ac16892360c25220e70a0e9fc35bc1a6"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 69503,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-09-30T23:55:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260930.zip",
+        "release": "2026-09",
+        "sha256": "a846e568ce98d3653ed8b079e864cda4b8fc629b0b5486373c5c5c5944594423"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 16
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-09-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "3b6e0d60546af27964243d66a3858de66f271e89972f7faa3f29fffebda3e03c"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 69473,
+      "schema-id": 3,
       "to": {
         "data-time": "2026-10-01T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#NEGATIVE_RESIDUE#FILE01#202609010000.zip",
@@ -63,7 +996,51 @@
       },
       "updates": [
         {
-          "action": "add",
+          "action": "delete",
+          "field-id": 16
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6642,
+      "from": {
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "DISPATCH_NEGATIVE_RESIDUE_20260930.zip",
+        "release": "2026-10",
+        "sha256": "a846e568ce98d3653ed8b079e864cda4b8fc629b0b5486373c5c5c5944594423"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "NEGATIVE_RESIDUE"
+      ],
+      "rows": 66458,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-10-22T09:10:00+10:00",
+        "file": "PUBLIC_DISPATCH_NEGATIVE_RESIDUE_202610220910_0000000544203654.zip",
+        "release": "2026-10",
+        "sha256": "180c764da8afeab7522a5097795aaadf185ec6f93621ba02d5c108d6ae12180e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
           "field-id": 16
         }
       ],
@@ -259,16 +1236,10 @@
           "type": "decimal(2, 0)"
         },
         {
-          "id": 15,
-          "name": "NRMCONSTRAINT_BLOCKED_FLAG",
-          "required": false,
-          "type": "long"
-        },
-        {
           "id": 16,
-          "name": "NRM_LOOP_FLAG",
+          "name": "NRM_CONSTRAINT_BLOCKED_FLAG",
           "required": false,
-          "type": "long"
+          "type": "decimal(1, 0)"
         }
       ],
       "identifier-field-ids": [
@@ -277,6 +1248,220 @@
         3
       ],
       "schema-id": 1,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "NRM_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "DIRECTIONAL_INTERCONNECTORID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "NRM_ACTIVATED_FLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "CUMUL_NEGRESIDUE_AMOUNT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "CUMUL_NEGRESIDUE_PREV_TI",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "NEGRESIDUE_CURRENT_TI",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "NEGRESIDUE_PD_NEXT_TI",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "PRICE_REVISION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 11,
+          "name": "EVENT_ACTIVATED_DI",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "EVENT_DEACTIVATED_DI",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "DI_NOTBINDING_COUNT",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 14,
+          "name": "DI_VIOLATED_COUNT",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 16,
+          "name": "NRM_CONSTRAINT_BLOCKED_FLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 17,
+          "name": "NRM_LOOP_FLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 2,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "NRM_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "DIRECTIONAL_INTERCONNECTORID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "NRM_ACTIVATED_FLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "CUMUL_NEGRESIDUE_AMOUNT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "CUMUL_NEGRESIDUE_PREV_TI",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "NEGRESIDUE_CURRENT_TI",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "NEGRESIDUE_PD_NEXT_TI",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "PRICE_REVISION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 11,
+          "name": "EVENT_ACTIVATED_DI",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "EVENT_DEACTIVATED_DI",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "DI_NOTBINDING_COUNT",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 14,
+          "name": "DI_VIOLATED_COUNT",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 15,
+          "name": "NRMCONSTRAINT_BLOCKED_FLAG",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 17,
+          "name": "NRM_LOOP_FLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 3,
       "type": "struct"
     }
   ],

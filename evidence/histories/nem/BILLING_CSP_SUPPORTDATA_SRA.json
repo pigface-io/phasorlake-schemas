@@ -1,0 +1,143 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 43,
+      "from": {
+        "data-time": null,
+        "file": "PUBLIC_BILLINGCSP_2026WEEK15REVISE_20260825120126_0000000534371107.zip",
+        "release": "2026-08",
+        "sha256": "f41ed3f26c7ccdc3d8833200d32c5e3127de6480709f1a063ed5c3baf19b4bda"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "BILLING",
+        "CSP_SUPPORTDATA_SRA"
+      ],
+      "rows": 320,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "PUBLIC_BILLINGCSP_2026WEEK42PRELIM_20261021093013_0000000544022368.zip",
+        "release": "2026-10",
+        "sha256": "611f7b8b646a5d4b44658ff2abc7b9cc4b8970d243160a0d82f539d9729161f0"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CONTRACTYEAR",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 2,
+          "name": "WEEKNO",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 3,
+          "name": "BILLRUNNO",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 4,
+          "name": "SRA_YEAR",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 5,
+          "name": "SRA_QUARTER",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "INTERCONNECTORID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "FROMREGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "ALLOCATED_UNITS",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 9,
+          "name": "TOTALSURPLUS",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 10,
+          "name": "TA_AMOUNTS",
+          "required": false,
+          "type": "decimal(8, 8)"
+        },
+        {
+          "id": 11,
+          "name": "NET_SURPLUS",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 12,
+          "name": "DISTRIBUTED_SURPLUS",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 13,
+          "name": "UNCOLLECTED_AUCTION_FEE",
+          "required": false,
+          "type": "decimal(11, 6)"
+        },
+        {
+          "id": 14,
+          "name": "AUCTION_FEE_EXPENSE",
+          "required": false,
+          "type": "decimal(13, 8)"
+        },
+        {
+          "id": 15,
+          "name": "NETPAYMENT",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 16,
+          "name": "NETPAYMENT_PERUNIT",
+          "required": false,
+          "type": "decimal(13, 8)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "BILLING_CSP_SUPPORTDATA_SRA"
+}

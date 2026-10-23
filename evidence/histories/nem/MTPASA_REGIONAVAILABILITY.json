@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 1527,
       "from": {
         "data-time": "2024-08-04T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#MTPASA_REGIONAVAILABILITY#FILE01#202408010000.zip",
@@ -15,20 +15,22 @@
         "sha256": "7097556f54c92dca874b06a9712c73c0ab00e02b45638c81f8c98c323ab8cecf"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "MTPASA",
         "REGIONAVAILABILITY"
       ],
-      "rows": 15129380,
+      "rows": 23332345,
       "schema-id": 0,
       "to": {
-        "data-time": "2029-09-30T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#MTPASA_REGIONAVAILABILITY#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "9aa4dc66a8d67aaa079c9553aad552f7133eb09401ca440adec97d4c0e2d0ddd"
+        "data-time": "2029-10-21T00:00:00+10:00",
+        "file": "PUBLIC_MTPASAREGIONAVAILABILITY_202610211800_0000000544095892.zip",
+        "release": "2026-10",
+        "sha256": "f3f99941b128d89372065686c98ca1007a0b13d813a92def20aa03bc8fcbe78e"
       },
       "updates": [],
       "version": 4
@@ -83,19 +85,19 @@
           "id": 8,
           "name": "NONSCHEDULEDGENERATION",
           "required": false,
-          "type": "decimal(12, 2)"
+          "type": "decimal(12, 6)"
         },
         {
           "id": 9,
           "name": "DEMAND10",
           "required": false,
-          "type": "decimal(12, 2)"
+          "type": "decimal(12, 6)"
         },
         {
           "id": 10,
           "name": "DEMAND50",
           "required": false,
-          "type": "decimal(12, 2)"
+          "type": "decimal(12, 6)"
         },
         {
           "id": 11,

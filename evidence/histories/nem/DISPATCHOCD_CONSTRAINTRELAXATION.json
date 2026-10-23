@@ -1,0 +1,83 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 39,
+      "from": {
+        "data-time": "2025-09-27T16:25:00+10:00",
+        "file": "PUBLIC_DAILYOCD_202509270000_20250928040506.zip",
+        "release": "2025-09",
+        "sha256": "373f78bd6b6ac5dc6f3b276a7f70c1107db719568fa36b086ea6946f617c0e54"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCHOCD",
+        "CONSTRAINTRELAXATION"
+      ],
+      "rows": 109,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-17T02:40:00+10:00",
+        "file": "PUBLIC_DAILYOCD_202610160000_20261017040501.zip",
+        "release": "2026-10",
+        "sha256": "b52259058d9dbfc4301b07754bdc6734bdde169c2488f5c5d0b1ae7caa322f0b"
+      },
+      "updates": [],
+      "version": 2
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "CONSTRAINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "RHS",
+          "required": false,
+          "type": "decimal(8, 5)"
+        },
+        {
+          "id": 5,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DISPATCHOCD_CONSTRAINTRELAXATION"
+}

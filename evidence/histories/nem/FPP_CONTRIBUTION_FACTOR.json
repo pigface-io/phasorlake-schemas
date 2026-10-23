@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 33,
+      "files": 246,
       "from": {
         "data-time": "2025-01-07T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_CONTRIBUTION_FACTOR#FILE01#202412010000.zip",
@@ -15,14 +15,15 @@
         "sha256": "51563e23cc51b1de8ebe014d555794f09330cf6e921859a304289a3acf7f9881"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive"
       ],
       "overlaps": false,
       "report": [
         "FPP",
         "CONTRIBUTION_FACTOR"
       ],
-      "rows": 1055364370,
+      "rows": 1112214837,
       "schema-id": 0,
       "to": {
         "data-time": "2026-05-08T04:00:00+10:00",
@@ -37,7 +38,7 @@
       "changes": [
         "schema"
       ],
-      "files": 14,
+      "files": 1,
       "from": {
         "data-time": "2025-01-07T02:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_CONTRIBUTION_FACTOR#FILE01#202605010000.zip",
@@ -52,17 +53,89 @@
         "FPP",
         "CONTRIBUTION_FACTOR"
       ],
-      "rows": 446394413,
+      "rows": 42417017,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_CONTRIBUTION_FACTOR#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "9fc1f02afd76f2a8090fbcacb982a5edda367c1911966748c237c819da335580"
+        "data-time": "2025-12-31T06:20:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_CONTRIBUTION_FACTOR#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "9ce18c648ade59a0add4a6d8b0661dc8d6fed07614e84f6d17b15f16d5693046"
       },
       "updates": [
         {
           "action": "add",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 13,
+      "from": {
+        "data-time": "2026-05-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_FPP_20260430.zip",
+        "release": "2026-05",
+        "sha256": "74fdf21af8b52eda9d1f96b0d1bc5050a5b764e508f918fd3188f7ce8be124b5"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "CONTRIBUTION_FACTOR"
+      ],
+      "rows": 3632441,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-14T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_FPP_20260430.zip",
+        "release": "2026-05",
+        "sha256": "74fdf21af8b52eda9d1f96b0d1bc5050a5b764e508f918fd3188f7ce8be124b5"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 214,
+      "from": {
+        "data-time": "2026-05-14T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_FPP_20260430.zip",
+        "release": "2026-05",
+        "sha256": "74fdf21af8b52eda9d1f96b0d1bc5050a5b764e508f918fd3188f7ce8be124b5"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "CONTRIBUTION_FACTOR"
+      ],
+      "rows": 461398919,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-22T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_FPP_20261021_0000000544189501.zip",
+        "release": "2026-10",
+        "sha256": "e4e5dbf93a555f6c25f408bf3fe551072f377b8153d8242c0a28b5848c8b7736"
+      },
+      "updates": [
+        {
+          "action": "restore",
           "field-id": 15
         }
       ],

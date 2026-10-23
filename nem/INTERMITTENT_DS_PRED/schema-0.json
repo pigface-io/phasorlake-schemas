@@ -53,7 +53,7 @@
     "FORECAST_PRIORITY": {
       "description": "Unsuppressed forecasts with higher priority values are used in Dispatch in preference to unsuppressed forecasts with lower priority values",
       "type": "integer",
-      "x-field-id": 6,
+      "x-field-id": 4,
       "x-iceberg-type": "long",
       "x-model-type": "NUMERIC(10,0)"
     },
@@ -61,7 +61,7 @@
       "description": "Date and Time when the forecast applies (dispatch interval ending)",
       "format": "date-time",
       "type": "string",
-      "x-field-id": 4,
+      "x-field-id": 6,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
@@ -69,14 +69,14 @@
       "description": "Date and Time when this forecast submission was loaded",
       "format": "date-time",
       "type": "string",
-      "x-field-id": 3,
+      "x-field-id": 5,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "ORIGIN": {
       "description": "Origin of this forecast (PARTICIPANTID, AWEFS/ASEFS, or another vendor)",
       "type": "string",
-      "x-field-id": 5,
+      "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     },
@@ -92,10 +92,10 @@
   "required": [
     "RUN_DATETIME",
     "DUID",
-    "OFFERDATETIME",
-    "INTERVAL_DATETIME",
     "ORIGIN",
-    "FORECAST_PRIORITY"
+    "FORECAST_PRIORITY",
+    "OFFERDATETIME",
+    "INTERVAL_DATETIME"
   ],
   "title": "INTERMITTENT_DS_PRED, Iceberg schema 0",
   "type": "object",
@@ -112,23 +112,23 @@
     ],
     [
       3,
-      "OFFERDATETIME",
-      "timestamptz"
-    ],
-    [
-      4,
-      "INTERVAL_DATETIME",
-      "timestamptz"
-    ],
-    [
-      5,
       "ORIGIN",
       "string"
     ],
     [
-      6,
+      4,
       "FORECAST_PRIORITY",
       "long"
+    ],
+    [
+      5,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      6,
+      "INTERVAL_DATETIME",
+      "timestamptz"
     ],
     [
       7,
@@ -155,10 +155,10 @@
   "x-identifier-field-ids": [
     1,
     2,
-    3,
-    4,
     5,
-    6
+    6,
+    3,
+    4
   ],
   "x-schema-id": 0,
   "x-table": {

@@ -1,0 +1,97 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/RESIDUE_PRICE_OFFER/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    ":AUCTIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "FROMREGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "INTERCONNECTORID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "OFFERPRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(12, 6)"
+    },
+    "OFFERUNITS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "TRANCHEID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "RESIDUE_PRICE_OFFER, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      ":AUCTIONID",
+      "string"
+    ],
+    [
+      2,
+      "TRANCHEID",
+      "string"
+    ],
+    [
+      3,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      4,
+      "FROMREGIONID",
+      "string"
+    ],
+    [
+      5,
+      "OFFERUNITS",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "OFFERPRICE",
+      "decimal(12, 6)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "RESIDUE_PRICE_OFFER"
+  }
+}

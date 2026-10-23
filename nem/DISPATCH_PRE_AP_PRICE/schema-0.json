@@ -1,0 +1,163 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCH_PRE_AP_PRICE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "PRE_AP_ENERGY_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "PRE_AP_LOWER5MIN_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "PRE_AP_LOWER60SEC_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "PRE_AP_LOWER6SEC_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "PRE_AP_LOWERREG_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "PRE_AP_RAISE5MIN_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "PRE_AP_RAISE60SEC_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "PRE_AP_RAISE6SEC_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "PRE_AP_RAISEREG_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(10, 5)"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "DISPATCH_PRE_AP_PRICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "PRE_AP_ENERGY_PRICE",
+      "decimal(10, 5)"
+    ],
+    [
+      4,
+      "PRE_AP_RAISE6SEC_PRICE",
+      "decimal(10, 5)"
+    ],
+    [
+      5,
+      "PRE_AP_RAISE60SEC_PRICE",
+      "decimal(10, 5)"
+    ],
+    [
+      6,
+      "PRE_AP_RAISE5MIN_PRICE",
+      "decimal(10, 5)"
+    ],
+    [
+      7,
+      "PRE_AP_RAISEREG_PRICE",
+      "decimal(10, 5)"
+    ],
+    [
+      8,
+      "PRE_AP_LOWER6SEC_PRICE",
+      "decimal(10, 5)"
+    ],
+    [
+      9,
+      "PRE_AP_LOWER60SEC_PRICE",
+      "decimal(8, 5)"
+    ],
+    [
+      10,
+      "PRE_AP_LOWER5MIN_PRICE",
+      "decimal(10, 5)"
+    ],
+    [
+      11,
+      "PRE_AP_LOWERREG_PRICE",
+      "decimal(10, 5)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DISPATCH_PRE_AP_PRICE"
+  }
+}

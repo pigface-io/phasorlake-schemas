@@ -1,6 +1,6 @@
 {
   "breaking": [],
-  "current-schema-id": 4,
+  "current-schema-id": 3,
   "format-version": 3,
   "runs": [
     {
@@ -214,7 +214,7 @@
         "schema",
         "version"
       ],
-      "files": 26,
+      "files": 15,
       "from": {
         "data-time": "2024-08-01T00:30:00+10:00",
         "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202408010000.zip",
@@ -229,7 +229,777 @@
         "PDPASA",
         "REGIONSOLUTION"
       ],
-      "rows": 15386950,
+      "rows": 10938070,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2025-11-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "3a795a900f4451bdd735b044cd114c6664efddd425fff6f2f4f736f8dd8dde4e"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2025-10-02T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20251002.zip",
+        "release": "2025-10",
+        "sha256": "0555d65694bdbe98b99f77c8e77b05896991afcb9320a56737549694bbd0e771"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 399600,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-11-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20251030.zip",
+        "release": "2025-10",
+        "sha256": "29aa977612a4f0969effe0b6176c73818c9c14f71c1e7ceb9b7a440a138b3660"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-11-01T00:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "3a108df22494cda2bcb02dd5c10e347a8724de05943e8d6c42e17c3316c60298"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 399600,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2025-12-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "3a108df22494cda2bcb02dd5c10e347a8724de05943e8d6c42e17c3316c60298"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20251030.zip",
+        "release": "2025-11",
+        "sha256": "29aa977612a4f0969effe0b6176c73818c9c14f71c1e7ceb9b7a440a138b3660"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 399600,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-12-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20251127.zip",
+        "release": "2025-11",
+        "sha256": "eae01e4e385ab80e337503efea7f065fa78886204ea8207fbc70b9ebb9a24511"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-12-01T00:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "d669bd60be8886d37f08f91d4941b88ffc2614080af491a709b7499afd5761d4"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 412920,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-01-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "d669bd60be8886d37f08f91d4941b88ffc2614080af491a709b7499afd5761d4"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20251127.zip",
+        "release": "2025-12",
+        "sha256": "eae01e4e385ab80e337503efea7f065fa78886204ea8207fbc70b9ebb9a24511"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 412920,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-01-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20251225.zip",
+        "release": "2025-12",
+        "sha256": "e966cacd4cd19821883875eb7d49da51459f2044d2af596a50e38c2ff68fe1bb"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-01-01T00:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "dbdd47feca6eda67d528b7392a1ce22f01d075bde36bd158e630542490cd8456"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 412920,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-02-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "dbdd47feca6eda67d528b7392a1ce22f01d075bde36bd158e630542490cd8456"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260101.zip",
+        "release": "2026-01",
+        "sha256": "e0fafebbba2895a7d7be294b1dc0117180e327d6716e918352c2d3ba673e7a60"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 412920,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-02-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260129.zip",
+        "release": "2026-01",
+        "sha256": "053b726215c9c1843b9bd1df8f7f4db150b7ef5ac93cba392ecf3b33b7cf4510"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-02-01T00:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "a704c10fb63fcb7181d99a7f322488c1a13c24e18189eac21fdee1984bf01f77"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 372960,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-03-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "a704c10fb63fcb7181d99a7f322488c1a13c24e18189eac21fdee1984bf01f77"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1344,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260129.zip",
+        "release": "2026-02",
+        "sha256": "053b726215c9c1843b9bd1df8f7f4db150b7ef5ac93cba392ecf3b33b7cf4510"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 372960,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-03-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260226.zip",
+        "release": "2026-02",
+        "sha256": "9cb94a9034bce67bf44f8da9c1b175559972f663e45649905edcbe649abe5e33"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-03-01T00:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "3b14eb4b63af85a8b8a51500b104118aaf9d52f275a0db33a0d68e4704e08445"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 412920,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-04-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "3b14eb4b63af85a8b8a51500b104118aaf9d52f275a0db33a0d68e4704e08445"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260226.zip",
+        "release": "2026-03",
+        "sha256": "9cb94a9034bce67bf44f8da9c1b175559972f663e45649905edcbe649abe5e33"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 412920,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-04-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260326.zip",
+        "release": "2026-03",
+        "sha256": "d0b1e0f0e884317dcc166422d338a3491d901adec20fd1b81d746792262568fc"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-04-01T00:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "0d6e818523dfc1ed6c88e6c13c5142cc00c17e22a0ab95669634f84528bdec1f"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 399600,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-05-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "0d6e818523dfc1ed6c88e6c13c5142cc00c17e22a0ab95669634f84528bdec1f"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260326.zip",
+        "release": "2026-04",
+        "sha256": "d0b1e0f0e884317dcc166422d338a3491d901adec20fd1b81d746792262568fc"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 399600,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-05-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260430.zip",
+        "release": "2026-04",
+        "sha256": "5d7420a1529011910550c2cac828bdc4db335317d110e22d8adab042267b84b9"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-05-01T00:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "e04f1538b7b4258cc9d80231cb408258f3a20639ed0a67c58a3defa1b88482de"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 412920,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-06-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "e04f1538b7b4258cc9d80231cb408258f3a20639ed0a67c58a3defa1b88482de"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260430.zip",
+        "release": "2026-05",
+        "sha256": "5d7420a1529011910550c2cac828bdc4db335317d110e22d8adab042267b84b9"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 412920,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-06-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260528.zip",
+        "release": "2026-05",
+        "sha256": "298f3597b29b4dd8705eb62be42ba728355e74e4242f855a9f30b3d684b87e00"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-06-01T00:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "91928fcd0e03c9e79d0cdac8f695a03db795e13af1019a74af4a1b6452ebd04e"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 399600,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-07-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "91928fcd0e03c9e79d0cdac8f695a03db795e13af1019a74af4a1b6452ebd04e"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260528.zip",
+        "release": "2026-06",
+        "sha256": "298f3597b29b4dd8705eb62be42ba728355e74e4242f855a9f30b3d684b87e00"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 399600,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-07-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260625.zip",
+        "release": "2026-06",
+        "sha256": "33202acc29485d25e28806a262351e22a528ed65eb9cd6c7e18502cd8c897862"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-07-01T00:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "80d79ccf847c09f974d821211deacb85a1b1a46aa312d32704c82ceb215e7812"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 412920,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-08-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "80d79ccf847c09f974d821211deacb85a1b1a46aa312d32704c82ceb215e7812"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260625.zip",
+        "release": "2026-07",
+        "sha256": "33202acc29485d25e28806a262351e22a528ed65eb9cd6c7e18502cd8c897862"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 412920,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-08-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260730.zip",
+        "release": "2026-07",
+        "sha256": "79e4db7959c04066a86d293e17cf59bf78c957a641ad7ef67f9fc22a5af61e75"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-01T00:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "a109eb8929d57ff2259a48911b128173c380646306d54e930cff407776757f9c"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 412920,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-09-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "a109eb8929d57ff2259a48911b128173c380646306d54e930cff407776757f9c"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260730.zip",
+        "release": "2026-08",
+        "sha256": "79e4db7959c04066a86d293e17cf59bf78c957a641ad7ef67f9fc22a5af61e75"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 412920,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-09-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260827.zip",
+        "release": "2026-08",
+        "sha256": "7ee116a8594b2ebb378c9fc8607cd8297edf114a926542ff8336230f65fa781d"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-09-01T00:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_REGIONSOLUTION#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "fc32e14f98f81bd8c547147be80bc6d2e97c946b95404c51ca497bf71bbd8945"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 399600,
       "schema-id": 4,
       "to": {
         "data-time": "2026-10-02T04:00:00+10:00",
@@ -241,6 +1011,42 @@
         {
           "action": "move",
           "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2501,
+      "from": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_20260827.zip",
+        "release": "2026-09",
+        "sha256": "7ee116a8594b2ebb378c9fc8607cd8297edf114a926542ff8336230f65fa781d"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 694190,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-10-23T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_202610212230_0000000544124057.zip",
+        "release": "2026-10",
+        "sha256": "b131ff3af0689ffcb7092f3c3004eba66ac0ba466781ac227ca688c122483071"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
         }
       ],
       "version": 7

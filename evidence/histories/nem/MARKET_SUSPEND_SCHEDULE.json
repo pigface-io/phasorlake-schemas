@@ -1,13 +1,13 @@
 {
   "breaking": [],
-  "current-schema-id": 0,
+  "current-schema-id": 1,
   "format-version": 3,
   "runs": [
     {
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 24,
       "from": {
         "data-time": "2017-12-25T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#MARKET_SUSPEND_SCHEDULE#FILE01#202408010000.zip",
@@ -22,7 +22,142 @@
         "FORCE_MAJEURE",
         "MARKET_SUSPEND_SCHEDULE"
       ],
-      "rows": 5081760,
+      "rows": 4640160,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-17T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MARKET_SUSPEND_SCHEDULE#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "53457416487fdf5428885582f62601d2aff8cd7b71a9514fb5bf5309b8f08c5a"
+      },
+      "updates": [],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-09-07T00:00:00+10:00",
+        "file": "PUBLIC_MARKET_SUSPENSION_SCHEDULE_20260822235513_0000000533965554.zip",
+        "release": "2026-08",
+        "sha256": "846749094cd2ec6a6d8dc6f4288a26aa1be7bf403b0a70076288b43366aede39"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "FORCE_MAJEURE",
+        "MARKET_SUSPEND_SCHEDULE"
+      ],
+      "rows": 960,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-09-14T00:00:00+10:00",
+        "file": "PUBLIC_MARKET_SUSPENSION_SCHEDULE_20260829235511_0000000535112355.zip",
+        "release": "2026-08",
+        "sha256": "73873fcad9e3706c7c06044220bca76bb371f6051826abb49ba69cc779498bff"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 14
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2017-12-25T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MARKET_SUSPEND_SCHEDULE#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "4e33b65c4d8ff6dd0c662d14391185df0964250042a1604251437fca6a9a9036"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FORCE_MAJEURE",
+        "MARKET_SUSPEND_SCHEDULE"
+      ],
+      "rows": 220320,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-05T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MARKET_SUSPEND_SCHEDULE#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "4e33b65c4d8ff6dd0c662d14391185df0964250042a1604251437fca6a9a9036"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 14
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2026-09-21T00:00:00+10:00",
+        "file": "PUBLIC_MARKET_SUSPENSION_SCHEDULE_20260905235509_0000000536292831.zip",
+        "release": "2026-09",
+        "sha256": "daa04953ed9f8efdb1a47aee3fe3e2a35d40a2fde0667cc467fcae6cb188ac6d"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "FORCE_MAJEURE",
+        "MARKET_SUSPEND_SCHEDULE"
+      ],
+      "rows": 1920,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-12T00:00:00+10:00",
+        "file": "PUBLIC_MARKET_SUSPENSION_SCHEDULE_20260926235515_0000000539910318.zip",
+        "release": "2026-09",
+        "sha256": "66c372bb8ea53cf5385232d6b6ecafec26fd62aab5abb1b44177549aae836f03"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 14
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2017-12-25T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MARKET_SUSPEND_SCHEDULE#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "a8501667b9e68f1ad067daa6a1a5f817c3340f0ed02ac02c74cd3368c487891f"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FORCE_MAJEURE",
+        "MARKET_SUSPEND_SCHEDULE"
+      ],
+      "rows": 221280,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-19T00:00:00+10:00",
@@ -30,7 +165,47 @@
         "release": "2026-09",
         "sha256": "a8501667b9e68f1ad067daa6a1a5f817c3340f0ed02ac02c74cd3368c487891f"
       },
-      "updates": [],
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 14
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2026-10-19T00:00:00+10:00",
+        "file": "PUBLIC_MARKET_SUSPENSION_SCHEDULE_20261003235512_0000000541019163.zip",
+        "release": "2026-10",
+        "sha256": "016d36e7192e4eb40e723b8b61b96b31f64c5cb0d0ea6e2e4d7234719876b9d9"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "FORCE_MAJEURE",
+        "MARKET_SUSPEND_SCHEDULE"
+      ],
+      "rows": 1440,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-11-02T00:00:00+10:00",
+        "file": "PUBLIC_MARKET_SUSPENSION_SCHEDULE_20261017235510_0000000543435592.zip",
+        "release": "2026-10",
+        "sha256": "67535369ceb02a016a931256fe716e7fc621927e07b687f01278cd6054f42e9e"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 14
+        }
+      ],
       "version": 2
     }
   ],
@@ -141,6 +316,114 @@
         4
       ],
       "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "DAY_TYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PERIODID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 5,
+          "name": "ENERGY_RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "R6_RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "R60_RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "R5_RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "RREG_RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 10,
+          "name": "L6_RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "L60_RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "L5_RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "LREG_RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "L1_RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "R1_RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "schema-id": 1,
       "type": "struct"
     }
   ],

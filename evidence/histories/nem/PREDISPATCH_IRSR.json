@@ -1,0 +1,78 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 18868,
+      "from": {
+        "data-time": null,
+        "file": "PUBLIC_PREDISPATCH_IRSR_20250928_20251004.zip",
+        "release": "2025-09",
+        "sha256": "6c71a6c575ee42eaa5fceab6d3b728d50b76c04e2f20b71c8bc22409f0112fe2"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "IRSR"
+      ],
+      "rows": 12703394,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "PUBLIC_PREDISPATCH_IRSR_202610212230_0000000544123693.zip",
+        "release": "2026-10",
+        "sha256": "670df870f7ed714bb73f2459f9960ed3a8835736afbfb96bc8b4647ad7acc128"
+      },
+      "updates": [],
+      "version": 2
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 2,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 3,
+          "name": "INTERCONNECTORID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "FROMREGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "RESIDUE",
+          "required": false,
+          "type": "decimal(14, 6)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "PREDISPATCH_IRSR"
+}

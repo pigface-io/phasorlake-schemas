@@ -1,6 +1,6 @@
 {
   "breaking": [],
-  "current-schema-id": 3,
+  "current-schema-id": 4,
   "format-version": 3,
   "runs": [
     {
@@ -209,7 +209,7 @@
       "changes": [
         "version"
       ],
-      "files": 26,
+      "files": 14,
       "from": {
         "data-time": "2024-08-02T04:30:00+10:00",
         "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202408010000.zip",
@@ -224,7 +224,845 @@
         "STPASA",
         "REGIONSOLUTION"
       ],
-      "rows": 52509600,
+      "rows": 39895200,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-10-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "5d0758bbbdc107361b766afe359a10bd1316eec58e8d192922632194318b6e41"
+      },
+      "updates": [],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 720,
+      "from": {
+        "data-time": "2025-09-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_20250901.zip",
+        "release": "2025-09",
+        "sha256": "5c6b375adf8c14fc6143e39bd3f6395b12f09f32470b2448d3e5a1b03cda507b"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1036800,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2025-10-08T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_20250901.zip",
+        "release": "2025-09",
+        "sha256": "5c6b375adf8c14fc6143e39bd3f6395b12f09f32470b2448d3e5a1b03cda507b"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-10-02T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "2c12cc53395a30a8b91aecc4148cdcc93ea1af0114d676b32beab55e6a3823e0"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-11-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "2c12cc53395a30a8b91aecc4148cdcc93ea1af0114d676b32beab55e6a3823e0"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 744,
+      "from": {
+        "data-time": "2025-10-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_20251001.zip",
+        "release": "2025-10",
+        "sha256": "da26164713b941fa10b8d3749154730cf2589ef5b69453ccdbdd489063823d00"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2025-11-08T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_20251001.zip",
+        "release": "2025-10",
+        "sha256": "da26164713b941fa10b8d3749154730cf2589ef5b69453ccdbdd489063823d00"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-11-02T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "4d050cdffd96dfaa06485625df68690549f5d24a1f249f2145208e4e4ed51fce"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1036800,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-12-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "4d050cdffd96dfaa06485625df68690549f5d24a1f249f2145208e4e4ed51fce"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 720,
+      "from": {
+        "data-time": "2025-11-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_20251101.zip",
+        "release": "2025-11",
+        "sha256": "a158caa17fa170e5eb94d12f50a3214dad149fd64eb9caf9235cfd4ef68d6cc9"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1036800,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2025-12-08T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_20251101.zip",
+        "release": "2025-11",
+        "sha256": "a158caa17fa170e5eb94d12f50a3214dad149fd64eb9caf9235cfd4ef68d6cc9"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-12-02T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "4d8ff2f6a42ff2cbdc0472752df65249240d8e3769bd2cd20893497ae9d4e2dc"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-01-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "4d8ff2f6a42ff2cbdc0472752df65249240d8e3769bd2cd20893497ae9d4e2dc"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 744,
+      "from": {
+        "data-time": "2025-12-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_20251201.zip",
+        "release": "2025-12",
+        "sha256": "9641e194926532cfc6b0c1faecb99f3ce42955724e0a53dc7ae85fb1c32a50f5"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-01-08T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_20251201.zip",
+        "release": "2025-12",
+        "sha256": "9641e194926532cfc6b0c1faecb99f3ce42955724e0a53dc7ae85fb1c32a50f5"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-01-02T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "6d9cc63877c894354d9c4e430db9a4328936381383afdb1c2ca32449628911b7"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-02-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "6d9cc63877c894354d9c4e430db9a4328936381383afdb1c2ca32449628911b7"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 744,
+      "from": {
+        "data-time": "2026-01-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_20260101.zip",
+        "release": "2026-01",
+        "sha256": "346e198d7a23a3e87dd1efa5bcc3e5d34d01dcbccc89cffdba05b4f6dc577dd1"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-02-08T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_20260101.zip",
+        "release": "2026-01",
+        "sha256": "346e198d7a23a3e87dd1efa5bcc3e5d34d01dcbccc89cffdba05b4f6dc577dd1"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-02-02T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "13619ea5c0569a79d0b0dd85be7b069103e64bccff9067cac9b4d68f7cc6426a"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 967680,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-03-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "13619ea5c0569a79d0b0dd85be7b069103e64bccff9067cac9b4d68f7cc6426a"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 672,
+      "from": {
+        "data-time": "2026-02-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_20260201.zip",
+        "release": "2026-02",
+        "sha256": "2168a07e8418f4599062085146d5dd56dc8a0c42f2dcc5aa17525d314c376c99"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 967680,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-03-08T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_20260201.zip",
+        "release": "2026-02",
+        "sha256": "2168a07e8418f4599062085146d5dd56dc8a0c42f2dcc5aa17525d314c376c99"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-03-02T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "cb87b0c01be36afe1a4680b9b3c52cfebfc3553f5ad22035bcae676eeecb6cba"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-04-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "cb87b0c01be36afe1a4680b9b3c52cfebfc3553f5ad22035bcae676eeecb6cba"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 744,
+      "from": {
+        "data-time": "2026-03-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_20260301.zip",
+        "release": "2026-03",
+        "sha256": "c35c019048824174bc06aad6c3506e7a8225708df0809cfd23973c53f280a413"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-04-08T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_20260301.zip",
+        "release": "2026-03",
+        "sha256": "c35c019048824174bc06aad6c3506e7a8225708df0809cfd23973c53f280a413"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-04-02T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "de8755297bd0201639de157c5a447bc08280135d67d6574e5781570952f41bb5"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1036800,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-05-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "de8755297bd0201639de157c5a447bc08280135d67d6574e5781570952f41bb5"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 721,
+      "from": {
+        "data-time": "2026-04-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_20260401.zip",
+        "release": "2026-04",
+        "sha256": "3e782d2527c3da3c61bd0fa246c84d4df8fd72cb54a194b19278dedb74f82b06"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1038240,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-05-17T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_202605100700_0000000516983041.zip",
+        "release": "2026-05",
+        "sha256": "14be1597901094286ea56382e90472b31516f67290e64f4d172e18e221669e56"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-05-02T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "35765e46b88adbc9459b3a19cfbd952353a09588b34cb8571167b80566a97b0b"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-06-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "35765e46b88adbc9459b3a19cfbd952353a09588b34cb8571167b80566a97b0b"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 744,
+      "from": {
+        "data-time": "2026-05-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_20260501.zip",
+        "release": "2026-05",
+        "sha256": "71b593bc2c51d52687ba004e52a0cf6800bc4cb2c6174cbc3b6cc2012bd418e0"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-06-08T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_20260501.zip",
+        "release": "2026-05",
+        "sha256": "71b593bc2c51d52687ba004e52a0cf6800bc4cb2c6174cbc3b6cc2012bd418e0"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-06-02T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "2916f4ccf5dddca3a349855603e2af97ccb3967417ee42edfbdfaa7d2a0ec5ae"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1036800,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-07-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "2916f4ccf5dddca3a349855603e2af97ccb3967417ee42edfbdfaa7d2a0ec5ae"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 721,
+      "from": {
+        "data-time": "2026-06-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_20260601.zip",
+        "release": "2026-06",
+        "sha256": "81cfa39050dea795da69ec096680f03debd35e8245fde762da2c9f5f6f1b203c"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1038240,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-07-21T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_202607140200_0000000527320493.zip",
+        "release": "2026-07",
+        "sha256": "f9ece985063ccfded821f13b9d325e3da3669905886bfe0bf75f648b9f821dcf"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-07-02T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "16f43bf0e3f86fcefa8c7498a3b25ee490cc70a1ae2dd1598ca5239704cfaab4"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-08-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "16f43bf0e3f86fcefa8c7498a3b25ee490cc70a1ae2dd1598ca5239704cfaab4"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 744,
+      "from": {
+        "data-time": "2026-07-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_20260701.zip",
+        "release": "2026-07",
+        "sha256": "e1d165960eae9da388e18661a7a850a2239353c061d1ac76a4ffc57b4fce9360"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-08-08T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_20260701.zip",
+        "release": "2026-07",
+        "sha256": "e1d165960eae9da388e18661a7a850a2239353c061d1ac76a4ffc57b4fce9360"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-02T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "65320fd4b1b4f6e38536069f3691dac1865bc473db754221918a847de0bfd0bb"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-09-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "65320fd4b1b4f6e38536069f3691dac1865bc473db754221918a847de0bfd0bb"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 984,
+      "from": {
+        "data-time": "2026-08-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_20260801.zip",
+        "release": "2026-08",
+        "sha256": "e312126291cd4e8205bbfb499ef07019cfc70b56d586df2246fd95b99a7d3156"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1416960,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-09-08T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_202608312300_0000000535428001.zip",
+        "release": "2026-08",
+        "sha256": "28e8752d064f4599814f8acacea3017065151ce7d41dd6b71d01ba4221d9dffc"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-09-02T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#STPASA_REGIONSOLUTION#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "e0c6abb38db89ea1d8b789783ccd7662835cda92c50f1da35ca135af93492982"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1036800,
       "schema-id": 3,
       "to": {
         "data-time": "2026-10-08T04:00:00+10:00",
@@ -232,7 +1070,47 @@
         "release": "2026-09",
         "sha256": "e0c6abb38db89ea1d8b789783ccd7662835cda92c50f1da35ca135af93492982"
       },
-      "updates": [],
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 21
+        }
+      ],
+      "version": 7
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1223,
+      "from": {
+        "data-time": "2026-09-02T04:30:00+10:00",
+        "file": "PUBLIC_STPASA_202609010000_0000000535434287.zip",
+        "release": "2026-09",
+        "sha256": "2271829ba23c5605bc6e229d70bb9d3581b0c90477aa71a3f72ebcc55c9530bf"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "STPASA",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1761120,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-10-29T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_202610212200_0000000544125280.zip",
+        "release": "2026-10",
+        "sha256": "0db7c03c7d560a4732d91eb64258fa5ee0aa572ab72ce46d145d52adba7f2f3d"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 22
+        }
+      ],
       "version": 7
     }
   ],
@@ -1219,6 +2097,288 @@
         23
       ],
       "schema-id": 3,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "DEMAND10",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 5,
+          "name": "DEMAND50",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 6,
+          "name": "DEMAND90",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 7,
+          "name": "RESERVEREQ",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 8,
+          "name": "CAPACITYREQ",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 9,
+          "name": "ENERGYREQDEMAND50",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 10,
+          "name": "UNCONSTRAINEDCAPACITY",
+          "required": false,
+          "type": "decimal(12, 0)"
+        },
+        {
+          "id": 11,
+          "name": "CONSTRAINEDCAPACITY",
+          "required": false,
+          "type": "decimal(12, 0)"
+        },
+        {
+          "id": 12,
+          "name": "NETINTERCHANGEUNDERSCARCITY",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 13,
+          "name": "SURPLUSCAPACITY",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 14,
+          "name": "SURPLUSRESERVE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 15,
+          "name": "RESERVECONDITION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 16,
+          "name": "MAXSURPLUSRESERVE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 17,
+          "name": "MAXSPARECAPACITY",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 18,
+          "name": "LORCONDITION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 19,
+          "name": "AGGREGATECAPACITYAVAILABLE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 20,
+          "name": "AGGREGATESCHEDULEDLOAD",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 22,
+          "name": "AGGREGATEPASAAVAILABILITY",
+          "required": false,
+          "type": "decimal(12, 0)"
+        },
+        {
+          "id": 21,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 23,
+          "name": "RUNTYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 24,
+          "name": "ENERGYREQDEMAND10",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 25,
+          "name": "CALCULATEDLOR1LEVEL",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 26,
+          "name": "CALCULATEDLOR2LEVEL",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 27,
+          "name": "MSRNETINTERCHANGEUNDERSCARCITY",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 28,
+          "name": "LORNETINTERCHANGEUNDERSCARCITY",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 29,
+          "name": "TOTALINTERMITTENTGENERATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "DEMAND_AND_NONSCHEDGEN",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 31,
+          "name": "UIGF",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 32,
+          "name": "SEMISCHEDULEDCAPACITY",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 33,
+          "name": "LOR_SEMISCHEDULEDCAPACITY",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 34,
+          "name": "LCR",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 35,
+          "name": "LCR2",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 36,
+          "name": "FUM",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 37,
+          "name": "SS_SOLAR_UIGF",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 38,
+          "name": "SS_WIND_UIGF",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 39,
+          "name": "SS_SOLAR_CAPACITY",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 40,
+          "name": "SS_WIND_CAPACITY",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 41,
+          "name": "SS_SOLAR_CLEARED",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 42,
+          "name": "SS_WIND_CLEARED",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 43,
+          "name": "WDR_AVAILABLE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 44,
+          "name": "WDR_PASAAVAILABLE",
+          "required": false,
+          "type": "decimal(12, 2)"
+        },
+        {
+          "id": 45,
+          "name": "WDR_CAPACITY",
+          "required": false,
+          "type": "decimal(12, 2)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        23
+      ],
+      "schema-id": 4,
       "type": "struct"
     }
   ],

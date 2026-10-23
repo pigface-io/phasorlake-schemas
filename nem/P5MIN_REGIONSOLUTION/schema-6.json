@@ -40,7 +40,7 @@
         "null"
       ],
       "x-field-id": 116,
-      "x-iceberg-type": "decimal(15, 5)",
+      "x-iceberg-type": "decimal(15, 6)",
       "x-model-type": "NUMERIC(15,5)"
     },
     "BDU_CLEAREDMW_LOAD": {
@@ -50,7 +50,7 @@
         "null"
       ],
       "x-field-id": 117,
-      "x-iceberg-type": "decimal(15, 5)",
+      "x-iceberg-type": "decimal(15, 6)",
       "x-model-type": "NUMERIC(15,5)"
     },
     "BDU_ENERGY_STORAGE": {
@@ -60,7 +60,7 @@
         "null"
       ],
       "x-field-id": 113,
-      "x-iceberg-type": "decimal(15, 5)",
+      "x-iceberg-type": "decimal(15, 6)",
       "x-model-type": "NUMERIC(15,5)"
     },
     "BDU_MAX_AVAIL": {
@@ -1619,7 +1619,7 @@
     [
       113,
       "BDU_ENERGY_STORAGE",
-      "decimal(15, 5)"
+      "decimal(15, 6)"
     ],
     [
       114,
@@ -1634,12 +1634,12 @@
     [
       116,
       "BDU_CLEAREDMW_GEN",
-      "decimal(15, 5)"
+      "decimal(15, 6)"
     ],
     [
       117,
       "BDU_CLEAREDMW_LOAD",
-      "decimal(15, 5)"
+      "decimal(15, 6)"
     ]
   ],
   "x-format": 3,

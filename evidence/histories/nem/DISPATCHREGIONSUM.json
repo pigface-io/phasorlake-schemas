@@ -1,6 +1,6 @@
 {
   "breaking": [],
-  "current-schema-id": 5,
+  "current-schema-id": 6,
   "format-version": 3,
   "runs": [
     {
@@ -319,7 +319,7 @@
       "changes": [
         "version"
       ],
-      "files": 16,
+      "files": 4,
       "from": {
         "data-time": "2025-06-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202506010000.zip",
@@ -334,7 +334,1031 @@
         "DISPATCH",
         "REGIONSUM"
       ],
-      "rows": 701280,
+      "rows": 175680,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2025-10-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "b71143fd2cc7167eb2059f25407f1520832ec9fd8f88ee20144118cd402ba8f9"
+      },
+      "updates": [],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6911,
+      "from": {
+        "data-time": "2025-10-08T00:05:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20251008.zip",
+        "release": "2025-10",
+        "sha256": "0f3ec12f713ac48332c3964ed75f2dd74a6ab8a663a6312f84a0949e8b51f6fc"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 34555,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2025-10-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20251031.zip",
+        "release": "2025-10",
+        "sha256": "23edc372d33dfe6f3d2899676c60fe564be852795b0590b3b8d155f54e205fb2"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-10-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "5bfe4e31130eb5a3898d4b9ddf4f424ce697190dde3f1de1c0e970e946c390e8"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44640,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "5bfe4e31130eb5a3898d4b9ddf4f424ce697190dde3f1de1c0e970e946c390e8"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20251031.zip",
+        "release": "2025-11",
+        "sha256": "23edc372d33dfe6f3d2899676c60fe564be852795b0590b3b8d155f54e205fb2"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 43200,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2025-11-30T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20251130.zip",
+        "release": "2025-11",
+        "sha256": "484d736da9d286609f795bf4d4325054c85221c5272e82acd04ec8b3cbdfb2c2"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-11-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "014bbb724e8a8c9a9f1a199fa0e385d83e6fd29c58b549c875f160a1e28f73a6"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 43200,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "014bbb724e8a8c9a9f1a199fa0e385d83e6fd29c58b549c875f160a1e28f73a6"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20251130.zip",
+        "release": "2025-12",
+        "sha256": "484d736da9d286609f795bf4d4325054c85221c5272e82acd04ec8b3cbdfb2c2"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44640,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2025-12-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20251231.zip",
+        "release": "2025-12",
+        "sha256": "cd15da0353aa72554be1f50b081e20e9888a68278e73a23b8c5559647688b74e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-12-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "873939f1bd37a941c58972b54ac370c394c885beb95274fce7c70b58cf6584d5"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44640,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "873939f1bd37a941c58972b54ac370c394c885beb95274fce7c70b58cf6584d5"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20251231.zip",
+        "release": "2026-01",
+        "sha256": "cd15da0353aa72554be1f50b081e20e9888a68278e73a23b8c5559647688b74e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44640,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2026-01-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20260131.zip",
+        "release": "2026-01",
+        "sha256": "37e94a57b169878ca5844b0973a728331edcadc364e74926b82f90c39e1d549d"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-01-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "f53740a6fae78fa83948bde87aac32b48e13f5473f75ec68e0144c5310838acc"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44640,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "f53740a6fae78fa83948bde87aac32b48e13f5473f75ec68e0144c5310838acc"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8064,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20260131.zip",
+        "release": "2026-02",
+        "sha256": "37e94a57b169878ca5844b0973a728331edcadc364e74926b82f90c39e1d549d"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 40320,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2026-02-28T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20260228.zip",
+        "release": "2026-02",
+        "sha256": "9c0659c5692f364bf2e9d56e6dca17f1ce29ba8f6fb0b2ea41716db56bfc5a4b"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-02-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "f3d8b3ccaf64b8fa6acb5ad02a47cc005956a7a065914cbbd1b862c2d5309e10"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 40320,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "f3d8b3ccaf64b8fa6acb5ad02a47cc005956a7a065914cbbd1b862c2d5309e10"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8907,
+      "from": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20260228.zip",
+        "release": "2026-03",
+        "sha256": "9c0659c5692f364bf2e9d56e6dca17f1ce29ba8f6fb0b2ea41716db56bfc5a4b"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44535,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2026-03-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20260331.zip",
+        "release": "2026-03",
+        "sha256": "b8daaedd0e0c939d623f15e3db1aba39b36fe20c385b3057b69486c2c4d387c8"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-03-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "22a297b71010e7edb19943eace04b355aac379ec457aff7e0330b2668ef2b3f4"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44640,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "22a297b71010e7edb19943eace04b355aac379ec457aff7e0330b2668ef2b3f4"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20260331.zip",
+        "release": "2026-04",
+        "sha256": "b8daaedd0e0c939d623f15e3db1aba39b36fe20c385b3057b69486c2c4d387c8"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 43200,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2026-04-30T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20260430.zip",
+        "release": "2026-04",
+        "sha256": "95f0fcd122b6da7bf1ac07bf2dcb1c1aa09a831a64341087245d68bd1e8435b3"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-04-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "c80bcbc144e50907908d5f32025316f5858c4de47e9b816ad64f75733124c9b5"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 43200,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "c80bcbc144e50907908d5f32025316f5858c4de47e9b816ad64f75733124c9b5"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8931,
+      "from": {
+        "data-time": "2026-05-04T13:30:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_202605041330_0000000516089042.zip",
+        "release": "2026-05",
+        "sha256": "d0f277cd93a659d71834abb10badba4918f6d386d0541f76a18b1607c6ab629f"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44655,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2026-05-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20260531.zip",
+        "release": "2026-05",
+        "sha256": "7a9faa71450791b3a83dbb011f613ff487e25c9a6d9bea613ed216d6673ace10"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-05-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "386bd9ca70bd707d17a182c5636a3ac4217cf50f3780ed676eef7f502852db64"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44640,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "386bd9ca70bd707d17a182c5636a3ac4217cf50f3780ed676eef7f502852db64"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8641,
+      "from": {
+        "data-time": "2026-06-13T07:50:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_202606130750_0000000522227310.zip",
+        "release": "2026-06",
+        "sha256": "3f1f1285a8528576125e9ade70d101d97258359e6cdd382f1583dd0d2546ac5a"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 43205,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2026-06-30T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20260630.zip",
+        "release": "2026-06",
+        "sha256": "67afcc5da904a2bccc581acfaefcceaa86fc3fc17825f5f9f5e140c7971ed660"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-06-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "19daa5f7e84bd67c213bb690c783375c90cfcf47550bbec2bc955658fe8cc77c"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 43200,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "19daa5f7e84bd67c213bb690c783375c90cfcf47550bbec2bc955658fe8cc77c"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8929,
+      "from": {
+        "data-time": "2026-07-05T20:20:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_202607052020_0000000525992870.zip",
+        "release": "2026-07",
+        "sha256": "02e0c402aa142815a6545fccb7030036ed79e9ebeeee2dd7b671d205e3887a43"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44645,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2026-07-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20260731.zip",
+        "release": "2026-07",
+        "sha256": "626a048749e41d0a79c7393aadf09be11f1f0da4ac87cdd9c74d8682ad4bbd9f"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-07-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "da88e5c8da3cb9bb2d70da9305f222e2c21a8a153f8f31717c0538daffb9401b"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44640,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "da88e5c8da3cb9bb2d70da9305f222e2c21a8a153f8f31717c0538daffb9401b"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8929,
+      "from": {
+        "data-time": "2026-08-09T03:05:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_202608090305_0000000531687757.zip",
+        "release": "2026-08",
+        "sha256": "c0e4a6d931517edfa7e000ecbb964bd0688b79dcf83afca7b7f0cc622ad8b133"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44645,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2026-08-31T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20260831.zip",
+        "release": "2026-08",
+        "sha256": "8969c146dd4e3778829fc34a03e6c08501d10817983cdbbbea03838566c7d97d"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "437746c80e9926070a1b00c9e9098fb9c8fff02e541e74d121aaac22292f4565"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 44640,
+      "schema-id": 5,
+      "to": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "437746c80e9926070a1b00c9e9098fb9c8fff02e541e74d121aaac22292f4565"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8649,
+      "from": {
+        "data-time": "2026-09-09T17:30:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_202609091730_0000000536937403.zip",
+        "release": "2026-09",
+        "sha256": "732f3600552ba96990f5ed8bb3ae6f66173242f508ab7feedafd9aa863c6f4c6"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 43245,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2026-09-30T23:55:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_20260930.zip",
+        "release": "2026-09",
+        "sha256": "65a4c40898ff634e8c514b1dfcada95d9506e34f952a5a5281aedee0bc9dd258"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-09-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCHREGIONSUM#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "c9b384d926a508d5fcbdbd7c10bbb390833b2a5cdd589dfba7471098dff22795"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 43200,
       "schema-id": 5,
       "to": {
         "data-time": "2026-10-01T00:00:00+10:00",
@@ -342,7 +1366,64 @@
         "release": "2026-09",
         "sha256": "c9b384d926a508d5fcbdbd7c10bbb390833b2a5cdd589dfba7471098dff22795"
       },
-      "updates": [],
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
+      "version": 9
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6635,
+      "from": {
+        "data-time": "2026-10-07T12:20:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_202610071220_0000000541612934.zip",
+        "release": "2026-10",
+        "sha256": "bc716d622acd23e65a3e571960f7b9fedfc2922ca3e0d8c6a8a8a19917bee465"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "REGIONSUM"
+      ],
+      "rows": 33175,
+      "schema-id": 6,
+      "to": {
+        "data-time": "2026-10-22T09:05:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_202610220905_0000000544203628.zip",
+        "release": "2026-10",
+        "sha256": "3ab034a42eccf94c16978a7d4c396c55822c59b6ecd7f774d9a2d136f0121001"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 127
+        },
+        {
+          "action": "move",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 120
+        }
+      ],
       "version": 9
     }
   ],
@@ -3092,7 +4173,7 @@
           "id": 121,
           "name": "BDU_ENERGY_STORAGE",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 122,
@@ -3110,13 +4191,13 @@
           "id": 124,
           "name": "BDU_CLEAREDMW_GEN",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 125,
           "name": "BDU_CLEAREDMW_LOAD",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         }
       ],
       "identifier-field-ids": [
@@ -3855,7 +4936,7 @@
           "id": 121,
           "name": "BDU_ENERGY_STORAGE",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 122,
@@ -3873,13 +4954,13 @@
           "id": 124,
           "name": "BDU_CLEAREDMW_GEN",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 125,
           "name": "BDU_CLEAREDMW_LOAD",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         }
       ],
       "identifier-field-ids": [
@@ -4618,7 +5699,7 @@
           "id": 121,
           "name": "BDU_ENERGY_STORAGE",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 122,
@@ -4636,19 +5717,19 @@
           "id": 124,
           "name": "BDU_CLEAREDMW_GEN",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 125,
           "name": "BDU_CLEAREDMW_LOAD",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 126,
           "name": "BDU_INITIAL_ENERGY_STORAGE",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 127,
@@ -4665,6 +5746,775 @@
         5
       ],
       "schema-id": 5,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "DISPATCHINTERVAL",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 5,
+          "name": "INTERVENTION",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 6,
+          "name": "TOTALDEMAND",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "AVAILABLEGENERATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "AVAILABLELOAD",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "DEMANDFORECAST",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 10,
+          "name": "DISPATCHABLEGENERATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "DISPATCHABLELOAD",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "NETINTERCHANGE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "EXCESSGENERATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "LOWER5MINDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "LOWER5MINIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "LOWER5MINLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "LOWER5MINLOCALPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "LOWER5MINLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "LOWER5MINPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "LOWER5MINREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "LOWER5MINSUPPLYPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "LOWER60SECDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "LOWER60SECIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "LOWER60SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 25,
+          "name": "LOWER60SECLOCALPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 26,
+          "name": "LOWER60SECLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "LOWER60SECPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "LOWER60SECREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "LOWER60SECSUPPLYPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "LOWER6SECDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 31,
+          "name": "LOWER6SECIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "LOWER6SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "LOWER6SECLOCALPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 34,
+          "name": "LOWER6SECLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 35,
+          "name": "LOWER6SECPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 36,
+          "name": "LOWER6SECREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 37,
+          "name": "LOWER6SECSUPPLYPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 38,
+          "name": "RAISE5MINDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 39,
+          "name": "RAISE5MINIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 40,
+          "name": "RAISE5MINLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 41,
+          "name": "RAISE5MINLOCALPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 42,
+          "name": "RAISE5MINLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 43,
+          "name": "RAISE5MINPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 44,
+          "name": "RAISE5MINREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 45,
+          "name": "RAISE5MINSUPPLYPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 46,
+          "name": "RAISE60SECDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 47,
+          "name": "RAISE60SECIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 48,
+          "name": "RAISE60SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 49,
+          "name": "RAISE60SECLOCALPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 50,
+          "name": "RAISE60SECLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 51,
+          "name": "RAISE60SECPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 52,
+          "name": "RAISE60SECREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 53,
+          "name": "RAISE60SECSUPPLYPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 54,
+          "name": "RAISE6SECDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 55,
+          "name": "RAISE6SECIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 56,
+          "name": "RAISE6SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 57,
+          "name": "RAISE6SECLOCALPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 58,
+          "name": "RAISE6SECLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 59,
+          "name": "RAISE6SECPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 60,
+          "name": "RAISE6SECREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 61,
+          "name": "RAISE6SECSUPPLYPRICE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 62,
+          "name": "AGGEGATEDISPATCHERROR",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 63,
+          "name": "AGGREGATEDISPATCHERROR",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 64,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 65,
+          "name": "INITIALSUPPLY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 66,
+          "name": "CLEAREDSUPPLY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 67,
+          "name": "LOWERREGIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 68,
+          "name": "LOWERREGLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 69,
+          "name": "LOWERREGLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 70,
+          "name": "LOWERREGREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 71,
+          "name": "RAISEREGIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 72,
+          "name": "RAISEREGLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 73,
+          "name": "RAISEREGLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 74,
+          "name": "RAISEREGREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 75,
+          "name": "RAISE5MINLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 76,
+          "name": "RAISEREGLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 77,
+          "name": "RAISE60SECLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 78,
+          "name": "RAISE6SECLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 79,
+          "name": "LOWER5MINLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 80,
+          "name": "LOWERREGLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 81,
+          "name": "LOWER60SECLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 82,
+          "name": "LOWER6SECLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 83,
+          "name": "RAISE5MINVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 84,
+          "name": "RAISEREGVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 85,
+          "name": "RAISE60SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 86,
+          "name": "RAISE6SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 87,
+          "name": "LOWER5MINVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 88,
+          "name": "LOWERREGVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 89,
+          "name": "LOWER60SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 90,
+          "name": "LOWER6SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 91,
+          "name": "RAISE6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 92,
+          "name": "RAISE60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 93,
+          "name": "RAISE5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 94,
+          "name": "RAISEREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 95,
+          "name": "LOWER6SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 96,
+          "name": "LOWER60SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 97,
+          "name": "LOWER5MINACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 98,
+          "name": "LOWERREGACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 99,
+          "name": "LORSURPLUS",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 100,
+          "name": "LRCSURPLUS",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 101,
+          "name": "TOTALINTERMITTENTGENERATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 102,
+          "name": "DEMAND_AND_NONSCHEDGEN",
+          "required": false,
+          "type": "decimal(15, 6)"
+        },
+        {
+          "id": 103,
+          "name": "UIGF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 104,
+          "name": "SEMISCHEDULE_CLEAREDMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 105,
+          "name": "SEMISCHEDULE_COMPLIANCEMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 106,
+          "name": "SS_SOLAR_UIGF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 107,
+          "name": "SS_WIND_UIGF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 108,
+          "name": "SS_SOLAR_CLEAREDMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 109,
+          "name": "SS_WIND_CLEAREDMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 110,
+          "name": "SS_SOLAR_COMPLIANCEMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 111,
+          "name": "SS_WIND_COMPLIANCEMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 112,
+          "name": "WDR_INITIALMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 113,
+          "name": "WDR_AVAILABLE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 114,
+          "name": "WDR_DISPATCHED",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 115,
+          "name": "RAISE1SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 116,
+          "name": "LOWER1SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 117,
+          "name": "RAISE1SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 118,
+          "name": "LOWER1SECACTUALAVAILABILITY",
+          "required": false,
+          "type": "decimal(16, 6)"
+        },
+        {
+          "id": 119,
+          "name": "SS_SOLAR_AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 120,
+          "name": "SS_WIND_AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 121,
+          "name": "BDU_ENERGY_STORAGE",
+          "required": false,
+          "type": "decimal(15, 6)"
+        },
+        {
+          "id": 122,
+          "name": "BDU_MIN_AVAIL",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 123,
+          "name": "BDU_MAX_AVAIL",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 124,
+          "name": "BDU_CLEAREDMW_GEN",
+          "required": false,
+          "type": "decimal(15, 6)"
+        },
+        {
+          "id": 125,
+          "name": "BDU_CLEAREDMW_LOAD",
+          "required": false,
+          "type": "decimal(15, 6)"
+        },
+        {
+          "id": 126,
+          "name": "BDU_INITIAL_ENERGY_STORAGE",
+          "required": false,
+          "type": "decimal(15, 6)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "schema-id": 6,
       "type": "struct"
     }
   ],

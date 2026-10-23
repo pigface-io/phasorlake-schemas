@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 10,
+      "files": 827,
       "from": {
         "data-time": null,
         "file": "PUBLIC_ARCHIVE#PREDISPATCHBLOCKEDCONSTRAINT#FILE01#202502010000.zip",
@@ -15,20 +15,21 @@
         "sha256": "b32c5b91e6b8d924817f1eb838a82272b5fbbef417b023af05f6de66b50149f9"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive"
       ],
       "overlaps": false,
       "report": [
         "PREDISPATCH",
         "BLOCKED_CONSTRAINTS"
       ],
-      "rows": 1185,
+      "rows": 2214,
       "schema-id": 0,
       "to": {
         "data-time": null,
-        "file": "PUBLIC_ARCHIVE#PREDISPATCHBLOCKEDCONSTRAINT#FILE01#202607010000.zip",
+        "file": "PUBLIC_PREDISPATCHIS_20260712_20260718.zip",
         "release": "2026-07",
-        "sha256": "bf45dc317ec55a81e371b5e34cb6105bd89dd65c4a832ebf92c6ffb6900f567d"
+        "sha256": "35b73cec1e804b0437f51f8f2b55a545e6d48bf594742cda42135d959e38d7de"
       },
       "updates": [],
       "version": 1

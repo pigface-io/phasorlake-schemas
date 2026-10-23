@@ -56,7 +56,7 @@
         "null"
       ],
       "x-field-id": 4,
-      "x-iceberg-type": "decimal(1, 0)",
+      "x-iceberg-type": "decimal(2, 0)",
       "x-model-type": "VARCHAR(20)"
     },
     "PREDISPATCHSEQNO": {
@@ -95,7 +95,7 @@
     [
       4,
       "PERIODID",
-      "decimal(1, 0)"
+      "decimal(2, 0)"
     ],
     [
       5,

@@ -1,0 +1,228 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DINT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EXPORTGENCONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string"
+    },
+    "EXPORTLIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "FCASEXPORTLIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "FCASIMPORTLIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "IMPORTGENCONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string"
+    },
+    "IMPORTLIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "INTERCONNECTORID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "INTERVENTION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "MARGINALLOSS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(6, 5)"
+    },
+    "MARGINALVALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "METEREDMWFLOW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "MWFLOW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "MWLOSSES": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "VIOLATIONDEGREE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(1, 0)"
+    }
+  },
+  "required": [],
+  "title": "DINT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      4,
+      "INTERVENTION",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "METEREDMWFLOW",
+      "decimal(9, 5)"
+    ],
+    [
+      6,
+      "MWFLOW",
+      "decimal(9, 5)"
+    ],
+    [
+      7,
+      "MWLOSSES",
+      "decimal(8, 5)"
+    ],
+    [
+      8,
+      "MARGINALVALUE",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "VIOLATIONDEGREE",
+      "decimal(1, 0)"
+    ],
+    [
+      10,
+      "IMPORTLIMIT",
+      "decimal(9, 5)"
+    ],
+    [
+      11,
+      "EXPORTLIMIT",
+      "decimal(9, 5)"
+    ],
+    [
+      12,
+      "MARGINALLOSS",
+      "decimal(6, 5)"
+    ],
+    [
+      13,
+      "EXPORTGENCONID",
+      "string"
+    ],
+    [
+      14,
+      "IMPORTGENCONID",
+      "string"
+    ],
+    [
+      15,
+      "FCASEXPORTLIMIT",
+      "decimal(9, 5)"
+    ],
+    [
+      16,
+      "FCASIMPORTLIMIT",
+      "decimal(9, 5)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DINT"
+  }
+}

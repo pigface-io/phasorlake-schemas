@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 101,
+      "files": 165,
       "from": {
         "data-time": "2018-05-14T10:59:49+10:00",
         "file": "PUBLIC_DVD_MTPASA_CONSTRAINTRESULT_201805010000.zip",
@@ -16,20 +16,22 @@
       },
       "kinds": [
         "archive",
-        "dvd"
+        "dvd",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "MTPASA",
         "CONSTRAINTRESULT"
       ],
-      "rows": 7998323,
+      "rows": 9737429,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-09-28T17:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#MTPASA_CONSTRAINTRESULT#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "f91d37b88cc9672cc0fbc807b80a99e50983686b1b64f0ead17654dd3cff93a1"
+        "data-time": "2026-10-18T22:30:00+10:00",
+        "file": "PUBLIC_MTPASA_202610182230_0000000543880583.zip",
+        "release": "2026-10",
+        "sha256": "e3e92a13affdf30dceb54812acd0cc8e79daafb91abda0ef5b0c05881fea2548"
       },
       "updates": [],
       "version": 1

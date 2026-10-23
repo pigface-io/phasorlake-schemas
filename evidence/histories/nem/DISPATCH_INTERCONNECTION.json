@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 121164,
       "from": {
         "data-time": "2024-08-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#DISPATCH_INTERCONNECTION#FILE01#202408010000.zip",
@@ -15,20 +15,22 @@
         "sha256": "21386a4ff8c679c2f2622acd719043cce3d01bee5e464b08e3ed33ad4e119c2d"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "INTERCONNECTION"
       ],
-      "rows": 709956,
+      "rows": 1113553,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#DISPATCH_INTERCONNECTION#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "a83116f1d0bd205ba37bb671de784dab82ead53630a7bb2cb5fb6181f95b5881"
+        "data-time": "2026-10-22T09:05:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_202610220905_0000000544203628.zip",
+        "release": "2026-10",
+        "sha256": "3ab034a42eccf94c16978a7d4c396c55822c59b6ecd7f774d9a2d136f0121001"
       },
       "updates": [],
       "version": 1
@@ -77,7 +79,7 @@
           "id": 7,
           "name": "IRLF",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "double"
         },
         {
           "id": 8,

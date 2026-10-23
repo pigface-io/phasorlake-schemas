@@ -35,7 +35,7 @@
         "null"
       ],
       "x-field-id": 3,
-      "x-iceberg-type": "decimal(8, 5)"
+      "x-iceberg-type": "decimal(9, 6)"
     }
   },
   "required": [],
@@ -55,7 +55,7 @@
     [
       3,
       "MWH_READING",
-      "decimal(8, 5)"
+      "decimal(9, 6)"
     ],
     [
       4,

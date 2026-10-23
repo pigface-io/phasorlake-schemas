@@ -1,0 +1,173 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MTPASA_DUIDAVAILABILITY/schema-3.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CARRYOVERSTATUS": {
+      "description": "Status of a reported capacity value (e.g. 1 for Yes, 0 for No)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "DAY": {
+      "description": "Date on which the PASA availability of DUID applies.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "DUID": {
+      "description": "NEM DUID.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LATEST_OFFER_DATETIME": {
+      "description": "Date Time of the latest offer used for DUID for this date.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PASAAVAILABILITY": {
+      "description": "Offered PASA Availability of Scheduled generator DUID for the day.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 0)",
+      "x-model-type": "NUMERIC(12,0)"
+    },
+    "PASARECALLTIME": {
+      "description": "The recall time value",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(4, 0)",
+      "x-model-type": "NUMERIC(4)"
+    },
+    "PASAUNITSTATE": {
+      "description": "The unit state value",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "PUBLISH_DATETIME": {
+      "description": "Date Time the report was published.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "REGIONID": {
+      "description": "NEM Region.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    }
+  },
+  "required": [],
+  "title": "MTPASA_DUIDAVAILABILITY, Iceberg schema 3",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PUBLISH_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DAY",
+      "timestamptz"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "DUID",
+      "string"
+    ],
+    [
+      5,
+      "PASAAVAILABILITY",
+      "decimal(12, 0)"
+    ],
+    [
+      6,
+      "LATEST_OFFER_DATETIME",
+      "timestamptz"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      8,
+      "CARRYOVERSTATUS",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "PASAUNITSTATE",
+      "string"
+    ],
+    [
+      10,
+      "PASARECALLTIME",
+      "decimal(4, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 3,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MTPASA_DUIDAVAILABILITY"
+  }
+}

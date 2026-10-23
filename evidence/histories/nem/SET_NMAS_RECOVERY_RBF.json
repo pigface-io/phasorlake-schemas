@@ -7,28 +7,30 @@
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 6188,
       "from": {
-        "data-time": "2023-12-31T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#SET_NMAS_RECOVERY_RBF#FILE01#202408010000.zip",
-        "release": "2024-08",
-        "sha256": "af24c6aebfad9348608eb052e2be94a177c5f5925bf6863fc1bf9ca47dbba1c3"
+        "data-time": "2016-07-03T00:00:00+10:00",
+        "file": "PUBLIC_SETTLEMENTS_20170202011150_0000000280585184.zip",
+        "release": "2017-02",
+        "sha256": "ca5fbc53775426c9007e36a480efc11ef5fad6fb394ce53ddfd3830bf6d9aa04"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "SETTLEMENTS",
         "NMAS_RECOVERY_RBF"
       ],
-      "rows": 65513995,
+      "rows": 266724425,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-09-29T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#SET_NMAS_RECOVERY_RBF#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "128782b25cb8ebf1e8c9d84203df02d4f2eb273af8e656a476b8be755720d574"
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "PUBLIC_SETTLEMENTS_20261021114528_0000000544040800.zip",
+        "release": "2026-10",
+        "sha256": "c68a417a99949935a9c021dc7c0c56f893effce43b8abdc6d25d5826c5316b02"
       },
       "updates": [],
       "version": 1

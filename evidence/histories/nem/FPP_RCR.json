@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 17,
+      "files": 62932,
       "from": {
         "data-time": "2024-12-09T11:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_RCR#FILE01#202412010000.zip",
@@ -15,20 +15,21 @@
         "sha256": "ce856da968cfa38ac972d2be5e6c4e808a5b02774870562102e4bd36d7f79e47"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive"
       ],
       "overlaps": false,
       "report": [
         "FPP",
         "FPP_RCR"
       ],
-      "rows": 5315257,
+      "rows": 5562997,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-05-08T15:35:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_RCR#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "2f0e0cc720aac5d5f016828fd232870a17ec1804b1f7ee0b8c0dc90f6138812a"
+        "data-time": "2026-05-14T10:50:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260514.zip",
+        "release": "2026-05",
+        "sha256": "044f7c7f474ee59cec1dc88624cb7b3bf35c4551ccc375a51314993b719a644b"
       },
       "updates": [],
       "version": 1
@@ -37,28 +38,30 @@
       "changes": [
         "schema"
       ],
-      "files": 5,
+      "files": 46806,
       "from": {
-        "data-time": "2024-12-09T11:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_RCR#FILE01#202605010000.zip",
+        "data-time": "2026-05-14T10:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260514.zip",
         "release": "2026-05",
-        "sha256": "d21362e4b5af30cf72f57bedf08d2e08eb2d96f8a1a46aac993841f066b9e26b"
+        "sha256": "044f7c7f474ee59cec1dc88624cb7b3bf35c4551ccc375a51314993b719a644b"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
-      "overlaps": true,
+      "overlaps": false,
       "report": [
         "FPP",
         "FPP_RCR"
       ],
-      "rows": 2039857,
+      "rows": 2226246,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_RCR#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "4797bd98f2c10d281b4bf94252a8120b8c0bf72c7570146bb3f7b650143459d2"
+        "data-time": "2026-10-22T08:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_202610220855_0000000544203622.zip",
+        "release": "2026-10",
+        "sha256": "9efc3d46231354432218d491fa407faa01add6cee0530a5ea1133ee0de370b16"
       },
       "updates": [
         {

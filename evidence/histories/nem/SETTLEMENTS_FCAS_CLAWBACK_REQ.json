@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 7,
+      "files": 44,
       "from": {
         "data-time": "2025-07-06T07:50:00+10:00",
         "file": "PUBLIC_ARCHIVE#SET_FCAS_CLAWBACK_REQ#FILE01#202601010000.zip",
@@ -15,20 +15,21 @@
         "sha256": "86e6548f9913c3e7efa240d67d8c5cc2694ab0c1119183de602c84a35ba2119d"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "SETTLEMENTS",
         "FCAS_CLAWBACK_REQ"
       ],
-      "rows": 1433601,
+      "rows": 1984982,
       "schema-id": 0,
       "to": {
         "data-time": "2026-03-23T18:20:00+10:00",
-        "file": "PUBLIC_ARCHIVE#SET_FCAS_CLAWBACK_REQ#FILE01#202607010000.zip",
-        "release": "2026-07",
-        "sha256": "832bd9af8c22fd7c56fdb522bcea90296e414a3ecfdb27afee46c04a732efce3"
+        "file": "PUBLIC_SETTLEMENTS_EXTN_20260820121039_0000000533558359.zip",
+        "release": "2026-08",
+        "sha256": "83e4b7921c4a706b987064e76be328c3fca80acd5ebae4554a4f152485c271ea"
       },
       "updates": [],
       "version": 1
@@ -71,13 +72,13 @@
           "id": 6,
           "name": "REGION_ENABLEMENT",
           "required": false,
-          "type": "decimal(9, 6)"
+          "type": "decimal(11, 8)"
         },
         {
           "id": 7,
           "name": "CONSTRAINT_ENABLEMENT",
           "required": false,
-          "type": "decimal(9, 6)"
+          "type": "decimal(11, 8)"
         },
         {
           "id": 8,
@@ -107,13 +108,13 @@
           "id": 12,
           "name": "PREV_REGION_ENABLEMENT",
           "required": false,
-          "type": "decimal(8, 5)"
+          "type": "decimal(11, 8)"
         },
         {
           "id": 13,
           "name": "PREV_CONSTRAINT_ENABLEMENT",
           "required": false,
-          "type": "decimal(8, 5)"
+          "type": "decimal(11, 8)"
         },
         {
           "id": 14,

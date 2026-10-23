@@ -1,0 +1,221 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2016-12-22T00:00:00+10:00",
+        "file": "PUBLIC_YESTBID_201612220000_20161223040519.zip",
+        "release": "2016-12",
+        "sha256": "2bf08875582930907733606568bbcf3592c88fb9ec7e19ea9509bcc8a779ad70"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "YESTBID",
+        "BIDPEROFFER"
+      ],
+      "rows": 125616,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2016-12-22T00:00:00+10:00",
+        "file": "PUBLIC_YESTBID_201612220000_20161223040519.zip",
+        "release": "2016-12",
+        "sha256": "2bf08875582930907733606568bbcf3592c88fb9ec7e19ea9509bcc8a779ad70"
+      },
+      "updates": [],
+      "version": 3
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "BIDTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "BIDSETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "BIDOFFERDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "TRADINGPERIOD",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "MAXAVAIL",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 8,
+          "name": "FIXEDLOAD",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 9,
+          "name": "ROCUP",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 10,
+          "name": "ROCDOWN",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 11,
+          "name": "ENABLEMENTMIN",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 12,
+          "name": "ENABLEMENTMAX",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 13,
+          "name": "LOWBREAKPOINT",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 14,
+          "name": "HIGHBREAKPOINT",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 15,
+          "name": "BANDAVAIL1",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 16,
+          "name": "BANDAVAIL2",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 17,
+          "name": "BANDAVAIL3",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 18,
+          "name": "BANDAVAIL4",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 19,
+          "name": "BANDAVAIL5",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 20,
+          "name": "BANDAVAIL6",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 21,
+          "name": "BANDAVAIL7",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 22,
+          "name": "BANDAVAIL8",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 23,
+          "name": "BANDAVAIL9",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 24,
+          "name": "BANDAVAIL10",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 25,
+          "name": "PASAAVAILABILITY",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 26,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 27,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 28,
+          "name": "BIDVERSIONNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 29,
+          "name": "MR_CAPACITY",
+          "required": false,
+          "type": "decimal(1, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "YESTBID_BIDPEROFFER"
+}

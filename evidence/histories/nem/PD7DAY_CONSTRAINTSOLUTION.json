@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 188,
+      "files": 371,
       "from": {
         "data-time": "2024-04-24T07:30:00+10:00",
         "file": "PUBLIC_ARCHIVE#PD7DAY_CONSTRAINTSOLUTION#FILE01#202408010000.zip",
@@ -15,20 +15,21 @@
         "sha256": "e46ba33bc3c46dce12ae695b7788a54f1f98090155a9f90e4e36a7fe6553b244"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "PD7DAY",
         "CONSTRAINTSOLUTION"
       ],
-      "rows": 8052862416,
+      "rows": 8112417475,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-08T04:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#PD7DAY_CONSTRAINTSOLUTION#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "a74687424efdec7537d456afca01c851fcf6a218d5bf202604c43ab493b46367"
+        "data-time": "2026-10-29T04:00:00+10:00",
+        "file": "PUBLIC_PD7DAY_20261021174310_0000000544091388.zip",
+        "release": "2026-10",
+        "sha256": "72ae05930ddc8ae6b42e0842e74594616aefd65d3f055b077440ad574710332d"
       },
       "updates": [],
       "version": 1

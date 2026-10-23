@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 22,
+      "files": 18888,
       "from": {
         "data-time": "2024-12-09T12:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#PD_FCAS_REQ_RUN#FILE01#202412010000.zip",
@@ -15,20 +15,22 @@
         "sha256": "f5e4e955a4fcaa5a5a9887c3ad065b7820b46810cd3b44d9f39a1ad4af06db3a"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "PREDISPATCH",
         "FCAS_REQ_RUN"
       ],
-      "rows": 306464,
+      "rows": 325330,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#PD_FCAS_REQ_RUN#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "7e657760c87c5d7412fcfb6ea1cbe29bc39a128cb8dc02f42423604f15312d59"
+        "data-time": "2026-10-21T23:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHFCST_202610212300_0000000544127266.zip",
+        "release": "2026-10",
+        "sha256": "dee1bb9e251ef7157d6ddc27112bf4991cc07f4bca74cce17610b46a32c2c7dd"
       },
       "updates": [],
       "version": 1

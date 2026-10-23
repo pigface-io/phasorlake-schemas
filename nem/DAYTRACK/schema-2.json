@@ -51,25 +51,13 @@
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
-    "METER_CASEID": {
-      "description": "The Metering Case Id used for the Settlement Run. For Estimate Daily Run this will be 0",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 9,
-      "x-iceberg-type": "decimal(5, 0)",
-      "x-model-type": "NUMERIC(5,0)"
-    },
-    "METER_RUNTYPE": {
-      "description": "The Type of Settlement Run(ESTIMATE/PRELIM/FINAL/REVISE)",
+    "METERDATA_SOURCE": {
       "type": [
         "string",
         "null"
       ],
-      "x-field-id": 10,
-      "x-iceberg-type": "string",
-      "x-model-type": "VARCHAR(10)"
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
     },
     "REGIONID": {
       "description": "Not Used",
@@ -95,7 +83,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 8,
+      "x-field-id": 9,
       "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
@@ -144,18 +132,13 @@
     ],
     [
       8,
-      "SETTLEMENTINTERVALLENGTH",
-      "decimal(3, 0)"
+      "METERDATA_SOURCE",
+      "string"
     ],
     [
       9,
-      "METER_CASEID",
-      "decimal(5, 0)"
-    ],
-    [
-      10,
-      "METER_RUNTYPE",
-      "string"
+      "SETTLEMENTINTERVALLENGTH",
+      "decimal(3, 0)"
     ]
   ],
   "x-format": 3,

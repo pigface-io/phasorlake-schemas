@@ -1,0 +1,114 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 109707,
+      "from": {
+        "data-time": "2025-08-12T11:15:00+10:00",
+        "file": "PUBLIC_DISPATCHPRICES_PRE_AP_202508121115_0000000475994494.zip",
+        "release": "2025-08",
+        "sha256": "fdf995b0c14fca3cf5fdd0f86db998d5c3c6eadc8f551f7764831cce91771490"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "PRE_AP_PRICE"
+      ],
+      "rows": 548535,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-22T09:05:00+10:00",
+        "file": "PUBLIC_DISPATCHPRICES_PRE_AP_202610220905_0000000544203632.zip",
+        "release": "2026-10",
+        "sha256": "c8e928e417f5c4db9d1cd3d175934f17461dbe28747d740d0663aca501ae0077"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "PRE_AP_ENERGY_PRICE",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 4,
+          "name": "PRE_AP_RAISE6SEC_PRICE",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 5,
+          "name": "PRE_AP_RAISE60SEC_PRICE",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 6,
+          "name": "PRE_AP_RAISE5MIN_PRICE",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 7,
+          "name": "PRE_AP_RAISEREG_PRICE",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 8,
+          "name": "PRE_AP_LOWER6SEC_PRICE",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 9,
+          "name": "PRE_AP_LOWER60SEC_PRICE",
+          "required": false,
+          "type": "decimal(8, 5)"
+        },
+        {
+          "id": 10,
+          "name": "PRE_AP_LOWER5MIN_PRICE",
+          "required": false,
+          "type": "decimal(10, 5)"
+        },
+        {
+          "id": 11,
+          "name": "PRE_AP_LOWERREG_PRICE",
+          "required": false,
+          "type": "decimal(10, 5)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DISPATCH_PRE_AP_PRICE"
+}

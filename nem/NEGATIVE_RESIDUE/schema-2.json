@@ -1,0 +1,260 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/NEGATIVE_RESIDUE/schema-2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CUMUL_NEGRESIDUE_AMOUNT": {
+      "description": "Negative residue triggering amount",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "CUMUL_NEGRESIDUE_PREV_TI": {
+      "description": "Previous trading interval cumulative negative residue amount",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "DIRECTIONAL_INTERCONNECTORID": {
+      "description": "Negative residue related direction interconnector id",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "DI_NOTBINDING_COUNT": {
+      "description": "Count of the number of DIs not binding by this constraint",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "DI_VIOLATED_COUNT": {
+      "description": "Count of the number of DIs violated by this constraint",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "EVENT_ACTIVATED_DI": {
+      "description": "The starting DI when NRM event is active",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "EVENT_DEACTIVATED_DI": {
+      "description": "The finishing DI when NRM event stops being active.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "NEGRESIDUE_CURRENT_TI": {
+      "description": "Current trading interval negative residue amount",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "NEGRESIDUE_PD_NEXT_TI": {
+      "description": "The cumulative negative residue for the next trading interval (PD)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "NRM_ACTIVATED_FLAG": {
+      "description": "Is 1 if negative residue process is on, else is 0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "NRM_CONSTRAINT_BLOCKED_FLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "NRM_DATETIME": {
+      "description": "The time that residue information is processed",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "NRM_LOOP_FLAG": {
+      "description": "NRM Loop Flag controls monitoring behaviour: \n0 = Individual NRM monitoring suppressed (loop operational with aggregate IRSR >= 0)\n1 = Individual NRM monitoring active (applies to: loop not operational, aggregate loop IRSR < 0, or non-loop interconnection)\nThis flag is evaluated and set for ALL interconnections in each dispatch interval",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "PREDISPATCHSEQNO": {
+      "description": "Predispatch sequence number",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(10, 0)",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "PRICE_REVISION": {
+      "description": "SubjectToReview, Indeterminate, Accepted or Rejected",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(30)"
+    },
+    "SETTLEMENTDATE": {
+      "description": "Dispatch Interval",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "SETTLEMENTDATE",
+    "NRM_DATETIME",
+    "DIRECTIONAL_INTERCONNECTORID"
+  ],
+  "title": "NEGATIVE_RESIDUE, Iceberg schema 2",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "NRM_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "DIRECTIONAL_INTERCONNECTORID",
+      "string"
+    ],
+    [
+      4,
+      "NRM_ACTIVATED_FLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "CUMUL_NEGRESIDUE_AMOUNT",
+      "decimal(15, 5)"
+    ],
+    [
+      6,
+      "CUMUL_NEGRESIDUE_PREV_TI",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "NEGRESIDUE_CURRENT_TI",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "NEGRESIDUE_PD_NEXT_TI",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "PRICE_REVISION",
+      "string"
+    ],
+    [
+      10,
+      "PREDISPATCHSEQNO",
+      "decimal(10, 0)"
+    ],
+    [
+      11,
+      "EVENT_ACTIVATED_DI",
+      "timestamptz"
+    ],
+    [
+      12,
+      "EVENT_DEACTIVATED_DI",
+      "timestamptz"
+    ],
+    [
+      13,
+      "DI_NOTBINDING_COUNT",
+      "decimal(2, 0)"
+    ],
+    [
+      14,
+      "DI_VIOLATED_COUNT",
+      "decimal(2, 0)"
+    ],
+    [
+      16,
+      "NRM_CONSTRAINT_BLOCKED_FLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      17,
+      "NRM_LOOP_FLAG",
+      "decimal(1, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 2,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NEGATIVE_RESIDUE"
+  }
+}

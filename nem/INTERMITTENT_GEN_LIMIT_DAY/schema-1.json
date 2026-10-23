@@ -1,0 +1,126 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/INTERMITTENT_GEN_LIMIT_DAY/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUTHORISEDBYPARTICIPANTID": {
+      "description": "Participant entering the unit availability submission",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "AUTHORISEDBYUSER": {
+      "description": "User entering the unit availability submission",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "DUID": {
+      "description": "Unique Identifier of Dispatchable Unit",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "OFFERDATETIME": {
+      "description": "Date and Time when this unit availability submission was loaded",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PARTICIPANTID": {
+      "description": "Unique participant identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "TRADINGDATE": {
+      "description": "Trading Day for which this unit availability submission applies",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "DUID",
+    "TRADINGDATE",
+    "OFFERDATETIME"
+  ],
+  "title": "INTERMITTENT_GEN_LIMIT_DAY, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      1,
+      "TRADINGDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "PARTICIPANTID",
+      "string"
+    ],
+    [
+      5,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      6,
+      "AUTHORISEDBYUSER",
+      "string"
+    ],
+    [
+      7,
+      "AUTHORISEDBYPARTICIPANTID",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "INTERMITTENT_GEN_LIMIT_DAY"
+  }
+}

@@ -38,7 +38,7 @@
         "schema",
         "version"
       ],
-      "files": 68,
+      "files": 10293,
       "from": {
         "data-time": "2021-02-02T04:30:00+10:00",
         "file": "PUBLIC_DVD_STPASA_INTERCONNECTORSOLN_202102010000.zip",
@@ -47,20 +47,22 @@
       },
       "kinds": [
         "archive",
-        "dvd"
+        "dvd",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": true,
       "report": [
         "STPASA",
         "INTERCONNECTORSOLN"
       ],
-      "rows": 564980256,
+      "rows": 654191136,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-08T04:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#STPASA_INTERCONNECTORSOLN#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "73b437522bd01073c99c777e72b3804b951acc18bfcafa7229f3450d177a8eb5"
+        "data-time": "2026-10-29T04:00:00+10:00",
+        "file": "PUBLIC_STPASA_202610212200_0000000544125280.zip",
+        "release": "2026-10",
+        "sha256": "0db7c03c7d560a4732d91eb64258fa5ee0aa572ab72ce46d145d52adba7f2f3d"
       },
       "updates": [
         {

@@ -227,16 +227,6 @@
       "x-iceberg-type": "decimal(12, 6)",
       "x-model-type": "NUMERIC(12,6)"
     },
-    "MR_CAPACITY": {
-      "description": "Mandatory Restriction Offer amount",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 29,
-      "x-iceberg-type": "decimal(6, 0)",
-      "x-model-type": "NUMERIC(6,0)"
-    },
     "OFFERDATE": {
       "description": "Offer date and time",
       "format": "date-time",
@@ -340,16 +330,6 @@
       3,
       "BIDTYPE",
       "string"
-    ],
-    [
-      30,
-      "DIRECTION",
-      "string"
-    ],
-    [
-      28,
-      "INTERVAL_DATETIME",
-      "timestamptz"
     ],
     [
       4,
@@ -472,9 +452,14 @@
       "decimal(12, 0)"
     ],
     [
-      29,
-      "MR_CAPACITY",
-      "decimal(6, 0)"
+      28,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      30,
+      "DIRECTION",
+      "string"
     ],
     [
       31,

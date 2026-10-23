@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 282,
+      "files": 174,
       "from": {
         "data-time": "2009-07-01T04:30:00+10:00",
         "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_D_200907010000.zip",
@@ -22,7 +22,662 @@
         "PREDISPATCH",
         "INTERCONNECTOR_SOLN"
       ],
-      "rows": 73515174,
+      "rows": 43220244,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2016-10-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_201609010000.zip",
+        "release": "2016-09",
+        "sha256": "31155d09edf7fffffa5faa16b09e3185c0489f6619075d84bdfe13cf75d531da"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2016-10-23T14:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201610231430_20161023140222.zip",
+        "release": "2016-10",
+        "sha256": "05c01348f57bfbc45b7ecb203854b00276f91041632e993e4ef41f29d7ccb18e"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 768,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2016-10-30T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201610290230_20161029020151.zip",
+        "release": "2016-10",
+        "sha256": "0119d1158276f9b2949b9b59e64a5e7bd23047d771bcd2d2cc7fe494cb75cc57"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 20
+        },
+        {
+          "action": "add",
+          "field-id": 21
+        },
+        {
+          "action": "add",
+          "field-id": 22
+        },
+        {
+          "action": "add",
+          "field-id": 23
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2016-10-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_D_201610010000.zip",
+        "release": "2016-10",
+        "sha256": "c831363f13fd2000abe044ee0347039b9cd475eb763c852a5987e22d124427c1"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 504432,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2016-11-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_201610010000.zip",
+        "release": "2016-10",
+        "sha256": "2d8c030528bd407279f0f0336373489d5ea1dc67114e6e4e42504e28ce092c6e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 20
+        },
+        {
+          "action": "delete",
+          "field-id": 21
+        },
+        {
+          "action": "delete",
+          "field-id": 22
+        },
+        {
+          "action": "delete",
+          "field-id": 23
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2016-11-14T22:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201611142200_20161114213159.zip",
+        "release": "2016-11",
+        "sha256": "bfa781b641ddc9e22267e5a6cc6abeaa6529f758ec8e05cc2cae887e5c338383"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 366,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2016-11-16T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201611142200_20161114213159.zip",
+        "release": "2016-11",
+        "sha256": "bfa781b641ddc9e22267e5a6cc6abeaa6529f758ec8e05cc2cae887e5c338383"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 20
+        },
+        {
+          "action": "restore",
+          "field-id": 21
+        },
+        {
+          "action": "restore",
+          "field-id": 22
+        },
+        {
+          "action": "restore",
+          "field-id": 23
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 8,
+      "from": {
+        "data-time": "2016-11-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_D_201611010000.zip",
+        "release": "2016-11",
+        "sha256": "e4b838a3ba532a310517730d1939bea986f71f2e4ff75c23f60da389ae7adcb9"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 1957242,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2017-03-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_201702010000.zip",
+        "release": "2017-02",
+        "sha256": "0f1a61919e0046d1bf45072232920139740c7d9ebc1b5cf19392886010e26e9c"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 20
+        },
+        {
+          "action": "delete",
+          "field-id": 21
+        },
+        {
+          "action": "delete",
+          "field-id": 22
+        },
+        {
+          "action": "delete",
+          "field-id": 23
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2017-03-13T17:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201703131730_20170313170216.zip",
+        "release": "2017-03",
+        "sha256": "bb5f7242d88693e25340deae4df30b191d76e7e53100ce3844768319d557a58a"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 642,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2017-03-27T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201703261000_20170326093122.zip",
+        "release": "2017-03",
+        "sha256": "048cc33516cde79eb8bc5e166deb40a8b5f07bbe1c5cd27275c167e1f57ed3ba"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 20
+        },
+        {
+          "action": "restore",
+          "field-id": 21
+        },
+        {
+          "action": "restore",
+          "field-id": 22
+        },
+        {
+          "action": "restore",
+          "field-id": 23
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2017-03-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_D_201703010000.zip",
+        "release": "2017-03",
+        "sha256": "23400a6b797670a757ff0f6130475ead9cbbaf5b45bb0aef0eae55e31987e698"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 1014858,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2017-05-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_201704010000.zip",
+        "release": "2017-04",
+        "sha256": "17a56a9e70c9999d1fbee7bdf0f9d22f8815ed16bd2281331ec01574ea1fa4b1"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 20
+        },
+        {
+          "action": "delete",
+          "field-id": 21
+        },
+        {
+          "action": "delete",
+          "field-id": 22
+        },
+        {
+          "action": "delete",
+          "field-id": 23
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2017-05-08T17:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201705081700_20170508163242.zip",
+        "release": "2017-05",
+        "sha256": "2a4238af6afc8c8046a893ddb2839214779f0e030c536b2df99aaad665989f15"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 426,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2017-05-10T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201705081700_20170508163242.zip",
+        "release": "2017-05",
+        "sha256": "2a4238af6afc8c8046a893ddb2839214779f0e030c536b2df99aaad665989f15"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 20
+        },
+        {
+          "action": "restore",
+          "field-id": 21
+        },
+        {
+          "action": "restore",
+          "field-id": 22
+        },
+        {
+          "action": "restore",
+          "field-id": 23
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2017-05-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_D_201705010000.zip",
+        "release": "2017-05",
+        "sha256": "c97075cde91b0075cdb53c47355a8b743775ed8262be48b92dccd976488e823f"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 504432,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2017-06-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_201705010000.zip",
+        "release": "2017-05",
+        "sha256": "36747ec45dffae443ef0aa3c3383b7bfd2c6fada398f91142747888e15154457"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 20
+        },
+        {
+          "action": "delete",
+          "field-id": 21
+        },
+        {
+          "action": "delete",
+          "field-id": 22
+        },
+        {
+          "action": "delete",
+          "field-id": 23
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2017-06-18T15:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201706181500_20170618143247.zip",
+        "release": "2017-06",
+        "sha256": "872e3ee17b35e79b8c7d97ad9fc5339de6df9d34ddbac5f941aa674924abdff7"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 450,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2017-06-20T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201706181500_20170618143247.zip",
+        "release": "2017-06",
+        "sha256": "872e3ee17b35e79b8c7d97ad9fc5339de6df9d34ddbac5f941aa674924abdff7"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 20
+        },
+        {
+          "action": "restore",
+          "field-id": 21
+        },
+        {
+          "action": "restore",
+          "field-id": 22
+        },
+        {
+          "action": "restore",
+          "field-id": 23
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 24,
+      "from": {
+        "data-time": "2017-06-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_D_201706010000.zip",
+        "release": "2017-06",
+        "sha256": "4822c50a030e7be7d2d4c739e40c3de9e99e7643ede3e8348089c16d118679a6"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 7115826,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2018-06-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_201805010000.zip",
+        "release": "2018-05",
+        "sha256": "dcf2cb22a196c66dc8c02a2465ed9ca5c489f883084800f60096f562776e8299"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 20
+        },
+        {
+          "action": "delete",
+          "field-id": 21
+        },
+        {
+          "action": "delete",
+          "field-id": 22
+        },
+        {
+          "action": "delete",
+          "field-id": 23
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2018-06-22T02:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201806220230_20180622020151.zip",
+        "release": "2018-06",
+        "sha256": "5b442c7613e719720767a0677e03f1ae8f4087a23e3f7e806e4fe63efebf0542"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 312,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2018-06-23T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201806220230_20180622020151.zip",
+        "release": "2018-06",
+        "sha256": "5b442c7613e719720767a0677e03f1ae8f4087a23e3f7e806e4fe63efebf0542"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 20
+        },
+        {
+          "action": "restore",
+          "field-id": 21
+        },
+        {
+          "action": "restore",
+          "field-id": 22
+        },
+        {
+          "action": "restore",
+          "field-id": 23
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 26,
+      "from": {
+        "data-time": "2018-06-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_D_201806010000.zip",
+        "release": "2018-06",
+        "sha256": "2eb37e884024022b1e565c4533e41e62a9d469d60d397b6dce6977cdea257442"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 7700040,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2019-07-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_201906010000.zip",
+        "release": "2019-06",
+        "sha256": "4c9950efc583ef33e056c0265422b68a244c67be08993e985d58ffd80569d16c"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 20
+        },
+        {
+          "action": "delete",
+          "field-id": 21
+        },
+        {
+          "action": "delete",
+          "field-id": 22
+        },
+        {
+          "action": "delete",
+          "field-id": 23
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2019-07-11T15:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201907111530_20190711150314.zip",
+        "release": "2019-07",
+        "sha256": "8100552c4b7b150556d483bee56234345906f095ed03e4328ebe9da93deb5b78"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 888,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2019-07-13T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201907111530_20190711150314.zip",
+        "release": "2019-07",
+        "sha256": "8100552c4b7b150556d483bee56234345906f095ed03e4328ebe9da93deb5b78"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 20
+        },
+        {
+          "action": "restore",
+          "field-id": 21
+        },
+        {
+          "action": "restore",
+          "field-id": 22
+        },
+        {
+          "action": "restore",
+          "field-id": 23
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 42,
+      "from": {
+        "data-time": "2019-07-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTORRES_D_201907010000.zip",
+        "release": "2019-07",
+        "sha256": "904cbd3100c3ab7a7a4419960108a4ad755406626098a4c625a7f08c2998f70a"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "INTERCONNECTOR_SOLN"
+      ],
+      "rows": 11498100,
       "schema-id": 0,
       "to": {
         "data-time": "2021-04-02T04:00:00+10:00",
@@ -30,7 +685,24 @@
         "release": "2021-03",
         "sha256": "14c8c802dd0c923c456fa553553056ca2a03516fb0ddaeb125fa9d93d6153249"
       },
-      "updates": [],
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 20
+        },
+        {
+          "action": "delete",
+          "field-id": 21
+        },
+        {
+          "action": "delete",
+          "field-id": 22
+        },
+        {
+          "action": "delete",
+          "field-id": 23
+        }
+      ],
       "version": 1
     },
     {
@@ -67,7 +739,7 @@
       "changes": [
         "schema"
       ],
-      "files": 52,
+      "files": 18916,
       "from": {
         "data-time": "2024-08-01T04:30:00+10:00",
         "file": "PUBLIC_ARCHIVE#PREDISPATCHINTERCONNECTORRES#FILE01#202408010000.zip",
@@ -76,36 +748,38 @@
       },
       "kinds": [
         "archive",
-        "archive#all"
+        "archive#all",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": true,
       "report": [
         "PREDISPATCH",
         "INTERCONNECTOR_SOLN"
       ],
-      "rows": 12872712,
+      "rows": 19222821,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-02T04:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#PREDISPATCHINTERCONNECTORRES#ALL#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "6e7ed8973c4f4360ba70ffc3b2e8e3398c71f0cc25ec01b89a50a7280f9ce785"
+        "data-time": "2026-10-23T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_202610212300_20261021223153.zip",
+        "release": "2026-10",
+        "sha256": "aeaeb5ef4afe185ab63081de6184a729d498dfde6459f3958cc7192c826f33ab"
       },
       "updates": [
         {
-          "action": "add",
+          "action": "restore",
           "field-id": 20
         },
         {
-          "action": "add",
+          "action": "restore",
           "field-id": 21
         },
         {
-          "action": "add",
+          "action": "restore",
           "field-id": 22
         },
         {
-          "action": "add",
+          "action": "restore",
           "field-id": 23
         }
       ],

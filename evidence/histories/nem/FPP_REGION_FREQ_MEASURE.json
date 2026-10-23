@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 17,
+      "files": 62930,
       "from": {
         "data-time": "2024-12-09T11:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_REGION_FREQ_MEASURE#FILE01#202412010000.zip",
@@ -15,20 +15,21 @@
         "sha256": "325cb369453a8d693a7b0ecf4e7fb4003d3a67cef131bc3c390abc2db2db7f40"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive"
       ],
       "overlaps": false,
       "report": [
         "FPP",
         "REGION_FREQ_MEASURE"
       ],
-      "rows": 503196525,
+      "rows": 526788525,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-05-08T14:15:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_REGION_FREQ_MEASURE#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "4fcb67dc60db3933fcdce3c1308e79addaec10c07f6e239d21ebc37652db2861"
+        "data-time": "2026-05-14T10:50:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260514.zip",
+        "release": "2026-05",
+        "sha256": "044f7c7f474ee59cec1dc88624cb7b3bf35c4551ccc375a51314993b719a644b"
       },
       "updates": [],
       "version": 1
@@ -37,28 +38,30 @@
       "changes": [
         "schema"
       ],
-      "files": 7,
+      "files": 46808,
       "from": {
-        "data-time": "2024-12-09T11:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_REGION_FREQ_MEASURE#FILE01#202605010000.zip",
+        "data-time": "2026-05-14T10:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_20260514.zip",
         "release": "2026-05",
-        "sha256": "9fece522e31b67c4797666037f28320d1d209debec83440512e30a4a99aaa6e1"
+        "sha256": "044f7c7f474ee59cec1dc88624cb7b3bf35c4551ccc375a51314993b719a644b"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
-      "overlaps": true,
+      "overlaps": false,
       "report": [
         "FPP",
         "REGION_FREQ_MEASURE"
       ],
-      "rows": 193181400,
+      "rows": 210731775,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_REGION_FREQ_MEASURE#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "5be1ae87b1cb3946682e888b5bd60ca56565ccd1b87ae962a028f918c4f82f1f"
+        "data-time": "2026-10-22T08:55:00+10:00",
+        "file": "PUBLIC_FPP_RUN_202610220855_0000000544203622.zip",
+        "release": "2026-10",
+        "sha256": "9efc3d46231354432218d491fa407faa01add6cee0530a5ea1133ee0de370b16"
       },
       "updates": [
         {

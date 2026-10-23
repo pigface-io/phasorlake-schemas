@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 147,
+      "files": 1850,
       "from": {
         "data-time": "2009-07-01T00:30:00+10:00",
         "file": "PUBLIC_DVD_TRADINGLOAD_200907010000.zip",
@@ -15,20 +15,21 @@
         "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
       },
       "kinds": [
-        "dvd"
+        "dvd",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "TRADING",
         "UNIT_SOLUTION"
       ],
-      "rows": 56261334,
+      "rows": 80461876,
       "schema-id": 0,
       "to": {
         "data-time": "2021-10-01T00:00:00+10:00",
-        "file": "PUBLIC_DVD_TRADINGLOAD_202109010000.zip",
+        "file": "PUBLIC_NEXT_DAY_TRADING_20210930_0000000350043172.zip",
         "release": "2021-09",
-        "sha256": "bcbef30d513c0db4ea5960179fb8b32e41ba0ec947147e8e63445825fd5dc35d"
+        "sha256": "57bb966722de85100cefb14e68ec9ecf09e2b6382860bdfc321744c7f4540a33"
       },
       "updates": [],
       "version": 2

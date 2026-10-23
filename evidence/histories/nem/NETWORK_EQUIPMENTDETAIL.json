@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 412,
       "from": {
         "data-time": "1966-10-01T00:00:10.000+10:00",
         "file": "PUBLIC_ARCHIVE#NETWORK_EQUIPMENTDETAIL#FILE01#202408010000.zip",
@@ -15,20 +15,22 @@
         "sha256": "b0cbed0b37c1154a11ba343e160c63fed381d338e3b966c9d1b54ad163417805"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "NETWORK",
         "EQUIPMENTDETAIL"
       ],
-      "rows": 782961,
+      "rows": 8399997,
       "schema-id": 0,
       "to": {
         "data-time": "9999-12-31T23:59:10.000+10:00",
-        "file": "PUBLIC_ARCHIVE#NETWORK_EQUIPMENTDETAIL#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "6859f05b544984705d73892015f1aea4f05e41dd8fb43013f4836c537efaa484"
+        "file": "PUBLIC_NETWORK_20261021100007_0000000544026439.zip",
+        "release": "2026-10",
+        "sha256": "908c4e0224ca561e947f919b5d05c616caac05fd28f3541693ba0d6946f43094"
       },
       "updates": [],
       "version": 2

@@ -1,0 +1,209 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 61,
+      "from": {
+        "data-time": "2026-08-21T04:30:00+10:00",
+        "file": "PUBLIC_VWAFCASPRICES_202608210000_20260822040502.zip",
+        "release": "2026-08",
+        "sha256": "0d39e4a671e0e9a908266df8caca24b7411e7a0b786a1a734350251abc1b21c8"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "TRADING",
+        "VWAFCASPRICES"
+      ],
+      "rows": 2928,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T04:00:00+10:00",
+        "file": "PUBLIC_VWAFCASPRICES_202610200000_20261021040503.zip",
+        "release": "2026-10",
+        "sha256": "9c14e5713a37dd524dd5bce57e0d836ee61529759723ae7b72a83b51c5ab1ee0"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "LOWER5MINVWAPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "LOWER5MINVOLUME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "LOWER5MINREVENUE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "LOWER6SECVWAPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "LOWER6SECVOLUME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "LOWER6SECREVENUE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "LOWER60SECVWAPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "LOWER60SECVOLUME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "LOWER60SECREVENUE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "LOWERREGVWAPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "LOWERREGVOLUME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "LOWERREGREVENUE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "RAISE5MINVWAPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 16,
+          "name": "RAISE5MINVOLUME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "RAISE5MINREVENUE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "RAISE6SECVWAPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "RAISE6SECVOLUME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 20,
+          "name": "RAISE6SECREVENUE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 21,
+          "name": "RAISE60SECVWAPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 22,
+          "name": "RAISE60SECVOLUME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 23,
+          "name": "RAISE60SECREVENUE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 24,
+          "name": "RAISEREGVWAPRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 25,
+          "name": "RAISEREGVOLUME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 26,
+          "name": "RAISEREGREVENUE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 27,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "TRADING_VWAFCASPRICES"
+}

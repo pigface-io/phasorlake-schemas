@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 180,
+      "files": 708,
       "from": {
         "data-time": "2009-06-19T08:40:12+10:00",
         "file": "PUBLIC_DVD_BILLINGREGIONFIGURES_200907010000.zip",
@@ -15,14 +15,15 @@
         "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
       },
       "kinds": [
-        "dvd"
+        "dvd",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "BILLING",
         "REGIONFIGURES"
       ],
-      "rows": 42720,
+      "rows": 45360,
       "schema-id": 0,
       "to": {
         "data-time": "2024-01-07T01:11:15+10:00",
@@ -38,7 +39,7 @@
         "schema",
         "version"
       ],
-      "files": 26,
+      "files": 600,
       "from": {
         "data-time": "2024-07-22T09:44:34+10:00",
         "file": "PUBLIC_ARCHIVE#BILLINGREGIONFIGURES#FILE01#202408010000.zip",
@@ -46,14 +47,15 @@
         "sha256": "a29884f7af8b7b1f3537fe976125e2a584a2296d2d6db060eac1ed733f979af9"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive"
       ],
       "overlaps": false,
       "report": [
         "BILLING",
         "REGIONFIGURES"
       ],
-      "rows": 6240,
+      "rows": 9110,
       "schema-id": 1,
       "to": {
         "data-time": "2026-09-30T09:40:10+10:00",

@@ -1,0 +1,168 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/INTERMITTENT_DS_PRED/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DUID": {
+      "description": "DUID (or Area for non-scheduled) where this forecast applies",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "FORECAST_MEAN": {
+      "description": "Forecast MW value for this interval_DateTime",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "FORECAST_POE10": {
+      "description": "Forecast 10% POE MW value for this interval_DateTime",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "FORECAST_POE50": {
+      "description": "Forecast 50% POE MW value for this interval_DateTime. Used in Dispatch.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "FORECAST_POE90": {
+      "description": "Forecast 90% POE MW value for this interval_DateTime",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "FORECAST_PRIORITY": {
+      "description": "Unsuppressed forecasts with higher priority values are used in Dispatch in preference to unsuppressed forecasts with lower priority values",
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(10,0)"
+    },
+    "INTERVAL_DATETIME": {
+      "description": "Date and Time when the forecast applies (dispatch interval ending)",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "OFFERDATETIME": {
+      "description": "Date and Time when this forecast submission was loaded",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "ORIGIN": {
+      "description": "Origin of this forecast (PARTICIPANTID, AWEFS/ASEFS, or another vendor)",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RUN_DATETIME": {
+      "description": "Date and Time when the forecast applies (dispatch interval ending)",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "RUN_DATETIME",
+    "DUID",
+    "OFFERDATETIME",
+    "INTERVAL_DATETIME",
+    "ORIGIN",
+    "FORECAST_PRIORITY"
+  ],
+  "title": "INTERMITTENT_DS_PRED, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "RUN_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      5,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      6,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "ORIGIN",
+      "string"
+    ],
+    [
+      4,
+      "FORECAST_PRIORITY",
+      "long"
+    ],
+    [
+      7,
+      "FORECAST_MEAN",
+      "decimal(18, 8)"
+    ],
+    [
+      8,
+      "FORECAST_POE10",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "FORECAST_POE50",
+      "decimal(18, 8)"
+    ],
+    [
+      10,
+      "FORECAST_POE90",
+      "decimal(18, 8)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    5,
+    6,
+    3,
+    4
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "INTERMITTENT_DS_PRED"
+  }
+}

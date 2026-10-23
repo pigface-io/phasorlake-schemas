@@ -7,7 +7,37 @@
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 3,
+      "from": {
+        "data-time": "2020-03-13T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20200313_0000000320315048.zip",
+        "release": "2020-03",
+        "sha256": "e2ffe2a22081b7fbeaace23188a3239b871db39189c869a99ec9fea84460a1d9"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 722679,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2020-10-20T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20201019_0000000330470678.zip",
+        "release": "2020-10",
+        "sha256": "8ee9412b7bd5797715fe5c40b52304c789c8201a5c1bed2af67767ab100959d4"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 14,
       "from": {
         "data-time": "2024-08-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202408010000.zip",
@@ -22,15 +52,1416 @@
         "DEMAND",
         "INTERMITTENT_DS_RUN"
       ],
-      "rows": 620306813,
+      "rows": 295859096,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-10-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "910511a6baef5300309f1cf3dd32af47cee70fadb04b2e146d8c142cfc6b573f"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 11
+        },
+        {
+          "action": "add",
+          "field-id": 12
+        },
+        {
+          "action": "add",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-09-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20250901.zip",
+        "release": "2025-09",
+        "sha256": "f2eaf48b639ec28917e824e9914d413172fbc01bd11e4ca2adf20a5d51fa168c"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 19285740,
       "schema-id": 0,
+      "to": {
+        "data-time": "2025-10-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20250901.zip",
+        "release": "2025-09",
+        "sha256": "f2eaf48b639ec28917e824e9914d413172fbc01bd11e4ca2adf20a5d51fa168c"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-10-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "adec56dc043e5dba516972691420325c75a3fe96c5758616029e254d9d05158c"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 19806907,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "adec56dc043e5dba516972691420325c75a3fe96c5758616029e254d9d05158c"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 12
+        },
+        {
+          "action": "restore",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-10-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20251001.zip",
+        "release": "2025-10",
+        "sha256": "235e73bef23791a33d363b6f7fe3afca3af7247c5912d61c6ca5faaadb83f2df"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 19802442,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-11-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20251001.zip",
+        "release": "2025-10",
+        "sha256": "235e73bef23791a33d363b6f7fe3afca3af7247c5912d61c6ca5faaadb83f2df"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-11-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "9532dc5ba9475e5e2144799c6344bc0437f23171b3a777f6d08c4344399b0e86"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 18969867,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "9532dc5ba9475e5e2144799c6344bc0437f23171b3a777f6d08c4344399b0e86"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 12
+        },
+        {
+          "action": "restore",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-11-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20251101.zip",
+        "release": "2025-11",
+        "sha256": "0e1572e983ce9a33f305823ff0f8285421ce5d4833d90b9a4de523feb2066369"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 18968749,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-12-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20251101.zip",
+        "release": "2025-11",
+        "sha256": "0e1572e983ce9a33f305823ff0f8285421ce5d4833d90b9a4de523feb2066369"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-12-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "89d8325646ff6a91749452c8e6883002fce39d49231cde7766de21d9a0914909"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 22120337,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "89d8325646ff6a91749452c8e6883002fce39d49231cde7766de21d9a0914909"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 12
+        },
+        {
+          "action": "restore",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-12-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20251201.zip",
+        "release": "2025-12",
+        "sha256": "bb6e761b158e21ef7929fe89ce7594bee7cbe7b2db5c5d1713309697777341f6"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 22134082,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-01-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20251201.zip",
+        "release": "2025-12",
+        "sha256": "bb6e761b158e21ef7929fe89ce7594bee7cbe7b2db5c5d1713309697777341f6"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-01-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "a7c602f3a608d8143252366ff5bafd9b2b127ec183033a6690649fb0e73c4dc1"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 23573038,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "a7c602f3a608d8143252366ff5bafd9b2b127ec183033a6690649fb0e73c4dc1"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 12
+        },
+        {
+          "action": "restore",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-01-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260101.zip",
+        "release": "2026-01",
+        "sha256": "45cbedd5a01663b448958037755ead119faa78336da80a3e1b6841a3317b6d1c"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 23595018,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-02-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260101.zip",
+        "release": "2026-01",
+        "sha256": "45cbedd5a01663b448958037755ead119faa78336da80a3e1b6841a3317b6d1c"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-02-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "f6507d7f5d223a8986e0a5a6151b629d451ea6b73d44d0d57785b7f7ffd81ce9"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 24594688,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "f6507d7f5d223a8986e0a5a6151b629d451ea6b73d44d0d57785b7f7ffd81ce9"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 12
+        },
+        {
+          "action": "restore",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 28,
+      "from": {
+        "data-time": "2026-02-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260201.zip",
+        "release": "2026-02",
+        "sha256": "296df25b2cbd24013f906dffcd9cdb089dda88bbbef41a8c4571cec2b8a14ce9"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 24620020,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-03-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260201.zip",
+        "release": "2026-02",
+        "sha256": "296df25b2cbd24013f906dffcd9cdb089dda88bbbef41a8c4571cec2b8a14ce9"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-03-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "d48b06d5ee5990c580e6fd9e686d046ddc929faeadadcce8dc2945cd30585708"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 28544995,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "d48b06d5ee5990c580e6fd9e686d046ddc929faeadadcce8dc2945cd30585708"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 12
+        },
+        {
+          "action": "restore",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-03-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260301.zip",
+        "release": "2026-03",
+        "sha256": "e80960a1d4355f5b1092f9a8875a04a60dd30221d82afa6be1c1aa02c0d86aaf"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 28546213,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260301.zip",
+        "release": "2026-03",
+        "sha256": "e80960a1d4355f5b1092f9a8875a04a60dd30221d82afa6be1c1aa02c0d86aaf"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-04-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "dcb4fa31350e8be63fcb0ba70e015dbd2b5a262f124c5989705b785171b96a3a"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 28433165,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "dcb4fa31350e8be63fcb0ba70e015dbd2b5a262f124c5989705b785171b96a3a"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 12
+        },
+        {
+          "action": "restore",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-04-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260401.zip",
+        "release": "2026-04",
+        "sha256": "7e697e0232b4fe6435184425a15acf7ac78bfe9d15087536e11a2524edfe39a2"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 28437841,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260401.zip",
+        "release": "2026-04",
+        "sha256": "7e697e0232b4fe6435184425a15acf7ac78bfe9d15087536e11a2524edfe39a2"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-05-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "f312abadd1cc45d89ea0fe9d2deda12d3f1d3e8f0f97363f22bb5df71fdc3731"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 30703572,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "f312abadd1cc45d89ea0fe9d2deda12d3f1d3e8f0f97363f22bb5df71fdc3731"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 12
+        },
+        {
+          "action": "restore",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-05-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260501.zip",
+        "release": "2026-05",
+        "sha256": "321d55bb11f5a0b42f96cb7b263400ae0b1ac1d42a571b9aa6d27b72a4ea2841"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 30712796,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-06-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260501.zip",
+        "release": "2026-05",
+        "sha256": "321d55bb11f5a0b42f96cb7b263400ae0b1ac1d42a571b9aa6d27b72a4ea2841"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-06-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "c35c7494539fc438a3221c0d9dc7a41030dbd1080fd99decec9ce6fd8f9ed0b9"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 31120057,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "c35c7494539fc438a3221c0d9dc7a41030dbd1080fd99decec9ce6fd8f9ed0b9"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 12
+        },
+        {
+          "action": "restore",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-06-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260601.zip",
+        "release": "2026-06",
+        "sha256": "e7d8f8c56321069000fe6cb604554ce13a6b3e048feab1e3c371d6ec4c3dff99"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 31124484,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-07-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260601.zip",
+        "release": "2026-06",
+        "sha256": "e7d8f8c56321069000fe6cb604554ce13a6b3e048feab1e3c371d6ec4c3dff99"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-07-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "145bb35aa44306666d63d933c5a145e5685ef335b58c97a6503241f132f1bbca"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 32429700,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "145bb35aa44306666d63d933c5a145e5685ef335b58c97a6503241f132f1bbca"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 12
+        },
+        {
+          "action": "restore",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-07-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260701.zip",
+        "release": "2026-07",
+        "sha256": "b3236c57ee0b6e1b3051d010147762465eb7093909778f5e18ae2bdea38c41a9"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 32433957,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260701.zip",
+        "release": "2026-07",
+        "sha256": "b3236c57ee0b6e1b3051d010147762465eb7093909778f5e18ae2bdea38c41a9"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "4f5b67b02f8a02fd17c55a549401ff5266878729244f8227037ded5d7219543f"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 32389047,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-08-31T10:45:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "4f5b67b02f8a02fd17c55a549401ff5266878729244f8227037ded5d7219543f"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 12
+        },
+        {
+          "action": "restore",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 42,
+      "from": {
+        "data-time": "2026-08-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260801.zip",
+        "release": "2026-08",
+        "sha256": "e4e1ba0014241f4d65d14e1558394c161c2ee7f76f352e0250e9abdb2c21c83f"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 44695803,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260831_0000000535460216.zip",
+        "release": "2026-08",
+        "sha256": "fada0e8838d7e7d84d48ccb09f0adcae8bc07103ed9f1b5b59c2d612c939b2c8"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-09-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "1649b24d671b6721aaba199990c195d8714f963e3c3434295c813aa43f511233"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 31762344,
+      "schema-id": 1,
       "to": {
         "data-time": "2026-10-01T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_RUN#FILE01#202609010000.zip",
         "release": "2026-09",
         "sha256": "1649b24d671b6721aaba199990c195d8714f963e3c3434295c813aa43f511233"
       },
-      "updates": [],
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 12
+        },
+        {
+          "action": "restore",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        },
+        {
+          "action": "move",
+          "field-id": 8
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 51,
+      "from": {
+        "data-time": "2026-09-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260901_0000000535633840.zip",
+        "release": "2026-09",
+        "sha256": "01eb346142f52e5e886637388685e4b48d23a0f14255e73906cc855bb5f99fe2"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_RUN"
+      ],
+      "rows": 54272074,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-22T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20261021_0000000544169325.zip",
+        "release": "2026-10",
+        "sha256": "1158934191d8b22c0a017a67ae307a707ed87d1427b99d71450739087c1fd1de"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "delete",
+          "field-id": 12
+        },
+        {
+          "action": "delete",
+          "field-id": 13
+        },
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 7
+        },
+        {
+          "action": "move",
+          "field-id": 10
+        }
+      ],
       "version": 1
     }
   ],
@@ -51,66 +1482,139 @@
         },
         {
           "id": 3,
-          "name": "OFFERDATETIME",
-          "required": true,
-          "type": "timestamptz"
-        },
-        {
-          "id": 4,
           "name": "ORIGIN",
           "required": true,
           "type": "string"
         },
         {
-          "id": 5,
+          "id": 4,
           "name": "FORECAST_PRIORITY",
           "required": true,
           "type": "long"
         },
         {
-          "id": 6,
-          "name": "AUTHORISEDBY",
-          "required": false,
-          "type": "string"
-        },
-        {
-          "id": 7,
-          "name": "COMMENTS",
-          "required": false,
-          "type": "string"
-        },
-        {
-          "id": 8,
-          "name": "LASTCHANGED",
-          "required": false,
+          "id": 5,
+          "name": "OFFERDATETIME",
+          "required": true,
           "type": "timestamptz"
         },
         {
-          "id": 9,
-          "name": "MODEL",
-          "required": false,
-          "type": "string"
-        },
-        {
-          "id": 10,
+          "id": 6,
           "name": "PARTICIPANT_TIMESTAMP",
           "required": false,
           "type": "timestamptz"
         },
         {
-          "id": 11,
-          "name": "SUPPRESSED_AEMO",
-          "required": false,
-          "type": "decimal(1, 0)"
-        },
-        {
-          "id": 12,
+          "id": 7,
           "name": "SUPPRESSED_PARTICIPANT",
           "required": false,
           "type": "decimal(1, 0)"
         },
         {
+          "id": 8,
+          "name": "SUPPRESSED_AEMO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 9,
+          "name": "TRANSACTION_ID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        5,
+        3,
+        4
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "OFFERDATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "ORIGIN",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "FORECAST_PRIORITY",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 11,
+          "name": "AUTHORISEDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "COMMENTS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
           "id": 13,
+          "name": "MODEL",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "PARTICIPANT_TIMESTAMP",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 8,
+          "name": "SUPPRESSED_AEMO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 7,
+          "name": "SUPPRESSED_PARTICIPANT",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 9,
           "name": "TRANSACTION_ID",
           "required": false,
           "type": "string"
@@ -119,11 +1623,11 @@
       "identifier-field-ids": [
         1,
         2,
+        5,
         3,
-        4,
-        5
+        4
       ],
-      "schema-id": 0,
+      "schema-id": 1,
       "type": "struct"
     }
   ],

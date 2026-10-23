@@ -7,22 +7,24 @@
       "changes": [
         "first"
       ],
-      "files": 20,
+      "files": 147,
       "from": {
-        "data-time": "2024-10-24T08:59:33+10:00",
-        "file": "PUBLIC_ARCHIVE#BILLING_NMAS_TST_RECVRY_RBF#FILE01#202410010000.zip",
-        "release": "2024-10",
-        "sha256": "a28e198525c5fd665f72d8bb3ed5501c5aeac0ad565bace4523b7242a2768c26"
+        "data-time": "2017-01-30T13:20:12+10:00",
+        "file": "PUBLIC_BILLING_20170207101322_0000000280742011.zip",
+        "release": "2017-02",
+        "sha256": "f0638979b9c6ec2c353eb4e6b02ea9f68e0392e70f1966892451c68de85d8e40"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "BILLING",
         "NMAS_TST_RECVRY_RBF"
       ],
-      "rows": 1400,
+      "rows": 2700,
       "schema-id": 0,
       "to": {
         "data-time": "2026-09-24T10:01:39+10:00",

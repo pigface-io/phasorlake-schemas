@@ -1,0 +1,79 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/INTERMITTENT_CLUSTER_AVAIL_DAY/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CLUSTERID": {
+      "description": "Unique Cluster Identifier for this cluster within the DUID",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "DUID": {
+      "description": "Unique Identifier of Dispatchable Unit",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "OFFERDATETIME": {
+      "description": "Date and Time when this cluster availability submission was loaded",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "TRADINGDATE": {
+      "description": "Trading Day for which this cluster availability submission applies",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    }
+  },
+  "required": [
+    "DUID",
+    "TRADINGDATE",
+    "OFFERDATETIME",
+    "CLUSTERID"
+  ],
+  "title": "INTERMITTENT_CLUSTER_AVAIL_DAY, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      2,
+      "DUID",
+      "string"
+    ],
+    [
+      1,
+      "TRADINGDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "OFFERDATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "CLUSTERID",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "INTERMITTENT_CLUSTER_AVAIL_DAY"
+  }
+}

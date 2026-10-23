@@ -1,0 +1,127 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DEMANDOPERATIONALFORECAST/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "INTERVAL_DATETIME": {
+      "description": "Forecast for a particular date time interval",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LOAD_DATE": {
+      "description": "Date time this forecast was produced",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "OPERATIONAL_DEMAND_POE10": {
+      "description": "10% probability of exceedance operational demand forecast value",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(15, 2)",
+      "x-model-type": "NUMERIC(15,2)"
+    },
+    "OPERATIONAL_DEMAND_POE50": {
+      "description": "50% probability of exceedance operational demand forecast value",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 2)",
+      "x-model-type": "NUMERIC(15,2)"
+    },
+    "OPERATIONAL_DEMAND_POE90": {
+      "description": "90% probability of exceedance operational demand forecast value",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 2)",
+      "x-model-type": "NUMERIC(15,2)"
+    },
+    "REGIONID": {
+      "description": "Region identifier",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    }
+  },
+  "required": [
+    "REGIONID",
+    "INTERVAL_DATETIME"
+  ],
+  "title": "DEMANDOPERATIONALFORECAST, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      1,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "LOAD_DATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "OPERATIONAL_DEMAND_POE10",
+      "decimal(15, 2)"
+    ],
+    [
+      5,
+      "OPERATIONAL_DEMAND_POE50",
+      "decimal(15, 2)"
+    ],
+    [
+      6,
+      "OPERATIONAL_DEMAND_POE90",
+      "decimal(15, 2)"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DEMANDOPERATIONALFORECAST"
+  }
+}

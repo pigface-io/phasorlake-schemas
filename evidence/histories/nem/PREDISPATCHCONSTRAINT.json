@@ -38,7 +38,7 @@
         "schema",
         "version"
       ],
-      "files": 375,
+      "files": 214,
       "from": {
         "data-time": "2010-11-01T00:30:00+10:00",
         "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_201011010000.zip",
@@ -53,7 +53,963 @@
         "PREDISPATCH",
         "CONSTRAINT_SOLUTION"
       ],
-      "rows": 6770051549,
+      "rows": 3369377174,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2016-10-17T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_201610010000.zip",
+        "release": "2016-10",
+        "sha256": "6897306e08f93920e9f00d1032c8214939590c27da85d68dd246f305a7675eb6"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 14
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2016-10-23T14:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201610231430_20161023140222.zip",
+        "release": "2016-10",
+        "sha256": "05c01348f57bfbc45b7ecb203854b00276f91041632e993e4ef41f29d7ccb18e"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 72079,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2016-10-30T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201610290230_20161029020151.zip",
+        "release": "2016-10",
+        "sha256": "0119d1158276f9b2949b9b59e64a5e7bd23047d771bcd2d2cc7fe494cb75cc57"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "add",
+          "field-id": 15
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2016-10-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT_D_201610010000.zip",
+        "release": "2016-10",
+        "sha256": "42a72a26d1efbee31c0c44664c395268603e3965d9e3bb23d266388af184642b"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 26578097,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2016-11-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT2_201610010000.zip",
+        "release": "2016-10",
+        "sha256": "50e3725e552a37a86d6d687c270e4224ccd76bcc4968ff624b674fc3359074a6"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 11
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2016-11-14T22:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201611142200_20161114213159.zip",
+        "release": "2016-11",
+        "sha256": "bfa781b641ddc9e22267e5a6cc6abeaa6529f758ec8e05cc2cae887e5c338383"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 38367,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2016-11-16T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201611142200_20161114213159.zip",
+        "release": "2016-11",
+        "sha256": "bfa781b641ddc9e22267e5a6cc6abeaa6529f758ec8e05cc2cae887e5c338383"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 13,
+      "from": {
+        "data-time": "2016-11-01T00:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_201611010000.zip",
+        "release": "2016-11",
+        "sha256": "24d6d06bfdfe87a57242fcb2d64ff08099931cffc93e6b5e1829261359674fd7"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 212462950,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2017-03-17T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_201703010000.zip",
+        "release": "2017-03",
+        "sha256": "99f1be2b4cdee516b1f3933afa44feff4306d36f53711d31bb297d60881aedcd"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 11
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2017-03-13T17:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201703131730_20170313170216.zip",
+        "release": "2017-03",
+        "sha256": "bb5f7242d88693e25340deae4df30b191d76e7e53100ce3844768319d557a58a"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 60533,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2017-03-27T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201703261000_20170326093122.zip",
+        "release": "2017-03",
+        "sha256": "048cc33516cde79eb8bc5e166deb40a8b5f07bbe1c5cd27275c167e1f57ed3ba"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 5,
+      "from": {
+        "data-time": "2017-03-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT_D_201703010000.zip",
+        "release": "2017-03",
+        "sha256": "5c362eb8ae05ba1ca14ff7e84bb7bb9bd59e55303e0cae90b145ae8d3cb304ee"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 75510111,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2017-05-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT2_201704010000.zip",
+        "release": "2017-04",
+        "sha256": "9c7bf59498b0cc9f28281933bb3431ff4f5ada0f09f5f64c35d2044b1a82b20b"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 11
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2017-05-08T17:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201705081700_20170508163242.zip",
+        "release": "2017-05",
+        "sha256": "2a4238af6afc8c8046a893ddb2839214779f0e030c536b2df99aaad665989f15"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 39396,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2017-05-10T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201705081700_20170508163242.zip",
+        "release": "2017-05",
+        "sha256": "2a4238af6afc8c8046a893ddb2839214779f0e030c536b2df99aaad665989f15"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2017-05-01T00:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_201705010000.zip",
+        "release": "2017-05",
+        "sha256": "849731105bae018d9a637261369381683918e9d6eafd5c1414267ded781c0835"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 73237173,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2017-06-17T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_201706010000.zip",
+        "release": "2017-06",
+        "sha256": "c398759a319f77d3804b62950f09e52b4416831e1aecc85dec7711349be2fe1b"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 11
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2017-06-18T15:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201706181500_20170618143247.zip",
+        "release": "2017-06",
+        "sha256": "872e3ee17b35e79b8c7d97ad9fc5339de6df9d34ddbac5f941aa674924abdff7"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 41557,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2017-06-20T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201706181500_20170618143247.zip",
+        "release": "2017-06",
+        "sha256": "872e3ee17b35e79b8c7d97ad9fc5339de6df9d34ddbac5f941aa674924abdff7"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 6,
+      "from": {
+        "data-time": "2017-06-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT_D_201706010000.zip",
+        "release": "2017-06",
+        "sha256": "aa1e90558b1fbff6f12d77dd5ae98e777a2b8c9593d83f0573cb3eddc08aee01"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 98740742,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2017-08-17T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_201708010000.zip",
+        "release": "2017-08",
+        "sha256": "3c6290788c02e4c0ccda4d0bf97ac34f737342ae5b69186e37e3ac79b914ca2c"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 11
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2017-08-30T04:30:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20170830_0000000286881960.zip",
+        "release": "2017-08",
+        "sha256": "1589a277e0dc613105d9ca87c2c8578e217a953dfe075b01ce051e24d01d48cc"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 93585,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2017-08-31T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20170830_0000000286881960.zip",
+        "release": "2017-08",
+        "sha256": "1589a277e0dc613105d9ca87c2c8578e217a953dfe075b01ce051e24d01d48cc"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2017-08-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT_D_201708010000.zip",
+        "release": "2017-08",
+        "sha256": "4c78c767451c34d2c734cdb63f572bd0b8c5b3337cf511a0f7ddac3dfaed5311"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 651276016,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2018-06-17T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_201806010000.zip",
+        "release": "2018-06",
+        "sha256": "1e225edc31e2ef926a5378137059f58c29f8a42ec4faae51cf9eef0729fc42a7"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 11
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2018-06-21T04:30:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20180621_0000000296234709.zip",
+        "release": "2018-06",
+        "sha256": "c1a971d4f5539fabbb0cdc74fd2accb30422c18543de6a5b104ca5e96d1628bc"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 141332,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2018-06-23T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201806220230_20180622020151.zip",
+        "release": "2018-06",
+        "sha256": "5b442c7613e719720767a0677e03f1ae8f4087a23e3f7e806e4fe63efebf0542"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 5,
+      "from": {
+        "data-time": "2018-06-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT_D_201806010000.zip",
+        "release": "2018-06",
+        "sha256": "d0e1f6935a3a09087e2e6be85b5fcf794e51bc3cdcaad04765a8699cedc4f668"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 106419634,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2018-08-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT2_201807010000.zip",
+        "release": "2018-07",
+        "sha256": "46e7013d734d23038c574779277a88b0659da983eecd4806b147457c12fc8d20"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 11
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2018-08-11T04:30:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20180811_0000000297937275.zip",
+        "release": "2018-08",
+        "sha256": "74cda9d217ce592a7f03f6f896263e59d31e2481ce272391987773c1755bea82"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 267860,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2018-08-12T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20180811_0000000297937275.zip",
+        "release": "2018-08",
+        "sha256": "74cda9d217ce592a7f03f6f896263e59d31e2481ce272391987773c1755bea82"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2018-08-01T00:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_201808010000.zip",
+        "release": "2018-08",
+        "sha256": "7e8ae99e9b2dc3f8192c418ceae7df8005ad9ea4c5c7095a4b45693a29329361"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 113459147,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2018-09-17T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_201809010000.zip",
+        "release": "2018-09",
+        "sha256": "84cc5f2680396cdb90af39caa1ad650d1dcb60da4d39f4fdccabacffb8b0cb72"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 11
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2018-09-19T04:30:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20180919_0000000299252816.zip",
+        "release": "2018-09",
+        "sha256": "c552457a76ebf463665306a68f4145a0d1532019b18d9166e281df2b06bda546"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 296766,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2018-09-20T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20180919_0000000299252816.zip",
+        "release": "2018-09",
+        "sha256": "c552457a76ebf463665306a68f4145a0d1532019b18d9166e281df2b06bda546"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 14,
+      "from": {
+        "data-time": "2018-09-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT_D_201809010000.zip",
+        "release": "2018-09",
+        "sha256": "8a5c465dddbb4f5600514c05fa4ebf8b0809e83c91f2fb81b193a5e332f5494b"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 286848442,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2019-02-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT2_201901010000.zip",
+        "release": "2019-01",
+        "sha256": "82cae1912613e628209d233055ec2883a9f993644cec47849c70f6814399b68e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 11
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2019-02-13T04:30:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20190213_0000000304422040.zip",
+        "release": "2019-02",
+        "sha256": "314647d455b47983afc4ff367b1e3b8986ea4e2e6755e59fb715bfc0022690d6"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 309108,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2019-02-14T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20190213_0000000304422040.zip",
+        "release": "2019-02",
+        "sha256": "314647d455b47983afc4ff367b1e3b8986ea4e2e6755e59fb715bfc0022690d6"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 15,
+      "from": {
+        "data-time": "2019-02-01T00:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_201902010000.zip",
+        "release": "2019-02",
+        "sha256": "4af53caf1dd93d0a06573dd17df86c091235706665bf36fe30db19baa91177e9"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 326655238,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2019-07-02T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT2_201906010000.zip",
+        "release": "2019-06",
+        "sha256": "1579f143a0df39cc057dcbd4a8944b7b11e3f62bd151ee7e6913d51b9e809586"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 11
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2019-07-11T15:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201907111530_20190711150314.zip",
+        "release": "2019-07",
+        "sha256": "8100552c4b7b150556d483bee56234345906f095ed03e4328ebe9da93deb5b78"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 93550,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2019-07-13T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201907111530_20190711150314.zip",
+        "release": "2019-07",
+        "sha256": "8100552c4b7b150556d483bee56234345906f095ed03e4328ebe9da93deb5b78"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 40,
+      "from": {
+        "data-time": "2019-07-01T00:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_201907010000.zip",
+        "release": "2019-07",
+        "sha256": "bcbdd9209d98540b29cfd3f61e090f40ab73649e4f54f4fde1d57d32b53ef250"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 964712472,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2020-08-17T04:00:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT1_202008010000.zip",
+        "release": "2020-08",
+        "sha256": "5883d69d3439e5e3df214fde5b290a3e9e54422bbb626de387c42c4120b382f6"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 11
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2020-08-22T04:30:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20200822_0000000327481564.zip",
+        "release": "2020-08",
+        "sha256": "c9334cb7630c2b6e9597ae5cc4565ea7fc4cdf460bd5fea0f6d59ec28223de7f"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 210170,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2020-08-23T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20200822_0000000327481564.zip",
+        "release": "2020-08",
+        "sha256": "c9334cb7630c2b6e9597ae5cc4565ea7fc4cdf460bd5fea0f6d59ec28223de7f"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 11
+        },
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 23,
+      "from": {
+        "data-time": "2020-08-01T04:30:00+10:00",
+        "file": "PUBLIC_DVD_PREDISPATCHCONSTRAINT_D_202008010000.zip",
+        "release": "2020-08",
+        "sha256": "740a20536b15582df6020824993323fb04b3615720f835ef5c9ce336870f2e16"
+      },
+      "kinds": [
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "CONSTRAINT_SOLUTION"
+      ],
+      "rows": 464774353,
       "schema-id": 1,
       "to": {
         "data-time": "2021-04-02T04:00:00+10:00",
@@ -63,8 +1019,12 @@
       },
       "updates": [
         {
-          "action": "add",
-          "field-id": 14
+          "action": "delete",
+          "field-id": 15
+        },
+        {
+          "action": "restore",
+          "field-id": 11
         }
       ],
       "version": 3
@@ -103,7 +1063,7 @@
       "changes": [
         "schema"
       ],
-      "files": 83,
+      "files": 19801,
       "from": {
         "data-time": "2024-08-01T04:30:00+10:00",
         "file": "PUBLIC_ARCHIVE#PREDISPATCHCONSTRAINT#ALL#FILE01#202408010000.zip",
@@ -112,20 +1072,22 @@
       },
       "kinds": [
         "archive",
-        "archive#all"
+        "archive#all",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": true,
       "report": [
         "PREDISPATCH",
         "CONSTRAINT_SOLUTION"
       ],
-      "rows": 1863474463,
+      "rows": 2987926291,
       "schema-id": 2,
       "to": {
-        "data-time": "2026-10-02T04:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#PREDISPATCHCONSTRAINT#ALL#FILE02#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "4b690be19bf8854c54552f898a500d66e6c586dfc9ef1e3a272ba0c7ff767b7f"
+        "data-time": "2026-10-23T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_202610212300_20261021223153.zip",
+        "release": "2026-10",
+        "sha256": "aeaeb5ef4afe185ab63081de6184a729d498dfde6459f3958cc7192c826f33ab"
       },
       "updates": [
         {
@@ -133,7 +1095,7 @@
           "field-id": 11
         },
         {
-          "action": "add",
+          "action": "restore",
           "field-id": 15
         }
       ],

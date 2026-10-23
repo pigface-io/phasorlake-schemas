@@ -1,13 +1,13 @@
 {
   "breaking": [],
-  "current-schema-id": 0,
+  "current-schema-id": 1,
   "format-version": 3,
   "runs": [
     {
       "changes": [
         "first"
       ],
-      "files": 207,
+      "files": 196,
       "from": {
         "data-time": "2009-07-01T04:30:00+10:00",
         "file": "PUBLIC_DVD_PREDISPATCHPRICESENSITIVITIE_D_200907010000.zip",
@@ -23,7 +23,773 @@
         "PREDISPATCH",
         "PRICESENSITIVITIES"
       ],
-      "rows": 1513890,
+      "rows": 1433730,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-11-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "54d43c9e0ffa25ed807ae624e35e8dd4fc1a4cd30f489c019a8dd31cd40cabe9"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1487,
+      "from": {
+        "data-time": "2025-10-01T01:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20251001_20251007.zip",
+        "release": "2025-10",
+        "sha256": "dde5345939b0726b4eb5dfb1b3dd04da28cfb4196af2cacf844832f41efe0df8"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 412640,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-11-02T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20251029_20251104.zip",
+        "release": "2025-10",
+        "sha256": "8fb41cf497f2c10ed2fc9a7beb626da99988f43ca92147e54e811773a70af83f"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 35
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-11-01T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "0fba539905d827ddc2445315abe3695b9849b4c35f9bb67e730164d5ec2a0cf7"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 7200,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-12-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "0fba539905d827ddc2445315abe3695b9849b4c35f9bb67e730164d5ec2a0cf7"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 34
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2025-11-01T00:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20251029_20251104.zip",
+        "release": "2025-11",
+        "sha256": "8fb41cf497f2c10ed2fc9a7beb626da99988f43ca92147e54e811773a70af83f"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 399600,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-12-02T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20251126_20251202.zip",
+        "release": "2025-11",
+        "sha256": "c56da396e216ab8148d08f17a4c06124c0746ef114f5313cffa3ec7c6ebb52ac"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 35
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-12-01T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "b8e7fb0c8aa1e8ba5aeabf1aa40f36a205fb99109a3259bd2a24265e553f4484"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 7440,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-01-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "b8e7fb0c8aa1e8ba5aeabf1aa40f36a205fb99109a3259bd2a24265e553f4484"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 34
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2025-12-01T00:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20251126_20251202.zip",
+        "release": "2025-12",
+        "sha256": "c56da396e216ab8148d08f17a4c06124c0746ef114f5313cffa3ec7c6ebb52ac"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 412920,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-02T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20251231_20260106.zip",
+        "release": "2025-12",
+        "sha256": "e7c6fc6637bef1408d26c425dbf702ef11829e6baa39de997d36580b8c76f830"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 35
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-01-01T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "02aa7c8cdc3604c4483f9d40e0027bfa7f15ae23df76fb79623c308835879e61"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 7440,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-02-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "02aa7c8cdc3604c4483f9d40e0027bfa7f15ae23df76fb79623c308835879e61"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 34
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-01-01T00:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20251231_20260106.zip",
+        "release": "2026-01",
+        "sha256": "e7c6fc6637bef1408d26c425dbf702ef11829e6baa39de997d36580b8c76f830"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 412920,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-02T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260128_20260203.zip",
+        "release": "2026-01",
+        "sha256": "aa39b6571c3c2d70ee3ec09ebb29444f75af216321e1a81d716be9cf2a0a934c"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 35
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-02-01T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "47f7f34806809fba6073442e49dd8d0835210e22a30a59eb560ff6ade8ea82b5"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 6720,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-03-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "47f7f34806809fba6073442e49dd8d0835210e22a30a59eb560ff6ade8ea82b5"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 34
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1345,
+      "from": {
+        "data-time": "2026-02-01T00:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260128_20260203.zip",
+        "release": "2026-02",
+        "sha256": "aa39b6571c3c2d70ee3ec09ebb29444f75af216321e1a81d716be9cf2a0a934c"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 373345,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-03-05T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260303134002_0000000506103520.zip",
+        "release": "2026-03",
+        "sha256": "0e615b418e6a840aecd7dfa9aa5a1da8d580c0c2029b0aced3312f85b0e82607"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 35
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-03-01T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "6da7eca087e543656f758509d4daa8dfbb1328ad14c4a3d32383386401a5dfd0"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 7440,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "6da7eca087e543656f758509d4daa8dfbb1328ad14c4a3d32383386401a5dfd0"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 34
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-03-01T00:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260225_20260303.zip",
+        "release": "2026-03",
+        "sha256": "39e6fd5fec5fd3547d600422618025910a4bf465542a6aed0157d2ecc8f91606"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 412920,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-02T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260325_20260331.zip",
+        "release": "2026-03",
+        "sha256": "a5c84fe47e280b21c04ecc158074b6889aa7144fb49aa0cad8a31c25904f8f2f"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 35
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-04-01T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "a5f0d813e71a146d5332fdb8095f902249c2be5df0820d5f3dfe6edf11e0e107"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 7200,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "a5f0d813e71a146d5332fdb8095f902249c2be5df0820d5f3dfe6edf11e0e107"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 34
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2026-04-01T00:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260325_20260331.zip",
+        "release": "2026-04",
+        "sha256": "a5c84fe47e280b21c04ecc158074b6889aa7144fb49aa0cad8a31c25904f8f2f"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 399600,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-02T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260429_20260505.zip",
+        "release": "2026-04",
+        "sha256": "fc7467d26397ea14375f13fb99ae3f7be564ef8d6c7d41c54f3f131f0d8059c7"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 35
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-05-01T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "4de276f21edac9955522aba704ed660682b202c967979cc3e5548ffed8ed6cdd"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 7440,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-06-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "4de276f21edac9955522aba704ed660682b202c967979cc3e5548ffed8ed6cdd"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 34
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-05-01T00:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260429_20260505.zip",
+        "release": "2026-05",
+        "sha256": "fc7467d26397ea14375f13fb99ae3f7be564ef8d6c7d41c54f3f131f0d8059c7"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 412920,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-06-02T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260527_20260602.zip",
+        "release": "2026-05",
+        "sha256": "7cb7859e73a3af38181a2173c2033d7e2c9f176bd57cfc931c92541751add1bf"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 35
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-06-01T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "397b4be1036ae551da0791c377e255db79889ad36ac3d2049920706161542ff3"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 7200,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-07-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "397b4be1036ae551da0791c377e255db79889ad36ac3d2049920706161542ff3"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 34
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2026-06-01T00:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260527_20260602.zip",
+        "release": "2026-06",
+        "sha256": "7cb7859e73a3af38181a2173c2033d7e2c9f176bd57cfc931c92541751add1bf"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 399600,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-07-02T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260624_20260630.zip",
+        "release": "2026-06",
+        "sha256": "97e7854e49fad3802387c3a712cc62b63fb52d01801f67cc96cb790042c06c4b"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 35
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-07-01T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "bce62c58c269ceb7f8ae288a5194563a30822b22166ab3d71191c88b368a1597"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 7440,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "bce62c58c269ceb7f8ae288a5194563a30822b22166ab3d71191c88b368a1597"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 34
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-07-01T00:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260624_20260630.zip",
+        "release": "2026-07",
+        "sha256": "97e7854e49fad3802387c3a712cc62b63fb52d01801f67cc96cb790042c06c4b"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 412920,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-08-02T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260729_20260804.zip",
+        "release": "2026-07",
+        "sha256": "0b521f9ec2b23c85507006cbb845eb107236a0aa55ed9c94dba229955ab04ea3"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 35
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-01T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "a303c4ebe6cadfc1b743ebde0377937a444c3700e5f945f8df5549542a5380dc"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 7440,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "a303c4ebe6cadfc1b743ebde0377937a444c3700e5f945f8df5549542a5380dc"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 34
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-08-01T00:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260729_20260804.zip",
+        "release": "2026-08",
+        "sha256": "0b521f9ec2b23c85507006cbb845eb107236a0aa55ed9c94dba229955ab04ea3"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 412920,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-09-02T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260826_20260901.zip",
+        "release": "2026-08",
+        "sha256": "d19270c0c82e4aff3923993f7d21a30f59df2283c326c4720aea38910cc0c270"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 35
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-09-01T04:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICESENSITIVITIES#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "97ecb5e281c3cf9340b447f151c7988dc9ba87bf8c0e7685f3676b1317360507"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 7200,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-01T04:00:00+10:00",
@@ -31,7 +797,48 @@
         "release": "2026-09",
         "sha256": "97ecb5e281c3cf9340b447f151c7988dc9ba87bf8c0e7685f3676b1317360507"
       },
-      "updates": [],
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 34
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2789,
+      "from": {
+        "data-time": "2026-09-01T00:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260826_20260901.zip",
+        "release": "2026-09",
+        "sha256": "d19270c0c82e4aff3923993f7d21a30f59df2283c326c4720aea38910cc0c270"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "PREDISPATCH",
+        "PRICESENSITIVITIES"
+      ],
+      "rows": 774070,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-23T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20261021220759_0000000544124404.zip",
+        "release": "2026-10",
+        "sha256": "f414572f3fbb564da01ba327f2eee9e9e040e001f183750de97349fc2d4e4b6c"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 35
+        }
+      ],
       "version": 1
     }
   ],
@@ -60,7 +867,7 @@
           "id": 4,
           "name": "PERIODID",
           "required": false,
-          "type": "decimal(1, 0)"
+          "type": "decimal(2, 0)"
         },
         {
           "id": 5,
@@ -350,6 +1157,322 @@
         35
       ],
       "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 6,
+          "name": "RRPEEP1",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "RRPEEP2",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "RRPEEP3",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "RRPEEP4",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 10,
+          "name": "RRPEEP5",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "RRPEEP6",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "RRPEEP7",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "RRPEEP8",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "RRPEEP9",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "RRPEEP10",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "RRPEEP11",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "RRPEEP12",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "RRPEEP13",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "RRPEEP14",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "RRPEEP15",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "RRPEEP16",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "RRPEEP17",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "RRPEEP18",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "RRPEEP19",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 25,
+          "name": "RRPEEP20",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 26,
+          "name": "RRPEEP21",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "RRPEEP22",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "RRPEEP23",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "RRPEEP24",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "RRPEEP25",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 31,
+          "name": "RRPEEP26",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "RRPEEP27",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "RRPEEP28",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 35,
+          "name": "DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 34,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 36,
+          "name": "RRPEEP29",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 37,
+          "name": "RRPEEP30",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 38,
+          "name": "RRPEEP31",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 39,
+          "name": "RRPEEP32",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 40,
+          "name": "RRPEEP33",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 41,
+          "name": "RRPEEP34",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 42,
+          "name": "RRPEEP35",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 43,
+          "name": "INTERVENTION_ACTIVE",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 44,
+          "name": "RRPEEP36",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 45,
+          "name": "RRPEEP37",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 46,
+          "name": "RRPEEP38",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 47,
+          "name": "RRPEEP39",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 48,
+          "name": "RRPEEP40",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 49,
+          "name": "RRPEEP41",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 50,
+          "name": "RRPEEP42",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 51,
+          "name": "RRPEEP43",
+          "required": false,
+          "type": "decimal(15, 5)"
+        }
+      ],
+      "identifier-field-ids": [
+        3,
+        35
+      ],
+      "schema-id": 1,
       "type": "struct"
     }
   ],

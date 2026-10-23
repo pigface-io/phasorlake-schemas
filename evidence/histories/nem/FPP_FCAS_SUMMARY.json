@@ -1,6 +1,6 @@
 {
   "breaking": [],
-  "current-schema-id": 2,
+  "current-schema-id": 3,
   "format-version": 3,
   "runs": [
     {
@@ -37,7 +37,7 @@
       "changes": [
         "schema"
       ],
-      "files": 13,
+      "files": 6,
       "from": {
         "data-time": "2024-12-09T11:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202504010000.zip",
@@ -52,13 +52,13 @@
         "FPP",
         "FCAS_SUMMARY"
       ],
-      "rows": 4949133,
+      "rows": 1554463,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-05-08T15:35:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "71b886649ebde9306c018383dc650b29ce130974127c9f7c360b6036691d4abf"
+        "data-time": "2025-10-08T03:50:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "38cb38b281820922c8aa4bb603a3e509d81e5335d8ea3321a54e76a87289e573"
       },
       "updates": [
         {
@@ -76,7 +76,567 @@
       "changes": [
         "schema"
       ],
-      "files": 5,
+      "files": 6911,
+      "from": {
+        "data-time": "2025-10-08T00:05:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20251008.zip",
+        "release": "2025-10",
+        "sha256": "f6c28e565336758323af82881359a0de2f196f3ee14a6f355b68edd226693630"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 27426,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-10-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20251031.zip",
+        "release": "2025-10",
+        "sha256": "080775be383ef235adc9dcecf053b9c8e5d277284a4ae48abb9a2d01b0bbc118"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "2cda9b4ac975b54a14fffbe9fa0443cbdbb3039a3ea64321b8d4b78bff932440"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 392079,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-11-18T19:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "2cda9b4ac975b54a14fffbe9fa0443cbdbb3039a3ea64321b8d4b78bff932440"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20251031.zip",
+        "release": "2025-11",
+        "sha256": "080775be383ef235adc9dcecf053b9c8e5d277284a4ae48abb9a2d01b0bbc118"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 34455,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-11-30T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20251130.zip",
+        "release": "2025-11",
+        "sha256": "903eb791b497226df74884296c949241b81be06a83af6f14c7fcab25aa58ba33"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "db97271be564feeb87a0bf782b63288062e960f1f643f9cedaf2e7956b586e03"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 414694,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-12-08T15:25:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "db97271be564feeb87a0bf782b63288062e960f1f643f9cedaf2e7956b586e03"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20251130.zip",
+        "release": "2025-12",
+        "sha256": "903eb791b497226df74884296c949241b81be06a83af6f14c7fcab25aa58ba33"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 35207,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-12-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20251231.zip",
+        "release": "2025-12",
+        "sha256": "f2fdb2ce57d5473e0251344bb73c077640b376b8dd3e31cca29d0563678940c4"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "4016b5e55f85d7f2c02ba4d9aef7c1c97e9b97a7aa88b9de9d89c89e94759cc3"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 454281,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-12T11:15:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "4016b5e55f85d7f2c02ba4d9aef7c1c97e9b97a7aa88b9de9d89c89e94759cc3"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20251231.zip",
+        "release": "2026-01",
+        "sha256": "f2fdb2ce57d5473e0251344bb73c077640b376b8dd3e31cca29d0563678940c4"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 35014,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-01-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260131.zip",
+        "release": "2026-01",
+        "sha256": "89a90d36defa6e1e8d97e10ef4f6f4f8c12b99113e463364dc13e981fe85ff68"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "201fed4cccb3ce25da479fc2bc128a90ba7d744bca5dcdeb55f2524cce64fcb7"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 486148,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-09T18:45:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "201fed4cccb3ce25da479fc2bc128a90ba7d744bca5dcdeb55f2524cce64fcb7"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8065,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260131.zip",
+        "release": "2026-02",
+        "sha256": "89a90d36defa6e1e8d97e10ef4f6f4f8c12b99113e463364dc13e981fe85ff68"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 31391,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-02-28T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260228.zip",
+        "release": "2026-02",
+        "sha256": "f3fb06ba9b8178d79fe1d9c5b07f4bf26d7b47ea33df9cf3c8137dd068cad8f2"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "32173a61e621a78111cb08d0c56d23729449ea60e169a125e727061f6384d225"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 517261,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-03-09T12:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "32173a61e621a78111cb08d0c56d23729449ea60e169a125e727061f6384d225"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8907,
+      "from": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260228.zip",
+        "release": "2026-03",
+        "sha256": "f3fb06ba9b8178d79fe1d9c5b07f4bf26d7b47ea33df9cf3c8137dd068cad8f2"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 34631,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-03-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260331.zip",
+        "release": "2026-03",
+        "sha256": "85c3a8f5dab12275eaa3f18c45a3bacdd0494723811e470808eb701e870ac3b7"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "7ec5d2a996717f22677b57e347272fedb5dd05eb066caac386d2690dfd7109b4"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 544634,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-07T14:50:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "7ec5d2a996717f22677b57e347272fedb5dd05eb066caac386d2690dfd7109b4"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260331.zip",
+        "release": "2026-04",
+        "sha256": "85c3a8f5dab12275eaa3f18c45a3bacdd0494723811e470808eb701e870ac3b7"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 34093,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-04-30T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260430.zip",
+        "release": "2026-04",
+        "sha256": "8bd7879cfd8a75c07295d2adbcb7787d8c4e807d944adfd7b4f154453cc6476d"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "71b886649ebde9306c018383dc650b29ce130974127c9f7c360b6036691d4abf"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 585573,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-08T15:35:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "71b886649ebde9306c018383dc650b29ce130974127c9f7c360b6036691d4abf"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 3875,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260430.zip",
+        "release": "2026-05",
+        "sha256": "8bd7879cfd8a75c07295d2adbcb7787d8c4e807d944adfd7b4f154453cc6476d"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 15439,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-05-14T10:50:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260514.zip",
+        "release": "2026-05",
+        "sha256": "296a25fbca2d1d67c399b200008da4e9242b89d083e671a173801df041e6402a"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 5055,
+      "from": {
+        "data-time": "2026-05-14T10:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260514.zip",
+        "release": "2026-05",
+        "sha256": "296a25fbca2d1d67c399b200008da4e9242b89d083e671a173801df041e6402a"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 20220,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-05-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260531.zip",
+        "release": "2026-05",
+        "sha256": "3d06da9d70a7449de9ba6f23618d17ca3cefa08c0536d5e691fd8eaa0c6cc6b8"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 17
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
       "from": {
         "data-time": "2024-12-09T11:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202605010000.zip",
@@ -91,8 +651,289 @@
         "FPP",
         "FCAS_SUMMARY"
       ],
-      "rows": 2039845,
-      "schema-id": 2,
+      "rows": 622395,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-06-09T14:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "1db4ff9f08453d54026c45d8bfea4e7cc7436be5b83d8be0b8d3a2e291891744"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8641,
+      "from": {
+        "data-time": "2026-06-15T09:10:00+10:00",
+        "file": "PUBLIC_FPP_RATES_202606150910_0000000522546026.zip",
+        "release": "2026-06",
+        "sha256": "a62f2e701432ebcbced60551ebe22f57501c45973af5b8627580d96d08c94c2c"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 34417,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-06-30T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260630.zip",
+        "release": "2026-06",
+        "sha256": "a352b3fae75051c8cb4a2b68db1116667e19000aeee021085a4a8e0b999ce2fb"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "3c0e66e8ab06740b014f71c5c2ad7c8f84fdfaf560a6dc78a3a1f8dca580ecbe"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 655971,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-07-08T22:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "3c0e66e8ab06740b014f71c5c2ad7c8f84fdfaf560a6dc78a3a1f8dca580ecbe"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260630.zip",
+        "release": "2026-07",
+        "sha256": "a352b3fae75051c8cb4a2b68db1116667e19000aeee021085a4a8e0b999ce2fb"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 35573,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-07-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260731.zip",
+        "release": "2026-07",
+        "sha256": "e34f3154544639c62273a5fb2b0ce954262672ef9b91086b525335df26d430ff"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2024-12-09T11:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "90e5ef02a74bfa9cd98d416776f6add7ea332f946651dacc40ee236bf7d453e7"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 691254,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-08-08T15:45:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "90e5ef02a74bfa9cd98d416776f6add7ea332f946651dacc40ee236bf7d453e7"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260731.zip",
+        "release": "2026-08",
+        "sha256": "e34f3154544639c62273a5fb2b0ce954262672ef9b91086b525335df26d430ff"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 35691,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-08-31T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260831.zip",
+        "release": "2026-08",
+        "sha256": "592ac4936a9cdd55733f69f6ee102efe8b1b2eeafa45d6d68e4bf37e5db4b78f"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "ded242249fa74de8c3c7cabe566246343df2e6fb228550b982d03ef7dd51443f"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 35695,
+      "schema-id": 4,
+      "to": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "ded242249fa74de8c3c7cabe566246343df2e6fb228550b982d03ef7dd51443f"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260831.zip",
+        "release": "2026-09",
+        "sha256": "592ac4936a9cdd55733f69f6ee102efe8b1b2eeafa45d6d68e4bf37e5db4b78f"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 34530,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-09-30T23:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260930.zip",
+        "release": "2026-09",
+        "sha256": "20e1f56d6fa6e519adcba826ed7ed194738d9c77d99355bd40bf298ba53009d8"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-09-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "1eb3ae1bfc6858542a31f1aac304e00688ba5f8bd7065d9379c34fea2d7afda8"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 34530,
+      "schema-id": 4,
       "to": {
         "data-time": "2026-10-01T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#FPP_FCAS_SUMMARY#FILE01#202609010000.zip",
@@ -101,8 +942,44 @@
       },
       "updates": [
         {
-          "action": "add",
-          "field-id": 17
+          "action": "delete",
+          "field-id": 15
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6609,
+      "from": {
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "PUBLIC_FPP_RATES_20260930.zip",
+        "release": "2026-10",
+        "sha256": "20e1f56d6fa6e519adcba826ed7ed194738d9c77d99355bd40bf298ba53009d8"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "FPP",
+        "FCAS_SUMMARY"
+      ],
+      "rows": 25958,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-10-22T08:55:00+10:00",
+        "file": "PUBLIC_FPP_RATES_202610220855_0000000544203625.zip",
+        "release": "2026-10",
+        "sha256": "29d5fcf08a29bf4a7966afb53b9f2a2ff65c4cc55767f39c2753faf85348a134"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 15
         }
       ],
       "version": 1
@@ -390,6 +1267,115 @@
           "type": "decimal(18, 5)"
         },
         {
+          "id": 15,
+          "name": "USAGE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 16,
+          "name": "USAGE_VALUE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 2,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 3,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "CONSTRAINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 6,
+          "name": "BIDTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "RELEVANT_REGIONS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "REGULATION_MW",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 9,
+          "name": "CONSTRAINT_MARGINAL_VALUE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 10,
+          "name": "P_REGULATION",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 11,
+          "name": "BASE_COST",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 12,
+          "name": "TSFCAS",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 13,
+          "name": "TOTAL_FPP",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 14,
+          "name": "RCR",
+          "required": false,
+          "type": "decimal(18, 5)"
+        },
+        {
+          "id": 15,
+          "name": "USAGE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
           "id": 16,
           "name": "USAGE_VALUE",
           "required": false,
@@ -403,7 +1389,110 @@
         }
       ],
       "identifier-field-ids": [],
-      "schema-id": 2,
+      "schema-id": 3,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 3,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "CONSTRAINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 6,
+          "name": "BIDTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "RELEVANT_REGIONS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "REGULATION_MW",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 9,
+          "name": "CONSTRAINT_MARGINAL_VALUE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 10,
+          "name": "P_REGULATION",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 11,
+          "name": "BASE_COST",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 12,
+          "name": "TSFCAS",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 13,
+          "name": "TOTAL_FPP",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 14,
+          "name": "RCR",
+          "required": false,
+          "type": "decimal(18, 5)"
+        },
+        {
+          "id": 16,
+          "name": "USAGE_VALUE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 17,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 4,
       "type": "struct"
     }
   ],

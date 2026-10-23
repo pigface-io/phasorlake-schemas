@@ -1,0 +1,136 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SRAFINANCIALS_RECONCILIATION_SUMMARY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CARRYOVER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "GROSS_PROCEEDS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(10, 2)"
+    },
+    "LATEST_QUARTER_INTEREST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LATEST_QUARTER_NEG_RESIDUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "NET_PROCEEDS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(10, 2)"
+    },
+    "PREVIOUS_QUARTERS_CARRYOVER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "SRA_QUARTER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "SRA_YEAR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "TOTAL_RECOVERY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(1, 0)"
+    }
+  },
+  "required": [],
+  "title": "SRAFINANCIALS_RECONCILIATION_SUMMARY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SRA_YEAR",
+      "decimal(4, 0)"
+    ],
+    [
+      2,
+      "SRA_QUARTER",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "PREVIOUS_QUARTERS_CARRYOVER",
+      "decimal(1, 0)"
+    ],
+    [
+      4,
+      "LATEST_QUARTER_NEG_RESIDUE",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "LATEST_QUARTER_INTEREST",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "TOTAL_RECOVERY",
+      "decimal(1, 0)"
+    ],
+    [
+      7,
+      "GROSS_PROCEEDS",
+      "decimal(10, 2)"
+    ],
+    [
+      8,
+      "NET_PROCEEDS",
+      "decimal(10, 2)"
+    ],
+    [
+      9,
+      "CARRYOVER",
+      "decimal(1, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SRAFINANCIALS_RECONCILIATION_SUMMARY"
+  }
+}

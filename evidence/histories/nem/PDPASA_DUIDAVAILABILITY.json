@@ -1,13 +1,13 @@
 {
   "breaking": [],
-  "current-schema-id": 0,
+  "current-schema-id": 1,
   "format-version": 3,
   "runs": [
     {
       "changes": [
         "first"
       ],
-      "files": 63,
+      "files": 3,
       "from": {
         "data-time": "2025-07-31T10:30:00+10:00",
         "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE01#202507010000.zip",
@@ -22,7 +22,843 @@
         "PDPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 3012919471,
+      "rows": 112761091,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-09-20T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE01#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "5613ca6cb0e1616ebb3c4fc69553504531b96999ecd9ed2c89baf6665bdb883c"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2025-09-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20250901.zip",
+        "release": "2025-09",
+        "sha256": "9d8657de35ebcd424f56dad6271925e5318d369cb988adcbb72c2ee5db79f094"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 34384236,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-10-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20250901.zip",
+        "release": "2025-09",
+        "sha256": "9d8657de35ebcd424f56dad6271925e5318d369cb988adcbb72c2ee5db79f094"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-09-16T22:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE02#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "8f342425aba4bc42149db87b5802b6d6f379fee4528633c3cdf72c03c52a85ac"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 15886972,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-10-03T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE02#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "8f342425aba4bc42149db87b5802b6d6f379fee4528633c3cdf72c03c52a85ac"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2025-10-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20251001.zip",
+        "release": "2025-10",
+        "sha256": "cb3a38279cef6e01df3cbd43f346e458811dd2aa9e41b45f87265aa3d2c7bad7"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 35835636,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-11-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20251001.zip",
+        "release": "2025-10",
+        "sha256": "cb3a38279cef6e01df3cbd43f346e458811dd2aa9e41b45f87265aa3d2c7bad7"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2025-07-31T10:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "4259141ce4f04ff8095d0790cbaae2a063d8c5d918fdff6f399af8da744f2b11"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 126840749,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-11-20T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE03#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "70a83d5bb200ccc9687201c55a13a65ac1b87fb10127cc8bf8620140e42fbcb9"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20251101.zip",
+        "release": "2025-11",
+        "sha256": "2e83c83477a42e177bb0b117c5f0e2e6699ae5358560f67a9bfc4e6923b3e184"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 35149536,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-12-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20251101.zip",
+        "release": "2025-11",
+        "sha256": "2e83c83477a42e177bb0b117c5f0e2e6699ae5358560f67a9bfc4e6923b3e184"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2025-07-31T11:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "03b64da575b0082250010c7930602204c1fe8293f1ece56a709ec1d270d13046"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 150233367,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-12-10T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE03#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "edb85b51a5c79628422f8c95962834a57fbdc24bcc7e0b25ea5b8d819aebbc30"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20251201.zip",
+        "release": "2025-12",
+        "sha256": "0114d395d8153b9e00c669049c30170a10b0f251b230fa0cdae6d29d109186e9"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 36769548,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20251201.zip",
+        "release": "2025-12",
+        "sha256": "0114d395d8153b9e00c669049c30170a10b0f251b230fa0cdae6d29d109186e9"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6,
+      "from": {
+        "data-time": "2025-07-31T17:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "5bbaa542337a09204ec672cdc489ba28d7d4cb544c532dffbbed91a298c6c114"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 300756340,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-02-01T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE02#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "c53b8e4eea599c58b506e120c3a6bd4bb86e921ce74c9773b72b55b92851773b"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260101.zip",
+        "release": "2026-01",
+        "sha256": "97202c05077706f3b3f8bbbcf5734b05a3831187cdd8456b9b3aa2bd8fd5b938"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 37029960,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260101.zip",
+        "release": "2026-01",
+        "sha256": "97202c05077706f3b3f8bbbcf5734b05a3831187cdd8456b9b3aa2bd8fd5b938"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 5,
+      "from": {
+        "data-time": "2025-07-31T17:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE03#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "f7e451b05b5c29e2075777b707a8332b8ef829495d98197f67b7d9817e336d14"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 225705311,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-02-23T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE02#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "b8a72f96188ba0116fbd64d5b2aec206f0fac05fa2ea04314aa74f5d7cb88774"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1344,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260201.zip",
+        "release": "2026-02",
+        "sha256": "aa2e42bb66ebbb1c79e29f87bf5c7d422b8f0f851ef7ca76b03c128be4196875"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 33821490,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-03-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260201.zip",
+        "release": "2026-02",
+        "sha256": "aa2e42bb66ebbb1c79e29f87bf5c7d422b8f0f851ef7ca76b03c128be4196875"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6,
+      "from": {
+        "data-time": "2025-07-31T17:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE03#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "8d6b4689fa46b627630cfb18a4c075de120868c5a390b42eed1f8b610324417d"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 314030315,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-03-11T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE05#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "8c7fdca75c2d622515d3939cdbfbcc25d5cd2ed3caee3f19240b0d97248211a5"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260301.zip",
+        "release": "2026-03",
+        "sha256": "7df8246740d0978fdab65436ece6e0f71028ed05e6e21cc8760b7d1f1a511f67"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 37923204,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260301.zip",
+        "release": "2026-03",
+        "sha256": "7df8246740d0978fdab65436ece6e0f71028ed05e6e21cc8760b7d1f1a511f67"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6,
+      "from": {
+        "data-time": "2025-07-31T11:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE04#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "c33a93ae13547792115bf4e7e286007db0ab3ba4b7add9d05f14a17c3ee1da35"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 292022189,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-08T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE06#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "2b236c26adf4b6e6e30616c9737cdd94e349bc6046e123add4365cd14a99a630"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260401.zip",
+        "release": "2026-04",
+        "sha256": "2c5df6354c987afd42a0a27d15264846c9511761f6dc721dc815e63e8424b8b0"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 36843984,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260401.zip",
+        "release": "2026-04",
+        "sha256": "2c5df6354c987afd42a0a27d15264846c9511761f6dc721dc815e63e8424b8b0"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8,
+      "from": {
+        "data-time": "2025-07-31T11:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE04#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "34b10bcba4d4662f5c5cbe15bd2b705182f1a02852e25f3ad3ad33f94e883173"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 387753339,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-23T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE04#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "a5951290410ea0fd3d39c48260ff7b2e8726e8ddc538e7f40957acbef6f9b19c"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260501.zip",
+        "release": "2026-05",
+        "sha256": "0a6bc00b1eac7ebbb0bcb0fc905a3be45051e57c1beb0c2c262cf186cd83e305"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 38213340,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-06-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260501.zip",
+        "release": "2026-05",
+        "sha256": "0a6bc00b1eac7ebbb0bcb0fc905a3be45051e57c1beb0c2c262cf186cd83e305"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6,
+      "from": {
+        "data-time": "2025-07-31T11:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE05#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "de531d69c4d667eb8d07a77df139daadb15139ab97ca1ecbc61b0f204f8e5873"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 318169919,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-06-11T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE07#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "b34d228660c77407788a0b8af974b1589281902350c03421bd4d632f0ee82901"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260601.zip",
+        "release": "2026-06",
+        "sha256": "a5d64fbe63e5c84bfcddee63f430dd495de7e5ce2c6556ccde93b8fdd97a0c55"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 37189657,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-07-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260601.zip",
+        "release": "2026-06",
+        "sha256": "a5d64fbe63e5c84bfcddee63f430dd495de7e5ce2c6556ccde93b8fdd97a0c55"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 9,
+      "from": {
+        "data-time": "2025-07-31T13:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE04#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "321d03d71233fc1a0cea8b31e115d66ce93498c7f20fd3db5b3432ce9851b5ae"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 463624415,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-07-10T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE08#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "e6f7e2c3fb581a1e076217a02ff7546dcd3e9de5a7e36060fdaccf371fd3cc9a"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260701.zip",
+        "release": "2026-07",
+        "sha256": "82ca9783297b233b393262310b0fd0b211c56ae41ca9e854dd7f76fd2961db62"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 38471139,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-08-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260701.zip",
+        "release": "2026-07",
+        "sha256": "82ca9783297b233b393262310b0fd0b211c56ae41ca9e854dd7f76fd2961db62"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6,
+      "from": {
+        "data-time": "2025-07-31T10:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE05#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "fdf6371e41927e1561f8e3799f07fc5cbc5c4a38a4d53d3ab976462f51a23ee2"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 267692302,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-02T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "920d4629c623918836d43ab3515a7a546766ba41932d3ece11b9184bb5f7da6b"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1974,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_20260801.zip",
+        "release": "2026-08",
+        "sha256": "322d6b6f9acc12e24f4b966dc2b8cea43cb727a563addaf0af79138f20ada2c7"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 51201912,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-09-02T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_202608312330_0000000535426955.zip",
+        "release": "2026-08",
+        "sha256": "f6fcd364af6768fec036ade4864117d7ec777947a31e5081c7218581e65744e7"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-09-01T00:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#PDPASA_DUIDAVAILABILITY#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "c2145ad3dcb1249a263147b35e745ebf78147ad31ff1a1a2b5e44114db116783"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 37443162,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-02T04:00:00+10:00",
@@ -30,7 +866,47 @@
         "release": "2026-09",
         "sha256": "c2145ad3dcb1249a263147b35e745ebf78147ad31ff1a1a2b5e44114db116783"
       },
-      "updates": [],
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 2
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2446,
+      "from": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_202609010000_0000000535430103.zip",
+        "release": "2026-09",
+        "sha256": "cef0776ab82726214a86faf5eca64380ee8970705511aab92c42217aa5410e06"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "PDPASA",
+        "DUIDAVAILABILITY"
+      ],
+      "rows": 63725016,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-23T04:00:00+10:00",
+        "file": "PUBLIC_PDPASA_DUIDAVAILABILITY_202610212230_0000000544123688.zip",
+        "release": "2026-10",
+        "sha256": "beab853dca6149a1d1d7091cebaf3bf9b811e5ddf33fc05c4a67dd484c63b883"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        }
+      ],
       "version": 1
     }
   ],
@@ -100,6 +976,73 @@
       ],
       "identifier-field-ids": [],
       "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "DUID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "GENERATION_MAX_AVAILABILITY",
+          "required": false,
+          "type": "decimal(12, 6)"
+        },
+        {
+          "id": 5,
+          "name": "GENERATION_PASA_AVAILABILITY",
+          "required": false,
+          "type": "decimal(12, 0)"
+        },
+        {
+          "id": 6,
+          "name": "GENERATION_RECALL_PERIOD",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 7,
+          "name": "LOAD_MAX_AVAILABILITY",
+          "required": false,
+          "type": "decimal(12, 6)"
+        },
+        {
+          "id": 8,
+          "name": "LOAD_PASA_AVAILABILITY",
+          "required": false,
+          "type": "decimal(12, 0)"
+        },
+        {
+          "id": 9,
+          "name": "LOAD_RECALL_PERIOD",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 10,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 1,
       "type": "struct"
     }
   ],

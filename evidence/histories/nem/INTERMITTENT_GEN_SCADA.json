@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 29,
+      "files": 456,
       "from": {
         "data-time": "2024-08-13T15:20:00+10:00",
         "file": "PUBLIC_ARCHIVE#INTERMITTENT_GEN_SCADA#FILE01#202412010000.zip",
@@ -15,20 +15,22 @@
         "sha256": "b9e078da76dc7688c483aa857fc939d7d5ceba9f18b8ecf9bf77633f6a9b0f8a"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "DEMAND",
         "INTERMITTENT_GEN_SCADA"
       ],
-      "rows": 1094454748,
+      "rows": 1143537334,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-09T04:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#INTERMITTENT_GEN_SCADA#FILE02#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "baf1b4a230121f9c461670a81728706fdd288f4d3ccf086e5fb84f00343f0412"
+        "data-time": "2026-10-22T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_GEN_SCADA_20261021_0000000544169326.zip",
+        "release": "2026-10",
+        "sha256": "bafdc083920145f446c103631c4d9bdf61a91ac7296c843758a7bfb7953e4dd5"
       },
       "updates": [],
       "version": 1

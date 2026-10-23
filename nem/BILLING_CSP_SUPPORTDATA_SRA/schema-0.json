@@ -1,0 +1,227 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLING_CSP_SUPPORTDATA_SRA/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ALLOCATED_UNITS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "AUCTION_FEE_EXPENSE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(13, 8)"
+    },
+    "BILLRUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "CONTRACTYEAR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "DISTRIBUTED_SURPLUS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "double"
+    },
+    "FROMREGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "INTERCONNECTORID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "NETPAYMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "double"
+    },
+    "NETPAYMENT_PERUNIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(13, 8)"
+    },
+    "NET_SURPLUS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "double"
+    },
+    "SRA_QUARTER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "SRA_YEAR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "TA_AMOUNTS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(8, 8)"
+    },
+    "TOTALSURPLUS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "double"
+    },
+    "UNCOLLECTED_AUCTION_FEE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(11, 6)"
+    },
+    "WEEKNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(2, 0)"
+    }
+  },
+  "required": [],
+  "title": "BILLING_CSP_SUPPORTDATA_SRA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONTRACTYEAR",
+      "decimal(4, 0)"
+    ],
+    [
+      2,
+      "WEEKNO",
+      "decimal(2, 0)"
+    ],
+    [
+      3,
+      "BILLRUNNO",
+      "decimal(2, 0)"
+    ],
+    [
+      4,
+      "SRA_YEAR",
+      "decimal(4, 0)"
+    ],
+    [
+      5,
+      "SRA_QUARTER",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "INTERCONNECTORID",
+      "string"
+    ],
+    [
+      7,
+      "FROMREGIONID",
+      "string"
+    ],
+    [
+      8,
+      "ALLOCATED_UNITS",
+      "decimal(4, 0)"
+    ],
+    [
+      9,
+      "TOTALSURPLUS",
+      "double"
+    ],
+    [
+      10,
+      "TA_AMOUNTS",
+      "decimal(8, 8)"
+    ],
+    [
+      11,
+      "NET_SURPLUS",
+      "double"
+    ],
+    [
+      12,
+      "DISTRIBUTED_SURPLUS",
+      "double"
+    ],
+    [
+      13,
+      "UNCOLLECTED_AUCTION_FEE",
+      "decimal(11, 6)"
+    ],
+    [
+      14,
+      "AUCTION_FEE_EXPENSE",
+      "decimal(13, 8)"
+    ],
+    [
+      15,
+      "NETPAYMENT",
+      "double"
+    ],
+    [
+      16,
+      "NETPAYMENT_PERUNIT",
+      "decimal(13, 8)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "BILLING_CSP_SUPPORTDATA_SRA"
+  }
+}

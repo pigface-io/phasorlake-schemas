@@ -3,16 +3,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
-    "CARRYOVERSTATUS": {
-      "description": "Status of a reported capacity value (e.g. 1 for Yes, 0 for No)",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 8,
-      "x-iceberg-type": "decimal(1, 0)",
-      "x-model-type": "NUMERIC(1,0)"
-    },
     "DAY": {
       "description": "Date on which the PASA availability of DUID applies.",
       "format": "date-time",
@@ -65,26 +55,6 @@
       "x-field-id": 5,
       "x-iceberg-type": "decimal(12, 0)",
       "x-model-type": "NUMERIC(12,0)"
-    },
-    "PASARECALLTIME": {
-      "description": "The recall time value",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 10,
-      "x-iceberg-type": "decimal(4, 0)",
-      "x-model-type": "NUMERIC(4)"
-    },
-    "PASAUNITSTATE": {
-      "description": "The unit state value",
-      "type": [
-        "string",
-        "null"
-      ],
-      "x-field-id": 9,
-      "x-iceberg-type": "string",
-      "x-model-type": "VARCHAR(20)"
     },
     "PUBLISH_DATETIME": {
       "description": "Date Time the report was published.",
@@ -146,21 +116,6 @@
       7,
       "LASTCHANGED",
       "timestamptz"
-    ],
-    [
-      8,
-      "CARRYOVERSTATUS",
-      "decimal(1, 0)"
-    ],
-    [
-      9,
-      "PASAUNITSTATE",
-      "string"
-    ],
-    [
-      10,
-      "PASARECALLTIME",
-      "decimal(4, 0)"
     ]
   ],
   "x-format": 3,

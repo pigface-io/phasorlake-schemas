@@ -7,28 +7,30 @@
       "changes": [
         "first"
       ],
-      "files": 16,
+      "files": 78,
       "from": {
         "data-time": null,
-        "file": "PUBLIC_ARCHIVE#BILLING_NMAS_TST_RECVRY_TRK#FILE01#202412010000.zip",
-        "release": "2024-12",
-        "sha256": "5f04e838a90600098e58510065521675014af924708cbb23f50d0c550f379b6e"
+        "file": "PUBLIC_BILLING_20170616124141_0000000284563656.zip",
+        "release": "2017-06",
+        "sha256": "ff2ffe63ad625190e84cd6cdc38d781445ef664a79a28d187e54c7c5d2ae9eda"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "BILLING",
         "NMAS_TST_RECVRY_TRK"
       ],
-      "rows": 625,
+      "rows": 1269,
       "schema-id": 0,
       "to": {
         "data-time": null,
-        "file": "PUBLIC_ARCHIVE#BILLING_NMAS_TST_RECVRY_TRK#FILE01#202608010000.zip",
+        "file": "PUBLIC_BILLING_20260802.zip",
         "release": "2026-08",
-        "sha256": "9ac387db94897bd9eb8a23f3f5cafd08d072fe29ffafb31b43bd3253cf89f79d"
+        "sha256": "9b08d83d90b963b1d1f56eb1d2ad88b9b18fb852a1c0ff9e1b87ac918341ea98"
       },
       "updates": [],
       "version": 1

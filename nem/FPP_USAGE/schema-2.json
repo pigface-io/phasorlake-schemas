@@ -34,17 +34,6 @@
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
-    "LASTCHANGED": {
-      "description": "Last date and time record changed",
-      "format": "date-time",
-      "type": [
-        "string",
-        "null"
-      ],
-      "x-field-id": 10,
-      "x-iceberg-type": "timestamptz",
-      "x-model-type": "TIMESTAMP(0)"
-    },
     "REGULATION_MW": {
       "description": "Enabled regulation MW used in the FPP calculation (from FPP database)",
       "type": [
@@ -52,6 +41,16 @@
         "null"
       ],
       "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "USAGE": {
+      "description": "Usage (calculation of the proportion of regulation FCAS that was calculated to be used)",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
       "x-iceberg-type": "decimal(18, 8)",
       "x-model-type": "NUMERIC(18,8)"
     },
@@ -131,8 +130,8 @@
       "decimal(18, 8)"
     ],
     [
-      9,
-      "USAGE_VALUE",
+      7,
+      "USAGE",
       "decimal(18, 8)"
     ],
     [
@@ -141,9 +140,9 @@
       "decimal(5, 0)"
     ],
     [
-      10,
-      "LASTCHANGED",
-      "timestamptz"
+      9,
+      "USAGE_VALUE",
+      "decimal(18, 8)"
     ]
   ],
   "x-format": 3,

@@ -1,0 +1,174 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 110141,
+      "from": {
+        "data-time": "2025-09-01T04:05:00+10:00",
+        "file": "PUBLIC_DAILY_20250901.zip",
+        "release": "2025-09",
+        "sha256": "f32a1de67b3dde4bb2090f93af680c207ab9f9cc02e8f7be41591cc604412af0"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DISPATCH",
+        "CASESOLUTION"
+      ],
+      "rows": 232690,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-22T09:05:00+10:00",
+        "file": "PUBLIC_DISPATCH_202610220905_20261022090010_LEGACY.zip",
+        "release": "2026-10",
+        "sha256": "b8096c5f4d1334a0d687a40a1abdff0449817f78441044b16bf39189b1a2017f"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 4,
+          "name": "CASESUBTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "SOLUTIONSTATUS",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "SPDVERSION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "NONPHYSICALLOSSES",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 8,
+          "name": "TOTALOBJECTIVE",
+          "required": false,
+          "type": "decimal(15, 4)"
+        },
+        {
+          "id": 9,
+          "name": "TOTALAREAGENVIOLATION",
+          "required": false,
+          "type": "decimal(5, 3)"
+        },
+        {
+          "id": 10,
+          "name": "TOTALINTERCONNECTORVIOLATION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALGENERICVIOLATION",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 12,
+          "name": "TOTALRAMPRATEVIOLATION",
+          "required": false,
+          "type": "decimal(5, 3)"
+        },
+        {
+          "id": 13,
+          "name": "TOTALUNITMWCAPACITYVIOLATION",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 14,
+          "name": "TOTAL5MINVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "TOTALREGVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 16,
+          "name": "TOTAL6SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "TOTAL60SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "TOTALASPROFILEVIOLATION",
+          "required": false,
+          "type": "decimal(5, 3)"
+        },
+        {
+          "id": 19,
+          "name": "TOTALFASTSTARTVIOLATION",
+          "required": false,
+          "type": "decimal(5, 3)"
+        },
+        {
+          "id": 20,
+          "name": "TOTALENERGYOFFERVIOLATION",
+          "required": false,
+          "type": "decimal(1, 1)"
+        },
+        {
+          "id": 21,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DISPATCH_CASESOLUTION"
+}

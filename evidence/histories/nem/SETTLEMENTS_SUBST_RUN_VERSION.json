@@ -1,0 +1,71 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1559,
+      "from": {
+        "data-time": "2021-03-21T00:00:00+10:00",
+        "file": "PUBLIC_SETTLEMENTS_20211020011418_0000000351105508.zip",
+        "release": "2021-10",
+        "sha256": "ac3ca1b68747703d9162f0e1bb52391c6a20283f206d30ad688dba2130c36cd1"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "SETTLEMENTS",
+        "SUBST_RUN_VERSION"
+      ],
+      "rows": 144788,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2024-06-01T00:00:00+10:00",
+        "file": "PUBLIC_SETTLEMENTS_20241227085036_0000000444862173.zip",
+        "release": "2024-12",
+        "sha256": "1f2d8af553fb9d38d23122ca9509fab3a4b68338fb4bfd778376270a3855d99f"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "SETTLEMENTRUNNO",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 3,
+          "name": "REFERENCESETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "REFERENCESETTLEMENTRUNNO",
+          "required": false,
+          "type": "decimal(2, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "SETTLEMENTS_SUBST_RUN_VERSION"
+}

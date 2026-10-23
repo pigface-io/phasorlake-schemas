@@ -7,28 +7,30 @@
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 19735,
       "from": {
-        "data-time": "2024-08-01T06:30:00+10:00",
-        "file": "PUBLIC_ARCHIVE#PREDISPATCH_LOCAL_PRICE#FILE01#202408010000.zip",
-        "release": "2024-08",
-        "sha256": "06adf1427ee6c1de13ffe0b4a21b65db7ad29270bb3da8e42ad5ad16db60edd3"
+        "data-time": "2016-10-23T14:30:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_201610231430_20161023140222.zip",
+        "release": "2016-10",
+        "sha256": "05c01348f57bfbc45b7ecb203854b00276f91041632e993e4ef41f29d7ccb18e"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "PREDISPATCH",
         "LOCAL_PRICE"
       ],
-      "rows": 1731710,
+      "rows": 53502630,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-01T04:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#PREDISPATCH_LOCAL_PRICE#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "964085b00bbf640cd5b60b80928580c78240e999d45a5c33693f70ed4cc9b36a"
+        "data-time": "2026-10-23T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_202610212300_20261021223153.zip",
+        "release": "2026-10",
+        "sha256": "aeaeb5ef4afe185ab63081de6184a729d498dfde6459f3958cc7192c826f33ab"
       },
       "updates": [],
       "version": 1
@@ -59,7 +61,7 @@
           "id": 4,
           "name": "PERIODID",
           "required": false,
-          "type": "decimal(1, 0)"
+          "type": "decimal(2, 0)"
         },
         {
           "id": 5,

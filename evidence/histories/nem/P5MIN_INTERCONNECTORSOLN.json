@@ -1,6 +1,6 @@
 {
   "breaking": [],
-  "current-schema-id": 2,
+  "current-schema-id": 3,
   "format-version": 3,
   "runs": [
     {
@@ -74,7 +74,7 @@
       "changes": [
         "schema"
       ],
-      "files": 52,
+      "files": 28,
       "from": {
         "data-time": "2024-08-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202408010000.zip",
@@ -90,13 +90,13 @@
         "P5MIN",
         "INTERCONNECTORSOLN"
       ],
-      "rows": 32802900,
+      "rows": 17665488,
       "schema-id": 2,
       "to": {
-        "data-time": "2026-10-01T00:55:00+10:00",
-        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "86d92ad8fc54350f07ad1d4b6852a0753a0525f8bc8554b2390ccd47c699deb8"
+        "data-time": "2025-10-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "f5965e4f956f260b0a1282cd87f78cbb93818ef6716c1aabd57cdd70f3d87d87"
       },
       "updates": [
         {
@@ -115,6 +115,895 @@
           "action": "add",
           "field-id": 22
         },
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6911,
+      "from": {
+        "data-time": "2025-10-08T00:05:00+10:00",
+        "file": "PUBLIC_P5MIN_20251008.zip",
+        "release": "2025-10",
+        "sha256": "48b67675f05695533829b57efb40e1aeeef9cbcfbd161f5ad5283f53b66c9811"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 497592,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-11-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20251031.zip",
+        "release": "2025-10",
+        "sha256": "e1a94f310c75c04644137fa77f3c741199fe4cce0a29c42a99edd3efcd168686"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2025-10-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "67e4cdb9544fb490e2264f417b7f8d6c94c45df9324df51ab7179807c63452bc"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 1285632,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-11-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "85466f484c8d74736e7806618791bc800dd26bdae97b1aae043d7485cfb338b0"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20251031.zip",
+        "release": "2025-11",
+        "sha256": "e1a94f310c75c04644137fa77f3c741199fe4cce0a29c42a99edd3efcd168686"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 622080,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-12-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20251130.zip",
+        "release": "2025-11",
+        "sha256": "c1ed4fb361416bce1ec19bdba047559c6d2356c11c5c76a9219710a2dd24a2d2"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2025-11-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "c2a03d7cf4b048074d2de343e8d76e107665f88db77bed660ef595d326924426"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 1244160,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-12-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "44ddd2782ef5bebe9a3ea3724aa93287fdd935ec0d540e61dd353e81457df787"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20251130.zip",
+        "release": "2025-12",
+        "sha256": "c1ed4fb361416bce1ec19bdba047559c6d2356c11c5c76a9219710a2dd24a2d2"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 642816,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-01-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20251231.zip",
+        "release": "2025-12",
+        "sha256": "c5f3b26357135c723dd0f7833f20733a8262c114eadfdcb16edb35e789609887"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2025-12-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "e2cb67441c54f0354f36f949687e188dda582025a4c01622dd09591bad453e7c"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 1285632,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-01-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "d5195a0834fdf55b82f88cebc809d765a43001555ae43f4abf4882925312dd67"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20251231.zip",
+        "release": "2026-01",
+        "sha256": "c5f3b26357135c723dd0f7833f20733a8262c114eadfdcb16edb35e789609887"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 642816,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-02-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260131.zip",
+        "release": "2026-01",
+        "sha256": "6e3d8e42981f97ae354ada7d246eba58fac8d79e8e1620c2f82f1c91e603381e"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-01-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "a0c9febd40f5dca03eee3f47ae80d77898fd36db10a657d29cb0533a7579d982"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 1285632,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-02-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "9c98a00696aa799b75863726b01a913b4774e44f7b3dd3b6216406c0d7a05a6a"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8064,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260131.zip",
+        "release": "2026-02",
+        "sha256": "6e3d8e42981f97ae354ada7d246eba58fac8d79e8e1620c2f82f1c91e603381e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 580608,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-03-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260228.zip",
+        "release": "2026-02",
+        "sha256": "0663009f32fe68c7bb7f7b3c6e7e2af007664d39547645bb5783f3e1eebaa874"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-02-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "325d45f7919f5671e38623f7acbe282f9b90876bb2f17df0df7611f37f2fcace"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 1161216,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-03-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "2b9fc1f64cd8dec0957021e5e4b67e455a9812bb965f3503c8e2e2a73b5e53aa"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8905,
+      "from": {
+        "data-time": "2026-03-03T13:45:00+10:00",
+        "file": "PUBLIC_P5MIN_202603031345_20260303134116.zip",
+        "release": "2026-03",
+        "sha256": "661ab755e0ba138730c73810d32e0cdda8c5a41525179aff198737d80fa38ee2"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 641160,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-04-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260331.zip",
+        "release": "2026-03",
+        "sha256": "fc9ef350c810651975b27b982bbeca9a4609f34567b9492710391e142b08e8cc"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-03-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "31b633e0d351dc8709e7c4335e2f128efbcb07e246971b0bbefb9f5d12b19888"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 1285632,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-04-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "7ede5ab6c1d14faa05cf8bdca6f4564418731b1932f5e0e3e70b133c2d548121"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260331.zip",
+        "release": "2026-04",
+        "sha256": "fc9ef350c810651975b27b982bbeca9a4609f34567b9492710391e142b08e8cc"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 622080,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-05-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260430.zip",
+        "release": "2026-04",
+        "sha256": "bb99b17f0cfed148a237985df8cff2bf9f6bc7e033e3a305b118c2e6786ad77f"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-04-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "3e707b1b9ca2ed529c770cefb7698919787fab9e031766b0bede9a08869f04b5"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 1244160,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-05-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "ebe784d3d26ddc983112dd8ee4eef7c8fb30c6ee9b524d33b43d31fe89efc98c"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260430.zip",
+        "release": "2026-05",
+        "sha256": "bb99b17f0cfed148a237985df8cff2bf9f6bc7e033e3a305b118c2e6786ad77f"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 642816,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-06-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260531.zip",
+        "release": "2026-05",
+        "sha256": "44a9474dac07db4c13ef60aa43afca7f97223126379dfe5b2e66a27e1a2f59b9"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-05-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "ba0546fca69382951bdc50a01adf5280977d98930a9e76f524caaedf26bf83f7"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 1285632,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-06-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "97128086870380e5ffac54f221dd211db033f21a68fa1f41492a44090f58edbd"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260531.zip",
+        "release": "2026-06",
+        "sha256": "44a9474dac07db4c13ef60aa43afca7f97223126379dfe5b2e66a27e1a2f59b9"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 622080,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-07-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260630.zip",
+        "release": "2026-06",
+        "sha256": "d0f0a341b2397ad3b602ac254eee164e822aac0283cb9961c02ef9485f65a8a8"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-06-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "c2e8f62689689e5f6becd1787ecb37b34c4bfe1126d5f8c188ea5b0770911e2e"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 1244160,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-07-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "dd715abb27daa4ca7edcf7109a1811620821c0e1a633dcbb6657abe08c6d3c50"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260630.zip",
+        "release": "2026-07",
+        "sha256": "d0f0a341b2397ad3b602ac254eee164e822aac0283cb9961c02ef9485f65a8a8"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 642816,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-08-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260731.zip",
+        "release": "2026-07",
+        "sha256": "9f536192651f1f01c804b8e697dae9d5ac41785ee19bae19150dac66d4d138cc"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-07-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "090f508b58822a216b0920d1e19497cc3ab1fda9f188eda6bacd6ceb1909158b"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 1285632,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-08-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "94e074b3da1a7db732fe0ddacd99cc619975bf5a99cc0baba8639704b42ed2b5"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260731.zip",
+        "release": "2026-08",
+        "sha256": "9f536192651f1f01c804b8e697dae9d5ac41785ee19bae19150dac66d4d138cc"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 642816,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-09-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260831.zip",
+        "release": "2026-08",
+        "sha256": "9bf6da4f3fed6e6ea3553cc2b3f9a22da75e3cc653c2ea2c523752a7d076209c"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "c76c5aa34f8b4807e00826ca539fb493361d2df0eea907a8f2ef967a23ec939a"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 1285632,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-09-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "0723092292352e4f64a175abbb76c5113a5474055796569728399ec0da25de02"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260831.zip",
+        "release": "2026-09",
+        "sha256": "9bf6da4f3fed6e6ea3553cc2b3f9a22da75e3cc653c2ea2c523752a7d076209c"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 622135,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-10-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260930.zip",
+        "release": "2026-09",
+        "sha256": "cde9d4b95e214da35beb3a69bec9fd3d005e85fc92603e7ee9562fca0f5e927e"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-09-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#ALL#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "51e748f901177972d8b6173a7d615b35bc49737b5d044d97f39f22f066cf2240"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 1244292,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-10-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_INTERCONNECTORSOLN#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "86d92ad8fc54350f07ad1d4b6852a0753a0525f8bc8554b2390ccd47c699deb8"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 18
+        }
+      ],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6365,
+      "from": {
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260930.zip",
+        "release": "2026-10",
+        "sha256": "cde9d4b95e214da35beb3a69bec9fd3d005e85fc92603e7ee9562fca0f5e927e"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "INTERCONNECTORSOLN"
+      ],
+      "rows": 534659,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-10-21T23:30:00+10:00",
+        "file": "PUBLIC_P5MIN_202610212235_20261021223034.zip",
+        "release": "2026-10",
+        "sha256": "b550c8519a3866ead941c4b083a24e63ee95f3858b865e988c44ae411f060904"
+      },
+      "updates": [
         {
           "action": "move",
           "field-id": 18
@@ -497,6 +1386,149 @@
         3
       ],
       "schema-id": 2,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 18,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 2,
+          "name": "INTERCONNECTORID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "METEREDMWFLOW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 5,
+          "name": "MWFLOW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "MWLOSSES",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "MNSP",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 10,
+          "name": "EXPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "IMPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "MARGINALLOSS",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "EXPORTGENCONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "IMPORTGENCONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "FCASEXPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "FCASIMPORTLIMIT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 19,
+          "name": "LOCAL_PRICE_ADJUSTMENT_EXPORT",
+          "required": false,
+          "type": "decimal(10, 2)"
+        },
+        {
+          "id": 20,
+          "name": "LOCALLY_CONSTRAINED_EXPORT",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 21,
+          "name": "LOCAL_PRICE_ADJUSTMENT_IMPORT",
+          "required": false,
+          "type": "decimal(10, 2)"
+        },
+        {
+          "id": 22,
+          "name": "LOCALLY_CONSTRAINED_IMPORT",
+          "required": false,
+          "type": "decimal(1, 0)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 3,
       "type": "struct"
     }
   ],

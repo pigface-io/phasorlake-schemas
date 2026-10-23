@@ -7,7 +7,37 @@
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 3,
+      "from": {
+        "data-time": "2020-03-13T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20200313_0000000320315048.zip",
+        "release": "2020-03",
+        "sha256": "e2ffe2a22081b7fbeaace23188a3239b871db39189c869a99ec9fea84460a1d9"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 722679,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2020-10-20T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20201019_0000000330470678.zip",
+        "release": "2020-10",
+        "sha256": "8ee9412b7bd5797715fe5c40b52304c789c8201a5c1bed2af67767ab100959d4"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 14,
       "from": {
         "data-time": "2024-08-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202408010000.zip",
@@ -22,15 +52,1000 @@
         "DEMAND",
         "INTERMITTENT_DS_PRED"
       ],
-      "rows": 619846753,
+      "rows": 295699036,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-10-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "b7d7a71adffc2cba6c4ca5304fb9e3d0be577a4a75a4b2be89f97cccc9061f09"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-09-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20250901.zip",
+        "release": "2025-09",
+        "sha256": "f2eaf48b639ec28917e824e9914d413172fbc01bd11e4ca2adf20a5d51fa168c"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 19285740,
       "schema-id": 0,
+      "to": {
+        "data-time": "2025-10-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20250901.zip",
+        "release": "2025-09",
+        "sha256": "f2eaf48b639ec28917e824e9914d413172fbc01bd11e4ca2adf20a5d51fa168c"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-10-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "dd81f1ab2ee6538b6b6801d02c162d66a531bf53e1163a6a075a6b3a6b1eddb3"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 19806907,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "dd81f1ab2ee6538b6b6801d02c162d66a531bf53e1163a6a075a6b3a6b1eddb3"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-10-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20251001.zip",
+        "release": "2025-10",
+        "sha256": "235e73bef23791a33d363b6f7fe3afca3af7247c5912d61c6ca5faaadb83f2df"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 19802442,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-11-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20251001.zip",
+        "release": "2025-10",
+        "sha256": "235e73bef23791a33d363b6f7fe3afca3af7247c5912d61c6ca5faaadb83f2df"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-11-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "0e3b337196ac927e0f5d793c1aa1de49789270d28f9407c086d0f688d590a2a6"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 18969867,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "0e3b337196ac927e0f5d793c1aa1de49789270d28f9407c086d0f688d590a2a6"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-11-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20251101.zip",
+        "release": "2025-11",
+        "sha256": "0e1572e983ce9a33f305823ff0f8285421ce5d4833d90b9a4de523feb2066369"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 18968749,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-12-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20251101.zip",
+        "release": "2025-11",
+        "sha256": "0e1572e983ce9a33f305823ff0f8285421ce5d4833d90b9a4de523feb2066369"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-12-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "5f9cf89f518c73259b72b51b3722604b3d0a715d712089a6f15d79de5d3bf4f7"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 22120337,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "5f9cf89f518c73259b72b51b3722604b3d0a715d712089a6f15d79de5d3bf4f7"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-12-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20251201.zip",
+        "release": "2025-12",
+        "sha256": "bb6e761b158e21ef7929fe89ce7594bee7cbe7b2db5c5d1713309697777341f6"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 22134082,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-01-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20251201.zip",
+        "release": "2025-12",
+        "sha256": "bb6e761b158e21ef7929fe89ce7594bee7cbe7b2db5c5d1713309697777341f6"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-01-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "b90fdaec9435b1d6588730288348eb625da013afccf5bc50da7e25748509a0bf"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 23573038,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "b90fdaec9435b1d6588730288348eb625da013afccf5bc50da7e25748509a0bf"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-01-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260101.zip",
+        "release": "2026-01",
+        "sha256": "45cbedd5a01663b448958037755ead119faa78336da80a3e1b6841a3317b6d1c"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 23595018,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-02-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260101.zip",
+        "release": "2026-01",
+        "sha256": "45cbedd5a01663b448958037755ead119faa78336da80a3e1b6841a3317b6d1c"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-02-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "e39bb6beea3e1c70c6aa668409b136f4c6375376416250bd3b2b1a1b1d61cb7a"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 24594688,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "e39bb6beea3e1c70c6aa668409b136f4c6375376416250bd3b2b1a1b1d61cb7a"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 28,
+      "from": {
+        "data-time": "2026-02-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260201.zip",
+        "release": "2026-02",
+        "sha256": "296df25b2cbd24013f906dffcd9cdb089dda88bbbef41a8c4571cec2b8a14ce9"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 24620020,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-03-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260201.zip",
+        "release": "2026-02",
+        "sha256": "296df25b2cbd24013f906dffcd9cdb089dda88bbbef41a8c4571cec2b8a14ce9"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-03-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "43eb364a8441e4375dd0084bd2c4d6d9552b56ecfb833b7a3403d5a80bb0966b"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 28544995,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "43eb364a8441e4375dd0084bd2c4d6d9552b56ecfb833b7a3403d5a80bb0966b"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-03-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260301.zip",
+        "release": "2026-03",
+        "sha256": "e80960a1d4355f5b1092f9a8875a04a60dd30221d82afa6be1c1aa02c0d86aaf"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 28546213,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260301.zip",
+        "release": "2026-03",
+        "sha256": "e80960a1d4355f5b1092f9a8875a04a60dd30221d82afa6be1c1aa02c0d86aaf"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-04-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "80495a23547bd670c436237b0994ee84789bce7d2fafa40777a25799e48a6df1"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 28433165,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "80495a23547bd670c436237b0994ee84789bce7d2fafa40777a25799e48a6df1"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-04-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260401.zip",
+        "release": "2026-04",
+        "sha256": "7e697e0232b4fe6435184425a15acf7ac78bfe9d15087536e11a2524edfe39a2"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 28437841,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260401.zip",
+        "release": "2026-04",
+        "sha256": "7e697e0232b4fe6435184425a15acf7ac78bfe9d15087536e11a2524edfe39a2"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-05-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "784c1bf666bf53376f18872dd95c8afef1b8c3ecc3325b29cbb987ecbc10642e"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 30703572,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "784c1bf666bf53376f18872dd95c8afef1b8c3ecc3325b29cbb987ecbc10642e"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-05-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260501.zip",
+        "release": "2026-05",
+        "sha256": "321d55bb11f5a0b42f96cb7b263400ae0b1ac1d42a571b9aa6d27b72a4ea2841"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 30712796,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-06-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260501.zip",
+        "release": "2026-05",
+        "sha256": "321d55bb11f5a0b42f96cb7b263400ae0b1ac1d42a571b9aa6d27b72a4ea2841"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-06-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "ec8fd5fb3cc2a12f9fc0d9756ef09b00058309fa6851db440a38d72d57dfe234"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 31120057,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "ec8fd5fb3cc2a12f9fc0d9756ef09b00058309fa6851db440a38d72d57dfe234"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-06-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260601.zip",
+        "release": "2026-06",
+        "sha256": "e7d8f8c56321069000fe6cb604554ce13a6b3e048feab1e3c371d6ec4c3dff99"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 31124484,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-07-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260601.zip",
+        "release": "2026-06",
+        "sha256": "e7d8f8c56321069000fe6cb604554ce13a6b3e048feab1e3c371d6ec4c3dff99"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-07-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "b79c4ca6b8600befbb8d350a5b428790f4b105e3f107bebe120aa59625238e15"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 32429700,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "b79c4ca6b8600befbb8d350a5b428790f4b105e3f107bebe120aa59625238e15"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-07-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260701.zip",
+        "release": "2026-07",
+        "sha256": "b3236c57ee0b6e1b3051d010147762465eb7093909778f5e18ae2bdea38c41a9"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 32433957,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260701.zip",
+        "release": "2026-07",
+        "sha256": "b3236c57ee0b6e1b3051d010147762465eb7093909778f5e18ae2bdea38c41a9"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "bd0c8678a06f580f207fa3b6a368ef2cd681960139a18d4bb4d2a0190067e125"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 32089047,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-08-31T04:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "bd0c8678a06f580f207fa3b6a368ef2cd681960139a18d4bb4d2a0190067e125"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 42,
+      "from": {
+        "data-time": "2026-08-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260801.zip",
+        "release": "2026-08",
+        "sha256": "e4e1ba0014241f4d65d14e1558394c161c2ee7f76f352e0250e9abdb2c21c83f"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 44695803,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260831_0000000535460216.zip",
+        "release": "2026-08",
+        "sha256": "fada0e8838d7e7d84d48ccb09f0adcae8bc07103ed9f1b5b59c2d612c939b2c8"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-09-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "e5b51cd9c81b010d2d5e25517dcb22f93aa848f5b832b5e0192cbbbab493eda3"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 31762344,
+      "schema-id": 1,
       "to": {
         "data-time": "2026-10-01T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#INTERMITTENT_DS_PRED#FILE01#202609010000.zip",
         "release": "2026-09",
         "sha256": "e5b51cd9c81b010d2d5e25517dcb22f93aa848f5b832b5e0192cbbbab493eda3"
       },
-      "updates": [],
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 5
+        },
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 51,
+      "from": {
+        "data-time": "2026-09-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260901_0000000535633840.zip",
+        "release": "2026-09",
+        "sha256": "01eb346142f52e5e886637388685e4b48d23a0f14255e73906cc855bb5f99fe2"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DEMAND",
+        "INTERMITTENT_DS_PRED"
+      ],
+      "rows": 54272074,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-22T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20261021_0000000544169325.zip",
+        "release": "2026-10",
+        "sha256": "1158934191d8b22c0a017a67ae307a707ed87d1427b99d71450739087c1fd1de"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 3
+        },
+        {
+          "action": "move",
+          "field-id": 4
+        }
+      ],
       "version": 1
     }
   ],
@@ -51,24 +1066,98 @@
         },
         {
           "id": 3,
-          "name": "OFFERDATETIME",
-          "required": true,
-          "type": "timestamptz"
-        },
-        {
-          "id": 4,
-          "name": "INTERVAL_DATETIME",
-          "required": true,
-          "type": "timestamptz"
-        },
-        {
-          "id": 5,
           "name": "ORIGIN",
           "required": true,
           "type": "string"
         },
         {
+          "id": 4,
+          "name": "FORECAST_PRIORITY",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 5,
+          "name": "OFFERDATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
           "id": 6,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "FORECAST_MEAN",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 8,
+          "name": "FORECAST_POE10",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 9,
+          "name": "FORECAST_POE50",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 10,
+          "name": "FORECAST_POE90",
+          "required": false,
+          "type": "decimal(18, 8)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        5,
+        6,
+        3,
+        4
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "OFFERDATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "ORIGIN",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
           "name": "FORECAST_PRIORITY",
           "required": true,
           "type": "long"
@@ -101,12 +1190,12 @@
       "identifier-field-ids": [
         1,
         2,
-        3,
-        4,
         5,
-        6
+        6,
+        3,
+        4
       ],
-      "schema-id": 0,
+      "schema-id": 1,
       "type": "struct"
     }
   ],

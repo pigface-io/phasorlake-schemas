@@ -1,0 +1,191 @@
+{
+  "breaking": [],
+  "current-schema-id": 1,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1514,
+      "from": {
+        "data-time": "2020-07-01T00:00:00+10:00",
+        "file": "MLF_20201014090001.zip",
+        "release": "2020-10",
+        "sha256": "aba94b8490f8e528394703cd2a051c7e1fe9f56bbfd4926161b3a3c71fc22ff3"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DAILY",
+        "MLF"
+      ],
+      "rows": 4084505,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2024-11-26T00:00:00+10:00",
+        "file": "MLF_20241205090000.zip",
+        "release": "2024-12",
+        "sha256": "83dad1d8c7ed561dd410a8ee4385497732eb32c2f2469b9d72a3e8a87592f3d8"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 686,
+      "from": {
+        "data-time": "2011-07-01T00:00:00+10:00",
+        "file": "MLF_20241206090005.zip",
+        "release": "2024-12",
+        "sha256": "efa80f9a4099b77510ab36fc89511036649b0f3655f498e4a63808d2057f5a0f"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DAILY",
+        "MLF"
+      ],
+      "rows": 1822243,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-16T00:00:00+10:00",
+        "file": "MLF_20261022090009.zip",
+        "release": "2026-10",
+        "sha256": "2bbb38fb0c11aedb87282847392ee469b9bad8edb5ae6a83d216adeffd26b0f5"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 9
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "DUID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "TRANSMISSIONLOSSFACTOR",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 7,
+          "name": "SECONDARY_TLF",
+          "required": false,
+          "type": "decimal(5, 4)"
+        },
+        {
+          "id": 8,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "VERSIONNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "CONNECTIONPOINTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "DUID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "TRANSMISSIONLOSSFACTOR",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 7,
+          "name": "SECONDARY_TLF",
+          "required": false,
+          "type": "decimal(5, 4)"
+        },
+        {
+          "id": 8,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "table": "DAILY_MLF"
+}

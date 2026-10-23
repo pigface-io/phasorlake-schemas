@@ -1,0 +1,83 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 130,
+      "from": {
+        "data-time": "2025-10-19T00:05:00+10:00",
+        "file": "PUBLIC_ACTUAL_OPERATIONAL_DEMAND_5MIN_202610191535_20261019160541.zip",
+        "release": "2026-10",
+        "sha256": "fd29cb19aa1afad686e1dfc96f842d5e6002be2dc8832f0d83211294a18f9b17"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "OPERATIONAL_DEMAND",
+        "ACTUAL5M"
+      ],
+      "rows": 68419230,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-22T08:30:00+10:00",
+        "file": "PUBLIC_ACTUAL_OPERATIONAL_DEMAND_5MIN_202610220805_20261022083539.zip",
+        "release": "2026-10",
+        "sha256": "ef2a46629749e74509a1bfd69773478ff7b6eb9950f812153c515d0dc5635ada"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "OPERATIONAL_DEMAND",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 4,
+          "name": "OPERATIONAL_DEMAND_ADJUSTMENT",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "WDR_ESTIMATE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 6,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "OPERATIONAL_DEMAND_ACTUAL5M"
+}

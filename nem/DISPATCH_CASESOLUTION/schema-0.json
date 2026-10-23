@@ -1,0 +1,294 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DISPATCH_CASESOLUTION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CASESUBTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "INTERVENTION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "timestamptz"
+    },
+    "NONPHYSICALLOSSES": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "SOLUTIONSTATUS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "SPDVERSION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "TOTAL5MINVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string"
+    },
+    "TOTAL60SECVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string"
+    },
+    "TOTAL6SECVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "string"
+    },
+    "TOTALAREAGENVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(5, 3)"
+    },
+    "TOTALASPROFILEVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(5, 3)"
+    },
+    "TOTALENERGYOFFERVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(1, 1)"
+    },
+    "TOTALFASTSTARTVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(5, 3)"
+    },
+    "TOTALGENERICVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "TOTALINTERCONNECTORVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "TOTALOBJECTIVE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 4)"
+    },
+    "TOTALRAMPRATEVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(5, 3)"
+    },
+    "TOTALREGVIOLATION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string"
+    },
+    "TOTALUNITMWCAPACITYVIOLATION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(6, 3)"
+    }
+  },
+  "required": [],
+  "title": "DISPATCH_CASESOLUTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "INTERVENTION",
+      "decimal(1, 0)"
+    ],
+    [
+      4,
+      "CASESUBTYPE",
+      "string"
+    ],
+    [
+      5,
+      "SOLUTIONSTATUS",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "SPDVERSION",
+      "string"
+    ],
+    [
+      7,
+      "NONPHYSICALLOSSES",
+      "decimal(1, 0)"
+    ],
+    [
+      8,
+      "TOTALOBJECTIVE",
+      "decimal(15, 4)"
+    ],
+    [
+      9,
+      "TOTALAREAGENVIOLATION",
+      "decimal(5, 3)"
+    ],
+    [
+      10,
+      "TOTALINTERCONNECTORVIOLATION",
+      "decimal(1, 0)"
+    ],
+    [
+      11,
+      "TOTALGENERICVIOLATION",
+      "decimal(6, 3)"
+    ],
+    [
+      12,
+      "TOTALRAMPRATEVIOLATION",
+      "decimal(5, 3)"
+    ],
+    [
+      13,
+      "TOTALUNITMWCAPACITYVIOLATION",
+      "decimal(6, 3)"
+    ],
+    [
+      14,
+      "TOTAL5MINVIOLATION",
+      "string"
+    ],
+    [
+      15,
+      "TOTALREGVIOLATION",
+      "string"
+    ],
+    [
+      16,
+      "TOTAL6SECVIOLATION",
+      "string"
+    ],
+    [
+      17,
+      "TOTAL60SECVIOLATION",
+      "string"
+    ],
+    [
+      18,
+      "TOTALASPROFILEVIOLATION",
+      "decimal(5, 3)"
+    ],
+    [
+      19,
+      "TOTALFASTSTARTVIOLATION",
+      "decimal(5, 3)"
+    ],
+    [
+      20,
+      "TOTALENERGYOFFERVIOLATION",
+      "decimal(1, 1)"
+    ],
+    [
+      21,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DISPATCH_CASESOLUTION"
+  }
+}

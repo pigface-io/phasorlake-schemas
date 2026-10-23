@@ -103,7 +103,7 @@
       "changes": [
         "schema"
       ],
-      "files": 26,
+      "files": 110520,
       "from": {
         "data-time": "2024-08-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#DISPATCHCONSTRAINT#FILE01#202408010000.zip",
@@ -111,20 +111,22 @@
         "sha256": "a4301eaee5a580a0904f89c03494447d5a8fad272b903aac392461e02851d892"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "CONSTRAINT"
       ],
-      "rows": 269711855,
+      "rows": 429020384,
       "schema-id": 2,
       "to": {
-        "data-time": "2026-10-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#DISPATCHCONSTRAINT#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "b6f8a2801a08bdac65770efc974db178ffd88a14cda10c731a23d89e2f423222"
+        "data-time": "2026-10-22T09:05:00+10:00",
+        "file": "PUBLIC_DISPATCHIS_202610220905_0000000544203628.zip",
+        "release": "2026-10",
+        "sha256": "3ab034a42eccf94c16978a7d4c396c55822c59b6ecd7f774d9a2d136f0121001"
       },
       "updates": [
         {

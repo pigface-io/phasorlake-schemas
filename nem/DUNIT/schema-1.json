@@ -1,0 +1,657 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DUNIT/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGCSTATUS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "AVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "DISPATCHMODE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "DUID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "INITIALMW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "INTERVENTION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOWER5MIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "LOWER5MINACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 48,
+      "x-iceberg-type": "decimal(9, 6)"
+    },
+    "LOWER5MINFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOWER60SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "LOWER60SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 47,
+      "x-iceberg-type": "decimal(9, 6)"
+    },
+    "LOWER60SECFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOWER6SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "LOWER6SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 46,
+      "x-iceberg-type": "decimal(9, 6)"
+    },
+    "LOWER6SECFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LOWERREG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "LOWERREGACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 49,
+      "x-iceberg-type": "decimal(9, 6)"
+    },
+    "LOWERREGAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 39,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "LOWERREGENABLEMENTMAX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 40,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "LOWERREGENABLEMENTMIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 41,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "LOWERREGFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "MARGINAL5MINVALUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string"
+    },
+    "MARGINAL60SECVALUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string"
+    },
+    "MARGINAL6SECVALUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "string"
+    },
+    "MARGINALVALUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "RAISE5MINACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 44,
+      "x-iceberg-type": "decimal(9, 6)"
+    },
+    "RAISE5MINFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RAISE60SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "RAISE60SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 43,
+      "x-iceberg-type": "decimal(9, 6)"
+    },
+    "RAISE60SECFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RAISE6SEC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "RAISE6SECACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 42,
+      "x-iceberg-type": "decimal(9, 6)"
+    },
+    "RAISE6SECFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RAISEREG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "RAISEREGACTUALAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 45,
+      "x-iceberg-type": "decimal(9, 6)"
+    },
+    "RAISEREGAVAILABILITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "RAISEREGENABLEMENTMAX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "RAISEREGENABLEMENTMIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 38,
+      "x-iceberg-type": "decimal(8, 5)"
+    },
+    "RAISEREGFLAGS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "RAMPDOWNRATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(7, 2)"
+    },
+    "RAMPUPRATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(7, 2)"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    },
+    "TOTALCLEARED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(9, 5)"
+    },
+    "VIOLATION5MINDEGREE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "string"
+    },
+    "VIOLATION60SECDEGREE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "string"
+    },
+    "VIOLATION6SECDEGREE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "string"
+    },
+    "VIOLATIONDEGREE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DUNIT, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "DUID",
+      "string"
+    ],
+    [
+      4,
+      "INTERVENTION",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "DISPATCHMODE",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "AGCSTATUS",
+      "decimal(1, 0)"
+    ],
+    [
+      7,
+      "INITIALMW",
+      "decimal(9, 5)"
+    ],
+    [
+      8,
+      "TOTALCLEARED",
+      "decimal(9, 5)"
+    ],
+    [
+      9,
+      "RAMPDOWNRATE",
+      "decimal(7, 2)"
+    ],
+    [
+      10,
+      "RAMPUPRATE",
+      "decimal(7, 2)"
+    ],
+    [
+      11,
+      "LOWER5MIN",
+      "decimal(8, 5)"
+    ],
+    [
+      12,
+      "LOWER60SEC",
+      "decimal(8, 5)"
+    ],
+    [
+      13,
+      "LOWER6SEC",
+      "decimal(8, 5)"
+    ],
+    [
+      14,
+      "RAISE5MIN",
+      "decimal(8, 5)"
+    ],
+    [
+      15,
+      "RAISE60SEC",
+      "decimal(8, 5)"
+    ],
+    [
+      16,
+      "RAISE6SEC",
+      "decimal(8, 5)"
+    ],
+    [
+      17,
+      "MARGINAL5MINVALUE",
+      "string"
+    ],
+    [
+      18,
+      "MARGINAL60SECVALUE",
+      "string"
+    ],
+    [
+      19,
+      "MARGINAL6SECVALUE",
+      "string"
+    ],
+    [
+      20,
+      "MARGINALVALUE",
+      "string"
+    ],
+    [
+      21,
+      "VIOLATION5MINDEGREE",
+      "string"
+    ],
+    [
+      22,
+      "VIOLATION60SECDEGREE",
+      "string"
+    ],
+    [
+      23,
+      "VIOLATION6SECDEGREE",
+      "string"
+    ],
+    [
+      24,
+      "VIOLATIONDEGREE",
+      "string"
+    ],
+    [
+      25,
+      "LOWERREG",
+      "decimal(8, 5)"
+    ],
+    [
+      26,
+      "RAISEREG",
+      "decimal(8, 5)"
+    ],
+    [
+      27,
+      "AVAILABILITY",
+      "decimal(9, 5)"
+    ],
+    [
+      28,
+      "RAISE6SECFLAGS",
+      "decimal(1, 0)"
+    ],
+    [
+      29,
+      "RAISE60SECFLAGS",
+      "decimal(1, 0)"
+    ],
+    [
+      30,
+      "RAISE5MINFLAGS",
+      "decimal(1, 0)"
+    ],
+    [
+      31,
+      "RAISEREGFLAGS",
+      "decimal(1, 0)"
+    ],
+    [
+      32,
+      "LOWER6SECFLAGS",
+      "decimal(1, 0)"
+    ],
+    [
+      33,
+      "LOWER60SECFLAGS",
+      "decimal(1, 0)"
+    ],
+    [
+      34,
+      "LOWER5MINFLAGS",
+      "decimal(1, 0)"
+    ],
+    [
+      35,
+      "LOWERREGFLAGS",
+      "decimal(1, 0)"
+    ],
+    [
+      36,
+      "RAISEREGAVAILABILITY",
+      "decimal(9, 5)"
+    ],
+    [
+      37,
+      "RAISEREGENABLEMENTMAX",
+      "decimal(9, 5)"
+    ],
+    [
+      38,
+      "RAISEREGENABLEMENTMIN",
+      "decimal(8, 5)"
+    ],
+    [
+      39,
+      "LOWERREGAVAILABILITY",
+      "decimal(9, 5)"
+    ],
+    [
+      40,
+      "LOWERREGENABLEMENTMAX",
+      "decimal(9, 5)"
+    ],
+    [
+      41,
+      "LOWERREGENABLEMENTMIN",
+      "decimal(8, 5)"
+    ],
+    [
+      42,
+      "RAISE6SECACTUALAVAILABILITY",
+      "decimal(9, 6)"
+    ],
+    [
+      43,
+      "RAISE60SECACTUALAVAILABILITY",
+      "decimal(9, 6)"
+    ],
+    [
+      44,
+      "RAISE5MINACTUALAVAILABILITY",
+      "decimal(9, 6)"
+    ],
+    [
+      45,
+      "RAISEREGACTUALAVAILABILITY",
+      "decimal(9, 6)"
+    ],
+    [
+      46,
+      "LOWER6SECACTUALAVAILABILITY",
+      "decimal(9, 6)"
+    ],
+    [
+      47,
+      "LOWER60SECACTUALAVAILABILITY",
+      "decimal(9, 6)"
+    ],
+    [
+      48,
+      "LOWER5MINACTUALAVAILABILITY",
+      "decimal(9, 6)"
+    ],
+    [
+      49,
+      "LOWERREGACTUALAVAILABILITY",
+      "decimal(9, 6)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DUNIT"
+  }
+}

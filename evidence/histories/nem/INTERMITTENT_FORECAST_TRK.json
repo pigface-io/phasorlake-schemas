@@ -7,28 +7,30 @@
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 456,
       "from": {
-        "data-time": "2024-08-01T00:05:00+10:00",
-        "file": "PUBLIC_ARCHIVE#INTERMITTENT_FORECAST_TRK#FILE01#202408010000.zip",
-        "release": "2024-08",
-        "sha256": "51abb2ce8bb72243265c7b9ec66a22408c029605b39d56bde660d6907e64b98d"
+        "data-time": "2020-03-13T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20200313_0000000320315048.zip",
+        "release": "2020-03",
+        "sha256": "e2ffe2a22081b7fbeaace23188a3239b871db39189c869a99ec9fea84460a1d9"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "INTERMITTENT_FORECAST_TRK"
       ],
-      "rows": 43416089,
+      "rows": 68045993,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#INTERMITTENT_FORECAST_TRK#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "b8be0c09827014d22c36b04d56439aeb8222cc8eda15b90064120e564cbf0597"
+        "data-time": "2026-10-22T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20261021_0000000544169325.zip",
+        "release": "2026-10",
+        "sha256": "1158934191d8b22c0a017a67ae307a707ed87d1427b99d71450739087c1fd1de"
       },
       "updates": [],
       "version": 1

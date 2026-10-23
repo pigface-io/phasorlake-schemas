@@ -1,0 +1,89 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 16,
+      "from": {
+        "data-time": null,
+        "file": "PUBLIC_BILLING_DIRECT_PROV_CRA_SPLIT_CAT_REG_2021Week17_20210519110609.zip",
+        "release": "2021-05",
+        "sha256": "4b545f104684ce0ed751b5fb13074eeb23c4ef694b4502cf5c99b4646ec707e5"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "BILLING",
+        "DIRECTION_CRA"
+      ],
+      "rows": 94,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "PUBLIC_BILLING_DIRECT_PROV_CRA_SPLIT_CAT_REG_2026Week38_20261016111952.zip",
+        "release": "2026-10",
+        "sha256": "8ee680ef01b5428a600824987d9121e0f06d65125b05a64bbb5d66b8376dc106"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "DIRECTION_ID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "PARTICIPANT CATEGORY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "NSW",
+          "required": false,
+          "type": "decimal(6, 6)"
+        },
+        {
+          "id": 4,
+          "name": "QLD",
+          "required": false,
+          "type": "decimal(6, 6)"
+        },
+        {
+          "id": 5,
+          "name": "SA",
+          "required": false,
+          "type": "decimal(12, 6)"
+        },
+        {
+          "id": 6,
+          "name": "TAS",
+          "required": false,
+          "type": "decimal(6, 6)"
+        },
+        {
+          "id": 7,
+          "name": "VIC",
+          "required": false,
+          "type": "decimal(6, 6)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "BILLING_DIRECTION_CRA"
+}

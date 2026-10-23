@@ -1,0 +1,2020 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2017-02-07T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20170206123430_0000000280715734.zip",
+        "release": "2017-02",
+        "sha256": "d5325468bb5812a10b758a6a427b6270f9f64f925b6fa594548e602d3a65233b"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 1480,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2017-02-13T04:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20170206123430_0000000280715734.zip",
+        "release": "2017-02",
+        "sha256": "d5325468bb5812a10b758a6a427b6270f9f64f925b6fa594548e602d3a65233b"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 144,
+      "from": {
+        "data-time": "2025-09-29T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20250928.zip",
+        "release": "2025-09",
+        "sha256": "e0b79aff907d94b8dec5160750302fc916eb2909dab511c28d26ad430cebea8e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 25200,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-10-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20250928.zip",
+        "release": "2025-09",
+        "sha256": "e0b79aff907d94b8dec5160750302fc916eb2909dab511c28d26ad430cebea8e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "add",
+          "field-id": 8
+        },
+        {
+          "action": "add",
+          "field-id": 9
+        },
+        {
+          "action": "add",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 144,
+      "from": {
+        "data-time": "2025-09-29T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20250928.zip",
+        "release": "2025-09",
+        "sha256": "eda2d83930e2f326aff728d017ab3e32405abae48c0a247dd5d937fc59e756b3"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 225720,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-10-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20250928.zip",
+        "release": "2025-09",
+        "sha256": "eda2d83930e2f326aff728d017ab3e32405abae48c0a247dd5d937fc59e756b3"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2025-10-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20250928.zip",
+        "release": "2025-10",
+        "sha256": "e0b79aff907d94b8dec5160750302fc916eb2909dab511c28d26ad430cebea8e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 260400,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-11-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20251026.zip",
+        "release": "2025-10",
+        "sha256": "e45238591cbe75b68a74dbebc42e6d8cbb1ba8a7a1754feba4e185892fba860e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2025-10-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20250928.zip",
+        "release": "2025-10",
+        "sha256": "eda2d83930e2f326aff728d017ab3e32405abae48c0a247dd5d937fc59e756b3"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 2332040,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-11-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20251026.zip",
+        "release": "2025-10",
+        "sha256": "2437ae3ed4f27fa9cd3748cb1636db4078bf78f783e0d349f4ead2fca5e4e425"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2025-11-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20251026.zip",
+        "release": "2025-11",
+        "sha256": "e45238591cbe75b68a74dbebc42e6d8cbb1ba8a7a1754feba4e185892fba860e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 252000,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-12-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20251130.zip",
+        "release": "2025-11",
+        "sha256": "9e984c8983ea81c1d741fe6c8578d5764c459cdf97457484b827861b4bfccb6d"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2025-11-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20251026.zip",
+        "release": "2025-11",
+        "sha256": "2437ae3ed4f27fa9cd3748cb1636db4078bf78f783e0d349f4ead2fca5e4e425"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 2257200,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-12-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20251130.zip",
+        "release": "2025-11",
+        "sha256": "5f8099d782c699b81474d00d6ea67adcfe8786fe767913f0aaccb33fd18e26fe"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2025-12-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20251130.zip",
+        "release": "2025-12",
+        "sha256": "9e984c8983ea81c1d741fe6c8578d5764c459cdf97457484b827861b4bfccb6d"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 260400,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20251228.zip",
+        "release": "2025-12",
+        "sha256": "73356bc80923593e50a97be2da3746de05a6d2e81bfd2d7d9e72a75606152fc2"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2025-12-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20251130.zip",
+        "release": "2025-12",
+        "sha256": "5f8099d782c699b81474d00d6ea67adcfe8786fe767913f0aaccb33fd18e26fe"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 2332440,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-01-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20251228.zip",
+        "release": "2025-12",
+        "sha256": "22a219faf3d08937e8b5eedcaca484b9a4c428975a69c12c8d78d8bcb5ee6a6e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-01-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20251228.zip",
+        "release": "2026-01",
+        "sha256": "73356bc80923593e50a97be2da3746de05a6d2e81bfd2d7d9e72a75606152fc2"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 260400,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260125.zip",
+        "release": "2026-01",
+        "sha256": "80dec9759ae7908f5623dc652224e8da9c78ccd141bbdcdacdfe3daa303ce7d4"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-01-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20251228.zip",
+        "release": "2026-01",
+        "sha256": "22a219faf3d08937e8b5eedcaca484b9a4c428975a69c12c8d78d8bcb5ee6a6e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 2332440,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-02-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260125.zip",
+        "release": "2026-01",
+        "sha256": "2be0adc2e932abc134916c5d697f66287d88a08fd5010582ce28b0a283d2a8b9"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1344,
+      "from": {
+        "data-time": "2026-02-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260201.zip",
+        "release": "2026-02",
+        "sha256": "dd39f4745294d87259c26987a7863e79de93ab3bb722c94a16f39290974c372e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 235200,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-03-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260222.zip",
+        "release": "2026-02",
+        "sha256": "eadf02c7ce115b82433176c849b8864fef1167b7fb6e291716c56cf7b4e4bb88"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1344,
+      "from": {
+        "data-time": "2026-02-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260201.zip",
+        "release": "2026-02",
+        "sha256": "1f62d49e54f40ab471ab5f147583145a1276958917486c56bae51c372ac3dd8e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 2106720,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-03-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260222.zip",
+        "release": "2026-02",
+        "sha256": "ada773505f131042aeceafe5ebf122ef159c287b3a88bee748f9157e0b50c454"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1481,
+      "from": {
+        "data-time": "2026-03-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260301.zip",
+        "release": "2026-03",
+        "sha256": "23b2df466aa287cca4b315cf9c61b75c2396b9bd219767dc9f92027bf7972ed0"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 259175,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260329.zip",
+        "release": "2026-03",
+        "sha256": "98d60a8e468da83ad3eac84cee3fa626b2b8d8ffcd29598bd5a014cc85de31a6"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1481,
+      "from": {
+        "data-time": "2026-03-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260301.zip",
+        "release": "2026-03",
+        "sha256": "9a7d7c89464f9bdf00656198b628ed437e22ba3d78bf57c9c869365d927ec8a7"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 2320680,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260329.zip",
+        "release": "2026-03",
+        "sha256": "f3561cd7a36d762a92fe6b070d615f6774dc76c7bd759f3a0f6e6dcdbe5c742e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2026-04-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260329.zip",
+        "release": "2026-04",
+        "sha256": "98d60a8e468da83ad3eac84cee3fa626b2b8d8ffcd29598bd5a014cc85de31a6"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 252000,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260426.zip",
+        "release": "2026-04",
+        "sha256": "3ad7969295016f4dfbccf35cf07d6b08439a89cddc0b787fd4d5042c1ce4ee22"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2026-04-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260329.zip",
+        "release": "2026-04",
+        "sha256": "f3561cd7a36d762a92fe6b070d615f6774dc76c7bd759f3a0f6e6dcdbe5c742e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 2257200,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260426.zip",
+        "release": "2026-04",
+        "sha256": "444f341ee85b2fa2b2e776f79cafa1b8e1719285489d84b3b0028f5a9e2aa2f7"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-05-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260426.zip",
+        "release": "2026-05",
+        "sha256": "3ad7969295016f4dfbccf35cf07d6b08439a89cddc0b787fd4d5042c1ce4ee22"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 260400,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-06-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260531.zip",
+        "release": "2026-05",
+        "sha256": "913c2c63aab48209b74d6d0f710bf8045fbbb974733ec9f65523e259a3da7c0a"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-05-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260426.zip",
+        "release": "2026-05",
+        "sha256": "444f341ee85b2fa2b2e776f79cafa1b8e1719285489d84b3b0028f5a9e2aa2f7"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 2332440,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-06-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260531.zip",
+        "release": "2026-05",
+        "sha256": "d0871281c4799d7c9ca5af13b0ae9a1c942c96a6bef5582ce8f03ba15f48808a"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2026-06-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260531.zip",
+        "release": "2026-06",
+        "sha256": "913c2c63aab48209b74d6d0f710bf8045fbbb974733ec9f65523e259a3da7c0a"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 252000,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-07-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260628.zip",
+        "release": "2026-06",
+        "sha256": "1b4f32e89b229039ed9282ac4e7d04dedab849f7f21e5d8f9b423b579cc60ae3"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1440,
+      "from": {
+        "data-time": "2026-06-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260531.zip",
+        "release": "2026-06",
+        "sha256": "d0871281c4799d7c9ca5af13b0ae9a1c942c96a6bef5582ce8f03ba15f48808a"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 2257200,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-07-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260628.zip",
+        "release": "2026-06",
+        "sha256": "d23bda60a57013ed7fd1d23a9fc502604edd8c23695d3edab05af190e37f9985"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-07-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260628.zip",
+        "release": "2026-07",
+        "sha256": "1b4f32e89b229039ed9282ac4e7d04dedab849f7f21e5d8f9b423b579cc60ae3"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 260400,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-08-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260726.zip",
+        "release": "2026-07",
+        "sha256": "05a5be90ec4f5fc6672332c04122dc83a0b474e9fb93745fc687caa168516fdb"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1488,
+      "from": {
+        "data-time": "2026-07-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260628.zip",
+        "release": "2026-07",
+        "sha256": "d23bda60a57013ed7fd1d23a9fc502604edd8c23695d3edab05af190e37f9985"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 2332440,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260726.zip",
+        "release": "2026-07",
+        "sha256": "23fae2cdb6db3580556981ad4282a9272b5f2e4543fe03fac9faacf67c87a3da"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1972,
+      "from": {
+        "data-time": "2026-08-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260726.zip",
+        "release": "2026-08",
+        "sha256": "05a5be90ec4f5fc6672332c04122dc83a0b474e9fb93745fc687caa168516fdb"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 345100,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-09-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260831233524_0000000535430445.zip",
+        "release": "2026-08",
+        "sha256": "3a144bc6edfeb520484071fdf87dcf04402687a05902f4304eda90ae62ca8920"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1973,
+      "from": {
+        "data-time": "2026-08-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260726.zip",
+        "release": "2026-08",
+        "sha256": "23fae2cdb6db3580556981ad4282a9272b5f2e4543fe03fac9faacf67c87a3da"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 3093240,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260831233524_0000000535430444.zip",
+        "release": "2026-08",
+        "sha256": "78bb1ceeb01a6c410d3dcf1cdd7d018dcce541cd4cefd14ce5cb4a709ce9b39d"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2880,
+      "from": {
+        "data-time": "2026-09-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260830.zip",
+        "release": "2026-09",
+        "sha256": "e061f31d71dd1abd82957cb057c00bd699d66f2b5c5d13b3465fef14b212c636"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 504000,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-07T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260930233524_0000000540476194.zip",
+        "release": "2026-09",
+        "sha256": "ef58c112c0d6c56baffb5cb4c0e08d5b05e83aed9d522d611138519bcf99e2ff"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2880,
+      "from": {
+        "data-time": "2026-09-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260830.zip",
+        "release": "2026-09",
+        "sha256": "6d9841a88ba5623d2efe95dee267c857e7ce3c293f88eebc6b1d4495a1344cb3"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 4514400,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-08T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260930233524_0000000540476193.zip",
+        "release": "2026-09",
+        "sha256": "708adb3af6468bcd35cd0b6b3b4e06d46ef733a1ca1437128e7142104e0f0c4d"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 480,
+      "from": {
+        "data-time": "2026-10-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20260927.zip",
+        "release": "2026-10",
+        "sha256": "7ab8dd7d6f83e9f72bf56e33316ef48f3ea468af5e8185fb288dc886d2018cb3"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 84000,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-17T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20261004.zip",
+        "release": "2026-10",
+        "sha256": "3787471a3e2ac6df270c5ad1890129f2fd3c3149d1d1be57eff381d63c0504c1"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 480,
+      "from": {
+        "data-time": "2026-10-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20260927.zip",
+        "release": "2026-10",
+        "sha256": "b4f99f7f97f1c41f6bcaddb64b36220704bc91781d40656b1f1332624fdc1324"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 752400,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-18T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20261004.zip",
+        "release": "2026-10",
+        "sha256": "8b23b166e9dd2d4e4d8dfe3c1034b084b39f2ec2a7e2cad90af5a6cbd4c3a441"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1005,
+      "from": {
+        "data-time": "2026-10-02T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20261001000518_0000000540479967.zip",
+        "release": "2026-10",
+        "sha256": "472bf08ffd5d4ab3020aed7ce6ceb62d1c2e0ced3044348e47cb76933711e4e0"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 175875,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-28T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_PEAK_20261021220456_0000000544124061.zip",
+        "release": "2026-10",
+        "sha256": "e94071ae5d2404fa04170d92474f35fcaf5bb0f79e1913ca9464f32252a23945"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 3
+        },
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 6
+        },
+        {
+          "action": "delete",
+          "field-id": 7
+        },
+        {
+          "action": "restore",
+          "field-id": 8
+        },
+        {
+          "action": "restore",
+          "field-id": 9
+        },
+        {
+          "action": "restore",
+          "field-id": 10
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1005,
+      "from": {
+        "data-time": "2026-10-02T00:30:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20261001000518_0000000540479966.zip",
+        "release": "2026-10",
+        "sha256": "e9bbadb730d6f24d2d870bcc6ee8697c59e50f6343998aa2fdab1c4f25604e60"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "SEVENDAYOUTLOOK",
+        "PEAK"
+      ],
+      "rows": 1575000,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-29T00:00:00+10:00",
+        "file": "PUBLIC_SEVENDAYOUTLOOK_FULL_20261021220456_0000000544124060.zip",
+        "release": "2026-10",
+        "sha256": "0de9f14df200bd1f4f929167500c22f8c7366b24ec85d9c748b4266f9c49a49f"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 8
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "restore",
+          "field-id": 3
+        },
+        {
+          "action": "restore",
+          "field-id": 4
+        },
+        {
+          "action": "restore",
+          "field-id": 5
+        },
+        {
+          "action": "restore",
+          "field-id": 6
+        },
+        {
+          "action": "restore",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "CALENDAR_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "SCHEDULED_DEMAND",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 4,
+          "name": "SCHEDULED_CAPACITY",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 5,
+          "name": "NET_INTERCHANGE",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 6,
+          "name": "SCHEDULED_RESERVE",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 7,
+          "name": "INTERVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DATATYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "DATAVALUE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "CALENDAR_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "PRETTYDATE",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "table": "SEVENDAYOUTLOOK_PEAK"
+}

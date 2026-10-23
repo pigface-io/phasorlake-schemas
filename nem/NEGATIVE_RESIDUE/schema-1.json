@@ -92,16 +92,6 @@
       "x-iceberg-type": "decimal(15, 5)",
       "x-model-type": "NUMERIC(15,5)"
     },
-    "NRMCONSTRAINT_BLOCKED_FLAG": {
-      "description": "1 if constraint is blocked, else 0",
-      "type": [
-        "integer",
-        "null"
-      ],
-      "x-field-id": 15,
-      "x-iceberg-type": "long",
-      "x-model-type": "NUMERIC(1,0)"
-    },
     "NRM_ACTIVATED_FLAG": {
       "description": "Is 1 if negative residue process is on, else is 0",
       "type": [
@@ -112,6 +102,14 @@
       "x-iceberg-type": "decimal(1, 0)",
       "x-model-type": "NUMERIC(1,0)"
     },
+    "NRM_CONSTRAINT_BLOCKED_FLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
     "NRM_DATETIME": {
       "description": "The time that residue information is processed",
       "format": "date-time",
@@ -119,16 +117,6 @@
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
-    },
-    "NRM_LOOP_FLAG": {
-      "description": "NRM Loop Flag controls monitoring behaviour: \n0 = Individual NRM monitoring suppressed (loop operational with aggregate IRSR >= 0)\n1 = Individual NRM monitoring active (applies to: loop not operational, aggregate loop IRSR < 0, or non-loop interconnection)\nThis flag is evaluated and set for ALL interconnections in each dispatch interval",
-      "type": [
-        "integer",
-        "null"
-      ],
-      "x-field-id": 16,
-      "x-iceberg-type": "long",
-      "x-model-type": "NUMERIC(1,0)"
     },
     "PREDISPATCHSEQNO": {
       "description": "Predispatch sequence number",
@@ -238,14 +226,9 @@
       "decimal(2, 0)"
     ],
     [
-      15,
-      "NRMCONSTRAINT_BLOCKED_FLAG",
-      "long"
-    ],
-    [
       16,
-      "NRM_LOOP_FLAG",
-      "long"
+      "NRM_CONSTRAINT_BLOCKED_FLAG",
+      "decimal(1, 0)"
     ]
   ],
   "x-format": 3,

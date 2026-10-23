@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 35,
       "from": {
         "data-time": "2017-12-25T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#MARKET_SUSPEND_SCHEDULE_TRK#FILE01#202408010000.zip",
@@ -15,20 +15,21 @@
         "sha256": "1981d5ad0a92894e8625adf87e0e2016509468ca7d1376d9923ed29173fb83ff"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "FORCE_MAJEURE",
         "MARKET_SUSPEND_SCHEDULE_TRK"
       ],
-      "rows": 10587,
+      "rows": 10596,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-19T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#MARKET_SUSPEND_SCHEDULE_TRK#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "af38dd1df770d7a7ea7d8cec5aca10490b7116646075de23dba6eeb2c01668f3"
+        "data-time": "2026-11-02T00:00:00+10:00",
+        "file": "PUBLIC_MARKET_SUSPENSION_SCHEDULE_20261017235510_0000000543435592.zip",
+        "release": "2026-10",
+        "sha256": "67535369ceb02a016a931256fe716e7fc621927e07b687f01278cd6054f42e9e"
       },
       "updates": [],
       "version": 1

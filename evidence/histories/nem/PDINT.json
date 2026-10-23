@@ -1,0 +1,144 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 18868,
+      "from": {
+        "data-time": "2017-06-19T14:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_201706191400_20170619133258_LEGACY.zip",
+        "release": "2017-06",
+        "sha256": "911cf5ba9d8a4adcb1c8dbc3bc964f8eb4c3d0752c684dbb44f016c7ed2fa3ee"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PDINT",
+        ""
+      ],
+      "rows": 6351762,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T23:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_202610212300_20261021223153_LEGACY.zip",
+        "release": "2026-10",
+        "sha256": "3560c6629b64698a4ac6ece266a5a04ec8b14b6e75348485491cc1badaf40497"
+      },
+      "updates": [],
+      "version": 5
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "INTERCONNECTORID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PERIODID",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "MWFLOW",
+          "required": false,
+          "type": "decimal(9, 5)"
+        },
+        {
+          "id": 6,
+          "name": "MWLOSSES",
+          "required": false,
+          "type": "decimal(8, 5)"
+        },
+        {
+          "id": 7,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 8,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 9,
+          "name": "IMPORTLIMIT",
+          "required": false,
+          "type": "decimal(9, 5)"
+        },
+        {
+          "id": 10,
+          "name": "EXPORTLIMIT",
+          "required": false,
+          "type": "decimal(9, 5)"
+        },
+        {
+          "id": 11,
+          "name": "MARGINALLOSS",
+          "required": false,
+          "type": "decimal(6, 5)"
+        },
+        {
+          "id": 12,
+          "name": "EXPORTGENCONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "IMPORTGENCONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "FCASEXPORTLIMIT",
+          "required": false,
+          "type": "decimal(9, 5)"
+        },
+        {
+          "id": 15,
+          "name": "FCASIMPORTLIMIT",
+          "required": false,
+          "type": "decimal(9, 5)"
+        },
+        {
+          "id": 16,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "PDINT"
+}

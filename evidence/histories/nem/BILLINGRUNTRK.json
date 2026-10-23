@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 202,
+      "files": 1110,
       "from": {
         "data-time": "2009-06-19T08:39:42+10:00",
         "file": "PUBLIC_DVD_BILLINGRUNTRK_200907010000.zip",
@@ -16,20 +16,22 @@
       },
       "kinds": [
         "archive",
-        "dvd"
+        "dvd",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "BILLING",
         "RUNTRK"
       ],
-      "rows": 9691,
+      "rows": 10599,
       "schema-id": 0,
       "to": {
         "data-time": "2026-04-30T12:36:25+10:00",
-        "file": "PUBLIC_ARCHIVE#BILLINGRUNTRK#FILE01#202604010000.zip",
+        "file": "PUBLIC_BILLING_20260402.zip",
         "release": "2026-04",
-        "sha256": "0e8df01382edc03a467c857b0a61b77c88243e5fd53eff258732cac1cd3b8763"
+        "sha256": "b2a4e97d27e9bcfa9967773ee21df225bed66534ccaed72f6a83863530c97bcd"
       },
       "updates": [],
       "version": 5
@@ -39,7 +41,7 @@
         "schema",
         "version"
       ],
-      "files": 5,
+      "files": 1,
       "from": {
         "data-time": "2026-05-01T03:45:55+10:00",
         "file": "PUBLIC_ARCHIVE#BILLINGRUNTRK#FILE01#202605010000.zip",
@@ -54,7 +56,295 @@
         "BILLING",
         "RUNTRK"
       ],
-      "rows": 245,
+      "rows": 48,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-31T01:22:30+10:00",
+        "file": "PUBLIC_ARCHIVE#BILLINGRUNTRK#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "f5d1b98f2c84df7afb6e0b09b3b525d9b9b3d05f4f0abbaf38c73346c222b581"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 17
+        }
+      ],
+      "version": 6
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 48,
+      "from": {
+        "data-time": "2026-05-01T03:45:55+10:00",
+        "file": "PUBLIC_BILLING_20260402.zip",
+        "release": "2026-05",
+        "sha256": "b2a4e97d27e9bcfa9967773ee21df225bed66534ccaed72f6a83863530c97bcd"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BILLING",
+        "RUNTRK"
+      ],
+      "rows": 48,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-31T01:22:30+10:00",
+        "file": "PUBLIC_BILLING_20260502.zip",
+        "release": "2026-05",
+        "sha256": "bdff7ff2bc5b77cede6468158b7950178506723e0b638a77628eda01eafc3cba"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 17
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-06-01T01:23:20+10:00",
+        "file": "PUBLIC_ARCHIVE#BILLINGRUNTRK#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "bda6903a1feb2ced187392f0ed46f9d53fc04221445c20fc648229f3d7c7f316"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BILLING",
+        "RUNTRK"
+      ],
+      "rows": 47,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-06-30T12:10:34+10:00",
+        "file": "PUBLIC_ARCHIVE#BILLINGRUNTRK#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "bda6903a1feb2ced187392f0ed46f9d53fc04221445c20fc648229f3d7c7f316"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 17
+        }
+      ],
+      "version": 6
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 47,
+      "from": {
+        "data-time": "2026-06-01T01:23:20+10:00",
+        "file": "PUBLIC_BILLING_20260502.zip",
+        "release": "2026-06",
+        "sha256": "bdff7ff2bc5b77cede6468158b7950178506723e0b638a77628eda01eafc3cba"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BILLING",
+        "RUNTRK"
+      ],
+      "rows": 47,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-06-30T12:10:34+10:00",
+        "file": "PUBLIC_BILLING_20260602.zip",
+        "release": "2026-06",
+        "sha256": "9d10038c75bace951c5e89af35aecccf6acd67ecb4039fb5fcf5bd4ab2c6de2d"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 17
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-07-01T01:38:40+10:00",
+        "file": "PUBLIC_ARCHIVE#BILLINGRUNTRK#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "c376968f8574a1e60af7216a8614d28472535f836900a0383e7e36309f6be4c8"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BILLING",
+        "RUNTRK"
+      ],
+      "rows": 50,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-07-31T12:13:25+10:00",
+        "file": "PUBLIC_ARCHIVE#BILLINGRUNTRK#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "c376968f8574a1e60af7216a8614d28472535f836900a0383e7e36309f6be4c8"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 17
+        }
+      ],
+      "version": 6
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 50,
+      "from": {
+        "data-time": "2026-07-01T01:38:40+10:00",
+        "file": "PUBLIC_BILLING_20260602.zip",
+        "release": "2026-07",
+        "sha256": "9d10038c75bace951c5e89af35aecccf6acd67ecb4039fb5fcf5bd4ab2c6de2d"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BILLING",
+        "RUNTRK"
+      ],
+      "rows": 50,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-07-31T12:13:25+10:00",
+        "file": "PUBLIC_BILLING_20260702.zip",
+        "release": "2026-07",
+        "sha256": "3c5a02f55ec4e994adab91ec4c4dcda2ac69ef8fc923b7bfce1bdf2344d54ed3"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 17
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-01T01:25:15+10:00",
+        "file": "PUBLIC_ARCHIVE#BILLINGRUNTRK#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "7946be30e7545ce5becfb55b8d77b96a64ceaca2ffe42259182601d90be83246"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BILLING",
+        "RUNTRK"
+      ],
+      "rows": 47,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-08-31T01:25:15+10:00",
+        "file": "PUBLIC_ARCHIVE#BILLINGRUNTRK#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "7946be30e7545ce5becfb55b8d77b96a64ceaca2ffe42259182601d90be83246"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 17
+        }
+      ],
+      "version": 6
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 49,
+      "from": {
+        "data-time": "2026-08-01T01:25:15+10:00",
+        "file": "PUBLIC_BILLING_20260702.zip",
+        "release": "2026-08",
+        "sha256": "3c5a02f55ec4e994adab91ec4c4dcda2ac69ef8fc923b7bfce1bdf2344d54ed3"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BILLING",
+        "RUNTRK"
+      ],
+      "rows": 49,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-01T11:40:13+10:00",
+        "file": "PUBLIC_BILLING_20260802.zip",
+        "release": "2026-09",
+        "sha256": "9b08d83d90b963b1d1f56eb1d2ad88b9b18fb852a1c0ff9e1b87ac918341ea98"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 17
+        }
+      ],
+      "version": 5
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-09-01T01:23:00+10:00",
+        "file": "PUBLIC_ARCHIVE#BILLINGRUNTRK#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "5f09b233621f7c4787424fcd6b7ee79c970605ebf6fc0294a469ad66e258c96e"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BILLING",
+        "RUNTRK"
+      ],
+      "rows": 53,
       "schema-id": 1,
       "to": {
         "data-time": "2026-09-30T11:32:07+10:00",
@@ -64,7 +354,7 @@
       },
       "updates": [
         {
-          "action": "add",
+          "action": "restore",
           "field-id": 17
         }
       ],

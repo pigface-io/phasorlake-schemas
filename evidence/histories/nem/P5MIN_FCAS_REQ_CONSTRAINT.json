@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 322,
+      "files": 109767,
       "from": {
         "data-time": "2024-12-09T11:10:00+10:00",
         "file": "PUBLIC_ARCHIVE#P5MIN_FCAS_REQ_CONSTRAINT#FILE01#202412010000.zip",
@@ -15,20 +15,22 @@
         "sha256": "23bf2d8cec87f11ac7b38bc432815b44da818fd4cec27014719d0d2138110c0d"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "P5MIN",
         "FCAS_REQ_CONSTRAINT"
       ],
-      "rows": 12775035904,
+      "rows": 13771039576,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-01T00:55:00+10:00",
-        "file": "PUBLIC_ARCHIVE#P5MIN_FCAS_REQ_CONSTRAINT#FILE02#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "f7f62343dc37e17f831dbba4f6bb2eebeceef6cb414fb9641406292c78785086"
+        "data-time": "2026-10-21T23:30:00+10:00",
+        "file": "PUBLIC_P5MINFCST_202610212230_0000000544127122.zip",
+        "release": "2026-10",
+        "sha256": "b1d065427dc4ba2a2a62e77e4d83ea604bc2b9de8c8ecb072952d08b44259689"
       },
       "updates": [],
       "version": 1

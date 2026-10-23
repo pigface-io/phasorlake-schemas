@@ -1,0 +1,259 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/MARKET_SUSPEND_SCHEDULE/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DAY_TYPE": {
+      "description": "Distinguishes which record set to apply - at time of writing this was Business or Non-business day but may change in the future depending on outcome of consultation",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Calendar date from when this record set is effective",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "ENERGY_RRP": {
+      "description": "Energy Price applied for this period for this Day Type",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "L1_RRP": {
+      "description": "Lower 1Sec contingency Price applied for this period for this Day Type",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "L5_RRP": {
+      "description": "Lower 5Min contingency Price applied for this period for this Day Type",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "L60_RRP": {
+      "description": "Lower 60Sec contingency Price applied for this period for this Day Type",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "L6_RRP": {
+      "description": "Lower 6Sec contingency Price applied for this period for this Day Type",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "LREG_RRP": {
+      "description": "Lower Regulation Price applied for this period for this Day Type",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "PERIODID": {
+      "description": "48 intervals for a day, midnight base (equates to 00:30 - 00:00)",
+      "type": "integer",
+      "x-field-id": 4,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMERIC(3,0)"
+    },
+    "R1_RRP": {
+      "description": "Raise 1Sec contingency Price applied for this period for this Day Type",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "R5_RRP": {
+      "description": "Raise 5Min contingency Price applied for this period for this Day Type",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "R60_RRP": {
+      "description": "Raise 60Sec contingency Price applied for this period for this Day Type",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "R6_RRP": {
+      "description": "Raise 6Sec contingency Price applied for this period for this Day Type",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "REGIONID": {
+      "description": "Region affected.",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "RREG_RRP": {
+      "description": "Raise Regulation contingency Price applied for this period for this Day Type",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    }
+  },
+  "required": [
+    "EFFECTIVEDATE",
+    "DAY_TYPE",
+    "REGIONID",
+    "PERIODID"
+  ],
+  "title": "MARKET_SUSPEND_SCHEDULE, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "DAY_TYPE",
+      "string"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "long"
+    ],
+    [
+      5,
+      "ENERGY_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      6,
+      "R6_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "R60_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "R5_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "RREG_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "L6_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "L60_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "L5_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "LREG_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "L1_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "R1_RRP",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "MARKET_SUSPEND_SCHEDULE"
+  }
+}

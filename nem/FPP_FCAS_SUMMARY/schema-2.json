@@ -54,17 +54,6 @@
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
-    "LASTCHANGED": {
-      "description": "Last date and time record changed",
-      "format": "date-time",
-      "type": [
-        "string",
-        "null"
-      ],
-      "x-field-id": 17,
-      "x-iceberg-type": "timestamptz",
-      "x-model-type": "TIMESTAMP(0)"
-    },
     "P_REGULATION": {
       "description": "P regulation value in AUD/MW per hour related to the constraint (from FCAS data used for FPP calculations also known as adjusted marginal value)",
       "type": [
@@ -143,6 +132,16 @@
         "null"
       ],
       "x-field-id": 12,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMERIC(18,8)"
+    },
+    "USAGE": {
+      "description": "Usage (calculation of the proportion of regulation FCAS that was calculated to be used). Note that this is a join back to the FPP_USAGE table.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
       "x-iceberg-type": "decimal(18, 8)",
       "x-model-type": "NUMERIC(18,8)"
     },
@@ -242,14 +241,14 @@
       "decimal(18, 5)"
     ],
     [
-      16,
-      "USAGE_VALUE",
+      15,
+      "USAGE",
       "decimal(18, 8)"
     ],
     [
-      17,
-      "LASTCHANGED",
-      "timestamptz"
+      16,
+      "USAGE_VALUE",
+      "decimal(18, 8)"
     ]
   ],
   "x-format": 3,

@@ -1,0 +1,202 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/TRADING_CUMULATIVE_PRICE/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CUMULATIVE_PRICE_THRESHOLD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(7, 0)"
+    },
+    "ENERGY_CUMULATIVE_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(8, 2)"
+    },
+    "LOWER1SEC_CUMULATIVE_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(8, 2)"
+    },
+    "LOWER5MIN_CUMULATIVE_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "LOWER60SEC_CUMULATIVE_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "LOWER6SEC_CUMULATIVE_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "LOWERREG_CUMULATIVE_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "RAISE1SEC_CUMULATIVE_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "RAISE5MIN_CUMULATIVE_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "RAISE60SEC_CUMULATIVE_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "RAISE6SEC_CUMULATIVE_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(7, 2)"
+    },
+    "RAISEREG_CUMULATIVE_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "TRADING_CUMULATIVE_PRICE, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "REGIONID",
+      "string"
+    ],
+    [
+      3,
+      "CUMULATIVE_PRICE_THRESHOLD",
+      "decimal(7, 0)"
+    ],
+    [
+      4,
+      "ENERGY_CUMULATIVE_PRICE",
+      "decimal(8, 2)"
+    ],
+    [
+      5,
+      "RAISE6SEC_CUMULATIVE_PRICE",
+      "decimal(7, 2)"
+    ],
+    [
+      6,
+      "RAISE60SEC_CUMULATIVE_PRICE",
+      "decimal(6, 2)"
+    ],
+    [
+      7,
+      "RAISE5MIN_CUMULATIVE_PRICE",
+      "decimal(6, 2)"
+    ],
+    [
+      8,
+      "RAISEREG_CUMULATIVE_PRICE",
+      "decimal(6, 2)"
+    ],
+    [
+      9,
+      "LOWER6SEC_CUMULATIVE_PRICE",
+      "decimal(6, 2)"
+    ],
+    [
+      10,
+      "LOWER60SEC_CUMULATIVE_PRICE",
+      "decimal(6, 2)"
+    ],
+    [
+      11,
+      "LOWER5MIN_CUMULATIVE_PRICE",
+      "decimal(6, 2)"
+    ],
+    [
+      12,
+      "LOWERREG_CUMULATIVE_PRICE",
+      "decimal(6, 2)"
+    ],
+    [
+      13,
+      "LOWER1SEC_CUMULATIVE_PRICE",
+      "decimal(8, 2)"
+    ],
+    [
+      14,
+      "RAISE1SEC_CUMULATIVE_PRICE",
+      "decimal(6, 2)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "TRADING_CUMULATIVE_PRICE"
+  }
+}

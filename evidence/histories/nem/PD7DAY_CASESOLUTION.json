@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 209,
       "from": {
         "data-time": "2024-04-23T18:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#PD7DAY_CASESOLUTION#FILE01#202408010000.zip",
@@ -15,20 +15,21 @@
         "sha256": "7098fcd5e833c9058805d4a4394e371a77e0effb9ef4c36505c06d55383e7afc"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "PD7DAY",
         "CASESOLUTION"
       ],
-      "rows": 33926,
+      "rows": 34109,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-09-30T18:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#PD7DAY_CASESOLUTION#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "af0819a98b030b22bf0360ac32031a4c5a936bdb008ff83b2cd9c5df795fa929"
+        "data-time": "2026-10-21T18:00:00+10:00",
+        "file": "PUBLIC_PD7DAY_20261021174310_0000000544091388.zip",
+        "release": "2026-10",
+        "sha256": "72ae05930ddc8ae6b42e0842e74594616aefd65d3f055b077440ad574710332d"
       },
       "updates": [],
       "version": 1

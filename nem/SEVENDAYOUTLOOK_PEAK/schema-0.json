@@ -1,0 +1,112 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SEVENDAYOUTLOOK_PEAK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CALENDAR_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "NET_INTERCHANGE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "SCHEDULED_CAPACITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "SCHEDULED_DEMAND": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "SCHEDULED_RESERVE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(6, 2)"
+    }
+  },
+  "required": [],
+  "title": "SEVENDAYOUTLOOK_PEAK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "REGIONID",
+      "string"
+    ],
+    [
+      2,
+      "CALENDAR_DATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "SCHEDULED_DEMAND",
+      "decimal(5, 0)"
+    ],
+    [
+      4,
+      "SCHEDULED_CAPACITY",
+      "decimal(5, 0)"
+    ],
+    [
+      5,
+      "NET_INTERCHANGE",
+      "decimal(6, 2)"
+    ],
+    [
+      6,
+      "SCHEDULED_RESERVE",
+      "decimal(6, 2)"
+    ],
+    [
+      7,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SEVENDAYOUTLOOK_PEAK"
+  }
+}

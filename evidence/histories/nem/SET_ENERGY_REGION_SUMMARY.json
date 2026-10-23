@@ -7,28 +7,30 @@
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 1923,
       "from": {
         "data-time": "2024-06-02T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#SET_ENERGY_REGION_SUMMARY#FILE01#202408010000.zip",
-        "release": "2024-08",
-        "sha256": "5060965aac91675f71efc51a426b874cb98f0580c34b59fc25e35d31cdabf725"
+        "file": "PUBLIC_SETTLEMENTS_20240603011601_0000000421728382.zip",
+        "release": "2024-06",
+        "sha256": "c8d0f9c10638c52e2d1571b5500ecfd5e978308a93ca241b0493dd5bce9b10a0"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "SETTLEMENTS",
         "ENERGY_REGION_SUMMARY"
       ],
-      "rows": 74467480,
+      "rows": 82910200,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#SET_ENERGY_REGION_SUMMARY#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "1a276e0bfbd474c2573187ae153e188a6c9193fba820106db6776fcd1fa2a9eb"
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "PUBLIC_SETTLEMENTS_20261021114528_0000000544040800.zip",
+        "release": "2026-10",
+        "sha256": "c68a417a99949935a9c021dc7c0c56f893effce43b8abdc6d25d5826c5316b02"
       },
       "updates": [],
       "version": 1

@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 26,
+      "files": 412,
       "from": {
         "data-time": "2007-07-09T12:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#NETWORK_RATING#FILE01#202408010000.zip",
@@ -15,20 +15,22 @@
         "sha256": "3c5168180570804fe66cff03e62dcf60c0f4ee62256bff5ade3fafd304e667fa"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "NETWORK",
         "RATING"
       ],
-      "rows": 85356,
+      "rows": 1057960,
       "schema-id": 0,
       "to": {
         "data-time": "9999-12-31T17:10:00+10:00",
-        "file": "PUBLIC_ARCHIVE#NETWORK_RATING#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "ebe7be94ed2633adc00b204b6d7bdb4fb1008340316323f5cb37a3ab3a6df710"
+        "file": "PUBLIC_NETWORK_20261021100004_0000000544026443.zip",
+        "release": "2026-10",
+        "sha256": "3fe11b52283771f32a737d3675269ad3c5cec4d4c7dc85fb81d802bea76daab2"
       },
       "updates": [],
       "version": 1

@@ -1,13 +1,13 @@
 {
   "breaking": [],
-  "current-schema-id": 0,
+  "current-schema-id": 1,
   "format-version": 3,
   "runs": [
     {
       "changes": [
         "first"
       ],
-      "files": 192,
+      "files": 77,
       "from": {
         "data-time": "2008-07-01T00:05:00+10:00",
         "file": "PUBLIC_DVD_MCC_CONSTRAINTSOLUTION_200807010000.zip",
@@ -15,7 +15,6 @@
         "sha256": "5fb4a7ea3bc9c8ea4c926565c0ae2f91f6439a7810ad33752a1e3caf0f5d79c7"
       },
       "kinds": [
-        "archive",
         "dvd"
       ],
       "overlaps": false,
@@ -23,15 +22,1118 @@
         "MCC",
         "CONSTRAINTSOLUTION"
       ],
-      "rows": 27109798,
+      "rows": 10185603,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-01T00:00:00+10:00",
+        "data-time": "2017-03-01T00:00:00+10:00",
+        "file": "PUBLIC_DVD_MCC_CONSTRAINTSOLUTION_201702010000.zip",
+        "release": "2017-02",
+        "sha256": "712348c471557593a6e94e182e2102fd667ff07ad6f69c9a73a571ee9032a6ed"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2017-03-25T19:30:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_201703251930_0000000282129407.zip",
+        "release": "2017-03",
+        "sha256": "3c05078989594536ce1095c757052ea996fac5a9531fe6dcc0e06da841a22ad2"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 10,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2017-03-25T19:30:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_201703251930_0000000282129407.zip",
+        "release": "2017-03",
+        "sha256": "3c05078989594536ce1095c757052ea996fac5a9531fe6dcc0e06da841a22ad2"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 101,
+      "from": {
+        "data-time": "2017-03-01T00:05:00+10:00",
+        "file": "PUBLIC_DVD_MCC_CONSTRAINTSOLUTION_201703010000.zip",
+        "release": "2017-03",
+        "sha256": "b476ea9a16d91fb1cf21c4f6f76dd51f6947b215c7e32c079314341a8ba11970"
+      },
+      "kinds": [
+        "archive",
+        "dvd"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 14383535,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-08-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202507010000.zip",
+        "release": "2025-07",
+        "sha256": "73a2d98c38569e8e637f157e72f432a1ae36f1db31365e251b9709b35474de48"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-08-12T11:10:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_202508121110_0000000475994123.zip",
+        "release": "2025-08",
+        "sha256": "464fab6d247d9549fb05d99da2c5bac07a165d2202dc31776e14b6b500501fd5"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 20,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-08-12T11:10:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_202508121110_0000000475994123.zip",
+        "release": "2025-08",
+        "sha256": "464fab6d247d9549fb05d99da2c5bac07a165d2202dc31776e14b6b500501fd5"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202508010000.zip",
+        "release": "2025-08",
+        "sha256": "60f6b801493e2a0d6c04aaad00152fea3a6fec632f09c86ff8d5956ec5e3a0e8"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 558987,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-10-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20250902.zip",
+        "release": "2025-09",
+        "sha256": "fa183bd09e5c29f02631895df6e537269326304d4e0aaa19a087616be880bdf0"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6911,
+      "from": {
+        "data-time": "2025-10-08T00:05:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20251008.zip",
+        "release": "2025-10",
+        "sha256": "efbfff4fcbb00febdce86e5e68b86479f923aa92c69336f5ca88b557f0df07c3"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 136439,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-10-31T23:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20251031.zip",
+        "release": "2025-10",
+        "sha256": "6a42db4b29f2a0639e92ab41036f143db9ebb1f3317f04e79f40da2f3e9469e8"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 32,
+      "from": {
+        "data-time": "2025-10-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "1dd277e8e51c8d50561559375570ae8c75bf8bcb4ea9c70a795f73cd3c07e19e"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 380765,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-11-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20251002.zip",
+        "release": "2025-10",
+        "sha256": "c89327123447af010aaf969a67e7d937a443896332945dd69ec2ec713e379410"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8625,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20251031.zip",
+        "release": "2025-11",
+        "sha256": "6a42db4b29f2a0639e92ab41036f143db9ebb1f3317f04e79f40da2f3e9469e8"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 170868,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-11-30T23:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20251130.zip",
+        "release": "2025-11",
+        "sha256": "0497dd10715c5906bacdb36c161b3d41e16199f06e5f21b2037bc622cd2f9b29"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-11-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "383eb1ca2f57a3af1379fbd591f7ca7f9936905e4773378be50c3b63213dd98c"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 370868,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-12-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20251102.zip",
+        "release": "2025-11",
+        "sha256": "7ada6e92bcfff364313f9c70fbe7c7c8211e44d73ffbe3791935d2d86ceb9f0b"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20251130.zip",
+        "release": "2025-12",
+        "sha256": "0497dd10715c5906bacdb36c161b3d41e16199f06e5f21b2037bc622cd2f9b29"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 170702,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-12-31T23:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20251231.zip",
+        "release": "2025-12",
+        "sha256": "61314bb7af15d02b0831c6cbd3170f16cb3f771acac5a4f0fbc254d85a8d975d"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 32,
+      "from": {
+        "data-time": "2025-12-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "5ae1028a88b06d88e562e3e04b1f21804974f96f6d3eab2368017331a7fc4e7f"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 373545,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-01-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20251202.zip",
+        "release": "2025-12",
+        "sha256": "41dffd9607f1a86da89d3ebb8675713747416508cf7827b7e0c17ff705292759"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8900,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20251231.zip",
+        "release": "2026-01",
+        "sha256": "61314bb7af15d02b0831c6cbd3170f16cb3f771acac5a4f0fbc254d85a8d975d"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 168559,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-31T23:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260131.zip",
+        "release": "2026-01",
+        "sha256": "6c74ae3e1ed757fdfa5c1f0d264213ef830177bef618e966b1eb640978df0d54"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 32,
+      "from": {
+        "data-time": "2026-01-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "33ab55f971f40ae84af3796a8ca975734704d7f40d6df9aa07ca1edeebf360fa"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 386687,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-02-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20260102.zip",
+        "release": "2026-01",
+        "sha256": "7a603d920a5071cd00e2d93f61bcc225daaae687b941ea4ad48e2a8784519021"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 7994,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260131.zip",
+        "release": "2026-02",
+        "sha256": "6c74ae3e1ed757fdfa5c1f0d264213ef830177bef618e966b1eb640978df0d54"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 152656,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-28T23:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260228.zip",
+        "release": "2026-02",
+        "sha256": "9682fba649c2cf3091baa6b073c2f4cdaef90b0dbd76505c36e1727204c50151"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 29,
+      "from": {
+        "data-time": "2026-02-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "f52a18beefad45a860e292d5b50e93ac71152a5d56337c7a44374d436cc94b78"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 326014,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-03-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20260202.zip",
+        "release": "2026-02",
+        "sha256": "093b2857e37edc7569aa785b35f4390133cb57282fba34e6cd5aeab7aed0a15e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8927,
+      "from": {
+        "data-time": "2026-03-03T13:45:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_202603031345_0000000506103614.zip",
+        "release": "2026-03",
+        "sha256": "ade89d2a1673a61bf01b49377a228e956d5df6bb42e57c1df87526fc6e95e9d4"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 177893,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-03-31T23:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260331.zip",
+        "release": "2026-03",
+        "sha256": "7a5ff7d34497525ff1075647dd4a1b2c894461284d995622a4942efcd36131a9"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 32,
+      "from": {
+        "data-time": "2026-03-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "978e89201fb5b0ec7e17f92ca729505ecfe50b6bd0521f55d40ac758b4993dcc"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 373694,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20260302.zip",
+        "release": "2026-03",
+        "sha256": "1120b6f548eb6f3d2ef9ffc50e418c52596c11d7e3bd3873d8ed174de787be85"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8641,
+      "from": {
+        "data-time": "2026-04-17T21:45:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_202604172145_0000000513425916.zip",
+        "release": "2026-04",
+        "sha256": "8e47284cc1fcd42f2c7a362fd95c686d6573cd05437f6fb5a1ff7820c893dcb9"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 171003,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-30T23:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260430.zip",
+        "release": "2026-04",
+        "sha256": "e73a9eaadfc13cc32e5c971a333fe35edb0c8cada9455fb3689d0ac292f2d8b8"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-04-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "2cfe65042297f41fc328c8af46220ff3655164c226b77b7033544b638373cf76"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 374328,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20260402.zip",
+        "release": "2026-04",
+        "sha256": "93c2b355a485fe86fd5280374eefd70f2799cb76df900a9072948b3265f4600e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8926,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260430.zip",
+        "release": "2026-05",
+        "sha256": "e73a9eaadfc13cc32e5c971a333fe35edb0c8cada9455fb3689d0ac292f2d8b8"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 172769,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-31T23:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260531.zip",
+        "release": "2026-05",
+        "sha256": "b814ff0c5f7d0848ee0963626d81ae77c4819dcdbb02c502da3ea9eb3725a9e0"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 32,
+      "from": {
+        "data-time": "2026-05-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "d719baf31b3bbd4b9144b1af2ee82b83f5cc1010d5508d6b4712b10cf79d3b28"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 369369,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-06-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20260502.zip",
+        "release": "2026-05",
+        "sha256": "13d2e2cf9b6e0f9417c72654fc9ec7a255e765aeaa1f0ddfed5bcae73c4d5679"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8638,
+      "from": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260531.zip",
+        "release": "2026-06",
+        "sha256": "b814ff0c5f7d0848ee0963626d81ae77c4819dcdbb02c502da3ea9eb3725a9e0"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 172116,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-06-30T23:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260630.zip",
+        "release": "2026-06",
+        "sha256": "35a3643263682a4857b0911d81db873bb2b102735838b7a4923d6073e9270161"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-06-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "8ccd61e865ad84caa61e7f42df984a0af391970ff4f8d4ab4457170d0cf412bb"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 376571,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-07-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20260602.zip",
+        "release": "2026-06",
+        "sha256": "3ff5dd0dfed00975f32a158b0edfe07ff87e4c1daa8f08c9051b309b3a590cfd"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8927,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260630.zip",
+        "release": "2026-07",
+        "sha256": "35a3643263682a4857b0911d81db873bb2b102735838b7a4923d6073e9270161"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 141433,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-07-31T23:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260731.zip",
+        "release": "2026-07",
+        "sha256": "3b2d8db5e7974ddc33f3d3647c6e067d5d262ac8f5726430ddebb0665786fb83"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 32,
+      "from": {
+        "data-time": "2026-07-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "d326f5f537749fc6119a2052093c348306324373cf459f27afe42cee4b8eccb3"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 308041,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20260702.zip",
+        "release": "2026-07",
+        "sha256": "685801ef4b96cb37ae076da9754e66cec21836753075bc4f2839fe4129c7d83b"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8916,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260731.zip",
+        "release": "2026-08",
+        "sha256": "3b2d8db5e7974ddc33f3d3647c6e067d5d262ac8f5726430ddebb0665786fb83"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 139042,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-08-31T23:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260831.zip",
+        "release": "2026-08",
+        "sha256": "cb0c73f4943d0a38676084b6825079b019dbbffd574367462814bdff97ac5168"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 44,
+      "from": {
+        "data-time": "2026-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "4643f75556608603beec3f63eb388d7ea0ebcfe8c4d581d0d85607bdf8885dbe"
+      },
+      "kinds": [
+        "archive",
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 356368,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-02T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20260802.zip",
+        "release": "2026-09",
+        "sha256": "fa44630d12bd2b52151a150ae07258c19eb9bbc56330b6981e56a9a591844fa4"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8629,
+      "from": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260831.zip",
+        "release": "2026-09",
+        "sha256": "cb0c73f4943d0a38676084b6825079b019dbbffd574367462814bdff97ac5168"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 153616,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-09-30T23:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260930.zip",
+        "release": "2026-09",
+        "sha256": "624444b693489334d56f349861ec0b91141f57ec5e3b77c5ca7a8b2e0448f0dd"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-09-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#MCC_CONSTRAINTSOLUTION#FILE01#202609010000.zip",
         "release": "2026-09",
         "sha256": "7616d2f7764e1c9fbd5ed590c4a9a63107771e40016b97fa3d526682cca2a4d0"
       },
-      "updates": [],
+      "kinds": [
+        "archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 397604,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-01T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20260930_0000000540513463.zip",
+        "release": "2026-09",
+        "sha256": "892cbb0959c3ba911eef8962e768e78e2b469ce761498ec28a9aaae97b3e6e3b"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 5473,
+      "from": {
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_20260930.zip",
+        "release": "2026-10",
+        "sha256": "624444b693489334d56f349861ec0b91141f57ec5e3b77c5ca7a8b2e0448f0dd"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 102980,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-21T15:35:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_202610211535_0000000544072392.zip",
+        "release": "2026-10",
+        "sha256": "8ebabd2a2eea31e584ee3a0e94217e55a9143633b8401edbb5f7ad3334c2c0a1"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 21,
+      "from": {
+        "data-time": "2026-10-01T04:05:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20261001_0000000540695911.zip",
+        "release": "2026-10",
+        "sha256": "a87d97555ef0da0139763ed1c79ba90be1d056315ca702d0ac3ec4a0a88cdeeb"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 129379,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-22T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_MCCDISPATCH_20261021_0000000544173630.zip",
+        "release": "2026-10",
+        "sha256": "036aea71973212dfd09b5502b842330ebc97ea333dff932e24dd0220d43ae73b"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 5
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1131,
+      "from": {
+        "data-time": "2026-10-18T10:55:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_202610181055_0000000543513273.zip",
+        "release": "2026-10",
+        "sha256": "c201c15bda35117923d5062a655bfddebf243d86ecc9cfd29d770f223f087c58"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "MCC",
+        "CONSTRAINTSOLUTION"
+      ],
+      "rows": 25805,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-22T09:05:00+10:00",
+        "file": "PUBLIC_MCCDISPATCH_202610220905_0000000544203664.zip",
+        "release": "2026-10",
+        "sha256": "0cbe23c0c30969cdda203f6c2dfa62087fc7e85c203f3fdcd95c983d8177b9b2"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 5
+        }
+      ],
       "version": 1
     }
   ],
@@ -68,6 +1170,46 @@
         2
       ],
       "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "CONSTRAINTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "RHS",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 4,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 5,
+          "name": "DUID",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2
+      ],
+      "schema-id": 1,
       "type": "struct"
     }
   ],

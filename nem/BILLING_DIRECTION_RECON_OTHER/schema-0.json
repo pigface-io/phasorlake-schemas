@@ -76,16 +76,6 @@
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     },
-    "DIRECTION_SERVICE_ID": {
-      "description": "The Direction Service ID associated with the Direction Type ID. Eg For FCAS Direction Type, Direction Service could be any contingency service.",
-      "type": [
-        "string",
-        "null"
-      ],
-      "x-field-id": 21,
-      "x-iceberg-type": "string",
-      "x-model-type": "VARCHAR(20)"
-    },
     "DIRECTION_START_DATE": {
       "description": "Settlement day on which the direction starts",
       "format": "date-time",
@@ -174,26 +164,6 @@
       "x-field-id": 5,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
-    },
-    "REGION_ACE_MWH": {
-      "description": "The Sum of ACE MWh value for the Region over the duration of the direction. NULL for Billing Week prior to the IESS rule effective date",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 19,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
-    },
-    "REGION_ASOE_MWH": {
-      "description": "The Sum of ASOE MWh value for the Region over the duration of the direction. NULL for Billing Week prior to the IESS rule effective date",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 20,
-      "x-iceberg-type": "decimal(18, 8)",
-      "x-model-type": "NUMERIC(18,8)"
     },
     "WEEKNO": {
       "description": "Billing week no",
@@ -302,21 +272,6 @@
       18,
       "REGIONAL_BENEFIT_FACTOR",
       "decimal(18, 8)"
-    ],
-    [
-      19,
-      "REGION_ACE_MWH",
-      "decimal(18, 8)"
-    ],
-    [
-      20,
-      "REGION_ASOE_MWH",
-      "decimal(18, 8)"
-    ],
-    [
-      21,
-      "DIRECTION_SERVICE_ID",
-      "string"
     ]
   ],
   "x-format": 3,

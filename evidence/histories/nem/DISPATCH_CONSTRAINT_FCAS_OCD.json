@@ -1,13 +1,13 @@
 {
   "breaking": [],
-  "current-schema-id": 0,
+  "current-schema-id": 1,
   "format-version": 3,
   "runs": [
     {
       "changes": [
         "first"
       ],
-      "files": 6,
+      "files": 4,
       "from": {
         "data-time": "2024-10-28T15:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#DISPATCH_CONSTRAINT_FCAS_OCD#FILE01#202410010000.zip",
@@ -22,7 +22,144 @@
         "PRICELOAD",
         "CONSTRAINT_FCAS_OCD"
       ],
-      "rows": 2267,
+      "rows": 1045,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-01-12T17:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCH_CONSTRAINT_FCAS_OCD#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "444766c5b4475c66fd18a70fb568c61bf3d030f489900d5622213f85047d8ac4"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-01-12T17:00:00+10:00",
+        "file": "PUBLIC_PRICE_REVISION_DISPATCHIS_20260112170157_0000000498422789.zip",
+        "release": "2026-01",
+        "sha256": "65ae1ed1f2380159e971e7a78069632673fd04d124495257810ada3d76e7cdbb"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PRICELOAD",
+        "CONSTRAINT_FCAS_OCD"
+      ],
+      "rows": 386,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-12T17:00:00+10:00",
+        "file": "PUBLIC_PRICE_REVISION_DISPATCH_20260101.zip",
+        "release": "2026-01",
+        "sha256": "15d513a8d765cce4d4ce1bd3e463c6bd62298ccf52e26b9c1f9f2e6214bc89e5"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-02-17T12:40:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCH_CONSTRAINT_FCAS_OCD#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "86b6b970ab542e71bedf37f58140715bcc894ff1e13d5577485b0cea2826ea57"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "PRICELOAD",
+        "CONSTRAINT_FCAS_OCD"
+      ],
+      "rows": 808,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-02-17T13:30:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCH_CONSTRAINT_FCAS_OCD#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "86b6b970ab542e71bedf37f58140715bcc894ff1e13d5577485b0cea2826ea57"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 12,
+      "from": {
+        "data-time": "2026-02-17T12:40:00+10:00",
+        "file": "PUBLIC_PRICE_REVISION_DISPATCHIS_20260217124353_0000000503861880.zip",
+        "release": "2026-02",
+        "sha256": "2cab980356d77e0151fe77b843899fb810f0727034247056a8c3f624bb58f387"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "PRICELOAD",
+        "CONSTRAINT_FCAS_OCD"
+      ],
+      "rows": 2424,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-17T13:30:00+10:00",
+        "file": "PUBLIC_PRICE_REVISION_DISPATCH_20260201.zip",
+        "release": "2026-02",
+        "sha256": "684f9781247a9e38e52a6a57fec37f7d208f08eb49209ea63adeb9e3b86a0c52"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-05T16:25:00+10:00",
+        "file": "PUBLIC_ARCHIVE#DISPATCH_CONSTRAINT_FCAS_OCD#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "4d8db0240e34c8f77602e88ef67ef04c0c1c8a83cc46daf91be697cac3482878"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "PRICELOAD",
+        "CONSTRAINT_FCAS_OCD"
+      ],
+      "rows": 414,
       "schema-id": 0,
       "to": {
         "data-time": "2026-08-05T16:30:00+10:00",
@@ -30,7 +167,48 @@
         "release": "2026-08",
         "sha256": "4d8db0240e34c8f77602e88ef67ef04c0c1c8a83cc46daf91be697cac3482878"
       },
-      "updates": [],
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2026-08-05T16:25:00+10:00",
+        "file": "PUBLIC_PRICE_REVISION_DISPATCHIS_20260805165007_0000000531106990.zip",
+        "release": "2026-08",
+        "sha256": "a06583a826b123d3c75a69dd5d69008f398e072adca136ecc793a6d3cd86ff89"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "PRICELOAD",
+        "CONSTRAINT_FCAS_OCD"
+      ],
+      "rows": 828,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-08-05T16:30:00+10:00",
+        "file": "PUBLIC_PRICE_REVISION_DISPATCH_20260801.zip",
+        "release": "2026-08",
+        "sha256": "f4c8b80a8d2e046d08a35832a611c3c00ff0952de5aa2449143ddc4ef4c93950"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 6
+        }
+      ],
       "version": 1
     }
   ],
@@ -100,6 +278,73 @@
         5
       ],
       "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "INTERVENTION",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "CONSTRAINTID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "VERSIONNO",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "RHS",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "MARGINALVALUE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "VIOLATIONDEGREE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "schema-id": 1,
       "type": "struct"
     }
   ],

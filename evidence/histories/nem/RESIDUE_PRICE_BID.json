@@ -1,0 +1,89 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": null,
+        "file": "PUBLIC_SRBID_A202512_20251215141754.CSV",
+        "release": "2025-12",
+        "sha256": "4f8636b892e9be656cb90bba2e66445af5bdf9d533bf0171e0d413b5b03e1553"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "RESIDUE_PRICE_BID",
+        ""
+      ],
+      "rows": 42259,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "PUBLIC_SRBID_A202609_20260915141606.CSV",
+        "release": "2026-09",
+        "sha256": "27b8d0789d2c14d96643c0f67474fce75d9d27d06cde3d1301b2b80f3313e6f6"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CONTRACTID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "INTERCONNECTORID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "UNITS",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 5,
+          "name": "BIDPRICE",
+          "required": false,
+          "type": "decimal(17, 6)"
+        },
+        {
+          "id": 6,
+          "name": "LINKEDBIDFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "AUCTIONID",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "RESIDUE_PRICE_BID"
+}

@@ -7,28 +7,29 @@
       "changes": [
         "first"
       ],
-      "files": 17,
+      "files": 1095,
       "from": {
-        "data-time": "2024-12-29T00:05:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_FORECAST_DEFAULT_CF#FILE01#202412010000.zip",
+        "data-time": "2024-12-22T00:05:00+10:00",
+        "file": "PUBLIC_FPP_DCF_202412141802_0000000443338900.zip",
         "release": "2024-12",
-        "sha256": "98693dc48b2295ff9ecddd3c216becad2eeac269e7d6a3a91c1d9a5e0e681f17"
+        "sha256": "db45c77defd2a4f3fb6382697251068663a094bdadb7f5c66614c033ff31a958"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "FPP",
         "FORECAST_DEFAULT_CF"
       ],
-      "rows": 8443105,
+      "rows": 9580350,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-05-10T00:05:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_FORECAST_DEFAULT_CF#FILE01#202604010000.zip",
-        "release": "2026-04",
-        "sha256": "2e3edd71269c27dcad5a773ed8909f14eb2e19c668c73a9a6b72c7d598951e11"
+        "data-time": "2026-05-17T00:05:00+10:00",
+        "file": "PUBLIC_FPP_DCF_202605091806_0000000516903477.zip",
+        "release": "2026-05",
+        "sha256": "2cdf02c8eec27d7b5e454e1c184c0db4d41a480ca92dbca676aeadf4628e1650"
       },
       "updates": [],
       "version": 1
@@ -37,28 +38,29 @@
       "changes": [
         "schema"
       ],
-      "files": 5,
+      "files": 265,
       "from": {
-        "data-time": "2024-12-29T00:05:00+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_FORECAST_DEFAULT_CF#FILE01#202605010000.zip",
+        "data-time": "2026-05-14T14:08:30+10:00",
+        "file": "PUBLIC_FPP_DCF_202605141408_0000000517636376.zip",
         "release": "2026-05",
-        "sha256": "e9324a225bf4e5dffa58b1edab3f63419831263abe0c43dfb48954d51af23b13"
+        "sha256": "4de86c2b7f9ee887efaeb040bf77bbf2bdebe79a61960eb269266bc6db9f33d3"
       },
       "kinds": [
-        "archive"
+        "archive",
+        "reports/current"
       ],
       "overlaps": true,
       "report": [
         "FPP",
         "FORECAST_DEFAULT_CF"
       ],
-      "rows": 3790020,
+      "rows": 4057014,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-09-29T04:14:28+10:00",
-        "file": "PUBLIC_ARCHIVE#FPP_FORECAST_DEFAULT_CF#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "a9dc3cde274c71e9c60e2f9532399368499483b674138195124bbe36f784a297"
+        "data-time": "2026-10-20T13:00:20+10:00",
+        "file": "PUBLIC_FPP_DCF_202610201300_0000000543876499.zip",
+        "release": "2026-10",
+        "sha256": "d45255741694a70b443511d597ef9587a285b7c5585ff1377a14bbc0810e173f"
       },
       "updates": [
         {

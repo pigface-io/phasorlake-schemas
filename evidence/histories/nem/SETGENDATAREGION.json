@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 185,
+      "files": 4450,
       "from": {
         "data-time": "2008-11-30T00:00:00+10:00",
         "file": "PUBLIC_DVD_SETGENDATAREGION_200907010000.zip",
@@ -16,20 +16,21 @@
       },
       "kinds": [
         "archive",
-        "dvd"
+        "dvd",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "SETTLEMENTS",
         "GENDATAREGION"
       ],
-      "rows": 11359680,
+      "rows": 20518560,
       "schema-id": 0,
       "to": {
         "data-time": "2024-06-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#SETGENDATAREGION#FILE01#202412010000.zip",
+        "file": "PUBLIC_SETTLEMENTS_20241227085036_0000000444862173.zip",
         "release": "2024-12",
-        "sha256": "343fba26b3b79bef07a185948746ce25e00a0d6466feb2bd399478159a947f70"
+        "sha256": "1f2d8af553fb9d38d23122ca9509fab3a4b68338fb4bfd778376270a3855d99f"
       },
       "updates": [],
       "version": 5

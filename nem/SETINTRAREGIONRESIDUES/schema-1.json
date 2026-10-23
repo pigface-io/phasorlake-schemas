@@ -169,11 +169,6 @@
       "decimal(15, 8)"
     ],
     [
-      10,
-      "LASTCHANGED",
-      "timestamptz"
-    ],
-    [
       11,
       "ACE_AMOUNT",
       "decimal(18, 8)"
@@ -182,6 +177,11 @@
       12,
       "ASOE_AMOUNT",
       "decimal(18, 8)"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
     ]
   ],
   "x-format": 3,

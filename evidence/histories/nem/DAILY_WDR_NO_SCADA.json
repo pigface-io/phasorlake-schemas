@@ -1,0 +1,66 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 2191,
+      "from": {
+        "data-time": "2021-10-21T00:00:00+10:00",
+        "file": "PUBLIC_WDR_CAPACITY_NO_SCADA_20211021_0000000351232024.zip",
+        "release": "2021-10",
+        "sha256": "78da1a3eb1e46b8c128a9f6072be5b2e35e7d373d1f0dce98e5cb9c50ca728e1"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DAILY",
+        "WDR_NO_SCADA"
+      ],
+      "rows": 10955,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "PUBLIC_WDR_CAPACITY_NO_SCADA_20261020_0000000543990199.zip",
+        "release": "2026-10",
+        "sha256": "6aeb87bde761428265a24b140cd610e43e5122654c95f85febe258d900716fef"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CALENDAR_DAY",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "MW_CAPACITY_NO_SCADA",
+          "required": false,
+          "type": "decimal(2, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DAILY_WDR_NO_SCADA"
+}

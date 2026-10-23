@@ -1,6 +1,6 @@
 {
   "breaking": [],
-  "current-schema-id": 1,
+  "current-schema-id": 0,
   "format-version": 3,
   "runs": [
     {
@@ -37,7 +37,7 @@
       "changes": [
         "schema"
       ],
-      "files": 24,
+      "files": 14,
       "from": {
         "data-time": "2024-08-01T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202408010000.zip",
@@ -52,7 +52,707 @@
         "BIDS",
         "MNSP_DAYOFFER"
       ],
-      "rows": 297380,
+      "rows": 173760,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-09-30T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "c8631a0c4de604f0309f5a989c91b9aa04fb185048aa277202048b3c4b0a2815"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-09-01T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20250901.zip",
+        "release": "2025-09",
+        "sha256": "a1c5797b5a552ca7312c9b619df523d77d9c8ff0ca1a12b6ce4b982a8e34ccdc"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 232,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-09-30T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20250901.zip",
+        "release": "2025-09",
+        "sha256": "a1c5797b5a552ca7312c9b619df523d77d9c8ff0ca1a12b6ce4b982a8e34ccdc"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-10-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "247342c611731b81249e98c9f81b557b4bbe5015b7439eff39a77a8298d08114"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 204,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-10-31T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "247342c611731b81249e98c9f81b557b4bbe5015b7439eff39a77a8298d08114"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-10-01T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20251001.zip",
+        "release": "2025-10",
+        "sha256": "379b2b2a4dae8ff1ecd414147bd4a34a5592c4a5349d374cb77a3887cbb6304e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 204,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-10-31T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20251001.zip",
+        "release": "2025-10",
+        "sha256": "379b2b2a4dae8ff1ecd414147bd4a34a5592c4a5349d374cb77a3887cbb6304e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "bfe1c7251153e6655f9875443f47a831f0b0942273426e59255a7eb3297266bc"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 188,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-11-30T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "bfe1c7251153e6655f9875443f47a831f0b0942273426e59255a7eb3297266bc"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20251101.zip",
+        "release": "2025-11",
+        "sha256": "1884deb5ffe4eda270c6c14666b01a477971eeb5a543d7ce0050ccb2ce0180ec"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 188,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-11-30T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20251101.zip",
+        "release": "2025-11",
+        "sha256": "1884deb5ffe4eda270c6c14666b01a477971eeb5a543d7ce0050ccb2ce0180ec"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "390bf59782e11ee80bc7118d8d4d20b36420cc3cf60a0c66927f66563f00fdd8"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 12446,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-12-31T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "390bf59782e11ee80bc7118d8d4d20b36420cc3cf60a0c66927f66563f00fdd8"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20251201.zip",
+        "release": "2025-12",
+        "sha256": "aeeee0540fa62c200d62ba6b13372c994d122e4ca3f4878ea27a257a6fb10b84"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 12446,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-12-31T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20251201.zip",
+        "release": "2025-12",
+        "sha256": "aeeee0540fa62c200d62ba6b13372c994d122e4ca3f4878ea27a257a6fb10b84"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "f5d9248178cba6677ccf3a1f93f2d290ffe2895cf1d9c1f05aa4e2909999ca5f"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 17508,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-01-31T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "f5d9248178cba6677ccf3a1f93f2d290ffe2895cf1d9c1f05aa4e2909999ca5f"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260101.zip",
+        "release": "2026-01",
+        "sha256": "3bc4dcb3752551fccce0d1981a8df4eb867c49cad91fea337ec910f2131f6ba2"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 17508,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-01-31T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260101.zip",
+        "release": "2026-01",
+        "sha256": "3bc4dcb3752551fccce0d1981a8df4eb867c49cad91fea337ec910f2131f6ba2"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "edd9e0c77010de1cba39361b64eca79f2a95b46cf303fd685038efd49320613d"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 17134,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-02-28T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "edd9e0c77010de1cba39361b64eca79f2a95b46cf303fd685038efd49320613d"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 28,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260201.zip",
+        "release": "2026-02",
+        "sha256": "6806e9dd0e118b667957ddf1ebf6ccdb51c7705cbbacb110fe04446d0ea20a60"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 17134,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-02-28T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260201.zip",
+        "release": "2026-02",
+        "sha256": "6806e9dd0e118b667957ddf1ebf6ccdb51c7705cbbacb110fe04446d0ea20a60"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "38ad535b98d94a7840bff0d1f78aa613da97451ec38f6dbab606e29f088fd843"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 19420,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-03-31T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "38ad535b98d94a7840bff0d1f78aa613da97451ec38f6dbab606e29f088fd843"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260301.zip",
+        "release": "2026-03",
+        "sha256": "439ab008c3df1b95d13c5a92ee439e9fedebe8e0bedb06e8a999515accb47d3b"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 19420,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-03-31T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260301.zip",
+        "release": "2026-03",
+        "sha256": "439ab008c3df1b95d13c5a92ee439e9fedebe8e0bedb06e8a999515accb47d3b"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "e1733f61ce7dcde1440d51fa5ce54995ea9ac0df73f142ec072817c3f7b4a518"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 18836,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-04-30T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "e1733f61ce7dcde1440d51fa5ce54995ea9ac0df73f142ec072817c3f7b4a518"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260401.zip",
+        "release": "2026-04",
+        "sha256": "7b0f34c9ed6360b87fdaf2209e47c2e0eff5be69d15a65f44543ec090e54e94d"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 18836,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-30T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260401.zip",
+        "release": "2026-04",
+        "sha256": "7b0f34c9ed6360b87fdaf2209e47c2e0eff5be69d15a65f44543ec090e54e94d"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "c9cb2c60d6982b9515c872c9f4e5d40f47c2f02dffaf9a36f770421a9870450a"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 19340,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-05-31T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "c9cb2c60d6982b9515c872c9f4e5d40f47c2f02dffaf9a36f770421a9870450a"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 31,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260501.zip",
+        "release": "2026-05",
+        "sha256": "3e00a50d23bb8ce13458de9242d9ab4da29ab416b51b6ec4ab9e234ebc95958f"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 19340,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-31T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260501.zip",
+        "release": "2026-05",
+        "sha256": "3e00a50d23bb8ce13458de9242d9ab4da29ab416b51b6ec4ab9e234ebc95958f"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "91c628a315bb015d85210837f7f4904460102640403522624d59d7eeec36b61a"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 18526,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-06-30T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "91c628a315bb015d85210837f7f4904460102640403522624d59d7eeec36b61a"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 30,
+      "from": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260601.zip",
+        "release": "2026-06",
+        "sha256": "d7a2d657da8a95f168cff6c7de45a6c43f29ea1375621d3965add75f0ff5a266"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 18526,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-06-30T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260601.zip",
+        "release": "2026-06",
+        "sha256": "d7a2d657da8a95f168cff6c7de45a6c43f29ea1375621d3965add75f0ff5a266"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#MNSP_DAYOFFER#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "769923205d0e14164df902579659294846be0c0c7e5fb9918a8d85e13bdd0b10"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 18,
       "schema-id": 1,
       "to": {
         "data-time": "2026-07-09T00:00:00+10:00",
@@ -62,7 +762,42 @@
       },
       "updates": [
         {
-          "action": "add",
+          "action": "restore",
+          "field-id": 24
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 9,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260701.zip",
+        "release": "2026-07",
+        "sha256": "6b4c5046702039d94a69d14a4acb72200858d1ba93595fff47d2f04f816cd4c6"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "BIDS",
+        "MNSP_DAYOFFER"
+      ],
+      "rows": 18,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-07-09T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20260701.zip",
+        "release": "2026-07",
+        "sha256": "6b4c5046702039d94a69d14a4acb72200858d1ba93595fff47d2f04f816cd4c6"
+      },
+      "updates": [
+        {
+          "action": "delete",
           "field-id": 24
         }
       ],

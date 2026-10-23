@@ -58,11 +58,11 @@
     "MW_QUALITY_FLAG": {
       "description": "MW Quality (4 second SCADA measurement Quality) Supported values are: 0 = Bad Quality 1 = Good Quality 2 = Suspect Quality -1 = Value not used as input in the FPP calculation (generally used to indicate when SCADA data was late arriving after the FPP calculation commenced)",
       "type": [
-        "integer",
+        "number",
         "null"
       ],
       "x-field-id": 6,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(5, 0)",
       "x-model-type": "NUMERIC(5)"
     },
     "PARTICIPANTID": {
@@ -88,11 +88,11 @@
     "VERSIONNO": {
       "description": "Version (FPP run number from the FPP database)",
       "type": [
-        "integer",
+        "number",
         "null"
       ],
       "x-field-id": 4,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(5, 0)",
       "x-model-type": "NUMERIC(5)"
     }
   },
@@ -118,7 +118,7 @@
     [
       4,
       "VERSIONNO",
-      "long"
+      "decimal(5, 0)"
     ],
     [
       5,
@@ -128,7 +128,7 @@
     [
       6,
       "MW_QUALITY_FLAG",
-      "long"
+      "decimal(5, 0)"
     ],
     [
       7,

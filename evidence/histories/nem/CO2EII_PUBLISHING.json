@@ -1,0 +1,89 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 9,
+      "from": {
+        "data-time": null,
+        "file": "CO2EII_AVAILABLE_GENERATORS_2026_34_20260826101453.CSV",
+        "release": "2026-08",
+        "sha256": "c68fb127db5757b6cefc39e5bb9c255a57c3e233ef943efbf39cc301713d5bd3"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "CO2EII",
+        "PUBLISHING"
+      ],
+      "rows": 5657,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "CO2EII_AVAILABLE_GENERATORS_2026_42_20261021093607.CSV",
+        "release": "2026-10",
+        "sha256": "969d9451d1fc1709984c6ac6c3d4a31e024538d1cfc66f8686101471119c9211"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "STATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "DUID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "GENSETID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "CO2E_EMISSIONS_FACTOR",
+          "required": false,
+          "type": "decimal(9, 8)"
+        },
+        {
+          "id": 6,
+          "name": "CO2E_ENERGY_SOURCE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "CO2E_DATA_SOURCE",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "CO2EII_PUBLISHING"
+}

@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 181,
+      "files": 19050,
       "from": {
         "data-time": "2009-07-01T00:30:00+10:00",
         "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTR_SENS_D_200907010000.zip",
@@ -15,20 +15,22 @@
         "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
       },
       "kinds": [
-        "dvd"
+        "dvd",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "PREDISPATCH",
         "INTERCONNECTR_SENS"
       ],
-      "rows": 1588896,
+      "rows": 7949112,
       "schema-id": 0,
       "to": {
-        "data-time": "2024-08-01T00:00:00+10:00",
-        "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTR_SENS_D_202407010000.zip",
-        "release": "2024-07",
-        "sha256": "43f7c4b8e1c463feca3c9a4b45d6a9a4285a484d4e4574471fac52a2b2bcf16c"
+        "data-time": "2026-10-23T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20261021220759_0000000544124404.zip",
+        "release": "2026-10",
+        "sha256": "f414572f3fbb564da01ba327f2eee9e9e040e001f183750de97349fc2d4e4b6c"
       },
       "updates": [],
       "version": 1
@@ -59,7 +61,7 @@
           "id": 4,
           "name": "PERIODID",
           "required": false,
-          "type": "decimal(1, 0)"
+          "type": "decimal(2, 0)"
         },
         {
           "id": 5,

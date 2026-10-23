@@ -41,7 +41,7 @@
         "null"
       ],
       "x-field-id": 7,
-      "x-iceberg-type": "decimal(9, 6)"
+      "x-iceberg-type": "decimal(11, 8)"
     },
     "INTERVAL_DATETIME": {
       "format": "date-time",
@@ -83,7 +83,7 @@
         "null"
       ],
       "x-field-id": 13,
-      "x-iceberg-type": "decimal(8, 5)"
+      "x-iceberg-type": "decimal(11, 8)"
     },
     "PREV_REGION_BASE_COST": {
       "type": [
@@ -99,7 +99,7 @@
         "null"
       ],
       "x-field-id": 12,
-      "x-iceberg-type": "decimal(8, 5)"
+      "x-iceberg-type": "decimal(11, 8)"
     },
     "P_REGULATION": {
       "type": [
@@ -131,7 +131,7 @@
         "null"
       ],
       "x-field-id": 6,
-      "x-iceberg-type": "decimal(9, 6)"
+      "x-iceberg-type": "decimal(11, 8)"
     },
     "RUNNO": {
       "type": [
@@ -174,12 +174,12 @@
     [
       6,
       "REGION_ENABLEMENT",
-      "decimal(9, 6)"
+      "decimal(11, 8)"
     ],
     [
       7,
       "CONSTRAINT_ENABLEMENT",
-      "decimal(9, 6)"
+      "decimal(11, 8)"
     ],
     [
       8,
@@ -204,12 +204,12 @@
     [
       12,
       "PREV_REGION_ENABLEMENT",
-      "decimal(8, 5)"
+      "decimal(11, 8)"
     ],
     [
       13,
       "PREV_CONSTRAINT_ENABLEMENT",
-      "decimal(8, 5)"
+      "decimal(11, 8)"
     ],
     [
       14,

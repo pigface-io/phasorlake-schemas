@@ -1,0 +1,85 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/SEVENDAYOUTLOOK_PEAK/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CALENDAR_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "DATATYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "DATAVALUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string"
+    },
+    "PRETTYDATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string"
+    },
+    "REGIONID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "SEVENDAYOUTLOOK_PEAK, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "REGIONID",
+      "string"
+    ],
+    [
+      8,
+      "DATATYPE",
+      "string"
+    ],
+    [
+      9,
+      "DATAVALUE",
+      "string"
+    ],
+    [
+      2,
+      "CALENDAR_DATE",
+      "timestamptz"
+    ],
+    [
+      10,
+      "PRETTYDATE",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "SEVENDAYOUTLOOK_PEAK"
+  }
+}

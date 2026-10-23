@@ -1,0 +1,72 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 113136,
+      "from": {
+        "data-time": "2025-09-28T00:30:00+10:00",
+        "file": "PUBLIC_TRADING_IRSR_20250928_20251004.zip",
+        "release": "2025-09",
+        "sha256": "64eb3b8640297639c24e5304c8bea7d55b821da00442fb3ee44be8ef68c0443f"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "TRADING",
+        "IRSR"
+      ],
+      "rows": 1371998,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T22:35:00+10:00",
+        "file": "PUBLIC_TRADING_IRSR_202610212235_0000000544127116.zip",
+        "release": "2026-10",
+        "sha256": "7e2e2d8c5794e99f8eea397f38ca24a3e54a2ad3af4f6fdc5497d138db0dbba1"
+      },
+      "updates": [],
+      "version": 2
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADING_INTERVAL",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "INTERCONNECTORID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FROMREGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "RESIDUE",
+          "required": false,
+          "type": "decimal(14, 6)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "TRADING_IRSR"
+}

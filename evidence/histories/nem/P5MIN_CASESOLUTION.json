@@ -1,6 +1,6 @@
 {
   "breaking": [],
-  "current-schema-id": 2,
+  "current-schema-id": 3,
   "format-version": 3,
   "runs": [
     {
@@ -73,7 +73,7 @@
       "changes": [
         "schema"
       ],
-      "files": 26,
+      "files": 14,
       "from": {
         "data-time": "2024-08-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202408010000.zip",
@@ -88,13 +88,890 @@
         "P5MIN",
         "CASESOLUTION"
       ],
-      "rows": 227791,
+      "rows": 122671,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-10-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "0f67b2c5fcfe535afb5f966c1a9807d0b0068adba7a852ad5f2f3ec9378db2a1"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6911,
+      "from": {
+        "data-time": "2025-10-08T00:05:00+10:00",
+        "file": "PUBLIC_P5MIN_20251008.zip",
+        "release": "2025-10",
+        "sha256": "48b67675f05695533829b57efb40e1aeeef9cbcfbd161f5ad5283f53b66c9811"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 6911,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-10-31T23:55:00+10:00",
+        "file": "PUBLIC_P5MIN_20251031.zip",
+        "release": "2025-10",
+        "sha256": "e1a94f310c75c04644137fa77f3c741199fe4cce0a29c42a99edd3efcd168686"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-10-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "4ea6ed99602db06451569c159c9f679972040a811eea836f2dece4da5a273781"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8928,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "4ea6ed99602db06451569c159c9f679972040a811eea836f2dece4da5a273781"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20251031.zip",
+        "release": "2025-11",
+        "sha256": "e1a94f310c75c04644137fa77f3c741199fe4cce0a29c42a99edd3efcd168686"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8640,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-11-30T23:55:00+10:00",
+        "file": "PUBLIC_P5MIN_20251130.zip",
+        "release": "2025-11",
+        "sha256": "c1ed4fb361416bce1ec19bdba047559c6d2356c11c5c76a9219710a2dd24a2d2"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-11-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "f4d4df98777cf5a52e7594c8035cd91e88656fb9de36f26b908fb9983d3f219f"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8640,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "f4d4df98777cf5a52e7594c8035cd91e88656fb9de36f26b908fb9983d3f219f"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20251130.zip",
+        "release": "2025-12",
+        "sha256": "c1ed4fb361416bce1ec19bdba047559c6d2356c11c5c76a9219710a2dd24a2d2"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8928,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2025-12-31T23:55:00+10:00",
+        "file": "PUBLIC_P5MIN_20251231.zip",
+        "release": "2025-12",
+        "sha256": "c5f3b26357135c723dd0f7833f20733a8262c114eadfdcb16edb35e789609887"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-12-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "9b5eb5e139f55e7bed0dde5c6b0cf57dc7c1bc1b1e3ebd6132cd8612dbc8f278"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8928,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "9b5eb5e139f55e7bed0dde5c6b0cf57dc7c1bc1b1e3ebd6132cd8612dbc8f278"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20251231.zip",
+        "release": "2026-01",
+        "sha256": "c5f3b26357135c723dd0f7833f20733a8262c114eadfdcb16edb35e789609887"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8928,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-01-31T23:55:00+10:00",
+        "file": "PUBLIC_P5MIN_20260131.zip",
+        "release": "2026-01",
+        "sha256": "6e3d8e42981f97ae354ada7d246eba58fac8d79e8e1620c2f82f1c91e603381e"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-01-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "60f439d13dcabd7d0ed17229fb84656b4ca0facbb1a20a7a875b37cce258c332"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8928,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "60f439d13dcabd7d0ed17229fb84656b4ca0facbb1a20a7a875b37cce258c332"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8064,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260131.zip",
+        "release": "2026-02",
+        "sha256": "6e3d8e42981f97ae354ada7d246eba58fac8d79e8e1620c2f82f1c91e603381e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8064,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-02-28T23:55:00+10:00",
+        "file": "PUBLIC_P5MIN_20260228.zip",
+        "release": "2026-02",
+        "sha256": "0663009f32fe68c7bb7f7b3c6e7e2af007664d39547645bb5783f3e1eebaa874"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-02-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "49f8362da0378f970978b207edeac6beda7ef7dad2bf04bacfc1e6b191c28612"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8064,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "49f8362da0378f970978b207edeac6beda7ef7dad2bf04bacfc1e6b191c28612"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8905,
+      "from": {
+        "data-time": "2026-03-03T13:45:00+10:00",
+        "file": "PUBLIC_P5MIN_202603031345_20260303134116.zip",
+        "release": "2026-03",
+        "sha256": "661ab755e0ba138730c73810d32e0cdda8c5a41525179aff198737d80fa38ee2"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8905,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-03-31T23:55:00+10:00",
+        "file": "PUBLIC_P5MIN_20260331.zip",
+        "release": "2026-03",
+        "sha256": "fc9ef350c810651975b27b982bbeca9a4609f34567b9492710391e142b08e8cc"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-03-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "30314b0f11bf3352ba5908dee7aa838585752b66d2973d277645c4d5bbe6783f"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8928,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "30314b0f11bf3352ba5908dee7aa838585752b66d2973d277645c4d5bbe6783f"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260331.zip",
+        "release": "2026-04",
+        "sha256": "fc9ef350c810651975b27b982bbeca9a4609f34567b9492710391e142b08e8cc"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8640,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-04-30T23:55:00+10:00",
+        "file": "PUBLIC_P5MIN_20260430.zip",
+        "release": "2026-04",
+        "sha256": "bb99b17f0cfed148a237985df8cff2bf9f6bc7e033e3a305b118c2e6786ad77f"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-04-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "2ede3e6acb71b3e01abdd2c6043567cfdd23f5bfc41bf0c71a1224bd4f3fc611"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8640,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "2ede3e6acb71b3e01abdd2c6043567cfdd23f5bfc41bf0c71a1224bd4f3fc611"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260430.zip",
+        "release": "2026-05",
+        "sha256": "bb99b17f0cfed148a237985df8cff2bf9f6bc7e033e3a305b118c2e6786ad77f"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8928,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-05-31T23:55:00+10:00",
+        "file": "PUBLIC_P5MIN_20260531.zip",
+        "release": "2026-05",
+        "sha256": "44a9474dac07db4c13ef60aa43afca7f97223126379dfe5b2e66a27e1a2f59b9"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-05-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "300eb5d88fd94ba4fbf5496a2bb3d1adf6fa7504bc960ae43959e72b72e1c020"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8928,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "300eb5d88fd94ba4fbf5496a2bb3d1adf6fa7504bc960ae43959e72b72e1c020"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260531.zip",
+        "release": "2026-06",
+        "sha256": "44a9474dac07db4c13ef60aa43afca7f97223126379dfe5b2e66a27e1a2f59b9"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8640,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-06-30T23:55:00+10:00",
+        "file": "PUBLIC_P5MIN_20260630.zip",
+        "release": "2026-06",
+        "sha256": "d0f0a341b2397ad3b602ac254eee164e822aac0283cb9961c02ef9485f65a8a8"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-06-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "91e79a7d8d6b7940606d3c8f4493a4f0efb0531edd80f44b5a0e00b50ab9352d"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8640,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "91e79a7d8d6b7940606d3c8f4493a4f0efb0531edd80f44b5a0e00b50ab9352d"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260630.zip",
+        "release": "2026-07",
+        "sha256": "d0f0a341b2397ad3b602ac254eee164e822aac0283cb9961c02ef9485f65a8a8"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8928,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-07-31T23:55:00+10:00",
+        "file": "PUBLIC_P5MIN_20260731.zip",
+        "release": "2026-07",
+        "sha256": "9f536192651f1f01c804b8e697dae9d5ac41785ee19bae19150dac66d4d138cc"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-07-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "68208a62ad8efeec103a1caadec780669e6e544b98a770ac67b8d78e158b80a2"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8928,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "68208a62ad8efeec103a1caadec780669e6e544b98a770ac67b8d78e158b80a2"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260731.zip",
+        "release": "2026-08",
+        "sha256": "9f536192651f1f01c804b8e697dae9d5ac41785ee19bae19150dac66d4d138cc"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8928,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-08-31T23:55:00+10:00",
+        "file": "PUBLIC_P5MIN_20260831.zip",
+        "release": "2026-08",
+        "sha256": "9bf6da4f3fed6e6ea3553cc2b3f9a22da75e3cc653c2ea2c523752a7d076209c"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "092e8c7a6a5f1d2312455464d70c4796c1b36386a4b5632ae31f00e9ca08e1c6"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8928,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "092e8c7a6a5f1d2312455464d70c4796c1b36386a4b5632ae31f00e9ca08e1c6"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260831.zip",
+        "release": "2026-09",
+        "sha256": "9bf6da4f3fed6e6ea3553cc2b3f9a22da75e3cc653c2ea2c523752a7d076209c"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8640,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-09-30T23:55:00+10:00",
+        "file": "PUBLIC_P5MIN_20260930.zip",
+        "release": "2026-09",
+        "sha256": "cde9d4b95e214da35beb3a69bec9fd3d005e85fc92603e7ee9562fca0f5e927e"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-09-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "420d1e44346939d9a238966702f8f991511c06d592b773bbb2f9fbd02f93852b"
+      },
+      "kinds": [
+        "archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 8640,
       "schema-id": 2,
       "to": {
         "data-time": "2026-10-01T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#P5MIN_CASESOLUTION#FILE01#202609010000.zip",
         "release": "2026-09",
         "sha256": "420d1e44346939d9a238966702f8f991511c06d592b773bbb2f9fbd02f93852b"
+      },
+      "updates": [
+        {
+          "action": "move",
+          "field-id": 19
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6365,
+      "from": {
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260930.zip",
+        "release": "2026-10",
+        "sha256": "cde9d4b95e214da35beb3a69bec9fd3d005e85fc92603e7ee9562fca0f5e927e"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "CASESOLUTION"
+      ],
+      "rows": 6365,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-10-21T22:35:00+10:00",
+        "file": "PUBLIC_P5MIN_202610212235_20261021223034.zip",
+        "release": "2026-10",
+        "sha256": "b550c8519a3866ead941c4b083a24e63ee95f3858b865e988c44ae411f060904"
       },
       "updates": [
         {
@@ -467,6 +1344,129 @@
         1
       ],
       "schema-id": 2,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "STARTINTERVAL_DATETIME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 3,
+          "name": "TOTALOBJECTIVE",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 4,
+          "name": "NONPHYSICALLOSSES",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "TOTALAREAGENVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "TOTALINTERCONNECTORVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "TOTALGENERICVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "TOTALRAMPRATEVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "TOTALUNITMWCAPACITYVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 10,
+          "name": "TOTAL5MINVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALREGVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "TOTAL6SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "TOTAL60SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "TOTALENERGYCONSTRVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "TOTALENERGYOFFERVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "TOTALASPROFILEVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "TOTALFASTSTARTVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 3,
       "type": "struct"
     }
   ],

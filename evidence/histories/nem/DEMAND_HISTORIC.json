@@ -1,0 +1,72 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 427,
+      "from": {
+        "data-time": "2025-09-01T00:00:00+10:00",
+        "file": "PUBLIC_HISTDEMAND_20250901.zip",
+        "release": "2025-09",
+        "sha256": "486404e62f45bb9b1ea2974fbc92d6c686a6be167a154bcf19aa3f07714883c5"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DEMAND",
+        "HISTORIC"
+      ],
+      "rows": 102480,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T00:00:00+10:00",
+        "file": "PUBLIC_HISTDEMAND_20261021_0000000544152830.zip",
+        "release": "2026-10",
+        "sha256": "b8375f3dc71e6d29aa309de87a8b72a9042b962a36b3c1c6368cc4ea52d7b249"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "REGIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "SETTLEMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "PERIODID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 4,
+          "name": "DEMAND",
+          "required": false,
+          "type": "decimal(5, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DEMAND_HISTORIC"
+}

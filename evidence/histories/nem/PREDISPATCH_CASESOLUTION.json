@@ -1,0 +1,168 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 18868,
+      "from": {
+        "data-time": "2017-06-19T14:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_201706191400_20170619133258_LEGACY.zip",
+        "release": "2017-06",
+        "sha256": "911cf5ba9d8a4adcb1c8dbc3bc964f8eb4c3d0752c684dbb44f016c7ed2fa3ee"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "PREDISPATCH",
+        "CASESOLUTION"
+      ],
+      "rows": 18868,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T23:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_202610212300_20261021223153_LEGACY.zip",
+        "release": "2026-10",
+        "sha256": "3560c6629b64698a4ac6ece266a5a04ec8b14b6e75348485491cc1badaf40497"
+      },
+      "updates": [],
+      "version": 2
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PREDISPATCHSEQNO",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "RUNNO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "SOLUTIONSTATUS",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 4,
+          "name": "SPDVERSION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "NONPHYSICALLOSSES",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "TOTALOBJECTIVE",
+          "required": false,
+          "type": "decimal(15, 4)"
+        },
+        {
+          "id": 7,
+          "name": "TOTALAREAGENVIOLATION",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 8,
+          "name": "TOTALINTERCONNECTORVIOLATION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 9,
+          "name": "TOTALGENERICVIOLATION",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 10,
+          "name": "TOTALRAMPRATEVIOLATION",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 11,
+          "name": "TOTALUNITMWCAPACITYVIOLATION",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 12,
+          "name": "TOTAL5MINVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "TOTALREGVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "TOTAL6SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "TOTAL60SECVIOLATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 16,
+          "name": "TOTALASPROFILEVIOLATION",
+          "required": false,
+          "type": "decimal(5, 3)"
+        },
+        {
+          "id": 17,
+          "name": "TOTALENERGYCONSTRVIOLATION",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 18,
+          "name": "TOTALENERGYOFFERVIOLATION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 19,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 20,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(1, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "PREDISPATCH_CASESOLUTION"
+}

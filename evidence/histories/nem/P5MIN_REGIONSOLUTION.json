@@ -1,6 +1,6 @@
 {
   "breaking": [],
-  "current-schema-id": 8,
+  "current-schema-id": 9,
   "format-version": 3,
   "runs": [
     {
@@ -1973,7 +1973,7 @@
       "changes": [
         "version"
       ],
-      "files": 32,
+      "files": 8,
       "from": {
         "data-time": "2025-06-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202506010000.zip",
@@ -1989,7 +1989,947 @@
         "P5MIN",
         "REGIONSOLUTION"
       ],
-      "rows": 16830720,
+      "rows": 4216320,
+      "schema-id": 8,
+      "to": {
+        "data-time": "2025-10-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#FILE01#202509010000.zip",
+        "release": "2025-09",
+        "sha256": "3de78a7044c9a1886da02df335a8f711b9d42932047240052f491fb4136af7d5"
+      },
+      "updates": [],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6911,
+      "from": {
+        "data-time": "2025-10-08T00:05:00+10:00",
+        "file": "PUBLIC_P5MIN_20251008.zip",
+        "release": "2025-10",
+        "sha256": "48b67675f05695533829b57efb40e1aeeef9cbcfbd161f5ad5283f53b66c9811"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 414660,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2025-11-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20251031.zip",
+        "release": "2025-10",
+        "sha256": "e1a94f310c75c04644137fa77f3c741199fe4cce0a29c42a99edd3efcd168686"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2025-10-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "2aad9ccc6bec31576ddf2b05e8aeb6138bf94234d7531091eb4ec9707d17448d"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 8,
+      "to": {
+        "data-time": "2025-11-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#FILE01#202510010000.zip",
+        "release": "2025-10",
+        "sha256": "9a0952d8243a2b587613a04a95375b6ddd7887e39b8cd9a8e611bcbf621a2a86"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20251031.zip",
+        "release": "2025-11",
+        "sha256": "e1a94f310c75c04644137fa77f3c741199fe4cce0a29c42a99edd3efcd168686"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 518400,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2025-12-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20251130.zip",
+        "release": "2025-11",
+        "sha256": "c1ed4fb361416bce1ec19bdba047559c6d2356c11c5c76a9219710a2dd24a2d2"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2025-11-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "621abe64cb8dbfe053587fcd0f666d1e82b685aa4ade5a5bb6db99cd552684cd"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1036800,
+      "schema-id": 8,
+      "to": {
+        "data-time": "2025-12-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#FILE01#202511010000.zip",
+        "release": "2025-11",
+        "sha256": "ec4f6215ff785678d1a0baf7dd5ce720f39ae7f551c805d9d673d97d8e266505"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2025-12-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20251130.zip",
+        "release": "2025-12",
+        "sha256": "c1ed4fb361416bce1ec19bdba047559c6d2356c11c5c76a9219710a2dd24a2d2"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 535680,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2026-01-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20251231.zip",
+        "release": "2025-12",
+        "sha256": "c5f3b26357135c723dd0f7833f20733a8262c114eadfdcb16edb35e789609887"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2025-12-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "036b11c6310c85dcedae35b4777c35fc0c223eadbcc34c845632434dc761236e"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 8,
+      "to": {
+        "data-time": "2026-01-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#FILE01#202512010000.zip",
+        "release": "2025-12",
+        "sha256": "1aedca31bd2a66a1bda5a8bd73362ea308ef78c1b7fcb9450e018c87ca09a2b2"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-01-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20251231.zip",
+        "release": "2026-01",
+        "sha256": "c5f3b26357135c723dd0f7833f20733a8262c114eadfdcb16edb35e789609887"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 535680,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2026-02-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260131.zip",
+        "release": "2026-01",
+        "sha256": "6e3d8e42981f97ae354ada7d246eba58fac8d79e8e1620c2f82f1c91e603381e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-01-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "56b796e5d4bf0d941af616190c8475c00313409b8df54ad37bc6d21921993d7d"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 8,
+      "to": {
+        "data-time": "2026-02-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#FILE01#202601010000.zip",
+        "release": "2026-01",
+        "sha256": "f31829c8cad4e9956b59b61e1f55c5006d3757448c0b2a5fd42fcc04e2f3c115"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8064,
+      "from": {
+        "data-time": "2026-02-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260131.zip",
+        "release": "2026-02",
+        "sha256": "6e3d8e42981f97ae354ada7d246eba58fac8d79e8e1620c2f82f1c91e603381e"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 483840,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2026-03-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260228.zip",
+        "release": "2026-02",
+        "sha256": "0663009f32fe68c7bb7f7b3c6e7e2af007664d39547645bb5783f3e1eebaa874"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-02-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "6c88225c0d99505a0cb759937ea1baad0ed3f33b59feff63123e31e03cf21f19"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 967680,
+      "schema-id": 8,
+      "to": {
+        "data-time": "2026-03-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#FILE01#202602010000.zip",
+        "release": "2026-02",
+        "sha256": "25dff6b23ad8af42e54d2f3efe2a8a3a0d8fbd490e3ebca71fc5fdde301d5eab"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8905,
+      "from": {
+        "data-time": "2026-03-03T13:45:00+10:00",
+        "file": "PUBLIC_P5MIN_202603031345_20260303134116.zip",
+        "release": "2026-03",
+        "sha256": "661ab755e0ba138730c73810d32e0cdda8c5a41525179aff198737d80fa38ee2"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 534300,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2026-04-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260331.zip",
+        "release": "2026-03",
+        "sha256": "fc9ef350c810651975b27b982bbeca9a4609f34567b9492710391e142b08e8cc"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-03-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "6b2890829fa3ab05084bb21bd58402b43efaa904e81650031ac226dce71c5ce8"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 8,
+      "to": {
+        "data-time": "2026-04-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#FILE01#202603010000.zip",
+        "release": "2026-03",
+        "sha256": "7aca1120f1d3156406492ddbd53028a043e61523d2ab8233ab2d735963935097"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260331.zip",
+        "release": "2026-04",
+        "sha256": "fc9ef350c810651975b27b982bbeca9a4609f34567b9492710391e142b08e8cc"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 518400,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2026-05-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260430.zip",
+        "release": "2026-04",
+        "sha256": "bb99b17f0cfed148a237985df8cff2bf9f6bc7e033e3a305b118c2e6786ad77f"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-04-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "0c04a41fcbc8676e4ab1de8c040f82cb3c7e3d39573f133baf6e5744cae4e785"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1036800,
+      "schema-id": 8,
+      "to": {
+        "data-time": "2026-05-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#FILE01#202604010000.zip",
+        "release": "2026-04",
+        "sha256": "2692366431f47587232c8d81c859c64194be162045b1f63c3cc890a1cecddd6e"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-05-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260430.zip",
+        "release": "2026-05",
+        "sha256": "bb99b17f0cfed148a237985df8cff2bf9f6bc7e033e3a305b118c2e6786ad77f"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 535680,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2026-06-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260531.zip",
+        "release": "2026-05",
+        "sha256": "44a9474dac07db4c13ef60aa43afca7f97223126379dfe5b2e66a27e1a2f59b9"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-05-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "621a0f127987c9e37abc9c3b728df7c1fc97f089920780dd1521618cb02260a6"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 8,
+      "to": {
+        "data-time": "2026-06-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#FILE01#202605010000.zip",
+        "release": "2026-05",
+        "sha256": "8914b6f709b4074487b813ec07b62d01e7b0382a462770c691e712defd3cde24"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260531.zip",
+        "release": "2026-06",
+        "sha256": "44a9474dac07db4c13ef60aa43afca7f97223126379dfe5b2e66a27e1a2f59b9"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 518400,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2026-07-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260630.zip",
+        "release": "2026-06",
+        "sha256": "d0f0a341b2397ad3b602ac254eee164e822aac0283cb9961c02ef9485f65a8a8"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-06-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "7c3d1d0fec55023df9df73f51232496fd649e7834c63981a2f771df74c70105b"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1036800,
+      "schema-id": 8,
+      "to": {
+        "data-time": "2026-07-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#FILE01#202606010000.zip",
+        "release": "2026-06",
+        "sha256": "221fb3e5acc89dc6a78b7b8c913514e81eb04b16eaa1b4515558d38850420cbf"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260630.zip",
+        "release": "2026-07",
+        "sha256": "d0f0a341b2397ad3b602ac254eee164e822aac0283cb9961c02ef9485f65a8a8"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 535680,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2026-08-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260731.zip",
+        "release": "2026-07",
+        "sha256": "9f536192651f1f01c804b8e697dae9d5ac41785ee19bae19150dac66d4d138cc"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-07-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "b058e266fc469eb74c79cc6b0de619e733388904e834888a5028723731ad1da9"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 8,
+      "to": {
+        "data-time": "2026-08-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#FILE01#202607010000.zip",
+        "release": "2026-07",
+        "sha256": "4a4f8cc21483b972afb2eab8e5caf248e020b2f02c3879f46ea0051d6723649f"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8928,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260731.zip",
+        "release": "2026-08",
+        "sha256": "9f536192651f1f01c804b8e697dae9d5ac41785ee19bae19150dac66d4d138cc"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 535680,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2026-09-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260831.zip",
+        "release": "2026-08",
+        "sha256": "9bf6da4f3fed6e6ea3553cc2b3f9a22da75e3cc653c2ea2c523752a7d076209c"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-08-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "1e6a966918e130b2e154bc99641875cd5e878a5577a69d46025d255859c8b368"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1071360,
+      "schema-id": 8,
+      "to": {
+        "data-time": "2026-09-01T00:55:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#FILE01#202608010000.zip",
+        "release": "2026-08",
+        "sha256": "6fd4ed8e0c6fb75d876a42679285c3a1eda7ead084c6d0679d5e95e813576b87"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 8640,
+      "from": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260831.zip",
+        "release": "2026-09",
+        "sha256": "9bf6da4f3fed6e6ea3553cc2b3f9a22da75e3cc653c2ea2c523752a7d076209c"
+      },
+      "kinds": [
+        "reports/archive"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 518400,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2026-10-01T00:50:00+10:00",
+        "file": "PUBLIC_P5MIN_20260930.zip",
+        "release": "2026-09",
+        "sha256": "cde9d4b95e214da35beb3a69bec9fd3d005e85fc92603e7ee9562fca0f5e927e"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-09-01T00:05:00+10:00",
+        "file": "PUBLIC_ARCHIVE#P5MIN_REGIONSOLUTION#ALL#FILE01#202609010000.zip",
+        "release": "2026-09",
+        "sha256": "750ee46b801b9b6c254a00bb2cf77b7f23380fda069b207325f167c31a675943"
+      },
+      "kinds": [
+        "archive",
+        "archive#all"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 1036800,
       "schema-id": 8,
       "to": {
         "data-time": "2026-10-01T00:55:00+10:00",
@@ -1997,7 +2937,56 @@
         "release": "2026-09",
         "sha256": "8baa951b1fa2a7f4e5007ab995421a3abc55572fe9d86782d6651388db5abf35"
       },
-      "updates": [],
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
+      "version": 10
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 6365,
+      "from": {
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "PUBLIC_P5MIN_20260930.zip",
+        "release": "2026-10",
+        "sha256": "cde9d4b95e214da35beb3a69bec9fd3d005e85fc92603e7ee9562fca0f5e927e"
+      },
+      "kinds": [
+        "reports/archive",
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "P5MIN",
+        "REGIONSOLUTION"
+      ],
+      "rows": 381900,
+      "schema-id": 9,
+      "to": {
+        "data-time": "2026-10-21T23:30:00+10:00",
+        "file": "PUBLIC_P5MIN_202610212235_20261021223034.zip",
+        "release": "2026-10",
+        "sha256": "b550c8519a3866ead941c4b083a24e63ee95f3858b865e988c44ae411f060904"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 119
+        },
+        {
+          "action": "move",
+          "field-id": 95
+        }
+      ],
       "version": 10
     }
   ],
@@ -5771,7 +6760,7 @@
           "id": 113,
           "name": "BDU_ENERGY_STORAGE",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 114,
@@ -5789,13 +6778,13 @@
           "id": 116,
           "name": "BDU_CLEAREDMW_GEN",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 117,
           "name": "BDU_CLEAREDMW_LOAD",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         }
       ],
       "identifier-field-ids": [
@@ -6436,7 +7425,7 @@
           "id": 113,
           "name": "BDU_ENERGY_STORAGE",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 114,
@@ -6454,13 +7443,13 @@
           "id": 116,
           "name": "BDU_CLEAREDMW_GEN",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 117,
           "name": "BDU_CLEAREDMW_LOAD",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         }
       ],
       "identifier-field-ids": [
@@ -7149,7 +8138,7 @@
           "id": 113,
           "name": "BDU_ENERGY_STORAGE",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 114,
@@ -7167,13 +8156,13 @@
           "id": 116,
           "name": "BDU_CLEAREDMW_GEN",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 117,
           "name": "BDU_CLEAREDMW_LOAD",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         }
       ],
       "identifier-field-ids": [
@@ -7862,7 +8851,7 @@
           "id": 113,
           "name": "BDU_ENERGY_STORAGE",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 114,
@@ -7880,19 +8869,19 @@
           "id": 116,
           "name": "BDU_CLEAREDMW_GEN",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 117,
           "name": "BDU_CLEAREDMW_LOAD",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 118,
           "name": "BDU_INITIAL_ENERGY_STORAGE",
           "required": false,
-          "type": "decimal(15, 5)"
+          "type": "decimal(15, 6)"
         },
         {
           "id": 119,
@@ -7907,6 +8896,725 @@
         3
       ],
       "schema-id": 8,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "RUN_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 95,
+          "name": "INTERVENTION",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 2,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "REGIONID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "RRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 5,
+          "name": "ROP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 6,
+          "name": "EXCESSGENERATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 7,
+          "name": "RAISE6SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 8,
+          "name": "RAISE6SECROP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 9,
+          "name": "RAISE60SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 10,
+          "name": "RAISE60SECROP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 11,
+          "name": "RAISE5MINRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 12,
+          "name": "RAISE5MINROP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 13,
+          "name": "RAISEREGRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 14,
+          "name": "RAISEREGROP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 15,
+          "name": "LOWER6SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 16,
+          "name": "LOWER6SECROP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 17,
+          "name": "LOWER60SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 18,
+          "name": "LOWER60SECROP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 19,
+          "name": "LOWER5MINRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 20,
+          "name": "LOWER5MINROP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 21,
+          "name": "LOWERREGRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 22,
+          "name": "LOWERREGROP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 23,
+          "name": "TOTALDEMAND",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 24,
+          "name": "AVAILABLEGENERATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 25,
+          "name": "AVAILABLELOAD",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 26,
+          "name": "DEMANDFORECAST",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 27,
+          "name": "DISPATCHABLEGENERATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 28,
+          "name": "DISPATCHABLELOAD",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 29,
+          "name": "NETINTERCHANGE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 30,
+          "name": "LOWER5MINDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 31,
+          "name": "LOWER5MINIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 32,
+          "name": "LOWER5MINLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 33,
+          "name": "LOWER5MINLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 34,
+          "name": "LOWER5MINREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 35,
+          "name": "LOWER60SECDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 36,
+          "name": "LOWER60SECIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 37,
+          "name": "LOWER60SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 38,
+          "name": "LOWER60SECLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 39,
+          "name": "LOWER60SECREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 40,
+          "name": "LOWER6SECDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 41,
+          "name": "LOWER6SECIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 42,
+          "name": "LOWER6SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 43,
+          "name": "LOWER6SECLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 44,
+          "name": "LOWER6SECREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 45,
+          "name": "RAISE5MINDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 46,
+          "name": "RAISE5MINIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 47,
+          "name": "RAISE5MINLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 48,
+          "name": "RAISE5MINLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 49,
+          "name": "RAISE5MINREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 50,
+          "name": "RAISE60SECDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 51,
+          "name": "RAISE60SECIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 52,
+          "name": "RAISE60SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 53,
+          "name": "RAISE60SECLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 54,
+          "name": "RAISE60SECREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 55,
+          "name": "RAISE6SECDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 56,
+          "name": "RAISE6SECIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 57,
+          "name": "RAISE6SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 58,
+          "name": "RAISE6SECLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 59,
+          "name": "RAISE6SECREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 60,
+          "name": "AGGREGATEDISPATCHERROR",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 61,
+          "name": "INITIALSUPPLY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 62,
+          "name": "CLEAREDSUPPLY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 63,
+          "name": "LOWERREGIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 64,
+          "name": "LOWERREGDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 65,
+          "name": "LOWERREGLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 66,
+          "name": "LOWERREGLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 67,
+          "name": "LOWERREGREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 68,
+          "name": "RAISEREGIMPORT",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 69,
+          "name": "RAISEREGDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 70,
+          "name": "RAISEREGLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 71,
+          "name": "RAISEREGLOCALREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 72,
+          "name": "RAISEREGREQ",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 73,
+          "name": "RAISE5MINLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 74,
+          "name": "RAISEREGLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 75,
+          "name": "RAISE60SECLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 76,
+          "name": "RAISE6SECLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 77,
+          "name": "LOWER5MINLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 78,
+          "name": "LOWERREGLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 79,
+          "name": "LOWER60SECLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 80,
+          "name": "LOWER6SECLOCALVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 81,
+          "name": "RAISE5MINVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 82,
+          "name": "RAISEREGVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 83,
+          "name": "RAISE60SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 84,
+          "name": "RAISE6SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 85,
+          "name": "LOWER5MINVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 86,
+          "name": "LOWERREGVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 87,
+          "name": "LOWER60SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 88,
+          "name": "LOWER6SECVIOLATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 89,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 90,
+          "name": "TOTALINTERMITTENTGENERATION",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 91,
+          "name": "DEMAND_AND_NONSCHEDGEN",
+          "required": false,
+          "type": "decimal(15, 6)"
+        },
+        {
+          "id": 92,
+          "name": "UIGF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 93,
+          "name": "SEMISCHEDULE_CLEAREDMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 94,
+          "name": "SEMISCHEDULE_COMPLIANCEMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 96,
+          "name": "SS_SOLAR_UIGF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 97,
+          "name": "SS_WIND_UIGF",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 98,
+          "name": "SS_SOLAR_CLEAREDMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 99,
+          "name": "SS_WIND_CLEAREDMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 100,
+          "name": "SS_SOLAR_COMPLIANCEMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 101,
+          "name": "SS_WIND_COMPLIANCEMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 102,
+          "name": "WDR_INITIALMW",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 103,
+          "name": "WDR_AVAILABLE",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 104,
+          "name": "WDR_DISPATCHED",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 111,
+          "name": "SS_SOLAR_AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 112,
+          "name": "SS_WIND_AVAILABILITY",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 105,
+          "name": "RAISE1SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 106,
+          "name": "RAISE1SECROP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 107,
+          "name": "LOWER1SECRRP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 108,
+          "name": "LOWER1SECROP",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 109,
+          "name": "RAISE1SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 110,
+          "name": "LOWER1SECLOCALDISPATCH",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 113,
+          "name": "BDU_ENERGY_STORAGE",
+          "required": false,
+          "type": "decimal(15, 6)"
+        },
+        {
+          "id": 114,
+          "name": "BDU_MIN_AVAIL",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 115,
+          "name": "BDU_MAX_AVAIL",
+          "required": false,
+          "type": "decimal(15, 5)"
+        },
+        {
+          "id": 116,
+          "name": "BDU_CLEAREDMW_GEN",
+          "required": false,
+          "type": "decimal(15, 6)"
+        },
+        {
+          "id": 117,
+          "name": "BDU_CLEAREDMW_LOAD",
+          "required": false,
+          "type": "decimal(15, 6)"
+        },
+        {
+          "id": 118,
+          "name": "BDU_INITIAL_ENERGY_STORAGE",
+          "required": false,
+          "type": "decimal(15, 6)"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 9,
       "type": "struct"
     }
   ],

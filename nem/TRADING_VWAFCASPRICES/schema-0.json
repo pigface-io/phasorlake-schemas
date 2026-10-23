@@ -1,0 +1,372 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/TRADING_VWAFCASPRICES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOWER5MINREVENUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string"
+    },
+    "LOWER5MINVOLUME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string"
+    },
+    "LOWER5MINVWAPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "LOWER60SECREVENUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string"
+    },
+    "LOWER60SECVOLUME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string"
+    },
+    "LOWER60SECVWAPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string"
+    },
+    "LOWER6SECREVENUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string"
+    },
+    "LOWER6SECVOLUME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string"
+    },
+    "LOWER6SECVWAPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string"
+    },
+    "LOWERREGREVENUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string"
+    },
+    "LOWERREGVOLUME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string"
+    },
+    "LOWERREGVWAPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MINREVENUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MINVOLUME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "string"
+    },
+    "RAISE5MINVWAPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string"
+    },
+    "RAISE60SECREVENUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "string"
+    },
+    "RAISE60SECVOLUME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "string"
+    },
+    "RAISE60SECVWAPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "string"
+    },
+    "RAISE6SECREVENUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "string"
+    },
+    "RAISE6SECVOLUME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "string"
+    },
+    "RAISE6SECVWAPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string"
+    },
+    "RAISEREGREVENUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "string"
+    },
+    "RAISEREGVOLUME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "string"
+    },
+    "RAISEREGVWAPRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "string"
+    },
+    "RUNNO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "SETTLEMENTDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "TRADING_VWAFCASPRICES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "LOWER5MINVWAPRICE",
+      "string"
+    ],
+    [
+      4,
+      "LOWER5MINVOLUME",
+      "string"
+    ],
+    [
+      5,
+      "LOWER5MINREVENUE",
+      "string"
+    ],
+    [
+      6,
+      "LOWER6SECVWAPRICE",
+      "string"
+    ],
+    [
+      7,
+      "LOWER6SECVOLUME",
+      "string"
+    ],
+    [
+      8,
+      "LOWER6SECREVENUE",
+      "string"
+    ],
+    [
+      9,
+      "LOWER60SECVWAPRICE",
+      "string"
+    ],
+    [
+      10,
+      "LOWER60SECVOLUME",
+      "string"
+    ],
+    [
+      11,
+      "LOWER60SECREVENUE",
+      "string"
+    ],
+    [
+      12,
+      "LOWERREGVWAPRICE",
+      "string"
+    ],
+    [
+      13,
+      "LOWERREGVOLUME",
+      "string"
+    ],
+    [
+      14,
+      "LOWERREGREVENUE",
+      "string"
+    ],
+    [
+      15,
+      "RAISE5MINVWAPRICE",
+      "string"
+    ],
+    [
+      16,
+      "RAISE5MINVOLUME",
+      "string"
+    ],
+    [
+      17,
+      "RAISE5MINREVENUE",
+      "string"
+    ],
+    [
+      18,
+      "RAISE6SECVWAPRICE",
+      "string"
+    ],
+    [
+      19,
+      "RAISE6SECVOLUME",
+      "string"
+    ],
+    [
+      20,
+      "RAISE6SECREVENUE",
+      "string"
+    ],
+    [
+      21,
+      "RAISE60SECVWAPRICE",
+      "string"
+    ],
+    [
+      22,
+      "RAISE60SECVOLUME",
+      "string"
+    ],
+    [
+      23,
+      "RAISE60SECREVENUE",
+      "string"
+    ],
+    [
+      24,
+      "RAISEREGVWAPRICE",
+      "string"
+    ],
+    [
+      25,
+      "RAISEREGVOLUME",
+      "string"
+    ],
+    [
+      26,
+      "RAISEREGREVENUE",
+      "string"
+    ],
+    [
+      27,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "TRADING_VWAFCASPRICES"
+  }
+}

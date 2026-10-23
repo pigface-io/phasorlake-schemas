@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 335,
+      "files": 344,
       "from": {
         "data-time": "2009-07-01T04:30:00+10:00",
         "file": "PUBLIC_DVD_PREDISPATCHPRICE_D_200907010000.zip",
@@ -15,14 +15,15 @@
         "sha256": "44539eb2dbd1be88df4d0e25d3424acce148a40d2632a20dc0d5556981bbd261"
       },
       "kinds": [
-        "dvd"
+        "dvd",
+        "reports/current"
       ],
       "overlaps": false,
       "report": [
         "PREDISPATCH",
         "REGION_PRICES"
       ],
-      "rows": 72167880,
+      "rows": 72171090,
       "schema-id": 0,
       "to": {
         "data-time": "2023-07-02T04:00:00+10:00",
@@ -85,7 +86,7 @@
         "schema",
         "version"
       ],
-      "files": 52,
+      "files": 18916,
       "from": {
         "data-time": "2024-08-01T04:30:00+10:00",
         "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICE#FILE01#202408010000.zip",
@@ -94,20 +95,22 @@
       },
       "kinds": [
         "archive",
-        "archive#all"
+        "archive#all",
+        "reports/archive",
+        "reports/current"
       ],
       "overlaps": true,
       "report": [
         "PREDISPATCH",
         "REGION_PRICES"
       ],
-      "rows": 10725510,
+      "rows": 15960120,
       "schema-id": 2,
       "to": {
-        "data-time": "2026-10-02T04:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICE#ALL#FILE01#202609010000.zip",
-        "release": "2026-09",
-        "sha256": "5f0dafe626b327a95a7a95f7ec95f729e01d50f8acf2e1f2ac27c7c1922a692e"
+        "data-time": "2026-10-23T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCHIS_202610212300_20261021223153.zip",
+        "release": "2026-10",
+        "sha256": "aeaeb5ef4afe185ab63081de6184a729d498dfde6459f3958cc7192c826f33ab"
       },
       "updates": [
         {

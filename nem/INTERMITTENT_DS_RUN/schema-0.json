@@ -3,26 +3,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
-    "AUTHORISEDBY": {
-      "description": "Authorising officer of this forecast (applicable for participant forecasts only). This column is not made available to the public.",
-      "type": [
-        "string",
-        "null"
-      ],
-      "x-field-id": 6,
-      "x-iceberg-type": "string",
-      "x-model-type": "VARCHAR(20)"
-    },
-    "COMMENTS": {
-      "description": "Comments relating to the forecast. This column is not made available to the public.",
-      "type": [
-        "string",
-        "null"
-      ],
-      "x-field-id": 7,
-      "x-iceberg-type": "string",
-      "x-model-type": "VARCHAR(200)"
-    },
     "DUID": {
       "description": "DUID (or Area for non-scheduled) where this forecast applies",
       "type": "string",
@@ -33,7 +13,7 @@
     "FORECAST_PRIORITY": {
       "description": "Unsuppressed forecasts with higher priority values are used in Dispatch in preference to unsuppressed forecasts with lower priority values.",
       "type": "integer",
-      "x-field-id": 5,
+      "x-field-id": 4,
       "x-iceberg-type": "long",
       "x-model-type": "NUMERIC(10,0)"
     },
@@ -44,32 +24,22 @@
         "string",
         "null"
       ],
-      "x-field-id": 8,
+      "x-field-id": 10,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
-    },
-    "MODEL": {
-      "description": "Metadata relating to the forecast. This column is not made available to the public.",
-      "type": [
-        "string",
-        "null"
-      ],
-      "x-field-id": 9,
-      "x-iceberg-type": "string",
-      "x-model-type": "VARCHAR(30)"
     },
     "OFFERDATETIME": {
       "description": "Date and Time when this forecast submission was loaded.",
       "format": "date-time",
       "type": "string",
-      "x-field-id": 3,
+      "x-field-id": 5,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "ORIGIN": {
       "description": "Origin of this forecast (PARTICIPANTID, AWEFS/ASEFS, or another vendor)",
       "type": "string",
-      "x-field-id": 4,
+      "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     },
@@ -80,7 +50,7 @@
         "string",
         "null"
       ],
-      "x-field-id": 10,
+      "x-field-id": 6,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
@@ -98,7 +68,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 11,
+      "x-field-id": 8,
       "x-iceberg-type": "decimal(1, 0)",
       "x-model-type": "NUMERIC(1,0)"
     },
@@ -108,7 +78,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 12,
+      "x-field-id": 7,
       "x-iceberg-type": "decimal(1, 0)",
       "x-model-type": "NUMERIC(1,0)"
     },
@@ -118,7 +88,7 @@
         "string",
         "null"
       ],
-      "x-field-id": 13,
+      "x-field-id": 9,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(100)"
     }
@@ -126,9 +96,9 @@
   "required": [
     "RUN_DATETIME",
     "DUID",
-    "OFFERDATETIME",
     "ORIGIN",
-    "FORECAST_PRIORITY"
+    "FORECAST_PRIORITY",
+    "OFFERDATETIME"
   ],
   "title": "INTERMITTENT_DS_RUN, Iceberg schema 0",
   "type": "object",
@@ -145,67 +115,52 @@
     ],
     [
       3,
-      "OFFERDATETIME",
-      "timestamptz"
-    ],
-    [
-      4,
       "ORIGIN",
       "string"
     ],
     [
-      5,
+      4,
       "FORECAST_PRIORITY",
       "long"
     ],
     [
-      6,
-      "AUTHORISEDBY",
-      "string"
-    ],
-    [
-      7,
-      "COMMENTS",
-      "string"
-    ],
-    [
-      8,
-      "LASTCHANGED",
+      5,
+      "OFFERDATETIME",
       "timestamptz"
     ],
     [
-      9,
-      "MODEL",
-      "string"
-    ],
-    [
-      10,
+      6,
       "PARTICIPANT_TIMESTAMP",
       "timestamptz"
     ],
     [
-      11,
-      "SUPPRESSED_AEMO",
-      "decimal(1, 0)"
-    ],
-    [
-      12,
+      7,
       "SUPPRESSED_PARTICIPANT",
       "decimal(1, 0)"
     ],
     [
-      13,
+      8,
+      "SUPPRESSED_AEMO",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
       "TRANSACTION_ID",
       "string"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
     ]
   ],
   "x-format": 3,
   "x-identifier-field-ids": [
     1,
     2,
+    5,
     3,
-    4,
-    5
+    4
   ],
   "x-schema-id": 0,
   "x-table": {

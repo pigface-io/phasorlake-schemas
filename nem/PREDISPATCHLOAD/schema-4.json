@@ -78,16 +78,6 @@
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
     },
-    "ELEMENT_CAP": {
-      "description": "Cap on the number of turbines or inverters at a DUID.",
-      "type": [
-        "integer",
-        "null"
-      ],
-      "x-field-id": 65,
-      "x-iceberg-type": "long",
-      "x-model-type": "NUMERIC(5,0)"
-    },
     "ENERGY_STORAGE": {
       "description": "The projected energy storage based on cleared energy and regulation FCAS dispatch(MWh)",
       "type": [
@@ -98,26 +88,6 @@
       "x-iceberg-type": "decimal(15, 5)",
       "x-model-type": "NUMERIC(15,5)"
     },
-    "ENERGY_STORAGE_MAX": {
-      "description": "BDU only - Maximum Energy Storage constraint limit (MWh)",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 64,
-      "x-iceberg-type": "decimal(15, 5)",
-      "x-model-type": "NUMERIC(15,5)"
-    },
-    "ENERGY_STORAGE_MIN": {
-      "description": "BDU only - Minimum Energy Storage constraint limit (MWh)",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 63,
-      "x-iceberg-type": "decimal(15, 5)",
-      "x-model-type": "NUMERIC(15,5)"
-    },
     "INITIALMW": {
       "description": "Initial MW at start of first period. For periods subsequent to the first period of a Pre-Dispatch run, this value represents the cleared target for the previous period of that Pre-Dispatch run. Negative values when Bi-directional Unit start from importing power, otherwise positive.",
       "type": [
@@ -125,16 +95,6 @@
         "null"
       ],
       "x-field-id": 10,
-      "x-iceberg-type": "decimal(15, 5)",
-      "x-model-type": "NUMERIC(15,5)"
-    },
-    "INITIAL_ENERGY_STORAGE": {
-      "description": "The energy storage at the start of this dispatch interval(MWh)",
-      "type": [
-        "number",
-        "null"
-      ],
-      "x-field-id": 60,
       "x-iceberg-type": "decimal(15, 5)",
       "x-model-type": "NUMERIC(15,5)"
     },
@@ -913,13 +873,8 @@
       "decimal(3, 0)"
     ],
     [
-      58,
-      "CONFORMANCE_MODE",
-      "decimal(6, 0)"
-    ],
-    [
-      59,
-      "UIGF",
+      52,
+      "LOWER1SEC",
       "decimal(15, 5)"
     ],
     [
@@ -931,11 +886,6 @@
       54,
       "RAISE1SECFLAGS",
       "decimal(3, 0)"
-    ],
-    [
-      52,
-      "LOWER1SEC",
-      "decimal(15, 5)"
     ],
     [
       55,
@@ -953,8 +903,13 @@
       "decimal(16, 6)"
     ],
     [
-      60,
-      "INITIAL_ENERGY_STORAGE",
+      58,
+      "CONFORMANCE_MODE",
+      "decimal(6, 0)"
+    ],
+    [
+      59,
+      "UIGF",
       "decimal(15, 5)"
     ],
     [
@@ -963,24 +918,9 @@
       "decimal(15, 5)"
     ],
     [
-      63,
-      "ENERGY_STORAGE_MIN",
-      "decimal(15, 5)"
-    ],
-    [
-      64,
-      "ENERGY_STORAGE_MAX",
-      "decimal(15, 5)"
-    ],
-    [
       62,
       "MIN_AVAILABILITY",
       "decimal(15, 5)"
-    ],
-    [
-      65,
-      "ELEMENT_CAP",
-      "long"
     ]
   ],
   "x-format": 3,

@@ -29,7 +29,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 6,
+      "x-field-id": 7,
       "x-iceberg-type": "decimal(18, 8)",
       "x-model-type": "NUMERIC(18,8)"
     },
@@ -47,14 +47,14 @@
     "LOCALAREAID": {
       "description": "Unique identifier for the local area",
       "type": "string",
-      "x-field-id": 3,
+      "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(30)"
     },
     "PERIODID": {
       "description": "Settlement Trading Interval",
       "type": "integer",
-      "x-field-id": 4,
+      "x-field-id": 3,
       "x-iceberg-type": "long",
       "x-model-type": "NUMERIC(3,0)"
     },
@@ -79,7 +79,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 7,
+      "x-field-id": 6,
       "x-iceberg-type": "decimal(18, 8)",
       "x-model-type": "NUMERIC(18,8)"
     },
@@ -97,8 +97,8 @@
   "required": [
     "SETTLEMENTDATE",
     "SETTLEMENTRUNNO",
-    "LOCALAREAID",
-    "PERIODID"
+    "PERIODID",
+    "LOCALAREAID"
   ],
   "title": "SETLOCALAREAENERGY, Iceberg schema 0",
   "type": "object",
@@ -115,13 +115,13 @@
     ],
     [
       3,
-      "LOCALAREAID",
-      "string"
+      "PERIODID",
+      "long"
     ],
     [
       4,
-      "PERIODID",
-      "long"
+      "LOCALAREAID",
+      "string"
     ],
     [
       5,
@@ -130,12 +130,12 @@
     ],
     [
       6,
-      "DDME",
+      "TME",
       "decimal(18, 8)"
     ],
     [
       7,
-      "TME",
+      "DDME",
       "decimal(18, 8)"
     ],
     [
@@ -158,8 +158,8 @@
   "x-identifier-field-ids": [
     1,
     2,
-    3,
-    4
+    4,
+    3
   ],
   "x-schema-id": 0,
   "x-table": {

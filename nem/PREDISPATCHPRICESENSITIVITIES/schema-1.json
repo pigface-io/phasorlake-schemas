@@ -1,0 +1,786 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/PREDISPATCHPRICESENSITIVITIES/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DATETIME": {
+      "description": "Period date and time",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 35,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "INTERVENTION": {
+      "description": "Flag to indicate if this result set was sourced from the pricing run (INTERVENTION=0) or the physical run (INTERVENTION=1). In the event that there is not intervention in the market, both pricing and physical runs correspond to INTERVENTION=0",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "NUMERIC(2,0)"
+    },
+    "INTERVENTION_ACTIVE": {
+      "description": "Flag to indicate if the sensitivity run contains an active intervention constraint: 0 = No, 1 = Yes",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 43,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMERIC(1,0)"
+    },
+    "LASTCHANGED": {
+      "description": "Last date and time record changed",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "TIMESTAMP(0)"
+    },
+    "PERIODID": {
+      "description": "PERIODID is just a period count, starting from 1 for each predispatch run. Use DATETIME to determine half hour period.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(2, 0)",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "PREDISPATCHSEQNO": {
+      "description": "Unique identifier of predispatch run in the form YYYYMMDDPP with 01 at 04:30",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "decimal(10, 0)",
+      "x-model-type": "VARCHAR(20)"
+    },
+    "REGIONID": {
+      "description": "Unique region identifier",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR(10)"
+    },
+    "RRPEEP1": {
+      "description": "Regional Energy Price for scenario 1",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP10": {
+      "description": "Regional Energy Price for scenario 10",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP11": {
+      "description": "Regional Energy Price for scenario 11",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP12": {
+      "description": "Regional Energy Price for scenario 12",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP13": {
+      "description": "Regional Energy Price for scenario 13",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP14": {
+      "description": "Regional Energy Price for scenario 14",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP15": {
+      "description": "Regional Energy Price for scenario 15",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP16": {
+      "description": "Regional Energy Price for scenario 16",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP17": {
+      "description": "Regional Energy Price for scenario 17",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP18": {
+      "description": "Regional Energy Price for scenario 18",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP19": {
+      "description": "Regional Energy Price for scenario 19",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP2": {
+      "description": "Regional Energy Price for scenario 2",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP20": {
+      "description": "Regional Energy Price for scenario 20",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP21": {
+      "description": "Regional Energy Price for scenario 21",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP22": {
+      "description": "Regional Energy Price for scenario 22",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP23": {
+      "description": "Regional Energy Price for scenario 23",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP24": {
+      "description": "Regional Energy Price for scenario 24",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP25": {
+      "description": "Regional Energy Price for scenario 25",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP26": {
+      "description": "Regional Energy Price for scenario 26",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP27": {
+      "description": "Regional Energy Price for scenario 27",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP28": {
+      "description": "Regional Energy Price for scenario 28",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP29": {
+      "description": "Regional Energy Price for scenario 29",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP3": {
+      "description": "Regional Energy Price for scenario 3",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP30": {
+      "description": "Regional Energy Price for scenario 30",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 37,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP31": {
+      "description": "Regional Energy Price for scenario 31",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 38,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP32": {
+      "description": "Regional Energy Price for scenario 32",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 39,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP33": {
+      "description": "Regional Energy Price for scenario 33",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 40,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP34": {
+      "description": "Regional Energy Price for scenario 34",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 41,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP35": {
+      "description": "Regional Energy Price for scenario 35",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 42,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP36": {
+      "description": "Regional Energy Price for scenario 36",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 44,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP37": {
+      "description": "Regional Energy Price for scenario 37",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 45,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP38": {
+      "description": "Regional Energy Price for scenario 38",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 46,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP39": {
+      "description": "Regional Energy Price for scenario 39",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 47,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP4": {
+      "description": "Regional Energy Price for scenario 4",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP40": {
+      "description": "Regional Energy Price for scenario 40",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 48,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP41": {
+      "description": "Regional Energy Price for scenario 41",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 49,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP42": {
+      "description": "Regional Energy Price for scenario 42",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 50,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP43": {
+      "description": "Regional Energy Price for scenario 43",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 51,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP5": {
+      "description": "Regional Energy Price for scenario 5",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP6": {
+      "description": "Regional Energy Price for scenario 6",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP7": {
+      "description": "Regional Energy Price for scenario 7",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP8": {
+      "description": "Regional Energy Price for scenario 8",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RRPEEP9": {
+      "description": "Regional Energy Price for scenario 9",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(15, 5)",
+      "x-model-type": "NUMERIC(15,5)"
+    },
+    "RUNNO": {
+      "description": "LP Solver Predispatch run no, typically 1. It increments if the case is re-run.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMERIC(3,0)"
+    }
+  },
+  "required": [
+    "REGIONID",
+    "DATETIME"
+  ],
+  "title": "PREDISPATCHPRICESENSITIVITIES, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PREDISPATCHSEQNO",
+      "decimal(10, 0)"
+    ],
+    [
+      2,
+      "RUNNO",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "REGIONID",
+      "string"
+    ],
+    [
+      4,
+      "PERIODID",
+      "decimal(2, 0)"
+    ],
+    [
+      5,
+      "INTERVENTION",
+      "decimal(2, 0)"
+    ],
+    [
+      6,
+      "RRPEEP1",
+      "decimal(15, 5)"
+    ],
+    [
+      7,
+      "RRPEEP2",
+      "decimal(15, 5)"
+    ],
+    [
+      8,
+      "RRPEEP3",
+      "decimal(15, 5)"
+    ],
+    [
+      9,
+      "RRPEEP4",
+      "decimal(15, 5)"
+    ],
+    [
+      10,
+      "RRPEEP5",
+      "decimal(15, 5)"
+    ],
+    [
+      11,
+      "RRPEEP6",
+      "decimal(15, 5)"
+    ],
+    [
+      12,
+      "RRPEEP7",
+      "decimal(15, 5)"
+    ],
+    [
+      13,
+      "RRPEEP8",
+      "decimal(15, 5)"
+    ],
+    [
+      14,
+      "RRPEEP9",
+      "decimal(15, 5)"
+    ],
+    [
+      15,
+      "RRPEEP10",
+      "decimal(15, 5)"
+    ],
+    [
+      16,
+      "RRPEEP11",
+      "decimal(15, 5)"
+    ],
+    [
+      17,
+      "RRPEEP12",
+      "decimal(15, 5)"
+    ],
+    [
+      18,
+      "RRPEEP13",
+      "decimal(15, 5)"
+    ],
+    [
+      19,
+      "RRPEEP14",
+      "decimal(15, 5)"
+    ],
+    [
+      20,
+      "RRPEEP15",
+      "decimal(15, 5)"
+    ],
+    [
+      21,
+      "RRPEEP16",
+      "decimal(15, 5)"
+    ],
+    [
+      22,
+      "RRPEEP17",
+      "decimal(15, 5)"
+    ],
+    [
+      23,
+      "RRPEEP18",
+      "decimal(15, 5)"
+    ],
+    [
+      24,
+      "RRPEEP19",
+      "decimal(15, 5)"
+    ],
+    [
+      25,
+      "RRPEEP20",
+      "decimal(15, 5)"
+    ],
+    [
+      26,
+      "RRPEEP21",
+      "decimal(15, 5)"
+    ],
+    [
+      27,
+      "RRPEEP22",
+      "decimal(15, 5)"
+    ],
+    [
+      28,
+      "RRPEEP23",
+      "decimal(15, 5)"
+    ],
+    [
+      29,
+      "RRPEEP24",
+      "decimal(15, 5)"
+    ],
+    [
+      30,
+      "RRPEEP25",
+      "decimal(15, 5)"
+    ],
+    [
+      31,
+      "RRPEEP26",
+      "decimal(15, 5)"
+    ],
+    [
+      32,
+      "RRPEEP27",
+      "decimal(15, 5)"
+    ],
+    [
+      33,
+      "RRPEEP28",
+      "decimal(15, 5)"
+    ],
+    [
+      35,
+      "DATETIME",
+      "timestamptz"
+    ],
+    [
+      34,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      36,
+      "RRPEEP29",
+      "decimal(15, 5)"
+    ],
+    [
+      37,
+      "RRPEEP30",
+      "decimal(15, 5)"
+    ],
+    [
+      38,
+      "RRPEEP31",
+      "decimal(15, 5)"
+    ],
+    [
+      39,
+      "RRPEEP32",
+      "decimal(15, 5)"
+    ],
+    [
+      40,
+      "RRPEEP33",
+      "decimal(15, 5)"
+    ],
+    [
+      41,
+      "RRPEEP34",
+      "decimal(15, 5)"
+    ],
+    [
+      42,
+      "RRPEEP35",
+      "decimal(15, 5)"
+    ],
+    [
+      43,
+      "INTERVENTION_ACTIVE",
+      "decimal(1, 0)"
+    ],
+    [
+      44,
+      "RRPEEP36",
+      "decimal(15, 5)"
+    ],
+    [
+      45,
+      "RRPEEP37",
+      "decimal(15, 5)"
+    ],
+    [
+      46,
+      "RRPEEP38",
+      "decimal(15, 5)"
+    ],
+    [
+      47,
+      "RRPEEP39",
+      "decimal(15, 5)"
+    ],
+    [
+      48,
+      "RRPEEP40",
+      "decimal(15, 5)"
+    ],
+    [
+      49,
+      "RRPEEP41",
+      "decimal(15, 5)"
+    ],
+    [
+      50,
+      "RRPEEP42",
+      "decimal(15, 5)"
+    ],
+    [
+      51,
+      "RRPEEP43",
+      "decimal(15, 5)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    3,
+    35
+  ],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "PREDISPATCHPRICESENSITIVITIES"
+  }
+}
