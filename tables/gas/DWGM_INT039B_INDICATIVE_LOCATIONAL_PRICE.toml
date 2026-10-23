@@ -1,0 +1,15 @@
+# The declaration of DWGM_INT039B_INDICATIVE_LOCATIONAL_PRICE: first drafted from the census and the data model, kept by hand.
+name = "DWGM_INT039B_INDICATIVE_LOCATIONAL_PRICE"
+report_pairs = [["DWGM", "INT039B_INDICATIVE_LOCATIONAL_PRICE_1"]]
+primary_key = []
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "CURRENT_DATE"
+entity = ["TRANSMISSION_ID"]
+order = ["TRANSMISSION_ID", "CURRENT_DATE"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

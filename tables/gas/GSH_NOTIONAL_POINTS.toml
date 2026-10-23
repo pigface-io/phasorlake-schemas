@@ -1,0 +1,17 @@
+# The declaration of GSH_NOTIONAL_POINTS: first drafted from the census and the data model, kept by hand.
+name = "GSH_NOTIONAL_POINTS"
+report_pairs = [["GSH", "NOTIONAL_POINTS"]]
+primary_key = ["EFFECTIVEDATE", "FACILITY_ID", "PHYSICAL_POINT_NAME", "SERVICE_POINT_ID", "VERSION_DATETIME"]
+time_column = "EFFECTIVEDATE"
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["FACILITY_ID", "PHYSICAL_POINT_NAME", "SERVICE_POINT_ID"]
+order = ["VERSION_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "instant"

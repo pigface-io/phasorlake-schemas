@@ -1,0 +1,14 @@
+# The declaration of DWGM_INT310_PRICE_AND_WITHDRAWALS_RPT_1: first drafted from the census and the data model, kept by hand.
+name = "DWGM_INT310_PRICE_AND_WITHDRAWALS_RPT_1"
+report_pairs = [["DWGM", "INT310_PRICE_AND_WITHDRAWALS_RPT_1"]]
+primary_key = []
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = ["TRANSMISSION_ID"]
+order = ["TRANSMISSION_ID"]
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

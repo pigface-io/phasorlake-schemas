@@ -1,0 +1,18 @@
+# The declaration of GBB_RESERVES_AND_RESOURCES: first drafted from the census and the data model, kept by hand.
+name = "GBB_RESERVES_AND_RESOURCES"
+report_pairs = [["GBB", "RESERVES_AND_RESOURCES"]]
+primary_key = []
+time_column = "EFFECTIVEDATE"
+load_mode = "snapshot"
+visibility = "PUBLIC"
+model = ["GAS_RESERVES_AND_RESOURCES"]
+
+[temporal]
+cutoff = "VERSIONDATETIME"
+entity = ["FIELDID", "FIELDINTERESTID"]
+order = ["VERSIONDATETIME"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "instant"

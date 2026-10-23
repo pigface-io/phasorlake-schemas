@@ -1,0 +1,18 @@
+# The declaration of GBB_MEDIUM_TERM_CAPACITY_OUTLOOK: first drafted from the census and the data model, kept by hand.
+name = "GBB_MEDIUM_TERM_CAPACITY_OUTLOOK"
+report_pairs = [["GBB", "MEDIUM_TERM_CAPACITY_OUTLOOK"], ["GBB", "MEDIUM_TERM_CAPACITY_OUTLOOK_FUTURE"]]
+primary_key = []
+time_column = "FROMGASDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+model = ["GAS_MEDIUM_TERM_CAP_OUTLOOK", "GAS_FACILITY"]
+
+[temporal]
+cutoff = "LASTUPDATED"
+entity = ["FACILITYID"]
+order = ["LASTUPDATED"]
+origin = "derived"
+
+[temporal.valid]
+column = "FROMGASDATE"
+kind = "instant"

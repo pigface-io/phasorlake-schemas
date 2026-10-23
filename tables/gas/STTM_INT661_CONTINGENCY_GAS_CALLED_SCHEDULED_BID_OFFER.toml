@@ -1,0 +1,17 @@
+# The declaration of STTM_INT661_CONTINGENCY_GAS_CALLED_SCHEDULED_BID_OFFER: first drafted from the census and the data model, kept by hand.
+name = "STTM_INT661_CONTINGENCY_GAS_CALLED_SCHEDULED_BID_OFFER"
+report_pairs = [["STTM", "INT661_CONTINGENCY_GAS_CALLED_SCHEDULED_BID_OFFER_RPT_1"]]
+primary_key = []
+time_column = "GAS_DATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "REPORT_DATETIME"
+entity = ["HUB_IDENTIFIER", "FACILITY_IDENTIFIER", "CONTINGENCY_GAS_CALLED_IDENTIFIER", "COMPANY_IDENTIFIER", "CONTINGENCY_GAS_BID_OFFER_IDENTIFIER"]
+order = ["APPROVAL_DATETIME", "REPORT_DATETIME"]
+origin = "derived"
+
+[temporal.valid]
+column = "GAS_DATE"
+kind = "instant"

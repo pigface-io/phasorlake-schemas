@@ -1,0 +1,17 @@
+# The declaration of DWGM_INT929A_SYSTEM_NOTICES: first drafted from the census and the data model, kept by hand.
+name = "DWGM_INT929A_SYSTEM_NOTICES"
+report_pairs = [["DWGM", "INT929A_SYSTEM_NOTICES_1"]]
+primary_key = []
+time_column = "NOTICE_START_DATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "CURRENT_DATE"
+entity = ["SYSTEM_WIDE_NOTICE_ID"]
+order = ["CURRENT_DATE"]
+origin = "derived"
+
+[temporal.valid]
+column = "NOTICE_START_DATE"
+kind = "instant"

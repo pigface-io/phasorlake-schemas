@@ -1,0 +1,18 @@
+# The declaration of GBB_SHIPPERS: first drafted from the census and the data model, kept by hand.
+name = "GBB_SHIPPERS"
+report_pairs = [["GBB", "SHIPPERS_FULL_LIST"]]
+primary_key = []
+time_column = "EFFECTIVEDATE"
+load_mode = "snapshot"
+visibility = "PUBLIC"
+model = ["GAS_SHIPPER_LIST"]
+
+[temporal]
+cutoff = "LASTUPDATED"
+entity = ["FACILITYID", "COMPANYID"]
+order = ["LASTUPDATED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "instant"

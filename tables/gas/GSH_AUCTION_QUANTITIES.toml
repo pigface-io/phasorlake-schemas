@@ -1,0 +1,17 @@
+# The declaration of GSH_AUCTION_QUANTITIES: first drafted from the census and the data model, kept by hand.
+name = "GSH_AUCTION_QUANTITIES"
+report_pairs = [["GSH", "AUCTION_QUANTITIES"]]
+primary_key = ["AUCTION_DATE", "FACILITY_ID", "GAS_DATE", "LIMIT_ID", "LIMIT_TYPE"]
+time_column = "AUCTION_DATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["FACILITY_ID", "LIMIT_ID", "LIMIT_TYPE"]
+order = ["VERSION_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "AUCTION_DATE"
+kind = "instant"

@@ -1,0 +1,17 @@
+# The declaration of GSH_PIPELINE_SEGMENTS: first drafted from the census and the data model, kept by hand.
+name = "GSH_PIPELINE_SEGMENTS"
+report_pairs = [["GSH", "PIPELINE_SEGMENTS"]]
+primary_key = ["CONNECTION_TYPE", "EFFECTIVEDATE", "FACILITY_ID", "FROM_ID", "SEGMENT_ID", "TO_ID", "VERSION_DATETIME"]
+time_column = "EFFECTIVEDATE"
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["CONNECTION_TYPE", "FACILITY_ID", "FROM_ID", "SEGMENT_ID", "TO_ID"]
+order = ["VERSION_DATETIME", "LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "instant"

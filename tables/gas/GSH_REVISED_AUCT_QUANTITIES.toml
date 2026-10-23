@@ -1,0 +1,17 @@
+# The declaration of GSH_REVISED_AUCT_QUANTITIES: first drafted from the census and the data model, kept by hand.
+name = "GSH_REVISED_AUCT_QUANTITIES"
+report_pairs = [["GSH", "REVISED_AUCTION_QUANTITIES"]]
+primary_key = ["AUCTION_DATE", "FACILITY_ID", "GAS_DATE", "SERVICE_TYPE"]
+time_column = "AUCTION_DATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["FACILITY_ID", "SERVICE_TYPE"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "AUCTION_DATE"
+kind = "instant"

@@ -1,0 +1,18 @@
+# The declaration of GBB_NODES_AND_CONNECTION_POINTS: first drafted from the census and the data model, kept by hand.
+name = "GBB_NODES_AND_CONNECTION_POINTS"
+report_pairs = [["GBB", "NODES_AND_CONNECTION_POINTS_FULL"], ["GBB", "NODES_AND_CONNECTION_POINTS"]]
+primary_key = []
+time_column = "EFFECTIVEDATE"
+load_mode = "snapshot"
+visibility = "PUBLIC"
+model = ["GAS_NODE", "GAS_FACILITY_NODE", "GAS_FACILITY_NODE_CONNECTION", "GAS_LOCATION_NODE"]
+
+[temporal]
+cutoff = "LASTUPDATED"
+entity = ["FACILITYID", "CONNECTIONPOINTID", "NODEID", "STATEID", "LOCATIONID"]
+order = ["LASTUPDATED"]
+origin = "derived"
+
+[temporal.valid]
+column = "EFFECTIVEDATE"
+kind = "instant"

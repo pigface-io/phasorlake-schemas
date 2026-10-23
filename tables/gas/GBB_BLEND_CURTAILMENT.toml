@@ -1,0 +1,18 @@
+# The declaration of GBB_BLEND_CURTAILMENT: first drafted from the census and the data model, kept by hand.
+name = "GBB_BLEND_CURTAILMENT"
+report_pairs = [["GBB", "BLEND_CURTAILMENT"]]
+primary_key = []
+time_column = "MAXGASDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+model = ["GAS_BLEND_CURTAILMENT"]
+
+[temporal]
+cutoff = "LASTUPDATED"
+entity = ["FACILITYID", "CONNECTIONPOINTID", "LOCATIONID"]
+order = ["LASTUPDATED"]
+origin = "derived"
+
+[temporal.valid]
+column = "MAXGASDATE"
+kind = "instant"

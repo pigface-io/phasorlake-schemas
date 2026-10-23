@@ -1,0 +1,17 @@
+# The declaration of GSH_BENCHMARK_PRICE: first drafted from the census and the data model, kept by hand.
+name = "GSH_BENCHMARK_PRICE"
+report_pairs = [["GSH", "BENCHMARK_PRICE"]]
+primary_key = ["GAS_DATE", "PRODUCT_LOCATION", "PRODUCT_TYPE"]
+time_column = "GAS_DATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+cutoff = "LASTCHANGED"
+entity = ["PRODUCT_LOCATION", "PRODUCT_TYPE"]
+order = ["LASTCHANGED"]
+origin = "derived"
+
+[temporal.valid]
+column = "GAS_DATE"
+kind = "instant"

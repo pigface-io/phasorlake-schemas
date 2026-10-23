@@ -1,0 +1,14 @@
+# The declaration of DWGM_INT312_SETTLEMENTS_ACTIVITY_REPORT_1: first drafted from the census and the data model, kept by hand.
+name = "DWGM_INT312_SETTLEMENTS_ACTIVITY_REPORT_1"
+report_pairs = [["DWGM", "INT312_SETTLEMENTS_ACTIVITY_REPORT_1"]]
+primary_key = []
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = []
+order = []
+origin = "derived"
+
+[temporal.valid]
+kind = "timeless"

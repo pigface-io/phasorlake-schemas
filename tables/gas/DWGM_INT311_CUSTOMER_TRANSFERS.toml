@@ -1,0 +1,16 @@
+# The declaration of DWGM_INT311_CUSTOMER_TRANSFERS: first drafted from the census and the data model, kept by hand.
+name = "DWGM_INT311_CUSTOMER_TRANSFERS"
+report_pairs = [["DWGM", "INT311_CUSTOMER_TRANSFERS_1"]]
+primary_key = []
+time_column = "GAS_DATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = []
+order = []
+origin = "derived"
+
+[temporal.valid]
+column = "GAS_DATE"
+kind = "instant"

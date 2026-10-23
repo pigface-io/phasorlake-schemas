@@ -1,0 +1,16 @@
+# The declaration of GAS_GSH_TRADES: first drafted from the census and the data model, kept by hand.
+name = "GAS_GSH_TRADES"
+report_pairs = [["GSH", "GAS_TRADES"]]
+primary_key = ["LOCATION", "PRODUCT", "TRADE_DATE", "TRADE_PRICE", "TYPE"]
+time_column = "TRADE_DATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[temporal]
+entity = ["LOCATION", "PRODUCT", "TRADE_PRICE", "TYPE"]
+order = []
+origin = "derived"
+
+[temporal.valid]
+column = "TRADE_DATE"
+kind = "instant"

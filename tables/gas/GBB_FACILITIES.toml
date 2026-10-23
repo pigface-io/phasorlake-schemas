@@ -1,0 +1,18 @@
+# The declaration of GBB_FACILITIES: first drafted from the census and the data model, kept by hand.
+name = "GBB_FACILITIES"
+report_pairs = [["GBB", "FACILITIES_FULL"], ["GBB", "FACILITIES"]]
+primary_key = []
+time_column = "OPERATINGSTATEDATE"
+load_mode = "snapshot"
+visibility = "PUBLIC"
+model = ["GAS_FACILITY", "GAS_FACILITY_DETAIL", "GAS_FACILITY_OPSTATE", "GAS_FACILITY_OWNER"]
+
+[temporal]
+cutoff = "LASTUPDATED"
+entity = ["FACILITYID", "OPERATORID"]
+order = ["LASTUPDATED"]
+origin = "derived"
+
+[temporal.valid]
+column = "OPERATINGSTATEDATE"
+kind = "instant"
