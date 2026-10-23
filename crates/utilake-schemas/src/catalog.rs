@@ -9,7 +9,8 @@
 //! loaded, its visibility, and any column whose type is set by hand
 //! (`[[override]]`, applied by the fold). The census asks it for the table
 //! of a report pair and for that table's time column; a pair no table
-//! declares is recorded under `{TYPE}_{SUBTYPE}`.
+//! declares is recorded under `{TYPE}_{SUBTYPE}` (`{TYPE}` when the
+//! subtype is empty).
 
 use std::collections::HashMap;
 use std::path::{Path, PathBuf};
@@ -236,15 +237,21 @@ impl Catalog {
     }
 
     /// The table a block of this report pair is recorded under: the one
-    /// declared for the pair, else `{TYPE}_{SUBTYPE}` with any character
-    /// that is not a letter, digit or underscore written as `_` (a plain
-    /// feed's name may carry a hyphen or a dot; an MMS pair never does).
+    /// declared for the pair, else `{TYPE}_{SUBTYPE}` (`{TYPE}` alone when
+    /// the subtype is empty, as a report file's `DREGION` block is) with
+    /// any character that is not a letter, digit or underscore written as
+    /// `_` (a plain feed's name may carry a hyphen or a dot; an MMS pair
+    /// never does).
     pub fn table_of(&self, report_type: &str, report_subtype: &str) -> String {
         self.declared_by_pair(report_type, report_subtype)
             .map_or_else(
                 || {
-                    format!("{report_type}_{report_subtype}")
-                        .chars()
+                    let pair = if report_subtype.is_empty() {
+                        report_type.to_owned()
+                    } else {
+                        format!("{report_type}_{report_subtype}")
+                    };
+                    pair.chars()
                         .map(|c| {
                             if c.is_ascii_alphanumeric() || c == '_' {
                                 c
@@ -380,6 +387,7 @@ reason = "Six places are what AEMO measures."
         assert_eq!(c.table_of("DISPATCH", "OTHER"), "DISPATCH_OTHER");
         assert_eq!(c.table_of("WEM", "FACILITY-SCADA"), "WEM_FACILITY_SCADA");
         assert_eq!(c.table_of("WEMDE", "A.B"), "WEMDE_A_B");
+        assert_eq!(c.table_of("DREGION", ""), "DREGION");
         // Written back, a declaration reads as it was.
         let out = dir.path().join("out");
         assert_eq!(c.write(&out).unwrap(), 2);
