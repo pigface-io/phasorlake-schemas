@@ -64,7 +64,13 @@ STTM,VicGas}`), and the WEM's `datafiles` (header-row CSVs) and `wemde`
 its path (`crates/utilake-plain-decode`: the family is the feed, the name
 the file's stem, the version its `_vN`), its columns by their headers,
 every date rewritten into the MMS form before it is read, and `true` and
-`false` as booleans. An entry found again under another file with the
+`false` as booleans. A block whose header names a column per forecast
+day (the GBB's `ForecastUtilisation`) is read with those columns
+unpivoted into a date and a value, so its shape does not change daily.
+A file's first bytes say what it is before its feed's decoder reads it:
+a `C` row is read as MMS rows whatever the folder (the GBB's GSH trades
+file), and markup named `.csv` counts among the files that are not
+reports. An entry found again under another file with the
 same name and bytes (a day's slot zip beside the current day's) is read
 once and counted as `repeated`; a feed whose files restate the ones
 before them has each file's rows compared against the last file of the
