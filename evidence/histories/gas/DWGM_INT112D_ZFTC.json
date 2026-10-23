@@ -1,0 +1,119 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "zftc_name",
+    "10": "current_date",
+    "2": "commencement_date",
+    "3": "termination_date",
+    "4": "daily_max_net_inj_qty_gj",
+    "5": "daily_max_net_wdl_qty_gj",
+    "6": "ti",
+    "7": "hourly_max_net_inj_qty_gj",
+    "8": "hourly_max_net_wdl_qty_gj",
+    "9": "mod_datetime"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 291,
+      "from": {
+        "data-time": null,
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT112D_ZFTC_1"
+      ],
+      "rows": 0,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "int112d_v4_zftc_1.csv",
+        "release": "2026-10",
+        "sha256": "6f2955f70b3562d6495a8f029fd87283b910eb7849b7903fab7aa58249bf8d68"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "ZFTC_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "COMMENCEMENT_DATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "TERMINATION_DATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "DAILY_MAX_NET_INJ_QTY_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "DAILY_MAX_NET_WDL_QTY_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "TI",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "HOURLY_MAX_NET_INJ_QTY_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "HOURLY_MAX_NET_WDL_QTY_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "MOD_DATETIME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT112D_ZFTC"
+}

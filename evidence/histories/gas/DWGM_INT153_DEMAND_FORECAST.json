@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "forecast_date",
+    "2": "version_id",
+    "3": "ti",
+    "4": "forecast_demand_gj",
+    "5": "vc_override_gj",
+    "6": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 308,
+      "from": {
+        "data-time": "2026-08-31T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT153_DEMAND_FORECAST_RPT_1"
+      ],
+      "rows": 6848,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int153_v4_demand_forecast_rpt_1.csv@20261021T221100+1000",
+        "release": "2026-10",
+        "sha256": "e424ab414c245e7e106f970a4a8db9ce5b2b1735e90ceef09031389774244c55"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FORECAST_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "VERSION_ID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 3,
+          "name": "TI",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 4,
+          "name": "FORECAST_DEMAND_GJ",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 5,
+          "name": "VC_OVERRIDE_GJ",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT153_DEMAND_FORECAST"
+}

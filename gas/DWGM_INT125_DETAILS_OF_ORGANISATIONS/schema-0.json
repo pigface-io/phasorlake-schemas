@@ -1,0 +1,258 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT125_DETAILS_OF_ORGANISATIONS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "city",
+      "x-iceberg-type": "string"
+    },
+    "COMPANY_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "company_code",
+      "x-iceberg-type": "string"
+    },
+    "COMPANY_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "company_id",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "COMPANY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "company_name",
+      "x-iceberg-type": "string"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "FAX": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "fax",
+      "x-iceberg-type": "string"
+    },
+    "LINE_1": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "line_1",
+      "x-iceberg-type": "string"
+    },
+    "LINE_2": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "line_2",
+      "x-iceberg-type": "string"
+    },
+    "LINE_3": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "line_3",
+      "x-iceberg-type": "string"
+    },
+    "MARKET_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "market_code",
+      "x-iceberg-type": "string"
+    },
+    "ORGANIZATION_CLASS_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "organization_class_name",
+      "x-iceberg-type": "string"
+    },
+    "ORGANIZATION_STATUS_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "organization_status_name",
+      "x-iceberg-type": "string"
+    },
+    "ORGANIZATION_TYPE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "organization_type_name",
+      "x-iceberg-type": "string"
+    },
+    "PHONE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "phone",
+      "x-iceberg-type": "string"
+    },
+    "POSTAL_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "postal_code",
+      "x-iceberg-type": "string"
+    },
+    "PROVINCE_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "province_id",
+      "x-iceberg-type": "string"
+    },
+    "REGISTERED_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "registered_name",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT125_DETAILS_OF_ORGANISATIONS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "COMPANY_ID",
+      "decimal(3, 0)"
+    ],
+    [
+      2,
+      "COMPANY_NAME",
+      "string"
+    ],
+    [
+      3,
+      "REGISTERED_NAME",
+      "string"
+    ],
+    [
+      4,
+      "ORGANIZATION_CLASS_NAME",
+      "string"
+    ],
+    [
+      5,
+      "ORGANIZATION_TYPE_NAME",
+      "string"
+    ],
+    [
+      6,
+      "ORGANIZATION_STATUS_NAME",
+      "string"
+    ],
+    [
+      7,
+      "LINE_1",
+      "string"
+    ],
+    [
+      8,
+      "LINE_2",
+      "string"
+    ],
+    [
+      9,
+      "LINE_3",
+      "string"
+    ],
+    [
+      10,
+      "PROVINCE_ID",
+      "string"
+    ],
+    [
+      11,
+      "CITY",
+      "string"
+    ],
+    [
+      12,
+      "POSTAL_CODE",
+      "string"
+    ],
+    [
+      13,
+      "PHONE",
+      "string"
+    ],
+    [
+      14,
+      "FAX",
+      "string"
+    ],
+    [
+      15,
+      "MARKET_CODE",
+      "string"
+    ],
+    [
+      16,
+      "COMPANY_CODE",
+      "string"
+    ],
+    [
+      17,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT125_DETAILS_OF_ORGANISATIONS"
+  }
+}

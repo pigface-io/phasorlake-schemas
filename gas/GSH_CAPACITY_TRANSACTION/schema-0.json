@@ -1,0 +1,382 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_CAPACITY_TRANSACTION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DELIVERY_ZONE_ID": {
+      "description": "The unique identifier of the Part 24 Delivery Zone. This is the zone in which the delivery point that was reported to AEMO is specified. Mandatory for service points registered under Part 24 of the rules.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "DELIVERY_ZONE_NAME": {
+      "description": "The descriptive name of the Delivery Zone.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(255)"
+    },
+    "FACILITY_ID": {
+      "description": "The unique identifier of the Part 24 facility. Mandatory for facilities registered under Part 24 of the rules.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "FACILITY_NAME": {
+      "description": "The descriptive name of the facility.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "FLOW_DIRECTION": {
+      "description": "The direction of the flow for non-Part 24 facilities, relative to the general physical direction of the facility. Valid values are:NORTHNORTH_EASTNORTH_WESTEASTSOUTH_EASTSOUTHSOUTH_WESTWEST",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "FROM_GAS_DATE": {
+      "description": "The effective start date of the trade. Disregard the time component as this is not applicable.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report was generated.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "MAX_DAILY_QUANTITY": {
+      "description": "The traded maximum daily quantity (MDQ) (GJ/day).",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "MAX_HOURLY_QUANTITY": {
+      "description": "The traded maximum hourly quantity (GJ/hour). Null for GSH trades.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "PARKLOAN_POINT_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string"
+    },
+    "PARK_LOAN_POINT_NAME": {
+      "description": "The descriptive name of the service point.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(255)"
+    },
+    "PRICE": {
+      "description": "The price of the traded capacity ($/GJ/day).",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    },
+    "PRICE_ESCALATION_MECHANISM": {
+      "description": "The price escalation mechanism applied over the term of the trade. Null for GSH trades.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(255)"
+    },
+    "PRICE_STRUCTURE": {
+      "description": "The price structure applied over the term of the trade. Mandatory for GBB bilateral trades. Null for GSH trades.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(255)"
+    },
+    "PRIORITY": {
+      "description": "The priority of the traded capacity. Mandatory for GBB bilateral trades. Null for GSH trades.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(255)"
+    },
+    "RECEIPT_ZONE_ID": {
+      "description": "The unique identifier of the Part 24 Receipt Zone. This is the zone in which the receipt point that was reported to AEMO is specified. Mandatory for service points registered under Part 24 of the rules.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "RECEIPT_ZONE_NAME": {
+      "description": "The descriptive name of the Receipt Zone.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(255)"
+    },
+    "STANDARD_OTSA": {
+      "description": "Flag to indicate whether a standard OTSA was used",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(255)"
+    },
+    "TO_GAS_DATE": {
+      "description": "The effective end date of the trade. Disregard the time component as this is not applicable.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "TRADE_DATE": {
+      "description": "The date the trade was made. Disregard the time component as this is not applicable.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "TRADE_TYPE": {
+      "description": "The type of trade",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(30)"
+    },
+    "TRANSACTION_ID": {
+      "description": "Unique capacity transaction id",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(50)"
+    },
+    "TRANSPORTATION_SERVICE_TYPE": {
+      "description": "The transportation service type",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(12)"
+    },
+    "VERSION_DATETIME": {
+      "description": "Updated version within transaction id",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    }
+  },
+  "required": [
+    "TRANSACTION_ID",
+    "VERSION_DATETIME"
+  ],
+  "title": "GSH_CAPACITY_TRANSACTION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRANSACTION_ID",
+      "string"
+    ],
+    [
+      2,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "TRADE_DATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "FROM_GAS_DATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "TO_GAS_DATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "TRADE_TYPE",
+      "string"
+    ],
+    [
+      7,
+      "FACILITY_ID",
+      "long"
+    ],
+    [
+      8,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      9,
+      "TRANSPORTATION_SERVICE_TYPE",
+      "string"
+    ],
+    [
+      10,
+      "FLOW_DIRECTION",
+      "string"
+    ],
+    [
+      11,
+      "RECEIPT_ZONE_ID",
+      "long"
+    ],
+    [
+      12,
+      "RECEIPT_ZONE_NAME",
+      "string"
+    ],
+    [
+      13,
+      "DELIVERY_ZONE_ID",
+      "long"
+    ],
+    [
+      14,
+      "DELIVERY_ZONE_NAME",
+      "string"
+    ],
+    [
+      15,
+      "PARKLOAN_POINT_ID",
+      "string"
+    ],
+    [
+      16,
+      "PARK_LOAN_POINT_NAME",
+      "string"
+    ],
+    [
+      17,
+      "STANDARD_OTSA",
+      "string"
+    ],
+    [
+      18,
+      "PRIORITY",
+      "string"
+    ],
+    [
+      19,
+      "MAX_DAILY_QUANTITY",
+      "long"
+    ],
+    [
+      20,
+      "MAX_HOURLY_QUANTITY",
+      "long"
+    ],
+    [
+      21,
+      "PRICE",
+      "decimal(18, 8)"
+    ],
+    [
+      22,
+      "PRICE_STRUCTURE",
+      "string"
+    ],
+    [
+      23,
+      "PRICE_ESCALATION_MECHANISM",
+      "string"
+    ],
+    [
+      24,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_CAPACITY_TRANSACTION"
+  }
+}

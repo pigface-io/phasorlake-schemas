@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "hv_zone",
+    "3": "hv_zone_desc",
+    "4": "energy_gj",
+    "5": "volume_kscm",
+    "6": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 5,
+      "from": {
+        "data-time": "2025-08-01T00:00:00+10:00",
+        "file": "PublicRpts26.zip",
+        "release": "2026-09",
+        "sha256": "879200058ceb925d35eceb6b2b475b9e03c72989e40ffa59701be58e63f3d75c"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT316_OPERATIONAL_GAS_1"
+      ],
+      "rows": 5107,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-16T00:00:00+10:00",
+        "file": "int316_v4_operational_gas_1.csv",
+        "release": "2026-10",
+        "sha256": "2e424f283bbd39826244fb1166bf943f4273247a89edaef66058830731731426"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "HV_ZONE",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "HV_ZONE_DESC",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "ENERGY_GJ",
+          "required": false,
+          "type": "decimal(13, 9)"
+        },
+        {
+          "id": 5,
+          "name": "VOLUME_KSCM",
+          "required": false,
+          "type": "decimal(11, 9)"
+        },
+        {
+          "id": 6,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT316_OPERATIONAL_GAS"
+}

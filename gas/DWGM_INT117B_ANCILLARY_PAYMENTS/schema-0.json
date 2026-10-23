@@ -1,0 +1,91 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT117B_ANCILLARY_PAYMENTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ANCILLARY_AMT_GST_EX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "ancillary_amt_gst_ex",
+      "x-iceberg-type": "decimal(7, 4)"
+    },
+    "AP_RUN_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "ap_run_id",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "SCHEDULE_NO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "schedule_no",
+      "x-iceberg-type": "decimal(1, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT117B_ANCILLARY_PAYMENTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "AP_RUN_ID",
+      "decimal(4, 0)"
+    ],
+    [
+      2,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      3,
+      "SCHEDULE_NO",
+      "decimal(1, 0)"
+    ],
+    [
+      4,
+      "ANCILLARY_AMT_GST_EX",
+      "decimal(7, 4)"
+    ],
+    [
+      5,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT117B_ANCILLARY_PAYMENTS"
+  }
+}

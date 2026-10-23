@@ -1,0 +1,190 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT653_EX_ANTE_PIPELINE_PRICE/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APPROVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "approval_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CAPACITY_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "capacity_qty",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "EX_ANTE_CAPACITY_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "ex_ante_capacity_price",
+      "x-iceberg-type": "decimal(4, 4)"
+    },
+    "EX_ANTE_FLOW_DIRECTION_CONSTRAINT_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "ex_ante_flow_direction_constraint_price",
+      "x-iceberg-type": "decimal(4, 4)"
+    },
+    "FACILITY_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "facility_identifier",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "facility_name",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "SCHEDULE_CAPACITY_PRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "schedule_capacity_price",
+      "x-iceberg-type": "string"
+    },
+    "SCHEDULE_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "schedule_identifier",
+      "x-iceberg-type": "decimal(5, 0)"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT653_EX_ANTE_PIPELINE_PRICE, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      3,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      4,
+      "SCHEDULE_IDENTIFIER",
+      "decimal(5, 0)"
+    ],
+    [
+      5,
+      "FACILITY_IDENTIFIER",
+      "string"
+    ],
+    [
+      6,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      7,
+      "CAPACITY_QTY",
+      "decimal(6, 0)"
+    ],
+    [
+      10,
+      "EX_ANTE_CAPACITY_PRICE",
+      "decimal(4, 4)"
+    ],
+    [
+      11,
+      "EX_ANTE_FLOW_DIRECTION_CONSTRAINT_PRICE",
+      "decimal(4, 4)"
+    ],
+    [
+      12,
+      "SCHEDULE_CAPACITY_PRICE",
+      "string"
+    ],
+    [
+      13,
+      "APPROVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      14,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT653_EX_ANTE_PIPELINE_PRICE"
+  }
+}

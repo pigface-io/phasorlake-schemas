@@ -1,0 +1,88 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 529,
+      "from": {
+        "data-time": "2014-03-19T00:00:00+10:00",
+        "file": "PUBLIC_WALLUMBILLABENCHMARKPRICE_20251001.zip",
+        "release": "2025-10",
+        "sha256": "e1bdb8b5d5413d7dcc33648935767c868d87556dc08db35ed3b4643b4cb32352"
+      },
+      "kinds": [
+        "gsh/archive",
+        "gsh/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GSH",
+        "BENCHMARK_PRICE"
+      ],
+      "rows": 34341,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-22T00:00:00+10:00",
+        "file": "PUBLIC_WALLUMBILLABENCHMARKPRICE_20261021_0000000544105083.zip",
+        "release": "2026-10",
+        "sha256": "46629870be572f8fbc9d6d7a3c4578020f2a6ceb099781b4118f2e26dc835d58"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "PRODUCT_LOCATION",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "PRODUCT_TYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "BENCHMARK_PRICE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 5,
+          "name": "IS_FIRM",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GSH_BENCHMARK_PRICE"
+}

@@ -1,0 +1,105 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT089_LINEPACK_BALANCE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "LINEPACK_ACCT_BAL_GST_EX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "linepack_acct_bal_gst_ex",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "LINEPACK_ACCT_PMT_GST_EX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "linepack_acct_pmt_gst_ex",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "TOTAL_DEV_PMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "total_dev_pmt",
+      "x-iceberg-type": "decimal(11, 4)"
+    },
+    "TOTAL_IMB_PMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "total_imb_pmt",
+      "x-iceberg-type": "decimal(11, 4)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT089_LINEPACK_BALANCE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "TOTAL_IMB_PMT",
+      "decimal(11, 4)"
+    ],
+    [
+      3,
+      "TOTAL_DEV_PMT",
+      "decimal(11, 4)"
+    ],
+    [
+      4,
+      "LINEPACK_ACCT_PMT_GST_EX",
+      "decimal(10, 4)"
+    ],
+    [
+      5,
+      "LINEPACK_ACCT_BAL_GST_EX",
+      "decimal(10, 4)"
+    ],
+    [
+      6,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT089_LINEPACK_BALANCE"
+  }
+}

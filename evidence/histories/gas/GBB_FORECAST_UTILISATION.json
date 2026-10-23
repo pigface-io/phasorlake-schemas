@@ -1,0 +1,145 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "State",
+    "10": "ForecastMethod",
+    "11": "Units",
+    "12": "Nameplate",
+    "2": "FacilityId",
+    "3": "FacilityName",
+    "4": "FacilityType",
+    "5": "ReceiptLocationId",
+    "6": "ReceiptLocationName",
+    "7": "DeliveryLocationId",
+    "8": "DeliveryLocationName",
+    "9": "Description"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1907,
+      "from": {
+        "data-time": "2021-08-05T00:00:00+10:00",
+        "file": "GBB_ForecastUtilisation_20210804.CSV",
+        "release": "2021-08",
+        "sha256": "09b5bb265a0c4cca9bffb247f910cd9b7e4e3013d2050a102f7f9c6eaf670a96"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "FORECAST_UTILISATION"
+      ],
+      "rows": 2546851,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-28T00:00:00+10:00",
+        "file": "GBB_ForecastUtilisation_20261021.CSV",
+        "release": "2026-10",
+        "sha256": "b568f5ccfea671c88f81eacaacc1678e03bb87c60cbcbf7d970580b1c89c50b7"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "STATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "FACILITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "RECEIPTLOCATIONID",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 6,
+          "name": "RECEIPTLOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "DELIVERYLOCATIONID",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 8,
+          "name": "DELIVERYLOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "FORECASTMETHOD",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "UNITS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "NAMEPLATE",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 13,
+          "name": "FORECAST_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 14,
+          "name": "QUANTITY",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_FORECAST_UTILISATION"
+}

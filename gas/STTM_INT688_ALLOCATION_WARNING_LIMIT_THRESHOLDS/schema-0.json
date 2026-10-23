@@ -1,0 +1,148 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT688_ALLOCATION_WARNING_LIMIT_THRESHOLDS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "FACILITY_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "facility_identifier",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "facility_name",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "LAST_UPDATE_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "last_update_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOWER_WARNING_LIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "lower_warning_limit",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "UPPER_WARNING_LIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "upper_warning_limit",
+      "x-iceberg-type": "decimal(15, 9)"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT688_ALLOCATION_WARNING_LIMIT_THRESHOLDS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      3,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      4,
+      "FACILITY_IDENTIFIER",
+      "string"
+    ],
+    [
+      5,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      6,
+      "UPPER_WARNING_LIMIT",
+      "decimal(15, 9)"
+    ],
+    [
+      7,
+      "LOWER_WARNING_LIMIT",
+      "decimal(15, 9)"
+    ],
+    [
+      8,
+      "LAST_UPDATE_DATETIME",
+      "timestamptz"
+    ],
+    [
+      9,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT688_ALLOCATION_WARNING_LIMIT_THRESHOLDS"
+  }
+}

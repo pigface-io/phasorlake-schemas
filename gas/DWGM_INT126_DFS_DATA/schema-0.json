@@ -1,0 +1,190 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT126_DFS_DATA/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AVERAGE_WIND_SPEED": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "average_wind_speed",
+      "x-iceberg-type": "string"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "DFS_EDD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "dfs_edd",
+      "x-iceberg-type": "decimal(2, 1)"
+    },
+    "DFS_VERSION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "dfs_version",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "EFFECTIVE_TEMPERATURE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "effective_temperature",
+      "x-iceberg-type": "decimal(3, 1)"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "LAST_UPDATE_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "last_update_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "MAX": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "max",
+      "x-iceberg-type": "string"
+    },
+    "OVERNIGHT_MIN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "overnight_min",
+      "x-iceberg-type": "string"
+    },
+    "PREVIOUS_DAY_MIN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "previous_day_min",
+      "x-iceberg-type": "string"
+    },
+    "SUNSHINE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "sunshine",
+      "x-iceberg-type": "string"
+    },
+    "TOTAL_DEMAND_FORECAST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "total_demand_forecast",
+      "x-iceberg-type": "decimal(6, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT126_DFS_DATA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DFS_VERSION",
+      "decimal(6, 0)"
+    ],
+    [
+      2,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      3,
+      "LAST_UPDATE_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "PREVIOUS_DAY_MIN",
+      "string"
+    ],
+    [
+      5,
+      "MAX",
+      "string"
+    ],
+    [
+      6,
+      "OVERNIGHT_MIN",
+      "string"
+    ],
+    [
+      7,
+      "AVERAGE_WIND_SPEED",
+      "string"
+    ],
+    [
+      8,
+      "SUNSHINE",
+      "string"
+    ],
+    [
+      9,
+      "EFFECTIVE_TEMPERATURE",
+      "decimal(3, 1)"
+    ],
+    [
+      10,
+      "DFS_EDD",
+      "decimal(2, 1)"
+    ],
+    [
+      11,
+      "TOTAL_DEMAND_FORECAST",
+      "decimal(6, 0)"
+    ],
+    [
+      12,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT126_DFS_DATA"
+  }
+}

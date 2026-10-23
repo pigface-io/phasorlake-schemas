@@ -1,0 +1,133 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT583_MONTHLY_CUMULATIVE_IMB_POS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CURR_CUM_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "curr_cum_date",
+      "x-iceberg-type": "date"
+    },
+    "CURR_CUM_IMB_POSITION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "curr_cum_imb_position",
+      "x-iceberg-type": "string"
+    },
+    "DISTRIBUTOR_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "distributor_name",
+      "x-iceberg-type": "string"
+    },
+    "FRO_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "fro_name",
+      "x-iceberg-type": "string"
+    },
+    "NETWORK_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "network_name",
+      "x-iceberg-type": "string"
+    },
+    "VERSION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "version_id",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "WITHDRAWAL_ZONE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "withdrawal_zone",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT583_MONTHLY_CUMULATIVE_IMB_POS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "NETWORK_NAME",
+      "string"
+    ],
+    [
+      2,
+      "VERSION_ID",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "FRO_NAME",
+      "string"
+    ],
+    [
+      4,
+      "DISTRIBUTOR_NAME",
+      "string"
+    ],
+    [
+      5,
+      "WITHDRAWAL_ZONE",
+      "string"
+    ],
+    [
+      6,
+      "CURR_CUM_DATE",
+      "date"
+    ],
+    [
+      7,
+      "CURR_CUM_IMB_POSITION",
+      "string"
+    ],
+    [
+      8,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT583_MONTHLY_CUMULATIVE_IMB_POS"
+  }
+}

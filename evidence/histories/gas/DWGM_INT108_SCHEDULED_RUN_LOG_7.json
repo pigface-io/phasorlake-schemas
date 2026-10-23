@@ -1,0 +1,154 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "transmission_id",
+    "10": "last_os_for_gas_day_tdoc_id",
+    "11": "os_prior_gas_day_tdoc_id",
+    "12": "approval_datetime",
+    "13": "demand_type_id",
+    "14": "objective_function_value",
+    "15": "current_date",
+    "2": "transmission_document_id",
+    "3": "transmission_group_id",
+    "4": "gas_start_datetime",
+    "5": "bid_cutoff_datetime",
+    "6": "schedule_type_id",
+    "7": "creation_datetime",
+    "8": "forecast_demand_version",
+    "9": "dfs_interface_audit_id"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 294,
+      "from": {
+        "data-time": "2026-08-24T10:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT108_SCHEDULED_RUN_LOG_7_1"
+      ],
+      "rows": 1220,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-23T06:00:00+10:00",
+        "file": "int108_v4_scheduled_run_log_7_1.csv@20261021T220900+1000",
+        "release": "2026-10",
+        "sha256": "5b3622bce7bba03220c57de50df16b8f7c9e1d1c91404433a899bf5fb679a7aa"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRANSMISSION_ID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 2,
+          "name": "TRANSMISSION_DOCUMENT_ID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 3,
+          "name": "TRANSMISSION_GROUP_ID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "GAS_START_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "BID_CUTOFF_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "SCHEDULE_TYPE_ID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "CREATION_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 8,
+          "name": "FORECAST_DEMAND_VERSION",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 9,
+          "name": "DFS_INTERFACE_AUDIT_ID",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 10,
+          "name": "LAST_OS_FOR_GAS_DAY_TDOC_ID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 11,
+          "name": "OS_PRIOR_GAS_DAY_TDOC_ID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 12,
+          "name": "APPROVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "DEMAND_TYPE_ID",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 14,
+          "name": "OBJECTIVE_FUNCTION_VALUE",
+          "required": false,
+          "type": "decimal(14, 5)"
+        },
+        {
+          "id": 15,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT108_SCHEDULED_RUN_LOG_7"
+}

@@ -1,0 +1,119 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "10": "current_date",
+    "2": "node_id",
+    "3": "node_name",
+    "4": "current_system_capacity",
+    "5": "current_lateral_capacity",
+    "6": "max_system_capacity",
+    "7": "min_system_capacity",
+    "8": "max_lateral_capacity",
+    "9": "min_lateral_capacity"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 65,
+      "from": {
+        "data-time": "2026-08-31T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT262_SPARE_CAPACITY_LIMITS_1"
+      ],
+      "rows": 578,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T00:00:00+10:00",
+        "file": "int262_v4_spare_capacity_limits_1.csv@20261021T191100+1000",
+        "release": "2026-10",
+        "sha256": "25050657a96bebf3c2041ed06e6cb9f991a85633e299a175ccac6b197980abd0"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "NODE_ID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 3,
+          "name": "NODE_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "CURRENT_SYSTEM_CAPACITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "CURRENT_LATERAL_CAPACITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "MAX_SYSTEM_CAPACITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "MIN_SYSTEM_CAPACITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "MAX_LATERAL_CAPACITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "MIN_LATERAL_CAPACITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT262_SPARE_CAPACITY_LIMITS"
+}

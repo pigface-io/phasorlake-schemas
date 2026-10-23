@@ -1,0 +1,245 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT260_COMPRESSOR_CHAR/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "COMPRESSOR_EFFICIENCY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "compressor_efficiency",
+      "x-iceberg-type": "decimal(2, 2)"
+    },
+    "COMPRESSOR_EFFICIENCY_AT_MIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "compressor_efficiency_at_min",
+      "x-iceberg-type": "decimal(2, 2)"
+    },
+    "COMPRESSOR_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "compressor_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "COMPRESSOR_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "compressor_name",
+      "x-iceberg-type": "string"
+    },
+    "COMPRESSOR_STATION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "compressor_station_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "EFFICIENCY_COEFFICIENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "efficiency_coefficient",
+      "x-iceberg-type": "decimal(3, 2)"
+    },
+    "LAST_MOD_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "last_mod_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "MAX_COMPRESSOR_POWER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "max_compressor_power",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "MAX_PRESSURE_DELTA": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "max_pressure_delta",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "MIN_COMPRESSOR_POWER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "min_compressor_power",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "MIN_PRESSURE_DELTA": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "min_pressure_delta",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "MOST_EFFICIENT_PRESSURE_DELTA": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "most_efficient_pressure_delta",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "PIPE_SEGMENT_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "pipe_segment_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "STATION_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "station_name",
+      "x-iceberg-type": "string"
+    },
+    "SUPER_COMPRESSABILITY_FACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "super_compressability_factor",
+      "x-iceberg-type": "decimal(2, 2)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT260_COMPRESSOR_CHAR, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "COMPRESSOR_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      2,
+      "COMPRESSOR_NAME",
+      "string"
+    ],
+    [
+      3,
+      "PIPE_SEGMENT_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      4,
+      "MIN_PRESSURE_DELTA",
+      "decimal(4, 0)"
+    ],
+    [
+      5,
+      "MOST_EFFICIENT_PRESSURE_DELTA",
+      "decimal(4, 0)"
+    ],
+    [
+      6,
+      "MAX_PRESSURE_DELTA",
+      "decimal(4, 0)"
+    ],
+    [
+      7,
+      "MAX_COMPRESSOR_POWER",
+      "decimal(5, 0)"
+    ],
+    [
+      8,
+      "MIN_COMPRESSOR_POWER",
+      "decimal(4, 0)"
+    ],
+    [
+      9,
+      "COMPRESSOR_EFFICIENCY",
+      "decimal(2, 2)"
+    ],
+    [
+      10,
+      "COMPRESSOR_EFFICIENCY_AT_MIN",
+      "decimal(2, 2)"
+    ],
+    [
+      11,
+      "EFFICIENCY_COEFFICIENT",
+      "decimal(3, 2)"
+    ],
+    [
+      12,
+      "SUPER_COMPRESSABILITY_FACTOR",
+      "decimal(2, 2)"
+    ],
+    [
+      13,
+      "COMPRESSOR_STATION_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      14,
+      "STATION_NAME",
+      "string"
+    ],
+    [
+      15,
+      "LAST_MOD_DATE",
+      "timestamptz"
+    ],
+    [
+      16,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT260_COMPRESSOR_CHAR"
+  }
+}

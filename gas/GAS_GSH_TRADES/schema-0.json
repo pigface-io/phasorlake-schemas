@@ -1,0 +1,156 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GAS_GSH_TRADES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DAILY_QTY_GJ": {
+      "description": "Volume of gas transacted on the Trading Platform in GJ/day",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    },
+    "END_DATE": {
+      "description": "The end gas day for the order delivery period",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "LOCATION": {
+      "description": "Product location for the Gas Supply Hub market",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "MANUAL_TRADE": {
+      "description": "Whether the trade is a manual trade",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(50)"
+    },
+    "PRODUCT": {
+      "description": "The product delivery period for the Gas Supply Hub market",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "START_DATE": {
+      "description": "The start gas day for the order delivery period",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "TRADE_DATE": {
+      "description": "Date and time the trade is executed",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "TRADE_PRICE": {
+      "description": "Price value of the trade in $/GJ",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    },
+    "TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [
+    "TRADE_DATE"
+  ],
+  "title": "GAS_GSH_TRADES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRADE_DATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "TYPE",
+      "string"
+    ],
+    [
+      3,
+      "PRODUCT",
+      "string"
+    ],
+    [
+      4,
+      "LOCATION",
+      "string"
+    ],
+    [
+      5,
+      "TRADE_PRICE",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "DAILY_QTY_GJ",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "START_DATE",
+      "timestamptz"
+    ],
+    [
+      8,
+      "END_DATE",
+      "timestamptz"
+    ],
+    [
+      9,
+      "MANUAL_TRADE",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GAS_GSH_TRADES"
+  }
+}

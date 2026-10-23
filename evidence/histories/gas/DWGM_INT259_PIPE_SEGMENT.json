@@ -1,0 +1,189 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "pipe_segment_id",
+    "10": "length",
+    "11": "max_pressure",
+    "12": "min_pressure",
+    "13": "max_pressure_delta",
+    "14": "pressure_at_regulator_outlet",
+    "15": "regulator_at_origin",
+    "16": "reverse_flow",
+    "17": "compressor",
+    "18": "mean_pipe_altitude",
+    "19": "last_mod_date",
+    "2": "pipe_segment_name",
+    "20": "current_date",
+    "3": "linepack_zone_id",
+    "4": "commencement_date",
+    "5": "termination_date",
+    "6": "node_destination_id",
+    "7": "node_origin_id",
+    "8": "diameter",
+    "9": "diameter_paired"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "1998-06-23T00:00:00+10:00",
+        "file": "int259_v4_pipe_segment_1.csv",
+        "release": "2026-10",
+        "sha256": "8a4f66fac084555d084e2fb75aadb9d4d0ff813ad707a741ad227e37d5b4a169"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT259_PIPE_SEGMENT_1"
+      ],
+      "rows": 84,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2024-02-07T00:00:00+10:00",
+        "file": "int259_v4_pipe_segment_1.csv",
+        "release": "2026-10",
+        "sha256": "8a4f66fac084555d084e2fb75aadb9d4d0ff813ad707a741ad227e37d5b4a169"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PIPE_SEGMENT_ID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 2,
+          "name": "PIPE_SEGMENT_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "LINEPACK_ZONE_ID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 4,
+          "name": "COMMENCEMENT_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 5,
+          "name": "TERMINATION_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 6,
+          "name": "NODE_DESTINATION_ID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 7,
+          "name": "NODE_ORIGIN_ID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 8,
+          "name": "DIAMETER",
+          "required": false,
+          "type": "decimal(5, 4)"
+        },
+        {
+          "id": 9,
+          "name": "DIAMETER_PAIRED",
+          "required": false,
+          "type": "decimal(4, 4)"
+        },
+        {
+          "id": 10,
+          "name": "LENGTH",
+          "required": false,
+          "type": "decimal(7, 4)"
+        },
+        {
+          "id": 11,
+          "name": "MAX_PRESSURE",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 12,
+          "name": "MIN_PRESSURE",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 13,
+          "name": "MAX_PRESSURE_DELTA",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 14,
+          "name": "PRESSURE_AT_REGULATOR_OUTLET",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 15,
+          "name": "REGULATOR_AT_ORIGIN",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 16,
+          "name": "REVERSE_FLOW",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "COMPRESSOR",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "MEAN_PIPE_ALTITUDE",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 19,
+          "name": "LAST_MOD_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 20,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT259_PIPE_SEGMENT"
+}

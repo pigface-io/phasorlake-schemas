@@ -1,0 +1,126 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "settlement_run_identifier",
+    "10": "as_available_flowed",
+    "11": "report_datetime",
+    "2": "gas_date",
+    "3": "hub_identifier",
+    "4": "hub_name",
+    "5": "facility_identifier",
+    "6": "facility_name",
+    "7": "mos_allocated_qty",
+    "8": "mos_overrun_qty",
+    "9": "firm_not_flowed"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "Day24.zip",
+        "release": "2026-09",
+        "sha256": "93d3280f33572aae5ab124371171d23d919fc22cbba7faba01d06c46b49950c0"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT682_SETTLEMENT_MOS_AND_CAPACITY_DATA_RPT_1"
+      ],
+      "rows": 976,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-30T00:00:00+10:00",
+        "file": "int682_v1_settlement_mos_and_capacity_data_rpt_1.csv",
+        "release": "2026-10",
+        "sha256": "7378622a24a8391dd537a2d18dcb4d643b2e1f0994a633f13c0ddc43ee2beefd"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENT_RUN_IDENTIFIER",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 2,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "HUB_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "HUB_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FACILITY_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "MOS_ALLOCATED_QTY",
+          "required": false,
+          "type": "decimal(14, 9)"
+        },
+        {
+          "id": 8,
+          "name": "MOS_OVERRUN_QTY",
+          "required": false,
+          "type": "decimal(9, 9)"
+        },
+        {
+          "id": 9,
+          "name": "FIRM_NOT_FLOWED",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 10,
+          "name": "AS_AVAILABLE_FLOWED",
+          "required": false,
+          "type": "decimal(14, 9)"
+        },
+        {
+          "id": 11,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT682_SETTLEMENT_MOS_AND_CAPACITY_DATA"
+}

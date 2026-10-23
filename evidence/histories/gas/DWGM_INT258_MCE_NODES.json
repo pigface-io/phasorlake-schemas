@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "pipeline_id",
+    "2": "point_group_identifier_id",
+    "3": "point_group_identifier_name",
+    "4": "nodal_altitude",
+    "5": "last_mod_date",
+    "6": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "1998-08-14T15:26:45+10:00",
+        "file": "int258_v4_mce_nodes_1.csv",
+        "release": "2026-10",
+        "sha256": "0b7a540c2a8314fab7cd4a9fe8e6c831e1f7b231c4261c3885b5356dd0e3a8f4"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT258_MCE_NODES_1"
+      ],
+      "rows": 61,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2024-02-07T10:02:44+10:00",
+        "file": "int258_v4_mce_nodes_1.csv",
+        "release": "2026-10",
+        "sha256": "0b7a540c2a8314fab7cd4a9fe8e6c831e1f7b231c4261c3885b5356dd0e3a8f4"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PIPELINE_ID",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 2,
+          "name": "POINT_GROUP_IDENTIFIER_ID",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 3,
+          "name": "POINT_GROUP_IDENTIFIER_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "NODAL_ALTITUDE",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 5,
+          "name": "LAST_MOD_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT258_MCE_NODES"
+}

@@ -1,0 +1,105 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT150_PUBLIC_METERING_DATA/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "ENERGY_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "energy_gj",
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "FLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "flag",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "id",
+      "x-iceberg-type": "string"
+    },
+    "TI": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "ti",
+      "x-iceberg-type": "decimal(2, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT150_PUBLIC_METERING_DATA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "FLAG",
+      "string"
+    ],
+    [
+      3,
+      "ID",
+      "string"
+    ],
+    [
+      4,
+      "TI",
+      "decimal(2, 0)"
+    ],
+    [
+      5,
+      "ENERGY_GJ",
+      "decimal(8, 3)"
+    ],
+    [
+      6,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT150_PUBLIC_METERING_DATA"
+  }
+}

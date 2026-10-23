@@ -1,0 +1,112 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "gas_hour",
+    "3": "transmission_id",
+    "4": "ctm_d1_inj",
+    "5": "ctm_d1_wdl",
+    "6": "price_value",
+    "7": "administered_price",
+    "8": "total_gas_withdrawals",
+    "9": "total_gas_injections"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": null,
+        "file": "int310_v1_price_and_withdrawals_rpt_1.csv",
+        "release": "2026-10",
+        "sha256": "92fcbeeb51dcd1f564ff79d38e3a085da4e9ad5b14ef043285dec6e4646574f4"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT310_PRICE_AND_WITHDRAWALS_RPT_1"
+      ],
+      "rows": 0,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "int310_v1_price_and_withdrawals_rpt_1.csv",
+        "release": "2026-10",
+        "sha256": "92fcbeeb51dcd1f564ff79d38e3a085da4e9ad5b14ef043285dec6e4646574f4"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "GAS_HOUR",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "TRANSMISSION_ID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "CTM_D1_INJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "CTM_D1_WDL",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "PRICE_VALUE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "ADMINISTERED_PRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "TOTAL_GAS_WITHDRAWALS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "TOTAL_GAS_INJECTIONS",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT310_PRICE_AND_WITHDRAWALS_RPT_1"
+}

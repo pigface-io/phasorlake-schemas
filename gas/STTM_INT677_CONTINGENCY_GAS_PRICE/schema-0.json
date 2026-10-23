@@ -1,0 +1,162 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT677_CONTINGENCY_GAS_PRICE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APPROVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "approval_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CONTINGENCY_GAS_CALLED_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "contingency_gas_called_identifier",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HIGH_CONTINGENCY_GAS_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "high_contingency_gas_price",
+      "x-iceberg-type": "decimal(7, 4)"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "LOW_CONTINGENCY_GAS_PRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "low_contingency_gas_price",
+      "x-iceberg-type": "string"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "SCHEDULE_HIGH_CONTINGENCY_GAS_PRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "schedule_high_contingency_gas_price",
+      "x-iceberg-type": "string"
+    },
+    "SCHEDULE_LOW_CONTINGENCY_GAS_PRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "schedule_low_contingency_gas_price",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT677_CONTINGENCY_GAS_PRICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      3,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      4,
+      "CONTINGENCY_GAS_CALLED_IDENTIFIER",
+      "decimal(2, 0)"
+    ],
+    [
+      5,
+      "HIGH_CONTINGENCY_GAS_PRICE",
+      "decimal(7, 4)"
+    ],
+    [
+      6,
+      "LOW_CONTINGENCY_GAS_PRICE",
+      "string"
+    ],
+    [
+      7,
+      "SCHEDULE_HIGH_CONTINGENCY_GAS_PRICE",
+      "string"
+    ],
+    [
+      8,
+      "SCHEDULE_LOW_CONTINGENCY_GAS_PRICE",
+      "string"
+    ],
+    [
+      9,
+      "APPROVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      10,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT677_CONTINGENCY_GAS_PRICE"
+  }
+}

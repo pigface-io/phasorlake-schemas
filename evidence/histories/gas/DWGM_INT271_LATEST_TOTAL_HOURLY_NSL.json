@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "network_id",
+    "2": "nsl_update",
+    "3": "gas_date",
+    "4": "ti",
+    "5": "nsl_gj",
+    "6": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 33,
+      "from": {
+        "data-time": "2025-06-30T09:29:31+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT271_LATEST_TOTAL_HOURLY_NSL_1"
+      ],
+      "rows": 341736,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-19T09:12:49+10:00",
+        "file": "int271_v4_latest_total_hourly_nsl_1.csv",
+        "release": "2026-10",
+        "sha256": "0a091a17261f3d21fbe81a0b3040f6550525cd618741fb323f4695db8201f80e"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "NETWORK_ID",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 2,
+          "name": "NSL_UPDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 4,
+          "name": "TI",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "NSL_GJ",
+          "required": false,
+          "type": "decimal(14, 9)"
+        },
+        {
+          "id": 6,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT271_LATEST_TOTAL_HOURLY_NSL"
+}

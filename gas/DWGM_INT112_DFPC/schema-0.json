@@ -1,0 +1,191 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT112_DFPC/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "COMMENCEMENT_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "commencement_date",
+      "x-iceberg-type": "date"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "DAILY_MAX_NET_INJ_QTY_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "daily_max_net_inj_qty_gj",
+      "x-iceberg-type": "string"
+    },
+    "DAILY_MAX_NET_WDL_QTY_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "daily_max_net_wdl_qty_gj",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "DFPC_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "dfpc_id",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "HOURLY_MAX_NET_INJ_QTY_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "hourly_max_net_inj_qty_gj",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOURLY_MAX_NET_WDL_QTY_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "hourly_max_net_wdl_qty_gj",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "INJECTION_MIRN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "injection_mirn",
+      "x-iceberg-type": "string"
+    },
+    "MOD_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "mod_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "TERMINATION_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "termination_date",
+      "x-iceberg-type": "date"
+    },
+    "TI": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "ti",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "WITHDRAWAL_MIRN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "withdrawal_mirn",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT112_DFPC, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DFPC_ID",
+      "decimal(5, 0)"
+    ],
+    [
+      2,
+      "INJECTION_MIRN",
+      "string"
+    ],
+    [
+      3,
+      "WITHDRAWAL_MIRN",
+      "string"
+    ],
+    [
+      4,
+      "COMMENCEMENT_DATE",
+      "date"
+    ],
+    [
+      5,
+      "TERMINATION_DATE",
+      "date"
+    ],
+    [
+      6,
+      "DAILY_MAX_NET_INJ_QTY_GJ",
+      "string"
+    ],
+    [
+      7,
+      "DAILY_MAX_NET_WDL_QTY_GJ",
+      "decimal(1, 0)"
+    ],
+    [
+      8,
+      "TI",
+      "decimal(2, 0)"
+    ],
+    [
+      9,
+      "HOURLY_MAX_NET_INJ_QTY_GJ",
+      "decimal(4, 0)"
+    ],
+    [
+      10,
+      "HOURLY_MAX_NET_WDL_QTY_GJ",
+      "decimal(4, 0)"
+    ],
+    [
+      11,
+      "MOD_DATETIME",
+      "timestamptz"
+    ],
+    [
+      12,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT112_DFPC"
+  }
+}

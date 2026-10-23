@@ -1,0 +1,207 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_PARTICIPANTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ABN": {
+      "description": "Australian Business Number of company",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "Varchar2 (30)"
+    },
+    "ADDRESS": {
+      "description": "Address of company based on AddressType",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "Address",
+      "x-iceberg-type": "string",
+      "x-model-type": "Varchar2 (120)"
+    },
+    "ADDRESSTYPE": {
+      "description": "Type of address eg. Head Office, Postal Address etc.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "AddressType",
+      "x-iceberg-type": "string",
+      "x-model-type": "Varchar2 (40)"
+    },
+    "COMPANYFAX": {
+      "description": "Main (reception) facsimile of company",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "CompanyFax",
+      "x-iceberg-type": "string",
+      "x-model-type": "Varchar2 (30)"
+    },
+    "COMPANYID": {
+      "description": "Unique company identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "CompanyId",
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "Number(10,0)"
+    },
+    "COMPANYNAME": {
+      "description": "Name of company",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "CompanyName",
+      "x-iceberg-type": "string",
+      "x-model-type": "Varchar2 (50)"
+    },
+    "COMPANYPHONE": {
+      "description": "Main (reception) phone of company",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "CompanyPhone",
+      "x-iceberg-type": "string",
+      "x-model-type": "Varchar2 (30)"
+    },
+    "LASTUPDATED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "LastUpdated",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOCALE": {
+      "description": "City location of company",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Locale",
+      "x-iceberg-type": "string",
+      "x-model-type": "Varchar2 (40)"
+    },
+    "ORGANISATIONTYPENAME": {
+      "description": "The type of organisation",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "OrganisationTypeName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(40)"
+    },
+    "POSTCODE": {
+      "description": "Postcode of company",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "Postcode",
+      "x-iceberg-type": "decimal(4, 0)",
+      "x-model-type": "VARCHAR2(4)"
+    },
+    "STATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "State",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "GBB_PARTICIPANTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "COMPANYID",
+      "decimal(3, 0)"
+    ],
+    [
+      2,
+      "COMPANYNAME",
+      "string"
+    ],
+    [
+      3,
+      "ORGANISATIONTYPENAME",
+      "string"
+    ],
+    [
+      4,
+      "ABN",
+      "string"
+    ],
+    [
+      5,
+      "COMPANYPHONE",
+      "string"
+    ],
+    [
+      6,
+      "LOCALE",
+      "string"
+    ],
+    [
+      7,
+      "ADDRESSTYPE",
+      "string"
+    ],
+    [
+      8,
+      "ADDRESS",
+      "string"
+    ],
+    [
+      9,
+      "STATE",
+      "string"
+    ],
+    [
+      10,
+      "POSTCODE",
+      "decimal(4, 0)"
+    ],
+    [
+      11,
+      "COMPANYFAX",
+      "string"
+    ],
+    [
+      12,
+      "LASTUPDATED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_PARTICIPANTS"
+  }
+}

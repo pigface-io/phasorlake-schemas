@@ -1,0 +1,103 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT039B_INDICATIVE_LOCATIONAL_PRICE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "current_date",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "string"
+    },
+    "NODAL_PRICE_VALUE_GST_EX": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "nodal_price_value_gst_ex",
+      "x-iceberg-type": "string"
+    },
+    "NODE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "node_name",
+      "x-iceberg-type": "string"
+    },
+    "TI": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "ti",
+      "x-iceberg-type": "string"
+    },
+    "TRANSMISSION_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "transmission_id",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT039B_INDICATIVE_LOCATIONAL_PRICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "string"
+    ],
+    [
+      2,
+      "NODE_NAME",
+      "string"
+    ],
+    [
+      3,
+      "TI",
+      "string"
+    ],
+    [
+      4,
+      "NODAL_PRICE_VALUE_GST_EX",
+      "string"
+    ],
+    [
+      5,
+      "TRANSMISSION_ID",
+      "string"
+    ],
+    [
+      6,
+      "CURRENT_DATE",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT039B_INDICATIVE_LOCATIONAL_PRICE"
+  }
+}

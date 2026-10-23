@@ -1,0 +1,257 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT312_SETTLEMENTS_ACTIVITY_REPORT_1/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CX_UPLIFT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "cx_uplift",
+      "x-iceberg-type": "string"
+    },
+    "EL_UPLIFT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "el_uplift",
+      "x-iceberg-type": "string"
+    },
+    "EX_UPLIFT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "ex_uplift",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "string"
+    },
+    "GAS_HOUR": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_hour",
+      "x-iceberg-type": "string"
+    },
+    "MARKET_PRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "market_price",
+      "x-iceberg-type": "string"
+    },
+    "OTHER_UPLIFT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "other_uplift",
+      "x-iceberg-type": "string"
+    },
+    "PROV_NET_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "prov_net_gj",
+      "x-iceberg-type": "string"
+    },
+    "PROV_SYSTEM_INJ_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "prov_system_inj_gj",
+      "x-iceberg-type": "string"
+    },
+    "PROV_SYSTEM_WDL_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "prov_system_wdl_gj",
+      "x-iceberg-type": "string"
+    },
+    "RC_UPLIFT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "rc_uplift",
+      "x-iceberg-type": "string"
+    },
+    "SU_UPLIFT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "su_uplift",
+      "x-iceberg-type": "string"
+    },
+    "TOTAL_GAS_BOUGHT_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "total_gas_bought_gj",
+      "x-iceberg-type": "string"
+    },
+    "TOTAL_GAS_SOLD_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "total_gas_sold_gj",
+      "x-iceberg-type": "string"
+    },
+    "TP_UPLIFT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "tp_uplift",
+      "x-iceberg-type": "string"
+    },
+    "UAFG_28_DAYS_PCT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "uafg_28_days_pct",
+      "x-iceberg-type": "string"
+    },
+    "UPLIFT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "uplift",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT312_SETTLEMENTS_ACTIVITY_REPORT_1, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "string"
+    ],
+    [
+      2,
+      "GAS_HOUR",
+      "string"
+    ],
+    [
+      3,
+      "UAFG_28_DAYS_PCT",
+      "string"
+    ],
+    [
+      4,
+      "PROV_SYSTEM_INJ_GJ",
+      "string"
+    ],
+    [
+      5,
+      "PROV_SYSTEM_WDL_GJ",
+      "string"
+    ],
+    [
+      6,
+      "PROV_NET_GJ",
+      "string"
+    ],
+    [
+      7,
+      "MARKET_PRICE",
+      "string"
+    ],
+    [
+      8,
+      "TOTAL_GAS_SOLD_GJ",
+      "string"
+    ],
+    [
+      9,
+      "TOTAL_GAS_BOUGHT_GJ",
+      "string"
+    ],
+    [
+      10,
+      "UPLIFT",
+      "string"
+    ],
+    [
+      11,
+      "SU_UPLIFT",
+      "string"
+    ],
+    [
+      12,
+      "EX_UPLIFT",
+      "string"
+    ],
+    [
+      13,
+      "CX_UPLIFT",
+      "string"
+    ],
+    [
+      14,
+      "TP_UPLIFT",
+      "string"
+    ],
+    [
+      15,
+      "EL_UPLIFT",
+      "string"
+    ],
+    [
+      16,
+      "RC_UPLIFT",
+      "string"
+    ],
+    [
+      17,
+      "OTHER_UPLIFT",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT312_SETTLEMENTS_ACTIVITY_REPORT_1"
+  }
+}

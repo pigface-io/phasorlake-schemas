@@ -1,0 +1,70 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "imb_dev_wa_dly_price_gst_ex",
+    "3": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PublicRpts24.zip",
+        "release": "2026-09",
+        "sha256": "9f016f20e01183aa385c09dbbbd0156302ae8f0ac705a948157d277099385af9"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT042_WEIGHTED_AVERAGE_DAILY_PRICES_1"
+      ],
+      "rows": 31,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-31T00:00:00+10:00",
+        "file": "int042_v4_weighted_average_daily_prices_1.csv",
+        "release": "2026-10",
+        "sha256": "72e5cb552ae8f903f2383d2f72c0f55a8db8499bdcaf04515d4303aceef586d8"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "IMB_DEV_WA_DLY_PRICE_GST_EX",
+          "required": false,
+          "type": "decimal(6, 4)"
+        },
+        {
+          "id": 3,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT042_WEIGHTED_AVERAGE_DAILY_PRICES"
+}

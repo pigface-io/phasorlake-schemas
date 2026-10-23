@@ -1,0 +1,77 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "schedule_no",
+    "3": "est_ancillary_amt_gst_ex",
+    "4": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 294,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT117A_EST_ANCILLARY_PAYMENTS_1"
+      ],
+      "rows": 1162,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T00:00:00+10:00",
+        "file": "int117a_v4_est_ancillary_payments_1.csv@20261021T220900+1000",
+        "release": "2026-10",
+        "sha256": "d040277cf8e726255877a1414e3cc74d70824309255d3fceeac22e7b523922cc"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "SCHEDULE_NO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "EST_ANCILLARY_AMT_GST_EX",
+          "required": false,
+          "type": "decimal(12, 4)"
+        },
+        {
+          "id": 4,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT117A_EST_ANCILLARY_PAYMENTS"
+}

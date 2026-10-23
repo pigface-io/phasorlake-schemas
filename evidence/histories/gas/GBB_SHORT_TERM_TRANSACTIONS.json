@@ -1,0 +1,248 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "PeriodID",
+    "2": "State",
+    "3": "Quantity (TJ)",
+    "4": "VolumeWeightedPrice ($)",
+    "5": "TransactionType",
+    "6": "SupplyPeriodStart",
+    "7": "SupplyPeriodEnd"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-03-18T00:00:00+10:00",
+        "file": "GasBBShortTermTransactionsNT.CSV",
+        "release": "2026-10",
+        "sha256": "a8bdd9b4bb5bafd9e745950c617edabb4fdaa8adcfcfe5916a152f9cbf326f55"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "SHORT_TERM_TRANSACTIONS_NT"
+      ],
+      "rows": 43,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-11T00:00:00+10:00",
+        "file": "GasBBShortTermTransactionsNT.CSV",
+        "release": "2026-10",
+        "sha256": "a8bdd9b4bb5bafd9e745950c617edabb4fdaa8adcfcfe5916a152f9cbf326f55"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-04-06T00:00:00+10:00",
+        "file": "GasBBShortTermTransactionsNSW.CSV",
+        "release": "2026-10",
+        "sha256": "531b39795c1bfc0bf0dfed4b7ba1d7dbff999082283015c06d854243a8a686ec"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "SHORT_TERM_TRANSACTIONS_NSW"
+      ],
+      "rows": 43,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-07-02T00:00:00+10:00",
+        "file": "GasBBShortTermTransactionsNSW.CSV",
+        "release": "2026-10",
+        "sha256": "531b39795c1bfc0bf0dfed4b7ba1d7dbff999082283015c06d854243a8a686ec"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": null,
+        "file": "GasBBShortTermTransactionsTAS.CSV",
+        "release": "2026-10",
+        "sha256": "ab7abcd985b137428d6453c764290407a858005c337e4b82549a0c25d4eecfe9"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "SHORT_TERM_TRANSACTIONS_TAS"
+      ],
+      "rows": 43,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "GasBBShortTermTransactionsTAS.CSV",
+        "release": "2026-10",
+        "sha256": "ab7abcd985b137428d6453c764290407a858005c337e4b82549a0c25d4eecfe9"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-03-14T00:00:00+10:00",
+        "file": "GasBBShortTermTransactionsQLD.CSV",
+        "release": "2026-10",
+        "sha256": "a23faee1a8b9a733d48c348d7effc9fd0cc18b49f529c5324cf8ed2707deb979"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "SHORT_TERM_TRANSACTIONS_QLD"
+      ],
+      "rows": 188,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-06T00:00:00+10:00",
+        "file": "GasBBShortTermTransactionsQLD.CSV",
+        "release": "2026-10",
+        "sha256": "a23faee1a8b9a733d48c348d7effc9fd0cc18b49f529c5324cf8ed2707deb979"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-03-16T00:00:00+10:00",
+        "file": "GasBBShortTermTransactionsSA.CSV",
+        "release": "2026-10",
+        "sha256": "f898631ccc379a24d691873d81b8f995a58f7940458e5d16e500e4a6e500168d"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "SHORT_TERM_TRANSACTIONS_SA"
+      ],
+      "rows": 188,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-06T00:00:00+10:00",
+        "file": "GasBBShortTermTransactionsSA.CSV",
+        "release": "2026-10",
+        "sha256": "f898631ccc379a24d691873d81b8f995a58f7940458e5d16e500e4a6e500168d"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-03-22T00:00:00+10:00",
+        "file": "GasBBShortTermTransactionsVIC.CSV",
+        "release": "2026-10",
+        "sha256": "3759a210098537955956c95a862d3d52e8bd3e3a45e05e23cc036b74255b0427"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "SHORT_TERM_TRANSACTIONS_VIC"
+      ],
+      "rows": 188,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2027-01-01T00:00:00+10:00",
+        "file": "GasBBShortTermTransactionsVIC.CSV",
+        "release": "2026-10",
+        "sha256": "3759a210098537955956c95a862d3d52e8bd3e3a45e05e23cc036b74255b0427"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PERIODID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "STATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "QUANTITY_TJ",
+          "required": false,
+          "type": "decimal(11, 6)"
+        },
+        {
+          "id": 4,
+          "name": "VOLUMEWEIGHTEDPRICE",
+          "required": false,
+          "type": "decimal(8, 6)"
+        },
+        {
+          "id": 5,
+          "name": "TRANSACTIONTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "SUPPLYPERIODSTART",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 7,
+          "name": "SUPPLYPERIODEND",
+          "required": false,
+          "type": "date"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_SHORT_TERM_TRANSACTIONS"
+}

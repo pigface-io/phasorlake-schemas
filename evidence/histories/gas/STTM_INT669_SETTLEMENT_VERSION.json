@@ -1,0 +1,105 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "settlement_run_identifier",
+    "2": "settlement_cat_type",
+    "3": "version_from_date",
+    "4": "version_to_date",
+    "5": "interest_rate",
+    "6": "issued_datetime",
+    "7": "settlement_run_desc",
+    "8": "report_datetime"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "Day24.zip",
+        "release": "2026-09",
+        "sha256": "93d3280f33572aae5ab124371171d23d919fc22cbba7faba01d06c46b49950c0"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT669_SETTLEMENT_VERSION_RPT_1"
+      ],
+      "rows": 7,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "int669_v1_settlement_version_rpt_1.csv",
+        "release": "2026-10",
+        "sha256": "2dc394e28d617a7462e79c52c1a0306028b45896aaa102d6fcb58b645e69a771"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENT_RUN_IDENTIFIER",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 2,
+          "name": "SETTLEMENT_CAT_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VERSION_FROM_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 4,
+          "name": "VERSION_TO_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 5,
+          "name": "INTEREST_RATE",
+          "required": false,
+          "type": "decimal(5, 4)"
+        },
+        {
+          "id": 6,
+          "name": "ISSUED_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "SETTLEMENT_RUN_DESC",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT669_SETTLEMENT_VERSION"
+}

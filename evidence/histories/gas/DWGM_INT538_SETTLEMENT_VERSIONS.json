@@ -1,0 +1,98 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "network_name",
+    "2": "version_id",
+    "3": "extract_type",
+    "4": "version_from_date",
+    "5": "version_to_date",
+    "6": "issued_date",
+    "7": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2025-11-01T00:00:00+10:00",
+        "file": "PublicRpts22.zip",
+        "release": "2026-09",
+        "sha256": "20d32cafc8e00f1760ea246fec625d26dd91304d25f9a1caeb65db5bf23993a1"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT538_SETTLEMENT_VERSIONS_1"
+      ],
+      "rows": 9,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "int538_v4_settlement_versions_1.csv",
+        "release": "2026-10",
+        "sha256": "606d64b5f47aadb7e1c2bc668e82123b8c900d28f268fe9015f069128e0ff04e"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "NETWORK_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "VERSION_ID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "EXTRACT_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "VERSION_FROM_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 5,
+          "name": "VERSION_TO_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 6,
+          "name": "ISSUED_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 7,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT538_SETTLEMENT_VERSIONS"
+}

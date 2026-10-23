@@ -1,0 +1,273 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT322B_UPLIFT_BREAKDOWN_PRUD/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ANNUAL_CAP_LIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "annual_cap_limit",
+      "x-iceberg-type": "decimal(11, 4)"
+    },
+    "ANNUAL_LIABILITY_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "annual_liability_amt",
+      "x-iceberg-type": "decimal(4, 4)"
+    },
+    "ANNUAL_LIABILITY_QTY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "annual_liability_qty",
+      "x-iceberg-type": "string"
+    },
+    "COMMON_UPLIFT_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "common_uplift_amt",
+      "x-iceberg-type": "decimal(9, 9)"
+    },
+    "COMMON_UPLIFT_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "common_uplift_qty",
+      "x-iceberg-type": "decimal(9, 9)"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "DTS_UPLIFT_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "dts_uplift_amt",
+      "x-iceberg-type": "decimal(4, 4)"
+    },
+    "EVENT_CAP_RATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "event_cap_rate",
+      "x-iceberg-type": "decimal(11, 9)"
+    },
+    "EVENT_LIABILITY_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "event_liability_amt",
+      "x-iceberg-type": "decimal(9, 9)"
+    },
+    "EVENT_LIABILITY_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "event_liability_qty",
+      "x-iceberg-type": "decimal(9, 9)"
+    },
+    "FINAL_QDS_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "final_qds_gj",
+      "x-iceberg-type": "decimal(9, 9)"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "MODIFIED_SURPRISE_UPLIFT_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "modified_surprise_uplift_amt",
+      "x-iceberg-type": "decimal(12, 9)"
+    },
+    "MODIFIED_SURPRISE_UPLIFT_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "modified_surprise_uplift_qty",
+      "x-iceberg-type": "decimal(12, 9)"
+    },
+    "NET_DTS_UPLIFT_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "net_dts_uplift_amt",
+      "x-iceberg-type": "decimal(9, 9)"
+    },
+    "SCHED_NO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "sched_no",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "TOTAL_UPLIFT_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "total_uplift_amt",
+      "x-iceberg-type": "decimal(12, 9)"
+    },
+    "TUQ_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "tuq_qty",
+      "x-iceberg-type": "decimal(12, 9)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT322B_UPLIFT_BREAKDOWN_PRUD, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "SCHED_NO",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "TOTAL_UPLIFT_AMT",
+      "decimal(12, 9)"
+    ],
+    [
+      4,
+      "TUQ_QTY",
+      "decimal(12, 9)"
+    ],
+    [
+      5,
+      "DTS_UPLIFT_AMT",
+      "decimal(4, 4)"
+    ],
+    [
+      6,
+      "FINAL_QDS_GJ",
+      "decimal(9, 9)"
+    ],
+    [
+      7,
+      "EVENT_CAP_RATE",
+      "decimal(11, 9)"
+    ],
+    [
+      8,
+      "EVENT_LIABILITY_AMT",
+      "decimal(9, 9)"
+    ],
+    [
+      9,
+      "EVENT_LIABILITY_QTY",
+      "decimal(9, 9)"
+    ],
+    [
+      10,
+      "ANNUAL_CAP_LIMIT",
+      "decimal(11, 4)"
+    ],
+    [
+      11,
+      "ANNUAL_LIABILITY_AMT",
+      "decimal(4, 4)"
+    ],
+    [
+      12,
+      "ANNUAL_LIABILITY_QTY",
+      "string"
+    ],
+    [
+      13,
+      "NET_DTS_UPLIFT_AMT",
+      "decimal(9, 9)"
+    ],
+    [
+      14,
+      "MODIFIED_SURPRISE_UPLIFT_AMT",
+      "decimal(12, 9)"
+    ],
+    [
+      15,
+      "MODIFIED_SURPRISE_UPLIFT_QTY",
+      "decimal(12, 9)"
+    ],
+    [
+      16,
+      "COMMON_UPLIFT_AMT",
+      "decimal(9, 9)"
+    ],
+    [
+      17,
+      "COMMON_UPLIFT_QTY",
+      "decimal(9, 9)"
+    ],
+    [
+      18,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT322B_UPLIFT_BREAKDOWN_PRUD"
+  }
+}

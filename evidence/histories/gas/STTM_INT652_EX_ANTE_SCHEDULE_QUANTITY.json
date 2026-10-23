@@ -1,0 +1,147 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "10": "flow_direction",
+    "11": "price_taker_bid_qty",
+    "12": "price_taker_bid_not_sched_qty",
+    "13": "approval_datetime",
+    "14": "report_datetime",
+    "2": "hub_identifier",
+    "3": "hub_name",
+    "4": "schedule_identifier",
+    "5": "facility_identifier",
+    "6": "facility_name",
+    "7": "scheduled_qty",
+    "8": "firm_gas_scheduled_qty",
+    "9": "as_available_scheduled_qty"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 35,
+      "from": {
+        "data-time": "2026-08-26T00:00:00+10:00",
+        "file": "Day31.zip",
+        "release": "2026-08",
+        "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT652_EX_ANTE_SCHEDULE_QUANTITY_RPT_1"
+      ],
+      "rows": 1024,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-22T00:00:00+10:00",
+        "file": "int652_v1_ex_ante_schedule_quantity_rpt_1.csv@20261021T191600+1000",
+        "release": "2026-10",
+        "sha256": "2e1d6dbe59e64bc7d02cc68d993e7e2c09871c2a1ae9a459d31d6c54d7c8799b"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "HUB_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "HUB_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "SCHEDULE_IDENTIFIER",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 5,
+          "name": "FACILITY_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "SCHEDULED_QTY",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 8,
+          "name": "FIRM_GAS_SCHEDULED_QTY",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 9,
+          "name": "AS_AVAILABLE_SCHEDULED_QTY",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 10,
+          "name": "FLOW_DIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "PRICE_TAKER_BID_QTY",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 12,
+          "name": "PRICE_TAKER_BID_NOT_SCHED_QTY",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 13,
+          "name": "APPROVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 14,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT652_EX_ANTE_SCHEDULE_QUANTITY"
+}

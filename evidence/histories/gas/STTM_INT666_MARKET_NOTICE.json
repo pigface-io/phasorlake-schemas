@@ -1,0 +1,98 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "market_notice_identifier",
+    "2": "critical_notice_flag",
+    "3": "market_message",
+    "4": "notice_start_date",
+    "5": "notice_end_date",
+    "6": "url_path",
+    "7": "report_datetime"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-10-08T00:00:00+10:00",
+        "file": "Day08.zip",
+        "release": "2026-10",
+        "sha256": "004e2e84a873da621d198d6d2110a23acc370eeff7151d0dff2de8928fa5b965"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT666_MARKET_NOTICE_RPT_1"
+      ],
+      "rows": 1,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-08T00:00:00+10:00",
+        "file": "int666_v1_market_notice_rpt_1.csv",
+        "release": "2026-10",
+        "sha256": "f849deb35ba11adc0d8574d46e17a3034b687d6292b71ac856d69b1a91cea055"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "MARKET_NOTICE_IDENTIFIER",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 2,
+          "name": "CRITICAL_NOTICE_FLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "MARKET_MESSAGE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "NOTICE_START_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "NOTICE_END_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "URL_PATH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT666_MARKET_NOTICE"
+}

@@ -1,0 +1,176 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT674_TOTAL_CONTINGENCY_GAS_SCHEDULES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APPROVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "approval_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CONTINGENCY_GAS_BID_OFFER_CALLED_QUANTITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "contingency_gas_bid_offer_called_quantity",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "CONTINGENCY_GAS_BID_OFFER_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "contingency_gas_bid_offer_type",
+      "x-iceberg-type": "string"
+    },
+    "CONTINGENCY_GAS_CALLED_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "contingency_gas_called_identifier",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "FACILITY_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "facility_identifier",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "facility_name",
+      "x-iceberg-type": "string"
+    },
+    "FLOW_DIRECTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "flow_direction",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT674_TOTAL_CONTINGENCY_GAS_SCHEDULES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      3,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      4,
+      "FACILITY_IDENTIFIER",
+      "string"
+    ],
+    [
+      5,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      6,
+      "CONTINGENCY_GAS_CALLED_IDENTIFIER",
+      "decimal(2, 0)"
+    ],
+    [
+      7,
+      "FLOW_DIRECTION",
+      "string"
+    ],
+    [
+      8,
+      "CONTINGENCY_GAS_BID_OFFER_TYPE",
+      "string"
+    ],
+    [
+      9,
+      "CONTINGENCY_GAS_BID_OFFER_CALLED_QUANTITY",
+      "decimal(5, 0)"
+    ],
+    [
+      10,
+      "APPROVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      11,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT674_TOTAL_CONTINGENCY_GAS_SCHEDULES"
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT652_EX_ANTE_SCHEDULE_QUANTITY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APPROVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "approval_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "AS_AVAILABLE_SCHEDULED_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "as_available_scheduled_qty",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "FACILITY_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "facility_identifier",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "facility_name",
+      "x-iceberg-type": "string"
+    },
+    "FIRM_GAS_SCHEDULED_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "firm_gas_scheduled_qty",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "FLOW_DIRECTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "flow_direction",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "PRICE_TAKER_BID_NOT_SCHED_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "price_taker_bid_not_sched_qty",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "PRICE_TAKER_BID_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "price_taker_bid_qty",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "SCHEDULED_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "scheduled_qty",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "SCHEDULE_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "schedule_identifier",
+      "x-iceberg-type": "decimal(5, 0)"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT652_EX_ANTE_SCHEDULE_QUANTITY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      3,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      4,
+      "SCHEDULE_IDENTIFIER",
+      "decimal(5, 0)"
+    ],
+    [
+      5,
+      "FACILITY_IDENTIFIER",
+      "string"
+    ],
+    [
+      6,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      7,
+      "SCHEDULED_QTY",
+      "decimal(6, 0)"
+    ],
+    [
+      8,
+      "FIRM_GAS_SCHEDULED_QTY",
+      "decimal(6, 0)"
+    ],
+    [
+      9,
+      "AS_AVAILABLE_SCHEDULED_QTY",
+      "decimal(5, 0)"
+    ],
+    [
+      10,
+      "FLOW_DIRECTION",
+      "string"
+    ],
+    [
+      11,
+      "PRICE_TAKER_BID_QTY",
+      "decimal(6, 0)"
+    ],
+    [
+      12,
+      "PRICE_TAKER_BID_NOT_SCHED_QTY",
+      "decimal(1, 0)"
+    ],
+    [
+      13,
+      "APPROVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      14,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT652_EX_ANTE_SCHEDULE_QUANTITY"
+  }
+}

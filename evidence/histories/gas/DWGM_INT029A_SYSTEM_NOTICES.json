@@ -1,0 +1,105 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "system_wide_notice_id",
+    "2": "critical_notice_flag",
+    "3": "system_message",
+    "4": "system_email_message",
+    "5": "notice_start_date",
+    "6": "notice_end_date",
+    "7": "url_path",
+    "8": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 92,
+      "from": {
+        "data-time": "2026-07-27T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT029A_SYSTEM_NOTICES_1"
+      ],
+      "rows": 88,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T00:00:00+10:00",
+        "file": "int029a_v4_system_notices_1.csv@20261021T191100+1000",
+        "release": "2026-10",
+        "sha256": "a34c4e94842caa74d8b8a27a6b93d90ba8898e6eb606bb2373ab808d884c403c"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SYSTEM_WIDE_NOTICE_ID",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 2,
+          "name": "CRITICAL_NOTICE_FLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "SYSTEM_MESSAGE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "SYSTEM_EMAIL_MESSAGE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "NOTICE_START_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 6,
+          "name": "NOTICE_END_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 7,
+          "name": "URL_PATH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT029A_SYSTEM_NOTICES"
+}

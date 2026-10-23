@@ -1,0 +1,105 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT316_OPERATIONAL_GAS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "ENERGY_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "energy_gj",
+      "x-iceberg-type": "decimal(13, 9)"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HV_ZONE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hv_zone",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "HV_ZONE_DESC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hv_zone_desc",
+      "x-iceberg-type": "string"
+    },
+    "VOLUME_KSCM": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "volume_kscm",
+      "x-iceberg-type": "decimal(11, 9)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT316_OPERATIONAL_GAS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "HV_ZONE",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "HV_ZONE_DESC",
+      "string"
+    ],
+    [
+      4,
+      "ENERGY_GJ",
+      "decimal(13, 9)"
+    ],
+    [
+      5,
+      "VOLUME_KSCM",
+      "decimal(11, 9)"
+    ],
+    [
+      6,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT316_OPERATIONAL_GAS"
+  }
+}

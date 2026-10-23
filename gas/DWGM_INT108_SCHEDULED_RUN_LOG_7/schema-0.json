@@ -1,0 +1,234 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT108_SCHEDULED_RUN_LOG_7/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APPROVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "approval_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "BID_CUTOFF_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "bid_cutoff_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CREATION_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "creation_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "DEMAND_TYPE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "demand_type_id",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "DFS_INTERFACE_AUDIT_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "dfs_interface_audit_id",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "FORECAST_DEMAND_VERSION": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "forecast_demand_version",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "GAS_START_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "gas_start_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LAST_OS_FOR_GAS_DAY_TDOC_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "last_os_for_gas_day_tdoc_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "OBJECTIVE_FUNCTION_VALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "objective_function_value",
+      "x-iceberg-type": "decimal(14, 5)"
+    },
+    "OS_PRIOR_GAS_DAY_TDOC_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "os_prior_gas_day_tdoc_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "SCHEDULE_TYPE_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "schedule_type_id",
+      "x-iceberg-type": "string"
+    },
+    "TRANSMISSION_DOCUMENT_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "transmission_document_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "TRANSMISSION_GROUP_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "transmission_group_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "TRANSMISSION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "transmission_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT108_SCHEDULED_RUN_LOG_7, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRANSMISSION_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      2,
+      "TRANSMISSION_DOCUMENT_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      3,
+      "TRANSMISSION_GROUP_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      4,
+      "GAS_START_DATETIME",
+      "timestamptz"
+    ],
+    [
+      5,
+      "BID_CUTOFF_DATETIME",
+      "timestamptz"
+    ],
+    [
+      6,
+      "SCHEDULE_TYPE_ID",
+      "string"
+    ],
+    [
+      7,
+      "CREATION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      8,
+      "FORECAST_DEMAND_VERSION",
+      "decimal(6, 0)"
+    ],
+    [
+      9,
+      "DFS_INTERFACE_AUDIT_ID",
+      "decimal(5, 0)"
+    ],
+    [
+      10,
+      "LAST_OS_FOR_GAS_DAY_TDOC_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      11,
+      "OS_PRIOR_GAS_DAY_TDOC_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      12,
+      "APPROVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      13,
+      "DEMAND_TYPE_ID",
+      "decimal(1, 0)"
+    ],
+    [
+      14,
+      "OBJECTIVE_FUNCTION_VALUE",
+      "decimal(14, 5)"
+    ],
+    [
+      15,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT108_SCHEDULED_RUN_LOG_7"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "zone_id",
+    "2": "zone_name",
+    "3": "zone_type",
+    "4": "capacity_period",
+    "5": "zone_capacity_gj",
+    "6": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2026-10-02T10:25:58+10:00",
+        "file": "PublicRpts02.zip",
+        "release": "2026-10",
+        "sha256": "9a6a7289e60eeb2bb0e7ed7c113d340b61a1981d9ba79cbcd446d98c56aba4e3"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT342_CCAUCTION_SYS_CAPABILITY_1"
+      ],
+      "rows": 252,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-02T10:25:58+10:00",
+        "file": "int342_v4_ccauction_sys_capability_1.csv",
+        "release": "2026-10",
+        "sha256": "03916487857908c1a9fff24fb9cd747afd8b1d9b1bf80fa6ff581737fceaa699"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "ZONE_ID",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 2,
+          "name": "ZONE_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "ZONE_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "CAPACITY_PERIOD",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "ZONE_CAPACITY_GJ",
+          "required": false,
+          "type": "double"
+        },
+        {
+          "id": 6,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT342_CCAUCTION_SYS_CAPABILITY"
+}

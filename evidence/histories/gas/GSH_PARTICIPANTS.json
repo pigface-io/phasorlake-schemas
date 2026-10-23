@@ -1,0 +1,171 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 102,
+      "from": {
+        "data-time": "2014-07-01T01:29:45+10:00",
+        "file": "PUBLIC_REGISTEREDPARTICIPANTS_20251001.zip",
+        "release": "2025-10",
+        "sha256": "9862f38fbe1ffa9d5c5b0817578a2358d1f6b88d770f76c6f77e6423b27338f6"
+      },
+      "kinds": [
+        "gsh/archive",
+        "gsh/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GSH",
+        "PARTICIPANTS"
+      ],
+      "rows": 288,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T10:04:10+10:00",
+        "file": "PUBLIC_REGISTEREDPARTICIPANTS_20261021_0000000544029183.zip",
+        "release": "2026-10",
+        "sha256": "554ffd0991605f3b8a909435ec5748d112faef3708bd4ee4c7638301ae76b312"
+      },
+      "updates": [],
+      "version": 2
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "MARKET",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "PARTICIPANT_ID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "PARTICIPANT_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "ORGANISATION_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "ORGANISATION_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "TRADING_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "HEAD_OFFICE_ADDRESS_LINE_1",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "HEAD_OFFICE_ADDRESS_LINE_2",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "HEAD_OFFICE_ADDRESS_LINE_3",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "HEAD_OFFICE_ADDRESS_LINE_4",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "PHONE_NUMBER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "FAX_NUMBER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "ABN",
+          "required": false,
+          "type": "decimal(11, 0)"
+        },
+        {
+          "id": 14,
+          "name": "ARBN",
+          "required": false,
+          "type": "decimal(9, 0)"
+        },
+        {
+          "id": 15,
+          "name": "ACN",
+          "required": false,
+          "type": "decimal(9, 0)"
+        },
+        {
+          "id": 16,
+          "name": "AGENT_ID",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 17,
+          "name": "AGENT_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "CLASSIFICATIONS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 20,
+          "name": "MARKET_ID",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [
+        20,
+        2
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GSH_PARTICIPANTS"
+}

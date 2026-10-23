@@ -1,0 +1,98 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "PersonId",
+    "2": "PersonName",
+    "3": "CompanyId",
+    "4": "CompanyName",
+    "5": "Position",
+    "6": "Email",
+    "7": "LastUpdated"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2012-07-10T15:13:32+10:00",
+        "file": "GasBBContacts.CSV",
+        "release": "2026-10",
+        "sha256": "d54d5d945f55a4873ea56bcd3b7022a6777966e8d960832c7543cc612c38d126"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "CONTACTS"
+      ],
+      "rows": 289,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-01T19:30:00+10:00",
+        "file": "GasBBContacts.CSV",
+        "release": "2026-10",
+        "sha256": "d54d5d945f55a4873ea56bcd3b7022a6777966e8d960832c7543cc612c38d126"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PERSONID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 2,
+          "name": "PERSONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "COMPANYID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 4,
+          "name": "COMPANYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "POSITION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "EMAIL",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "LASTUPDATED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_CONTACTS"
+}

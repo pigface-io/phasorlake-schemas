@@ -1,0 +1,173 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT89_LINEPACK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADJUST_LINEPACK_ACCT_PMT_GST_EX": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "adjust_linepack_acct_pmt_GST_Ex",
+      "x-iceberg-type": "string"
+    },
+    "ADM_PRICE_FLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "adm_price_flag",
+      "x-iceberg-type": "string"
+    },
+    "CURRENT_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "current_date",
+      "x-iceberg-type": "string"
+    },
+    "EOD_LINEPACK_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "eod_linepack_gj",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "string"
+    },
+    "LINEPACK_ACCT_BAL_GST_EX": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "linepack_acct_bal_GST_Ex",
+      "x-iceberg-type": "string"
+    },
+    "LINEPACK_ACCT_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "linepack_acct_gj",
+      "x-iceberg-type": "string"
+    },
+    "LINEPACK_ACCT_PMT_GST_EX": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "linepack_acct_pmt_GST_Ex",
+      "x-iceberg-type": "string"
+    },
+    "MARKET_PRICE_GST_EX": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "market_price_GST_Ex",
+      "x-iceberg-type": "string"
+    },
+    "TOTAL_INJ_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "total_inj_gj",
+      "x-iceberg-type": "string"
+    },
+    "TOTAL_WD_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "total_wd_gj",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT89_LINEPACK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "string"
+    ],
+    [
+      2,
+      "TOTAL_INJ_GJ",
+      "string"
+    ],
+    [
+      3,
+      "TOTAL_WD_GJ",
+      "string"
+    ],
+    [
+      4,
+      "EOD_LINEPACK_GJ",
+      "string"
+    ],
+    [
+      5,
+      "LINEPACK_ACCT_GJ",
+      "string"
+    ],
+    [
+      6,
+      "LINEPACK_ACCT_PMT_GST_EX",
+      "string"
+    ],
+    [
+      7,
+      "ADJUST_LINEPACK_ACCT_PMT_GST_EX",
+      "string"
+    ],
+    [
+      8,
+      "LINEPACK_ACCT_BAL_GST_EX",
+      "string"
+    ],
+    [
+      9,
+      "MARKET_PRICE_GST_EX",
+      "string"
+    ],
+    [
+      10,
+      "ADM_PRICE_FLAG",
+      "string"
+    ],
+    [
+      11,
+      "CURRENT_DATE",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT89_LINEPACK"
+  }
+}

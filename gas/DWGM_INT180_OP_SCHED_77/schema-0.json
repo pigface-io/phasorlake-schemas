@@ -1,0 +1,525 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT180_OP_SCHED_77/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "COMMENT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 35,
+      "x-header": "comment",
+      "x-iceberg-type": "string"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 36,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "DAILY_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "daily_qty",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HOUR_1": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "hour_1",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_10": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-header": "hour_10",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_11": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-header": "hour_11",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_12": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-header": "hour_12",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_13": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-header": "hour_13",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_14": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-header": "hour_14",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_15": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-header": "hour_15",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_16": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-header": "hour_16",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_17": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-header": "hour_17",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_18": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-header": "hour_18",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_19": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-header": "hour_19",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_2": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "hour_2",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_20": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-header": "hour_20",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_21": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-header": "hour_21",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_22": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 32,
+      "x-header": "hour_22",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_23": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 33,
+      "x-header": "hour_23",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_24": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 34,
+      "x-header": "hour_24",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_3": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "hour_3",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_4": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "hour_4",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_5": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "hour_5",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_6": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "hour_6",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_7": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "hour_7",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_8": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "hour_8",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "HOUR_9": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-header": "hour_9",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "MARKET_PARTICIPANT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "market_participant",
+      "x-iceberg-type": "string"
+    },
+    "OFFER_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "offer_type",
+      "x-iceberg-type": "string"
+    },
+    "PARTICIPANT_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "participant_id",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "PARTICIPANT_LOGICAL_METER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "participant_logical_meter",
+      "x-iceberg-type": "string"
+    },
+    "PIPELINE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "pipeline_id",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "PIPELINE_POINT_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "pipeline_point_id",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "PIPELINE_POINT_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "pipeline_point_name",
+      "x-iceberg-type": "string"
+    },
+    "TRANSMISSION_DOCUMENT_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "transmission_document_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT180_OP_SCHED_77, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "TRANSMISSION_DOCUMENT_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      3,
+      "PIPELINE_ID",
+      "decimal(1, 0)"
+    ],
+    [
+      4,
+      "PIPELINE_POINT_ID",
+      "decimal(4, 0)"
+    ],
+    [
+      5,
+      "PIPELINE_POINT_NAME",
+      "string"
+    ],
+    [
+      6,
+      "PARTICIPANT_LOGICAL_METER",
+      "string"
+    ],
+    [
+      7,
+      "OFFER_TYPE",
+      "string"
+    ],
+    [
+      8,
+      "PARTICIPANT_ID",
+      "decimal(3, 0)"
+    ],
+    [
+      9,
+      "MARKET_PARTICIPANT",
+      "string"
+    ],
+    [
+      10,
+      "DAILY_QTY",
+      "decimal(1, 0)"
+    ],
+    [
+      11,
+      "HOUR_1",
+      "decimal(1, 0)"
+    ],
+    [
+      12,
+      "HOUR_2",
+      "decimal(1, 0)"
+    ],
+    [
+      13,
+      "HOUR_3",
+      "decimal(1, 0)"
+    ],
+    [
+      14,
+      "HOUR_4",
+      "decimal(1, 0)"
+    ],
+    [
+      15,
+      "HOUR_5",
+      "decimal(1, 0)"
+    ],
+    [
+      16,
+      "HOUR_6",
+      "decimal(1, 0)"
+    ],
+    [
+      17,
+      "HOUR_7",
+      "decimal(1, 0)"
+    ],
+    [
+      18,
+      "HOUR_8",
+      "decimal(1, 0)"
+    ],
+    [
+      19,
+      "HOUR_9",
+      "decimal(1, 0)"
+    ],
+    [
+      20,
+      "HOUR_10",
+      "decimal(1, 0)"
+    ],
+    [
+      21,
+      "HOUR_11",
+      "decimal(1, 0)"
+    ],
+    [
+      22,
+      "HOUR_12",
+      "decimal(1, 0)"
+    ],
+    [
+      23,
+      "HOUR_13",
+      "decimal(1, 0)"
+    ],
+    [
+      24,
+      "HOUR_14",
+      "decimal(1, 0)"
+    ],
+    [
+      25,
+      "HOUR_15",
+      "decimal(1, 0)"
+    ],
+    [
+      26,
+      "HOUR_16",
+      "decimal(1, 0)"
+    ],
+    [
+      27,
+      "HOUR_17",
+      "decimal(1, 0)"
+    ],
+    [
+      28,
+      "HOUR_18",
+      "decimal(1, 0)"
+    ],
+    [
+      29,
+      "HOUR_19",
+      "decimal(1, 0)"
+    ],
+    [
+      30,
+      "HOUR_20",
+      "decimal(1, 0)"
+    ],
+    [
+      31,
+      "HOUR_21",
+      "decimal(1, 0)"
+    ],
+    [
+      32,
+      "HOUR_22",
+      "decimal(1, 0)"
+    ],
+    [
+      33,
+      "HOUR_23",
+      "decimal(1, 0)"
+    ],
+    [
+      34,
+      "HOUR_24",
+      "decimal(1, 0)"
+    ],
+    [
+      35,
+      "COMMENT",
+      "string"
+    ],
+    [
+      36,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT180_OP_SCHED_77"
+  }
+}

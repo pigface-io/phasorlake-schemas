@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "zone_id",
+    "2": "zone_name",
+    "3": "zone_type",
+    "4": "from_date",
+    "5": "to_date",
+    "6": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2022-05-01T00:00:00+10:00",
+        "file": "int345_v4_ccauction_zone_1.csv",
+        "release": "2026-10",
+        "sha256": "a7b3db76c058876d4802f6904c04f812614189d94c69acdc3eae9bd199878d5f"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT345_CCAUCTION_ZONE_1"
+      ],
+      "rows": 7,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2022-05-01T00:00:00+10:00",
+        "file": "int345_v4_ccauction_zone_1.csv",
+        "release": "2026-10",
+        "sha256": "a7b3db76c058876d4802f6904c04f812614189d94c69acdc3eae9bd199878d5f"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "ZONE_ID",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 2,
+          "name": "ZONE_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "ZONE_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "FROM_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 5,
+          "name": "TO_DATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT345_CCAUCTION_ZONE"
+}

@@ -1,0 +1,117 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT135_UPLIFT_CAP/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATETIME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "current_datetime",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "string"
+    },
+    "NEGATIVE_AVE_ANCILLARY_RATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "negative_ave_ancillary_rate",
+      "x-iceberg-type": "string"
+    },
+    "NEGATIVE_UPLIFT_RATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "negative_uplift_rate",
+      "x-iceberg-type": "string"
+    },
+    "POSITIVE_AVE_ANCILLARY_RATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "positive_ave_ancillary_rate",
+      "x-iceberg-type": "string"
+    },
+    "POSITIVE_UPLIFT_RATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "positive_uplift_rate",
+      "x-iceberg-type": "string"
+    },
+    "SCHEDULE_NO": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "schedule_no",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT135_UPLIFT_CAP, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "string"
+    ],
+    [
+      2,
+      "SCHEDULE_NO",
+      "string"
+    ],
+    [
+      3,
+      "POSITIVE_AVE_ANCILLARY_RATE",
+      "string"
+    ],
+    [
+      4,
+      "NEGATIVE_AVE_ANCILLARY_RATE",
+      "string"
+    ],
+    [
+      5,
+      "POSITIVE_UPLIFT_RATE",
+      "string"
+    ],
+    [
+      6,
+      "NEGATIVE_UPLIFT_RATE",
+      "string"
+    ],
+    [
+      7,
+      "CURRENT_DATETIME",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT135_UPLIFT_CAP"
+  }
+}

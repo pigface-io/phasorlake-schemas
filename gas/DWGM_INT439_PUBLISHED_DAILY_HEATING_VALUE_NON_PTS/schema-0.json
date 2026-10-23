@@ -1,0 +1,77 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT439_PUBLISHED_DAILY_HEATING_VALUE_NON_PTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "GAS_DAY": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_day",
+      "x-iceberg-type": "date"
+    },
+    "HEATING_VALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "heating_value",
+      "x-iceberg-type": "decimal(4, 2)"
+    },
+    "NETWORK_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "network_name",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT439_PUBLISHED_DAILY_HEATING_VALUE_NON_PTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "NETWORK_NAME",
+      "string"
+    ],
+    [
+      2,
+      "GAS_DAY",
+      "date"
+    ],
+    [
+      3,
+      "HEATING_VALUE",
+      "decimal(4, 2)"
+    ],
+    [
+      4,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT439_PUBLISHED_DAILY_HEATING_VALUE_NON_PTS"
+  }
+}

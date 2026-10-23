@@ -1,0 +1,227 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_PIPELINE_SEGMENTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONNECTION_TYPE": {
+      "description": "Type of connection (eg. SERVICE_POINT, ZONE)",
+      "type": "string",
+      "x-field-id": 13,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "The effective date of the segment.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 11,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "FACILITY_ID": {
+      "description": "The unique identifier of the parent facility.",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "FACILITY_NAME": {
+      "description": "The descriptive name of the parent facility.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "FOR_AUCTION_PUBLICATION": {
+      "description": "Flag to indicate if the product component can be published in the public auction reports, for example yes or no.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(3)"
+    },
+    "FROM_ID": {
+      "description": "The unique identifier of the zone for forward haul pipeline segments and compression services or the service point for backhaul pipeline segments.",
+      "type": "integer",
+      "x-field-id": 6,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "FROM_NAME": {
+      "description": "The descriptive name of the zone or service point.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report was generated.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "SEGMENT_ID": {
+      "description": "The unique identifier of the pipeline segment or compression service.",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "SEGMENT_NAME": {
+      "description": "The descriptive name of the pipeline segment or compression service.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "SEGMENT_TYPE": {
+      "description": "The segment type, for example Forward Haul, Backhaul or Compression Service",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2 (20)"
+    },
+    "TO_ID": {
+      "description": "The unique identifier of the zone for forward haul pipeline segments and compression services or the service point for backhaul pipeline segments.",
+      "type": "integer",
+      "x-field-id": 8,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "TO_NAME": {
+      "description": "The descriptive name of the zone or service point.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2 (100)"
+    },
+    "VERSION_DATETIME": {
+      "description": "The version timestamp of the record",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 12,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    }
+  },
+  "required": [
+    "FACILITY_ID",
+    "SEGMENT_ID",
+    "FROM_ID",
+    "TO_ID",
+    "EFFECTIVEDATE",
+    "VERSION_DATETIME",
+    "CONNECTION_TYPE"
+  ],
+  "title": "GSH_PIPELINE_SEGMENTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FACILITY_ID",
+      "long"
+    ],
+    [
+      2,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      3,
+      "SEGMENT_ID",
+      "long"
+    ],
+    [
+      4,
+      "SEGMENT_NAME",
+      "string"
+    ],
+    [
+      5,
+      "SEGMENT_TYPE",
+      "string"
+    ],
+    [
+      6,
+      "FROM_ID",
+      "long"
+    ],
+    [
+      7,
+      "FROM_NAME",
+      "string"
+    ],
+    [
+      8,
+      "TO_ID",
+      "long"
+    ],
+    [
+      9,
+      "TO_NAME",
+      "string"
+    ],
+    [
+      10,
+      "FOR_AUCTION_PUBLICATION",
+      "string"
+    ],
+    [
+      11,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      12,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      13,
+      "CONNECTION_TYPE",
+      "string"
+    ],
+    [
+      14,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    13,
+    11,
+    1,
+    6,
+    3,
+    8,
+    12
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_PIPELINE_SEGMENTS"
+  }
+}

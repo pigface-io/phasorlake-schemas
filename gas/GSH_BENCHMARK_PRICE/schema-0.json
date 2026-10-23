@@ -1,0 +1,110 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_BENCHMARK_PRICE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BENCHMARK_PRICE": {
+      "description": "The calculated Wallumbilla benchmark price for the specified product type for the specified gas date",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    },
+    "GAS_DATE": {
+      "description": "The gas date that the Wallumbilla benchmark price applies to",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "IS_FIRM": {
+      "description": "Flag to determine if the Wallumbilla benchmark price is firm or not. Can be either: Y or N",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "VARCHAR2(1)"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report was generated",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "PRODUCT_LOCATION": {
+      "description": "The product location that the benchmark price applies to. Can be one of the following: WALLUMBILLA, RBP, SWQP, QGP.",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "PRODUCT_TYPE": {
+      "description": "The type of the product that the Wallumbilla benchmark price is calculated for",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    }
+  },
+  "required": [
+    "GAS_DATE",
+    "PRODUCT_LOCATION",
+    "PRODUCT_TYPE"
+  ],
+  "title": "GSH_BENCHMARK_PRICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "PRODUCT_LOCATION",
+      "string"
+    ],
+    [
+      3,
+      "PRODUCT_TYPE",
+      "string"
+    ],
+    [
+      4,
+      "BENCHMARK_PRICE",
+      "decimal(18, 8)"
+    ],
+    [
+      5,
+      "IS_FIRM",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_BENCHMARK_PRICE"
+  }
+}

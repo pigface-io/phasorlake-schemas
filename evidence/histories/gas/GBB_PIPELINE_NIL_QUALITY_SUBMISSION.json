@@ -1,0 +1,77 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "GasDate",
+    "2": "FacilityName",
+    "3": "FacilityId",
+    "4": "ConnectionPointId"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2018-12-06T00:00:00+10:00",
+        "file": "GasBBPipelineNilQualitySubmission.CSV",
+        "release": "2026-10",
+        "sha256": "104b471aa092767c02d6f08b83847f76bd2dbbee6623cd88430197b00a7b55f3"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "PIPELINE_NIL_QUALITY_SUBMISSION"
+      ],
+      "rows": 2043,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-19T00:00:00+10:00",
+        "file": "GasBBPipelineNilQualitySubmission.CSV@20261020T225100+1000",
+        "release": "2026-10",
+        "sha256": "a12a645157d1664a347c778679b017bc936c925699d208bac614f27c8830f701"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GASDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "decimal(7, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_PIPELINE_NIL_QUALITY_SUBMISSION"
+}

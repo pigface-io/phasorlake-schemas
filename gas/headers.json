@@ -1,0 +1,5957 @@
+{
+  "headers": [
+    {
+      "columns": [
+        "SYSTEM_WIDE_NOTICE_ID",
+        "CRITICAL_NOTICE_FLAG",
+        "SYSTEM_MESSAGE",
+        "SYSTEM_EMAIL_MESSAGE",
+        "NOTICE_START_DATE",
+        "NOTICE_END_DATE",
+        "URL_PATH",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT029A_SYSTEM_NOTICES_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT029A_SYSTEM_NOTICES",
+      "version": 4
+    },
+    {
+      "columns": [
+        "DEMAND_TYPE_NAME",
+        "PRICE_VALUE_GST_EX",
+        "TRANSMISSION_GROUP_ID",
+        "SCHEDULE_TYPE_ID",
+        "TRANSMISSION_ID",
+        "GAS_DATE",
+        "APPROVAL_DATETIME",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT037B_INDICATIVE_MKT_PRICE_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT037B_INDICATIVE_MKT_PRICE",
+      "version": 4
+    },
+    {
+      "columns": [
+        "DEMAND_TYPE_NAME",
+        "PRICE_VALUE_GST_EX",
+        "TRANSMISSION_GROUP_ID",
+        "SCHEDULE_TYPE_ID",
+        "TRANSMISSION_ID",
+        "GAS_DATE",
+        "APPROVAL_DATETIME",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT037C_INDICATIVE_PRICE_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT037C_INDICATIVE_PRICE",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "NODE_NAME",
+        "TI",
+        "NODAL_PRICE_VALUE_GST_EX",
+        "TRANSMISSION_ID",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT039B_INDICATIVE_LOCATIONAL_PRICE_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT039B_INDICATIVE_LOCATIONAL_PRICE",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "PRICE_BOD_GST_EX",
+        "PRICE_10AM_GST_EX",
+        "PRICE_2PM_GST_EX",
+        "PRICE_6PM_GST_EX",
+        "PRICE_10PM_GST_EX",
+        "IMB_WTD_AVE_PRICE_GST_EX",
+        "IMB_INJ_WTD_AVE_PRICE_GST_EX",
+        "IMB_WDR_WTD_AVE_PRICE_GST_EX",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT041_MARKET_AND_REFERENCE_PRICES_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT041_MARKET_AND_REFERENCE_PRICES",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "IMB_DEV_WA_DLY_PRICE_GST_EX",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT042_WEIGHTED_AVERAGE_DAILY_PRICES_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT042_WEIGHTED_AVERAGE_DAILY_PRICES",
+      "version": 4
+    },
+    {
+      "columns": [
+        "VERSION_ID",
+        "GAS_DATE",
+        "EVENT_DATETIME",
+        "EVENT_INTERVAL",
+        "HEATING_VALUE_ZONE",
+        "HEATING_VALUE_ZONE_DESC",
+        "INITIAL_HEATING_VALUE",
+        "CURRENT_HEATING_VALUE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT047_HEATING_VALUES_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT047_HEATING_VALUES",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "WITHDRAWAL_ZONE_NAME",
+        "SCHEDULED_QTY",
+        "TRANSMISSION_ID",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT050_SCHED_WITHDRAWALS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT050_SCHED_WITHDRAWALS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "UNIT_ID",
+        "QTY",
+        "QTY_REINJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT079_TOTAL_GAS_WITHDRAWN_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT079_TOTAL_GAS_WITHDRAWN",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "TOTAL_IMB_PMT",
+        "TOTAL_DEV_PMT",
+        "LINEPACK_ACCT_PMT_GST_EX",
+        "LINEPACK_ACCT_BAL_GST_EX",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT089_LINEPACK_BALANCE_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT089_LINEPACK_BALANCE",
+      "version": 4
+    },
+    {
+      "columns": [
+        "EDD_UPDATE",
+        "EDD_DATE",
+        "EDD_VALUE",
+        "EDD_TYPE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT091_EDDACT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT091_EDDACT",
+      "version": 4
+    },
+    {
+      "columns": [
+        "TRANSMISSION_ID",
+        "TRANSMISSION_DOCUMENT_ID",
+        "TRANSMISSION_GROUP_ID",
+        "GAS_START_DATETIME",
+        "BID_CUTOFF_DATETIME",
+        "SCHEDULE_TYPE_ID",
+        "CREATION_DATETIME",
+        "FORECAST_DEMAND_VERSION",
+        "DFS_INTERFACE_AUDIT_ID",
+        "LAST_OS_FOR_GAS_DAY_TDOC_ID",
+        "OS_PRIOR_GAS_DAY_TDOC_ID",
+        "APPROVAL_DATETIME",
+        "DEMAND_TYPE_ID",
+        "OBJECTIVE_FUNCTION_VALUE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT108_SCHEDULED_RUN_LOG_7_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT108_SCHEDULED_RUN_LOG_7",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "TI",
+        "MIRN",
+        "HOURLY_MAXIMUM_QUANTITY",
+        "HOURLY_MINIMUM_QUANTITY",
+        "RAMP_UP_CONSTRAINT",
+        "RAMP_DOWN_CONSTRAINT",
+        "SCHEDULE_RESPONSE_TIME",
+        "DAILY_MINIMUM_QUANTITY",
+        "DAILY_MAXIMUM_QUANTITY",
+        "EXPIRATION_TIME",
+        "SDPC_ID",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT111_SDPC_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-05",
+          "last-release": "2026-05",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT111_SDPC",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "TI",
+        "MIRN",
+        "PS_HOURLY_MAX_QTY",
+        "PS_HOURLY_MIN_QTY",
+        "OS_HOURLY_MAX_QTY",
+        "OS_HOURLY_MIN_QTY",
+        "RAMP_UP_CONSTRAINT",
+        "RAMP_DOWN_CONSTRAINT",
+        "SCHEDULE_RESPONSE_TIME",
+        "PS_DAILY_MIN_QTY",
+        "PS_DAILY_MAX_QTY",
+        "OS_DAILY_MIN_QTY",
+        "OS_DAILY_MAX_QTY",
+        "EXPIRATION_TIME",
+        "SDPC_ID",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT111_SDPC_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 1
+        }
+      ],
+      "table": "DWGM_INT111_SDPC",
+      "version": 5
+    },
+    {
+      "columns": [
+        "NFTC_NAME",
+        "COMMENCEMENT_DATE",
+        "TERMINATION_DATE",
+        "DAILY_MAX_NET_INJ_QTY_GJ",
+        "DAILY_MAX_NET_WDL_QTY_GJ",
+        "TI",
+        "HOURLY_MAX_NET_INJ_QTY_GJ",
+        "HOURLY_MAX_NET_WDL_QTY_GJ",
+        "MOD_DATETIME",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT112B_NFTC_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 1
+        }
+      ],
+      "table": "DWGM_INT112B_NFTC",
+      "version": 4
+    },
+    {
+      "columns": [
+        "NFTC_NAME",
+        "COMMENCEMENT_DATE",
+        "TERMINATION_DATE",
+        "DAILY_MAX_NET_INJ_QTY_GJ",
+        "DAILY_MIN_NET_INJ_QTY_GJ",
+        "DAILY_MAX_NET_WDL_QTY_GJ",
+        "DAILY_MIN_NET_WDL_QTY_GJ",
+        "TI",
+        "HOURLY_MAX_NET_INJ_QTY_GJ",
+        "HOURLY_MIN_NET_INJ_QTY_GJ",
+        "HOURLY_MAX_NET_WDL_QTY_GJ",
+        "HOURLY_MIN_NET_WDL_QTY_GJ",
+        "MOD_DATETIME",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT112B_NFTC_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 2,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT112B_NFTC",
+      "version": 5
+    },
+    {
+      "columns": [
+        "SUPPLY_SOURCE",
+        "GAS_DATE",
+        "SSC_ID",
+        "TI",
+        "HOURLY_CONSTRAINT",
+        "MOD_DATETIME",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT112C_SSC_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT112C_SSC",
+      "version": 4
+    },
+    {
+      "columns": [
+        "ZFTC_NAME",
+        "COMMENCEMENT_DATE",
+        "TERMINATION_DATE",
+        "DAILY_MAX_NET_INJ_QTY_GJ",
+        "DAILY_MAX_NET_WDL_QTY_GJ",
+        "TI",
+        "HOURLY_MAX_NET_INJ_QTY_GJ",
+        "HOURLY_MAX_NET_WDL_QTY_GJ",
+        "MOD_DATETIME",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT112D_ZFTC_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT112D_ZFTC",
+      "version": 4
+    },
+    {
+      "columns": [
+        "DFPC_ID",
+        "INJECTION_MIRN",
+        "WITHDRAWAL_MIRN",
+        "COMMENCEMENT_DATE",
+        "TERMINATION_DATE",
+        "DAILY_MAX_NET_INJ_QTY_GJ",
+        "DAILY_MAX_NET_WDL_QTY_GJ",
+        "TI",
+        "HOURLY_MAX_NET_INJ_QTY_GJ",
+        "HOURLY_MAX_NET_WDL_QTY_GJ",
+        "MOD_DATETIME",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT112_DFPC_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT112_DFPC",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "SCHEDULE_NO",
+        "EST_ANCILLARY_AMT_GST_EX",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT117A_EST_ANCILLARY_PAYMENTS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT117A_EST_ANCILLARY_PAYMENTS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "AP_RUN_ID",
+        "GAS_DATE",
+        "SCHEDULE_NO",
+        "ANCILLARY_AMT_GST_EX",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT117B_ANCILLARY_PAYMENTS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT117B_ANCILLARY_PAYMENTS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "AP_RUN_ID",
+        "RUN_TYPE",
+        "GAS_DATE",
+        "DAILY_AMOUNT_GST_EX",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT117_ANCILLARY_PAYMENTS_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-05",
+          "last-release": "2026-05",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT117_ANCILLARY_PAYMENTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "COMPANY_ID",
+        "COMPANY_NAME",
+        "REGISTERED_NAME",
+        "ORGANIZATION_CLASS_NAME",
+        "ORGANIZATION_TYPE_NAME",
+        "ORGANIZATION_STATUS_NAME",
+        "LINE_1",
+        "LINE_2",
+        "LINE_3",
+        "PROVINCE_ID",
+        "CITY",
+        "POSTAL_CODE",
+        "PHONE",
+        "FAX",
+        "MARKET_CODE",
+        "COMPANY_CODE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT125_DETAILS_OF_ORGANISATIONS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-05",
+          "last-release": "2026-05",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT125_DETAILS_OF_ORGANISATIONS",
+      "version": 7
+    },
+    {
+      "columns": [
+        "COMPANY_ID",
+        "COMPANY_NAME",
+        "REGISTERED_NAME",
+        "ACN",
+        "ABN",
+        "ORGANIZATION_CLASS_NAME",
+        "ORGANIZATION_TYPE_NAME",
+        "ORGANIZATION_STATUS_NAME",
+        "LINE_1",
+        "LINE_2",
+        "LINE_3",
+        "PROVINCE_ID",
+        "CITY",
+        "POSTAL_CODE",
+        "PHONE",
+        "FAX",
+        "MARKET_CODE",
+        "COMPANY_CODE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT125_DETAILS_OF_ORGANISATIONS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 1
+        }
+      ],
+      "table": "DWGM_INT125_DETAILS_OF_ORGANISATIONS",
+      "version": 8
+    },
+    {
+      "columns": [
+        "DFS_VERSION",
+        "GAS_DATE",
+        "LAST_UPDATE_DATETIME",
+        "PREVIOUS_DAY_MIN",
+        "MAX",
+        "OVERNIGHT_MIN",
+        "AVERAGE_WIND_SPEED",
+        "SUNSHINE",
+        "EFFECTIVE_TEMPERATURE",
+        "DFS_EDD",
+        "TOTAL_DEMAND_FORECAST",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT126_DFS_DATA_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT126_DFS_DATA",
+      "version": 4
+    },
+    {
+      "columns": [
+        "COMMENCEMENT_DATETIME",
+        "ACTUAL_LINEPACK",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT128_ACTUAL_LINEPACK_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2012-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT128_ACTUAL_LINEPACK",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "TYPE_1",
+        "TYPE_2",
+        "PARTICIPANT_ID",
+        "PARTICIPANT_NAME",
+        "CODE",
+        "NAME",
+        "OFFER_TYPE",
+        "STEP1",
+        "STEP2",
+        "STEP3",
+        "STEP4",
+        "STEP5",
+        "STEP6",
+        "STEP7",
+        "STEP8",
+        "STEP9",
+        "STEP10",
+        "MIN_DAILY_QTY",
+        "BID_ID",
+        "BID_CUTOFF_TIME",
+        "SCHEDULE_TYPE",
+        "SCHEDULE_TIME",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT131_BIDS_AT_BID_CUTOFF_TIMES_PREV_2_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT131_BIDS_AT_BID_CUTOFF_TIMES_PREV_2",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "SCHEDULE_NO",
+        "POSITIVE_AVE_ANCILLARY_RATE",
+        "NEGATIVE_AVE_ANCILLARY_RATE",
+        "POSITIVE_UPLIFT_RATE",
+        "NEGATIVE_UPLIFT_RATE",
+        "CURRENT_DATETIME"
+      ],
+      "report": [
+        "DWGM",
+        "INT135_UPLIFT_CAP"
+      ],
+      "schemas": [
+        {
+          "first-release": "2010-08",
+          "last-release": "2010-08",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT135_UPLIFT_CAP",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "SCHEDULE_NO",
+        "POSITIVE_AVE_ANCILLARY_RATE",
+        "NEGATIVE_AVE_ANCILLARY_RATE",
+        "POSITIVE_UPLIFT_RATE",
+        "NEGATIVE_UPLIFT_RATE",
+        "CURRENT_DATETIME"
+      ],
+      "report": [
+        "DWGM",
+        "INT135_UPLIFT_CAP_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT135_UPLIFT_CAP",
+      "version": 4
+    },
+    {
+      "columns": [
+        "STATEMENT_VERSION_ID",
+        "SETTLEMENT_CAT_TYPE",
+        "VERSION_FROM_DATE",
+        "VERSION_TO_DATE",
+        "INTEREST_RATE",
+        "ISSUED_DATE",
+        "VERSION_DESC",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT138_SETTLEMENT_VERSION_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT138_SETTLEMENT_VERSION",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HV_ZONE",
+        "HV_ZONE_DESC",
+        "HEATING_VALUE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT139A_DAILY_ZONAL_HEATING_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT139A_DAILY_ZONAL_HEATING",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "DECLARED_HEATING_VALUE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT139_DECLARED_DAILY_STATE_HEATING_VALUE_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT139_DECLARED_DAILY_STATE_HEATING_VALUE",
+      "version": 4
+    },
+    {
+      "columns": [
+        "MIRN",
+        "GAS_DATE",
+        "TI",
+        "QUALITY_TYPE",
+        "UNIT",
+        "QUANTITY",
+        "METER_NO",
+        "SITE_COMPANY",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT140_GAS_QUALITY_DATA_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT140_GAS_QUALITY_DATA",
+      "version": 5
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "FLAG",
+        "ID",
+        "TI",
+        "ENERGY_GJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT150_PUBLIC_METERING_DATA_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT150_PUBLIC_METERING_DATA",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "TYPE",
+        "LINEPACK_ID",
+        "LINEPACK_ZONE_ID",
+        "COMMENCEMENT_DATETIME",
+        "TI",
+        "TERMINATION_DATETIME",
+        "UNIT_ID",
+        "LINEPACK_ZONE_NAME",
+        "TRANSMISSION_DOCUMENT_ID",
+        "QUANTITY",
+        "CURRENT_DATE",
+        "APPROVAL_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT152_SCHED_MIN_QTY_LINEPACK_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT152_SCHED_MIN_QTY_LINEPACK",
+      "version": 4
+    },
+    {
+      "columns": [
+        "FORECAST_DATE",
+        "VERSION_ID",
+        "TI",
+        "FORECAST_DEMAND_GJ",
+        "VC_OVERRIDE_GJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT153_DEMAND_FORECAST_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT153_DEMAND_FORECAST",
+      "version": 4
+    },
+    {
+      "columns": [
+        "INT157"
+      ],
+      "report": [
+        "DWGM",
+        "INT157_13"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-05",
+          "last-release": "2026-05",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT157_13",
+      "version": 1
+    },
+    {
+      "columns": [
+        "NSL_UPDATE",
+        "GAS_DATE",
+        "DISTRIBUTOR_NAME",
+        "NSL_GJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT171_LATEST_NSL_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT171_LATEST_NSL",
+      "version": 4
+    },
+    {
+      "columns": [
+        "HV_ZONE",
+        "HV_ZONE_DESC",
+        "GAS_DATE",
+        "METHANE",
+        "ETHANE",
+        "PROPANE",
+        "BUTANE_I",
+        "BUTANE_N",
+        "PENTANE_I",
+        "PENTANE_N",
+        "PENTANE_NEO",
+        "HEXANE",
+        "NITROGEN",
+        "CARBON_DIOXIDE",
+        "HYDROGEN",
+        "SPEC_GRAVITY",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT176_GAS_COMPOSITION_DATA_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT176_GAS_COMPOSITION_DATA",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "TRANSMISSION_DOCUMENT_ID",
+        "PIPELINE_ID",
+        "PIPELINE_POINT_ID",
+        "PIPELINE_POINT_NAME",
+        "PARTICIPANT_LOGICAL_METER",
+        "OFFER_TYPE",
+        "PARTICIPANT_ID",
+        "MARKET_PARTICIPANT",
+        "DAILY_QTY",
+        "HOUR_1",
+        "HOUR_2",
+        "HOUR_3",
+        "HOUR_4",
+        "HOUR_5",
+        "HOUR_6",
+        "HOUR_7",
+        "HOUR_8",
+        "HOUR_9",
+        "HOUR_10",
+        "HOUR_11",
+        "HOUR_12",
+        "HOUR_13",
+        "HOUR_14",
+        "HOUR_15",
+        "HOUR_16",
+        "HOUR_17",
+        "HOUR_18",
+        "HOUR_19",
+        "HOUR_20",
+        "HOUR_21",
+        "HOUR_22",
+        "HOUR_23",
+        "HOUR_24",
+        "COMMENT",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT180_OP_SCHED_77"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-05",
+          "last-release": "2026-05",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT180_OP_SCHED_77",
+      "version": 4
+    },
+    {
+      "columns": [
+        "MIRN",
+        "SITE_COMPANY",
+        "HV_ZONE",
+        "HV_ZONE_DESC",
+        "EFFECTIVE_FROM",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT188_CTM_TO_HV_ZONE_MAPPING_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT188_CTM_TO_HV_ZONE_MAPPING",
+      "version": 4
+    },
+    {
+      "columns": [
+        "TRANSMISSION_ID",
+        "GAS_DATE",
+        "SCHEDULE_INTERVAL",
+        "CUMULATIVE_PRICE",
+        "CPT_EXCEEDED_FLAG",
+        "SCHEDULE_TYPE_ID",
+        "TRANSMISSION_DOC_ID",
+        "APPROVAL_DATETIME",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT199_CUMULATIVE_PRICE_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT199_CUMULATIVE_PRICE",
+      "version": 4
+    },
+    {
+      "columns": [
+        "TRANSMISSION_ID",
+        "GAS_DATE",
+        "FLAG",
+        "DAY_IN_ADVANCE",
+        "DATA_TYPE",
+        "DETAIL",
+        "TRANSMISSION_DOC_ID",
+        "ID",
+        "VALUE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT235_SCHED_SYSTEM_TOTAL_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT235_SCHED_SYSTEM_TOTAL",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "DIRECTION_CODE_NAME",
+        "DIRECTION",
+        "COMMENCEMENT_DATETIME",
+        "TERMINATION_DATETIME",
+        "QUANTITY",
+        "TIME_SORT_ORDER",
+        "MOD_DATETIME",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT236_OPERATIONAL_METER_READINGS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT236_OPERATIONAL_METER_READINGS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GENERAL_INFORMATION_ID",
+        "R_FACTOR",
+        "SUPER_COMPRESSABILITY_FACTOR",
+        "T_FACTOR",
+        "VISCOSITY",
+        "VOLL_PRICE",
+        "NUMBER_OF_STEPS",
+        "EOD_LINEPACK_MIN",
+        "EOD_LINEPACK_MAX",
+        "COMMENCEMENT_DATE",
+        "TERMINATION_DATE",
+        "LAST_MOD_DATE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT256_MCE_FACTOR_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT256_MCE_FACTOR",
+      "version": 4
+    },
+    {
+      "columns": [
+        "LINEPACK_ZONE_ID",
+        "LINEPACK_ZONE_NAME",
+        "LAST_MOD_DATE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT257_LINEPACK_WITH_ZONES_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT257_LINEPACK_WITH_ZONES",
+      "version": 4
+    },
+    {
+      "columns": [
+        "PIPELINE_ID",
+        "POINT_GROUP_IDENTIFIER_ID",
+        "POINT_GROUP_IDENTIFIER_NAME",
+        "NODAL_ALTITUDE",
+        "LAST_MOD_DATE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT258_MCE_NODES_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT258_MCE_NODES",
+      "version": 4
+    },
+    {
+      "columns": [
+        "PIPE_SEGMENT_ID",
+        "PIPE_SEGMENT_NAME",
+        "LINEPACK_ZONE_ID",
+        "COMMENCEMENT_DATE",
+        "TERMINATION_DATE",
+        "NODE_DESTINATION_ID",
+        "NODE_ORIGIN_ID",
+        "DIAMETER",
+        "DIAMETER_PAIRED",
+        "LENGTH",
+        "MAX_PRESSURE",
+        "MIN_PRESSURE",
+        "MAX_PRESSURE_DELTA",
+        "PRESSURE_AT_REGULATOR_OUTLET",
+        "REGULATOR_AT_ORIGIN",
+        "REVERSE_FLOW",
+        "COMPRESSOR",
+        "MEAN_PIPE_ALTITUDE",
+        "LAST_MOD_DATE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT259_PIPE_SEGMENT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT259_PIPE_SEGMENT",
+      "version": 4
+    },
+    {
+      "columns": [
+        "COMPRESSOR_ID",
+        "COMPRESSOR_NAME",
+        "PIPE_SEGMENT_ID",
+        "MIN_PRESSURE_DELTA",
+        "MOST_EFFICIENT_PRESSURE_DELTA",
+        "MAX_PRESSURE_DELTA",
+        "MAX_COMPRESSOR_POWER",
+        "MIN_COMPRESSOR_POWER",
+        "COMPRESSOR_EFFICIENCY",
+        "COMPRESSOR_EFFICIENCY_AT_MIN",
+        "EFFICIENCY_COEFFICIENT",
+        "SUPER_COMPRESSABILITY_FACTOR",
+        "COMPRESSOR_STATION_ID",
+        "STATION_NAME",
+        "LAST_MOD_DATE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT260_COMPRESSOR_CHAR_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT260_COMPRESSOR_CHAR",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "AGGREGATED_AMDQ_TRANSFERRED",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT261_AGG_AMDQ_TRANSFERRED_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT261_AGG_AMDQ_TRANSFERRED",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "NODE_ID",
+        "NODE_NAME",
+        "CURRENT_SYSTEM_CAPACITY",
+        "CURRENT_LATERAL_CAPACITY",
+        "MAX_SYSTEM_CAPACITY",
+        "MIN_SYSTEM_CAPACITY",
+        "MAX_LATERAL_CAPACITY",
+        "MIN_LATERAL_CAPACITY",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT262_SPARE_CAPACITY_LIMITS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT262_SPARE_CAPACITY_LIMITS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "ALLOCATED_MARKET_STOCK",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT263_LNG_MONITOR_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT263_LNG_MONITOR",
+      "version": 4
+    },
+    {
+      "columns": [
+        "NETWORK_ID",
+        "NSL_UPDATE",
+        "GAS_DATE",
+        "TI",
+        "NSL_GJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT271_LATEST_TOTAL_HOURLY_NSL_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT271_LATEST_TOTAL_HOURLY_NSL",
+      "version": 4
+    },
+    {
+      "columns": [
+        "NODE_ID",
+        "NODE_NAME",
+        "MEASUREMENT_DATETIME",
+        "CURRENT_HOUR",
+        "HOUR_01_AGO",
+        "HOUR_02_AGO",
+        "HOUR_03_AGO",
+        "HOUR_04_AGO",
+        "HOUR_05_AGO",
+        "HOUR_06_AGO",
+        "HOUR_07_AGO",
+        "HOUR_08_AGO",
+        "HOUR_09_AGO",
+        "HOUR_10_AGO",
+        "HOUR_11_AGO",
+        "HOUR_12_AGO",
+        "HOUR_13_AGO",
+        "HOUR_14_AGO",
+        "HOUR_15_AGO",
+        "HOUR_16_AGO",
+        "HOUR_17_AGO",
+        "HOUR_18_AGO",
+        "HOUR_19_AGO",
+        "HOUR_20_AGO",
+        "HOUR_21_AGO",
+        "HOUR_22_AGO",
+        "HOUR_23_AGO",
+        "HOUR_24_AGO",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT276_HOURLY_SCADA_PRESSURES_AT_MCE_NODES_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT276_HOURLY_SCADA_PRESSURES_AT_MCE_NODES",
+      "version": 4
+    },
+    {
+      "columns": [
+        "LAST_UPDATE_DATETIME",
+        "POSTCODE",
+        "TUOS_ZONE",
+        "TUOS_ZONE_DESC",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT284_TUOS_ZONE_POSTCODE_MAP_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT284_TUOS_ZONE_POSTCODE_MAP",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "TOTAL_GAS_USED",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT287_GAS_CONSUMPTION_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT287_GAS_CONSUMPTION",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "STATEMENT_VERSION_ID",
+        "ANCILLARY_AMT_GST_EX",
+        "SCHEDULED_OUT_OF_MERIT_GJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT291_OUT_OF_MERIT_ORDER_GAS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT291_OUT_OF_MERIT_ORDER_GAS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "SCHEDULE_INTERVAL",
+        "TRANSMISSION_ID",
+        "SCHED_INJ_GJ",
+        "SCHED_WDL_GJ",
+        "PRICE_VALUE",
+        "ADMINISTERED_PRICE",
+        "ACTUAL_WDL_GJ",
+        "ACTUAL_INJ_GJ"
+      ],
+      "report": [
+        "DWGM",
+        "INT310_PRICE_AND_WITHDRAWALS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT310_PRICE_AND_WITHDRAWALS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "GAS_HOUR",
+        "TRANSMISSION_ID",
+        "CTM_D1_INJ",
+        "CTM_D1_WDL",
+        "PRICE_VALUE",
+        "ADMINISTERED_PRICE",
+        "TOTAL_GAS_WITHDRAWALS",
+        "TOTAL_GAS_INJECTIONS"
+      ],
+      "report": [
+        "DWGM",
+        "INT310_PRICE_AND_WITHDRAWALS_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT310_PRICE_AND_WITHDRAWALS_RPT_1",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "TRANSFERS_LODGED",
+        "TRANSFERS_COMPLETED",
+        "TRANSFERS_CANCELLED",
+        "INT_TRANSFERS_LODGED",
+        "INT_TRANSFERS_COMPLETED",
+        "INT_TRANSFERS_CANCELLED",
+        "GREENFIELDS_RECEIVED"
+      ],
+      "report": [
+        "DWGM",
+        "INT311_CUSTOMER_TRANSFERS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 1
+        }
+      ],
+      "table": "DWGM_INT311_CUSTOMER_TRANSFERS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "MARKET_CODE",
+        "TRANSFERS_LODGED",
+        "TRANSFERS_COMPLETED",
+        "TRANSFERS_CANCELLED",
+        "INT_TRANSFERS_LODGED",
+        "INT_TRANSFERS_COMPLETED",
+        "INT_TRANSFERS_CANCELLED",
+        "GREENFIELDS_RECEIVED"
+      ],
+      "report": [
+        "DWGM",
+        "INT311_CUSTOMER_TRANSFERS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 2,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT311_CUSTOMER_TRANSFERS",
+      "version": 5
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "UAFG_28_DAYS_PCT",
+        "TOTAL_SCHEDULED_INJ_GJ",
+        "TOTAL_SCHEDULED_WDL_GJ",
+        "TOTAL_ACTUAL_INJ_GJ",
+        "TOTAL_ACTUAL_WDL_GJ",
+        "TOTAL_UPLIFT_AMT",
+        "SU_UPLIFT_AMT",
+        "CU_UPLIFT_AMT",
+        "VU_UPLIFT_AMT",
+        "TU_UPLIFT_AMT",
+        "RU_UPLIFT_AMT"
+      ],
+      "report": [
+        "DWGM",
+        "INT312_SETTLEMENTS_ACTIVITY_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT312_SETTLEMENTS_ACTIVITY",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "GAS_HOUR",
+        "UAFG_28_DAYS_PCT",
+        "PROV_SYSTEM_INJ_GJ",
+        "PROV_SYSTEM_WDL_GJ",
+        "PROV_NET_GJ",
+        "MARKET_PRICE",
+        "TOTAL_GAS_SOLD_GJ",
+        "TOTAL_GAS_BOUGHT_GJ",
+        "UPLIFT",
+        "SU_UPLIFT",
+        "EX_UPLIFT",
+        "CX_UPLIFT",
+        "TP_UPLIFT",
+        "EL_UPLIFT",
+        "RC_UPLIFT",
+        "OTHER_UPLIFT"
+      ],
+      "report": [
+        "DWGM",
+        "INT312_SETTLEMENTS_ACTIVITY_REPORT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-05",
+          "last-release": "2026-05",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT312_SETTLEMENTS_ACTIVITY_REPORT_1",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "GAS_HOUR",
+        "SITE_COMPANY",
+        "PHY_MIRN",
+        "INJECT_WITHDRAW",
+        "ENERGY_FLOW_GJ"
+      ],
+      "report": [
+        "DWGM",
+        "INT313_ALLOCATED_INJECTIONS_WITHDRAWALS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT313_ALLOCATED_INJECTIONS_WITHDRAWALS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "BID_ID",
+        "GAS_DATE",
+        "MARKET_PARTICIPANT_ID",
+        "COMPANY_NAME",
+        "MIRN",
+        "BID_STEP",
+        "BID_PRICE",
+        "BID_QTY_GJ",
+        "STEP_QTY_GJ",
+        "INJECT_WITHDRAW",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT314_BID_STACK_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT314_BID_STACK",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HV_ZONE",
+        "HV_ZONE_DESC",
+        "ENERGY_GJ",
+        "VOLUME_KSCM",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT316_OPERATIONAL_GAS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT316_OPERATIONAL_GAS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "STATEMENT_VERSION_ID",
+        "GAS_DATE",
+        "SCHED_NO",
+        "TOTAL_UPLIFT_AMT",
+        "TUQ_QTY",
+        "DTS_UPLIFT_AMT",
+        "FINAL_QDS_GJ",
+        "EVENT_CAP_RATE",
+        "EVENT_LIABILITY_AMT",
+        "EVENT_LIABILITY_QTY",
+        "ANNUAL_CAP_LIMIT",
+        "ANNUAL_LIABILITY_AMT",
+        "ANNUAL_LIABILITY_QTY",
+        "NET_DTS_UPLIFT_AMT",
+        "MODIFIED_SURPRISE_UPLIFT_AMT",
+        "MODIFIED_SURPRISE_UPLIFT_QTY",
+        "COMMON_UPLIFT_AMT",
+        "COMMON_UPLIFT_QTY",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT322A_UPLIFT_BREAKDOWN_SETT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT322A_UPLIFT_BREAKDOWN_SETT",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "SCHED_NO",
+        "TOTAL_UPLIFT_AMT",
+        "TUQ_QTY",
+        "DTS_UPLIFT_AMT",
+        "FINAL_QDS_GJ",
+        "EVENT_CAP_RATE",
+        "EVENT_LIABILITY_AMT",
+        "EVENT_LIABILITY_QTY",
+        "ANNUAL_CAP_LIMIT",
+        "ANNUAL_LIABILITY_AMT",
+        "ANNUAL_LIABILITY_QTY",
+        "NET_DTS_UPLIFT_AMT",
+        "MODIFIED_SURPRISE_UPLIFT_AMT",
+        "MODIFIED_SURPRISE_UPLIFT_QTY",
+        "COMMON_UPLIFT_AMT",
+        "COMMON_UPLIFT_QTY",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT322B_UPLIFT_BREAKDOWN_PRUD_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT322B_UPLIFT_BREAKDOWN_PRUD",
+      "version": 4
+    },
+    {
+      "columns": [
+        "AUCTION_ID",
+        "AUCTION_DATE",
+        "BID_ID",
+        "ZONE_ID",
+        "ZONE_NAME",
+        "START_PERIOD",
+        "END_PERIOD",
+        "STEP",
+        "BID_PRICE",
+        "BID_QUANTITY_GJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT339_CCAUCTION_BID_STACK_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT339_CCAUCTION_BID_STACK",
+      "version": 4
+    },
+    {
+      "columns": [
+        "ZONE_ID",
+        "ZONE_NAME",
+        "ZONE_TYPE",
+        "CAPACITY_PERIOD",
+        "ZONE_CAPACITY_GJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT342_CCAUCTION_SYS_CAPABILITY_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT342_CCAUCTION_SYS_CAPABILITY",
+      "version": 4
+    },
+    {
+      "columns": [
+        "AUCTION_ID",
+        "ZONE_ID",
+        "ZONE_NAME",
+        "ZONE_TYPE",
+        "CAPACITY_PERIOD",
+        "AUCTION_DATE",
+        "AVAILABLE_CAPACITY_GJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT343_CCAUCTION_AUCTION_QTY_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT343_CCAUCTION_AUCTION_QTY",
+      "version": 4
+    },
+    {
+      "columns": [
+        "ZONE_ID",
+        "ZONE_NAME",
+        "ZONE_TYPE",
+        "FROM_DATE",
+        "TO_DATE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT345_CCAUCTION_ZONE_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT345_CCAUCTION_ZONE",
+      "version": 4
+    },
+    {
+      "columns": [
+        "TRANSFER_ID",
+        "ZONE_ID",
+        "ZONE_NAME",
+        "START_DATE",
+        "END_DATE",
+        "TRANSFERRED_QTY_GJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT348_CCTRANSFER_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT348_CCTRANSFER",
+      "version": 4
+    },
+    {
+      "columns": [
+        "ZONE_ID",
+        "ZONE_NAME",
+        "ZONE_TYPE",
+        "START_DATE",
+        "END_DATE",
+        "TOTAL_HOLDING_GJ",
+        "SOURCE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT351_CCREGISTRY_SUMMARY_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT351_CCREGISTRY_SUMMARY",
+      "version": 4
+    },
+    {
+      "columns": [
+        "AUCTION_ID",
+        "AUCTION_DATE",
+        "ZONE_ID",
+        "ZONE_NAME",
+        "ZONE_TYPE",
+        "START_DATE",
+        "END_DATE",
+        "CC_PERIOD",
+        "CLEARING_PRICE",
+        "QUANTITIES_WON_GJ",
+        "UNALLOCATED_QTY",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT353_CCAUCTION_QTY_WON_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT353_CCAUCTION_QTY_WON",
+      "version": 4
+    },
+    {
+      "columns": [
+        "AUCTION_ID",
+        "AUCTION_DATE",
+        "ZONE_ID",
+        "ZONE_NAME",
+        "ZONE_TYPE",
+        "START_DATE",
+        "END_DATE",
+        "CC_PERIOD",
+        "CLEARING_PRICE",
+        "QUANTITIES_WON_GJ",
+        "UNALLOCATED_QTY",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT353_CCAUCTION_QTY_WON_ALL_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT353_CCAUCTION_QTY_WON_ALL",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "SCHEDULE_INTERVAL",
+        "TRANSMISSION_ID",
+        "MIRN",
+        "TIE_BREAKING_EVENT",
+        "CC_BIDS",
+        "NON_CC_BIDS",
+        "PART_CC_BIDS",
+        "GAS_NOT_SCHEDULED",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT381_TIE_BREAKING_EVENT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT381_TIE_BREAKING_EVENT",
+      "version": 4
+    },
+    {
+      "columns": [
+        "NETWORK_NAME",
+        "VERSION_ID",
+        "EXTRACT_TYPE",
+        "VERSION_FROM_DATE",
+        "VERSION_TO_DATE",
+        "ISSUED_DATE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT438_BMP_VERSION_NON_PTS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT438_BMP_VERSION_NON_PTS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "NETWORK_NAME",
+        "GAS_DAY",
+        "HEATING_VALUE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT439_PUBLISHED_DAILY_HEATING_VALUE_NON_PTS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT439_PUBLISHED_DAILY_HEATING_VALUE_NON_PTS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "NSL_UPDATE",
+        "NETWORK_NAME",
+        "GAS_DATE",
+        "DISTRIBUTOR_NAME",
+        "NSL_GJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT471_LATEST_NSL_NON_PTS_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT471_LATEST_NSL_NON_PTS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "NETWORK_NAME",
+        "VERSION_ID",
+        "EXTRACT_TYPE",
+        "VERSION_FROM_DATE",
+        "VERSION_TO_DATE",
+        "ISSUED_DATE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT538_SETTLEMENT_VERSIONS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT538_SETTLEMENT_VERSIONS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HV_ZONE",
+        "HV_ZONE_DESC",
+        "HEATING_VALUE_MJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT539_DAILY_ZONAL_HV_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT539_DAILY_ZONAL_HV",
+      "version": 4
+    },
+    {
+      "columns": [
+        "NSL_UPDATE",
+        "NETWORK_NAME",
+        "GAS_DATE",
+        "DISTRIBUTOR_NAME",
+        "NSL_GJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT571_LATEST_NSL_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT571_LATEST_NSL",
+      "version": 4
+    },
+    {
+      "columns": [
+        "NETWORK_NAME",
+        "VERSION_ID",
+        "FRO_NAME",
+        "DISTRIBUTOR_NAME",
+        "WITHDRAWAL_ZONE",
+        "CURR_CUM_DATE",
+        "CURR_CUM_IMB_POSITION",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT583_MONTHLY_CUMULATIVE_IMB_POS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT583_MONTHLY_CUMULATIVE_IMB_POS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "NETWORK_NAME",
+        "VERSION_ID",
+        "GAS_DATE",
+        "DISTRIBUTOR_NAME",
+        "WITHDRAWAL_ZONE",
+        "SCALING_FACTOR",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT597_INJECTION_SCALING_FACTORS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT597_INJECTION_SCALING_FACTORS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HV_ZONE",
+        "HV_ZONE_DESCRIPTION",
+        "HEATING_VALUE_MJ",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT839A_DAILY_ZONAL_HV_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT839A_DAILY_ZONAL_HV",
+      "version": 1
+    },
+    {
+      "columns": [
+        "NETWORK_ID",
+        "GAS_DATE",
+        "GAS_DATE_HISTORICAL",
+        "NSL_MJ",
+        "TOTAL_METER_COUNT_BASIC",
+        "NORMALISATION_FACTOR",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT871_ERFTDAILYNSLRPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT871_ERFTDAILYNSLRPT",
+      "version": 1
+    },
+    {
+      "columns": [
+        "EDD_UPDATE",
+        "EDD_DATE",
+        "EDD_VALUE",
+        "EDD_TYPE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT891_EDDACT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT891_EDDACT",
+      "version": 1
+    },
+    {
+      "columns": [
+        "DISTRIBUTOR",
+        "STREET_NAME",
+        "STREET_ID",
+        "STREET_SUFFIX",
+        "SUBURB_OR_PLACE_OR_LOCALITY",
+        "STATE_OR_TERRITORY",
+        "SITE_ADDRESS_POSTCODE",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT898_NEWSTREETLISTING_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT898_NEWSTREETLISTING",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "TOTAL_INJ_GJ",
+        "TOTAL_WD_GJ",
+        "EOD_LINEPACK_GJ",
+        "LINEPACK_ACCT_GJ",
+        "LINEPACK_ACCT_PMT_GST_EX",
+        "ADJUST_LINEPACK_ACCT_PMT_GST_EX",
+        "LINEPACK_ACCT_BAL_GST_EX",
+        "MARKET_PRICE_GST_EX",
+        "ADM_PRICE_FLAG",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT89_LINEPACK_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-05",
+          "last-release": "2026-05",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT89_LINEPACK",
+      "version": 1
+    },
+    {
+      "columns": [
+        "SYSTEM_WIDE_NOTICE_ID",
+        "CRITICAL_NOTICE_FLAG",
+        "SYSTEM_MESSAGE",
+        "SYSTEM_EMAIL_MESSAGE",
+        "NOTICE_START_DATE",
+        "NOTICE_END_DATE",
+        "URL_PATH",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT929A_SYSTEM_NOTICES_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT929A_SYSTEM_NOTICES",
+      "version": 4
+    },
+    {
+      "columns": [
+        "COMPANY_NAME",
+        "ABN",
+        "COMPANY_ID",
+        "FIRST_NAME",
+        "LAST_NAME",
+        "CONTACT_EMAIL",
+        "CURRENT_DATE"
+      ],
+      "report": [
+        "DWGM",
+        "INT934_ECGS_CONTACTS_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "DWGM_INT934_ECGS_CONTACTS",
+      "version": 4
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "INCREASE",
+        "DECREASE"
+      ],
+      "report": [
+        "GBB",
+        "2P_SENSITIVIES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2023-07",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_2P_SENSITIVIES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYNAME",
+        "FACILITYID",
+        "FACILITYTYPE",
+        "DEMAND",
+        "SUPPLY",
+        "TRANSFERIN",
+        "TRANSFEROUT",
+        "HELDINSTORAGE",
+        "CUSHIONGASSTORAGE",
+        "STATE",
+        "LOCATIONNAME",
+        "LOCATIONID",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "ACTUAL_FLOW_STORAGE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_ACTUAL_FLOW_STORAGE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYNAME",
+        "FACILITYID",
+        "FACILITYTYPE",
+        "DEMAND",
+        "SUPPLY",
+        "TRANSFERIN",
+        "TRANSFEROUT",
+        "HELDINSTORAGE",
+        "CUSHIONGASSTORAGE",
+        "STATE",
+        "LOCATIONNAME",
+        "LOCATIONID",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "ACTUAL_FLOW_STORAGE_LAST31"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-09",
+          "last-release": "2026-10",
+          "runs": 2,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_ACTUAL_FLOW_STORAGE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "BASINID",
+        "BASINNAME"
+      ],
+      "report": [
+        "GBB",
+        "BASINS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_BASINS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "YEAR",
+        "MONTH",
+        "STATE",
+        "FACILITYID",
+        "FACILITYNAME",
+        "FACILITYTYPE",
+        "CONNECTIONPOINTID",
+        "CONNECTIONPOINTNAME",
+        "FLOWDIRECTION",
+        "LOCATIONNAME",
+        "LOCATIONID",
+        "GASTYPE",
+        "GASBLENDCURTAILEVENT",
+        "GASBLENDCURTAILQTY",
+        "GASBLENDLIMIT",
+        "GASBLENDHIGH",
+        "MAXGASDATE",
+        "GASBLENDLOW",
+        "MINGASDATE",
+        "GASBLENDAVG",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "BLEND_CURTAILMENT"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_BLEND_CURTAILMENT",
+      "version": 1
+    },
+    {
+      "columns": [
+        "CONNECTIONPOINTID",
+        "CONNECTIONPOINTNAME",
+        "EFFECTIVEDATE",
+        "CAPACITYQUANTITY",
+        "DESCRIPTION",
+        "FACILITYNAME",
+        "FACILITYID",
+        "FACILITYTYPE",
+        "OPERATORID",
+        "OPERATORNAME",
+        "OWNERID",
+        "OWNERNAME",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "CONNECTION_POINT_NAMEPLATE_RATING_FUTURE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_CONNECTION_POINT_NAMEPLATE_RATING",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERSONID",
+        "PERSONNAME",
+        "COMPANYID",
+        "COMPANYNAME",
+        "POSITION",
+        "EMAIL",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "CONTACTS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_CONTACTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYNAME",
+        "FACILITYTYPE",
+        "FACILITYID",
+        "NODEID",
+        "CONNECTIONPOINTID",
+        "FLOWDIRECTION",
+        "CONNECTIONPOINTNAME",
+        "STATE",
+        "DEMANDZONE"
+      ],
+      "report": [
+        "GBB",
+        "DEMAND_ZONES_PIPELINE_CONNECTION_POINT_MAPPING"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_DEMAND_ZONES_PIPELINE_CONNECTION_POINT_MAPPING",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYNAME",
+        "FACILITYSHORTNAME",
+        "FACILITYID",
+        "FACILITYTYPE",
+        "FACILITYTYPEDESCRIPTION",
+        "OPERATINGSTATE",
+        "OPERATINGSTATEDATE",
+        "OPERATORNAME",
+        "OPERATORID",
+        "OPERATORCHANGEDATE"
+      ],
+      "report": [
+        "GBB",
+        "FACILITIES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_FACILITIES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYNAME",
+        "FACILITYSHORTNAME",
+        "FACILITYID",
+        "FACILITYTYPE",
+        "FACILITYTYPEDESCRIPTION",
+        "OPERATINGSTATE",
+        "OPERATINGSTATEDATE",
+        "OPERATORNAME",
+        "OPERATORID",
+        "OPERATORCHANGEDATE",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "FACILITIES_FULL"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 1
+        }
+      ],
+      "table": "GBB_FACILITIES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "DEVFACILITYID",
+        "PROPOSEDNAME",
+        "EFFECTIVEDATE",
+        "FACILITYTYPE",
+        "MINNAMEPLATE",
+        "MAXNAMEPLATE",
+        "LOCATION",
+        "PLANNEDCOMMISSIONFROM",
+        "PLANNEDCOMMISSIONTO",
+        "DEVELOPMENTSTAGE",
+        "RELATEDFACILITYID",
+        "RELATEDFACILITYNAME",
+        "COMMENTS",
+        "REPORTINGENTITY"
+      ],
+      "report": [
+        "GBB",
+        "FACILITY_DEVELOPMENTS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_FACILITY_DEVELOPMENTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FIELDINTERESTID",
+        "FIELDNAME",
+        "COMPANYID",
+        "COMPANYNAME",
+        "DESCRIPTION",
+        "EFFECTIVEDATE",
+        "PETROLEUMTENEMENTS",
+        "TENEMENTSHARE",
+        "PROCESSINGFACILITIES",
+        "RESOURCECLASSIFICATION",
+        "RESOURCESUBCLASSIFICATION",
+        "NATUREOFGAS",
+        "ANNUALREPORTINGDATE",
+        "BASINID",
+        "BASINNAME",
+        "STATE",
+        "OPERATINGSTATE",
+        "VERSIONDATETIME"
+      ],
+      "report": [
+        "GBB",
+        "FIELD_INTEREST_INFORMATION"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_FIELD_INTEREST_INFORMATION",
+      "version": 1
+    },
+    {
+      "columns": [
+        "STATE",
+        "FACILITYID",
+        "FACILITYNAME",
+        "FACILITYTYPE",
+        "RECEIPTLOCATIONID",
+        "RECEIPTLOCATIONNAME",
+        "DELIVERYLOCATIONID",
+        "DELIVERYLOCATIONNAME",
+        "DESCRIPTION",
+        "FORECASTMETHOD",
+        "UNITS",
+        "NAMEPLATE",
+        "FORECAST_DATE",
+        "QUANTITY"
+      ],
+      "report": [
+        "GBB",
+        "FORECAST_UTILISATION"
+      ],
+      "schemas": [
+        {
+          "first-release": "2021-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_FORECAST_UTILISATION",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FIELDNAME",
+        "FIELDINTERESTID",
+        "COMPANYID",
+        "COMPANYNAME",
+        "GROUPMEMBERS",
+        "PERCENTAGESHARE",
+        "EFFECTIVEDATE"
+      ],
+      "report": [
+        "GBB",
+        "GAS_FIELD_INTEREST"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_GAS_FIELD_INTEREST",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYNAME",
+        "FACILITYID",
+        "CONNECTIONPOINTID",
+        "EARLIESTSUBMISSIONDATE",
+        "LATETIMESPAN"
+      ],
+      "report": [
+        "GBB",
+        "LATE_ACTUAL_FLOW_AND_STORAGE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_LATE_ACTUAL_FLOW_AND_STORAGE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYNAME",
+        "FACILITYID",
+        "CONNECTIONPOINTID",
+        "EARLIESTSUBMISSIONDATE",
+        "LATETIMESPAN"
+      ],
+      "report": [
+        "GBB",
+        "LATE_NOMINATION_AND_FORECAST"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_LATE_NOMINATION_AND_FORECAST",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYNAME",
+        "FACILITYID",
+        "FACILITYTYPE",
+        "GASDATE",
+        "FLAG",
+        "DESCRIPTION",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "LINEPACK_CAPACITY_ADEQUACY_FULL_LIST"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_LINEPACK_CAPACITY_ADEQUACY",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYNAME",
+        "FACILITYID",
+        "FACILITYTYPE",
+        "GASDATE",
+        "FLAG",
+        "DESCRIPTION",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "LINEPACK_CAPACITY_ADEQUACY_FUTURE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_LINEPACK_CAPACITY_ADEQUACY",
+      "version": 1
+    },
+    {
+      "columns": [
+        "OPERATOR",
+        "LINEPACKZONE",
+        "LINEPACKZONEDESCRIPTION"
+      ],
+      "report": [
+        "GBB",
+        "LINEPACK_ZONES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_LINEPACK_ZONES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRANSACTIONID",
+        "FACILITYID",
+        "FACILITYNAME",
+        "VOLUMEPJ",
+        "SHIPMENTDATE",
+        "VERSIONDATETIME"
+      ],
+      "report": [
+        "GBB",
+        "LNG_SHIPMENTS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_LNG_SHIPMENTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRANSACTIONMONTH",
+        "VOLWEIGHTPRICE",
+        "VOLUMEPJ",
+        "SUPPLYSTARTDATE",
+        "SUPPLYENDDATE"
+      ],
+      "report": [
+        "GBB",
+        "LNG_TRANSACTIONS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-08",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_LNG_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "LOCATIONNAME",
+        "LOCATIONID",
+        "LOCATIONTYPE",
+        "STATE",
+        "DESCRIPTION",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "LOCATIONS_LIST"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_LOCATIONS_LIST",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYNAME",
+        "FACILITYID",
+        "FROMGASDATE",
+        "TOGASDATE",
+        "CAPACITYTYPE",
+        "FLOWDIRECTION",
+        "RECEIPTLOCATIONNAME",
+        "RECEIPTLOCATION",
+        "DELIVERYLOCATIONNAME",
+        "DELIVERYLOCATION",
+        "CAPACITYDESCRIPTION",
+        "OUTLOOKQUANTITY",
+        "DESCRIPTION",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "MEDIUM_TERM_CAPACITY_OUTLOOK"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_MEDIUM_TERM_CAPACITY_OUTLOOK",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYNAME",
+        "FACILITYID",
+        "FROMGASDATE",
+        "TOGASDATE",
+        "CAPACITYTYPE",
+        "FLOWDIRECTION",
+        "RECEIPTLOCATIONNAME",
+        "RECEIPTLOCATION",
+        "DELIVERYLOCATIONNAME",
+        "DELIVERYLOCATION",
+        "CAPACITYDESCRIPTION",
+        "OUTLOOKQUANTITY",
+        "DESCRIPTION",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "MEDIUM_TERM_CAPACITY_OUTLOOK_FUTURE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-04",
+          "last-release": "2026-10",
+          "runs": 2,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_MEDIUM_TERM_CAPACITY_OUTLOOK",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYNAME",
+        "FACILITYID",
+        "CONNECTIONPOINTID"
+      ],
+      "report": [
+        "GBB",
+        "MISSING_ACTUAL_FLOW_AND_STORAGE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_MISSING_ACTUAL_FLOW_AND_STORAGE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYNAME",
+        "FACILITYID",
+        "CONNECTIONPOINTID"
+      ],
+      "report": [
+        "GBB",
+        "MISSING_NOMINATION_AND_FORECAST"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_MISSING_NOMINATION_AND_FORECAST",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYNAME",
+        "FACILITYID",
+        "FACILITYTYPE",
+        "CAPACITYTYPE",
+        "RECEIPTLOCATION",
+        "RECEIPTLOCATIONNAME",
+        "DELIVERYLOCATION",
+        "DELIVERYLOCATIONNAME",
+        "CAPACITYDESCRIPTION",
+        "FLOWDIRECTION",
+        "CAPACITYQUANTITY",
+        "EFFECTIVEDATE",
+        "DESCRIPTION",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "NAMEPLATE_RATING"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_NAMEPLATE_RATING",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYNAME",
+        "FACILITYID",
+        "FACILITYTYPE",
+        "CAPACITYTYPE",
+        "RECEIPTLOCATION",
+        "RECEIPTLOCATIONNAME",
+        "DELIVERYLOCATION",
+        "DELIVERYLOCATIONNAME",
+        "CAPACITYDESCRIPTION",
+        "FLOWDIRECTION",
+        "CAPACITYQUANTITY",
+        "EFFECTIVEDATE",
+        "DESCRIPTION",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "NAMEPLATE_RATING_CURRENT"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_NAMEPLATE_RATING",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYNAME",
+        "FACILITYID",
+        "FACILITYTYPE",
+        "CONNECTIONPOINTID",
+        "CONNECTIONPOINTNAME",
+        "FLOWDIRECTION",
+        "EXEMPT",
+        "EXEMPTIONDESCRIPTION",
+        "NODEID",
+        "STATEID",
+        "STATENAME",
+        "LOCATIONNAME",
+        "LOCATIONID",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "NODES_AND_CONNECTION_POINTS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_NODES_AND_CONNECTION_POINTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYNAME",
+        "FACILITYID",
+        "FACILITYTYPE",
+        "OPERATINGSTATE",
+        "CONNECTIONPOINTID",
+        "CONNECTIONPOINTNAME",
+        "FLOWDIRECTION",
+        "EXEMPT",
+        "EXEMPTIONDESCRIPTION",
+        "NODEID",
+        "STATEID",
+        "STATENAME",
+        "LOCATIONNAME",
+        "LOCATIONID",
+        "EFFECTIVEDATE",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "NODES_AND_CONNECTION_POINTS_FULL"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 1
+        }
+      ],
+      "table": "GBB_NODES_AND_CONNECTION_POINTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYID",
+        "FACILITYNAME",
+        "FACILITYTYPE",
+        "LOCATIONID",
+        "LOCATIONNAME",
+        "STATE",
+        "DEMAND",
+        "SUPPLY",
+        "TRANSFERIN",
+        "TRANSFEROUT",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "NOMINATION_AND_FORECAST"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_NOMINATION_AND_FORECAST",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYID",
+        "FACILITYNAME",
+        "FACILITYTYPE",
+        "LOCATIONID",
+        "LOCATIONNAME",
+        "STATE",
+        "DEMAND",
+        "SUPPLY",
+        "TRANSFERIN",
+        "TRANSFEROUT",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "NOMINATION_AND_FORECAST_NEXT7"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_NOMINATION_AND_FORECAST",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "TOTAL_RECEIPTS",
+        "TOTAL_DELIVERIES"
+      ],
+      "report": [
+        "GBB",
+        "NT_LNG_FLOW"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_NT_LNG_FLOW",
+      "version": 1
+    },
+    {
+      "columns": [
+        "COMPANYID",
+        "COMPANYNAME",
+        "ORGANISATIONTYPENAME",
+        "ABN",
+        "COMPANYPHONE",
+        "LOCALE",
+        "ADDRESSTYPE",
+        "ADDRESS",
+        "STATE",
+        "POSTCODE",
+        "COMPANYFAX",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "PARTICIPANTS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_PARTICIPANTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYNAME",
+        "FACILITYID",
+        "CONNECTIONPOINTNAME",
+        "CONNECTIONPOINTID",
+        "ACTUALQUANTITY",
+        "FLOWDIRECTION",
+        "STATE",
+        "LOCATIONNAME",
+        "LOCATIONID",
+        "QUALITY"
+      ],
+      "report": [
+        "GBB",
+        "PIPELINE_CONNECTION_FLOW"
+      ],
+      "schemas": [
+        {
+          "first-release": "2021-07",
+          "last-release": "2026-10",
+          "runs": 4,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_PIPELINE_CONNECTION_FLOW",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYNAME",
+        "FACILITYID",
+        "CONNECTIONPOINTNAME",
+        "CONNECTIONPOINTID",
+        "ACTUALQUANTITY",
+        "FLOWDIRECTION",
+        "STATE",
+        "LOCATIONNAME",
+        "LOCATIONID",
+        "QUALITY",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "PIPELINE_CONNECTION_FLOW"
+      ],
+      "schemas": [
+        {
+          "first-release": "2024-06",
+          "last-release": "2026-10",
+          "runs": 3,
+          "schema-id": 1
+        }
+      ],
+      "table": "GBB_PIPELINE_CONNECTION_FLOW",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYNAME",
+        "FACILITYID",
+        "CONNECTIONPOINTNAME",
+        "CONNECTIONPOINTID",
+        "ACTUALQUANTITY",
+        "FLOWDIRECTION",
+        "STATE",
+        "LOCATIONNAME",
+        "LOCATIONID",
+        "QUALITY"
+      ],
+      "report": [
+        "GBB",
+        "PIPELINE_CONNECTION_FLOW_HISTORY"
+      ],
+      "schemas": [
+        {
+          "first-release": "2019-11",
+          "last-release": "2019-11",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_PIPELINE_CONNECTION_FLOW_HISTORY",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYNAME",
+        "FACILITYID",
+        "CONNECTIONPOINTNAME",
+        "CONNECTIONPOINTID",
+        "ACTUALQUANTITY",
+        "FLOWDIRECTION",
+        "STATE",
+        "LOCATIONNAME",
+        "LOCATIONID",
+        "QUALITY",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "PIPELINE_CONNECTION_FLOW_LAST31"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 3,
+          "schema-id": 1
+        }
+      ],
+      "table": "GBB_PIPELINE_CONNECTION_FLOW",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GASDATE",
+        "FACILITYNAME",
+        "FACILITYID",
+        "CONNECTIONPOINTID"
+      ],
+      "report": [
+        "GBB",
+        "PIPELINE_NIL_QUALITY_SUBMISSION"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_PIPELINE_NIL_QUALITY_SUBMISSION",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FIELDID",
+        "FIELDNAME",
+        "FIELDINTERESTID",
+        "DEVELOPEDRESERVE1P",
+        "DEVELOPEDRESERVE2P",
+        "DEVELOPEDRESERVE3P",
+        "UNDEVELOPEDRESERVE1P",
+        "UNDEVELOPEDRESERVE2P",
+        "UNDEVELOPEDRESERVE3P",
+        "RESOURCES2C",
+        "PRODUCTIONCHANGERESERVE2P",
+        "PROVEDAREAEXTENSIONRESERVE2P",
+        "PERCENTAGECHANGERESERVE2P",
+        "UPWARDREVISIONFROM3PRESERVETO2P",
+        "DOWNWARDREVISIONFROM2PRESERVETO3P",
+        "OTHERREVISIONSRESERVE2P",
+        "MATURITYSUBCLASS2P",
+        "MATURITYSUBCLASS2C",
+        "MINDATE2P",
+        "MAXDATE2P",
+        "MINDATE2C",
+        "MAXDATE2C",
+        "EXPECTEDBARRIERS2C",
+        "RESOURCESESTIMATEMETHOD",
+        "CONVERSIONFACTORQTYTCFTOPJ",
+        "ECONOMICASSUMPTION",
+        "UPDATEREASON",
+        "PREPAREDBY",
+        "PREPARATIONINDEPENDENCESTATEMENT",
+        "EFFECTIVEDATE",
+        "VERSIONDATETIME"
+      ],
+      "report": [
+        "GBB",
+        "RESERVES_AND_RESOURCES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_RESERVES_AND_RESOURCES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "EFFECTIVEDATE",
+        "FACILITYID",
+        "FACILITYNAME",
+        "FACILITYTYPE",
+        "COMPANYID",
+        "OPERATORNAME",
+        "SHIPPERNAME",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "SHIPPERS_FULL_LIST"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHIPPERS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "EFFECTIVEDATE",
+        "FACILITYID",
+        "FACILITYNAME",
+        "FACILITYTYPE",
+        "COMPANYID",
+        "OPERATORNAME",
+        "SHIPPERNAME",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "SHIPPERS_LIST"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHIPPERS_LIST",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYID",
+        "FACILITYNAME",
+        "CAPACITYTYPE",
+        "CAPACITYTYPEDESCRIPTION",
+        "FLOWDIRECTION",
+        "GASDATE",
+        "OUTLOOKQUANTITY",
+        "DESCRIPTION",
+        "CAPACITYDESCRIPTION",
+        "RECEIPTLOCATION",
+        "RECEIPTLOCATIONNAME",
+        "DELIVERYLOCATION",
+        "DELIVERYLOCATIONNAME",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_CAPACITY_OUTLOOK"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 2,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_CAPACITY_OUTLOOK",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYID",
+        "FACILITYNAME",
+        "CAPACITYTYPE",
+        "CAPACITYTYPEDESCRIPTION",
+        "FLOWDIRECTION",
+        "GASDATE",
+        "OUTLOOKQUANTITY",
+        "DESCRIPTION",
+        "CAPACITYDESCRIPTION",
+        "RECEIPTLOCATION",
+        "RECEIPTLOCATIONNAME",
+        "DELIVERYLOCATION",
+        "DELIVERYLOCATIONNAME",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_CAPACITY_OUTLOOK_FUTURE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-09",
+          "last-release": "2026-10",
+          "runs": 3,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_CAPACITY_OUTLOOK",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "QUANTITY_TJ",
+        "VOLUMEWEIGHTEDPRICE",
+        "TRANSACTIONTYPE",
+        "SUPPLYPERIODSTART",
+        "SUPPLYPERIODEND"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_SWAP_TRANSACTIONS_NSW"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_SWAP_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "QUANTITY_TJ",
+        "VOLUMEWEIGHTEDPRICE",
+        "TRANSACTIONTYPE",
+        "SUPPLYPERIODSTART",
+        "SUPPLYPERIODEND"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_SWAP_TRANSACTIONS_NT"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_SWAP_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "QUANTITY_TJ",
+        "VOLUMEWEIGHTEDPRICE",
+        "TRANSACTIONTYPE",
+        "SUPPLYPERIODSTART",
+        "SUPPLYPERIODEND"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_SWAP_TRANSACTIONS_QLD"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_SWAP_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "QUANTITY_TJ",
+        "VOLUMEWEIGHTEDPRICE",
+        "TRANSACTIONTYPE",
+        "SUPPLYPERIODSTART",
+        "SUPPLYPERIODEND"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_SWAP_TRANSACTIONS_SA"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_SWAP_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "QUANTITY_TJ",
+        "VOLUMEWEIGHTEDPRICE",
+        "TRANSACTIONTYPE",
+        "SUPPLYPERIODSTART",
+        "SUPPLYPERIODEND"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_SWAP_TRANSACTIONS_TAS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_SWAP_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "QUANTITY_TJ",
+        "VOLUMEWEIGHTEDPRICE",
+        "TRANSACTIONTYPE",
+        "SUPPLYPERIODSTART",
+        "SUPPLYPERIODEND"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_SWAP_TRANSACTIONS_VIC"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_SWAP_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "QUANTITY_TJ",
+        "VOLUMEWEIGHTEDPRICE",
+        "TRANSACTIONTYPE",
+        "SUPPLYPERIODSTART",
+        "SUPPLYPERIODEND"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_TRANSACTIONS_NSW"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "QUANTITY_TJ",
+        "VOLUMEWEIGHTEDPRICE",
+        "TRANSACTIONTYPE",
+        "SUPPLYPERIODSTART",
+        "SUPPLYPERIODEND"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_TRANSACTIONS_NT"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "QUANTITY_TJ",
+        "VOLUMEWEIGHTEDPRICE",
+        "TRANSACTIONTYPE",
+        "SUPPLYPERIODSTART",
+        "SUPPLYPERIODEND"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_TRANSACTIONS_QLD"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "QUANTITY_TJ",
+        "VOLUMEWEIGHTEDPRICE",
+        "TRANSACTIONTYPE",
+        "SUPPLYPERIODSTART",
+        "SUPPLYPERIODEND"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_TRANSACTIONS_SA"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "QUANTITY_TJ",
+        "VOLUMEWEIGHTEDPRICE",
+        "TRANSACTIONTYPE",
+        "SUPPLYPERIODSTART",
+        "SUPPLYPERIODEND"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_TRANSACTIONS_TAS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIODID",
+        "STATE",
+        "QUANTITY_TJ",
+        "VOLUMEWEIGHTEDPRICE",
+        "TRANSACTIONTYPE",
+        "SUPPLYPERIODSTART",
+        "SUPPLYPERIODEND"
+      ],
+      "report": [
+        "GBB",
+        "SHORT_TERM_TRANSACTIONS_VIC"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_SHORT_TERM_TRANSACTIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYID",
+        "FACILITYNAME",
+        "FACILITYTYPE",
+        "OUTLOOKYEAR",
+        "OUTLOOKMONTH",
+        "CAPACITYTYPE",
+        "FLOWDIRECTION",
+        "OUTLOOKQUANTITY",
+        "CAPACITYDESCRIPTION",
+        "RECEIPTLOCATION",
+        "RECEIPTLOCATIONNAME",
+        "DELIVERYLOCATION",
+        "DELIVERYLOCATIONNAME",
+        "DESCRIPTION",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "UNCONTRACTED_CAPACITY_OUTLOOK_FULL_LIST"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_UNCONTRACTED_CAPACITY_OUTLOOK",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITYID",
+        "FACILITYNAME",
+        "FACILITYTYPE",
+        "OUTLOOKYEAR",
+        "OUTLOOKMONTH",
+        "CAPACITYTYPE",
+        "FLOWDIRECTION",
+        "OUTLOOKQUANTITY",
+        "CAPACITYDESCRIPTION",
+        "RECEIPTLOCATION",
+        "RECEIPTLOCATIONNAME",
+        "DELIVERYLOCATION",
+        "DELIVERYLOCATIONNAME",
+        "DESCRIPTION",
+        "LASTUPDATED"
+      ],
+      "report": [
+        "GBB",
+        "UNCONTRACTED_CAPACITY_OUTLOOK_FUTURE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 2,
+          "schema-id": 0
+        }
+      ],
+      "table": "GBB_UNCONTRACTED_CAPACITY_OUTLOOK",
+      "version": 1
+    },
+    {
+      "columns": [
+        "NOTICE_ID",
+        "FACILITY_ID",
+        "FACILITY_NAME",
+        "AUCTION_SERVICE",
+        "CURTAILED",
+        "MATERIAL",
+        "DESCRIPTION",
+        "EFFECTIVE_DATE_TIME",
+        "GAS_DATE",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "AUCTION_CURTAILMENT_NOTICE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-03",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_AUCTION_CURTAIL_NOTICE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "AUCTION_DATE",
+        "GAS_DATE",
+        "FACILITY_ID",
+        "FACILITY_NAME",
+        "LIMIT_ID",
+        "LIMIT_NAME",
+        "LIMIT_TYPE",
+        "CLEARED_QUANTITY",
+        "CLEARED_PRICE",
+        "HIGH_PRICE_SENSITIVITY",
+        "LOW_PRICE_SENSITIVITY",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "AUCTION_PRICE_VOLUME"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_AUCTION_PRICE_VOLUME",
+      "version": 1
+    },
+    {
+      "columns": [
+        "AUCTION_DATE",
+        "GAS_DATE",
+        "FACILITY_ID",
+        "FACILITY_NAME",
+        "LIMIT_ID",
+        "LIMIT_NAME",
+        "LIMIT_TYPE",
+        "LIMIT_QUANTITY",
+        "TRANSITIONAL_RIGHTS_QUANTITY",
+        "OPERATIONAL_OVERRIDE",
+        "VERSION_DATETIME",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "AUCTION_QUANTITIES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_AUCTION_QUANTITIES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "PRODUCT_LOCATION",
+        "PRODUCT_TYPE",
+        "BENCHMARK_PRICE",
+        "IS_FIRM",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "BENCHMARK_PRICE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_BENCHMARK_PRICE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRANSACTION_ID",
+        "VERSION_DATETIME",
+        "TRADE_DATE",
+        "FROM_GAS_DATE",
+        "TO_GAS_DATE",
+        "TRADE_TYPE",
+        "FACILITY_ID",
+        "FACILITY_NAME",
+        "TRANSPORTATION_SERVICE_TYPE",
+        "FLOW_DIRECTION",
+        "RECEIPT_ZONE_ID",
+        "RECEIPT_ZONE_NAME",
+        "DELIVERY_ZONE_ID",
+        "DELIVERY_ZONE_NAME",
+        "PARKLOAN_POINT_ID",
+        "PARK_LOAN_POINT_NAME",
+        "STANDARD_OTSA",
+        "PRIORITY",
+        "MAX_DAILY_QUANTITY",
+        "MAX_HOURLY_QUANTITY",
+        "PRICE",
+        "PRICE_STRUCTURE",
+        "PRICE_ESCALATION_MECHANISM",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "CAPACITY_TRANSACTION"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-01",
+          "last-release": "2026-01",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_CAPACITY_TRANSACTION",
+      "version": 1
+    },
+    {
+      "columns": [
+        "NOTICE_ID",
+        "NOTICE_DATE",
+        "GAS_DATE",
+        "FACILITY_ID",
+        "FACILITY_NAME",
+        "MARKET",
+        "NOTICE_TYPE",
+        "DESCRIPTION",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "CAPACITY_TRANSFER_AUCTION_NT"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-03",
+          "last-release": "2026-08",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_CAP_XFR_AUCTION_NOTICE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITY_ID",
+        "FACILITY_NAME",
+        "FACILITY_DESCRIPTION",
+        "FACILITY_TYPE",
+        "OPERATOR_ID",
+        "OPERATOR_NAME",
+        "EFFECTIVEDATE",
+        "VERSION_DATETIME",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "FACILITIES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_FACILITIES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRADE_DATE",
+        "TYPE",
+        "PRODUCT",
+        "LOCATION",
+        "TRADE_PRICE",
+        "DAILY_QTY_GJ",
+        "START_DATE",
+        "END_DATE",
+        "MANUAL_TRADE"
+      ],
+      "report": [
+        "GSH",
+        "GAS_TRADES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GAS_GSH_TRADES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "PRODUCT_LOCATION",
+        "VOLUME_WEIGHTED_AVERAGE_PRICE",
+        "TOTAL_QUANTITY",
+        "ROLLING_WEIGHTED_AVERAGE_PRICE",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "HISTORICAL_SUMMARY"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_HISTORICAL_SUMMARY",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITY_ID",
+        "SERVICE_POINT_ID",
+        "SERVICE_POINT_NAME",
+        "PHYSICAL_POINT_NAME",
+        "GBB_CONNECTION_POINT_ID",
+        "EFFECTIVEDATE",
+        "VERSION_DATETIME",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "NOTIONAL_POINTS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_NOTIONAL_POINTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITY_ID",
+        "EFFECTIVEDATE",
+        "VERSION_DATETIME",
+        "PARK_PRODUCT_NAME",
+        "PARK_SERVICE_POINT_ID",
+        "PARK_SERVICE_POINT_NAME",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "PARK_SERVICES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_PARK_SERVICES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "MARKET",
+        "PARTICIPANT_ID",
+        "PARTICIPANT_CODE",
+        "ORGANISATION_NAME",
+        "ORGANISATION_CODE",
+        "TRADING_NAME",
+        "HEAD_OFFICE_ADDRESS_LINE_1",
+        "HEAD_OFFICE_ADDRESS_LINE_2",
+        "HEAD_OFFICE_ADDRESS_LINE_3",
+        "HEAD_OFFICE_ADDRESS_LINE_4",
+        "PHONE_NUMBER",
+        "FAX_NUMBER",
+        "ABN",
+        "ARBN",
+        "ACN",
+        "AGENT_ID",
+        "AGENT_NAME",
+        "CLASSIFICATIONS",
+        "LASTCHANGED",
+        "MARKET_ID"
+      ],
+      "report": [
+        "GSH",
+        "PARTICIPANTS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_PARTICIPANTS",
+      "version": 2
+    },
+    {
+      "columns": [
+        "MARKET_ID",
+        "PARTICIPANT_ID",
+        "EFFECTIVEDATE",
+        "VERSION_DATETIME",
+        "STATUS",
+        "AUTHORISEDDATE",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "PARTICIPANT_OPSTATE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_PARTICIPANT_OPSTATE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITY_ID",
+        "FACILITY_NAME",
+        "SEGMENT_ID",
+        "SEGMENT_NAME",
+        "SEGMENT_TYPE",
+        "FROM_ID",
+        "FROM_NAME",
+        "TO_ID",
+        "TO_NAME",
+        "FOR_AUCTION_PUBLICATION",
+        "EFFECTIVEDATE",
+        "VERSION_DATETIME",
+        "CONNECTION_TYPE",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "PIPELINE_SEGMENTS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_PIPELINE_SEGMENTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "AUCTION_DATE",
+        "GAS_DATE",
+        "FACILITY_ID",
+        "FACILITY_NAME",
+        "SERVICE_TYPE",
+        "AGG_CLEARED_QUANTITY",
+        "AGG_REVISED_QUANTITY",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "REVISED_AUCTION_QUANTITIES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_REVISED_AUCT_QUANTITIES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITY_ID",
+        "FACILITY_NAME",
+        "SERVICE_POINT_ID",
+        "SERVICE_POINT_NAME",
+        "AUCTION_PRODUCT_TYPE",
+        "SERVICE_POINT_TYPE",
+        "SERVICE_POINT_DESCRIPTION",
+        "NOTIONAL_POINT",
+        "ZONE_ID",
+        "ZONE_NAME",
+        "GBB_CONNECTION_POINT_ID",
+        "GBB_CONNECTION_POINT_NAME",
+        "FOR_AUCTION_PUBLICATION",
+        "EFFECTIVEDATE",
+        "VERSION_DATETIME",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "SERVICE_POINTS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_SERVICE_POINTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "CURRENTDATE",
+        "PRODUCT_LOCATION",
+        "PRODUCT_TYPE",
+        "FROM_GAS_DATE",
+        "TO_GAS_DATE",
+        "HIGH_PRICE",
+        "LOW_PRICE",
+        "OPEN_PRICE",
+        "CLOSE_PRICE",
+        "VOLUME_WEIGHTED_AVERAGE_PRICE",
+        "TOTAL_QUANTITY",
+        "TOTAL_NUMBER_OF_TRADES",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "TRANSACTION_SUMMARY"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_TRANSACTION_SUMMARY",
+      "version": 1
+    },
+    {
+      "columns": [
+        "ZONE_ID",
+        "ZONE_NAME",
+        "ZONE_TYPE",
+        "ZONE_DESCRIPTION",
+        "FOR_AUCTION_PUBLICATION",
+        "EFFECTIVEDATE",
+        "VERSION_DATETIME",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "ZONES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_ZONES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "FACILITY_ID",
+        "FACILITY_NAME",
+        "SERVICE_POINT_ID",
+        "SERVICE_POINT_NAME",
+        "SERVICE_POINT_TYPE",
+        "SERVICE_POINT_DESCRIPTION",
+        "GAS_DATE",
+        "CURTAILED_QUANTITY",
+        "LASTCHANGED"
+      ],
+      "report": [
+        "GSH",
+        "ZONE_CURTAILMENT_INFORMATION"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-03",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "GSH_ZONE_CURTAILMENT",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "EX_ANTE_MARKET_PRICE",
+        "ADMINISTERED_PRICE_PERIOD",
+        "CAP_APPLIED",
+        "ADMINISTERED_PRICE_CAP",
+        "SCHEDULE_PRICE",
+        "APPROVAL_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT651_EX_ANTE_MARKET_PRICE_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT651_EX_ANTE_MARKET_PRICE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "SCHEDULED_QTY",
+        "FIRM_GAS_SCHEDULED_QTY",
+        "AS_AVAILABLE_SCHEDULED_QTY",
+        "FLOW_DIRECTION",
+        "PRICE_TAKER_BID_QTY",
+        "PRICE_TAKER_BID_NOT_SCHED_QTY",
+        "APPROVAL_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT652_EX_ANTE_SCHEDULE_QUANTITY_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT652_EX_ANTE_SCHEDULE_QUANTITY",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "CAPACITY_QTY",
+        "EX_ANTE_CAPACITY_PRICE",
+        "EX_ANTE_FLOW_DIRECTION_CONSTRAINT_PRICE",
+        "SCHEDULE_CAPACITY_PRICE",
+        "APPROVAL_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT653_EX_ANTE_PIPELINE_PRICE_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 1
+        }
+      ],
+      "table": "STTM_INT653_EX_ANTE_PIPELINE_PRICE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "CAPACITY_QTY",
+        "CAPACITY_QTY_QUALITY_TYPE",
+        "EX_ANTE_CAPACITY_PRICE",
+        "EX_ANTE_FLOW_DIRECTION_CONSTRAINT_PRICE",
+        "SCHEDULE_CAPACITY_PRICE",
+        "APPROVAL_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT653_EX_ANTE_PIPELINE_PRICE_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 2
+        }
+      ],
+      "table": "STTM_INT653_EX_ANTE_PIPELINE_PRICE",
+      "version": 2
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "CAPACITY_QTY",
+        "CAPACITY_QTY_QUALITY_TYPE",
+        "CAPACITY_QTY_DATETIME",
+        "EX_ANTE_CAPACITY_PRICE",
+        "EX_ANTE_FLOW_DIRECTION_CONSTRAINT_PRICE",
+        "SCHEDULE_CAPACITY_PRICE",
+        "APPROVAL_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT653_EX_ANTE_PIPELINE_PRICE_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 2,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT653_EX_ANTE_PIPELINE_PRICE",
+      "version": 3
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "PROVISIONAL_PRICE",
+        "PROVISIONAL_SCHEDULE_TYPE",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT654_PROVISIONAL_MARKET_PRICE_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT654_PROVISIONAL_MARKET_PRICE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "PROVISIONAL_QTY",
+        "PROVISIONAL_FIRM_GAS_SCHEDULED",
+        "PROVISIONAL_AS_AVAILABLE_SCHEDULED",
+        "FLOW_DIRECTION",
+        "PRICE_TAKER_BID_PROVISIONAL_NOT_SCHED_QTY",
+        "PRICE_TAKER_BID_PROVISIONAL_QTY",
+        "PROVISIONAL_SCHEDULE_TYPE",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT655_PROVISIONAL_SCHEDULE_QUANTITY_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT655_PROVISIONAL_SCHEDULE_QUANTITY",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "PROVISIONAL_CAPACITY_QTY",
+        "PROVISIONAL_CAPACITY_PRICE",
+        "PROVISIONAL_FLOW_CONSTRAINT_PRICE",
+        "PROVISIONAL_SCHEDULE_TYPE",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT656_PROVISIONAL_PIPELINE_DATA_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 1
+        }
+      ],
+      "table": "STTM_INT656_PROVISIONAL_PIPELINE_DATA",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "PROVISIONAL_CAPACITY_QTY",
+        "PROV_CAP_QTY_QUALITY_TYPE",
+        "PROVISIONAL_CAPACITY_PRICE",
+        "PROVISIONAL_FLOW_CONSTRAINT_PRICE",
+        "PROVISIONAL_SCHEDULE_TYPE",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT656_PROVISIONAL_PIPELINE_DATA_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 2,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT656_PROVISIONAL_PIPELINE_DATA",
+      "version": 2
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "IMBALANCE_QTY",
+        "EX_POST_IMBALANCE_PRICE",
+        "IMBALANCE_TYPE",
+        "SCHEDULE_IMBALANCE_PRICE",
+        "APPROVAL_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT657_EX_POST_MARKET_DATA_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 1
+        }
+      ],
+      "table": "STTM_INT657_EX_POST_MARKET_DATA",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "IMBALANCE_QTY",
+        "EX_POST_IMBALANCE_PRICE",
+        "SCHEDULE_TYPE_CODE",
+        "IMBALANCE_TYPE",
+        "SCHEDULE_IMBALANCE_PRICE",
+        "APPROVAL_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT657_EX_POST_MARKET_DATA_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 2,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT657_EX_POST_MARKET_DATA",
+      "version": 2
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "ALLOCATION_QTY_INC_MOS",
+        "FLOW_DIRECTION",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT658_ALLOCATION_QUANTITY_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT658_ALLOCATION_QUANTITY",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "ALLOCATION_QTY_INC_MOS",
+        "FLOW_DIRECTION",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT658_LATEST_ALLOCATION_QUANTITY_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 2,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT658_ALLOCATION_QUANTITY",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "COMPANY_IDENTIFIER",
+        "COMPANY_NAME",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "BID_OFFER_IDENTIFIER",
+        "BID_OFFER_STEP_NUMBER",
+        "STEP_PRICE",
+        "STEP_CAPPED_CUMULATIVE_QTY",
+        "BID_OFFER_TYPE",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT659_BID_OFFER"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT659_BID_OFFER",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "COMPANY_IDENTIFIER",
+        "COMPANY_NAME",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_IDENTIFIER",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "BID_OFFER_IDENTIFIER",
+        "BID_OFFER_STEP_NUMBER",
+        "STEP_PRICE",
+        "STEP_CAPPED_CUMULATIVE_QTY",
+        "BID_OFFER_TYPE",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT659_BID_OFFER_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 2,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT659_BID_OFFER",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "FLOW_DIRECTION",
+        "CONTINGENCY_GAS_BID_OFFER_TYPE",
+        "COMPANY_IDENTIFIER",
+        "COMPANY_NAME",
+        "CONTINGENCY_GAS_BID_OFFER_IDENTIFIER",
+        "CONTINGENCY_GAS_BID_OFFER_STEP_NUMBER",
+        "CONTINGENCY_GAS_BID_OFFER_STEP_PRICE",
+        "CONTINGENCY_GAS_BID_OFFER_STEP_QUANTITY",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT660_CONTINGENCY_GAS_BIDS_AND_OFFERS_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT660_CONTINGENCY_GAS_BIDS_AND_OFFERS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "CONTINGENCY_GAS_CALLED_IDENTIFIER",
+        "FLOW_DIRECTION",
+        "CONTINGENCY_GAS_BID_OFFER_TYPE",
+        "COMPANY_IDENTIFIER",
+        "COMPANY_NAME",
+        "CONTINGENCY_GAS_BID_OFFER_IDENTIFIER",
+        "CONTINGENCY_GAS_BID_OFFER_STEP_NUMBER",
+        "CONTINGENCY_GAS_BID_OFFER_STEP_PRICE",
+        "CONTINGENCY_GAS_BID_OFFER_STEP_QUANTITY",
+        "CONTINGENCY_GAS_BID_OFFER_CONFIRMED_STEP_QUANTITY",
+        "CONTINGENCY_GAS_BID_OFFER_CALLED_STEP_QUANTITY",
+        "APPROVAL_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT661_CONTINGENCY_GAS_CALLED_SCHEDULED_BID_OFFER_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT661_CONTINGENCY_GAS_CALLED_SCHEDULED_BID_OFFER",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "TOTAL_DEVIATION_QTY",
+        "NET_DEVIATION_QTY",
+        "DEVIATION_CHARGE",
+        "DEVIATION_PAYMENT",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT662_PROVISIONAL_DEVIATION_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT662_PROVISIONAL_DEVIATION",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "VARIATION_QTY",
+        "VARIATION_CHARGE",
+        "MOS_CAPACITY_PAYMENT",
+        "MOS_CASHOUT_PAYMENT",
+        "MOS_CASHOUT_CHARGE",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT663_PROVISIONAL_VARIATION_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT663_PROVISIONAL_VARIATION",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "MOS_ALLOCATED_QTY",
+        "MOS_OVERRUN_QTY",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT664_DAILY_PROVISIONAL_MOS_ALLOCATION_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT664_DAILY_PROVISIONAL_MOS_ALLOCATION",
+      "version": 1
+    },
+    {
+      "columns": [
+        "EFFECTIVE_FROM_DATE",
+        "EFFECTIVE_TO_DATE",
+        "STACK_IDENTIFIER",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "STACK_TYPE",
+        "ESTIMATED_MAXIMUM_QUANTITY",
+        "STACK_STEP_IDENTIFIER",
+        "TRADING_PARTICIPANT_IDENTIFIER",
+        "TRADING_PARTICIPANT_NAME",
+        "STEP_QUANTITY",
+        "STEP_PRICE",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT665_MOS_STACK_DATA_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT665_MOS_STACK_DATA",
+      "version": 1
+    },
+    {
+      "columns": [
+        "MARKET_NOTICE_IDENTIFIER",
+        "CRITICAL_NOTICE_FLAG",
+        "MARKET_MESSAGE",
+        "NOTICE_START_DATE",
+        "NOTICE_END_DATE",
+        "URL_PATH",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT666_MARKET_NOTICE_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT666_MARKET_NOTICE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "EFFECTIVE_FROM_DATE",
+        "EFFECTIVE_TO_DATE",
+        "PARAMETER_CODE",
+        "PARAMETER_DESCRIPTION",
+        "PARAMETER_VALUE",
+        "LAST_UPDATE_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT667_MARKET_PARAMETERS_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT667_MARKET_PARAMETERS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "SCHEDULE_IDENTIFIER",
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "SCHEDULE_TYPE",
+        "SCHEDULE_DAY",
+        "CREATION_DATETIME",
+        "BID_OFFER_CUT_OFF_DATETIME",
+        "FACILITY_HUB_CAPACITY_CUT_OFF_DATETIME",
+        "PIPELINE_ALLOCATION_CUT_OFF_DATETIME",
+        "APPROVAL_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT668_SCHEDULE_LOG_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT668_SCHEDULE_LOG",
+      "version": 1
+    },
+    {
+      "columns": [
+        "SETTLEMENT_RUN_IDENTIFIER",
+        "SETTLEMENT_CAT_TYPE",
+        "VERSION_FROM_DATE",
+        "VERSION_TO_DATE",
+        "INTEREST_RATE",
+        "ISSUED_DATETIME",
+        "SETTLEMENT_RUN_DESC",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT669_SETTLEMENT_VERSION_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT669_SETTLEMENT_VERSION",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "COMPANY_IDENTIFIER",
+        "COMPANY_NAME",
+        "ABN",
+        "ACN",
+        "ORGANISATION_REGISTRATION_TYPE",
+        "REGISTERED_CAPACITY",
+        "REGISTERED_CAPACITY_STATUS",
+        "LINE_1",
+        "LINE_2",
+        "LINE_3",
+        "STATE_ID",
+        "CITY",
+        "POSTAL_CODE",
+        "PHONE",
+        "FAX",
+        "LAST_UPDATE_DATETIME",
+        "REGISTRATION_STATUS",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT670_REGISTERED_PARTICIPANTS_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT670_REGISTERED_PARTICIPANTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "FACILITY_TYPE",
+        "LAST_UPDATE_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT671_HUB_FACILITY_DEFINITION_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT671_HUB_FACILITY_DEFINITION",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "CUMULATIVE_PRICE",
+        "CUMULATIVE_PRICE_THRESHOLD",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT672_CUMULATIVE_PRICE_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT672_CUMULATIVE_PRICE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "TOTAL_CONTINGENCY_GAS_BID_QTY",
+        "TOTAL_CONTINGENCY_GAS_OFFER_QTY",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT673_TOTAL_CONTINGENCY_BID_OFFER_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT673_TOTAL_CONTINGENCY_BID_OFFER",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "CONTINGENCY_GAS_CALLED_IDENTIFIER",
+        "FLOW_DIRECTION",
+        "CONTINGENCY_GAS_BID_OFFER_TYPE",
+        "CONTINGENCY_GAS_BID_OFFER_CALLED_QUANTITY",
+        "APPROVAL_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT674_TOTAL_CONTINGENCY_GAS_SCHEDULES_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT674_TOTAL_CONTINGENCY_GAS_SCHEDULES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "NOTICE_IDENTIFIER",
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "NOTICE_MESSAGE",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT675_DEFAULT_ALLOCATION_NOTICE_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT675_DEFAULT_ALLOCATION_NOTICE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "ROLLING_AVERAGE",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT676_ROLLING_AVERAGE_PRICE_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT676_ROLLING_AVERAGE_PRICE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "CONTINGENCY_GAS_CALLED_IDENTIFIER",
+        "HIGH_CONTINGENCY_GAS_PRICE",
+        "LOW_CONTINGENCY_GAS_PRICE",
+        "SCHEDULE_HIGH_CONTINGENCY_GAS_PRICE",
+        "SCHEDULE_LOW_CONTINGENCY_GAS_PRICE",
+        "APPROVAL_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT677_CONTINGENCY_GAS_PRICE_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT677_CONTINGENCY_GAS_PRICE",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PERIOD_START_DATE",
+        "PERIOD_END_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "NET_MARKET_BALANCE",
+        "TOTAL_DEVIATION_QTY",
+        "TOTAL_WITHDRAWALS",
+        "TOTAL_VARIATION_CHARGES",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT678_NET_MARKET_BALANCE_DAILY_AMOUNTS_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT678_NET_MARKET_BALANCE_DAILY_AMOUNTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "SETTLEMENT_RUN_IDENTIFIER",
+        "PERIOD_START_DATE",
+        "PERIOD_END_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "NET_MARKET_BALANCE",
+        "TOTAL_DEVIATION_QTY",
+        "TOTAL_WITHDRAWALS",
+        "TOTAL_VARIATION_CHARGES",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT679_NET_MARKET_BALANCE_SETTLEMENT_AMOUNTS_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT679_NET_MARKET_BALANCE_SETTLEMENT_AMOUNTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "EFFECTIVE_FROM_DATE",
+        "EFFECTIVE_TO_DATE",
+        "DP_FLAG",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT680_DP_FLAG_DATA_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT680_DP_FLAG_DATA",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "FIRM_NOT_FLOWED",
+        "AS_AVAILABLE_FLOWED",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT681_DAILY_PROVISIONAL_CAPACITY_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT681_DAILY_PROVISIONAL_CAPACITY",
+      "version": 1
+    },
+    {
+      "columns": [
+        "SETTLEMENT_RUN_IDENTIFIER",
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "MOS_ALLOCATED_QTY",
+        "MOS_OVERRUN_QTY",
+        "FIRM_NOT_FLOWED",
+        "AS_AVAILABLE_FLOWED",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT682_SETTLEMENT_MOS_AND_CAPACITY_DATA_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT682_SETTLEMENT_MOS_AND_CAPACITY_DATA",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "STACK_IDENTIFIER",
+        "STACK_TYPE",
+        "STACK_STEP_IDENTIFIER",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT683_PROVISIONAL_USED_MOS_STEPS_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT683_PROVISIONAL_USED_MOS_STEPS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "SETTLEMENT_RUN_IDENTIFIER",
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "STACK_IDENTIFIER",
+        "STACK_TYPE",
+        "STACK_STEP_IDENTIFIER",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT684_SETTLEMENT_USED_MOS_STEPS_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT684_SETTLEMENT_USED_MOS_STEPS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "EFFECTIVE_FROM_DATE",
+        "EFFECTIVE_TO_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "DEFAULT_CAPACITY",
+        "MAXIMUM_CAPACITY",
+        "HIGH_CAPACITY_THRESHOLD",
+        "LOW_CAPACITY_THRESHOLD",
+        "LAST_UPDATE_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT687_FACILITY_HUB_CAPACITY_DATA_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT687_FACILITY_HUB_CAPACITY_DATA",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "UPPER_WARNING_LIMIT",
+        "LOWER_WARNING_LIMIT",
+        "LAST_UPDATE_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT688_ALLOCATION_WARNING_LIMIT_THRESHOLDS_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT688_ALLOCATION_WARNING_LIMIT_THRESHOLDS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "ALLOCATION_QTY_INC_MOS",
+        "ALLOCATION_QTY_QUALITY_TYPE",
+        "FLOW_DIRECTION",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT689_EXPOST_FACILITY_ALLOCATION_QUANTITY_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT689_EXPOST_FACILITY_ALLOCATION_QUANTITY",
+      "version": 1
+    },
+    {
+      "columns": [
+        "GAS_DATE",
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "POSITIVE_DEVIATION_PRICE",
+        "NEGATIVE_DEVIATION_PRICE",
+        "EX_ANTE_MARKET_PRICE",
+        "EX_POST_IMBALANCE_PRICE",
+        "LOW_CONTINGENCY_GAS_PRICE",
+        "HIGH_CONTINGENCY_GAS_PRICE",
+        "MOS_INCREASE_COST",
+        "MOS_DECREASE_COST",
+        "LAST_UPDATE_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT690_DEVIATION_PRICE_DATA_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT690_DEVIATION_PRICE_DATA",
+      "version": 1
+    },
+    {
+      "columns": [
+        "HUB_IDENTIFIER",
+        "HUB_NAME",
+        "FACILITY_IDENTIFIER",
+        "FACILITY_NAME",
+        "FACILITY_TYPE",
+        "CTP_IDENTIFIER",
+        "CTP_NAME",
+        "EFFECTIVE_FROM_DATE",
+        "EFFECTIVE_TO_DATE",
+        "LAST_UPDATE_DATETIME",
+        "REPORT_DATETIME"
+      ],
+      "report": [
+        "STTM",
+        "INT691_STTM_CTP_REGISTER_RPT_1"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "STTM_INT691_STTM_CTP_REGISTER",
+      "version": 1
+    }
+  ],
+  "x-format": 3
+}

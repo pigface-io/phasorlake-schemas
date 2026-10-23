@@ -1,0 +1,182 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "statement_version_id",
+    "10": "event_liability_qty",
+    "11": "annual_cap_limit",
+    "12": "annual_liability_amt",
+    "13": "annual_liability_qty",
+    "14": "net_dts_uplift_amt",
+    "15": "modified_surprise_uplift_amt",
+    "16": "modified_surprise_uplift_qty",
+    "17": "common_uplift_amt",
+    "18": "common_uplift_qty",
+    "19": "current_date",
+    "2": "gas_date",
+    "3": "sched_no",
+    "4": "total_uplift_amt",
+    "5": "tuq_qty",
+    "6": "dts_uplift_amt",
+    "7": "final_qds_gj",
+    "8": "event_cap_rate",
+    "9": "event_liability_amt"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 5,
+      "from": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PublicRpts21.zip",
+        "release": "2026-09",
+        "sha256": "af810782dbd1bd4baac2e55d7e29f26ac9a0abc27819b40c86f2b6b1a0678793"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT322A_UPLIFT_BREAKDOWN_SETT_1"
+      ],
+      "rows": 760,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-30T00:00:00+10:00",
+        "file": "PublicRpts09.zip",
+        "release": "2026-10",
+        "sha256": "89c080082b6f397490f3a948271d772417b446237cf15a22116661cabba4a07b"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "STATEMENT_VERSION_ID",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 2,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "SCHED_NO",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 4,
+          "name": "TOTAL_UPLIFT_AMT",
+          "required": false,
+          "type": "decimal(9, 9)"
+        },
+        {
+          "id": 5,
+          "name": "TUQ_QTY",
+          "required": false,
+          "type": "decimal(12, 9)"
+        },
+        {
+          "id": 6,
+          "name": "DTS_UPLIFT_AMT",
+          "required": false,
+          "type": "decimal(4, 4)"
+        },
+        {
+          "id": 7,
+          "name": "FINAL_QDS_GJ",
+          "required": false,
+          "type": "decimal(9, 9)"
+        },
+        {
+          "id": 8,
+          "name": "EVENT_CAP_RATE",
+          "required": false,
+          "type": "decimal(11, 9)"
+        },
+        {
+          "id": 9,
+          "name": "EVENT_LIABILITY_AMT",
+          "required": false,
+          "type": "decimal(9, 9)"
+        },
+        {
+          "id": 10,
+          "name": "EVENT_LIABILITY_QTY",
+          "required": false,
+          "type": "decimal(9, 9)"
+        },
+        {
+          "id": 11,
+          "name": "ANNUAL_CAP_LIMIT",
+          "required": false,
+          "type": "decimal(11, 4)"
+        },
+        {
+          "id": 12,
+          "name": "ANNUAL_LIABILITY_AMT",
+          "required": false,
+          "type": "decimal(4, 4)"
+        },
+        {
+          "id": 13,
+          "name": "ANNUAL_LIABILITY_QTY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "NET_DTS_UPLIFT_AMT",
+          "required": false,
+          "type": "decimal(9, 9)"
+        },
+        {
+          "id": 15,
+          "name": "MODIFIED_SURPRISE_UPLIFT_AMT",
+          "required": false,
+          "type": "decimal(9, 9)"
+        },
+        {
+          "id": 16,
+          "name": "MODIFIED_SURPRISE_UPLIFT_QTY",
+          "required": false,
+          "type": "decimal(12, 9)"
+        },
+        {
+          "id": 17,
+          "name": "COMMON_UPLIFT_AMT",
+          "required": false,
+          "type": "decimal(9, 9)"
+        },
+        {
+          "id": 18,
+          "name": "COMMON_UPLIFT_QTY",
+          "required": false,
+          "type": "decimal(9, 9)"
+        },
+        {
+          "id": 19,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT322A_UPLIFT_BREAKDOWN_SETT"
+}

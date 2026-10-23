@@ -1,0 +1,63 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "BasinId",
+    "2": "BasinName"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": null,
+        "file": "GasBBBasins.csv",
+        "release": "2026-10",
+        "sha256": "3b4cbc9ecc3017f3d9375f253db43159e7056c8ae130a8de3baa65f5ce8f67d7"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "BASINS"
+      ],
+      "rows": 15,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "GasBBBasins.csv",
+        "release": "2026-10",
+        "sha256": "3b4cbc9ecc3017f3d9375f253db43159e7056c8ae130a8de3baa65f5ce8f67d7"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "BASINID",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 2,
+          "name": "BASINNAME",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_BASINS"
+}

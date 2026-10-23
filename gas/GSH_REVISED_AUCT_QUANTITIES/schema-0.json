@@ -1,0 +1,140 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_REVISED_AUCT_QUANTITIES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AGG_CLEARED_QUANTITY": {
+      "description": "The aggregated initial cleared capacity quantity as determined by the auction (GJ/day).",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "AGG_REVISED_QUANTITY": {
+      "description": "The aggregated revised auction capacity quantity (GJ/day).",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "AUCTION_DATE": {
+      "description": "The date of the auction run. Disregard the time component as this is not applicable.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "FACILITY_ID": {
+      "description": "The unique identifier of the facility.",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "FACILITY_NAME": {
+      "description": "The descriptive name of the facility.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "GAS_DATE": {
+      "description": "The effective gas date of the capacity won at auction Disregard the time component as this is not applicable.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report was generated.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "SERVICE_TYPE": {
+      "description": "The type of service, for example Forward Haul, Backhaul or Compression.",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    }
+  },
+  "required": [
+    "AUCTION_DATE",
+    "GAS_DATE",
+    "FACILITY_ID",
+    "SERVICE_TYPE"
+  ],
+  "title": "GSH_REVISED_AUCT_QUANTITIES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "AUCTION_DATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "GAS_DATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "FACILITY_ID",
+      "long"
+    ],
+    [
+      4,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      5,
+      "SERVICE_TYPE",
+      "string"
+    ],
+    [
+      6,
+      "AGG_CLEARED_QUANTITY",
+      "long"
+    ],
+    [
+      7,
+      "AGG_REVISED_QUANTITY",
+      "long"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    3,
+    2,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_REVISED_AUCT_QUANTITIES"
+  }
+}

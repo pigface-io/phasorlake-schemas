@@ -1,0 +1,112 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_LOCATIONS_LIST/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DESCRIPTION": {
+      "description": "Location description",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Description",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(800)"
+    },
+    "LASTUPDATED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "LastUpdated",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOCATIONID": {
+      "description": "Unique Node Location Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "LocationId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "LOCATIONNAME": {
+      "description": "Name of the location.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "LocationName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "LOCATIONTYPE": {
+      "description": "Type of location",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "LocationType",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(40)"
+    },
+    "STATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "State",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "GBB_LOCATIONS_LIST, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "LOCATIONNAME",
+      "string"
+    ],
+    [
+      2,
+      "LOCATIONID",
+      "decimal(6, 0)"
+    ],
+    [
+      3,
+      "LOCATIONTYPE",
+      "string"
+    ],
+    [
+      4,
+      "STATE",
+      "string"
+    ],
+    [
+      5,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      6,
+      "LASTUPDATED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_LOCATIONS_LIST"
+  }
+}

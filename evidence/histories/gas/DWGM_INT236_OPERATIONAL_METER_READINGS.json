@@ -1,0 +1,112 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "direction_code_name",
+    "3": "direction",
+    "4": "commencement_datetime",
+    "5": "termination_datetime",
+    "6": "quantity",
+    "7": "time_sort_order",
+    "8": "mod_datetime",
+    "9": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 772,
+      "from": {
+        "data-time": "2026-08-29T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT236_OPERATIONAL_METER_READINGS_1"
+      ],
+      "rows": 23114,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T00:00:00+10:00",
+        "file": "int236_v4_operational_meter_readings_1.csv@20261021T221100+1000",
+        "release": "2026-10",
+        "sha256": "03cf58559c61c9d3db869cfff2722b4b079e3c786b1ca55eeeb748b038d3fe84"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "DIRECTION_CODE_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "DIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "COMMENCEMENT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "TERMINATION_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "QUANTITY",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 7,
+          "name": "TIME_SORT_ORDER",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 8,
+          "name": "MOD_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 9,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT236_OPERATIONAL_METER_READINGS"
+}

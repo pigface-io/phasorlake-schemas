@@ -1,0 +1,128 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "schedule_no",
+    "3": "positive_ave_ancillary_rate",
+    "4": "negative_ave_ancillary_rate",
+    "5": "positive_uplift_rate",
+    "6": "negative_uplift_rate",
+    "7": "current_datetime"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": null,
+        "file": "int135_v4_uplift_cap~20100817153329.csv",
+        "release": "2010-08",
+        "sha256": "38e164548379050f015fc71e2fbab4f7e6b0008ce6b8b4244dd7ad216adde363"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT135_UPLIFT_CAP"
+      ],
+      "rows": 0,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "int135_v4_uplift_cap~20100817153329.csv",
+        "release": "2010-08",
+        "sha256": "38e164548379050f015fc71e2fbab4f7e6b0008ce6b8b4244dd7ad216adde363"
+      },
+      "updates": [],
+      "version": 4
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 33,
+      "from": {
+        "data-time": null,
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT135_UPLIFT_CAP_1"
+      ],
+      "rows": 0,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "int135_v4_uplift_cap_1.csv",
+        "release": "2026-10",
+        "sha256": "38e164548379050f015fc71e2fbab4f7e6b0008ce6b8b4244dd7ad216adde363"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "SCHEDULE_NO",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "POSITIVE_AVE_ANCILLARY_RATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "NEGATIVE_AVE_ANCILLARY_RATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "POSITIVE_UPLIFT_RATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "NEGATIVE_UPLIFT_RATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "CURRENT_DATETIME",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT135_UPLIFT_CAP"
+}

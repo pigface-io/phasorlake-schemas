@@ -1,0 +1,119 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "10": "current_date",
+    "2": "schedule_interval",
+    "3": "transmission_id",
+    "4": "mirn",
+    "5": "tie_breaking_event",
+    "6": "cc_bids",
+    "7": "non_cc_bids",
+    "8": "part_cc_bids",
+    "9": "gas_not_scheduled"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 34,
+      "from": {
+        "data-time": "2026-08-30T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT381_TIE_BREAKING_EVENT_1"
+      ],
+      "rows": 2550,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "int381_v4_tie_breaking_event_1.csv@20261021T191100+1000",
+        "release": "2026-10",
+        "sha256": "8874c5385887762e6e34ff3834e470f7a7e2208a180793bdb20d606c721043ff"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "SCHEDULE_INTERVAL",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "TRANSMISSION_ID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "MIRN",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "TIE_BREAKING_EVENT",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "CC_BIDS",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 7,
+          "name": "NON_CC_BIDS",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 8,
+          "name": "PART_CC_BIDS",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 9,
+          "name": "GAS_NOT_SCHEDULED",
+          "required": false,
+          "type": "decimal(14, 9)"
+        },
+        {
+          "id": 10,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT381_TIE_BREAKING_EVENT"
+}

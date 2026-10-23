@@ -1,0 +1,168 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "10": "uplift",
+    "11": "su_uplift",
+    "12": "ex_uplift",
+    "13": "cx_uplift",
+    "14": "tp_uplift",
+    "15": "el_uplift",
+    "16": "rc_uplift",
+    "17": "other_uplift",
+    "2": "gas_hour",
+    "3": "uafg_28_days_pct",
+    "4": "prov_system_inj_gj",
+    "5": "prov_system_wdl_gj",
+    "6": "prov_net_gj",
+    "7": "market_price",
+    "8": "total_gas_sold_gj",
+    "9": "total_gas_bought_gj"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": null,
+        "file": "int312_v1_settlements_activity_report_1.csv",
+        "release": "2026-05",
+        "sha256": "ee4381a8b14f173cdb1b608b46316a9370a2a2997a39cdd381bdbc726e1780bb"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT312_SETTLEMENTS_ACTIVITY_REPORT_1"
+      ],
+      "rows": 0,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "int312_v1_settlements_activity_report_1.csv",
+        "release": "2026-05",
+        "sha256": "ee4381a8b14f173cdb1b608b46316a9370a2a2997a39cdd381bdbc726e1780bb"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "GAS_HOUR",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "UAFG_28_DAYS_PCT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PROV_SYSTEM_INJ_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "PROV_SYSTEM_WDL_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "PROV_NET_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "MARKET_PRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "TOTAL_GAS_SOLD_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "TOTAL_GAS_BOUGHT_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "UPLIFT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "SU_UPLIFT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "EX_UPLIFT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "CX_UPLIFT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "TP_UPLIFT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "EL_UPLIFT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 16,
+          "name": "RC_UPLIFT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "OTHER_UPLIFT",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT312_SETTLEMENTS_ACTIVITY_REPORT_1"
+}

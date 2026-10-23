@@ -1,0 +1,98 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "effective_from_date",
+    "2": "effective_to_date",
+    "3": "parameter_code",
+    "4": "parameter_description",
+    "5": "parameter_value",
+    "6": "last_update_datetime",
+    "7": "report_datetime"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 34,
+      "from": {
+        "data-time": "2009-01-01T00:00:00+10:00",
+        "file": "Day31.zip",
+        "release": "2026-08",
+        "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT667_MARKET_PARAMETERS_RPT_1"
+      ],
+      "rows": 5,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2009-01-01T00:00:00+10:00",
+        "file": "int667_v1_market_parameters_rpt_1.csv@20261021T191600+1000",
+        "release": "2026-10",
+        "sha256": "29b1f09cd465a119f9f24e1cd1ea6cdb105cfd63785a91e3cea1de7de6f5dc18"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVE_FROM_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "EFFECTIVE_TO_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "PARAMETER_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PARAMETER_DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "PARAMETER_VALUE",
+          "required": false,
+          "type": "decimal(7, 4)"
+        },
+        {
+          "id": 6,
+          "name": "LAST_UPDATE_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT667_MARKET_PARAMETERS"
+}

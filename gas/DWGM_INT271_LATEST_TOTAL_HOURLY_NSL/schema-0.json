@@ -1,0 +1,106 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT271_LATEST_TOTAL_HOURLY_NSL/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "NETWORK_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "network_id",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "NSL_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "nsl_gj",
+      "x-iceberg-type": "decimal(14, 9)"
+    },
+    "NSL_UPDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "nsl_update",
+      "x-iceberg-type": "timestamptz"
+    },
+    "TI": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "ti",
+      "x-iceberg-type": "decimal(2, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT271_LATEST_TOTAL_HOURLY_NSL, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "NETWORK_ID",
+      "decimal(1, 0)"
+    ],
+    [
+      2,
+      "NSL_UPDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      4,
+      "TI",
+      "decimal(2, 0)"
+    ],
+    [
+      5,
+      "NSL_GJ",
+      "decimal(14, 9)"
+    ],
+    [
+      6,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT271_LATEST_TOTAL_HOURLY_NSL"
+  }
+}

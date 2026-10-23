@@ -1,0 +1,133 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "auction_id",
+    "10": "quantities_won_gj",
+    "11": "unallocated_qty",
+    "12": "current_date",
+    "2": "auction_date",
+    "3": "zone_id",
+    "4": "zone_name",
+    "5": "zone_type",
+    "6": "start_date",
+    "7": "end_date",
+    "8": "cc_period",
+    "9": "clearing_price"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-01-01T00:00:00+10:00",
+        "file": "int353_v4_ccauction_qty_won_1.csv",
+        "release": "2026-10",
+        "sha256": "1ae30ed8b5779011293393d2f7a1476fcced7fa27687d53051493f7c8739e65e"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT353_CCAUCTION_QTY_WON_1"
+      ],
+      "rows": 178,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2025-06-01T00:00:00+10:00",
+        "file": "int353_v4_ccauction_qty_won_1.csv",
+        "release": "2026-10",
+        "sha256": "1ae30ed8b5779011293393d2f7a1476fcced7fa27687d53051493f7c8739e65e"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "AUCTION_ID",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 2,
+          "name": "AUCTION_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "ZONE_ID",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 4,
+          "name": "ZONE_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "ZONE_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "START_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 7,
+          "name": "END_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 8,
+          "name": "CC_PERIOD",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "CLEARING_PRICE",
+          "required": false,
+          "type": "decimal(5, 4)"
+        },
+        {
+          "id": 10,
+          "name": "QUANTITIES_WON_GJ",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 11,
+          "name": "UNALLOCATED_QTY",
+          "required": false,
+          "type": "decimal(14, 9)"
+        },
+        {
+          "id": 12,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT353_CCAUCTION_QTY_WON"
+}

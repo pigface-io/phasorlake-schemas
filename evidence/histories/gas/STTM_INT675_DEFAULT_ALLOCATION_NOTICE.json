@@ -1,0 +1,105 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "notice_identifier",
+    "2": "gas_date",
+    "3": "hub_identifier",
+    "4": "hub_name",
+    "5": "facility_identifier",
+    "6": "facility_name",
+    "7": "notice_message",
+    "8": "report_datetime"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-05-16T00:00:00+10:00",
+        "file": "int675_v1_default_allocation_notice_rpt_1.csv",
+        "release": "2026-10",
+        "sha256": "d5329e6218fe85edcf8958566e9d84e3b9b36d79e15818ea6d38cf289019fe20"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT675_DEFAULT_ALLOCATION_NOTICE_RPT_1"
+      ],
+      "rows": 1,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-16T00:00:00+10:00",
+        "file": "int675_v1_default_allocation_notice_rpt_1.csv",
+        "release": "2026-10",
+        "sha256": "d5329e6218fe85edcf8958566e9d84e3b9b36d79e15818ea6d38cf289019fe20"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "NOTICE_IDENTIFIER",
+          "required": false,
+          "type": "decimal(10, 0)"
+        },
+        {
+          "id": 2,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "HUB_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "HUB_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FACILITY_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "NOTICE_MESSAGE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT675_DEFAULT_ALLOCATION_NOTICE"
+}

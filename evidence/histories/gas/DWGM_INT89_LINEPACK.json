@@ -1,0 +1,126 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "10": "adm_price_flag",
+    "11": "current_date",
+    "2": "total_inj_gj",
+    "3": "total_wd_gj",
+    "4": "eod_linepack_gj",
+    "5": "linepack_acct_gj",
+    "6": "linepack_acct_pmt_GST_Ex",
+    "7": "adjust_linepack_acct_pmt_GST_Ex",
+    "8": "linepack_acct_bal_GST_Ex",
+    "9": "market_price_GST_Ex"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": null,
+        "file": "int89_linepack_1.csv",
+        "release": "2026-05",
+        "sha256": "edb8e5bf5807fe94b5724e4604a36ce2b4fd09d4780ab1c6067898fbefbc5178"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT89_LINEPACK_1"
+      ],
+      "rows": 0,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "int89_linepack_1.csv",
+        "release": "2026-05",
+        "sha256": "edb8e5bf5807fe94b5724e4604a36ce2b4fd09d4780ab1c6067898fbefbc5178"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "TOTAL_INJ_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "TOTAL_WD_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "EOD_LINEPACK_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "LINEPACK_ACCT_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "LINEPACK_ACCT_PMT_GST_EX",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "ADJUST_LINEPACK_ACCT_PMT_GST_EX",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "LINEPACK_ACCT_BAL_GST_EX",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "MARKET_PRICE_GST_EX",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "ADM_PRICE_FLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT89_LINEPACK"
+}

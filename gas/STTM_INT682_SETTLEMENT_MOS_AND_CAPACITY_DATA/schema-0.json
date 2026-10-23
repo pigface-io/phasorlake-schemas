@@ -1,0 +1,175 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT682_SETTLEMENT_MOS_AND_CAPACITY_DATA/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AS_AVAILABLE_FLOWED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "as_available_flowed",
+      "x-iceberg-type": "decimal(14, 9)"
+    },
+    "FACILITY_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "facility_identifier",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "facility_name",
+      "x-iceberg-type": "string"
+    },
+    "FIRM_NOT_FLOWED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "firm_not_flowed",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "MOS_ALLOCATED_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "mos_allocated_qty",
+      "x-iceberg-type": "decimal(14, 9)"
+    },
+    "MOS_OVERRUN_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "mos_overrun_qty",
+      "x-iceberg-type": "decimal(9, 9)"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "SETTLEMENT_RUN_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "settlement_run_identifier",
+      "x-iceberg-type": "decimal(3, 0)"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT682_SETTLEMENT_MOS_AND_CAPACITY_DATA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENT_RUN_IDENTIFIER",
+      "decimal(3, 0)"
+    ],
+    [
+      2,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      3,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      4,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      5,
+      "FACILITY_IDENTIFIER",
+      "string"
+    ],
+    [
+      6,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      7,
+      "MOS_ALLOCATED_QTY",
+      "decimal(14, 9)"
+    ],
+    [
+      8,
+      "MOS_OVERRUN_QTY",
+      "decimal(9, 9)"
+    ],
+    [
+      9,
+      "FIRM_NOT_FLOWED",
+      "decimal(15, 9)"
+    ],
+    [
+      10,
+      "AS_AVAILABLE_FLOWED",
+      "decimal(14, 9)"
+    ],
+    [
+      11,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT682_SETTLEMENT_MOS_AND_CAPACITY_DATA"
+  }
+}

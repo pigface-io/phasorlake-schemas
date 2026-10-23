@@ -1,0 +1,154 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "effective_from_date",
+    "10": "stack_step_identifier",
+    "11": "trading_participant_identifier",
+    "12": "trading_participant_name",
+    "13": "step_quantity",
+    "14": "step_price",
+    "15": "report_datetime",
+    "2": "effective_to_date",
+    "3": "stack_identifier",
+    "4": "hub_identifier",
+    "5": "hub_name",
+    "6": "facility_identifier",
+    "7": "facility_name",
+    "8": "stack_type",
+    "9": "estimated_maximum_quantity"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 34,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "Day31.zip",
+        "release": "2026-08",
+        "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT665_MOS_STACK_DATA_RPT_1"
+      ],
+      "rows": 2573,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "int665_v1_mos_stack_data_rpt_1.csv@20261021T191600+1000",
+        "release": "2026-10",
+        "sha256": "e197294983b62509908acb975897f10bb9ac0bb8d7aefd2131a036064dcba4b1"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVE_FROM_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "EFFECTIVE_TO_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "STACK_IDENTIFIER",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 4,
+          "name": "HUB_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "HUB_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FACILITY_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "STACK_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "ESTIMATED_MAXIMUM_QUANTITY",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 10,
+          "name": "STACK_STEP_IDENTIFIER",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 11,
+          "name": "TRADING_PARTICIPANT_IDENTIFIER",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 12,
+          "name": "TRADING_PARTICIPANT_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "STEP_QUANTITY",
+          "required": false,
+          "type": "decimal(13, 9)"
+        },
+        {
+          "id": 14,
+          "name": "STEP_PRICE",
+          "required": false,
+          "type": "decimal(6, 4)"
+        },
+        {
+          "id": 15,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT665_MOS_STACK_DATA"
+}

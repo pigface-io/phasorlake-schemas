@@ -1,0 +1,168 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "hv_zone",
+    "10": "pentane_n",
+    "11": "pentane_neo",
+    "12": "hexane",
+    "13": "nitrogen",
+    "14": "carbon_dioxide",
+    "15": "hydrogen",
+    "16": "spec_gravity",
+    "17": "current_date",
+    "2": "hv_zone_desc",
+    "3": "gas_date",
+    "4": "methane",
+    "5": "ethane",
+    "6": "propane",
+    "7": "butane_i",
+    "8": "butane_n",
+    "9": "pentane_i"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 6,
+      "from": {
+        "data-time": "2026-07-22T00:00:00+10:00",
+        "file": "PublicRpts20.zip",
+        "release": "2026-09",
+        "sha256": "631725ac99f0eadc5f841bbc113ce882c1d694f05cdd5eb1465f3885aa320fb4"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT176_GAS_COMPOSITION_DATA_1"
+      ],
+      "rows": 18850,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-17T00:00:00+10:00",
+        "file": "int176_v4_gas_composition_data_1.csv",
+        "release": "2026-10",
+        "sha256": "865435654eac9dc607002a9accda593885b228d9af693bec5fdd679d61ef3ba2"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "HV_ZONE",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 2,
+          "name": "HV_ZONE_DESC",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 4,
+          "name": "METHANE",
+          "required": false,
+          "type": "decimal(7, 5)"
+        },
+        {
+          "id": 5,
+          "name": "ETHANE",
+          "required": false,
+          "type": "decimal(6, 5)"
+        },
+        {
+          "id": 6,
+          "name": "PROPANE",
+          "required": false,
+          "type": "decimal(6, 5)"
+        },
+        {
+          "id": 7,
+          "name": "BUTANE_I",
+          "required": false,
+          "type": "decimal(5, 5)"
+        },
+        {
+          "id": 8,
+          "name": "BUTANE_N",
+          "required": false,
+          "type": "decimal(5, 5)"
+        },
+        {
+          "id": 9,
+          "name": "PENTANE_I",
+          "required": false,
+          "type": "decimal(5, 5)"
+        },
+        {
+          "id": 10,
+          "name": "PENTANE_N",
+          "required": false,
+          "type": "decimal(5, 5)"
+        },
+        {
+          "id": 11,
+          "name": "PENTANE_NEO",
+          "required": false,
+          "type": "decimal(5, 5)"
+        },
+        {
+          "id": 12,
+          "name": "HEXANE",
+          "required": false,
+          "type": "decimal(5, 5)"
+        },
+        {
+          "id": 13,
+          "name": "NITROGEN",
+          "required": false,
+          "type": "decimal(6, 5)"
+        },
+        {
+          "id": 14,
+          "name": "CARBON_DIOXIDE",
+          "required": false,
+          "type": "decimal(6, 5)"
+        },
+        {
+          "id": 15,
+          "name": "HYDROGEN",
+          "required": false,
+          "type": "decimal(5, 5)"
+        },
+        {
+          "id": 16,
+          "name": "SPEC_GRAVITY",
+          "required": false,
+          "type": "decimal(5, 5)"
+        },
+        {
+          "id": 17,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT176_GAS_COMPOSITION_DATA"
+}

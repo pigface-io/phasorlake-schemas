@@ -1,0 +1,427 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT276_HOURLY_SCADA_PRESSURES_AT_MCE_NODES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CURRENT_HOUR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "current_hour",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_01_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "hour_01_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_02_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "hour_02_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_03_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "hour_03_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_04_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "hour_04_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_05_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "hour_05_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_06_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "hour_06_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_07_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "hour_07_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_08_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "hour_08_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_09_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "hour_09_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_10_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "hour_10_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_11_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "hour_11_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_12_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "hour_12_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_13_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "hour_13_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_14_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "hour_14_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_15_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-header": "hour_15_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_16_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-header": "hour_16_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_17_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-header": "hour_17_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_18_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-header": "hour_18_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_19_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-header": "hour_19_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_20_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-header": "hour_20_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_21_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-header": "hour_21_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_22_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-header": "hour_22_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_23_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-header": "hour_23_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "HOUR_24_AGO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-header": "hour_24_ago",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "MEASUREMENT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "measurement_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "NODE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "node_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "NODE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "node_name",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT276_HOURLY_SCADA_PRESSURES_AT_MCE_NODES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "NODE_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      2,
+      "NODE_NAME",
+      "string"
+    ],
+    [
+      3,
+      "MEASUREMENT_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "CURRENT_HOUR",
+      "decimal(4, 0)"
+    ],
+    [
+      5,
+      "HOUR_01_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      6,
+      "HOUR_02_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      7,
+      "HOUR_03_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      8,
+      "HOUR_04_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      9,
+      "HOUR_05_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      10,
+      "HOUR_06_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      11,
+      "HOUR_07_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      12,
+      "HOUR_08_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      13,
+      "HOUR_09_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      14,
+      "HOUR_10_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      15,
+      "HOUR_11_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      16,
+      "HOUR_12_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      17,
+      "HOUR_13_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      18,
+      "HOUR_14_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      19,
+      "HOUR_15_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      20,
+      "HOUR_16_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      21,
+      "HOUR_17_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      22,
+      "HOUR_18_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      23,
+      "HOUR_19_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      24,
+      "HOUR_20_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      25,
+      "HOUR_21_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      26,
+      "HOUR_22_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      27,
+      "HOUR_23_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      28,
+      "HOUR_24_AGO",
+      "decimal(4, 0)"
+    ],
+    [
+      29,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT276_HOURLY_SCADA_PRESSURES_AT_MCE_NODES"
+  }
+}

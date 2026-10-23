@@ -1,0 +1,84 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "TransactionMonth",
+    "2": "VolWeightPrice",
+    "3": "VolumePJ",
+    "4": "SupplyStartDate",
+    "5": "SupplyEndDate"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-10-07T00:00:00+10:00",
+        "file": "GasBBLNGTransactions.csv",
+        "release": "2026-08",
+        "sha256": "a16e18422bfeaaf7620a4a1c48d0490db5cf7b092bdd99ec8f25cd384ec58b50"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "LNG_TRANSACTIONS"
+      ],
+      "rows": 14,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-22T00:00:00+10:00",
+        "file": "GasBBLNGTransactions.csv",
+        "release": "2026-08",
+        "sha256": "a16e18422bfeaaf7620a4a1c48d0490db5cf7b092bdd99ec8f25cd384ec58b50"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRANSACTIONMONTH",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "VOLWEIGHTPRICE",
+          "required": false,
+          "type": "decimal(8, 6)"
+        },
+        {
+          "id": 3,
+          "name": "VOLUMEPJ",
+          "required": false,
+          "type": "decimal(5, 3)"
+        },
+        {
+          "id": 4,
+          "name": "SUPPLYSTARTDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 5,
+          "name": "SUPPLYENDDATE",
+          "required": false,
+          "type": "date"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_LNG_TRANSACTIONS"
+}

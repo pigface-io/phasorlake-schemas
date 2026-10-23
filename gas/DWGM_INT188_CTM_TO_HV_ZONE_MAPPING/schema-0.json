@@ -1,0 +1,105 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT188_CTM_TO_HV_ZONE_MAPPING/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "EFFECTIVE_FROM": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "effective_from",
+      "x-iceberg-type": "date"
+    },
+    "HV_ZONE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hv_zone",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "HV_ZONE_DESC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "hv_zone_desc",
+      "x-iceberg-type": "string"
+    },
+    "MIRN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "mirn",
+      "x-iceberg-type": "string"
+    },
+    "SITE_COMPANY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "site_company",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT188_CTM_TO_HV_ZONE_MAPPING, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "MIRN",
+      "string"
+    ],
+    [
+      2,
+      "SITE_COMPANY",
+      "string"
+    ],
+    [
+      3,
+      "HV_ZONE",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "HV_ZONE_DESC",
+      "string"
+    ],
+    [
+      5,
+      "EFFECTIVE_FROM",
+      "date"
+    ],
+    [
+      6,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT188_CTM_TO_HV_ZONE_MAPPING"
+  }
+}

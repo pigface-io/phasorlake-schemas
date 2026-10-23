@@ -1,0 +1,134 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT351_CCREGISTRY_SUMMARY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "END_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "end_date",
+      "x-iceberg-type": "date"
+    },
+    "SOURCE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "source",
+      "x-iceberg-type": "string"
+    },
+    "START_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "start_date",
+      "x-iceberg-type": "date"
+    },
+    "TOTAL_HOLDING_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "total_holding_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "ZONE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "zone_id",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "ZONE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "zone_name",
+      "x-iceberg-type": "string"
+    },
+    "ZONE_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "zone_type",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT351_CCREGISTRY_SUMMARY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "ZONE_ID",
+      "decimal(1, 0)"
+    ],
+    [
+      2,
+      "ZONE_NAME",
+      "string"
+    ],
+    [
+      3,
+      "ZONE_TYPE",
+      "string"
+    ],
+    [
+      4,
+      "START_DATE",
+      "date"
+    ],
+    [
+      5,
+      "END_DATE",
+      "date"
+    ],
+    [
+      6,
+      "TOTAL_HOLDING_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      7,
+      "SOURCE",
+      "string"
+    ],
+    [
+      8,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT351_CCREGISTRY_SUMMARY"
+  }
+}

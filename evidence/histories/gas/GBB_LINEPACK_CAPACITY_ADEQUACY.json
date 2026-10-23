@@ -1,0 +1,128 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "FacilityName",
+    "2": "FacilityId",
+    "3": "FacilityType",
+    "4": "GasDate",
+    "5": "Flag",
+    "6": "Description",
+    "7": "LastUpdated"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 47,
+      "from": {
+        "data-time": "2025-09-30T11:15:00+10:00",
+        "file": "GasBBLinepackCapacityAdequacyFuture_20250930111729.CSV",
+        "release": "2025-09",
+        "sha256": "d4456c586d4f2ebb21266730267b1ff65d9561c186faeca712f5977628d3998f"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "LINEPACK_CAPACITY_ADEQUACY_FUTURE"
+      ],
+      "rows": 7398,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-24T09:15:00+10:00",
+        "file": "GasBBLinepackCapacityAdequacyFuture.CSV@20261022T084700+1000",
+        "release": "2026-10",
+        "sha256": "d978a4e1e3666efdeed8c64415ab5c6bf70d2f70b74abd7bfdfdc4a94a01c6ad"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2018-09-30T00:00:00+10:00",
+        "file": "GasBBLinepackCapacityAdequacyFullList.zip",
+        "release": "2026-10",
+        "sha256": "f771b0d7c010115cf3df26baa85758d859d380a212fd6389a9ba26d72494758c"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "LINEPACK_CAPACITY_ADEQUACY_FULL_LIST"
+      ],
+      "rows": 649582,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2027-06-30T00:00:00+10:00",
+        "file": "GasBBLinepackCapacityAdequacyFullList.zip@20261022T031000+1000",
+        "release": "2026-10",
+        "sha256": "1c30428844cc7282fb4119711a9b068d20e9d90c2703df016e50f3d3c2390e97"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "GASDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "FLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "LASTUPDATED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_LINEPACK_CAPACITY_ADEQUACY"
+}

@@ -1,0 +1,105 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "network_name",
+    "2": "version_id",
+    "3": "fro_name",
+    "4": "distributor_name",
+    "5": "withdrawal_zone",
+    "6": "curr_cum_date",
+    "7": "curr_cum_imb_position",
+    "8": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2026-09-22T00:00:00+10:00",
+        "file": "PublicRpts22.zip",
+        "release": "2026-09",
+        "sha256": "20d32cafc8e00f1760ea246fec625d26dd91304d25f9a1caeb65db5bf23993a1"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT583_MONTHLY_CUMULATIVE_IMB_POS_1"
+      ],
+      "rows": 140,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-07T00:00:00+10:00",
+        "file": "int583_v4_monthly_cumulative_imb_pos_1.csv",
+        "release": "2026-10",
+        "sha256": "a81ef9f5aecfe68b6fb00b8531943631060c662f7a679d965dc75b32269fea71"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "NETWORK_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "VERSION_ID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "FRO_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "DISTRIBUTOR_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "WITHDRAWAL_ZONE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "CURR_CUM_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 7,
+          "name": "CURR_CUM_IMB_POSITION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT583_MONTHLY_CUMULATIVE_IMB_POS"
+}

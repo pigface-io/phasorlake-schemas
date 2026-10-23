@@ -1,0 +1,147 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "DevFacilityId",
+    "10": "DevelopmentStage",
+    "11": "RelatedFacilityId",
+    "12": "RelatedFacilityName",
+    "13": "Comments",
+    "14": "ReportingEntity",
+    "2": "ProposedName",
+    "3": "EffectiveDate",
+    "4": "FacilityType",
+    "5": "MinNameplate",
+    "6": "MaxNameplate",
+    "7": "Location",
+    "8": "PlannedCommissionFrom",
+    "9": "PlannedCommissionTo"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 40,
+      "from": {
+        "data-time": "2023-03-15T00:00:00+10:00",
+        "file": "GasBBFacilityDevelopments_20251028023042.csv",
+        "release": "2025-10",
+        "sha256": "4f459459ee796ba8d279ffe5d047c183a83a53dc7dba500fa64371e9731a09f5"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "FACILITY_DEVELOPMENTS"
+      ],
+      "rows": 311,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-14T00:00:00+10:00",
+        "file": "GasBBFacilityDevelopments.csv",
+        "release": "2026-10",
+        "sha256": "da8399b2cbe2f38be42eddc9eaaa5829e1e1dffa4d362564ef35472a8582148c"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "DEVFACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 2,
+          "name": "PROPOSEDNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "EFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "FACILITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "MINNAMEPLATE",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 6,
+          "name": "MAXNAMEPLATE",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 7,
+          "name": "LOCATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "PLANNEDCOMMISSIONFROM",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "PLANNEDCOMMISSIONTO",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "DEVELOPMENTSTAGE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "RELATEDFACILITYID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "RELATEDFACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "COMMENTS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "REPORTINGENTITY",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_FACILITY_DEVELOPMENTS"
+}

@@ -1,0 +1,217 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_CONNECTION_POINT_NAMEPLATE_RATING/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CAPACITYQUANTITY": {
+      "description": "Quantity of available capacity in TJs and support just 3 decimal places during the defined period",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "CapacityQuantity",
+      "x-iceberg-type": "decimal(7, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "CONNECTIONPOINTID": {
+      "description": "Unique connection point identifier.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "ConnectionPointId",
+      "x-iceberg-type": "decimal(7, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "CONNECTIONPOINTNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "ConnectionPointName",
+      "x-iceberg-type": "string"
+    },
+    "DESCRIPTION": {
+      "description": "Description for reasons or comments directly related to the quantity or change in Outlook quantity in relation to the Facility.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Description",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(255)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Effective date of the record",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "EffectiveDate",
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "FACILITYID": {
+      "description": "Unique Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "FACILITYNAME": {
+      "description": "Name of the Facility",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "FACILITYTYPE": {
+      "description": "Describes the type of facility. Refer to the GAS_FACILITY_TYPE table",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "FacilityType",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(40)"
+    },
+    "LASTUPDATED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "LastUpdated",
+      "x-iceberg-type": "timestamptz"
+    },
+    "OPERATORID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "OperatorId",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "OPERATORNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "OperatorName",
+      "x-iceberg-type": "string"
+    },
+    "OWNERID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "OwnerId",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "OWNERNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "OwnerName",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "GBB_CONNECTION_POINT_NAMEPLATE_RATING, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CONNECTIONPOINTID",
+      "decimal(7, 0)"
+    ],
+    [
+      2,
+      "CONNECTIONPOINTNAME",
+      "string"
+    ],
+    [
+      3,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "CAPACITYQUANTITY",
+      "decimal(7, 3)"
+    ],
+    [
+      5,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      6,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      7,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      8,
+      "FACILITYTYPE",
+      "string"
+    ],
+    [
+      9,
+      "OPERATORID",
+      "decimal(3, 0)"
+    ],
+    [
+      10,
+      "OPERATORNAME",
+      "string"
+    ],
+    [
+      11,
+      "OWNERID",
+      "decimal(3, 0)"
+    ],
+    [
+      12,
+      "OWNERNAME",
+      "string"
+    ],
+    [
+      13,
+      "LASTUPDATED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_CONNECTION_POINT_NAMEPLATE_RATING"
+  }
+}

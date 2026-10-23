@@ -1,0 +1,140 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "general_information_id",
+    "10": "commencement_date",
+    "11": "termination_date",
+    "12": "last_mod_date",
+    "13": "current_date",
+    "2": "r_factor",
+    "3": "super_compressability_factor",
+    "4": "t_factor",
+    "5": "viscosity",
+    "6": "voll_price",
+    "7": "number_of_steps",
+    "8": "eod_linepack_min",
+    "9": "eod_linepack_max"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "1998-06-23T00:00:00+10:00",
+        "file": "int256_v4_mce_factor_1.csv",
+        "release": "2026-10",
+        "sha256": "4846d8c1790cc5f552589656a22716710b2fe8c4e7a57c33f5bbdf95e7858734"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT256_MCE_FACTOR_1"
+      ],
+      "rows": 7,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2008-06-18T00:00:00+10:00",
+        "file": "int256_v4_mce_factor_1.csv",
+        "release": "2026-10",
+        "sha256": "4846d8c1790cc5f552589656a22716710b2fe8c4e7a57c33f5bbdf95e7858734"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GENERAL_INFORMATION_ID",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 2,
+          "name": "R_FACTOR",
+          "required": false,
+          "type": "decimal(5, 5)"
+        },
+        {
+          "id": 3,
+          "name": "SUPER_COMPRESSABILITY_FACTOR",
+          "required": false,
+          "type": "decimal(2, 2)"
+        },
+        {
+          "id": 4,
+          "name": "T_FACTOR",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 5,
+          "name": "VISCOSITY",
+          "required": false,
+          "type": "decimal(6, 6)"
+        },
+        {
+          "id": 6,
+          "name": "VOLL_PRICE",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 7,
+          "name": "NUMBER_OF_STEPS",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 8,
+          "name": "EOD_LINEPACK_MIN",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 9,
+          "name": "EOD_LINEPACK_MAX",
+          "required": false,
+          "type": "decimal(7, 1)"
+        },
+        {
+          "id": 10,
+          "name": "COMMENCEMENT_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 11,
+          "name": "TERMINATION_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 12,
+          "name": "LAST_MOD_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT256_MCE_FACTOR"
+}

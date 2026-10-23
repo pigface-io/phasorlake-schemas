@@ -1,0 +1,98 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "network_name",
+    "2": "version_id",
+    "3": "extract_type",
+    "4": "version_from_date",
+    "5": "version_to_date",
+    "6": "issued_date",
+    "7": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 7,
+      "from": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PublicRpts21.zip",
+        "release": "2026-09",
+        "sha256": "af810782dbd1bd4baac2e55d7e29f26ac9a0abc27819b40c86f2b6b1a0678793"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT438_BMP_VERSION_NON_PTS_1"
+      ],
+      "rows": 15,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "PublicRpts09.zip",
+        "release": "2026-10",
+        "sha256": "89c080082b6f397490f3a948271d772417b446237cf15a22116661cabba4a07b"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "NETWORK_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "VERSION_ID",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 3,
+          "name": "EXTRACT_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "VERSION_FROM_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "VERSION_TO_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "ISSUED_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT438_BMP_VERSION_NON_PTS"
+}

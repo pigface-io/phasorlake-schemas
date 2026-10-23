@@ -1,0 +1,126 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "bid_id",
+    "10": "inject_withdraw",
+    "11": "current_date",
+    "2": "gas_date",
+    "3": "market_participant_id",
+    "4": "company_name",
+    "5": "mirn",
+    "6": "bid_step",
+    "7": "bid_price",
+    "8": "bid_qty_gj",
+    "9": "step_qty_gj"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 34,
+      "from": {
+        "data-time": "2025-08-31T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT314_BID_STACK_1"
+      ],
+      "rows": 238292,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "int314_v4_bid_stack_1.csv@20261021T191100+1000",
+        "release": "2026-10",
+        "sha256": "8745c44a78ce203bb1dd6d65c48bff70d0b596649431b3631a47af35becfc5bf"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "BID_ID",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 2,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "MARKET_PARTICIPANT_ID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 4,
+          "name": "COMPANY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "MIRN",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "BID_STEP",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 7,
+          "name": "BID_PRICE",
+          "required": false,
+          "type": "decimal(7, 4)"
+        },
+        {
+          "id": 8,
+          "name": "BID_QTY_GJ",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 9,
+          "name": "STEP_QTY_GJ",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 10,
+          "name": "INJECT_WITHDRAW",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT314_BID_STACK"
+}

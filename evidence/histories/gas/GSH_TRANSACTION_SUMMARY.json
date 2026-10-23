@@ -1,0 +1,132 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 462,
+      "from": {
+        "data-time": "2025-10-01T00:00:00+10:00",
+        "file": "PUBLIC_DAILYTRANSACTIONSUMMARY_20251001.zip",
+        "release": "2025-10",
+        "sha256": "f39607ff514ea8bd21436731a5be11b9e0570cffb7d942d4079fa813fde845f3"
+      },
+      "kinds": [
+        "gsh/archive",
+        "gsh/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GSH",
+        "TRANSACTION_SUMMARY"
+      ],
+      "rows": 3755,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T00:00:00+10:00",
+        "file": "PUBLIC_DAILYTRANSACTIONSUMMARY_20261021_0000000544105651.zip",
+        "release": "2026-10",
+        "sha256": "65e7c98e3d320b3f91cc48e2c84d9c860292ab55187d356d8b7bed2712a1cd12"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CURRENTDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "PRODUCT_LOCATION",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "PRODUCT_TYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "FROM_GAS_DATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "TO_GAS_DATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "HIGH_PRICE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 7,
+          "name": "LOW_PRICE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 8,
+          "name": "OPEN_PRICE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 9,
+          "name": "CLOSE_PRICE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 10,
+          "name": "VOLUME_WEIGHTED_AVERAGE_PRICE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 11,
+          "name": "TOTAL_QUANTITY",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 12,
+          "name": "TOTAL_NUMBER_OF_TRADES",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 13,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        4,
+        2,
+        3,
+        5
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GSH_TRANSACTION_SUMMARY"
+}

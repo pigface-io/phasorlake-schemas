@@ -1,0 +1,188 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT312_SETTLEMENTS_ACTIVITY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CU_UPLIFT_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "cu_uplift_amt",
+      "x-iceberg-type": "decimal(4, 4)"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "RU_UPLIFT_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "ru_uplift_amt",
+      "x-iceberg-type": "decimal(4, 4)"
+    },
+    "SU_UPLIFT_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "su_uplift_amt",
+      "x-iceberg-type": "decimal(4, 4)"
+    },
+    "TOTAL_ACTUAL_INJ_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "total_actual_inj_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "TOTAL_ACTUAL_WDL_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "total_actual_wdl_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "TOTAL_SCHEDULED_INJ_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "total_scheduled_inj_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "TOTAL_SCHEDULED_WDL_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "total_scheduled_wdl_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "TOTAL_UPLIFT_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "total_uplift_amt",
+      "x-iceberg-type": "decimal(9, 4)"
+    },
+    "TU_UPLIFT_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "tu_uplift_amt",
+      "x-iceberg-type": "decimal(4, 4)"
+    },
+    "UAFG_28_DAYS_PCT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "uafg_28_days_pct",
+      "x-iceberg-type": "decimal(3, 2)"
+    },
+    "VU_UPLIFT_AMT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "vu_uplift_amt",
+      "x-iceberg-type": "decimal(4, 4)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT312_SETTLEMENTS_ACTIVITY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "UAFG_28_DAYS_PCT",
+      "decimal(3, 2)"
+    ],
+    [
+      3,
+      "TOTAL_SCHEDULED_INJ_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      4,
+      "TOTAL_SCHEDULED_WDL_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      5,
+      "TOTAL_ACTUAL_INJ_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      6,
+      "TOTAL_ACTUAL_WDL_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      7,
+      "TOTAL_UPLIFT_AMT",
+      "decimal(9, 4)"
+    ],
+    [
+      8,
+      "SU_UPLIFT_AMT",
+      "decimal(4, 4)"
+    ],
+    [
+      9,
+      "CU_UPLIFT_AMT",
+      "decimal(4, 4)"
+    ],
+    [
+      10,
+      "VU_UPLIFT_AMT",
+      "decimal(4, 4)"
+    ],
+    [
+      11,
+      "TU_UPLIFT_AMT",
+      "decimal(4, 4)"
+    ],
+    [
+      12,
+      "RU_UPLIFT_AMT",
+      "decimal(4, 4)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT312_SETTLEMENTS_ACTIVITY"
+  }
+}

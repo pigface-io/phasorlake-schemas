@@ -1,0 +1,113 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 474,
+      "from": {
+        "data-time": "2025-10-05T20:31:01+10:00",
+        "file": "PUBLIC_AUCTIONCURTAILMENTNOTICE _20251001.zip",
+        "release": "2025-10",
+        "sha256": "a2950aa92784afe780ac6acaff65195e97455b891085ecce355d7628c91990a4"
+      },
+      "kinds": [
+        "gsh/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "GSH",
+        "AUCTION_CURTAILMENT_NOTICE"
+      ],
+      "rows": 1697,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-03-30T22:16:01+10:00",
+        "file": "PUBLIC_AUCTIONCURTAILMENTNOTICE _20260301.zip",
+        "release": "2026-03",
+        "sha256": "e50fa76736eb7cab393c1c2fb3bdf88d1e1ac2d47d8982106edefe2047db6184"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "NOTICE_ID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "FACILITY_ID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "AUCTION_SERVICE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "CURTAILED",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "MATERIAL",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "EFFECTIVE_DATE_TIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 9,
+          "name": "GAS_DATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 10,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        4,
+        8,
+        2,
+        9,
+        1
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GSH_AUCTION_CURTAIL_NOTICE"
+}

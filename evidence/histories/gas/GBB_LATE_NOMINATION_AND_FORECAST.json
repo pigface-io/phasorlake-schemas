@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "GasDate",
+    "2": "FacilityName",
+    "3": "FacilityId",
+    "4": "ConnectionPointId",
+    "5": "EarliestSubmissionDate",
+    "6": "LateTimeSpan"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-08-28T00:00:00+10:00",
+        "file": "GasBBLateNominationAndForecast.zip",
+        "release": "2026-10",
+        "sha256": "f219693e1d2f0a051524430e8f0aa190e7146f00a9cb0947474d1fb2f9af25a1"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "LATE_NOMINATION_AND_FORECAST"
+      ],
+      "rows": 257,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "GasBBLateNominationAndForecast.zip",
+        "release": "2026-10",
+        "sha256": "f219693e1d2f0a051524430e8f0aa190e7146f00a9cb0947474d1fb2f9af25a1"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GASDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 5,
+          "name": "EARLIESTSUBMISSIONDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "LATETIMESPAN",
+          "required": false,
+          "type": "decimal(8, 6)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_LATE_NOMINATION_AND_FORECAST"
+}

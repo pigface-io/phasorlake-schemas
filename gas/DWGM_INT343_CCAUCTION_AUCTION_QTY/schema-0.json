@@ -1,0 +1,133 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT343_CCAUCTION_AUCTION_QTY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUCTION_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "auction_date",
+      "x-iceberg-type": "date"
+    },
+    "AUCTION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "auction_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "AVAILABLE_CAPACITY_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "available_capacity_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "CAPACITY_PERIOD": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "capacity_period",
+      "x-iceberg-type": "string"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "ZONE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "zone_id",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "ZONE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "zone_name",
+      "x-iceberg-type": "string"
+    },
+    "ZONE_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "zone_type",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT343_CCAUCTION_AUCTION_QTY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "AUCTION_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      2,
+      "ZONE_ID",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "ZONE_NAME",
+      "string"
+    ],
+    [
+      4,
+      "ZONE_TYPE",
+      "string"
+    ],
+    [
+      5,
+      "CAPACITY_PERIOD",
+      "string"
+    ],
+    [
+      6,
+      "AUCTION_DATE",
+      "date"
+    ],
+    [
+      7,
+      "AVAILABLE_CAPACITY_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      8,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT343_CCAUCTION_AUCTION_QTY"
+  }
+}

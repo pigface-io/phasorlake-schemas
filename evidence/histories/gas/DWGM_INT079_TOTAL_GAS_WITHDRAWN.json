@@ -1,0 +1,84 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "unit_id",
+    "3": "qty",
+    "4": "qty_reinj",
+    "5": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 34,
+      "from": {
+        "data-time": "2026-08-24T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT079_TOTAL_GAS_WITHDRAWN_1"
+      ],
+      "rows": 97,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "int079_v4_total_gas_withdrawn_1.csv@20261021T191100+1000",
+        "release": "2026-10",
+        "sha256": "051b5199a8d9a03eb0ec9f4525aaa828bc5a6dcf126747dd6f14a3078dba14b8"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "UNIT_ID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "QTY",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 4,
+          "name": "QTY_REINJ",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 5,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT079_TOTAL_GAS_WITHDRAWN"
+}

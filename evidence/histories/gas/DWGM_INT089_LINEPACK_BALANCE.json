@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "total_imb_pmt",
+    "3": "total_dev_pmt",
+    "4": "linepack_acct_pmt_gst_ex",
+    "5": "linepack_acct_bal_gst_ex",
+    "6": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 25,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT089_LINEPACK_BALANCE_1"
+      ],
+      "rows": 231,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-18T00:00:00+10:00",
+        "file": "int089_v4_linepack_balance_1.csv@20261021T191100+1000",
+        "release": "2026-10",
+        "sha256": "0fe93e911e979e1a6cdf21fd4fd649b128d350b5160ee3ac97edf4804d782928"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "TOTAL_IMB_PMT",
+          "required": false,
+          "type": "decimal(11, 4)"
+        },
+        {
+          "id": 3,
+          "name": "TOTAL_DEV_PMT",
+          "required": false,
+          "type": "decimal(11, 4)"
+        },
+        {
+          "id": 4,
+          "name": "LINEPACK_ACCT_PMT_GST_EX",
+          "required": false,
+          "type": "decimal(10, 4)"
+        },
+        {
+          "id": 5,
+          "name": "LINEPACK_ACCT_BAL_GST_EX",
+          "required": false,
+          "type": "decimal(10, 4)"
+        },
+        {
+          "id": 6,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT089_LINEPACK_BALANCE"
+}

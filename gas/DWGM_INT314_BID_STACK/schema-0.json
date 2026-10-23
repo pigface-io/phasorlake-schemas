@@ -1,0 +1,175 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT314_BID_STACK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BID_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "bid_id",
+      "x-iceberg-type": "decimal(7, 0)"
+    },
+    "BID_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "bid_price",
+      "x-iceberg-type": "decimal(7, 4)"
+    },
+    "BID_QTY_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "bid_qty_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "BID_STEP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "bid_step",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "COMPANY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "company_name",
+      "x-iceberg-type": "string"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "INJECT_WITHDRAW": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "inject_withdraw",
+      "x-iceberg-type": "string"
+    },
+    "MARKET_PARTICIPANT_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "market_participant_id",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "MIRN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "mirn",
+      "x-iceberg-type": "string"
+    },
+    "STEP_QTY_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "step_qty_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT314_BID_STACK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "BID_ID",
+      "decimal(7, 0)"
+    ],
+    [
+      2,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      3,
+      "MARKET_PARTICIPANT_ID",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "COMPANY_NAME",
+      "string"
+    ],
+    [
+      5,
+      "MIRN",
+      "string"
+    ],
+    [
+      6,
+      "BID_STEP",
+      "decimal(2, 0)"
+    ],
+    [
+      7,
+      "BID_PRICE",
+      "decimal(7, 4)"
+    ],
+    [
+      8,
+      "BID_QTY_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      9,
+      "STEP_QTY_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      10,
+      "INJECT_WITHDRAW",
+      "string"
+    ],
+    [
+      11,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT314_BID_STACK"
+  }
+}

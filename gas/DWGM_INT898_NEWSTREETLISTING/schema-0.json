@@ -1,0 +1,132 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT898_NEWSTREETLISTING/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "DISTRIBUTOR": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "distributor",
+      "x-iceberg-type": "string"
+    },
+    "SITE_ADDRESS_POSTCODE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "site_address_postcode",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "STATE_OR_TERRITORY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "state_or_territory",
+      "x-iceberg-type": "string"
+    },
+    "STREET_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "street_id",
+      "x-iceberg-type": "string"
+    },
+    "STREET_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "street_name",
+      "x-iceberg-type": "string"
+    },
+    "STREET_SUFFIX": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "street_suffix",
+      "x-iceberg-type": "string"
+    },
+    "SUBURB_OR_PLACE_OR_LOCALITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "suburb_or_place_or_locality",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT898_NEWSTREETLISTING, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DISTRIBUTOR",
+      "string"
+    ],
+    [
+      2,
+      "STREET_NAME",
+      "string"
+    ],
+    [
+      3,
+      "STREET_ID",
+      "string"
+    ],
+    [
+      4,
+      "STREET_SUFFIX",
+      "string"
+    ],
+    [
+      5,
+      "SUBURB_OR_PLACE_OR_LOCALITY",
+      "string"
+    ],
+    [
+      6,
+      "STATE_OR_TERRITORY",
+      "string"
+    ],
+    [
+      7,
+      "SITE_ADDRESS_POSTCODE",
+      "decimal(4, 0)"
+    ],
+    [
+      8,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT898_NEWSTREETLISTING"
+  }
+}

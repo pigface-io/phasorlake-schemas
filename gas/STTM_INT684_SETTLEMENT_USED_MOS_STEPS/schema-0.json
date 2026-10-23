@@ -1,0 +1,161 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT684_SETTLEMENT_USED_MOS_STEPS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "FACILITY_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "facility_identifier",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "facility_name",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "SETTLEMENT_RUN_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "settlement_run_identifier",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "STACK_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "stack_identifier",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "STACK_STEP_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "stack_step_identifier",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "STACK_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "stack_type",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT684_SETTLEMENT_USED_MOS_STEPS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENT_RUN_IDENTIFIER",
+      "decimal(3, 0)"
+    ],
+    [
+      2,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      3,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      4,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      5,
+      "FACILITY_IDENTIFIER",
+      "string"
+    ],
+    [
+      6,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      7,
+      "STACK_IDENTIFIER",
+      "decimal(4, 0)"
+    ],
+    [
+      8,
+      "STACK_TYPE",
+      "string"
+    ],
+    [
+      9,
+      "STACK_STEP_IDENTIFIER",
+      "decimal(2, 0)"
+    ],
+    [
+      10,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT684_SETTLEMENT_USED_MOS_STEPS"
+  }
+}

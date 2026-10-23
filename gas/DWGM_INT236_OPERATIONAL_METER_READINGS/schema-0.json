@@ -1,0 +1,150 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT236_OPERATIONAL_METER_READINGS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "COMMENCEMENT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "commencement_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "DIRECTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "direction",
+      "x-iceberg-type": "string"
+    },
+    "DIRECTION_CODE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "direction_code_name",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "MOD_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "mod_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "QUANTITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "quantity",
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "TERMINATION_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "termination_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "TIME_SORT_ORDER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "time_sort_order",
+      "x-iceberg-type": "decimal(2, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT236_OPERATIONAL_METER_READINGS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "DIRECTION_CODE_NAME",
+      "string"
+    ],
+    [
+      3,
+      "DIRECTION",
+      "string"
+    ],
+    [
+      4,
+      "COMMENCEMENT_DATETIME",
+      "timestamptz"
+    ],
+    [
+      5,
+      "TERMINATION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      6,
+      "QUANTITY",
+      "decimal(8, 3)"
+    ],
+    [
+      7,
+      "TIME_SORT_ORDER",
+      "decimal(2, 0)"
+    ],
+    [
+      8,
+      "MOD_DATETIME",
+      "timestamptz"
+    ],
+    [
+      9,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT236_OPERATIONAL_METER_READINGS"
+  }
+}

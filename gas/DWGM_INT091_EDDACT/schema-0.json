@@ -1,0 +1,92 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT091_EDDACT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "EDD_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "edd_date",
+      "x-iceberg-type": "date"
+    },
+    "EDD_TYPE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "edd_type",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "EDD_UPDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "edd_update",
+      "x-iceberg-type": "timestamptz"
+    },
+    "EDD_VALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "edd_value",
+      "x-iceberg-type": "decimal(4, 2)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT091_EDDACT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EDD_UPDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "EDD_DATE",
+      "date"
+    ],
+    [
+      3,
+      "EDD_VALUE",
+      "decimal(4, 2)"
+    ],
+    [
+      4,
+      "EDD_TYPE",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT091_EDDACT"
+  }
+}

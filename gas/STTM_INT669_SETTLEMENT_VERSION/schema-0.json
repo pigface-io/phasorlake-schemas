@@ -1,0 +1,135 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT669_SETTLEMENT_VERSION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "INTEREST_RATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "interest_rate",
+      "x-iceberg-type": "decimal(5, 4)"
+    },
+    "ISSUED_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "issued_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "SETTLEMENT_CAT_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "settlement_cat_type",
+      "x-iceberg-type": "string"
+    },
+    "SETTLEMENT_RUN_DESC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "settlement_run_desc",
+      "x-iceberg-type": "string"
+    },
+    "SETTLEMENT_RUN_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "settlement_run_identifier",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "VERSION_FROM_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "version_from_date",
+      "x-iceberg-type": "date"
+    },
+    "VERSION_TO_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "version_to_date",
+      "x-iceberg-type": "date"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT669_SETTLEMENT_VERSION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SETTLEMENT_RUN_IDENTIFIER",
+      "decimal(3, 0)"
+    ],
+    [
+      2,
+      "SETTLEMENT_CAT_TYPE",
+      "string"
+    ],
+    [
+      3,
+      "VERSION_FROM_DATE",
+      "date"
+    ],
+    [
+      4,
+      "VERSION_TO_DATE",
+      "date"
+    ],
+    [
+      5,
+      "INTEREST_RATE",
+      "decimal(5, 4)"
+    ],
+    [
+      6,
+      "ISSUED_DATETIME",
+      "timestamptz"
+    ],
+    [
+      7,
+      "SETTLEMENT_RUN_DESC",
+      "string"
+    ],
+    [
+      8,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT669_SETTLEMENT_VERSION"
+  }
+}

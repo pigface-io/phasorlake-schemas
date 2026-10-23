@@ -1,0 +1,62 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_NT_LNG_FLOW/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "GAS_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Gas Date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "TOTAL_DELIVERIES": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Total Deliveries",
+      "x-iceberg-type": "string"
+    },
+    "TOTAL_RECEIPTS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "Total Receipts",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "GBB_NT_LNG_FLOW, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "TOTAL_RECEIPTS",
+      "string"
+    ],
+    [
+      3,
+      "TOTAL_DELIVERIES",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_NT_LNG_FLOW"
+  }
+}

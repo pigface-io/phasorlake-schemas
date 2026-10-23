@@ -1,0 +1,133 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "dfs_version",
+    "10": "dfs_edd",
+    "11": "total_demand_forecast",
+    "12": "current_date",
+    "2": "gas_date",
+    "3": "last_update_datetime",
+    "4": "previous_day_min",
+    "5": "max",
+    "6": "overnight_min",
+    "7": "average_wind_speed",
+    "8": "sunshine",
+    "9": "effective_temperature"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 308,
+      "from": {
+        "data-time": "2026-08-24T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT126_DFS_DATA_1"
+      ],
+      "rows": 636,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int126_v4_dfs_data_1.csv@20261021T220900+1000",
+        "release": "2026-10",
+        "sha256": "837f1053422fdd111878af8b579132052e621b92ceb622fbda8aa7273445ff82"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "DFS_VERSION",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 2,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "LAST_UPDATE_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "PREVIOUS_DAY_MIN",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "MAX",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "OVERNIGHT_MIN",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "AVERAGE_WIND_SPEED",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "SUNSHINE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "EFFECTIVE_TEMPERATURE",
+          "required": false,
+          "type": "decimal(3, 1)"
+        },
+        {
+          "id": 10,
+          "name": "DFS_EDD",
+          "required": false,
+          "type": "decimal(2, 1)"
+        },
+        {
+          "id": 11,
+          "name": "TOTAL_DEMAND_FORECAST",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 12,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT126_DFS_DATA"
+}

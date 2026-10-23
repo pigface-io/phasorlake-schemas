@@ -1,0 +1,140 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "10": "mos_increase_cost",
+    "11": "mos_decrease_cost",
+    "12": "last_update_datetime",
+    "13": "report_datetime",
+    "2": "hub_identifier",
+    "3": "hub_name",
+    "4": "positive_deviation_price",
+    "5": "negative_deviation_price",
+    "6": "ex_ante_market_price",
+    "7": "ex_post_imbalance_price",
+    "8": "low_contingency_gas_price",
+    "9": "high_contingency_gas_price"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 61,
+      "from": {
+        "data-time": "2026-08-24T00:00:00+10:00",
+        "file": "Day31.zip",
+        "release": "2026-08",
+        "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT690_DEVIATION_PRICE_DATA_RPT_1"
+      ],
+      "rows": 1197,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "int690_v1_deviation_price_data_rpt_1.csv@20261021T191600+1000",
+        "release": "2026-10",
+        "sha256": "fe437f994c4b147b1dce5d6a19778079d354e10afb32a0094afd4b3acf94bbef"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "HUB_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "HUB_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "POSITIVE_DEVIATION_PRICE",
+          "required": false,
+          "type": "decimal(6, 4)"
+        },
+        {
+          "id": 5,
+          "name": "NEGATIVE_DEVIATION_PRICE",
+          "required": false,
+          "type": "decimal(6, 4)"
+        },
+        {
+          "id": 6,
+          "name": "EX_ANTE_MARKET_PRICE",
+          "required": false,
+          "type": "decimal(6, 4)"
+        },
+        {
+          "id": 7,
+          "name": "EX_POST_IMBALANCE_PRICE",
+          "required": false,
+          "type": "decimal(6, 4)"
+        },
+        {
+          "id": 8,
+          "name": "LOW_CONTINGENCY_GAS_PRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "HIGH_CONTINGENCY_GAS_PRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "MOS_INCREASE_COST",
+          "required": false,
+          "type": "decimal(6, 4)"
+        },
+        {
+          "id": 11,
+          "name": "MOS_DECREASE_COST",
+          "required": false,
+          "type": "decimal(6, 4)"
+        },
+        {
+          "id": 12,
+          "name": "LAST_UPDATE_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT690_DEVIATION_PRICE_DATA"
+}

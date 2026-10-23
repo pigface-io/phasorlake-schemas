@@ -1,0 +1,115 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_LNG_SHIPMENTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "FACILITYID": {
+      "description": "Unique facility identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(20,0)"
+    },
+    "FACILITYNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string"
+    },
+    "SHIPMENTDATE": {
+      "description": "For LNG export facility, the departure date. For LNG import facility, the date unloading commences at the LNG import facility",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "ShipmentDate",
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "TRANSACTIONID": {
+      "description": "Unique shipment identifier",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "TransactionId",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(40)"
+    },
+    "VERSIONDATETIME": {
+      "description": "Time a successful submission is accepted by AEMO systems",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "VersionDateTime",
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "VOLUMEPJ": {
+      "description": "Volume of the shipment in PJ",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "VolumePJ",
+      "x-iceberg-type": "decimal(4, 3)",
+      "x-model-type": "NUMBER(18,8)"
+    }
+  },
+  "required": [],
+  "title": "GBB_LNG_SHIPMENTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRANSACTIONID",
+      "string"
+    ],
+    [
+      2,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      3,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      4,
+      "VOLUMEPJ",
+      "decimal(4, 3)"
+    ],
+    [
+      5,
+      "SHIPMENTDATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "VERSIONDATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_LNG_SHIPMENTS"
+  }
+}

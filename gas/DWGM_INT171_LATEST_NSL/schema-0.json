@@ -1,0 +1,92 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT171_LATEST_NSL/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "DISTRIBUTOR_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "distributor_name",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "NSL_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "nsl_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "NSL_UPDATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "nsl_update",
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT171_LATEST_NSL, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "NSL_UPDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      3,
+      "DISTRIBUTOR_NAME",
+      "string"
+    ],
+    [
+      4,
+      "NSL_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      5,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT171_LATEST_NSL"
+  }
+}

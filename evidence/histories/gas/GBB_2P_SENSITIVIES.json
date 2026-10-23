@@ -1,0 +1,77 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "PeriodID",
+    "2": "State",
+    "3": "Increase",
+    "4": "Decrease"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 15,
+      "from": {
+        "data-time": null,
+        "file": "GasBB2PSensitivies_20230705.csv",
+        "release": "2023-07",
+        "sha256": "8d289d78d158660cede09225c27bcb62262b2e166fc5877ace001f2eccb0de12"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "2P_SENSITIVIES"
+      ],
+      "rows": 164,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "GasBB2PSensitivies_20261005.csv",
+        "release": "2026-10",
+        "sha256": "ae0725d7dd0f90bfa0bf8f9c0a546a907b51ea1e4c8d8093b9d88e9610cf47e0"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PERIODID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "STATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "INCREASE",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 4,
+          "name": "DECREASE",
+          "required": false,
+          "type": "decimal(7, 3)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_2P_SENSITIVIES"
+}

@@ -1,0 +1,266 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "FieldId",
+    "10": "Resources2C",
+    "11": "ProductionChangeReserve2P",
+    "12": "ProvedAreaExtensionReserve2P",
+    "13": "PercentageChangeReserve2P",
+    "14": "UpwardRevisionFrom3PReserveTo2P",
+    "15": "DownwardRevisionFrom2PReserveTo3P",
+    "16": "OtherRevisionsReserve2P",
+    "17": "MaturitySubClass2P",
+    "18": "MaturitySubClass2C",
+    "19": "MinDate2P",
+    "2": "FieldName",
+    "20": "MaxDate2P",
+    "21": "MinDate2C",
+    "22": "MaxDate2C",
+    "23": "ExpectedBarriers2C",
+    "24": "ResourcesEstimateMethod",
+    "25": "ConversionFactorQtyTCFtoPJ",
+    "26": "EconomicAssumption",
+    "27": "UpdateReason",
+    "28": "PreparedBy",
+    "29": "PreparationIndependenceStatement",
+    "3": "FieldInterestId",
+    "30": "EffectiveDate",
+    "31": "VersionDateTime",
+    "4": "DevelopedReserve1P",
+    "5": "DevelopedReserve2P",
+    "6": "DevelopedReserve3P",
+    "7": "UndevelopedReserve1P",
+    "8": "UndevelopedReserve2P",
+    "9": "UndevelopedReserve3P"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 44,
+      "from": {
+        "data-time": "2023-03-15T00:00:00+10:00",
+        "file": "GasBBReservesAndResources_20251028023045.csv",
+        "release": "2025-10",
+        "sha256": "cc03aba906ad860fdc12b07c43e1dbea1a7b1e920f110c56a0a0ea32773db1d4"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "RESERVES_AND_RESOURCES"
+      ],
+      "rows": 12700,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-25T00:00:00+10:00",
+        "file": "GasBBReservesAndResources_20261001153150.csv",
+        "release": "2026-10",
+        "sha256": "ad79720754d6552bac05f48580515546f2acdc7e9b355477f373cac3dc6ff02c"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FIELDID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 2,
+          "name": "FIELDNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FIELDINTERESTID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "DEVELOPEDRESERVE1P",
+          "required": false,
+          "type": "decimal(9, 3)"
+        },
+        {
+          "id": 5,
+          "name": "DEVELOPEDRESERVE2P",
+          "required": false,
+          "type": "decimal(9, 3)"
+        },
+        {
+          "id": 6,
+          "name": "DEVELOPEDRESERVE3P",
+          "required": false,
+          "type": "decimal(9, 3)"
+        },
+        {
+          "id": 7,
+          "name": "UNDEVELOPEDRESERVE1P",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 8,
+          "name": "UNDEVELOPEDRESERVE2P",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 9,
+          "name": "UNDEVELOPEDRESERVE3P",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 10,
+          "name": "RESOURCES2C",
+          "required": false,
+          "type": "decimal(9, 3)"
+        },
+        {
+          "id": 11,
+          "name": "PRODUCTIONCHANGERESERVE2P",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 12,
+          "name": "PROVEDAREAEXTENSIONRESERVE2P",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 13,
+          "name": "PERCENTAGECHANGERESERVE2P",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 14,
+          "name": "UPWARDREVISIONFROM3PRESERVETO2P",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 15,
+          "name": "DOWNWARDREVISIONFROM2PRESERVETO3P",
+          "required": false,
+          "type": "decimal(5, 3)"
+        },
+        {
+          "id": 16,
+          "name": "OTHERREVISIONSRESERVE2P",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 17,
+          "name": "MATURITYSUBCLASS2P",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "MATURITYSUBCLASS2C",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "MINDATE2P",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 20,
+          "name": "MAXDATE2P",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 21,
+          "name": "MINDATE2C",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 22,
+          "name": "MAXDATE2C",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 23,
+          "name": "EXPECTEDBARRIERS2C",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 24,
+          "name": "RESOURCESESTIMATEMETHOD",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 25,
+          "name": "CONVERSIONFACTORQTYTCFTOPJ",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 26,
+          "name": "ECONOMICASSUMPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 27,
+          "name": "UPDATEREASON",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 28,
+          "name": "PREPAREDBY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 29,
+          "name": "PREPARATIONINDEPENDENCESTATEMENT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 30,
+          "name": "EFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 31,
+          "name": "VERSIONDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_RESERVES_AND_RESOURCES"
+}

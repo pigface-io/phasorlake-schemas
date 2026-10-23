@@ -1,0 +1,238 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_FACILITY_DEVELOPMENTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "COMMENTS": {
+      "description": "Any additional comments included in the submission",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "Comments",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(400)"
+    },
+    "DEVELOPMENTSTAGE": {
+      "description": "The current stage of the development facility being, PROPOSED, COMMITTED, CANCELLED, ENDED",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "DevelopmentStage",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(200)"
+    },
+    "DEVFACILITYID": {
+      "description": "A unique AEMO defined Development Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "DevFacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(20,0)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "The effective date of the submission",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "EffectiveDate",
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "FACILITYTYPE": {
+      "description": "The facility development type",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "FacilityType",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(40)"
+    },
+    "LOCATION": {
+      "description": "The location of the development facility",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "Location",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(200)"
+    },
+    "MAXNAMEPLATE": {
+      "description": "The upper estimate of nameplate rating capacity",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "MaxNameplate",
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "MINNAMEPLATE": {
+      "description": "The lower estimate of nameplate rating capacity",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "MinNameplate",
+      "x-iceberg-type": "decimal(7, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "PLANNEDCOMMISSIONFROM": {
+      "description": "The planned start date of commissioning",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "PlannedCommissionFrom",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(7)"
+    },
+    "PLANNEDCOMMISSIONTO": {
+      "description": "The planned end date of commissioning",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "PlannedCommissionTo",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(7)"
+    },
+    "PROPOSEDNAME": {
+      "description": "The name of the Facility development",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "ProposedName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "RELATEDFACILITYID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "RelatedFacilityId",
+      "x-iceberg-type": "string"
+    },
+    "RELATEDFACILITYNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "RelatedFacilityName",
+      "x-iceberg-type": "string"
+    },
+    "REPORTINGENTITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "ReportingEntity",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "GBB_FACILITY_DEVELOPMENTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DEVFACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      2,
+      "PROPOSEDNAME",
+      "string"
+    ],
+    [
+      3,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "FACILITYTYPE",
+      "string"
+    ],
+    [
+      5,
+      "MINNAMEPLATE",
+      "decimal(7, 3)"
+    ],
+    [
+      6,
+      "MAXNAMEPLATE",
+      "decimal(8, 3)"
+    ],
+    [
+      7,
+      "LOCATION",
+      "string"
+    ],
+    [
+      8,
+      "PLANNEDCOMMISSIONFROM",
+      "string"
+    ],
+    [
+      9,
+      "PLANNEDCOMMISSIONTO",
+      "string"
+    ],
+    [
+      10,
+      "DEVELOPMENTSTAGE",
+      "string"
+    ],
+    [
+      11,
+      "RELATEDFACILITYID",
+      "string"
+    ],
+    [
+      12,
+      "RELATEDFACILITYNAME",
+      "string"
+    ],
+    [
+      13,
+      "COMMENTS",
+      "string"
+    ],
+    [
+      14,
+      "REPORTINGENTITY",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_FACILITY_DEVELOPMENTS"
+  }
+}

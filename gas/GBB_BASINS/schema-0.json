@@ -1,0 +1,51 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_BASINS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BASINID": {
+      "description": "A unique AEMO defined Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "BasinId",
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMBER(20,0)"
+    },
+    "BASINNAME": {
+      "description": "The name of the basin. If short name exists then short name included in report",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "BasinName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    }
+  },
+  "required": [],
+  "title": "GBB_BASINS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "BASINID",
+      "decimal(5, 0)"
+    ],
+    [
+      2,
+      "BASINNAME",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_BASINS"
+  }
+}

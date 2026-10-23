@@ -1,0 +1,337 @@
+{
+  "breaking": [],
+  "current-schema-id": 1,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "10": "daily_maximum_quantity",
+    "11": "expiration_time",
+    "12": "sdpc_id",
+    "13": "current_date",
+    "14": "ps_hourly_max_qty",
+    "15": "ps_hourly_min_qty",
+    "16": "os_hourly_max_qty",
+    "17": "os_hourly_min_qty",
+    "18": "ps_daily_min_qty",
+    "19": "ps_daily_max_qty",
+    "2": "ti",
+    "20": "os_daily_min_qty",
+    "21": "os_daily_max_qty",
+    "3": "mirn",
+    "4": "hourly_maximum_quantity",
+    "5": "hourly_minimum_quantity",
+    "6": "ramp_up_constraint",
+    "7": "ramp_down_constraint",
+    "8": "schedule_response_time",
+    "9": "daily_minimum_quantity"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2015-05-03T00:00:00+10:00",
+        "file": "int111_v4_sdpc_1.csv",
+        "release": "2026-05",
+        "sha256": "04fc3fe7d2ba3f063c1aaa6b7ce16944c7592170f200e5c24cfa10263b192208"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT111_SDPC_1"
+      ],
+      "rows": 936,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2015-05-05T00:00:00+10:00",
+        "file": "int111_v4_sdpc_1.csv",
+        "release": "2026-05",
+        "sha256": "04fc3fe7d2ba3f063c1aaa6b7ce16944c7592170f200e5c24cfa10263b192208"
+      },
+      "updates": [],
+      "version": 4
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 326,
+      "from": {
+        "data-time": "2026-08-30T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT111_SDPC_1"
+      ],
+      "rows": 19008,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int111_v5_sdpc_1.csv@20261021T220900+1000",
+        "release": "2026-10",
+        "sha256": "1158620f9f450edf3885b330782d80b30d9f02226fe7880f07d72e1109e2e1d0"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 4
+        },
+        {
+          "action": "delete",
+          "field-id": 5
+        },
+        {
+          "action": "delete",
+          "field-id": 9
+        },
+        {
+          "action": "delete",
+          "field-id": 10
+        },
+        {
+          "action": "add",
+          "field-id": 14
+        },
+        {
+          "action": "add",
+          "field-id": 15
+        },
+        {
+          "action": "add",
+          "field-id": 16
+        },
+        {
+          "action": "add",
+          "field-id": 17
+        },
+        {
+          "action": "add",
+          "field-id": 18
+        },
+        {
+          "action": "add",
+          "field-id": 19
+        },
+        {
+          "action": "add",
+          "field-id": 20
+        },
+        {
+          "action": "add",
+          "field-id": 21
+        }
+      ],
+      "version": 5
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "TI",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 3,
+          "name": "MIRN",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "HOURLY_MAXIMUM_QUANTITY",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 5,
+          "name": "HOURLY_MINIMUM_QUANTITY",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "RAMP_UP_CONSTRAINT",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 7,
+          "name": "RAMP_DOWN_CONSTRAINT",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 8,
+          "name": "SCHEDULE_RESPONSE_TIME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "DAILY_MINIMUM_QUANTITY",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 10,
+          "name": "DAILY_MAXIMUM_QUANTITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "EXPIRATION_TIME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "SDPC_ID",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 13,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "TI",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 3,
+          "name": "MIRN",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "PS_HOURLY_MAX_QTY",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 15,
+          "name": "PS_HOURLY_MIN_QTY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 16,
+          "name": "OS_HOURLY_MAX_QTY",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 17,
+          "name": "OS_HOURLY_MIN_QTY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "RAMP_UP_CONSTRAINT",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 7,
+          "name": "RAMP_DOWN_CONSTRAINT",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 8,
+          "name": "SCHEDULE_RESPONSE_TIME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "PS_DAILY_MIN_QTY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "PS_DAILY_MAX_QTY",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 20,
+          "name": "OS_DAILY_MIN_QTY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 21,
+          "name": "OS_DAILY_MAX_QTY",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 11,
+          "name": "EXPIRATION_TIME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "SDPC_ID",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 13,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT111_SDPC"
+}

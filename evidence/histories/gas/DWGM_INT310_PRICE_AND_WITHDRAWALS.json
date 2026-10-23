@@ -1,0 +1,112 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "schedule_interval",
+    "3": "transmission_id",
+    "4": "sched_inj_gj",
+    "5": "sched_wdl_gj",
+    "6": "price_value",
+    "7": "administered_price",
+    "8": "actual_wdl_gj",
+    "9": "actual_inj_gj"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 34,
+      "from": {
+        "data-time": "2025-08-01T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT310_PRICE_AND_WITHDRAWALS_1"
+      ],
+      "rows": 3622,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T00:00:00+10:00",
+        "file": "int310_v4_price_and_withdrawals_1.csv@20261021T191100+1000",
+        "release": "2026-10",
+        "sha256": "97d20eeb25a85b10eb4e5c52f7c5769ca906264b213b704f4cc062c7d0e578d4"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "SCHEDULE_INTERVAL",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "TRANSMISSION_ID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "SCHED_INJ_GJ",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 5,
+          "name": "SCHED_WDL_GJ",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 6,
+          "name": "PRICE_VALUE",
+          "required": false,
+          "type": "decimal(6, 4)"
+        },
+        {
+          "id": 7,
+          "name": "ADMINISTERED_PRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "ACTUAL_WDL_GJ",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 9,
+          "name": "ACTUAL_INJ_GJ",
+          "required": false,
+          "type": "decimal(15, 9)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT310_PRICE_AND_WITHDRAWALS"
+}

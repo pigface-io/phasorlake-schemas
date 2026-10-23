@@ -1,0 +1,124 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_GAS_FIELD_INTEREST/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "COMPANYID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "CompanyId",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "COMPANYNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "CompanyName",
+      "x-iceberg-type": "string"
+    },
+    "EFFECTIVEDATE": {
+      "description": "The date on which the record takes effect",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "EffectiveDate",
+      "x-iceberg-type": "date",
+      "x-model-type": "DATE"
+    },
+    "FIELDINTERESTID": {
+      "description": "A unique AEMO defined Field Interest Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FieldInterestId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(20,0)"
+    },
+    "FIELDNAME": {
+      "description": "The name of the Field in which the Field Interest is located",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "FieldName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "GROUPMEMBERS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "GroupMembers",
+      "x-iceberg-type": "string"
+    },
+    "PERCENTAGESHARE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "PercentageShare",
+      "x-iceberg-type": "decimal(6, 3)"
+    }
+  },
+  "required": [],
+  "title": "GBB_GAS_FIELD_INTEREST, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FIELDNAME",
+      "string"
+    ],
+    [
+      2,
+      "FIELDINTERESTID",
+      "decimal(6, 0)"
+    ],
+    [
+      3,
+      "COMPANYID",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "COMPANYNAME",
+      "string"
+    ],
+    [
+      5,
+      "GROUPMEMBERS",
+      "string"
+    ],
+    [
+      6,
+      "PERCENTAGESHARE",
+      "decimal(6, 3)"
+    ],
+    [
+      7,
+      "EFFECTIVEDATE",
+      "date"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_GAS_FIELD_INTEREST"
+  }
+}

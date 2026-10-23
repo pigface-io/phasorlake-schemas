@@ -1,0 +1,328 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_BLEND_CURTAILMENT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONNECTIONPOINTID": {
+      "description": "A unique AEMO defined connection point identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "ConnectionPointId",
+      "x-iceberg-type": "decimal(7, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "CONNECTIONPOINTNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "ConnectionPointName",
+      "x-iceberg-type": "string"
+    },
+    "FACILITYID": {
+      "description": "Unique Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "FACILITYNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string"
+    },
+    "FACILITYTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "FacilityType",
+      "x-iceberg-type": "string"
+    },
+    "FLOWDIRECTION": {
+      "description": "Direction of flow for the submission record. Must be one of RECEIPT or DELIVERY",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "FlowDirection",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "GASBLENDAVG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-header": "GasBlendAvg",
+      "x-iceberg-type": "decimal(4, 3)"
+    },
+    "GASBLENDCURTAILEVENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "GasBlendCurtailEvent",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "GASBLENDCURTAILQTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "GasBlendCurtailQty",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "GASBLENDHIGH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "GasBlendHigh",
+      "x-iceberg-type": "decimal(5, 3)"
+    },
+    "GASBLENDLIMIT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "GasBlendLimit",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "GASBLENDLOW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "GasBlendLow",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "GASTYPE": {
+      "description": "Primary gas added to the gas blend",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "GasType",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(200)"
+    },
+    "LASTUPDATED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-header": "LastUpdated",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOCATIONID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "LocationId",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "LOCATIONNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "LocationName",
+      "x-iceberg-type": "string"
+    },
+    "MAXGASDATE": {
+      "description": "Gas date in the month when the highest blend level was achieved",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "MaxGasDate",
+      "x-iceberg-type": "date",
+      "x-model-type": "DATE"
+    },
+    "MINGASDATE": {
+      "description": "Gas date in the month when the lowest blend level was achieved",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-header": "MinGasDate",
+      "x-iceberg-type": "date",
+      "x-model-type": "DATE"
+    },
+    "MONTH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "Month",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "STATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "State",
+      "x-iceberg-type": "string"
+    },
+    "YEAR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Year",
+      "x-iceberg-type": "decimal(4, 0)"
+    }
+  },
+  "required": [],
+  "title": "GBB_BLEND_CURTAILMENT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "YEAR",
+      "decimal(4, 0)"
+    ],
+    [
+      2,
+      "MONTH",
+      "decimal(2, 0)"
+    ],
+    [
+      3,
+      "STATE",
+      "string"
+    ],
+    [
+      4,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      5,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      6,
+      "FACILITYTYPE",
+      "string"
+    ],
+    [
+      7,
+      "CONNECTIONPOINTID",
+      "decimal(7, 0)"
+    ],
+    [
+      8,
+      "CONNECTIONPOINTNAME",
+      "string"
+    ],
+    [
+      9,
+      "FLOWDIRECTION",
+      "string"
+    ],
+    [
+      10,
+      "LOCATIONNAME",
+      "string"
+    ],
+    [
+      11,
+      "LOCATIONID",
+      "decimal(6, 0)"
+    ],
+    [
+      12,
+      "GASTYPE",
+      "string"
+    ],
+    [
+      13,
+      "GASBLENDCURTAILEVENT",
+      "decimal(1, 0)"
+    ],
+    [
+      14,
+      "GASBLENDCURTAILQTY",
+      "decimal(1, 0)"
+    ],
+    [
+      15,
+      "GASBLENDLIMIT",
+      "decimal(2, 0)"
+    ],
+    [
+      16,
+      "GASBLENDHIGH",
+      "decimal(5, 3)"
+    ],
+    [
+      17,
+      "MAXGASDATE",
+      "date"
+    ],
+    [
+      18,
+      "GASBLENDLOW",
+      "decimal(1, 0)"
+    ],
+    [
+      19,
+      "MINGASDATE",
+      "date"
+    ],
+    [
+      20,
+      "GASBLENDAVG",
+      "decimal(4, 3)"
+    ],
+    [
+      21,
+      "LASTUPDATED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_BLEND_CURTAILMENT"
+  }
+}

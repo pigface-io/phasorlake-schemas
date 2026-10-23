@@ -1,0 +1,84 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "edd_update",
+    "2": "edd_date",
+    "3": "edd_value",
+    "4": "edd_type",
+    "5": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 34,
+      "from": {
+        "data-time": "2026-07-02T12:39:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT091_EDDACT_1"
+      ],
+      "rows": 217,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T14:02:00+10:00",
+        "file": "int091_v4_eddact_1.csv@20261021T191200+1000",
+        "release": "2026-10",
+        "sha256": "3de7b09119f9cb5202e7a459c33c78ee4dd669ab724ae8fc950f294e80094c38"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EDD_UPDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "EDD_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "EDD_VALUE",
+          "required": false,
+          "type": "decimal(4, 2)"
+        },
+        {
+          "id": 4,
+          "name": "EDD_TYPE",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT091_EDDACT"
+}

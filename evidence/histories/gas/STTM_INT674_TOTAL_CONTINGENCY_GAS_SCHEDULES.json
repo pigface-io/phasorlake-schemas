@@ -1,0 +1,126 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "10": "approval_datetime",
+    "11": "report_datetime",
+    "2": "hub_identifier",
+    "3": "hub_name",
+    "4": "facility_identifier",
+    "5": "facility_name",
+    "6": "contingency_gas_called_identifier",
+    "7": "flow_direction",
+    "8": "contingency_gas_bid_offer_type",
+    "9": "contingency_gas_bid_offer_called_quantity"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2010-05-27T00:00:00+10:00",
+        "file": "int674_v1_total_contingency_gas_schedules_rpt_1.csv",
+        "release": "2026-10",
+        "sha256": "883b3b64409d9df2252e7a3407b6c551768e208aa9c224f0c351cfc423f03980"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT674_TOTAL_CONTINGENCY_GAS_SCHEDULES_RPT_1"
+      ],
+      "rows": 2,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2010-05-27T00:00:00+10:00",
+        "file": "int674_v1_total_contingency_gas_schedules_rpt_1.csv",
+        "release": "2026-10",
+        "sha256": "883b3b64409d9df2252e7a3407b6c551768e208aa9c224f0c351cfc423f03980"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "HUB_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "HUB_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "FACILITY_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "CONTINGENCY_GAS_CALLED_IDENTIFIER",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 7,
+          "name": "FLOW_DIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "CONTINGENCY_GAS_BID_OFFER_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "CONTINGENCY_GAS_BID_OFFER_CALLED_QUANTITY",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 10,
+          "name": "APPROVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 11,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT674_TOTAL_CONTINGENCY_GAS_SCHEDULES"
+}

@@ -1,0 +1,229 @@
+{
+  "breaking": [],
+  "current-schema-id": 1,
+  "format-version": 3,
+  "headers": {
+    "1": "FacilityName",
+    "10": "OperatorChangeDate",
+    "11": "LastUpdated",
+    "2": "FacilityShortName",
+    "3": "FacilityId",
+    "4": "FacilityType",
+    "5": "FacilityTypeDescription",
+    "6": "OperatingState",
+    "7": "OperatingStateDate",
+    "8": "OperatorName",
+    "9": "OperatorId"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2008-07-01T00:00:00+10:00",
+        "file": "GasBBFacilities.CSV",
+        "release": "2026-10",
+        "sha256": "9e28806670e13042b2c0d723f3579d55e6dac09207d812968de78f4f4cb94e49"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "FACILITIES"
+      ],
+      "rows": 159,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "GasBBFacilities.CSV",
+        "release": "2026-10",
+        "sha256": "9e28806670e13042b2c0d723f3579d55e6dac09207d812968de78f4f4cb94e49"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema",
+        "report"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2008-01-01T00:00:00+10:00",
+        "file": "GasBBFacilitiesFull.CSV",
+        "release": "2026-10",
+        "sha256": "4a86674156d4a3bb885792c1507cf782848377d2261433f6ccb4ac99a9e6eda0"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "FACILITIES_FULL"
+      ],
+      "rows": 266,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "GasBBFacilitiesFull.CSV",
+        "release": "2026-10",
+        "sha256": "4a86674156d4a3bb885792c1507cf782848377d2261433f6ccb4ac99a9e6eda0"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 11
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYSHORTNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "FACILITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FACILITYTYPEDESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "OPERATINGSTATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "OPERATINGSTATEDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 8,
+          "name": "OPERATORNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "OPERATORID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 10,
+          "name": "OPERATORCHANGEDATE",
+          "required": false,
+          "type": "date"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYSHORTNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "FACILITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FACILITYTYPEDESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "OPERATINGSTATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "OPERATINGSTATEDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 8,
+          "name": "OPERATORNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "OPERATORID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 10,
+          "name": "OPERATORCHANGEDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 11,
+          "name": "LASTUPDATED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 1,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_FACILITIES"
+}

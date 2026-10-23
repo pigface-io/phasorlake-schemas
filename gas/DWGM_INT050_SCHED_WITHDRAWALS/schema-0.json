@@ -1,0 +1,91 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT050_SCHED_WITHDRAWALS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "SCHEDULED_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "scheduled_qty",
+      "x-iceberg-type": "decimal(9, 3)"
+    },
+    "TRANSMISSION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "transmission_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "WITHDRAWAL_ZONE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "withdrawal_zone_name",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT050_SCHED_WITHDRAWALS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "WITHDRAWAL_ZONE_NAME",
+      "string"
+    ],
+    [
+      3,
+      "SCHEDULED_QTY",
+      "decimal(9, 3)"
+    ],
+    [
+      4,
+      "TRANSMISSION_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      5,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT050_SCHED_WITHDRAWALS"
+  }
+}

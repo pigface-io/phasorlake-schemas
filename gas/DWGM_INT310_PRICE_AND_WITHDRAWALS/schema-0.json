@@ -1,0 +1,146 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT310_PRICE_AND_WITHDRAWALS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ACTUAL_INJ_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "actual_inj_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "ACTUAL_WDL_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "actual_wdl_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "ADMINISTERED_PRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "administered_price",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "PRICE_VALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "price_value",
+      "x-iceberg-type": "decimal(6, 4)"
+    },
+    "SCHEDULE_INTERVAL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "schedule_interval",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "SCHED_INJ_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "sched_inj_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "SCHED_WDL_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "sched_wdl_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "TRANSMISSION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "transmission_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT310_PRICE_AND_WITHDRAWALS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "SCHEDULE_INTERVAL",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "TRANSMISSION_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      4,
+      "SCHED_INJ_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      5,
+      "SCHED_WDL_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      6,
+      "PRICE_VALUE",
+      "decimal(6, 4)"
+    ],
+    [
+      7,
+      "ADMINISTERED_PRICE",
+      "string"
+    ],
+    [
+      8,
+      "ACTUAL_WDL_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      9,
+      "ACTUAL_INJ_GJ",
+      "decimal(15, 9)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT310_PRICE_AND_WITHDRAWALS"
+  }
+}

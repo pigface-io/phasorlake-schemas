@@ -1,0 +1,357 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT131_BIDS_AT_BID_CUTOFF_TIMES_PREV_2/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BID_CUTOFF_TIME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-header": "bid_cutoff_time",
+      "x-iceberg-type": "string"
+    },
+    "BID_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-header": "bid_id",
+      "x-iceberg-type": "decimal(7, 0)"
+    },
+    "CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "code",
+      "x-iceberg-type": "string"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "MIN_DAILY_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-header": "min_daily_qty",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "name",
+      "x-iceberg-type": "string"
+    },
+    "OFFER_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "offer_type",
+      "x-iceberg-type": "string"
+    },
+    "PARTICIPANT_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "participant_id",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "PARTICIPANT_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "participant_name",
+      "x-iceberg-type": "string"
+    },
+    "SCHEDULE_TIME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-header": "schedule_time",
+      "x-iceberg-type": "string"
+    },
+    "SCHEDULE_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-header": "schedule_type",
+      "x-iceberg-type": "string"
+    },
+    "STEP1": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "step1",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "STEP10": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "step10",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "STEP2": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "step2",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "STEP3": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "step3",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "STEP4": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "step4",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "STEP5": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "step5",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "STEP6": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "step6",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "STEP7": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "step7",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "STEP8": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "step8",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "STEP9": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "step9",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "TYPE_1": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "type_1",
+      "x-iceberg-type": "string"
+    },
+    "TYPE_2": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "type_2",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT131_BIDS_AT_BID_CUTOFF_TIMES_PREV_2, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "TYPE_1",
+      "string"
+    ],
+    [
+      3,
+      "TYPE_2",
+      "string"
+    ],
+    [
+      4,
+      "PARTICIPANT_ID",
+      "decimal(3, 0)"
+    ],
+    [
+      5,
+      "PARTICIPANT_NAME",
+      "string"
+    ],
+    [
+      6,
+      "CODE",
+      "string"
+    ],
+    [
+      7,
+      "NAME",
+      "string"
+    ],
+    [
+      8,
+      "OFFER_TYPE",
+      "string"
+    ],
+    [
+      9,
+      "STEP1",
+      "decimal(10, 4)"
+    ],
+    [
+      10,
+      "STEP2",
+      "decimal(10, 4)"
+    ],
+    [
+      11,
+      "STEP3",
+      "decimal(10, 4)"
+    ],
+    [
+      12,
+      "STEP4",
+      "decimal(10, 4)"
+    ],
+    [
+      13,
+      "STEP5",
+      "decimal(10, 4)"
+    ],
+    [
+      14,
+      "STEP6",
+      "decimal(10, 4)"
+    ],
+    [
+      15,
+      "STEP7",
+      "decimal(10, 4)"
+    ],
+    [
+      16,
+      "STEP8",
+      "decimal(10, 4)"
+    ],
+    [
+      17,
+      "STEP9",
+      "decimal(10, 4)"
+    ],
+    [
+      18,
+      "STEP10",
+      "decimal(10, 4)"
+    ],
+    [
+      19,
+      "MIN_DAILY_QTY",
+      "decimal(1, 0)"
+    ],
+    [
+      20,
+      "BID_ID",
+      "decimal(7, 0)"
+    ],
+    [
+      21,
+      "BID_CUTOFF_TIME",
+      "string"
+    ],
+    [
+      22,
+      "SCHEDULE_TYPE",
+      "string"
+    ],
+    [
+      23,
+      "SCHEDULE_TIME",
+      "string"
+    ],
+    [
+      24,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT131_BIDS_AT_BID_CUTOFF_TIMES_PREV_2"
+  }
+}

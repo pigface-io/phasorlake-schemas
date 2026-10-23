@@ -1,0 +1,105 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT258_MCE_NODES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LAST_MOD_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "last_mod_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "NODAL_ALTITUDE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "nodal_altitude",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "PIPELINE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "pipeline_id",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "POINT_GROUP_IDENTIFIER_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "point_group_identifier_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "POINT_GROUP_IDENTIFIER_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "point_group_identifier_name",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT258_MCE_NODES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PIPELINE_ID",
+      "decimal(1, 0)"
+    ],
+    [
+      2,
+      "POINT_GROUP_IDENTIFIER_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      3,
+      "POINT_GROUP_IDENTIFIER_NAME",
+      "string"
+    ],
+    [
+      4,
+      "NODAL_ALTITUDE",
+      "decimal(3, 0)"
+    ],
+    [
+      5,
+      "LAST_MOD_DATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT258_MCE_NODES"
+  }
+}

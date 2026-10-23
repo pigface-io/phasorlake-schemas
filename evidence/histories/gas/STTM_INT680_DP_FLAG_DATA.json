@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "hub_identifier",
+    "2": "hub_name",
+    "3": "effective_from_date",
+    "4": "effective_to_date",
+    "5": "dp_flag",
+    "6": "report_datetime"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 34,
+      "from": {
+        "data-time": "2010-04-23T00:00:00+10:00",
+        "file": "Day31.zip",
+        "release": "2026-08",
+        "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT680_DP_FLAG_DATA_RPT_1"
+      ],
+      "rows": 3,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2011-12-01T00:00:00+10:00",
+        "file": "int680_v1_dp_flag_data_rpt_1.csv@20261021T191600+1000",
+        "release": "2026-10",
+        "sha256": "c10e3da41e36094e27f548cd4ef51ee695c2d7ab86a401371ac1cbd6fc160386"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "HUB_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "HUB_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "EFFECTIVE_FROM_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 4,
+          "name": "EFFECTIVE_TO_DATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "DP_FLAG",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 6,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT680_DP_FLAG_DATA"
+}

@@ -1,0 +1,318 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_PARTICIPANTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ABN": {
+      "description": "ABN of the organisation",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "decimal(11, 0)",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "ACN": {
+      "description": "ACN of the organisation",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "decimal(9, 0)",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "AGENT_ID": {
+      "description": "The unique participant identifier of the agent appointed to trade on the participant’s behalf.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "decimal(4, 0)",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "AGENT_NAME": {
+      "description": "Name of the agent organisation",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "ARBN": {
+      "description": "ARBN of the organisation",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "decimal(9, 0)",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "CLASSIFICATIONS": {
+      "description": "The classification of the company in the GSH market, for example trading, view-only, etc.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(255)"
+    },
+    "FAX_NUMBER": {
+      "description": "The fax number for the organisation",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "HEAD_OFFICE_ADDRESS_LINE_1": {
+      "description": "The head office address of the organisation",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "HEAD_OFFICE_ADDRESS_LINE_2": {
+      "description": "The head office address of the organisation",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "HEAD_OFFICE_ADDRESS_LINE_3": {
+      "description": "The head office address of the organisation",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "HEAD_OFFICE_ADDRESS_LINE_4": {
+      "description": "The head office address of the organisation",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report is generated",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "MARKET": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "MARKET_ID": {
+      "description": "The market in which the company is a participant, for example GSH, DAA, ALL.",
+      "type": "string",
+      "x-field-id": 20,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "ORGANISATION_CODE": {
+      "description": "Unique code of the organisation",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "ORGANISATION_NAME": {
+      "description": "Name of the organisation who has the ABN",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "PARTICIPANT_CODE": {
+      "description": "The participant code",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "PARTICIPANT_ID": {
+      "description": "The unique identifier of the participant",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "PHONE_NUMBER": {
+      "description": "The phone number of the organisation",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "TRADING_NAME": {
+      "description": "Trading name of the organisation",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    }
+  },
+  "required": [
+    "PARTICIPANT_ID",
+    "MARKET_ID"
+  ],
+  "title": "GSH_PARTICIPANTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "MARKET",
+      "string"
+    ],
+    [
+      2,
+      "PARTICIPANT_ID",
+      "long"
+    ],
+    [
+      3,
+      "PARTICIPANT_CODE",
+      "string"
+    ],
+    [
+      4,
+      "ORGANISATION_NAME",
+      "string"
+    ],
+    [
+      5,
+      "ORGANISATION_CODE",
+      "string"
+    ],
+    [
+      6,
+      "TRADING_NAME",
+      "string"
+    ],
+    [
+      7,
+      "HEAD_OFFICE_ADDRESS_LINE_1",
+      "string"
+    ],
+    [
+      8,
+      "HEAD_OFFICE_ADDRESS_LINE_2",
+      "string"
+    ],
+    [
+      9,
+      "HEAD_OFFICE_ADDRESS_LINE_3",
+      "string"
+    ],
+    [
+      10,
+      "HEAD_OFFICE_ADDRESS_LINE_4",
+      "string"
+    ],
+    [
+      11,
+      "PHONE_NUMBER",
+      "string"
+    ],
+    [
+      12,
+      "FAX_NUMBER",
+      "string"
+    ],
+    [
+      13,
+      "ABN",
+      "decimal(11, 0)"
+    ],
+    [
+      14,
+      "ARBN",
+      "decimal(9, 0)"
+    ],
+    [
+      15,
+      "ACN",
+      "decimal(9, 0)"
+    ],
+    [
+      16,
+      "AGENT_ID",
+      "decimal(4, 0)"
+    ],
+    [
+      17,
+      "AGENT_NAME",
+      "string"
+    ],
+    [
+      18,
+      "CLASSIFICATIONS",
+      "string"
+    ],
+    [
+      19,
+      "LASTCHANGED",
+      "timestamptz"
+    ],
+    [
+      20,
+      "MARKET_ID",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    20,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_PARTICIPANTS"
+  }
+}

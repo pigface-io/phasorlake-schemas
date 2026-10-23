@@ -1,0 +1,119 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "settlement_run_identifier",
+    "10": "report_datetime",
+    "2": "gas_date",
+    "3": "hub_identifier",
+    "4": "hub_name",
+    "5": "facility_identifier",
+    "6": "facility_name",
+    "7": "stack_identifier",
+    "8": "stack_type",
+    "9": "stack_step_identifier"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "Day24.zip",
+        "release": "2026-09",
+        "sha256": "93d3280f33572aae5ab124371171d23d919fc22cbba7faba01d06c46b49950c0"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT684_SETTLEMENT_USED_MOS_STEPS_RPT_1"
+      ],
+      "rows": 3262,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-30T00:00:00+10:00",
+        "file": "int684_v1_settlement_used_mos_steps_rpt_1.csv",
+        "release": "2026-10",
+        "sha256": "9c525aceb8e4d056eaa039011d8a3807ee53ebe37449bec61cf5ed54e73966cf"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "SETTLEMENT_RUN_IDENTIFIER",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 2,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "HUB_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "HUB_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FACILITY_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "STACK_IDENTIFIER",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 8,
+          "name": "STACK_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "STACK_STEP_IDENTIFIER",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 10,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT684_SETTLEMENT_USED_MOS_STEPS"
+}

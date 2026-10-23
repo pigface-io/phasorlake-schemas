@@ -1,0 +1,98 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "network_name",
+    "2": "version_id",
+    "3": "gas_date",
+    "4": "distributor_name",
+    "5": "withdrawal_zone",
+    "6": "scaling_factor",
+    "7": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "PublicRpts22.zip",
+        "release": "2026-09",
+        "sha256": "20d32cafc8e00f1760ea246fec625d26dd91304d25f9a1caeb65db5bf23993a1"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT597_INJECTION_SCALING_FACTORS_1"
+      ],
+      "rows": 496,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-31T00:00:00+10:00",
+        "file": "PublicRpts07.zip",
+        "release": "2026-10",
+        "sha256": "d5207d761a8093a627cd6446b9eba33d8caace28718278d5a06bfab96e6f2a8c"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "NETWORK_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "VERSION_ID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 4,
+          "name": "DISTRIBUTOR_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "WITHDRAWAL_ZONE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "SCALING_FACTOR",
+          "required": false,
+          "type": "decimal(4, 3)"
+        },
+        {
+          "id": 7,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT597_INJECTION_SCALING_FACTORS"
+}

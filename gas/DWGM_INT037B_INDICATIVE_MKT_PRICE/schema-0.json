@@ -1,0 +1,134 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT037B_INDICATIVE_MKT_PRICE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APPROVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "approval_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "DEMAND_TYPE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "demand_type_name",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "PRICE_VALUE_GST_EX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "price_value_gst_ex",
+      "x-iceberg-type": "decimal(6, 4)"
+    },
+    "SCHEDULE_TYPE_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "schedule_type_id",
+      "x-iceberg-type": "string"
+    },
+    "TRANSMISSION_GROUP_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "transmission_group_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "TRANSMISSION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "transmission_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT037B_INDICATIVE_MKT_PRICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DEMAND_TYPE_NAME",
+      "string"
+    ],
+    [
+      2,
+      "PRICE_VALUE_GST_EX",
+      "decimal(6, 4)"
+    ],
+    [
+      3,
+      "TRANSMISSION_GROUP_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      4,
+      "SCHEDULE_TYPE_ID",
+      "string"
+    ],
+    [
+      5,
+      "TRANSMISSION_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      6,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      7,
+      "APPROVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      8,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT037B_INDICATIVE_MKT_PRICE"
+  }
+}

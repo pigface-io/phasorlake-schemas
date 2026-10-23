@@ -1,0 +1,104 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT313_ALLOCATED_INJECTIONS_WITHDRAWALS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ENERGY_FLOW_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "energy_flow_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "GAS_HOUR": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_hour",
+      "x-iceberg-type": "string"
+    },
+    "INJECT_WITHDRAW": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "inject_withdraw",
+      "x-iceberg-type": "string"
+    },
+    "PHY_MIRN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "phy_mirn",
+      "x-iceberg-type": "string"
+    },
+    "SITE_COMPANY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "site_company",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT313_ALLOCATED_INJECTIONS_WITHDRAWALS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "GAS_HOUR",
+      "string"
+    ],
+    [
+      3,
+      "SITE_COMPANY",
+      "string"
+    ],
+    [
+      4,
+      "PHY_MIRN",
+      "string"
+    ],
+    [
+      5,
+      "INJECT_WITHDRAW",
+      "string"
+    ],
+    [
+      6,
+      "ENERGY_FLOW_GJ",
+      "decimal(15, 9)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT313_ALLOCATED_INJECTIONS_WITHDRAWALS"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-01-02T15:22:18+10:00",
+        "file": "PUBLIC_SECONDARYCAPACITYTRADES_20260101.zip",
+        "release": "2026-01",
+        "sha256": "da63f7626735bdecb6bf4ba7e10a867938e9bd46631013e3c94bc88b96e4c032"
+      },
+      "kinds": [
+        "gsh/archive"
+      ],
+      "overlaps": false,
+      "report": [
+        "GSH",
+        "CAPACITY_TRANSACTION"
+      ],
+      "rows": 1,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-01-02T15:22:18+10:00",
+        "file": "PUBLIC_SECONDARYCAPACITYTRADES_20260101.zip",
+        "release": "2026-01",
+        "sha256": "da63f7626735bdecb6bf4ba7e10a867938e9bd46631013e3c94bc88b96e4c032"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRANSACTION_ID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "VERSION_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "TRADE_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "FROM_GAS_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "TO_GAS_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "TRADE_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "FACILITY_ID",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 8,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "TRANSPORTATION_SERVICE_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "FLOW_DIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "RECEIPT_ZONE_ID",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 12,
+          "name": "RECEIPT_ZONE_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "DELIVERY_ZONE_ID",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 14,
+          "name": "DELIVERY_ZONE_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "PARKLOAN_POINT_ID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 16,
+          "name": "PARK_LOAN_POINT_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "STANDARD_OTSA",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "PRIORITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 19,
+          "name": "MAX_DAILY_QUANTITY",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 20,
+          "name": "MAX_HOURLY_QUANTITY",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 21,
+          "name": "PRICE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 22,
+          "name": "PRICE_STRUCTURE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 23,
+          "name": "PRICE_ESCALATION_MECHANISM",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 24,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GSH_CAPACITY_TRANSACTION"
+}

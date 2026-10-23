@@ -1,0 +1,175 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT339_CCAUCTION_BID_STACK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUCTION_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "auction_date",
+      "x-iceberg-type": "date"
+    },
+    "AUCTION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "auction_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "BID_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "bid_id",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "BID_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "bid_price",
+      "x-iceberg-type": "decimal(6, 4)"
+    },
+    "BID_QUANTITY_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "bid_quantity_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "END_PERIOD": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "end_period",
+      "x-iceberg-type": "string"
+    },
+    "START_PERIOD": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "start_period",
+      "x-iceberg-type": "string"
+    },
+    "STEP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "step",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "ZONE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "zone_id",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "ZONE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "zone_name",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT339_CCAUCTION_BID_STACK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "AUCTION_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      2,
+      "AUCTION_DATE",
+      "date"
+    ],
+    [
+      3,
+      "BID_ID",
+      "decimal(5, 0)"
+    ],
+    [
+      4,
+      "ZONE_ID",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "ZONE_NAME",
+      "string"
+    ],
+    [
+      6,
+      "START_PERIOD",
+      "string"
+    ],
+    [
+      7,
+      "END_PERIOD",
+      "string"
+    ],
+    [
+      8,
+      "STEP",
+      "decimal(2, 0)"
+    ],
+    [
+      9,
+      "BID_PRICE",
+      "decimal(6, 4)"
+    ],
+    [
+      10,
+      "BID_QUANTITY_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      11,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT339_CCAUCTION_BID_STACK"
+  }
+}

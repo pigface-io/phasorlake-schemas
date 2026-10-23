@@ -1,0 +1,134 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT929A_SYSTEM_NOTICES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CRITICAL_NOTICE_FLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "critical_notice_flag",
+      "x-iceberg-type": "string"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "NOTICE_END_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "notice_end_date",
+      "x-iceberg-type": "date"
+    },
+    "NOTICE_START_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "notice_start_date",
+      "x-iceberg-type": "date"
+    },
+    "SYSTEM_EMAIL_MESSAGE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "system_email_message",
+      "x-iceberg-type": "string"
+    },
+    "SYSTEM_MESSAGE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "system_message",
+      "x-iceberg-type": "string"
+    },
+    "SYSTEM_WIDE_NOTICE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "system_wide_notice_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "URL_PATH": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "url_path",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT929A_SYSTEM_NOTICES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SYSTEM_WIDE_NOTICE_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      2,
+      "CRITICAL_NOTICE_FLAG",
+      "string"
+    ],
+    [
+      3,
+      "SYSTEM_MESSAGE",
+      "string"
+    ],
+    [
+      4,
+      "SYSTEM_EMAIL_MESSAGE",
+      "string"
+    ],
+    [
+      5,
+      "NOTICE_START_DATE",
+      "date"
+    ],
+    [
+      6,
+      "NOTICE_END_DATE",
+      "date"
+    ],
+    [
+      7,
+      "URL_PATH",
+      "string"
+    ],
+    [
+      8,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT929A_SYSTEM_NOTICES"
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_PIPELINE_CONNECTION_FLOW/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ACTUALQUANTITY": {
+      "description": "The actual flow quantity reported in TJ to the nearest gigajoule.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "ActualQuantity",
+      "x-iceberg-type": "decimal(7, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "CONNECTIONPOINTID": {
+      "description": "Unique connection point identifier.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "ConnectionPointId",
+      "x-iceberg-type": "decimal(7, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "CONNECTIONPOINTNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "ConnectionPointName",
+      "x-iceberg-type": "string"
+    },
+    "FACILITYID": {
+      "description": "Unique Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "FACILITYNAME": {
+      "description": "Name of the Facility",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "FLOWDIRECTION": {
+      "description": "Direction of flow for the submission record. Must be one of ‘RECEIPT’ or ‘DELIVERY’",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "FlowDirection",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "GASDATE": {
+      "description": "Date of gas day",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "GasDate",
+      "x-iceberg-type": "date",
+      "x-model-type": "DATE"
+    },
+    "LOCATIONID": {
+      "description": "Unique Node Location Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "LocationId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "LOCATIONNAME": {
+      "description": "Name of the location.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "LocationName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "QUALITY": {
+      "description": "Indicates whether meter data for the submission date is available",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "Quality",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(5)"
+    },
+    "STATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "State",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "GBB_PIPELINE_CONNECTION_FLOW, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GASDATE",
+      "date"
+    ],
+    [
+      2,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      3,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      4,
+      "CONNECTIONPOINTNAME",
+      "string"
+    ],
+    [
+      5,
+      "CONNECTIONPOINTID",
+      "decimal(7, 0)"
+    ],
+    [
+      6,
+      "ACTUALQUANTITY",
+      "decimal(7, 3)"
+    ],
+    [
+      7,
+      "FLOWDIRECTION",
+      "string"
+    ],
+    [
+      8,
+      "STATE",
+      "string"
+    ],
+    [
+      9,
+      "LOCATIONNAME",
+      "string"
+    ],
+    [
+      10,
+      "LOCATIONID",
+      "decimal(6, 0)"
+    ],
+    [
+      11,
+      "QUALITY",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_PIPELINE_CONNECTION_FLOW"
+  }
+}

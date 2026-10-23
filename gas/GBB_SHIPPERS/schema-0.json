@@ -1,0 +1,139 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_SHIPPERS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "COMPANYID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "CompanyId",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "Gas date that corresponding record takes effect",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "EffectiveDate",
+      "x-iceberg-type": "date",
+      "x-model-type": "DATE"
+    },
+    "FACILITYID": {
+      "description": "A unique AEMO defined Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(20,0)"
+    },
+    "FACILITYNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string"
+    },
+    "FACILITYTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "FacilityType",
+      "x-iceberg-type": "string"
+    },
+    "LASTUPDATED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "LastUpdated",
+      "x-iceberg-type": "timestamptz"
+    },
+    "OPERATORNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "OperatorName",
+      "x-iceberg-type": "string"
+    },
+    "SHIPPERNAME": {
+      "description": "The name of the shipper who holds the capacity",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "ShipperName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(200)"
+    }
+  },
+  "required": [],
+  "title": "GBB_SHIPPERS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVEDATE",
+      "date"
+    ],
+    [
+      2,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      3,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      4,
+      "FACILITYTYPE",
+      "string"
+    ],
+    [
+      5,
+      "COMPANYID",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "OPERATORNAME",
+      "string"
+    ],
+    [
+      7,
+      "SHIPPERNAME",
+      "string"
+    ],
+    [
+      8,
+      "LASTUPDATED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_SHIPPERS"
+  }
+}

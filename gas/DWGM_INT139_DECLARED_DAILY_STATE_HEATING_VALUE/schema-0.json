@@ -1,0 +1,63 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT139_DECLARED_DAILY_STATE_HEATING_VALUE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "DECLARED_HEATING_VALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "declared_heating_value",
+      "x-iceberg-type": "decimal(4, 2)"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT139_DECLARED_DAILY_STATE_HEATING_VALUE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "DECLARED_HEATING_VALUE",
+      "decimal(4, 2)"
+    ],
+    [
+      3,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT139_DECLARED_DAILY_STATE_HEATING_VALUE"
+  }
+}

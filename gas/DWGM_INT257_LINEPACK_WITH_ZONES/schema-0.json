@@ -1,0 +1,77 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT257_LINEPACK_WITH_ZONES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LAST_MOD_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "last_mod_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LINEPACK_ZONE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "linepack_zone_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "LINEPACK_ZONE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "linepack_zone_name",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT257_LINEPACK_WITH_ZONES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "LINEPACK_ZONE_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      2,
+      "LINEPACK_ZONE_NAME",
+      "string"
+    ],
+    [
+      3,
+      "LAST_MOD_DATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT257_LINEPACK_WITH_ZONES"
+  }
+}

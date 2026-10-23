@@ -1,0 +1,111 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_HISTORICAL_SUMMARY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "GAS_DATE": {
+      "description": "The gas date when the delivery of trades occurred",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report was generated",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "PRODUCT_LOCATION": {
+      "description": "Product location for the Gas Supply Hub market",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "ROLLING_WEIGHTED_AVERAGE_PRICE": {
+      "description": "The rolling 30 days volume weighted average price for trades delivered in the last 30 days at the specified location in $/GJ",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    },
+    "TOTAL_QUANTITY": {
+      "description": "Total traded quantities for the specified gas day at the specified location in GJ/day",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    },
+    "VOLUME_WEIGHTED_AVERAGE_PRICE": {
+      "description": "The volume weighted average price for trades delivered in the specified gas day at the specified location in $/GJ",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    }
+  },
+  "required": [
+    "GAS_DATE",
+    "PRODUCT_LOCATION"
+  ],
+  "title": "GSH_HISTORICAL_SUMMARY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "PRODUCT_LOCATION",
+      "string"
+    ],
+    [
+      3,
+      "VOLUME_WEIGHTED_AVERAGE_PRICE",
+      "decimal(18, 8)"
+    ],
+    [
+      4,
+      "TOTAL_QUANTITY",
+      "decimal(18, 8)"
+    ],
+    [
+      5,
+      "ROLLING_WEIGHTED_AVERAGE_PRICE",
+      "decimal(18, 8)"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_HISTORICAL_SUMMARY"
+  }
+}

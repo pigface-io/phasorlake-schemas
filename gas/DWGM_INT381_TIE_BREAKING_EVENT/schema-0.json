@@ -1,0 +1,161 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT381_TIE_BREAKING_EVENT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CC_BIDS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "cc_bids",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "GAS_NOT_SCHEDULED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "gas_not_scheduled",
+      "x-iceberg-type": "decimal(14, 9)"
+    },
+    "MIRN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "mirn",
+      "x-iceberg-type": "string"
+    },
+    "NON_CC_BIDS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "non_cc_bids",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "PART_CC_BIDS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "part_cc_bids",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "SCHEDULE_INTERVAL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "schedule_interval",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "TIE_BREAKING_EVENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "tie_breaking_event",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "TRANSMISSION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "transmission_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT381_TIE_BREAKING_EVENT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "SCHEDULE_INTERVAL",
+      "decimal(1, 0)"
+    ],
+    [
+      3,
+      "TRANSMISSION_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      4,
+      "MIRN",
+      "string"
+    ],
+    [
+      5,
+      "TIE_BREAKING_EVENT",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "CC_BIDS",
+      "decimal(2, 0)"
+    ],
+    [
+      7,
+      "NON_CC_BIDS",
+      "decimal(2, 0)"
+    ],
+    [
+      8,
+      "PART_CC_BIDS",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "GAS_NOT_SCHEDULED",
+      "decimal(14, 9)"
+    ],
+    [
+      10,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT381_TIE_BREAKING_EVENT"
+  }
+}

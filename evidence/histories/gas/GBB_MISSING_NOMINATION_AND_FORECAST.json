@@ -1,0 +1,77 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "GasDate",
+    "2": "FacilityName",
+    "3": "FacilityId",
+    "4": "ConnectionPointId"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2025-10-19T00:00:00+10:00",
+        "file": "GasBBMissingNominationAndForecast.zip",
+        "release": "2026-10",
+        "sha256": "a8e79c044dc43a1799db5e169d2e6b6ef6c26b1a49684bf2d3d0bf68f294ebfa"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "MISSING_NOMINATION_AND_FORECAST"
+      ],
+      "rows": 53863,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-28T00:00:00+10:00",
+        "file": "GasBBMissingNominationAndForecast.zip@20261021T231200+1000",
+        "release": "2026-10",
+        "sha256": "3e828709aba61757a1a47289d356f6850594f2b2a73f1e697fc0e24164bfe053"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GASDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "decimal(7, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_MISSING_NOMINATION_AND_FORECAST"
+}

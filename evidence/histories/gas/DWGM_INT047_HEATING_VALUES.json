@@ -1,0 +1,112 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "version_id",
+    "2": "gas_date",
+    "3": "event_datetime",
+    "4": "event_interval",
+    "5": "heating_value_zone",
+    "6": "heating_value_zone_desc",
+    "7": "initial_heating_value",
+    "8": "current_heating_value",
+    "9": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 35,
+      "from": {
+        "data-time": "2026-08-22T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT047_HEATING_VALUES_1"
+      ],
+      "rows": 959040,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "int047_v4_heating_values_1.csv@20261021T191200+1000",
+        "release": "2026-10",
+        "sha256": "f4bb64a478dd0d3b99224396d00fa3a981e82bbf3c03eee946419d47e1769684"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "VERSION_ID",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 2,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "EVENT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "EVENT_INTERVAL",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "HEATING_VALUE_ZONE",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 6,
+          "name": "HEATING_VALUE_ZONE_DESC",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "INITIAL_HEATING_VALUE",
+          "required": false,
+          "type": "decimal(4, 2)"
+        },
+        {
+          "id": 8,
+          "name": "CURRENT_HEATING_VALUE",
+          "required": false,
+          "type": "decimal(4, 2)"
+        },
+        {
+          "id": 9,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT047_HEATING_VALUES"
+}

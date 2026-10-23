@@ -1,0 +1,105 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT153_DEMAND_FORECAST/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "FORECAST_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "forecast_date",
+      "x-iceberg-type": "date"
+    },
+    "FORECAST_DEMAND_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "forecast_demand_gj",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "TI": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "ti",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "VC_OVERRIDE_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "vc_override_gj",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "VERSION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "version_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT153_DEMAND_FORECAST, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FORECAST_DATE",
+      "date"
+    ],
+    [
+      2,
+      "VERSION_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      3,
+      "TI",
+      "decimal(2, 0)"
+    ],
+    [
+      4,
+      "FORECAST_DEMAND_GJ",
+      "decimal(5, 0)"
+    ],
+    [
+      5,
+      "VC_OVERRIDE_GJ",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT153_DEMAND_FORECAST"
+  }
+}

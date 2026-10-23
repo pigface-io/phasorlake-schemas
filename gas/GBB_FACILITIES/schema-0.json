@@ -1,0 +1,171 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_FACILITIES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "FACILITYID": {
+      "description": "Unique Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "FACILITYNAME": {
+      "description": "Name of the Facility",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "FACILITYSHORTNAME": {
+      "description": "An abbreviation of the facility name",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FacilityShortName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(30)"
+    },
+    "FACILITYTYPE": {
+      "description": "Describes the type of facility. Refer to the GAS_FACILITY_TYPE table",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "FacilityType",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(40)"
+    },
+    "FACILITYTYPEDESCRIPTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "FacilityTypeDescription",
+      "x-iceberg-type": "string"
+    },
+    "OPERATINGSTATE": {
+      "description": "Operating status - active, inactive",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "OperatingState",
+      "x-iceberg-type": "string",
+      "x-model-type": "Varchar2 (20)"
+    },
+    "OPERATINGSTATEDATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "OperatingStateDate",
+      "x-iceberg-type": "date"
+    },
+    "OPERATORCHANGEDATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "OperatorChangeDate",
+      "x-iceberg-type": "date"
+    },
+    "OPERATORID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "OperatorId",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "OPERATORNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "OperatorName",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "GBB_FACILITIES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      2,
+      "FACILITYSHORTNAME",
+      "string"
+    ],
+    [
+      3,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      4,
+      "FACILITYTYPE",
+      "string"
+    ],
+    [
+      5,
+      "FACILITYTYPEDESCRIPTION",
+      "string"
+    ],
+    [
+      6,
+      "OPERATINGSTATE",
+      "string"
+    ],
+    [
+      7,
+      "OPERATINGSTATEDATE",
+      "date"
+    ],
+    [
+      8,
+      "OPERATORNAME",
+      "string"
+    ],
+    [
+      9,
+      "OPERATORID",
+      "decimal(3, 0)"
+    ],
+    [
+      10,
+      "OPERATORCHANGEDATE",
+      "date"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_FACILITIES"
+  }
+}

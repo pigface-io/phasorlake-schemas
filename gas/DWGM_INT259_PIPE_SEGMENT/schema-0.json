@@ -1,0 +1,303 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT259_PIPE_SEGMENT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "COMMENCEMENT_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "commencement_date",
+      "x-iceberg-type": "date"
+    },
+    "COMPRESSOR": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "compressor",
+      "x-iceberg-type": "string"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "DIAMETER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "diameter",
+      "x-iceberg-type": "decimal(5, 4)"
+    },
+    "DIAMETER_PAIRED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "diameter_paired",
+      "x-iceberg-type": "decimal(4, 4)"
+    },
+    "LAST_MOD_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-header": "last_mod_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LENGTH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "length",
+      "x-iceberg-type": "decimal(7, 4)"
+    },
+    "LINEPACK_ZONE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "linepack_zone_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "MAX_PRESSURE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "max_pressure",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "MAX_PRESSURE_DELTA": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "max_pressure_delta",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "MEAN_PIPE_ALTITUDE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "mean_pipe_altitude",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "MIN_PRESSURE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "min_pressure",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "NODE_DESTINATION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "node_destination_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "NODE_ORIGIN_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "node_origin_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "PIPE_SEGMENT_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "pipe_segment_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "PIPE_SEGMENT_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "pipe_segment_name",
+      "x-iceberg-type": "string"
+    },
+    "PRESSURE_AT_REGULATOR_OUTLET": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "pressure_at_regulator_outlet",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "REGULATOR_AT_ORIGIN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "regulator_at_origin",
+      "x-iceberg-type": "string"
+    },
+    "REVERSE_FLOW": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "reverse_flow",
+      "x-iceberg-type": "string"
+    },
+    "TERMINATION_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "termination_date",
+      "x-iceberg-type": "date"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT259_PIPE_SEGMENT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PIPE_SEGMENT_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      2,
+      "PIPE_SEGMENT_NAME",
+      "string"
+    ],
+    [
+      3,
+      "LINEPACK_ZONE_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      4,
+      "COMMENCEMENT_DATE",
+      "date"
+    ],
+    [
+      5,
+      "TERMINATION_DATE",
+      "date"
+    ],
+    [
+      6,
+      "NODE_DESTINATION_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      7,
+      "NODE_ORIGIN_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      8,
+      "DIAMETER",
+      "decimal(5, 4)"
+    ],
+    [
+      9,
+      "DIAMETER_PAIRED",
+      "decimal(4, 4)"
+    ],
+    [
+      10,
+      "LENGTH",
+      "decimal(7, 4)"
+    ],
+    [
+      11,
+      "MAX_PRESSURE",
+      "decimal(5, 0)"
+    ],
+    [
+      12,
+      "MIN_PRESSURE",
+      "decimal(4, 0)"
+    ],
+    [
+      13,
+      "MAX_PRESSURE_DELTA",
+      "decimal(4, 0)"
+    ],
+    [
+      14,
+      "PRESSURE_AT_REGULATOR_OUTLET",
+      "decimal(4, 0)"
+    ],
+    [
+      15,
+      "REGULATOR_AT_ORIGIN",
+      "string"
+    ],
+    [
+      16,
+      "REVERSE_FLOW",
+      "string"
+    ],
+    [
+      17,
+      "COMPRESSOR",
+      "string"
+    ],
+    [
+      18,
+      "MEAN_PIPE_ALTITUDE",
+      "decimal(3, 0)"
+    ],
+    [
+      19,
+      "LAST_MOD_DATE",
+      "timestamptz"
+    ],
+    [
+      20,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT259_PIPE_SEGMENT"
+  }
+}

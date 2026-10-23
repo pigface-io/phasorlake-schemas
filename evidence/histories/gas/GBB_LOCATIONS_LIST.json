@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "LocationName",
+    "2": "LocationId",
+    "3": "LocationType",
+    "4": "State",
+    "5": "Description",
+    "6": "LastUpdated"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2018-05-01T00:00:00+10:00",
+        "file": "GasBBLocationsList.CSV",
+        "release": "2026-10",
+        "sha256": "6e9b57a5d37b979209184fe3b04b114d2582fa7ec0d2f6e8cf3f01a6fed8f56d"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "LOCATIONS_LIST"
+      ],
+      "rows": 25,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2020-01-13T14:25:51+10:00",
+        "file": "GasBBLocationsList.CSV",
+        "release": "2026-10",
+        "sha256": "6e9b57a5d37b979209184fe3b04b114d2582fa7ec0d2f6e8cf3f01a6fed8f56d"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "LOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "LOCATIONID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 3,
+          "name": "LOCATIONTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "STATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "LASTUPDATED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_LOCATIONS_LIST"
+}

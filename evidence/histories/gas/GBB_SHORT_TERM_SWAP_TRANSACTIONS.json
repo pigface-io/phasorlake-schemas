@@ -1,0 +1,248 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "PeriodID",
+    "2": "State",
+    "3": "Quantity (TJ)",
+    "4": "VolumeWeightedPrice ($)",
+    "5": "TransactionType",
+    "6": "SupplyPeriodStart",
+    "7": "SupplyPeriodEnd"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-03-17T00:00:00+10:00",
+        "file": "GasBBShortTermSwapTransactionsNSW.CSV",
+        "release": "2026-10",
+        "sha256": "512d11bc1ef07c55ffa0725e66d18c38d53edb6ba56ed9c998933a1fe532d5f1"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "SHORT_TERM_SWAP_TRANSACTIONS_NSW"
+      ],
+      "rows": 43,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-04-01T00:00:00+10:00",
+        "file": "GasBBShortTermSwapTransactionsNSW.CSV",
+        "release": "2026-10",
+        "sha256": "512d11bc1ef07c55ffa0725e66d18c38d53edb6ba56ed9c998933a1fe532d5f1"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-01-01T00:00:00+10:00",
+        "file": "GasBBShortTermSwapTransactionsNT.CSV",
+        "release": "2026-10",
+        "sha256": "67a913c105aae930643f962f412d535395a1138b110d99e42da029b637472709"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "SHORT_TERM_SWAP_TRANSACTIONS_NT"
+      ],
+      "rows": 43,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "GasBBShortTermSwapTransactionsNT.CSV",
+        "release": "2026-10",
+        "sha256": "67a913c105aae930643f962f412d535395a1138b110d99e42da029b637472709"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": null,
+        "file": "GasBBShortTermSwapTransactionsTAS.CSV",
+        "release": "2026-10",
+        "sha256": "ab7abcd985b137428d6453c764290407a858005c337e4b82549a0c25d4eecfe9"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "SHORT_TERM_SWAP_TRANSACTIONS_TAS"
+      ],
+      "rows": 43,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "GasBBShortTermSwapTransactionsTAS.CSV",
+        "release": "2026-10",
+        "sha256": "ab7abcd985b137428d6453c764290407a858005c337e4b82549a0c25d4eecfe9"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-03-15T00:00:00+10:00",
+        "file": "GasBBShortTermSwapTransactionsQLD.CSV",
+        "release": "2026-10",
+        "sha256": "64c4c6c28945310a575e4b11d2f749d9c942729f037b56f352b01f7b391972c5"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "SHORT_TERM_SWAP_TRANSACTIONS_QLD"
+      ],
+      "rows": 188,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-05T00:00:00+10:00",
+        "file": "GasBBShortTermSwapTransactionsQLD.CSV",
+        "release": "2026-10",
+        "sha256": "64c4c6c28945310a575e4b11d2f749d9c942729f037b56f352b01f7b391972c5"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-03-17T00:00:00+10:00",
+        "file": "GasBBShortTermSwapTransactionsSA.CSV",
+        "release": "2026-10",
+        "sha256": "9bbdea0c98ad1c3af4b4f265d8d915368354686998f9a791a9fb5b34443d6bba"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "SHORT_TERM_SWAP_TRANSACTIONS_SA"
+      ],
+      "rows": 188,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-06T00:00:00+10:00",
+        "file": "GasBBShortTermSwapTransactionsSA.CSV",
+        "release": "2026-10",
+        "sha256": "9bbdea0c98ad1c3af4b4f265d8d915368354686998f9a791a9fb5b34443d6bba"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-04-01T00:00:00+10:00",
+        "file": "GasBBShortTermSwapTransactionsVIC.CSV",
+        "release": "2026-10",
+        "sha256": "d67df3feaa284dbe2e660d73e1b1df772092e6ccf270e06c34ffe58be37f3584"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "SHORT_TERM_SWAP_TRANSACTIONS_VIC"
+      ],
+      "rows": 188,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2029-01-01T00:00:00+10:00",
+        "file": "GasBBShortTermSwapTransactionsVIC.CSV",
+        "release": "2026-10",
+        "sha256": "d67df3feaa284dbe2e660d73e1b1df772092e6ccf270e06c34ffe58be37f3584"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PERIODID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "STATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "QUANTITY_TJ",
+          "required": false,
+          "type": "decimal(11, 6)"
+        },
+        {
+          "id": 4,
+          "name": "VOLUMEWEIGHTEDPRICE",
+          "required": false,
+          "type": "decimal(8, 6)"
+        },
+        {
+          "id": 5,
+          "name": "TRANSACTIONTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "SUPPLYPERIODSTART",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 7,
+          "name": "SUPPLYPERIODEND",
+          "required": false,
+          "type": "date"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_SHORT_TERM_SWAP_TRANSACTIONS"
+}

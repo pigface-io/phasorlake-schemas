@@ -1,0 +1,207 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "GasDate",
+    "10": "CushionGasStorage",
+    "11": "State",
+    "12": "LocationName",
+    "13": "LocationId",
+    "14": "LastUpdated",
+    "2": "FacilityName",
+    "3": "FacilityId",
+    "4": "FacilityType",
+    "5": "Demand",
+    "6": "Supply",
+    "7": "TransferIn",
+    "8": "TransferOut",
+    "9": "HeldInStorage"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 42,
+      "from": {
+        "data-time": "2025-08-31T00:00:00+10:00",
+        "file": "GasBBActualFlowStorageLast31_20250930111016.CSV",
+        "release": "2025-09",
+        "sha256": "6ef6e46ef9cc34abae962a7ac027da7019cd023a6160f15f34c0a6d6b95c85a8"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "ACTUAL_FLOW_STORAGE_LAST31"
+      ],
+      "rows": 59568,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-30T00:00:00+10:00",
+        "file": "GasBBActualFlowStorageLast31_20261001164249.CSV",
+        "release": "2026-10",
+        "sha256": "38966582f45facfbc8c88eb2f376f2fc3353fd47c549b9a8307702e288e799a9"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2018-09-29T00:00:00+10:00",
+        "file": "GasBBActualFlowStorage.zip",
+        "release": "2026-10",
+        "sha256": "097535ef242fd928ee93784dc5050fef1749bfb3b9ef2fc727d43c0d02bf0990"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "ACTUAL_FLOW_STORAGE"
+      ],
+      "rows": 898882,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "GasBBActualFlowStorage.zip@20261021T221100+1000",
+        "release": "2026-10",
+        "sha256": "14e4b05806f5dc68459a0544bc31b46bdaa428b8613e0343bdbdb7cf4c7b8597"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2026-09-20T00:00:00+10:00",
+        "file": "GasBBActualFlowStorageLast31.CSV",
+        "release": "2026-10",
+        "sha256": "6ba2fc220feb8a5a7b5d660a53395c75f4a324bdb40bdbbfc002add5766d7a7d"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "ACTUAL_FLOW_STORAGE_LAST31"
+      ],
+      "rows": 6406,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T00:00:00+10:00",
+        "file": "GasBBActualFlowStorageLast31.CSV@20261022T084100+1000",
+        "release": "2026-10",
+        "sha256": "1e545f07a874aa6a19a566ba5dff08fdab1d36be0fd1b00aa08b8d4b0efd2e0a"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GASDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "FACILITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "DEMAND",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 6,
+          "name": "SUPPLY",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 7,
+          "name": "TRANSFERIN",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 8,
+          "name": "TRANSFEROUT",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 9,
+          "name": "HELDINSTORAGE",
+          "required": false,
+          "type": "decimal(9, 3)"
+        },
+        {
+          "id": 10,
+          "name": "CUSHIONGASSTORAGE",
+          "required": false,
+          "type": "decimal(5, 3)"
+        },
+        {
+          "id": 11,
+          "name": "STATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "LOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "LOCATIONID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 14,
+          "name": "LASTUPDATED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_ACTUAL_FLOW_STORAGE"
+}

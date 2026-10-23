@@ -1,0 +1,507 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_RESERVES_AND_RESOURCES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONVERSIONFACTORQTYTCFTOPJ": {
+      "description": "The conversion factor used to convert quantities measured in trillions of cubic feet to PJ",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-header": "ConversionFactorQtyTCFtoPJ",
+      "x-iceberg-type": "decimal(7, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "DEVELOPEDRESERVE1P": {
+      "description": "An estimate of the BB field interest 1P developed reserves",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "DevelopedReserve1P",
+      "x-iceberg-type": "decimal(9, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "DEVELOPEDRESERVE2P": {
+      "description": "An estimate of the BB field interest 2P developed reserves",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "DevelopedReserve2P",
+      "x-iceberg-type": "decimal(9, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "DEVELOPEDRESERVE3P": {
+      "description": "An estimate of the BB field interest 3P developed reserves",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "DevelopedReserve3P",
+      "x-iceberg-type": "decimal(9, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "DOWNWARDREVISIONFROM2PRESERVETO3P": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "DownwardRevisionFrom2PReserveTo3P",
+      "x-iceberg-type": "decimal(5, 3)"
+    },
+    "ECONOMICASSUMPTION": {
+      "description": "The key economic assumptions in the forecast case used to prepare the reserves and resources estimates and the source of the assumptions",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-header": "EconomicAssumption",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(1000)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "The date on which the record takes effect",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 30,
+      "x-header": "EffectiveDate",
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "EXPECTEDBARRIERS2C": {
+      "description": "A list of any barriers to the commercial recovery of the 2C resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-header": "ExpectedBarriers2C",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(400)"
+    },
+    "FIELDID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "FieldId",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "FIELDINTERESTID": {
+      "description": "A unique AEMO defined Field Interest Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "FieldInterestId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(20,0)"
+    },
+    "FIELDNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FieldName",
+      "x-iceberg-type": "string"
+    },
+    "MATURITYSUBCLASS2C": {
+      "description": "The project maturity sub-class for the 2C resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "MaturitySubClass2C",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "MATURITYSUBCLASS2P": {
+      "description": "The project maturity sub-class for the 2P reserves",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "MaturitySubClass2P",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "MAXDATE2C": {
+      "description": "The latest estimated date for the production of the 2C resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-header": "MaxDate2C",
+      "x-iceberg-type": "string",
+      "x-model-type": "DATE"
+    },
+    "MAXDATE2P": {
+      "description": "The latest estimated date for the production of the 2P reserves",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-header": "MaxDate2P",
+      "x-iceberg-type": "string",
+      "x-model-type": "DATE"
+    },
+    "MINDATE2C": {
+      "description": "The earliest estimated date for the production of the 2C resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-header": "MinDate2C",
+      "x-iceberg-type": "string",
+      "x-model-type": "DATE"
+    },
+    "MINDATE2P": {
+      "description": "The earliest estimated date for the production of the 2P reserves",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-header": "MinDate2P",
+      "x-iceberg-type": "string",
+      "x-model-type": "DATE"
+    },
+    "OTHERREVISIONSRESERVE2P": {
+      "description": "An estimate of the total movement in the BB field interest 2P reserves since the end of prior reporting year due to other revisions",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "OtherRevisionsReserve2P",
+      "x-iceberg-type": "decimal(7, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "PERCENTAGECHANGERESERVE2P": {
+      "description": "An estimate of the total movement in the BB field interest 2P reserves since the end of prior reporting year due to a percentage change in the BB field interest",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "PercentageChangeReserve2P",
+      "x-iceberg-type": "decimal(6, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "PREPARATIONINDEPENDENCESTATEMENT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 29,
+      "x-header": "PreparationIndependenceStatement",
+      "x-iceberg-type": "string"
+    },
+    "PREPAREDBY": {
+      "description": "The name of the person who prepared the estimates",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 28,
+      "x-header": "PreparedBy",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "PRODUCTIONCHANGERESERVE2P": {
+      "description": "An estimate of the total movement in the BB field interest 2P reserves since the end of prior reporting year due to the production of gas",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "ProductionChangeReserve2P",
+      "x-iceberg-type": "decimal(7, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "PROVEDAREAEXTENSIONRESERVE2P": {
+      "description": "An estimate of the total movement in the BB field interest 2P reserves since the end of prior reporting year due to the extension of a fields proved area",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "ProvedAreaExtensionReserve2P",
+      "x-iceberg-type": "decimal(6, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "RESOURCES2C": {
+      "description": "An estimate of the BB field interest 2C resources",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "Resources2C",
+      "x-iceberg-type": "decimal(9, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "RESOURCESESTIMATEMETHOD": {
+      "description": "The resources assessment method used to prepare the reserves and resources estimates",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-header": "ResourcesEstimateMethod",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(200)"
+    },
+    "UNDEVELOPEDRESERVE1P": {
+      "description": "An estimate of the BB field interest 1P undeveloped reserves",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "UndevelopedReserve1P",
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "UNDEVELOPEDRESERVE2P": {
+      "description": "An estimate of the BB field interest 2P undeveloped reserves",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "UndevelopedReserve2P",
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "UNDEVELOPEDRESERVE3P": {
+      "description": "An estimate of the BB field interest 3P undeveloped reserves",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "UndevelopedReserve3P",
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "UPDATEREASON": {
+      "description": "The reason for the update",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-header": "UpdateReason",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(400)"
+    },
+    "UPWARDREVISIONFROM3PRESERVETO2P": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "UpwardRevisionFrom3PReserveTo2P",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "VERSIONDATETIME": {
+      "description": "Time a successful submission is accepted by AEMO systems",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 31,
+      "x-header": "VersionDateTime",
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    }
+  },
+  "required": [],
+  "title": "GBB_RESERVES_AND_RESOURCES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FIELDID",
+      "decimal(6, 0)"
+    ],
+    [
+      2,
+      "FIELDNAME",
+      "string"
+    ],
+    [
+      3,
+      "FIELDINTERESTID",
+      "decimal(6, 0)"
+    ],
+    [
+      4,
+      "DEVELOPEDRESERVE1P",
+      "decimal(9, 3)"
+    ],
+    [
+      5,
+      "DEVELOPEDRESERVE2P",
+      "decimal(9, 3)"
+    ],
+    [
+      6,
+      "DEVELOPEDRESERVE3P",
+      "decimal(9, 3)"
+    ],
+    [
+      7,
+      "UNDEVELOPEDRESERVE1P",
+      "decimal(8, 3)"
+    ],
+    [
+      8,
+      "UNDEVELOPEDRESERVE2P",
+      "decimal(8, 3)"
+    ],
+    [
+      9,
+      "UNDEVELOPEDRESERVE3P",
+      "decimal(8, 3)"
+    ],
+    [
+      10,
+      "RESOURCES2C",
+      "decimal(9, 3)"
+    ],
+    [
+      11,
+      "PRODUCTIONCHANGERESERVE2P",
+      "decimal(7, 3)"
+    ],
+    [
+      12,
+      "PROVEDAREAEXTENSIONRESERVE2P",
+      "decimal(6, 3)"
+    ],
+    [
+      13,
+      "PERCENTAGECHANGERESERVE2P",
+      "decimal(6, 3)"
+    ],
+    [
+      14,
+      "UPWARDREVISIONFROM3PRESERVETO2P",
+      "decimal(6, 3)"
+    ],
+    [
+      15,
+      "DOWNWARDREVISIONFROM2PRESERVETO3P",
+      "decimal(5, 3)"
+    ],
+    [
+      16,
+      "OTHERREVISIONSRESERVE2P",
+      "decimal(7, 3)"
+    ],
+    [
+      17,
+      "MATURITYSUBCLASS2P",
+      "string"
+    ],
+    [
+      18,
+      "MATURITYSUBCLASS2C",
+      "string"
+    ],
+    [
+      19,
+      "MINDATE2P",
+      "string"
+    ],
+    [
+      20,
+      "MAXDATE2P",
+      "string"
+    ],
+    [
+      21,
+      "MINDATE2C",
+      "string"
+    ],
+    [
+      22,
+      "MAXDATE2C",
+      "string"
+    ],
+    [
+      23,
+      "EXPECTEDBARRIERS2C",
+      "string"
+    ],
+    [
+      24,
+      "RESOURCESESTIMATEMETHOD",
+      "string"
+    ],
+    [
+      25,
+      "CONVERSIONFACTORQTYTCFTOPJ",
+      "decimal(7, 3)"
+    ],
+    [
+      26,
+      "ECONOMICASSUMPTION",
+      "string"
+    ],
+    [
+      27,
+      "UPDATEREASON",
+      "string"
+    ],
+    [
+      28,
+      "PREPAREDBY",
+      "string"
+    ],
+    [
+      29,
+      "PREPARATIONINDEPENDENCESTATEMENT",
+      "string"
+    ],
+    [
+      30,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      31,
+      "VERSIONDATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_RESERVES_AND_RESOURCES"
+  }
+}

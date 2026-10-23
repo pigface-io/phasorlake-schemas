@@ -1,0 +1,98 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "transfer_id",
+    "2": "zone_id",
+    "3": "zone_name",
+    "4": "start_date",
+    "5": "end_date",
+    "6": "transferred_qty_gj",
+    "7": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-06-01T00:00:00+10:00",
+        "file": "int348_v4_cctransfer_1.csv",
+        "release": "2026-10",
+        "sha256": "c2c3ead5d2a0c907b1ce010fe41f4101a1af784e8acb049873f7078f80a621ee"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT348_CCTRANSFER_1"
+      ],
+      "rows": 3,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-01T00:00:00+10:00",
+        "file": "int348_v4_cctransfer_1.csv",
+        "release": "2026-10",
+        "sha256": "c2c3ead5d2a0c907b1ce010fe41f4101a1af784e8acb049873f7078f80a621ee"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRANSFER_ID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 2,
+          "name": "ZONE_ID",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 3,
+          "name": "ZONE_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "START_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 5,
+          "name": "END_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 6,
+          "name": "TRANSFERRED_QTY_GJ",
+          "required": false,
+          "type": "decimal(13, 9)"
+        },
+        {
+          "id": 7,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT348_CCTRANSFER"
+}

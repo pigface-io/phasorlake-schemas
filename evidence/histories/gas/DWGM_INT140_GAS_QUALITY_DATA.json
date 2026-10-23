@@ -1,0 +1,112 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "mirn",
+    "2": "gas_date",
+    "3": "ti",
+    "4": "quality_type",
+    "5": "unit",
+    "6": "quantity",
+    "7": "meter_no",
+    "8": "site_company",
+    "9": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 772,
+      "from": {
+        "data-time": "2026-08-30T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT140_GAS_QUALITY_DATA_1"
+      ],
+      "rows": 121270,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T00:00:00+10:00",
+        "file": "int140_v5_gas_quality_data_1.csv@20261021T221100+1000",
+        "release": "2026-10",
+        "sha256": "166df20288b31c05825256d1c7dfa63829563b9cb8034d204ee55c32b2ff8f82"
+      },
+      "updates": [],
+      "version": 5
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "MIRN",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "TI",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 4,
+          "name": "QUALITY_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "UNIT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "QUANTITY",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 7,
+          "name": "METER_NO",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "SITE_COMPANY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT140_GAS_QUALITY_DATA"
+}

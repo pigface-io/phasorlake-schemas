@@ -1,0 +1,84 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "hv_zone",
+    "3": "hv_zone_desc",
+    "4": "heating_value",
+    "5": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 35,
+      "from": {
+        "data-time": "2026-06-02T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT139A_DAILY_ZONAL_HEATING_1"
+      ],
+      "rows": 36237,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "int139a_v4_daily_zonal_heating_1.csv@20261021T191100+1000",
+        "release": "2026-10",
+        "sha256": "12e7c50cee7e0d16d4b1fdaa897da50dc7c3dfb611977a425cea13f19a07495d"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "HV_ZONE",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 3,
+          "name": "HV_ZONE_DESC",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "HEATING_VALUE",
+          "required": false,
+          "type": "decimal(4, 2)"
+        },
+        {
+          "id": 5,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT139A_DAILY_ZONAL_HEATING"
+}

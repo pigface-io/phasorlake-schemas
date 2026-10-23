@@ -1,0 +1,161 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT235_SCHED_SYSTEM_TOTAL/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "DATA_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "data_type",
+      "x-iceberg-type": "string"
+    },
+    "DAY_IN_ADVANCE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "day_in_advance",
+      "x-iceberg-type": "string"
+    },
+    "DETAIL": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "detail",
+      "x-iceberg-type": "string"
+    },
+    "FLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "flag",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "id",
+      "x-iceberg-type": "string"
+    },
+    "TRANSMISSION_DOC_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "transmission_doc_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "TRANSMISSION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "transmission_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "VALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "value",
+      "x-iceberg-type": "decimal(10, 4)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT235_SCHED_SYSTEM_TOTAL, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRANSMISSION_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      2,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      3,
+      "FLAG",
+      "string"
+    ],
+    [
+      4,
+      "DAY_IN_ADVANCE",
+      "string"
+    ],
+    [
+      5,
+      "DATA_TYPE",
+      "string"
+    ],
+    [
+      6,
+      "DETAIL",
+      "string"
+    ],
+    [
+      7,
+      "TRANSMISSION_DOC_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      8,
+      "ID",
+      "string"
+    ],
+    [
+      9,
+      "VALUE",
+      "decimal(10, 4)"
+    ],
+    [
+      10,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT235_SCHED_SYSTEM_TOTAL"
+  }
+}

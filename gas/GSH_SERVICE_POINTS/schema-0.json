@@ -1,0 +1,258 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_SERVICE_POINTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUCTION_PRODUCT_TYPE": {
+      "description": "Auction Product Type for Service Point",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "EFFECTIVEDATE": {
+      "description": "The effective date of the service point.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 14,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "FACILITY_ID": {
+      "description": "The unique identifier of the parent facility.",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "FACILITY_NAME": {
+      "description": "The descriptive name of the parent facility.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "FOR_AUCTION_PUBLICATION": {
+      "description": "Flag to indicate if the product component can be published in the public auction reports, for example yes or no.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(3)"
+    },
+    "GBB_CONNECTION_POINT_ID": {
+      "description": "The corresponding GBB connection point identifier.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "GBB_CONNECTION_POINT_NAME": {
+      "description": "The descriptive name of the corresponding GBB connection point.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report was generated.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "NOTIONAL_POINT": {
+      "description": "Flag to indicate if the service point is a notional point, for example Yes or No.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(3)"
+    },
+    "SERVICE_POINT_DESCRIPTION": {
+      "description": "The description of the service point.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(255)"
+    },
+    "SERVICE_POINT_ID": {
+      "description": "The unique identifier of the service point.",
+      "type": "integer",
+      "x-field-id": 3,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "SERVICE_POINT_NAME": {
+      "description": "The descriptive name of the service point.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "SERVICE_POINT_TYPE": {
+      "description": "The type of service point, for example forward haul receipt point, forward haul delivery point, backhaul receipt point, backhaul delivery point, compression receipt point or compression delivery point.",
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "VERSION_DATETIME": {
+      "description": "The version timestamp of the record",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 15,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "ZONE_ID": {
+      "description": "The unique identifier of the zone in which the service point is located.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "ZONE_NAME": {
+      "description": "The descriptive name of the zone.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    }
+  },
+  "required": [
+    "FACILITY_ID",
+    "SERVICE_POINT_ID",
+    "AUCTION_PRODUCT_TYPE",
+    "SERVICE_POINT_TYPE",
+    "EFFECTIVEDATE",
+    "VERSION_DATETIME"
+  ],
+  "title": "GSH_SERVICE_POINTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FACILITY_ID",
+      "long"
+    ],
+    [
+      2,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      3,
+      "SERVICE_POINT_ID",
+      "long"
+    ],
+    [
+      4,
+      "SERVICE_POINT_NAME",
+      "string"
+    ],
+    [
+      5,
+      "AUCTION_PRODUCT_TYPE",
+      "string"
+    ],
+    [
+      6,
+      "SERVICE_POINT_TYPE",
+      "string"
+    ],
+    [
+      7,
+      "SERVICE_POINT_DESCRIPTION",
+      "string"
+    ],
+    [
+      8,
+      "NOTIONAL_POINT",
+      "string"
+    ],
+    [
+      9,
+      "ZONE_ID",
+      "long"
+    ],
+    [
+      10,
+      "ZONE_NAME",
+      "string"
+    ],
+    [
+      11,
+      "GBB_CONNECTION_POINT_ID",
+      "long"
+    ],
+    [
+      12,
+      "GBB_CONNECTION_POINT_NAME",
+      "string"
+    ],
+    [
+      13,
+      "FOR_AUCTION_PUBLICATION",
+      "string"
+    ],
+    [
+      14,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      15,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      16,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    5,
+    14,
+    1,
+    3,
+    6,
+    15
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_SERVICE_POINTS"
+  }
+}

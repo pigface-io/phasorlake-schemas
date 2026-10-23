@@ -1,0 +1,117 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT112C_SSC/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "current_date",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_date",
+      "x-iceberg-type": "string"
+    },
+    "HOURLY_CONSTRAINT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "hourly_constraint",
+      "x-iceberg-type": "string"
+    },
+    "MOD_DATETIME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "mod_datetime",
+      "x-iceberg-type": "string"
+    },
+    "SSC_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "ssc_id",
+      "x-iceberg-type": "string"
+    },
+    "SUPPLY_SOURCE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "supply_source",
+      "x-iceberg-type": "string"
+    },
+    "TI": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "ti",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT112C_SSC, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SUPPLY_SOURCE",
+      "string"
+    ],
+    [
+      2,
+      "GAS_DATE",
+      "string"
+    ],
+    [
+      3,
+      "SSC_ID",
+      "string"
+    ],
+    [
+      4,
+      "TI",
+      "string"
+    ],
+    [
+      5,
+      "HOURLY_CONSTRAINT",
+      "string"
+    ],
+    [
+      6,
+      "MOD_DATETIME",
+      "string"
+    ],
+    [
+      7,
+      "CURRENT_DATE",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT112C_SSC"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT284_TUOS_ZONE_POSTCODE_MAP/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LAST_UPDATE_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "last_update_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "POSTCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "postcode",
+      "x-iceberg-type": "string"
+    },
+    "TUOS_ZONE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "tuos_zone",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "TUOS_ZONE_DESC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "tuos_zone_desc",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT284_TUOS_ZONE_POSTCODE_MAP, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "LAST_UPDATE_DATETIME",
+      "timestamptz"
+    ],
+    [
+      2,
+      "POSTCODE",
+      "string"
+    ],
+    [
+      3,
+      "TUOS_ZONE",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "TUOS_ZONE_DESC",
+      "string"
+    ],
+    [
+      5,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT284_TUOS_ZONE_POSTCODE_MAP"
+  }
+}

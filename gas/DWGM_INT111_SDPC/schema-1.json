@@ -1,0 +1,259 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT111_SDPC/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "EXPIRATION_TIME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "expiration_time",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "MIRN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "mirn",
+      "x-iceberg-type": "string"
+    },
+    "OS_DAILY_MAX_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-header": "os_daily_max_qty",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "OS_DAILY_MIN_QTY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-header": "os_daily_min_qty",
+      "x-iceberg-type": "string"
+    },
+    "OS_HOURLY_MAX_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "os_hourly_max_qty",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "OS_HOURLY_MIN_QTY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "os_hourly_min_qty",
+      "x-iceberg-type": "string"
+    },
+    "PS_DAILY_MAX_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-header": "ps_daily_max_qty",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "PS_DAILY_MIN_QTY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "ps_daily_min_qty",
+      "x-iceberg-type": "string"
+    },
+    "PS_HOURLY_MAX_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "ps_hourly_max_qty",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "PS_HOURLY_MIN_QTY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "ps_hourly_min_qty",
+      "x-iceberg-type": "string"
+    },
+    "RAMP_DOWN_CONSTRAINT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "ramp_down_constraint",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "RAMP_UP_CONSTRAINT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "ramp_up_constraint",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "SCHEDULE_RESPONSE_TIME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "schedule_response_time",
+      "x-iceberg-type": "string"
+    },
+    "SDPC_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "sdpc_id",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "TI": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "ti",
+      "x-iceberg-type": "decimal(2, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT111_SDPC, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "TI",
+      "decimal(2, 0)"
+    ],
+    [
+      3,
+      "MIRN",
+      "string"
+    ],
+    [
+      14,
+      "PS_HOURLY_MAX_QTY",
+      "decimal(5, 0)"
+    ],
+    [
+      15,
+      "PS_HOURLY_MIN_QTY",
+      "string"
+    ],
+    [
+      16,
+      "OS_HOURLY_MAX_QTY",
+      "decimal(5, 0)"
+    ],
+    [
+      17,
+      "OS_HOURLY_MIN_QTY",
+      "string"
+    ],
+    [
+      6,
+      "RAMP_UP_CONSTRAINT",
+      "decimal(4, 0)"
+    ],
+    [
+      7,
+      "RAMP_DOWN_CONSTRAINT",
+      "decimal(5, 0)"
+    ],
+    [
+      8,
+      "SCHEDULE_RESPONSE_TIME",
+      "string"
+    ],
+    [
+      18,
+      "PS_DAILY_MIN_QTY",
+      "string"
+    ],
+    [
+      19,
+      "PS_DAILY_MAX_QTY",
+      "decimal(6, 0)"
+    ],
+    [
+      20,
+      "OS_DAILY_MIN_QTY",
+      "string"
+    ],
+    [
+      21,
+      "OS_DAILY_MAX_QTY",
+      "decimal(6, 0)"
+    ],
+    [
+      11,
+      "EXPIRATION_TIME",
+      "string"
+    ],
+    [
+      12,
+      "SDPC_ID",
+      "decimal(5, 0)"
+    ],
+    [
+      13,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT111_SDPC"
+  }
+}

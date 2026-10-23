@@ -1,0 +1,121 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT667_MARKET_PARAMETERS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EFFECTIVE_FROM_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "effective_from_date",
+      "x-iceberg-type": "date"
+    },
+    "EFFECTIVE_TO_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "effective_to_date",
+      "x-iceberg-type": "date"
+    },
+    "LAST_UPDATE_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "last_update_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "PARAMETER_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "parameter_code",
+      "x-iceberg-type": "string"
+    },
+    "PARAMETER_DESCRIPTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "parameter_description",
+      "x-iceberg-type": "string"
+    },
+    "PARAMETER_VALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "parameter_value",
+      "x-iceberg-type": "decimal(7, 4)"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT667_MARKET_PARAMETERS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVE_FROM_DATE",
+      "date"
+    ],
+    [
+      2,
+      "EFFECTIVE_TO_DATE",
+      "date"
+    ],
+    [
+      3,
+      "PARAMETER_CODE",
+      "string"
+    ],
+    [
+      4,
+      "PARAMETER_DESCRIPTION",
+      "string"
+    ],
+    [
+      5,
+      "PARAMETER_VALUE",
+      "decimal(7, 4)"
+    ],
+    [
+      6,
+      "LAST_UPDATE_DATETIME",
+      "timestamptz"
+    ],
+    [
+      7,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT667_MARKET_PARAMETERS"
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_FORECAST_UTILISATION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DELIVERYLOCATIONID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "DeliveryLocationId",
+      "x-iceberg-type": "decimal(7, 0)"
+    },
+    "DELIVERYLOCATIONNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "DeliveryLocationName",
+      "x-iceberg-type": "string"
+    },
+    "DESCRIPTION": {
+      "description": "Description for reasons or comments directly related to the quantity or change in Outlook quantity in relation to the Facility.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "Description",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(1000)"
+    },
+    "FACILITYID": {
+      "description": "Unique Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "FACILITYNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string"
+    },
+    "FACILITYTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "FacilityType",
+      "x-iceberg-type": "string"
+    },
+    "FORECASTMETHOD": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "ForecastMethod",
+      "x-iceberg-type": "string"
+    },
+    "FORECAST_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "date"
+    },
+    "NAMEPLATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "Nameplate",
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "QUANTITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-iceberg-type": "string"
+    },
+    "RECEIPTLOCATIONID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "ReceiptLocationId",
+      "x-iceberg-type": "decimal(7, 0)"
+    },
+    "RECEIPTLOCATIONNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "ReceiptLocationName",
+      "x-iceberg-type": "string"
+    },
+    "STATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "State",
+      "x-iceberg-type": "string"
+    },
+    "UNITS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "Units",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "GBB_FORECAST_UTILISATION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "STATE",
+      "string"
+    ],
+    [
+      2,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      3,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      4,
+      "FACILITYTYPE",
+      "string"
+    ],
+    [
+      5,
+      "RECEIPTLOCATIONID",
+      "decimal(7, 0)"
+    ],
+    [
+      6,
+      "RECEIPTLOCATIONNAME",
+      "string"
+    ],
+    [
+      7,
+      "DELIVERYLOCATIONID",
+      "decimal(7, 0)"
+    ],
+    [
+      8,
+      "DELIVERYLOCATIONNAME",
+      "string"
+    ],
+    [
+      9,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      10,
+      "FORECASTMETHOD",
+      "string"
+    ],
+    [
+      11,
+      "UNITS",
+      "string"
+    ],
+    [
+      12,
+      "NAMEPLATE",
+      "decimal(8, 3)"
+    ],
+    [
+      13,
+      "FORECAST_DATE",
+      "date"
+    ],
+    [
+      14,
+      "QUANTITY",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_FORECAST_UTILISATION"
+  }
+}

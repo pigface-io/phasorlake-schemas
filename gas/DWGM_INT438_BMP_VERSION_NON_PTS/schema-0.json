@@ -1,0 +1,121 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT438_BMP_VERSION_NON_PTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "EXTRACT_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "extract_type",
+      "x-iceberg-type": "string"
+    },
+    "ISSUED_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "issued_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "NETWORK_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "network_name",
+      "x-iceberg-type": "string"
+    },
+    "VERSION_FROM_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "version_from_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "VERSION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "version_id",
+      "x-iceberg-type": "decimal(7, 0)"
+    },
+    "VERSION_TO_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "version_to_date",
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT438_BMP_VERSION_NON_PTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "NETWORK_NAME",
+      "string"
+    ],
+    [
+      2,
+      "VERSION_ID",
+      "decimal(7, 0)"
+    ],
+    [
+      3,
+      "EXTRACT_TYPE",
+      "string"
+    ],
+    [
+      4,
+      "VERSION_FROM_DATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "VERSION_TO_DATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "ISSUED_DATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT438_BMP_VERSION_NON_PTS"
+  }
+}

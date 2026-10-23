@@ -1,0 +1,104 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 5,
+      "from": {
+        "data-time": "2026-03-10T00:00:00+10:00",
+        "file": "PUBLIC_CAPACITYTRANSFERAUCTIONNOTICE_20260301.zip",
+        "release": "2026-03",
+        "sha256": "012c0add70be5555316f9c0cf970e755ced86e9c97996588b052e95e761a0a6a"
+      },
+      "kinds": [
+        "gsh/archive",
+        "gsh/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GSH",
+        "CAPACITY_TRANSFER_AUCTION_NT"
+      ],
+      "rows": 5,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-07T00:00:00+10:00",
+        "file": "PUBLIC_CAPACITYTRANSFERAUCTIONNOTICE_20260807_0000000531458749.zip",
+        "release": "2026-08",
+        "sha256": "535c7a8b4fa72bf03651121a06c05c5095d06f91d32cc18d1d8e0be78ba629e1"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "NOTICE_ID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "NOTICE_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "FACILITY_ID",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 5,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "MARKET",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "NOTICE_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GSH_CAP_XFR_AUCTION_NOTICE"
+}

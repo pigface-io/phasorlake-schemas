@@ -1,0 +1,106 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 18,
+      "from": {
+        "data-time": "2026-03-16T00:00:00+10:00",
+        "file": "PUBLIC_ZONECURTAILMENTINFORMATION_20260301.zip",
+        "release": "2026-03",
+        "sha256": "6d641e972b5c6e7d8a329d45d750c58b40d78253bd20cbc042db4b1a754bdfe2"
+      },
+      "kinds": [
+        "gsh/archive",
+        "gsh/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GSH",
+        "ZONE_CURTAILMENT_INFORMATION"
+      ],
+      "rows": 18,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-14T00:00:00+10:00",
+        "file": "PUBLIC_ZONECURTAILMENTINFORMATION_20261013_0000000542690279.zip",
+        "release": "2026-10",
+        "sha256": "e788d537d254820a4a0664f8ddec5fac90b62a76475799de20b43b17b934aee0"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FACILITY_ID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "SERVICE_POINT_ID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 4,
+          "name": "SERVICE_POINT_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "SERVICE_POINT_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "SERVICE_POINT_DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "GAS_DATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 8,
+          "name": "CURTAILED_QUANTITY",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        7,
+        3
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GSH_ZONE_CURTAILMENT"
+}

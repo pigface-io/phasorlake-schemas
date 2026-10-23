@@ -1,0 +1,147 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT689_EXPOST_FACILITY_ALLOCATION_QUANTITY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ALLOCATION_QTY_INC_MOS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "allocation_qty_inc_mos",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "ALLOCATION_QTY_QUALITY_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "allocation_qty_quality_type",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "facility_identifier",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "facility_name",
+      "x-iceberg-type": "string"
+    },
+    "FLOW_DIRECTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "flow_direction",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT689_EXPOST_FACILITY_ALLOCATION_QUANTITY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      3,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      4,
+      "FACILITY_IDENTIFIER",
+      "string"
+    ],
+    [
+      5,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      6,
+      "ALLOCATION_QTY_INC_MOS",
+      "decimal(15, 9)"
+    ],
+    [
+      7,
+      "ALLOCATION_QTY_QUALITY_TYPE",
+      "string"
+    ],
+    [
+      8,
+      "FLOW_DIRECTION",
+      "string"
+    ],
+    [
+      9,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT689_EXPOST_FACILITY_ALLOCATION_QUANTITY"
+  }
+}

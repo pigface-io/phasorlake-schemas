@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "gas_hour",
+    "3": "site_company",
+    "4": "phy_mirn",
+    "5": "inject_withdraw",
+    "6": "energy_flow_gj"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 34,
+      "from": {
+        "data-time": "2025-08-01T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT313_ALLOCATED_INJECTIONS_WITHDRAWALS_1"
+      ],
+      "rows": 8610,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-15T00:00:00+10:00",
+        "file": "int313_v4_allocated_injections_withdrawals_1.csv@20261021T191100+1000",
+        "release": "2026-10",
+        "sha256": "eae5a1505f7339985b01eb4008fa0f7433f67aa79ac65a8e090c47ac8d9dcad0"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "GAS_HOUR",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "SITE_COMPANY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PHY_MIRN",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "INJECT_WITHDRAW",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "ENERGY_FLOW_GJ",
+          "required": false,
+          "type": "decimal(15, 9)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT313_ALLOCATED_INJECTIONS_WITHDRAWALS"
+}

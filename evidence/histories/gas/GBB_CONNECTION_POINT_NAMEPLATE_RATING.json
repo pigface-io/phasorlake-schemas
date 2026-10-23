@@ -1,0 +1,140 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "ConnectionPointId",
+    "10": "OperatorName",
+    "11": "OwnerId",
+    "12": "OwnerName",
+    "13": "LastUpdated",
+    "2": "ConnectionPointName",
+    "3": "EffectiveDate",
+    "4": "CapacityQuantity",
+    "5": "Description",
+    "6": "FacilityName",
+    "7": "FacilityId",
+    "8": "FacilityType",
+    "9": "OperatorId"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2019-02-01T00:00:00+10:00",
+        "file": "GasBBConnectionPointNameplateRatingFuture.CSV",
+        "release": "2026-10",
+        "sha256": "b98e5729177035d35e422a1a268e3ec7537c03483eaab0cb327036be73800f51"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "CONNECTION_POINT_NAMEPLATE_RATING_FUTURE"
+      ],
+      "rows": 762,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T00:00:00+10:00",
+        "file": "GasBBConnectionPointNameplateRatingFuture.CSV@20261022T045200+1000",
+        "release": "2026-10",
+        "sha256": "699ace05336d44d90a6d551f5d4acf2b289b6159ac754aa199358aef5d243e1a"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 2,
+          "name": "CONNECTIONPOINTNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "EFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "CAPACITYQUANTITY",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 5,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 8,
+          "name": "FACILITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "OPERATORID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 10,
+          "name": "OPERATORNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "OWNERID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 12,
+          "name": "OWNERNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "LASTUPDATED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_CONNECTION_POINT_NAMEPLATE_RATING"
+}

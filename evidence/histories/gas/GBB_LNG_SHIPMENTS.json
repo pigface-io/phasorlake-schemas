@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "TransactionId",
+    "2": "FacilityId",
+    "3": "FacilityName",
+    "4": "VolumePJ",
+    "5": "ShipmentDate",
+    "6": "VersionDateTime"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-03-15T00:00:00+10:00",
+        "file": "GasBBLNGShipments.CSV",
+        "release": "2026-10",
+        "sha256": "7f4a42f5e448340a71eb487ce3e838eda3c50b2cdc31bc7daedc1193b67e00db"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "LNG_SHIPMENTS"
+      ],
+      "rows": 2113,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-31T00:00:00+10:00",
+        "file": "GasBBLNGShipments.CSV",
+        "release": "2026-10",
+        "sha256": "7f4a42f5e448340a71eb487ce3e838eda3c50b2cdc31bc7daedc1193b67e00db"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRANSACTIONID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "VOLUMEPJ",
+          "required": false,
+          "type": "decimal(4, 3)"
+        },
+        {
+          "id": 5,
+          "name": "SHIPMENTDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 6,
+          "name": "VERSIONDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_LNG_SHIPMENTS"
+}

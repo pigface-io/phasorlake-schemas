@@ -1,0 +1,105 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT345_CCAUCTION_ZONE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "FROM_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "from_date",
+      "x-iceberg-type": "date"
+    },
+    "TO_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "to_date",
+      "x-iceberg-type": "string"
+    },
+    "ZONE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "zone_id",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "ZONE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "zone_name",
+      "x-iceberg-type": "string"
+    },
+    "ZONE_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "zone_type",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT345_CCAUCTION_ZONE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "ZONE_ID",
+      "decimal(1, 0)"
+    ],
+    [
+      2,
+      "ZONE_NAME",
+      "string"
+    ],
+    [
+      3,
+      "ZONE_TYPE",
+      "string"
+    ],
+    [
+      4,
+      "FROM_DATE",
+      "date"
+    ],
+    [
+      5,
+      "TO_DATE",
+      "string"
+    ],
+    [
+      6,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT345_CCAUCTION_ZONE"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT311_CUSTOMER_TRANSFERS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "GREENFIELDS_RECEIVED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "greenfields_received",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "INT_TRANSFERS_CANCELLED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "int_transfers_cancelled",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "INT_TRANSFERS_COMPLETED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "int_transfers_completed",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "INT_TRANSFERS_LODGED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "int_transfers_lodged",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "MARKET_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "market_code",
+      "x-iceberg-type": "string"
+    },
+    "TRANSFERS_CANCELLED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "transfers_cancelled",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "TRANSFERS_COMPLETED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "transfers_completed",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "TRANSFERS_LODGED": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "transfers_lodged",
+      "x-iceberg-type": "decimal(4, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT311_CUSTOMER_TRANSFERS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "MARKET_CODE",
+      "string"
+    ],
+    [
+      3,
+      "TRANSFERS_LODGED",
+      "decimal(4, 0)"
+    ],
+    [
+      4,
+      "TRANSFERS_COMPLETED",
+      "decimal(4, 0)"
+    ],
+    [
+      5,
+      "TRANSFERS_CANCELLED",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "INT_TRANSFERS_LODGED",
+      "decimal(2, 0)"
+    ],
+    [
+      7,
+      "INT_TRANSFERS_COMPLETED",
+      "decimal(2, 0)"
+    ],
+    [
+      8,
+      "INT_TRANSFERS_CANCELLED",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "GREENFIELDS_RECEIVED",
+      "decimal(3, 0)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT311_CUSTOMER_TRANSFERS"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "effective_from_date",
+    "10": "low_capacity_threshold",
+    "11": "last_update_datetime",
+    "12": "report_datetime",
+    "2": "effective_to_date",
+    "3": "hub_identifier",
+    "4": "hub_name",
+    "5": "facility_identifier",
+    "6": "facility_name",
+    "7": "default_capacity",
+    "8": "maximum_capacity",
+    "9": "high_capacity_threshold"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 44,
+      "from": {
+        "data-time": "2010-01-01T00:00:00+10:00",
+        "file": "Day31.zip",
+        "release": "2026-08",
+        "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT687_FACILITY_HUB_CAPACITY_DATA_RPT_1"
+      ],
+      "rows": 70,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2027-04-02T00:00:00+10:00",
+        "file": "int687_v1_facility_hub_capacity_data_rpt_1.csv@20261021T191600+1000",
+        "release": "2026-10",
+        "sha256": "31cd2a7a16cb5a65107ced2132b7830e7852390133301e26bc4ef0157e6d13bc"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "EFFECTIVE_FROM_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "EFFECTIVE_TO_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 3,
+          "name": "HUB_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "HUB_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FACILITY_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "DEFAULT_CAPACITY",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 8,
+          "name": "MAXIMUM_CAPACITY",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 9,
+          "name": "HIGH_CAPACITY_THRESHOLD",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 10,
+          "name": "LOW_CAPACITY_THRESHOLD",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 11,
+          "name": "LAST_UPDATE_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT687_FACILITY_HUB_CAPACITY_DATA"
+}

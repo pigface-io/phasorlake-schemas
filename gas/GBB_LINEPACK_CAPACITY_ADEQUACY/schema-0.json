@@ -1,0 +1,131 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_LINEPACK_CAPACITY_ADEQUACY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DESCRIPTION": {
+      "description": "Free text description of record",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Description",
+      "x-iceberg-type": "string",
+      "x-model-type": "Varchar2 (800)"
+    },
+    "FACILITYID": {
+      "description": "Unique Facility identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "Number(10,0)"
+    },
+    "FACILITYNAME": {
+      "description": "Name of the Facility",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "FACILITYTYPE": {
+      "description": "Describes the type of facility. Refer to the GAS_FACILITY_TYPE table",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "FacilityType",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(40)"
+    },
+    "FLAG": {
+      "description": "Expected adequacy for the gas day. Valid entries are GREEN, AMBER or RED",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Flag",
+      "x-iceberg-type": "string",
+      "x-model-type": "Varchar2 (5)"
+    },
+    "GASDATE": {
+      "description": "Date of gas day applicable under either the pipeline contract or market rules",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "GasDate",
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "Date"
+    },
+    "LASTUPDATED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "LastUpdated",
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "GBB_LINEPACK_CAPACITY_ADEQUACY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      2,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      3,
+      "FACILITYTYPE",
+      "string"
+    ],
+    [
+      4,
+      "GASDATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "FLAG",
+      "string"
+    ],
+    [
+      6,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      7,
+      "LASTUPDATED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_LINEPACK_CAPACITY_ADEQUACY"
+  }
+}

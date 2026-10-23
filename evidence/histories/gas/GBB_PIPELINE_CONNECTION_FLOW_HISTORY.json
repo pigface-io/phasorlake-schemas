@@ -1,0 +1,126 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "GasDate",
+    "10": "LocationId",
+    "11": "Quality",
+    "2": "FacilityName",
+    "3": "FacilityId",
+    "4": "ConnectionPointName",
+    "5": "ConnectionPointId",
+    "6": "ActualQuantity",
+    "7": "FlowDirection",
+    "8": "State",
+    "9": "LocationName"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2018-09-29T00:00:00+10:00",
+        "file": "PipelineConnectionFlow_History.csv",
+        "release": "2019-11",
+        "sha256": "430cd7af776bc3d3a912ad0657121040ff1cc0de06fdffaaf5ffa508ccd355a9"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "PIPELINE_CONNECTION_FLOW_HISTORY"
+      ],
+      "rows": 216897,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2019-11-18T00:00:00+10:00",
+        "file": "PipelineConnectionFlow_History.csv",
+        "release": "2019-11",
+        "sha256": "430cd7af776bc3d3a912ad0657121040ff1cc0de06fdffaaf5ffa508ccd355a9"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GASDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 6,
+          "name": "ACTUALQUANTITY",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 7,
+          "name": "FLOWDIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "STATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "LOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "LOCATIONID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 11,
+          "name": "QUALITY",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_PIPELINE_CONNECTION_FLOW_HISTORY"
+}

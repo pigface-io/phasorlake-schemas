@@ -1,0 +1,105 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "distributor",
+    "2": "street_name",
+    "3": "street_id",
+    "4": "street_suffix",
+    "5": "suburb_or_place_or_locality",
+    "6": "state_or_territory",
+    "7": "site_address_postcode",
+    "8": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 34,
+      "from": {
+        "data-time": "2026-08-31T17:00:01+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT898_NEWSTREETLISTING_1"
+      ],
+      "rows": 55778,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T17:00:01+10:00",
+        "file": "int898_v1_newstreetlisting_1.csv@20261021T191100+1000",
+        "release": "2026-10",
+        "sha256": "6cc88d1067974da223296e3c9a4903b04e7497ed4cd1c8207082d282f25f4441"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "DISTRIBUTOR",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "STREET_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "STREET_ID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "STREET_SUFFIX",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "SUBURB_OR_PLACE_OR_LOCALITY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "STATE_OR_TERRITORY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "SITE_ADDRESS_POSTCODE",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 8,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT898_NEWSTREETLISTING"
+}

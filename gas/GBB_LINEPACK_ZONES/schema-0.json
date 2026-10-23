@@ -1,0 +1,61 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_LINEPACK_ZONES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "LINEPACKZONE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "LinepackZone",
+      "x-iceberg-type": "string"
+    },
+    "LINEPACKZONEDESCRIPTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "LinepackZoneDescription",
+      "x-iceberg-type": "string"
+    },
+    "OPERATOR": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Operator",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "GBB_LINEPACK_ZONES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "OPERATOR",
+      "string"
+    ],
+    [
+      2,
+      "LINEPACKZONE",
+      "string"
+    ],
+    [
+      3,
+      "LINEPACKZONEDESCRIPTION",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_LINEPACK_ZONES"
+  }
+}

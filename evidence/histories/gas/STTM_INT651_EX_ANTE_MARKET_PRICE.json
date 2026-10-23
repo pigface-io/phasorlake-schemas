@@ -1,0 +1,126 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "10": "approval_datetime",
+    "11": "report_datetime",
+    "2": "hub_identifier",
+    "3": "hub_name",
+    "4": "schedule_identifier",
+    "5": "ex_ante_market_price",
+    "6": "administered_price_period",
+    "7": "cap_applied",
+    "8": "administered_price_cap",
+    "9": "schedule_price"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 35,
+      "from": {
+        "data-time": "2026-08-26T00:00:00+10:00",
+        "file": "Day31.zip",
+        "release": "2026-08",
+        "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT651_EX_ANTE_MARKET_PRICE_RPT_1"
+      ],
+      "rows": 192,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-22T00:00:00+10:00",
+        "file": "int651_v1_ex_ante_market_price_rpt_1.csv@20261021T191600+1000",
+        "release": "2026-10",
+        "sha256": "c35c23956e6d8801a0227bb6d38ca6948306b4163d6783e3c7dcb2a05006ce93"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "HUB_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "HUB_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "SCHEDULE_IDENTIFIER",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 5,
+          "name": "EX_ANTE_MARKET_PRICE",
+          "required": false,
+          "type": "decimal(6, 4)"
+        },
+        {
+          "id": 6,
+          "name": "ADMINISTERED_PRICE_PERIOD",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "CAP_APPLIED",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "ADMINISTERED_PRICE_CAP",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "SCHEDULE_PRICE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "APPROVAL_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 11,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT651_EX_ANTE_MARKET_PRICE"
+}

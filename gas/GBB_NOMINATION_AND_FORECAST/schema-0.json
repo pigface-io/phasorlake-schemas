@@ -1,0 +1,209 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_NOMINATION_AND_FORECAST/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DEMAND": {
+      "description": "Usage type expressed in TJ. Three decimal places is not shown if the value has trailing zeros after the decimal place.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "Demand",
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "FACILITYID": {
+      "description": "Unique Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "FACILITYNAME": {
+      "description": "Name of the Facility",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "FACILITYTYPE": {
+      "description": "Describes the type of facility. Refer to the GAS_FACILITY_TYPE table",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "FacilityType",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(40)"
+    },
+    "GASDATE": {
+      "description": "Date of gas day",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Gasdate",
+      "x-iceberg-type": "date",
+      "x-model-type": "DATE"
+    },
+    "LASTUPDATED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "LastUpdated",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOCATIONID": {
+      "description": "Unique Node Location Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "LocationId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "LOCATIONNAME": {
+      "description": "Name of the location.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "LocationName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "STATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "State",
+      "x-iceberg-type": "string"
+    },
+    "SUPPLY": {
+      "description": "Usage type expressed in TJ. Three decimal places is not shown if the value has trailing zeros after the decimal place",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "Supply",
+      "x-iceberg-type": "decimal(9, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "TRANSFERIN": {
+      "description": "Usage type expressed in TJ. Only applicable to BB pipelines. Three decimal places is not shown if the value has trailing zeros after the decimal place.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "TransferIn",
+      "x-iceberg-type": "decimal(7, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "TRANSFEROUT": {
+      "description": "Usage type expressed in TJ. Only applicable to BB pipelines. Three decimal places is not shown if the value has trailing zeros after the decimal place.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "TransferOut",
+      "x-iceberg-type": "decimal(6, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    }
+  },
+  "required": [],
+  "title": "GBB_NOMINATION_AND_FORECAST, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GASDATE",
+      "date"
+    ],
+    [
+      2,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      3,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      4,
+      "FACILITYTYPE",
+      "string"
+    ],
+    [
+      5,
+      "LOCATIONID",
+      "decimal(6, 0)"
+    ],
+    [
+      6,
+      "LOCATIONNAME",
+      "string"
+    ],
+    [
+      7,
+      "STATE",
+      "string"
+    ],
+    [
+      8,
+      "DEMAND",
+      "decimal(8, 3)"
+    ],
+    [
+      9,
+      "SUPPLY",
+      "decimal(9, 3)"
+    ],
+    [
+      10,
+      "TRANSFERIN",
+      "decimal(7, 3)"
+    ],
+    [
+      11,
+      "TRANSFEROUT",
+      "decimal(6, 3)"
+    ],
+    [
+      12,
+      "LASTUPDATED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_NOMINATION_AND_FORECAST"
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT670_REGISTERED_PARTICIPANTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ABN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "abn",
+      "x-iceberg-type": "string"
+    },
+    "ACN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "acn",
+      "x-iceberg-type": "decimal(9, 0)"
+    },
+    "CITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "city",
+      "x-iceberg-type": "string"
+    },
+    "COMPANY_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "company_identifier",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "COMPANY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "company_name",
+      "x-iceberg-type": "string"
+    },
+    "FAX": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "fax",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "LAST_UPDATE_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-header": "last_update_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LINE_1": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "line_1",
+      "x-iceberg-type": "string"
+    },
+    "LINE_2": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "line_2",
+      "x-iceberg-type": "string"
+    },
+    "LINE_3": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "line_3",
+      "x-iceberg-type": "string"
+    },
+    "ORGANISATION_REGISTRATION_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "organisation_registration_type",
+      "x-iceberg-type": "string"
+    },
+    "PHONE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "phone",
+      "x-iceberg-type": "string"
+    },
+    "POSTAL_CODE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "postal_code",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "REGISTERED_CAPACITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "registered_capacity",
+      "x-iceberg-type": "string"
+    },
+    "REGISTERED_CAPACITY_STATUS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "registered_capacity_status",
+      "x-iceberg-type": "string"
+    },
+    "REGISTRATION_STATUS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-header": "registration_status",
+      "x-iceberg-type": "string"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "STATE_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "state_id",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT670_REGISTERED_PARTICIPANTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      3,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      4,
+      "COMPANY_IDENTIFIER",
+      "decimal(3, 0)"
+    ],
+    [
+      5,
+      "COMPANY_NAME",
+      "string"
+    ],
+    [
+      6,
+      "ABN",
+      "string"
+    ],
+    [
+      7,
+      "ACN",
+      "decimal(9, 0)"
+    ],
+    [
+      8,
+      "ORGANISATION_REGISTRATION_TYPE",
+      "string"
+    ],
+    [
+      9,
+      "REGISTERED_CAPACITY",
+      "string"
+    ],
+    [
+      10,
+      "REGISTERED_CAPACITY_STATUS",
+      "string"
+    ],
+    [
+      11,
+      "LINE_1",
+      "string"
+    ],
+    [
+      12,
+      "LINE_2",
+      "string"
+    ],
+    [
+      13,
+      "LINE_3",
+      "string"
+    ],
+    [
+      14,
+      "STATE_ID",
+      "string"
+    ],
+    [
+      15,
+      "CITY",
+      "string"
+    ],
+    [
+      16,
+      "POSTAL_CODE",
+      "decimal(4, 0)"
+    ],
+    [
+      17,
+      "PHONE",
+      "string"
+    ],
+    [
+      18,
+      "FAX",
+      "string"
+    ],
+    [
+      19,
+      "LAST_UPDATE_DATETIME",
+      "timestamptz"
+    ],
+    [
+      20,
+      "REGISTRATION_STATUS",
+      "string"
+    ],
+    [
+      21,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT670_REGISTERED_PARTICIPANTS"
+  }
+}

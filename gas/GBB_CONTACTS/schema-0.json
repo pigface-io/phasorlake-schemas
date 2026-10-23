@@ -1,0 +1,126 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_CONTACTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "COMPANYID": {
+      "description": "Unique company identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "CompanyId",
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "Number(10,0)"
+    },
+    "COMPANYNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "CompanyName",
+      "x-iceberg-type": "string"
+    },
+    "EMAIL": {
+      "description": "Email address of person",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Email",
+      "x-iceberg-type": "string",
+      "x-model-type": "Varchar2 (255)"
+    },
+    "LASTUPDATED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "LastUpdated",
+      "x-iceberg-type": "timestamptz"
+    },
+    "PERSONID": {
+      "description": "Unique person identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "PersonId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "Number(10,0)"
+    },
+    "PERSONNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "PersonName",
+      "x-iceberg-type": "string"
+    },
+    "POSITION": {
+      "description": "Position of person",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Position",
+      "x-iceberg-type": "string",
+      "x-model-type": "varchar2(40)"
+    }
+  },
+  "required": [],
+  "title": "GBB_CONTACTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PERSONID",
+      "decimal(6, 0)"
+    ],
+    [
+      2,
+      "PERSONNAME",
+      "string"
+    ],
+    [
+      3,
+      "COMPANYID",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "COMPANYNAME",
+      "string"
+    ],
+    [
+      5,
+      "POSITION",
+      "string"
+    ],
+    [
+      6,
+      "EMAIL",
+      "string"
+    ],
+    [
+      7,
+      "LASTUPDATED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_CONTACTS"
+  }
+}

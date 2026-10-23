@@ -1,0 +1,161 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT662_PROVISIONAL_DEVIATION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DEVIATION_CHARGE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "deviation_charge",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "DEVIATION_PAYMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "deviation_payment",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "FACILITY_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "facility_identifier",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "facility_name",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "NET_DEVIATION_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "net_deviation_qty",
+      "x-iceberg-type": "decimal(14, 9)"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "TOTAL_DEVIATION_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "total_deviation_qty",
+      "x-iceberg-type": "decimal(14, 9)"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT662_PROVISIONAL_DEVIATION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      3,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      4,
+      "FACILITY_IDENTIFIER",
+      "string"
+    ],
+    [
+      5,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      6,
+      "TOTAL_DEVIATION_QTY",
+      "decimal(14, 9)"
+    ],
+    [
+      7,
+      "NET_DEVIATION_QTY",
+      "decimal(14, 9)"
+    ],
+    [
+      8,
+      "DEVIATION_CHARGE",
+      "decimal(10, 4)"
+    ],
+    [
+      9,
+      "DEVIATION_PAYMENT",
+      "decimal(10, 4)"
+    ],
+    [
+      10,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT662_PROVISIONAL_DEVIATION"
+  }
+}

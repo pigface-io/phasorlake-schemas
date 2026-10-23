@@ -1,0 +1,120 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT666_MARKET_NOTICE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CRITICAL_NOTICE_FLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "critical_notice_flag",
+      "x-iceberg-type": "string"
+    },
+    "MARKET_MESSAGE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "market_message",
+      "x-iceberg-type": "string"
+    },
+    "MARKET_NOTICE_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "market_notice_identifier",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "NOTICE_END_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "notice_end_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "NOTICE_START_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "notice_start_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "URL_PATH": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "url_path",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT666_MARKET_NOTICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "MARKET_NOTICE_IDENTIFIER",
+      "decimal(3, 0)"
+    ],
+    [
+      2,
+      "CRITICAL_NOTICE_FLAG",
+      "string"
+    ],
+    [
+      3,
+      "MARKET_MESSAGE",
+      "string"
+    ],
+    [
+      4,
+      "NOTICE_START_DATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "NOTICE_END_DATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "URL_PATH",
+      "string"
+    ],
+    [
+      7,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT666_MARKET_NOTICE"
+  }
+}

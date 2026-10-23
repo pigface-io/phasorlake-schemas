@@ -1,0 +1,156 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_FACILITIES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EFFECTIVEDATE": {
+      "description": "Effective date of the record",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "FACILITY_DESCRIPTION": {
+      "description": "The descriptive name of the facility.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(400)"
+    },
+    "FACILITY_ID": {
+      "description": "The unique identifier of the facility.",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "FACILITY_NAME": {
+      "description": "The name of the facility.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "FACILITY_TYPE": {
+      "description": "The type of facility, for example pipe or compressor.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report was generated.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "OPERATOR_ID": {
+      "description": "The unique identifier of the Facility Operator that operates the facility.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(4, 0)",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "OPERATOR_NAME": {
+      "description": "The descriptive name of the participant.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "VERSION_DATETIME": {
+      "description": "Version timestamp of the record",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    }
+  },
+  "required": [
+    "FACILITY_ID",
+    "EFFECTIVEDATE",
+    "VERSION_DATETIME"
+  ],
+  "title": "GSH_FACILITIES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FACILITY_ID",
+      "long"
+    ],
+    [
+      2,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      3,
+      "FACILITY_DESCRIPTION",
+      "string"
+    ],
+    [
+      4,
+      "FACILITY_TYPE",
+      "string"
+    ],
+    [
+      5,
+      "OPERATOR_ID",
+      "decimal(4, 0)"
+    ],
+    [
+      6,
+      "OPERATOR_NAME",
+      "string"
+    ],
+    [
+      7,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      8,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    7,
+    1,
+    8
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_FACILITIES"
+  }
+}

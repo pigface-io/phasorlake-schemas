@@ -1,0 +1,215 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_TRANSACTION_SUMMARY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CLOSE_PRICE": {
+      "description": "The last price of all trades executed today per product in $/GJ",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    },
+    "CURRENTDATE": {
+      "description": "The current gas date",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "FROM_GAS_DATE": {
+      "description": "The start gas day for the order delivery period",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "HIGH_PRICE": {
+      "description": "Highest price between all trades executed today per product in $/GJ",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report was generated",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "LOW_PRICE": {
+      "description": "Lowest price between all trades executed today per product in $/GJ",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    },
+    "OPEN_PRICE": {
+      "description": "The first price of all trades executed today per product in $/GJ",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    },
+    "PRODUCT_LOCATION": {
+      "description": "Product location for the Gas Supply Hub market",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "PRODUCT_TYPE": {
+      "description": "The product delivery period for the Gas Supply Hub market",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(80)"
+    },
+    "TOTAL_NUMBER_OF_TRADES": {
+      "description": "Total number of all executed trades today per product",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(18,0)"
+    },
+    "TOTAL_QUANTITY": {
+      "description": "Total traded quantities for all trades executed today per product in GJ/day",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    },
+    "TO_GAS_DATE": {
+      "description": "The end gas day for the order delivery period",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 5,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "VOLUME_WEIGHTED_AVERAGE_PRICE": {
+      "description": "The volume weighted average price for all trades executed today per product in $/GJ",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(18, 8)",
+      "x-model-type": "NUMBER(18,8)"
+    }
+  },
+  "required": [
+    "CURRENTDATE",
+    "PRODUCT_LOCATION",
+    "PRODUCT_TYPE",
+    "FROM_GAS_DATE",
+    "TO_GAS_DATE"
+  ],
+  "title": "GSH_TRANSACTION_SUMMARY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CURRENTDATE",
+      "timestamptz"
+    ],
+    [
+      2,
+      "PRODUCT_LOCATION",
+      "string"
+    ],
+    [
+      3,
+      "PRODUCT_TYPE",
+      "string"
+    ],
+    [
+      4,
+      "FROM_GAS_DATE",
+      "timestamptz"
+    ],
+    [
+      5,
+      "TO_GAS_DATE",
+      "timestamptz"
+    ],
+    [
+      6,
+      "HIGH_PRICE",
+      "decimal(18, 8)"
+    ],
+    [
+      7,
+      "LOW_PRICE",
+      "decimal(18, 8)"
+    ],
+    [
+      8,
+      "OPEN_PRICE",
+      "decimal(18, 8)"
+    ],
+    [
+      9,
+      "CLOSE_PRICE",
+      "decimal(18, 8)"
+    ],
+    [
+      10,
+      "VOLUME_WEIGHTED_AVERAGE_PRICE",
+      "decimal(18, 8)"
+    ],
+    [
+      11,
+      "TOTAL_QUANTITY",
+      "decimal(18, 8)"
+    ],
+    [
+      12,
+      "TOTAL_NUMBER_OF_TRADES",
+      "long"
+    ],
+    [
+      13,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1,
+    4,
+    2,
+    3,
+    5
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_TRANSACTION_SUMMARY"
+  }
+}

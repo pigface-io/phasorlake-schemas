@@ -1,0 +1,120 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT871_ERFTDAILYNSLRPT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "GAS_DATE_HISTORICAL": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "gas_date_historical",
+      "x-iceberg-type": "date"
+    },
+    "NETWORK_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "network_id",
+      "x-iceberg-type": "string"
+    },
+    "NORMALISATION_FACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "normalisation_factor",
+      "x-iceberg-type": "decimal(8, 7)"
+    },
+    "NSL_MJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "nsl_mj",
+      "x-iceberg-type": "decimal(9, 0)"
+    },
+    "TOTAL_METER_COUNT_BASIC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "total_meter_count_basic",
+      "x-iceberg-type": "decimal(7, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT871_ERFTDAILYNSLRPT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "NETWORK_ID",
+      "string"
+    ],
+    [
+      2,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      3,
+      "GAS_DATE_HISTORICAL",
+      "date"
+    ],
+    [
+      4,
+      "NSL_MJ",
+      "decimal(9, 0)"
+    ],
+    [
+      5,
+      "TOTAL_METER_COUNT_BASIC",
+      "decimal(7, 0)"
+    ],
+    [
+      6,
+      "NORMALISATION_FACTOR",
+      "decimal(8, 7)"
+    ],
+    [
+      7,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT871_ERFTDAILYNSLRPT"
+  }
+}

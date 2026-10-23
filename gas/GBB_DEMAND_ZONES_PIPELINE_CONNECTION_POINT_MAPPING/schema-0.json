@@ -1,0 +1,155 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_DEMAND_ZONES_PIPELINE_CONNECTION_POINT_MAPPING/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONNECTIONPOINTID": {
+      "description": "Unique connection point identifier.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "ConnectionPointId",
+      "x-iceberg-type": "decimal(7, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "CONNECTIONPOINTNAME": {
+      "description": "Name of the Connection point",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "ConnectionPointName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(200)"
+    },
+    "DEMANDZONE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "DemandZone",
+      "x-iceberg-type": "string"
+    },
+    "FACILITYID": {
+      "description": "Unique Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "FACILITYNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string"
+    },
+    "FACILITYTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FacilityType",
+      "x-iceberg-type": "string"
+    },
+    "FLOWDIRECTION": {
+      "description": "Direction of flow for the submission record. Must be one of ‘RECEIPT’ or ‘DELIVERY’",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "FlowDirection",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "NODEID": {
+      "description": "Unique Node Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "NodeId",
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "STATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "State",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "GBB_DEMAND_ZONES_PIPELINE_CONNECTION_POINT_MAPPING, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      2,
+      "FACILITYTYPE",
+      "string"
+    ],
+    [
+      3,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      4,
+      "NODEID",
+      "decimal(5, 0)"
+    ],
+    [
+      5,
+      "CONNECTIONPOINTID",
+      "decimal(7, 0)"
+    ],
+    [
+      6,
+      "FLOWDIRECTION",
+      "string"
+    ],
+    [
+      7,
+      "CONNECTIONPOINTNAME",
+      "string"
+    ],
+    [
+      8,
+      "STATE",
+      "string"
+    ],
+    [
+      9,
+      "DEMANDZONE",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_DEMAND_ZONES_PIPELINE_CONNECTION_POINT_MAPPING"
+  }
+}

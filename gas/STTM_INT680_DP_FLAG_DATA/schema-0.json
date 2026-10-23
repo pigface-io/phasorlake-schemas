@@ -1,0 +1,105 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT680_DP_FLAG_DATA/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DP_FLAG": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "dp_flag",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "EFFECTIVE_FROM_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "effective_from_date",
+      "x-iceberg-type": "date"
+    },
+    "EFFECTIVE_TO_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "effective_to_date",
+      "x-iceberg-type": "string"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT680_DP_FLAG_DATA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      2,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      3,
+      "EFFECTIVE_FROM_DATE",
+      "date"
+    ],
+    [
+      4,
+      "EFFECTIVE_TO_DATE",
+      "string"
+    ],
+    [
+      5,
+      "DP_FLAG",
+      "decimal(1, 0)"
+    ],
+    [
+      6,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT680_DP_FLAG_DATA"
+  }
+}

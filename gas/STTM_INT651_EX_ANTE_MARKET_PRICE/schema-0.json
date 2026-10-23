@@ -1,0 +1,176 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT651_EX_ANTE_MARKET_PRICE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADMINISTERED_PRICE_CAP": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "administered_price_cap",
+      "x-iceberg-type": "string"
+    },
+    "ADMINISTERED_PRICE_PERIOD": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "administered_price_period",
+      "x-iceberg-type": "string"
+    },
+    "APPROVAL_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "approval_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CAP_APPLIED": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "cap_applied",
+      "x-iceberg-type": "string"
+    },
+    "EX_ANTE_MARKET_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "ex_ante_market_price",
+      "x-iceberg-type": "decimal(6, 4)"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "SCHEDULE_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "schedule_identifier",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "SCHEDULE_PRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "schedule_price",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT651_EX_ANTE_MARKET_PRICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      3,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      4,
+      "SCHEDULE_IDENTIFIER",
+      "decimal(5, 0)"
+    ],
+    [
+      5,
+      "EX_ANTE_MARKET_PRICE",
+      "decimal(6, 4)"
+    ],
+    [
+      6,
+      "ADMINISTERED_PRICE_PERIOD",
+      "string"
+    ],
+    [
+      7,
+      "CAP_APPLIED",
+      "string"
+    ],
+    [
+      8,
+      "ADMINISTERED_PRICE_CAP",
+      "string"
+    ],
+    [
+      9,
+      "SCHEDULE_PRICE",
+      "string"
+    ],
+    [
+      10,
+      "APPROVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      11,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT651_EX_ANTE_MARKET_PRICE"
+  }
+}

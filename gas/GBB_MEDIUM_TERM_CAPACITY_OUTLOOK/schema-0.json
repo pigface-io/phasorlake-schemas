@@ -1,0 +1,240 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_MEDIUM_TERM_CAPACITY_OUTLOOK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CAPACITYDESCRIPTION": {
+      "description": "Describes the meaning of the capacity Number Provided",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "CapacityDescription",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(1000)"
+    },
+    "CAPACITYTYPE": {
+      "description": "Capacity Type - Must be either STORAGE or MDQ",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "CapacityType",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "DELIVERYLOCATION": {
+      "description": "Connection Point ID that best represents the Delivery Location",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "DeliveryLocation",
+      "x-iceberg-type": "decimal(7, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "DELIVERYLOCATIONNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "DeliveryLocationName",
+      "x-iceberg-type": "string"
+    },
+    "DESCRIPTION": {
+      "description": "Description for reasons or comments directly related to the quantity or change in Outlook quantity in relation to the Facility",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "Description",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(1000)"
+    },
+    "FACILITYID": {
+      "description": "Unique Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "FACILITYNAME": {
+      "description": "Name of the Facility",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "FLOWDIRECTION": {
+      "description": "Direction of flow for the submission record. Must be one of ‘RECEIPT’ or ‘DELIVERY’",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "FlowDirection",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "FROMGASDATE": {
+      "description": "Start date (inclusive) of the record",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "FromGasDate",
+      "x-iceberg-type": "date",
+      "x-model-type": "DATE"
+    },
+    "LASTUPDATED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "LastUpdated",
+      "x-iceberg-type": "timestamptz"
+    },
+    "OUTLOOKQUANTITY": {
+      "description": "Quantity of available capacity during the defined period",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "OutlookQuantity",
+      "x-iceberg-type": "decimal(8, 3)",
+      "x-model-type": "NUMBER(18,3)"
+    },
+    "RECEIPTLOCATION": {
+      "description": "Connection Point ID that best represents the receipt location",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "ReceiptLocation",
+      "x-iceberg-type": "decimal(7, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "RECEIPTLOCATIONNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "ReceiptLocationName",
+      "x-iceberg-type": "string"
+    },
+    "TOGASDATE": {
+      "description": "End date (exclusive) of the record",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "ToGasDate",
+      "x-iceberg-type": "date",
+      "x-model-type": "DATE"
+    }
+  },
+  "required": [],
+  "title": "GBB_MEDIUM_TERM_CAPACITY_OUTLOOK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      2,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      3,
+      "FROMGASDATE",
+      "date"
+    ],
+    [
+      4,
+      "TOGASDATE",
+      "date"
+    ],
+    [
+      5,
+      "CAPACITYTYPE",
+      "string"
+    ],
+    [
+      6,
+      "FLOWDIRECTION",
+      "string"
+    ],
+    [
+      7,
+      "RECEIPTLOCATIONNAME",
+      "string"
+    ],
+    [
+      8,
+      "RECEIPTLOCATION",
+      "decimal(7, 0)"
+    ],
+    [
+      9,
+      "DELIVERYLOCATIONNAME",
+      "string"
+    ],
+    [
+      10,
+      "DELIVERYLOCATION",
+      "decimal(7, 0)"
+    ],
+    [
+      11,
+      "CAPACITYDESCRIPTION",
+      "string"
+    ],
+    [
+      12,
+      "OUTLOOKQUANTITY",
+      "decimal(8, 3)"
+    ],
+    [
+      13,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      14,
+      "LASTUPDATED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_MEDIUM_TERM_CAPACITY_OUTLOOK"
+  }
+}

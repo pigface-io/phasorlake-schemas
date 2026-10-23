@@ -1,0 +1,159 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT112D_ZFTC/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "COMMENCEMENT_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "commencement_date",
+      "x-iceberg-type": "string"
+    },
+    "CURRENT_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "current_date",
+      "x-iceberg-type": "string"
+    },
+    "DAILY_MAX_NET_INJ_QTY_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "daily_max_net_inj_qty_gj",
+      "x-iceberg-type": "string"
+    },
+    "DAILY_MAX_NET_WDL_QTY_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "daily_max_net_wdl_qty_gj",
+      "x-iceberg-type": "string"
+    },
+    "HOURLY_MAX_NET_INJ_QTY_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "hourly_max_net_inj_qty_gj",
+      "x-iceberg-type": "string"
+    },
+    "HOURLY_MAX_NET_WDL_QTY_GJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "hourly_max_net_wdl_qty_gj",
+      "x-iceberg-type": "string"
+    },
+    "MOD_DATETIME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "mod_datetime",
+      "x-iceberg-type": "string"
+    },
+    "TERMINATION_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "termination_date",
+      "x-iceberg-type": "string"
+    },
+    "TI": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "ti",
+      "x-iceberg-type": "string"
+    },
+    "ZFTC_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "zftc_name",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT112D_ZFTC, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "ZFTC_NAME",
+      "string"
+    ],
+    [
+      2,
+      "COMMENCEMENT_DATE",
+      "string"
+    ],
+    [
+      3,
+      "TERMINATION_DATE",
+      "string"
+    ],
+    [
+      4,
+      "DAILY_MAX_NET_INJ_QTY_GJ",
+      "string"
+    ],
+    [
+      5,
+      "DAILY_MAX_NET_WDL_QTY_GJ",
+      "string"
+    ],
+    [
+      6,
+      "TI",
+      "string"
+    ],
+    [
+      7,
+      "HOURLY_MAX_NET_INJ_QTY_GJ",
+      "string"
+    ],
+    [
+      8,
+      "HOURLY_MAX_NET_WDL_QTY_GJ",
+      "string"
+    ],
+    [
+      9,
+      "MOD_DATETIME",
+      "string"
+    ],
+    [
+      10,
+      "CURRENT_DATE",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT112D_ZFTC"
+  }
+}

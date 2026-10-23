@@ -1,0 +1,112 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "FacilityName",
+    "2": "FacilityType",
+    "3": "FacilityId",
+    "4": "NodeId",
+    "5": "ConnectionPointId",
+    "6": "FlowDirection",
+    "7": "ConnectionPointName",
+    "8": "State",
+    "9": "DemandZone"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": null,
+        "file": "GasBBDemandZonesPipelineConnectionPointMapping.csv",
+        "release": "2026-10",
+        "sha256": "4576619f1911f3201d10c834d4173cdce151350518600b80d2ebdd3bdd46d9c0"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "DEMAND_ZONES_PIPELINE_CONNECTION_POINT_MAPPING"
+      ],
+      "rows": 325,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "GasBBDemandZonesPipelineConnectionPointMapping.csv@20261020T210000+1000",
+        "release": "2026-10",
+        "sha256": "737721690e52dcafdc07f9f70b40330f97fd1171cb9736c14499b9c8ef1257c0"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "NODEID",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 5,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 6,
+          "name": "FLOWDIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "CONNECTIONPOINTNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "STATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "DEMANDZONE",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_DEMAND_ZONES_PIPELINE_CONNECTION_POINT_MAPPING"
+}

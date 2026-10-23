@@ -1,0 +1,70 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "Operator",
+    "2": "LinepackZone",
+    "3": "LinepackZoneDescription"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": null,
+        "file": "GasBBLinepackZones.CSV",
+        "release": "2026-10",
+        "sha256": "bd019316c5a2a9a73f94216e308469624b196841acff655fc11b54dbb61574d5"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "LINEPACK_ZONES"
+      ],
+      "rows": 56,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "GasBBLinepackZones.CSV",
+        "release": "2026-10",
+        "sha256": "bd019316c5a2a9a73f94216e308469624b196841acff655fc11b54dbb61574d5"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "OPERATOR",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "LINEPACKZONE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "LINEPACKZONEDESCRIPTION",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_LINEPACK_ZONES"
+}

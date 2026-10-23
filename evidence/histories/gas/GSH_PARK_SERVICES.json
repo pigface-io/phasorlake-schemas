@@ -1,0 +1,95 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 20,
+      "from": {
+        "data-time": "2019-01-23T00:00:00+10:00",
+        "file": "PUBLIC_REGISTEREDSERVICEPOINTS_20251001.zip",
+        "release": "2025-10",
+        "sha256": "590d20d9b40c26928f87cc4e6b50f3e29982ac1bc55b772be5a8adee77129fbe"
+      },
+      "kinds": [
+        "gsh/archive",
+        "gsh/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GSH",
+        "PARK_SERVICES"
+      ],
+      "rows": 51,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2023-08-17T00:00:00+10:00",
+        "file": "PUBLIC_REGISTEREDSERVICEPOINTS_20261001_0000000540478994.zip",
+        "release": "2026-10",
+        "sha256": "799574545e477633e6b3e3ae0bc97d495b68eef8750cd4f943a439aee9921a15"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FACILITY_ID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "VERSION_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "PARK_PRODUCT_NAME",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "PARK_SERVICE_POINT_ID",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 6,
+          "name": "PARK_SERVICE_POINT_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        2,
+        1,
+        4,
+        3
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GSH_PARK_SERVICES"
+}

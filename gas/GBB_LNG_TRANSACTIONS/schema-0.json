@@ -1,0 +1,95 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_LNG_TRANSACTIONS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "SUPPLYENDDATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "SupplyEndDate",
+      "x-iceberg-type": "date"
+    },
+    "SUPPLYSTARTDATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "SupplyStartDate",
+      "x-iceberg-type": "date"
+    },
+    "TRANSACTIONMONTH": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "TransactionMonth",
+      "x-iceberg-type": "string"
+    },
+    "VOLUMEPJ": {
+      "description": "The total volume of the transactions",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "VolumePJ",
+      "x-iceberg-type": "decimal(5, 3)",
+      "x-model-type": "NUMBER(18,8)"
+    },
+    "VOLWEIGHTPRICE": {
+      "description": "The volume weighted price for the reporting period",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "VolWeightPrice",
+      "x-iceberg-type": "decimal(8, 6)",
+      "x-model-type": "NUMBER(18,8)"
+    }
+  },
+  "required": [],
+  "title": "GBB_LNG_TRANSACTIONS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRANSACTIONMONTH",
+      "string"
+    ],
+    [
+      2,
+      "VOLWEIGHTPRICE",
+      "decimal(8, 6)"
+    ],
+    [
+      3,
+      "VOLUMEPJ",
+      "decimal(5, 3)"
+    ],
+    [
+      4,
+      "SUPPLYSTARTDATE",
+      "date"
+    ],
+    [
+      5,
+      "SUPPLYENDDATE",
+      "date"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_LNG_TRANSACTIONS"
+  }
+}

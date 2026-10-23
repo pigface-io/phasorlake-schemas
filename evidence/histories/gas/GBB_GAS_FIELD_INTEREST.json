@@ -1,0 +1,98 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "FieldName",
+    "2": "FieldInterestId",
+    "3": "CompanyId",
+    "4": "CompanyName",
+    "5": "GroupMembers",
+    "6": "PercentageShare",
+    "7": "EffectiveDate"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-03-15T00:00:00+10:00",
+        "file": "GasBBGasFieldInterest.csv",
+        "release": "2026-10",
+        "sha256": "d5415103cd7d9a95d14e8148c0635edff94e90f4dcf387494ceaa5c8b195a5e2"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "GAS_FIELD_INTEREST"
+      ],
+      "rows": 3163,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "GasBBGasFieldInterest.csv",
+        "release": "2026-10",
+        "sha256": "d5415103cd7d9a95d14e8148c0635edff94e90f4dcf387494ceaa5c8b195a5e2"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FIELDNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "FIELDINTERESTID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 3,
+          "name": "COMPANYID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 4,
+          "name": "COMPANYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "GROUPMEMBERS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "PERCENTAGESHARE",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 7,
+          "name": "EFFECTIVEDATE",
+          "required": false,
+          "type": "date"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_GAS_FIELD_INTEREST"
+}

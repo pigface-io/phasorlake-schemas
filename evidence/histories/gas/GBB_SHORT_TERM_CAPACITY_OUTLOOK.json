@@ -1,0 +1,267 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "FacilityId",
+    "10": "ReceiptLocation",
+    "11": "ReceiptLocationName",
+    "12": "DeliveryLocation",
+    "13": "DeliveryLocationName",
+    "14": "LastUpdated",
+    "2": "FacilityName",
+    "3": "CapacityType",
+    "4": "CapacityTypeDescription",
+    "5": "FlowDirection",
+    "6": "GasDate",
+    "7": "OutlookQuantity",
+    "8": "Description",
+    "9": "CapacityDescription"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 35,
+      "from": {
+        "data-time": "2025-09-12T00:00:00+10:00",
+        "file": "GasBBShortTermCapacityOutlookFuture_20250912222127.CSV",
+        "release": "2025-09",
+        "sha256": "4a07a376adf148b6d570db6e1722c70e02375a9df8d8ca348f19a3d3295d7d6b"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "SHORT_TERM_CAPACITY_OUTLOOK_FUTURE"
+      ],
+      "rows": 12008,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-19T00:00:00+10:00",
+        "file": "GasBBShortTermCapacityOutlookFuture_20260913125435.CSV",
+        "release": "2026-09",
+        "sha256": "3ecc06a0af0d24791949d123339a538479c45090c6c2bed5fdbb0f7befcf6fbe"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2018-09-30T00:00:00+10:00",
+        "file": "GasBBShortTermCapacityOutlook.CSV",
+        "release": "2026-09",
+        "sha256": "2795e09944eacb9edcc12c420711a28832e4154f53a3e0d42f75ed7761238f07"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "SHORT_TERM_CAPACITY_OUTLOOK"
+      ],
+      "rows": 396176,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "GasBBShortTermCapacityOutlook.CSV",
+        "release": "2026-09",
+        "sha256": "2795e09944eacb9edcc12c420711a28832e4154f53a3e0d42f75ed7761238f07"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2026-10-01T00:00:00+10:00",
+        "file": "GasBBShortTermCapacityOutlookFuture.CSV",
+        "release": "2026-10",
+        "sha256": "ee5a7da00dea5f9c6b9bb2d884591d76ec874c9935fb8e1d0679b1268b8c83ae"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "SHORT_TERM_CAPACITY_OUTLOOK_FUTURE"
+      ],
+      "rows": 2661,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "GasBBShortTermCapacityOutlookFuture_20261001165434.CSV",
+        "release": "2026-10",
+        "sha256": "6b5daa39411d771376d98588cb96622be0b76822e0931e03f18031c9c22f8333"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2018-09-30T00:00:00+10:00",
+        "file": "GasBBShortTermCapacityOutlook.CSV",
+        "release": "2026-10",
+        "sha256": "1ed4b456f03fc88eae388ca994bc9dd42d242e32593f1a8efb078bc667612e19"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "SHORT_TERM_CAPACITY_OUTLOOK"
+      ],
+      "rows": 402958,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-31T00:00:00+10:00",
+        "file": "GasBBShortTermCapacityOutlook.CSV@20261020T201100+1000",
+        "release": "2026-10",
+        "sha256": "418155d02cce5d40fbe6b28d579709bcb83a3293b12243fe20d9823271620a65"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "GasBBShortTermCapacityOutlookFuture.CSV",
+        "release": "2026-10",
+        "sha256": "5c7caff8be37fdf60ba88b8b3679190d557918a644aa073eb410d8630056cbda"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "SHORT_TERM_CAPACITY_OUTLOOK_FUTURE"
+      ],
+      "rows": 2808,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-31T00:00:00+10:00",
+        "file": "GasBBShortTermCapacityOutlookFuture.CSV@20261022T085100+1000",
+        "release": "2026-10",
+        "sha256": "349e5f7aa3b9f89a7e3decab6cee3e5dca9604a102b68b085ab57682ac7385d0"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "CAPACITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "CAPACITYTYPEDESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FLOWDIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "GASDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 7,
+          "name": "OUTLOOKQUANTITY",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 8,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "CAPACITYDESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "RECEIPTLOCATION",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 11,
+          "name": "RECEIPTLOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "DELIVERYLOCATION",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 13,
+          "name": "DELIVERYLOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "LASTUPDATED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_SHORT_TERM_CAPACITY_OUTLOOK"
+}

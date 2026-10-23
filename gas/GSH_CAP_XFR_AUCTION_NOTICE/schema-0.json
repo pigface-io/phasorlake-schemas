@@ -1,0 +1,158 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_CAP_XFR_AUCTION_NOTICE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DESCRIPTION": {
+      "description": "The description of the notice.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2 (1000)"
+    },
+    "FACILITY_ID": {
+      "description": "The unique identifier of the facility.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "FACILITY_NAME": {
+      "description": "The descriptive name of the facility.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2 (100)"
+    },
+    "GAS_DATE": {
+      "description": "The gas date of the notice. Disregard the time component as this is not applicable.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report was generated.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "MARKET": {
+      "description": "The market that has triggered the notice, for example CTP or DAA.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2 (20)"
+    },
+    "NOTICE_DATE": {
+      "description": "The date of the notice",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "NOTICE_ID": {
+      "description": "The unique identifier of the notice.",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "NOTICE_TYPE": {
+      "description": "The type of notice, for example Cancel or Delay for CTP, Exclude or Delay for DAA.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2 (50)"
+    }
+  },
+  "required": [
+    "NOTICE_ID"
+  ],
+  "title": "GSH_CAP_XFR_AUCTION_NOTICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "NOTICE_ID",
+      "long"
+    ],
+    [
+      2,
+      "NOTICE_DATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "GAS_DATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "FACILITY_ID",
+      "long"
+    ],
+    [
+      5,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      6,
+      "MARKET",
+      "string"
+    ],
+    [
+      7,
+      "NOTICE_TYPE",
+      "string"
+    ],
+    [
+      8,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      9,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_CAP_XFR_AUCTION_NOTICE"
+  }
+}

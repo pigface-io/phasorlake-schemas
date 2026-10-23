@@ -1,0 +1,232 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT665_MOS_STACK_DATA/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EFFECTIVE_FROM_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "effective_from_date",
+      "x-iceberg-type": "date"
+    },
+    "EFFECTIVE_TO_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "effective_to_date",
+      "x-iceberg-type": "date"
+    },
+    "ESTIMATED_MAXIMUM_QUANTITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "estimated_maximum_quantity",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "FACILITY_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "facility_identifier",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "facility_name",
+      "x-iceberg-type": "string"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "STACK_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "stack_identifier",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "STACK_STEP_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "stack_step_identifier",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "STACK_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "stack_type",
+      "x-iceberg-type": "string"
+    },
+    "STEP_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "step_price",
+      "x-iceberg-type": "decimal(6, 4)"
+    },
+    "STEP_QUANTITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "step_quantity",
+      "x-iceberg-type": "decimal(13, 9)"
+    },
+    "TRADING_PARTICIPANT_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "trading_participant_identifier",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "TRADING_PARTICIPANT_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "trading_participant_name",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT665_MOS_STACK_DATA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "EFFECTIVE_FROM_DATE",
+      "date"
+    ],
+    [
+      2,
+      "EFFECTIVE_TO_DATE",
+      "date"
+    ],
+    [
+      3,
+      "STACK_IDENTIFIER",
+      "decimal(4, 0)"
+    ],
+    [
+      4,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      5,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      6,
+      "FACILITY_IDENTIFIER",
+      "string"
+    ],
+    [
+      7,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      8,
+      "STACK_TYPE",
+      "string"
+    ],
+    [
+      9,
+      "ESTIMATED_MAXIMUM_QUANTITY",
+      "decimal(5, 0)"
+    ],
+    [
+      10,
+      "STACK_STEP_IDENTIFIER",
+      "decimal(2, 0)"
+    ],
+    [
+      11,
+      "TRADING_PARTICIPANT_IDENTIFIER",
+      "decimal(3, 0)"
+    ],
+    [
+      12,
+      "TRADING_PARTICIPANT_NAME",
+      "string"
+    ],
+    [
+      13,
+      "STEP_QUANTITY",
+      "decimal(13, 9)"
+    ],
+    [
+      14,
+      "STEP_PRICE",
+      "decimal(6, 4)"
+    ],
+    [
+      15,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT665_MOS_STACK_DATA"
+  }
+}

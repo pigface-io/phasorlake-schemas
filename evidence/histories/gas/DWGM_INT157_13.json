@@ -1,0 +1,56 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "int157"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": null,
+        "file": "int157_13.csv",
+        "release": "2026-05",
+        "sha256": "794f67574a1ec184923576af272a91fb5eb2babfbda295ee045a8ce6bd53d318"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT157_13"
+      ],
+      "rows": 36,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "int157_13.csv",
+        "release": "2026-05",
+        "sha256": "794f67574a1ec184923576af272a91fb5eb2babfbda295ee045a8ce6bd53d318"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "INT157",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT157_13"
+}

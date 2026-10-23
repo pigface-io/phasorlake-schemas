@@ -1,0 +1,214 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "FacilityId",
+    "10": "ReceiptLocation",
+    "11": "ReceiptLocationName",
+    "12": "DeliveryLocation",
+    "13": "DeliveryLocationName",
+    "14": "Description",
+    "15": "LastUpdated",
+    "2": "FacilityName",
+    "3": "FacilityType",
+    "4": "OutlookYear",
+    "5": "OutlookMonth",
+    "6": "CapacityType",
+    "7": "FlowDirection",
+    "8": "OutlookQuantity",
+    "9": "CapacityDescription"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 41,
+      "from": {
+        "data-time": "2019-09-30T18:14:33+10:00",
+        "file": "GasBBUncontractedCapacityOutlookFuture_20251028023835.csv",
+        "release": "2025-10",
+        "sha256": "4936bcb52e5c0219b07c98026fc3b238d8d592e038bbdee7f3daa93bdf80596d"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "UNCONTRACTED_CAPACITY_OUTLOOK_FUTURE"
+      ],
+      "rows": 46513,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-01T11:30:51+10:00",
+        "file": "GasBBUncontractedCapacityOutlookFuture_20261001164311.csv",
+        "release": "2026-10",
+        "sha256": "c0f019fecd815b4d51bbff10cf76dc8cc2f7cdff9836170aeba6092e9e53dbea"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2018-09-30T08:41:58+10:00",
+        "file": "GasBBUncontractedCapacityOutlookFullList.csv",
+        "release": "2026-10",
+        "sha256": "46cdfc3f1b6587d68004a2e1f1f3d4ecbbe04595115cbcab75e5cbc162c49d40"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "UNCONTRACTED_CAPACITY_OUTLOOK_FULL_LIST"
+      ],
+      "rows": 15696,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T12:08:58+10:00",
+        "file": "GasBBUncontractedCapacityOutlookFullList.csv@20261022T002100+1000",
+        "release": "2026-10",
+        "sha256": "538f0c018372384c2c933e97bfbe3b86f312ea0ea290cf77aa8e45cde1f6e18a"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2019-09-30T18:14:33+10:00",
+        "file": "GasBBUncontractedCapacityOutlookFuture.csv",
+        "release": "2026-10",
+        "sha256": "ef896d8901151ebb8edfa68ef782d998ca8a09f95b160b9659823217707de7df"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "UNCONTRACTED_CAPACITY_OUTLOOK_FUTURE"
+      ],
+      "rows": 5684,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T12:08:58+10:00",
+        "file": "GasBBUncontractedCapacityOutlookFuture.csv@20261021T190600+1000",
+        "release": "2026-10",
+        "sha256": "c5486ac72221276cb7902ceaa36e1f1303830c152913001f2048c6ee77b58806"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "OUTLOOKYEAR",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 5,
+          "name": "OUTLOOKMONTH",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 6,
+          "name": "CAPACITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "FLOWDIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "OUTLOOKQUANTITY",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 9,
+          "name": "CAPACITYDESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "RECEIPTLOCATION",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 11,
+          "name": "RECEIPTLOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "DELIVERYLOCATION",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 13,
+          "name": "DELIVERYLOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "LASTUPDATED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_UNCONTRACTED_CAPACITY_OUTLOOK"
+}

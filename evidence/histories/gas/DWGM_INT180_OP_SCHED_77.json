@@ -1,0 +1,301 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "10": "daily_qty",
+    "11": "hour_1",
+    "12": "hour_2",
+    "13": "hour_3",
+    "14": "hour_4",
+    "15": "hour_5",
+    "16": "hour_6",
+    "17": "hour_7",
+    "18": "hour_8",
+    "19": "hour_9",
+    "2": "transmission_document_id",
+    "20": "hour_10",
+    "21": "hour_11",
+    "22": "hour_12",
+    "23": "hour_13",
+    "24": "hour_14",
+    "25": "hour_15",
+    "26": "hour_16",
+    "27": "hour_17",
+    "28": "hour_18",
+    "29": "hour_19",
+    "3": "pipeline_id",
+    "30": "hour_20",
+    "31": "hour_21",
+    "32": "hour_22",
+    "33": "hour_23",
+    "34": "hour_24",
+    "35": "comment",
+    "36": "current_date",
+    "4": "pipeline_point_id",
+    "5": "pipeline_point_name",
+    "6": "participant_logical_meter",
+    "7": "offer_type",
+    "8": "participant_id",
+    "9": "market_participant"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2009-04-01T00:00:00+10:00",
+        "file": "int180_v4_op_sched_77.csv",
+        "release": "2026-05",
+        "sha256": "76c7634ef0289e6a294a2da560d07694c65c75fa29875b7f96b2d10d771a4a25"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT180_OP_SCHED_77"
+      ],
+      "rows": 15,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2009-04-03T00:00:00+10:00",
+        "file": "int180_v4_op_sched_77.csv",
+        "release": "2026-05",
+        "sha256": "76c7634ef0289e6a294a2da560d07694c65c75fa29875b7f96b2d10d771a4a25"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "TRANSMISSION_DOCUMENT_ID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 3,
+          "name": "PIPELINE_ID",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 4,
+          "name": "PIPELINE_POINT_ID",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 5,
+          "name": "PIPELINE_POINT_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "PARTICIPANT_LOGICAL_METER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "OFFER_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "PARTICIPANT_ID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 9,
+          "name": "MARKET_PARTICIPANT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "DAILY_QTY",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 11,
+          "name": "HOUR_1",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 12,
+          "name": "HOUR_2",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 13,
+          "name": "HOUR_3",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 14,
+          "name": "HOUR_4",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 15,
+          "name": "HOUR_5",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 16,
+          "name": "HOUR_6",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 17,
+          "name": "HOUR_7",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 18,
+          "name": "HOUR_8",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 19,
+          "name": "HOUR_9",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 20,
+          "name": "HOUR_10",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 21,
+          "name": "HOUR_11",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 22,
+          "name": "HOUR_12",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 23,
+          "name": "HOUR_13",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 24,
+          "name": "HOUR_14",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 25,
+          "name": "HOUR_15",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 26,
+          "name": "HOUR_16",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 27,
+          "name": "HOUR_17",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 28,
+          "name": "HOUR_18",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 29,
+          "name": "HOUR_19",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 30,
+          "name": "HOUR_20",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 31,
+          "name": "HOUR_21",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 32,
+          "name": "HOUR_22",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 33,
+          "name": "HOUR_23",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 34,
+          "name": "HOUR_24",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 35,
+          "name": "COMMENT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 36,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT180_OP_SCHED_77"
+}

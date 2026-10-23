@@ -1,0 +1,77 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "GasDate",
+    "2": "FacilityName",
+    "3": "FacilityId",
+    "4": "ConnectionPointId"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2025-10-19T00:00:00+10:00",
+        "file": "GasBBMissingActualFlowAndStorage.CSV",
+        "release": "2026-10",
+        "sha256": "c1a38bb303de3ccc13055e9465293b5c2fc72770ddba4f1b93e7ce2d9789baf1"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "MISSING_ACTUAL_FLOW_AND_STORAGE"
+      ],
+      "rows": 580,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "GasBBMissingActualFlowAndStorage.CSV@20261021T235200+1000",
+        "release": "2026-10",
+        "sha256": "2b723816973c3083b5d77a443e61e4d7b7b3e5970c9d9bdc8637fa010ff725c4"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GASDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 4,
+          "name": "CONNECTIONPOINTID",
+          "required": false,
+          "type": "decimal(7, 0)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_MISSING_ACTUAL_FLOW_AND_STORAGE"
+}

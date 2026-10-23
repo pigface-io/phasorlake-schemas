@@ -1,0 +1,84 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "statement_version_id",
+    "3": "ancillary_amt_gst_ex",
+    "4": "scheduled_out_of_merit_gj",
+    "5": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 5,
+      "from": {
+        "data-time": "2026-03-01T00:00:00+10:00",
+        "file": "PublicRpts21.zip",
+        "release": "2026-09",
+        "sha256": "af810782dbd1bd4baac2e55d7e29f26ac9a0abc27819b40c86f2b6b1a0678793"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT291_OUT_OF_MERIT_ORDER_GAS_1"
+      ],
+      "rows": 152,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-30T00:00:00+10:00",
+        "file": "PublicRpts09.zip",
+        "release": "2026-10",
+        "sha256": "89c080082b6f397490f3a948271d772417b446237cf15a22116661cabba4a07b"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "STATEMENT_VERSION_ID",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 3,
+          "name": "ANCILLARY_AMT_GST_EX",
+          "required": false,
+          "type": "decimal(4, 4)"
+        },
+        {
+          "id": 4,
+          "name": "SCHEDULED_OUT_OF_MERIT_GJ",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 5,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT291_OUT_OF_MERIT_ORDER_GAS"
+}

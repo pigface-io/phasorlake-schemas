@@ -1,0 +1,191 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT353_CCAUCTION_QTY_WON/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUCTION_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "auction_date",
+      "x-iceberg-type": "date"
+    },
+    "AUCTION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "auction_id",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "CC_PERIOD": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "cc_period",
+      "x-iceberg-type": "string"
+    },
+    "CLEARING_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "clearing_price",
+      "x-iceberg-type": "decimal(5, 4)"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "END_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "end_date",
+      "x-iceberg-type": "date"
+    },
+    "QUANTITIES_WON_GJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "quantities_won_gj",
+      "x-iceberg-type": "decimal(15, 9)"
+    },
+    "START_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "start_date",
+      "x-iceberg-type": "date"
+    },
+    "UNALLOCATED_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "unallocated_qty",
+      "x-iceberg-type": "decimal(14, 9)"
+    },
+    "ZONE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "zone_id",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "ZONE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "zone_name",
+      "x-iceberg-type": "string"
+    },
+    "ZONE_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "zone_type",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT353_CCAUCTION_QTY_WON, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "AUCTION_ID",
+      "decimal(1, 0)"
+    ],
+    [
+      2,
+      "AUCTION_DATE",
+      "date"
+    ],
+    [
+      3,
+      "ZONE_ID",
+      "decimal(1, 0)"
+    ],
+    [
+      4,
+      "ZONE_NAME",
+      "string"
+    ],
+    [
+      5,
+      "ZONE_TYPE",
+      "string"
+    ],
+    [
+      6,
+      "START_DATE",
+      "date"
+    ],
+    [
+      7,
+      "END_DATE",
+      "date"
+    ],
+    [
+      8,
+      "CC_PERIOD",
+      "string"
+    ],
+    [
+      9,
+      "CLEARING_PRICE",
+      "decimal(5, 4)"
+    ],
+    [
+      10,
+      "QUANTITIES_WON_GJ",
+      "decimal(15, 9)"
+    ],
+    [
+      11,
+      "UNALLOCATED_QTY",
+      "decimal(14, 9)"
+    ],
+    [
+      12,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT353_CCAUCTION_QTY_WON"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 20,
+      "from": {
+        "data-time": "2018-11-01T00:00:00+10:00",
+        "file": "PUBLIC_REGISTEREDFACILITIES_20251001.zip",
+        "release": "2025-10",
+        "sha256": "27c6c3d5d4bbcf40125ae23835ed2ce4b44d488c3d848aadd5aa54f61e5a1389"
+      },
+      "kinds": [
+        "gsh/archive",
+        "gsh/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GSH",
+        "FACILITIES"
+      ],
+      "rows": 450,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-14T00:00:00+10:00",
+        "file": "PUBLIC_REGISTEREDFACILITIES_20261001_0000000540478993.zip",
+        "release": "2026-10",
+        "sha256": "3e167a890a0442562bfb509899e0cab18aad0f3947dd3a383db2fd442143fd4b"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FACILITY_ID",
+          "required": true,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FACILITY_DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "FACILITY_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "OPERATOR_ID",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 6,
+          "name": "OPERATOR_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "EFFECTIVEDATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 8,
+          "name": "VERSION_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 9,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        7,
+        1,
+        8
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GSH_FACILITIES"
+}

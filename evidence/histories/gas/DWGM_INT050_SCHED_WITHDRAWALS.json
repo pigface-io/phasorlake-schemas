@@ -1,0 +1,84 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "withdrawal_zone_name",
+    "3": "scheduled_qty",
+    "4": "transmission_id",
+    "5": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 326,
+      "from": {
+        "data-time": "2026-08-30T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT050_SCHED_WITHDRAWALS_1"
+      ],
+      "rows": 1530,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int050_v4_sched_withdrawals_1.csv@20261021T220900+1000",
+        "release": "2026-10",
+        "sha256": "2f1545c12423510912f201cfc4fe1cc207d290659a5a0050e574fc3324fbd3fd"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "WITHDRAWAL_ZONE_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "SCHEDULED_QTY",
+          "required": false,
+          "type": "decimal(9, 3)"
+        },
+        {
+          "id": 4,
+          "name": "TRANSMISSION_ID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 5,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT050_SCHED_WITHDRAWALS"
+}

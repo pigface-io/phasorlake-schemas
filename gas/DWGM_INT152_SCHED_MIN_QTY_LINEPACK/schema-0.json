@@ -1,0 +1,206 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT152_SCHED_MIN_QTY_LINEPACK/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "APPROVAL_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "approval_date",
+      "x-iceberg-type": "date"
+    },
+    "COMMENCEMENT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "commencement_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "LINEPACK_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "linepack_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "LINEPACK_ZONE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "linepack_zone_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "LINEPACK_ZONE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "linepack_zone_name",
+      "x-iceberg-type": "string"
+    },
+    "QUANTITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "quantity",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "TERMINATION_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "termination_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "TI": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "ti",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "TRANSMISSION_DOCUMENT_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "transmission_document_id",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "type",
+      "x-iceberg-type": "string"
+    },
+    "UNIT_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "unit_id",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT152_SCHED_MIN_QTY_LINEPACK, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "TYPE",
+      "string"
+    ],
+    [
+      3,
+      "LINEPACK_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      4,
+      "LINEPACK_ZONE_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      5,
+      "COMMENCEMENT_DATETIME",
+      "timestamptz"
+    ],
+    [
+      6,
+      "TI",
+      "decimal(2, 0)"
+    ],
+    [
+      7,
+      "TERMINATION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      8,
+      "UNIT_ID",
+      "string"
+    ],
+    [
+      9,
+      "LINEPACK_ZONE_NAME",
+      "string"
+    ],
+    [
+      10,
+      "TRANSMISSION_DOCUMENT_ID",
+      "decimal(6, 0)"
+    ],
+    [
+      11,
+      "QUANTITY",
+      "decimal(6, 0)"
+    ],
+    [
+      12,
+      "CURRENT_DATE",
+      "timestamptz"
+    ],
+    [
+      13,
+      "APPROVAL_DATE",
+      "date"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT152_SCHED_MIN_QTY_LINEPACK"
+  }
+}

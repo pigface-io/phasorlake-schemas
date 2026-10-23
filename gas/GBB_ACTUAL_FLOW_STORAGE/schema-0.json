@@ -1,0 +1,229 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_ACTUAL_FLOW_STORAGE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CUSHIONGASSTORAGE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "CushionGasStorage",
+      "x-iceberg-type": "decimal(5, 3)"
+    },
+    "DEMAND": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Demand",
+      "x-iceberg-type": "decimal(7, 3)"
+    },
+    "FACILITYID": {
+      "description": "Unique Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "FACILITYNAME": {
+      "description": "Name of the Facility",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "FACILITYTYPE": {
+      "description": "Describes the type of facility. Refer to the GAS_FACILITY_TYPE table",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "FacilityType",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(40)"
+    },
+    "GASDATE": {
+      "description": "Date of gas day",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "GasDate",
+      "x-iceberg-type": "date",
+      "x-model-type": "DATE"
+    },
+    "HELDINSTORAGE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "HeldInStorage",
+      "x-iceberg-type": "decimal(9, 3)"
+    },
+    "LASTUPDATED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "LastUpdated",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOCATIONID": {
+      "description": "Unique Node Location Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "LocationId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "LOCATIONNAME": {
+      "description": "Name of the location.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "LocationName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "STATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "State",
+      "x-iceberg-type": "string"
+    },
+    "SUPPLY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Supply",
+      "x-iceberg-type": "decimal(7, 3)"
+    },
+    "TRANSFERIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "TransferIn",
+      "x-iceberg-type": "decimal(7, 3)"
+    },
+    "TRANSFEROUT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "TransferOut",
+      "x-iceberg-type": "decimal(6, 3)"
+    }
+  },
+  "required": [],
+  "title": "GBB_ACTUAL_FLOW_STORAGE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GASDATE",
+      "date"
+    ],
+    [
+      2,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      3,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      4,
+      "FACILITYTYPE",
+      "string"
+    ],
+    [
+      5,
+      "DEMAND",
+      "decimal(7, 3)"
+    ],
+    [
+      6,
+      "SUPPLY",
+      "decimal(7, 3)"
+    ],
+    [
+      7,
+      "TRANSFERIN",
+      "decimal(7, 3)"
+    ],
+    [
+      8,
+      "TRANSFEROUT",
+      "decimal(6, 3)"
+    ],
+    [
+      9,
+      "HELDINSTORAGE",
+      "decimal(9, 3)"
+    ],
+    [
+      10,
+      "CUSHIONGASSTORAGE",
+      "decimal(5, 3)"
+    ],
+    [
+      11,
+      "STATE",
+      "string"
+    ],
+    [
+      12,
+      "LOCATIONNAME",
+      "string"
+    ],
+    [
+      13,
+      "LOCATIONID",
+      "decimal(6, 0)"
+    ],
+    [
+      14,
+      "LASTUPDATED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_ACTUAL_FLOW_STORAGE"
+  }
+}

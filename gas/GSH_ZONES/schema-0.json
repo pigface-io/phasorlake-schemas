@@ -1,0 +1,141 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_ZONES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EFFECTIVEDATE": {
+      "description": "Effective date of the record",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "FOR_AUCTION_PUBLICATION": {
+      "description": "Flag to indicate if the product component can be published in the public auction reports, for example yes or no.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(3)"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report was generated.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "VERSION_DATETIME": {
+      "description": "Version timestamp of the record",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "ZONE_DESCRIPTION": {
+      "description": "The description of the zone.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(400)"
+    },
+    "ZONE_ID": {
+      "description": "The unique identifier of the zone.",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "ZONE_NAME": {
+      "description": "The descriptive name of the zone.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "ZONE_TYPE": {
+      "description": "The type of zone, for example pipeline receipt, pipeline delivery, compression receipt or compression delivery.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    }
+  },
+  "required": [
+    "ZONE_ID",
+    "EFFECTIVEDATE",
+    "VERSION_DATETIME"
+  ],
+  "title": "GSH_ZONES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "ZONE_ID",
+      "long"
+    ],
+    [
+      2,
+      "ZONE_NAME",
+      "string"
+    ],
+    [
+      3,
+      "ZONE_TYPE",
+      "string"
+    ],
+    [
+      4,
+      "ZONE_DESCRIPTION",
+      "string"
+    ],
+    [
+      5,
+      "FOR_AUCTION_PUBLICATION",
+      "string"
+    ],
+    [
+      6,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      8,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    6,
+    7,
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_ZONES"
+  }
+}

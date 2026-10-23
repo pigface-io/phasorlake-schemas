@@ -1,0 +1,135 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT138_SETTLEMENT_VERSION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "INTEREST_RATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "interest_rate",
+      "x-iceberg-type": "decimal(3, 2)"
+    },
+    "ISSUED_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "issued_date",
+      "x-iceberg-type": "date"
+    },
+    "SETTLEMENT_CAT_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "settlement_cat_type",
+      "x-iceberg-type": "string"
+    },
+    "STATEMENT_VERSION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "statement_version_id",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "VERSION_DESC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "version_desc",
+      "x-iceberg-type": "string"
+    },
+    "VERSION_FROM_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "version_from_date",
+      "x-iceberg-type": "date"
+    },
+    "VERSION_TO_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "version_to_date",
+      "x-iceberg-type": "date"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT138_SETTLEMENT_VERSION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "STATEMENT_VERSION_ID",
+      "decimal(4, 0)"
+    ],
+    [
+      2,
+      "SETTLEMENT_CAT_TYPE",
+      "string"
+    ],
+    [
+      3,
+      "VERSION_FROM_DATE",
+      "date"
+    ],
+    [
+      4,
+      "VERSION_TO_DATE",
+      "date"
+    ],
+    [
+      5,
+      "INTEREST_RATE",
+      "decimal(3, 2)"
+    ],
+    [
+      6,
+      "ISSUED_DATE",
+      "date"
+    ],
+    [
+      7,
+      "VERSION_DESC",
+      "string"
+    ],
+    [
+      8,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT138_SETTLEMENT_VERSION"
+  }
+}

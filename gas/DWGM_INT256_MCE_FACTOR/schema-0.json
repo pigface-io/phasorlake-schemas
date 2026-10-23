@@ -1,0 +1,205 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT256_MCE_FACTOR/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "COMMENCEMENT_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "commencement_date",
+      "x-iceberg-type": "date"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "EOD_LINEPACK_MAX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "eod_linepack_max",
+      "x-iceberg-type": "decimal(7, 1)"
+    },
+    "EOD_LINEPACK_MIN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "eod_linepack_min",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "GENERAL_INFORMATION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "general_information_id",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "LAST_MOD_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "last_mod_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "NUMBER_OF_STEPS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "number_of_steps",
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "R_FACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "r_factor",
+      "x-iceberg-type": "decimal(5, 5)"
+    },
+    "SUPER_COMPRESSABILITY_FACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "super_compressability_factor",
+      "x-iceberg-type": "decimal(2, 2)"
+    },
+    "TERMINATION_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "termination_date",
+      "x-iceberg-type": "date"
+    },
+    "T_FACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "t_factor",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "VISCOSITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "viscosity",
+      "x-iceberg-type": "decimal(6, 6)"
+    },
+    "VOLL_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "voll_price",
+      "x-iceberg-type": "decimal(5, 2)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT256_MCE_FACTOR, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GENERAL_INFORMATION_ID",
+      "decimal(1, 0)"
+    ],
+    [
+      2,
+      "R_FACTOR",
+      "decimal(5, 5)"
+    ],
+    [
+      3,
+      "SUPER_COMPRESSABILITY_FACTOR",
+      "decimal(2, 2)"
+    ],
+    [
+      4,
+      "T_FACTOR",
+      "decimal(3, 0)"
+    ],
+    [
+      5,
+      "VISCOSITY",
+      "decimal(6, 6)"
+    ],
+    [
+      6,
+      "VOLL_PRICE",
+      "decimal(5, 2)"
+    ],
+    [
+      7,
+      "NUMBER_OF_STEPS",
+      "decimal(1, 0)"
+    ],
+    [
+      8,
+      "EOD_LINEPACK_MIN",
+      "decimal(1, 0)"
+    ],
+    [
+      9,
+      "EOD_LINEPACK_MAX",
+      "decimal(7, 1)"
+    ],
+    [
+      10,
+      "COMMENCEMENT_DATE",
+      "date"
+    ],
+    [
+      11,
+      "TERMINATION_DATE",
+      "date"
+    ],
+    [
+      12,
+      "LAST_MOD_DATE",
+      "timestamptz"
+    ],
+    [
+      13,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT256_MCE_FACTOR"
+  }
+}

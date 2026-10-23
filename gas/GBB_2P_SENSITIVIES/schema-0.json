@@ -1,0 +1,75 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_2P_SENSITIVIES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DECREASE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "Decrease",
+      "x-iceberg-type": "decimal(7, 3)"
+    },
+    "INCREASE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Increase",
+      "x-iceberg-type": "decimal(7, 3)"
+    },
+    "PERIODID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "PeriodID",
+      "x-iceberg-type": "string"
+    },
+    "STATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "State",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "GBB_2P_SENSITIVIES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PERIODID",
+      "string"
+    ],
+    [
+      2,
+      "STATE",
+      "string"
+    ],
+    [
+      3,
+      "INCREASE",
+      "decimal(7, 3)"
+    ],
+    [
+      4,
+      "DECREASE",
+      "decimal(7, 3)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_2P_SENSITIVIES"
+  }
+}

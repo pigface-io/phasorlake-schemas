@@ -1,0 +1,169 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_AUCTION_CURTAIL_NOTICE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AUCTION_SERVICE": {
+      "description": "The auction service impacted by curtailment",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "CURTAILED": {
+      "description": "A flag to indicate curtailment",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(3)"
+    },
+    "DESCRIPTION": {
+      "description": "A description of the curtailment.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(255)"
+    },
+    "EFFECTIVE_DATE_TIME": {
+      "description": "The date and time the curtailment is effective from.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 8,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "FACILITY_ID": {
+      "description": "The unique facility identifier as defined in the Transportation Facility Register.",
+      "type": "integer",
+      "x-field-id": 2,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "FACILITY_NAME": {
+      "description": "The descriptive name of the facility.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "GAS_DATE": {
+      "description": "The gas date for which the auction service is curtailed.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 9,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report was generated.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "MATERIAL": {
+      "description": "Flag to indicate material curtailment",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(3)"
+    },
+    "NOTICE_ID": {
+      "description": "The unique identifier of the notice.",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    }
+  },
+  "required": [
+    "NOTICE_ID",
+    "FACILITY_ID",
+    "AUCTION_SERVICE",
+    "EFFECTIVE_DATE_TIME",
+    "GAS_DATE"
+  ],
+  "title": "GSH_AUCTION_CURTAIL_NOTICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "NOTICE_ID",
+      "long"
+    ],
+    [
+      2,
+      "FACILITY_ID",
+      "long"
+    ],
+    [
+      3,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      4,
+      "AUCTION_SERVICE",
+      "string"
+    ],
+    [
+      5,
+      "CURTAILED",
+      "string"
+    ],
+    [
+      6,
+      "MATERIAL",
+      "string"
+    ],
+    [
+      7,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      8,
+      "EFFECTIVE_DATE_TIME",
+      "timestamptz"
+    ],
+    [
+      9,
+      "GAS_DATE",
+      "timestamptz"
+    ],
+    [
+      10,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    4,
+    8,
+    2,
+    9,
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_AUCTION_CURTAIL_NOTICE"
+  }
+}

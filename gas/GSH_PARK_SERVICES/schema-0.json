@@ -1,0 +1,125 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GSH_PARK_SERVICES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "EFFECTIVEDATE": {
+      "description": "The effective date of the park service.",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "FACILITY_ID": {
+      "description": "Unique Facility ID for this market",
+      "type": "integer",
+      "x-field-id": 1,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "LASTCHANGED": {
+      "description": "The date and time the report was generated.",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "PARK_PRODUCT_NAME": {
+      "description": "The descriptive name of the park product.",
+      "type": "string",
+      "x-field-id": 4,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "PARK_SERVICE_POINT_ID": {
+      "description": "The unique identifier of the service point at which transportation capacity is required to use this park service.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "long",
+      "x-model-type": "NUMBER(8,0)"
+    },
+    "PARK_SERVICE_POINT_NAME": {
+      "description": "The descriptive name of the park service point.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2 (100)"
+    },
+    "VERSION_DATETIME": {
+      "description": "The version timestamp of the record",
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    }
+  },
+  "required": [
+    "FACILITY_ID",
+    "EFFECTIVEDATE",
+    "VERSION_DATETIME",
+    "PARK_PRODUCT_NAME"
+  ],
+  "title": "GSH_PARK_SERVICES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FACILITY_ID",
+      "long"
+    ],
+    [
+      2,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      3,
+      "VERSION_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "PARK_PRODUCT_NAME",
+      "string"
+    ],
+    [
+      5,
+      "PARK_SERVICE_POINT_ID",
+      "long"
+    ],
+    [
+      6,
+      "PARK_SERVICE_POINT_NAME",
+      "string"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [
+    2,
+    1,
+    4,
+    3
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GSH_PARK_SERVICES"
+  }
+}

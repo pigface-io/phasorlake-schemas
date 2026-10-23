@@ -1,0 +1,175 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "FieldInterestId",
+    "10": "ResourceClassification",
+    "11": "ResourceSubClassification",
+    "12": "NatureOfGas",
+    "13": "AnnualReportingDate",
+    "14": "BasinId",
+    "15": "BasinName",
+    "16": "State",
+    "17": "OperatingState",
+    "18": "VersionDateTime",
+    "2": "FieldName",
+    "3": "CompanyId",
+    "4": "CompanyName",
+    "5": "Description",
+    "6": "EffectiveDate",
+    "7": "PetroleumTenements",
+    "8": "TenementShare",
+    "9": "ProcessingFacilities"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2023-03-15T00:00:00+10:00",
+        "file": "GasBBFieldInterestInformation.csv",
+        "release": "2026-10",
+        "sha256": "36e9ff8cb2a65d929cc264f0b1202e89095acf521c31a8fb715a13bdd641b0f0"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "FIELD_INTEREST_INFORMATION"
+      ],
+      "rows": 3461,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-08-21T00:00:00+10:00",
+        "file": "GasBBFieldInterestInformation.csv@20261021T230300+1000",
+        "release": "2026-10",
+        "sha256": "ef309656b367b2e7f2e0ebc46803d5d86421fb6374af04964823e7e90247816d"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FIELDINTERESTID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 2,
+          "name": "FIELDNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "COMPANYID",
+          "required": false,
+          "type": "decimal(3, 0)"
+        },
+        {
+          "id": 4,
+          "name": "COMPANYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "EFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 7,
+          "name": "PETROLEUMTENEMENTS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "TENEMENTSHARE",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 9,
+          "name": "PROCESSINGFACILITIES",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "RESOURCECLASSIFICATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "RESOURCESUBCLASSIFICATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "NATUREOFGAS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "ANNUALREPORTINGDATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "BASINID",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 15,
+          "name": "BASINNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 16,
+          "name": "STATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "OPERATINGSTATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "VERSIONDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_FIELD_INTEREST_INFORMATION"
+}

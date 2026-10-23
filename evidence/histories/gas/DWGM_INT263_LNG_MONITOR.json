@@ -1,0 +1,70 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "allocated_market_stock",
+    "3": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 66,
+      "from": {
+        "data-time": "2026-07-02T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT263_LNG_MONITOR_1"
+      ],
+      "rows": 458,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-26T00:00:00+10:00",
+        "file": "int263_v4_lng_monitor_1.csv@20261021T191100+1000",
+        "release": "2026-10",
+        "sha256": "8a51e94bdc0a50e4ebd1bb713a5d429075a021d8cc9c3f49da2c3370848a1c62"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "ALLOCATED_MARKET_STOCK",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 3,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT263_LNG_MONITOR"
+}

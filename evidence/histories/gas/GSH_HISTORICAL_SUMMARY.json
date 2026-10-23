@@ -1,0 +1,87 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 462,
+      "from": {
+        "data-time": "2025-09-02T00:00:00+10:00",
+        "file": "PUBLIC_HISTORICALTRANSACTIONSUMMARY_20251001.zip",
+        "release": "2025-10",
+        "sha256": "4c30fb186c7c767a557fe07b13738e46c2ceb407118422e5bad4e933add9a2a8"
+      },
+      "kinds": [
+        "gsh/archive",
+        "gsh/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GSH",
+        "HISTORICAL_SUMMARY"
+      ],
+      "rows": 166320,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-21T00:00:00+10:00",
+        "file": "PUBLIC_HISTORICALTRANSACTIONSUMMARY_20261021_0000000544105654.zip",
+        "release": "2026-10",
+        "sha256": "0bd7f832e18b123bbc142ee0022b7772dae18de8a4f7072c49497401066222b4"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "PRODUCT_LOCATION",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "VOLUME_WEIGHTED_AVERAGE_PRICE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 4,
+          "name": "TOTAL_QUANTITY",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 5,
+          "name": "ROLLING_WEIGHTED_AVERAGE_PRICE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 6,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GSH_HISTORICAL_SUMMARY"
+}

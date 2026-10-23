@@ -1,0 +1,295 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_FIELD_INTEREST_INFORMATION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ANNUALREPORTINGDATE": {
+      "description": "The annual reporting date of the field interest",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "AnnualReportingDate",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(30)"
+    },
+    "BASINID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "BasinId",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "BASINNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "BasinName",
+      "x-iceberg-type": "string"
+    },
+    "COMPANYID": {
+      "description": "The company ID of the responsible field owner",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "CompanyId",
+      "x-iceberg-type": "decimal(3, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "COMPANYNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "CompanyName",
+      "x-iceberg-type": "string"
+    },
+    "DESCRIPTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Description",
+      "x-iceberg-type": "string"
+    },
+    "EFFECTIVEDATE": {
+      "description": "The date on which the record takes effect",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "EffectiveDate",
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    },
+    "FIELDINTERESTID": {
+      "description": "A unique AEMO defined Field Interest Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "FieldInterestId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(20,0)"
+    },
+    "FIELDNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FieldName",
+      "x-iceberg-type": "string"
+    },
+    "NATUREOFGAS": {
+      "description": "The nature of the gas in the field using classifications in the BB Procedures",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "NatureOfGas",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "OPERATINGSTATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "OperatingState",
+      "x-iceberg-type": "string"
+    },
+    "PETROLEUMTENEMENTS": {
+      "description": "The petroleum tenements which are the subject of the BB field interest",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "PetroleumTenements",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(300)"
+    },
+    "PROCESSINGFACILITIES": {
+      "description": "The processing facility used to process gas from the field",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "ProcessingFacilities",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(300)"
+    },
+    "RESOURCECLASSIFICATION": {
+      "description": "Classification of the resources in the field as conventional or unconventional",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "ResourceClassification",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "RESOURCESUBCLASSIFICATION": {
+      "description": "Any further sub-classification of the resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "ResourceSubClassification",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(100)"
+    },
+    "STATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "State",
+      "x-iceberg-type": "string"
+    },
+    "TENEMENTSHARE": {
+      "description": "The field interest share of the petroleum tenements",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "TenementShare",
+      "x-iceberg-type": "decimal(6, 3)",
+      "x-model-type": "NUMBER(10,3)"
+    },
+    "VERSIONDATETIME": {
+      "description": "Time a successful submission is accepted by AEMO systems",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "VersionDateTime",
+      "x-iceberg-type": "timestamptz",
+      "x-model-type": "DATE"
+    }
+  },
+  "required": [],
+  "title": "GBB_FIELD_INTEREST_INFORMATION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FIELDINTERESTID",
+      "decimal(6, 0)"
+    ],
+    [
+      2,
+      "FIELDNAME",
+      "string"
+    ],
+    [
+      3,
+      "COMPANYID",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "COMPANYNAME",
+      "string"
+    ],
+    [
+      5,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      6,
+      "EFFECTIVEDATE",
+      "timestamptz"
+    ],
+    [
+      7,
+      "PETROLEUMTENEMENTS",
+      "string"
+    ],
+    [
+      8,
+      "TENEMENTSHARE",
+      "decimal(6, 3)"
+    ],
+    [
+      9,
+      "PROCESSINGFACILITIES",
+      "string"
+    ],
+    [
+      10,
+      "RESOURCECLASSIFICATION",
+      "string"
+    ],
+    [
+      11,
+      "RESOURCESUBCLASSIFICATION",
+      "string"
+    ],
+    [
+      12,
+      "NATUREOFGAS",
+      "string"
+    ],
+    [
+      13,
+      "ANNUALREPORTINGDATE",
+      "string"
+    ],
+    [
+      14,
+      "BASINID",
+      "decimal(5, 0)"
+    ],
+    [
+      15,
+      "BASINNAME",
+      "string"
+    ],
+    [
+      16,
+      "STATE",
+      "string"
+    ],
+    [
+      17,
+      "OPERATINGSTATE",
+      "string"
+    ],
+    [
+      18,
+      "VERSIONDATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_FIELD_INTEREST_INFORMATION"
+  }
+}

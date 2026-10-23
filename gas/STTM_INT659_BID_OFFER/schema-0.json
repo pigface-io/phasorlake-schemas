@@ -1,0 +1,217 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT659_BID_OFFER/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BID_OFFER_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "bid_offer_identifier",
+      "x-iceberg-type": "decimal(7, 0)"
+    },
+    "BID_OFFER_STEP_NUMBER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "bid_offer_step_number",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "BID_OFFER_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "bid_offer_type",
+      "x-iceberg-type": "string"
+    },
+    "COMPANY_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "company_identifier",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "COMPANY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "company_name",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "facility_identifier",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "facility_name",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "SCHEDULE_IDENTIFIER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "schedule_identifier",
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "STEP_CAPPED_CUMULATIVE_QTY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "step_capped_cumulative_qty",
+      "x-iceberg-type": "decimal(6, 0)"
+    },
+    "STEP_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "step_price",
+      "x-iceberg-type": "decimal(7, 4)"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT659_BID_OFFER, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "COMPANY_IDENTIFIER",
+      "decimal(3, 0)"
+    ],
+    [
+      3,
+      "COMPANY_NAME",
+      "string"
+    ],
+    [
+      4,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      5,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      6,
+      "SCHEDULE_IDENTIFIER",
+      "decimal(5, 0)"
+    ],
+    [
+      7,
+      "FACILITY_IDENTIFIER",
+      "string"
+    ],
+    [
+      8,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      9,
+      "BID_OFFER_IDENTIFIER",
+      "decimal(7, 0)"
+    ],
+    [
+      10,
+      "BID_OFFER_STEP_NUMBER",
+      "decimal(2, 0)"
+    ],
+    [
+      11,
+      "STEP_PRICE",
+      "decimal(7, 4)"
+    ],
+    [
+      12,
+      "STEP_CAPPED_CUMULATIVE_QTY",
+      "decimal(6, 0)"
+    ],
+    [
+      13,
+      "BID_OFFER_TYPE",
+      "string"
+    ],
+    [
+      14,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT659_BID_OFFER"
+  }
+}

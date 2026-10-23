@@ -1,0 +1,177 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "facilityname",
+    "10": "flowdirection",
+    "11": "capacityquantity",
+    "12": "effectivedate",
+    "13": "description",
+    "14": "LastUpdated",
+    "2": "facilityid",
+    "3": "facilitytype",
+    "4": "capacitytype",
+    "5": "receiptlocation",
+    "6": "ReceiptLocationName",
+    "7": "deliverylocation",
+    "8": "DeliveryLocationName",
+    "9": "capacitydescription"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 43,
+      "from": {
+        "data-time": "2019-08-29T00:00:00+10:00",
+        "file": "GasBBNameplateRatingCurrent_20251028023825.csv",
+        "release": "2025-10",
+        "sha256": "e421ff2195b95f8bb225a1517ef36d01840eadc0bb19be278246c5a1bc708eea"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "NAMEPLATE_RATING_CURRENT"
+      ],
+      "rows": 1503,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-22T00:00:00+10:00",
+        "file": "GasBBNameplateRatingCurrent.csv@20261022T083600+1000",
+        "release": "2026-10",
+        "sha256": "0fe00bec458c77fa25c7056632ba42992e7962c0fe567c60b9d13a2a2cf09924"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2018-09-30T00:00:00+10:00",
+        "file": "GasBBNameplateRating.zip",
+        "release": "2026-10",
+        "sha256": "49c67e6fcf2c2a8dfa50b13425e42d42c681658366f98961b679bb2ea04323a4"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "NAMEPLATE_RATING"
+      ],
+      "rows": 138079,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2029-01-01T00:00:00+10:00",
+        "file": "GasBBNameplateRating.zip@20261022T021200+1000",
+        "release": "2026-10",
+        "sha256": "96479030d31db3d9b7a13ea21b1fe068168d47e51d3558424ff2a487d1b96110"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 3,
+          "name": "FACILITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "CAPACITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "RECEIPTLOCATION",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 6,
+          "name": "RECEIPTLOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "DELIVERYLOCATION",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 8,
+          "name": "DELIVERYLOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "CAPACITYDESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "FLOWDIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "CAPACITYQUANTITY",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 12,
+          "name": "EFFECTIVEDATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 13,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "LASTUPDATED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_NAMEPLATE_RATING"
+}

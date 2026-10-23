@@ -1,0 +1,119 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "10": "report_datetime",
+    "2": "hub_identifier",
+    "3": "hub_name",
+    "4": "facility_identifier",
+    "5": "facility_name",
+    "6": "total_deviation_qty",
+    "7": "net_deviation_qty",
+    "8": "deviation_charge",
+    "9": "deviation_payment"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 34,
+      "from": {
+        "data-time": "2026-07-25T00:00:00+10:00",
+        "file": "Day31.zip",
+        "release": "2026-08",
+        "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT662_PROVISIONAL_DEVIATION_RPT_1"
+      ],
+      "rows": 3559,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "int662_v1_provisional_deviation_rpt_1.csv@20261021T191600+1000",
+        "release": "2026-10",
+        "sha256": "79dcec3f4d09880606acb3b4d904fb9bc3c148970f66ce70f0d04d597ef61b31"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "HUB_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "HUB_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "FACILITY_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "TOTAL_DEVIATION_QTY",
+          "required": false,
+          "type": "decimal(14, 9)"
+        },
+        {
+          "id": 7,
+          "name": "NET_DEVIATION_QTY",
+          "required": false,
+          "type": "decimal(14, 9)"
+        },
+        {
+          "id": 8,
+          "name": "DEVIATION_CHARGE",
+          "required": false,
+          "type": "decimal(10, 4)"
+        },
+        {
+          "id": 9,
+          "name": "DEVIATION_PAYMENT",
+          "required": false,
+          "type": "decimal(10, 4)"
+        },
+        {
+          "id": 10,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT662_PROVISIONAL_DEVIATION"
+}

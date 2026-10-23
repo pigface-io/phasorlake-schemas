@@ -1,0 +1,145 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT310_PRICE_AND_WITHDRAWALS_RPT_1/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADMINISTERED_PRICE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "administered_price",
+      "x-iceberg-type": "string"
+    },
+    "CTM_D1_INJ": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "ctm_d1_inj",
+      "x-iceberg-type": "string"
+    },
+    "CTM_D1_WDL": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "ctm_d1_wdl",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "string"
+    },
+    "GAS_HOUR": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_hour",
+      "x-iceberg-type": "string"
+    },
+    "PRICE_VALUE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "price_value",
+      "x-iceberg-type": "string"
+    },
+    "TOTAL_GAS_INJECTIONS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "total_gas_injections",
+      "x-iceberg-type": "string"
+    },
+    "TOTAL_GAS_WITHDRAWALS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "total_gas_withdrawals",
+      "x-iceberg-type": "string"
+    },
+    "TRANSMISSION_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "transmission_id",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT310_PRICE_AND_WITHDRAWALS_RPT_1, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "string"
+    ],
+    [
+      2,
+      "GAS_HOUR",
+      "string"
+    ],
+    [
+      3,
+      "TRANSMISSION_ID",
+      "string"
+    ],
+    [
+      4,
+      "CTM_D1_INJ",
+      "string"
+    ],
+    [
+      5,
+      "CTM_D1_WDL",
+      "string"
+    ],
+    [
+      6,
+      "PRICE_VALUE",
+      "string"
+    ],
+    [
+      7,
+      "ADMINISTERED_PRICE",
+      "string"
+    ],
+    [
+      8,
+      "TOTAL_GAS_WITHDRAWALS",
+      "string"
+    ],
+    [
+      9,
+      "TOTAL_GAS_INJECTIONS",
+      "string"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT310_PRICE_AND_WITHDRAWALS_RPT_1"
+  }
+}

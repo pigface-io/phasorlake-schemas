@@ -1,0 +1,161 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT041_MARKET_AND_REFERENCE_PRICES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "IMB_INJ_WTD_AVE_PRICE_GST_EX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "imb_inj_wtd_ave_price_gst_ex",
+      "x-iceberg-type": "decimal(6, 4)"
+    },
+    "IMB_WDR_WTD_AVE_PRICE_GST_EX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "imb_wdr_wtd_ave_price_gst_ex",
+      "x-iceberg-type": "decimal(6, 4)"
+    },
+    "IMB_WTD_AVE_PRICE_GST_EX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "imb_wtd_ave_price_gst_ex",
+      "x-iceberg-type": "decimal(6, 4)"
+    },
+    "PRICE_10AM_GST_EX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "price_10am_gst_ex",
+      "x-iceberg-type": "decimal(6, 4)"
+    },
+    "PRICE_10PM_GST_EX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "price_10pm_gst_ex",
+      "x-iceberg-type": "decimal(6, 4)"
+    },
+    "PRICE_2PM_GST_EX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "price_2pm_gst_ex",
+      "x-iceberg-type": "decimal(6, 4)"
+    },
+    "PRICE_6PM_GST_EX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "price_6pm_gst_ex",
+      "x-iceberg-type": "decimal(6, 4)"
+    },
+    "PRICE_BOD_GST_EX": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "price_bod_gst_ex",
+      "x-iceberg-type": "decimal(6, 4)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT041_MARKET_AND_REFERENCE_PRICES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "PRICE_BOD_GST_EX",
+      "decimal(6, 4)"
+    ],
+    [
+      3,
+      "PRICE_10AM_GST_EX",
+      "decimal(6, 4)"
+    ],
+    [
+      4,
+      "PRICE_2PM_GST_EX",
+      "decimal(6, 4)"
+    ],
+    [
+      5,
+      "PRICE_6PM_GST_EX",
+      "decimal(6, 4)"
+    ],
+    [
+      6,
+      "PRICE_10PM_GST_EX",
+      "decimal(6, 4)"
+    ],
+    [
+      7,
+      "IMB_WTD_AVE_PRICE_GST_EX",
+      "decimal(6, 4)"
+    ],
+    [
+      8,
+      "IMB_INJ_WTD_AVE_PRICE_GST_EX",
+      "decimal(6, 4)"
+    ],
+    [
+      9,
+      "IMB_WDR_WTD_AVE_PRICE_GST_EX",
+      "decimal(6, 4)"
+    ],
+    [
+      10,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT041_MARKET_AND_REFERENCE_PRICES"
+  }
+}

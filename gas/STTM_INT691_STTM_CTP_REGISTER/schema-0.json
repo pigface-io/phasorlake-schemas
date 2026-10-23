@@ -1,0 +1,177 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/STTM_INT691_STTM_CTP_REGISTER/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CTP_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "ctp_identifier",
+      "x-iceberg-type": "string"
+    },
+    "CTP_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "ctp_name",
+      "x-iceberg-type": "string"
+    },
+    "EFFECTIVE_FROM_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "effective_from_date",
+      "x-iceberg-type": "date"
+    },
+    "EFFECTIVE_TO_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "effective_to_date",
+      "x-iceberg-type": "date"
+    },
+    "FACILITY_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "facility_identifier",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "facility_name",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "facility_type",
+      "x-iceberg-type": "string"
+    },
+    "HUB_IDENTIFIER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "hub_identifier",
+      "x-iceberg-type": "string"
+    },
+    "HUB_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hub_name",
+      "x-iceberg-type": "string"
+    },
+    "LAST_UPDATE_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "last_update_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "REPORT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "report_datetime",
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "STTM_INT691_STTM_CTP_REGISTER, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "HUB_IDENTIFIER",
+      "string"
+    ],
+    [
+      2,
+      "HUB_NAME",
+      "string"
+    ],
+    [
+      3,
+      "FACILITY_IDENTIFIER",
+      "string"
+    ],
+    [
+      4,
+      "FACILITY_NAME",
+      "string"
+    ],
+    [
+      5,
+      "FACILITY_TYPE",
+      "string"
+    ],
+    [
+      6,
+      "CTP_IDENTIFIER",
+      "string"
+    ],
+    [
+      7,
+      "CTP_NAME",
+      "string"
+    ],
+    [
+      8,
+      "EFFECTIVE_FROM_DATE",
+      "date"
+    ],
+    [
+      9,
+      "EFFECTIVE_TO_DATE",
+      "date"
+    ],
+    [
+      10,
+      "LAST_UPDATE_DATETIME",
+      "timestamptz"
+    ],
+    [
+      11,
+      "REPORT_DATETIME",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "STTM_INT691_STTM_CTP_REGISTER"
+  }
+}

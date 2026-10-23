@@ -1,0 +1,148 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT047_HEATING_VALUES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CURRENT_HEATING_VALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "current_heating_value",
+      "x-iceberg-type": "decimal(4, 2)"
+    },
+    "EVENT_DATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "event_datetime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "EVENT_INTERVAL": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "event_interval",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HEATING_VALUE_ZONE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "heating_value_zone",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "HEATING_VALUE_ZONE_DESC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "heating_value_zone_desc",
+      "x-iceberg-type": "string"
+    },
+    "INITIAL_HEATING_VALUE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "initial_heating_value",
+      "x-iceberg-type": "decimal(4, 2)"
+    },
+    "VERSION_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "version_id",
+      "x-iceberg-type": "decimal(5, 0)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT047_HEATING_VALUES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "VERSION_ID",
+      "decimal(5, 0)"
+    ],
+    [
+      2,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      3,
+      "EVENT_DATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "EVENT_INTERVAL",
+      "decimal(2, 0)"
+    ],
+    [
+      5,
+      "HEATING_VALUE_ZONE",
+      "decimal(3, 0)"
+    ],
+    [
+      6,
+      "HEATING_VALUE_ZONE_DESC",
+      "string"
+    ],
+    [
+      7,
+      "INITIAL_HEATING_VALUE",
+      "decimal(4, 2)"
+    ],
+    [
+      8,
+      "CURRENT_HEATING_VALUE",
+      "decimal(4, 2)"
+    ],
+    [
+      9,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT047_HEATING_VALUES"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2014-03-21T00:00:00+10:00",
+        "file": "GasBBGSHGasTrades.CSV",
+        "release": "2026-10",
+        "sha256": "fdb6cb436a8daeefef4c6a78d71f2ab699c51fe4bfe1c58c705df523f254dad3"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GSH",
+        "GAS_TRADES"
+      ],
+      "rows": 39796,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2027-01-01T00:00:00+10:00",
+        "file": "GasBBGSHGasTrades.CSV@20261022T060100+1000",
+        "release": "2026-10",
+        "sha256": "2210d9528242f46fa473a6ac57c48fef959fb5ff51431a171e987a077a310afc"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADE_DATE",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "PRODUCT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "LOCATION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "TRADE_PRICE",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 6,
+          "name": "DAILY_QTY_GJ",
+          "required": false,
+          "type": "decimal(18, 8)"
+        },
+        {
+          "id": 7,
+          "name": "START_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 8,
+          "name": "END_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 9,
+          "name": "MANUAL_TRADE",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [
+        1
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GAS_GSH_TRADES"
+}

@@ -1,0 +1,129 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_SHORT_TERM_SWAP_TRANSACTIONS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "PERIODID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "PeriodID",
+      "x-iceberg-type": "string"
+    },
+    "QUANTITY_TJ": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Quantity (TJ)",
+      "x-iceberg-type": "decimal(11, 6)"
+    },
+    "STATE": {
+      "description": "The state where the transaction occurred",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "State",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(5)"
+    },
+    "SUPPLYPERIODEND": {
+      "description": "The latest end date of all transactions in the reporting period for the given state",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "SupplyPeriodEnd",
+      "x-iceberg-type": "date",
+      "x-model-type": "DATE"
+    },
+    "SUPPLYPERIODSTART": {
+      "description": "The earliest start date of all transactions in the reporting period for the given state",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "SupplyPeriodStart",
+      "x-iceberg-type": "date",
+      "x-model-type": "DATE"
+    },
+    "TRANSACTIONTYPE": {
+      "description": "Whether the swap is a location swap, time swap or both location and time swap",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "TransactionType",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(255)"
+    },
+    "VOLUMEWEIGHTEDPRICE": {
+      "description": "Volume weighted price of transactions where trade date is in the reporting period for the given State",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "VolumeWeightedPrice ($)",
+      "x-iceberg-type": "decimal(8, 6)",
+      "x-model-type": "NUMBER(18,8)"
+    }
+  },
+  "required": [],
+  "title": "GBB_SHORT_TERM_SWAP_TRANSACTIONS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PERIODID",
+      "string"
+    ],
+    [
+      2,
+      "STATE",
+      "string"
+    ],
+    [
+      3,
+      "QUANTITY_TJ",
+      "decimal(11, 6)"
+    ],
+    [
+      4,
+      "VOLUMEWEIGHTEDPRICE",
+      "decimal(8, 6)"
+    ],
+    [
+      5,
+      "TRANSACTIONTYPE",
+      "string"
+    ],
+    [
+      6,
+      "SUPPLYPERIODSTART",
+      "date"
+    ],
+    [
+      7,
+      "SUPPLYPERIODEND",
+      "date"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_SHORT_TERM_SWAP_TRANSACTIONS"
+  }
+}

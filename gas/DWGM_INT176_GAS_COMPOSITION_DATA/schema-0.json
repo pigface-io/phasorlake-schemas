@@ -1,0 +1,259 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT176_GAS_COMPOSITION_DATA/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BUTANE_I": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "butane_i",
+      "x-iceberg-type": "decimal(5, 5)"
+    },
+    "BUTANE_N": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "butane_n",
+      "x-iceberg-type": "decimal(5, 5)"
+    },
+    "CARBON_DIOXIDE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "carbon_dioxide",
+      "x-iceberg-type": "decimal(6, 5)"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "ETHANE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "ethane",
+      "x-iceberg-type": "decimal(6, 5)"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "HEXANE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "hexane",
+      "x-iceberg-type": "decimal(5, 5)"
+    },
+    "HV_ZONE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "hv_zone",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "HV_ZONE_DESC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "hv_zone_desc",
+      "x-iceberg-type": "string"
+    },
+    "HYDROGEN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "hydrogen",
+      "x-iceberg-type": "decimal(5, 5)"
+    },
+    "METHANE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "methane",
+      "x-iceberg-type": "decimal(7, 5)"
+    },
+    "NITROGEN": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "nitrogen",
+      "x-iceberg-type": "decimal(6, 5)"
+    },
+    "PENTANE_I": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "pentane_i",
+      "x-iceberg-type": "decimal(5, 5)"
+    },
+    "PENTANE_N": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "pentane_n",
+      "x-iceberg-type": "decimal(5, 5)"
+    },
+    "PENTANE_NEO": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "pentane_neo",
+      "x-iceberg-type": "decimal(5, 5)"
+    },
+    "PROPANE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "propane",
+      "x-iceberg-type": "decimal(6, 5)"
+    },
+    "SPEC_GRAVITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "spec_gravity",
+      "x-iceberg-type": "decimal(5, 5)"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT176_GAS_COMPOSITION_DATA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "HV_ZONE",
+      "decimal(3, 0)"
+    ],
+    [
+      2,
+      "HV_ZONE_DESC",
+      "string"
+    ],
+    [
+      3,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      4,
+      "METHANE",
+      "decimal(7, 5)"
+    ],
+    [
+      5,
+      "ETHANE",
+      "decimal(6, 5)"
+    ],
+    [
+      6,
+      "PROPANE",
+      "decimal(6, 5)"
+    ],
+    [
+      7,
+      "BUTANE_I",
+      "decimal(5, 5)"
+    ],
+    [
+      8,
+      "BUTANE_N",
+      "decimal(5, 5)"
+    ],
+    [
+      9,
+      "PENTANE_I",
+      "decimal(5, 5)"
+    ],
+    [
+      10,
+      "PENTANE_N",
+      "decimal(5, 5)"
+    ],
+    [
+      11,
+      "PENTANE_NEO",
+      "decimal(5, 5)"
+    ],
+    [
+      12,
+      "HEXANE",
+      "decimal(5, 5)"
+    ],
+    [
+      13,
+      "NITROGEN",
+      "decimal(6, 5)"
+    ],
+    [
+      14,
+      "CARBON_DIOXIDE",
+      "decimal(6, 5)"
+    ],
+    [
+      15,
+      "HYDROGEN",
+      "decimal(5, 5)"
+    ],
+    [
+      16,
+      "SPEC_GRAVITY",
+      "decimal(5, 5)"
+    ],
+    [
+      17,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT176_GAS_COMPOSITION_DATA"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "flag",
+    "3": "id",
+    "4": "ti",
+    "5": "energy_gj",
+    "6": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 25,
+      "from": {
+        "data-time": "2026-07-01T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT150_PUBLIC_METERING_DATA_1"
+      ],
+      "rows": 76977,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-18T00:00:00+10:00",
+        "file": "int150_v4_public_metering_data_1.csv@20261021T191100+1000",
+        "release": "2026-10",
+        "sha256": "851822b301c2a09823d5890bb8fc96abd3dfba1a2433655103a4cd13c2996052"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "FLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "ID",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "TI",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 5,
+          "name": "ENERGY_GJ",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 6,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT150_PUBLIC_METERING_DATA"
+}

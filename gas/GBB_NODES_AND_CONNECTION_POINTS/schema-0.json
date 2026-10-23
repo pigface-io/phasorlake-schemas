@@ -1,0 +1,232 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/GBB_NODES_AND_CONNECTION_POINTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONNECTIONPOINTID": {
+      "description": "Unique connection point identifier.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "ConnectionPointId",
+      "x-iceberg-type": "decimal(7, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "CONNECTIONPOINTNAME": {
+      "description": "Name of the Connection point",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "ConnectionPointName",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(200)"
+    },
+    "EXEMPT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "Exempt",
+      "x-iceberg-type": "string"
+    },
+    "EXEMPTIONDESCRIPTION": {
+      "description": "Description of the exemption",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "ExemptionDescription",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(200)"
+    },
+    "FACILITYID": {
+      "description": "Unique Facility Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "FacilityId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "FACILITYNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "FacilityName",
+      "x-iceberg-type": "string"
+    },
+    "FACILITYTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "FacilityType",
+      "x-iceberg-type": "string"
+    },
+    "FLOWDIRECTION": {
+      "description": "Direction of flow for the submission record. Must be one of ‘RECEIPT’ or ‘DELIVERY’",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "FlowDirection",
+      "x-iceberg-type": "string",
+      "x-model-type": "VARCHAR2(20)"
+    },
+    "LASTUPDATED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "LastUpdated",
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOCATIONID": {
+      "description": "Unique Location Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "LocationId",
+      "x-iceberg-type": "decimal(6, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "LOCATIONNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "LocationName",
+      "x-iceberg-type": "string"
+    },
+    "NODEID": {
+      "description": "Unique Node Identifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "NodeId",
+      "x-iceberg-type": "decimal(5, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "STATEID": {
+      "description": "Unique StateIdentifier",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "StateId",
+      "x-iceberg-type": "decimal(1, 0)",
+      "x-model-type": "NUMBER(10,0)"
+    },
+    "STATENAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "StateName",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "GBB_NODES_AND_CONNECTION_POINTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "FACILITYNAME",
+      "string"
+    ],
+    [
+      2,
+      "FACILITYID",
+      "decimal(6, 0)"
+    ],
+    [
+      3,
+      "FACILITYTYPE",
+      "string"
+    ],
+    [
+      4,
+      "CONNECTIONPOINTID",
+      "decimal(7, 0)"
+    ],
+    [
+      5,
+      "CONNECTIONPOINTNAME",
+      "string"
+    ],
+    [
+      6,
+      "FLOWDIRECTION",
+      "string"
+    ],
+    [
+      7,
+      "EXEMPT",
+      "string"
+    ],
+    [
+      8,
+      "EXEMPTIONDESCRIPTION",
+      "string"
+    ],
+    [
+      9,
+      "NODEID",
+      "decimal(5, 0)"
+    ],
+    [
+      10,
+      "STATEID",
+      "decimal(1, 0)"
+    ],
+    [
+      11,
+      "STATENAME",
+      "string"
+    ],
+    [
+      12,
+      "LOCATIONNAME",
+      "string"
+    ],
+    [
+      13,
+      "LOCATIONID",
+      "decimal(6, 0)"
+    ],
+    [
+      14,
+      "LASTUPDATED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "GBB_NODES_AND_CONNECTION_POINTS"
+  }
+}

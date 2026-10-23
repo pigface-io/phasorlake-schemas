@@ -1,0 +1,112 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "hub_identifier",
+    "3": "hub_name",
+    "4": "facility_identifier",
+    "5": "facility_name",
+    "6": "allocation_qty_inc_mos",
+    "7": "allocation_qty_quality_type",
+    "8": "flow_direction",
+    "9": "report_datetime"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 34,
+      "from": {
+        "data-time": "2026-08-24T00:00:00+10:00",
+        "file": "Day31.zip",
+        "release": "2026-08",
+        "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
+      },
+      "kinds": [
+        "sttm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "STTM",
+        "INT689_EXPOST_FACILITY_ALLOCATION_QUANTITY_RPT_1"
+      ],
+      "rows": 832,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "int689_v1_expost_facility_allocation_quantity_rpt_1.csv@20261021T191600+1000",
+        "release": "2026-10",
+        "sha256": "e3f9ec2bec73e7b14609a592a1dc333b988f32848f6a856d266da09780ffbd94"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "HUB_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "HUB_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "FACILITY_IDENTIFIER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FACILITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "ALLOCATION_QTY_INC_MOS",
+          "required": false,
+          "type": "decimal(15, 9)"
+        },
+        {
+          "id": 7,
+          "name": "ALLOCATION_QTY_QUALITY_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "FLOW_DIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "REPORT_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "STTM_INT689_EXPOST_FACILITY_ALLOCATION_QUANTITY"
+}

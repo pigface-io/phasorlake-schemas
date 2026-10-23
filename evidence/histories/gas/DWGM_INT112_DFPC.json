@@ -1,0 +1,133 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "dfpc_id",
+    "10": "hourly_max_net_wdl_qty_gj",
+    "11": "mod_datetime",
+    "12": "current_date",
+    "2": "injection_mirn",
+    "3": "withdrawal_mirn",
+    "4": "commencement_date",
+    "5": "termination_date",
+    "6": "daily_max_net_inj_qty_gj",
+    "7": "daily_max_net_wdl_qty_gj",
+    "8": "ti",
+    "9": "hourly_max_net_inj_qty_gj"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 294,
+      "from": {
+        "data-time": "2026-08-29T00:00:00+10:00",
+        "file": "PublicRpts31.zip",
+        "release": "2026-08",
+        "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT112_DFPC_1"
+      ],
+      "rows": 4296,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int112_v4_dfpc_1.csv@20261021T220900+1000",
+        "release": "2026-10",
+        "sha256": "432994a26034f6c680c3b141bec3b507448753c9a895158356311d8124089917"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "DFPC_ID",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 2,
+          "name": "INJECTION_MIRN",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "WITHDRAWAL_MIRN",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "COMMENCEMENT_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 5,
+          "name": "TERMINATION_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 6,
+          "name": "DAILY_MAX_NET_INJ_QTY_GJ",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "DAILY_MAX_NET_WDL_QTY_GJ",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 8,
+          "name": "TI",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 9,
+          "name": "HOURLY_MAX_NET_INJ_QTY_GJ",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 10,
+          "name": "HOURLY_MAX_NET_WDL_QTY_GJ",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 11,
+          "name": "MOD_DATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 12,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT112_DFPC"
+}

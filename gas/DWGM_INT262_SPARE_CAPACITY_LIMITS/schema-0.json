@@ -1,0 +1,161 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT262_SPARE_CAPACITY_LIMITS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "CURRENT_LATERAL_CAPACITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "current_lateral_capacity",
+      "x-iceberg-type": "string"
+    },
+    "CURRENT_SYSTEM_CAPACITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "current_system_capacity",
+      "x-iceberg-type": "string"
+    },
+    "GAS_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "gas_date",
+      "x-iceberg-type": "date"
+    },
+    "MAX_LATERAL_CAPACITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "max_lateral_capacity",
+      "x-iceberg-type": "string"
+    },
+    "MAX_SYSTEM_CAPACITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "max_system_capacity",
+      "x-iceberg-type": "string"
+    },
+    "MIN_LATERAL_CAPACITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "min_lateral_capacity",
+      "x-iceberg-type": "string"
+    },
+    "MIN_SYSTEM_CAPACITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "min_system_capacity",
+      "x-iceberg-type": "string"
+    },
+    "NODE_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "node_id",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "NODE_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "node_name",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT262_SPARE_CAPACITY_LIMITS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "GAS_DATE",
+      "date"
+    ],
+    [
+      2,
+      "NODE_ID",
+      "decimal(2, 0)"
+    ],
+    [
+      3,
+      "NODE_NAME",
+      "string"
+    ],
+    [
+      4,
+      "CURRENT_SYSTEM_CAPACITY",
+      "string"
+    ],
+    [
+      5,
+      "CURRENT_LATERAL_CAPACITY",
+      "string"
+    ],
+    [
+      6,
+      "MAX_SYSTEM_CAPACITY",
+      "string"
+    ],
+    [
+      7,
+      "MIN_SYSTEM_CAPACITY",
+      "string"
+    ],
+    [
+      8,
+      "MAX_LATERAL_CAPACITY",
+      "string"
+    ],
+    [
+      9,
+      "MIN_LATERAL_CAPACITY",
+      "string"
+    ],
+    [
+      10,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT262_SPARE_CAPACITY_LIMITS"
+  }
+}

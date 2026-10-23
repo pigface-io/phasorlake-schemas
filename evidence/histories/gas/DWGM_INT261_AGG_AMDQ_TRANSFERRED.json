@@ -1,0 +1,70 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "gas_date",
+    "2": "aggregated_amdq_transferred",
+    "3": "current_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": null,
+        "file": "int261_v4_agg_amdq_transferred_1.csv",
+        "release": "2026-10",
+        "sha256": "ffcb143d06824896afea46afa4a7be936a4ca7f402279bc1fab411d68b6691c0"
+      },
+      "kinds": [
+        "dwgm/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "DWGM",
+        "INT261_AGG_AMDQ_TRANSFERRED_1"
+      ],
+      "rows": 0,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "int261_v4_agg_amdq_transferred_1.csv",
+        "release": "2026-10",
+        "sha256": "ffcb143d06824896afea46afa4a7be936a4ca7f402279bc1fab411d68b6691c0"
+      },
+      "updates": [],
+      "version": 4
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "GAS_DATE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "AGGREGATED_AMDQ_TRANSFERRED",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "CURRENT_DATE",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DWGM_INT261_AGG_AMDQ_TRANSFERRED"
+}

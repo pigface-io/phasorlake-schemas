@@ -1,0 +1,207 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "FacilityName",
+    "10": "DeliveryLocation",
+    "11": "CapacityDescription",
+    "12": "OutlookQuantity",
+    "13": "Description",
+    "14": "LastUpdated",
+    "2": "FacilityId",
+    "3": "FromGasDate",
+    "4": "ToGasDate",
+    "5": "CapacityType",
+    "6": "FlowDirection",
+    "7": "ReceiptLocationName",
+    "8": "ReceiptLocation",
+    "9": "DeliveryLocationName"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 41,
+      "from": {
+        "data-time": "2024-09-30T00:00:00+10:00",
+        "file": "GasBBMediumTermCapacityOutlookFuture_20250429095518.csv",
+        "release": "2025-04",
+        "sha256": "84fcd8319b564990114969b5123b31c36f216115950bbe10d447d53d26ee2d97"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": false,
+      "report": [
+        "GBB",
+        "MEDIUM_TERM_CAPACITY_OUTLOOK_FUTURE"
+      ],
+      "rows": 307230,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2029-09-30T00:00:00+10:00",
+        "file": "GasBBMediumTermCapacityOutlookFuture_20261001153144.csv",
+        "release": "2026-10",
+        "sha256": "02e67a622b0b749a6039d6804588376e7345b944174592c794c0d31d5e404cae"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2018-10-01T00:00:00+10:00",
+        "file": "GasBBMediumTermCapacityOutlook.csv",
+        "release": "2026-10",
+        "sha256": "7a23ae643b747734c3054451bc3db54e93a36a2d7fd56c128cf337db14753771"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "MEDIUM_TERM_CAPACITY_OUTLOOK"
+      ],
+      "rows": 95093,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2029-10-05T00:00:00+10:00",
+        "file": "GasBBMediumTermCapacityOutlook.csv@20261022T021300+1000",
+        "release": "2026-10",
+        "sha256": "ac28610454916c65488b123b362cd710a193708de76f55873d9e9a4d979962f7"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "report"
+      ],
+      "files": 7,
+      "from": {
+        "data-time": "2026-01-06T00:00:00+10:00",
+        "file": "GasBBMediumTermCapacityOutlookFuture.csv",
+        "release": "2026-10",
+        "sha256": "261e38eec21e9b5669089233926851efabb1f3d4d06b816ce0d06226d093ed01"
+      },
+      "kinds": [
+        "gbb/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "GBB",
+        "MEDIUM_TERM_CAPACITY_OUTLOOK_FUTURE"
+      ],
+      "rows": 29356,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2029-10-05T00:00:00+10:00",
+        "file": "GasBBMediumTermCapacityOutlookFuture.csv@20261022T085700+1000",
+        "release": "2026-10",
+        "sha256": "edcaaf6c635ac903890dcfd249be83d724bf6865c64322bdcd918567f35530f5"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "FACILITYNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "FACILITYID",
+          "required": false,
+          "type": "decimal(6, 0)"
+        },
+        {
+          "id": 3,
+          "name": "FROMGASDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 4,
+          "name": "TOGASDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 5,
+          "name": "CAPACITYTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FLOWDIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "RECEIPTLOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "RECEIPTLOCATION",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 9,
+          "name": "DELIVERYLOCATIONNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "DELIVERYLOCATION",
+          "required": false,
+          "type": "decimal(7, 0)"
+        },
+        {
+          "id": 11,
+          "name": "CAPACITYDESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "OUTLOOKQUANTITY",
+          "required": false,
+          "type": "decimal(8, 3)"
+        },
+        {
+          "id": 13,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "LASTUPDATED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "GBB_MEDIUM_TERM_CAPACITY_OUTLOOK"
+}

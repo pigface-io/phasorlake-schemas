@@ -1,0 +1,118 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/gas/DWGM_INT934_ECGS_CONTACTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ABN": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "abn",
+      "x-iceberg-type": "string"
+    },
+    "COMPANY_ID": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "company_id",
+      "x-iceberg-type": "decimal(3, 0)"
+    },
+    "COMPANY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "company_name",
+      "x-iceberg-type": "string"
+    },
+    "CONTACT_EMAIL": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "contact_email",
+      "x-iceberg-type": "string"
+    },
+    "CURRENT_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "current_date",
+      "x-iceberg-type": "timestamptz"
+    },
+    "FIRST_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "first_name",
+      "x-iceberg-type": "string"
+    },
+    "LAST_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "last_name",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "DWGM_INT934_ECGS_CONTACTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "COMPANY_NAME",
+      "string"
+    ],
+    [
+      2,
+      "ABN",
+      "string"
+    ],
+    [
+      3,
+      "COMPANY_ID",
+      "decimal(3, 0)"
+    ],
+    [
+      4,
+      "FIRST_NAME",
+      "string"
+    ],
+    [
+      5,
+      "LAST_NAME",
+      "string"
+    ],
+    [
+      6,
+      "CONTACT_EMAIL",
+      "string"
+    ],
+    [
+      7,
+      "CURRENT_DATE",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DWGM_INT934_ECGS_CONTACTS"
+  }
+}
