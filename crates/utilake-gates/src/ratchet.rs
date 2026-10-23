@@ -98,35 +98,38 @@ pub fn floor_drops(old: &serde_json::Value, new: &serde_json::Value) -> Vec<Stri
 pub fn run(root: &Path, base: &str) -> Result<bool> {
     let mut problems = Vec::new();
     let messages = commit_messages_since(root, base).unwrap_or_default();
+    // A loosening or a drop stands when a commit since the base explains
+    // it with the trailer named.
+    let explained = |trailer: &str| {
+        messages
+            .lines()
+            .any(|l| l.trim_start().starts_with(trailer))
+    };
     if let Some(old) = git_show(root, base, "bench/budgets.json")? {
         let old: serde_json::Value = serde_json::from_str(&old).unwrap_or_default();
         let new: serde_json::Value =
             serde_json::from_str(&std::fs::read_to_string(root.join("bench/budgets.json"))?)?;
-        let l = budget_loosenings(&old, &new);
-        if !l.is_empty()
-            && !messages
-                .lines()
-                .any(|l| l.trim_start().starts_with("bench-budget:"))
-        {
-            problems.extend(l.into_iter().map(|m| {
-                format!("{m}; explain it with a `bench-budget:` line in a commit message")
-            }));
-        }
+        problems.extend(
+            budget_loosenings(&old, &new)
+                .into_iter()
+                .filter(|_| !explained("bench-budget:"))
+                .map(|m| {
+                    format!("{m}; explain it with a `bench-budget:` line in a commit message")
+                }),
+        );
     }
     if let Some(old) = git_show(root, base, "coverage.json")? {
         let old: serde_json::Value = serde_json::from_str(&old).unwrap_or_default();
         let new: serde_json::Value =
             serde_json::from_str(&std::fs::read_to_string(root.join("coverage.json"))?)?;
-        let d = floor_drops(&old, &new);
-        if !d.is_empty()
-            && !messages
-                .lines()
-                .any(|l| l.trim_start().starts_with("coverage-floor:"))
-        {
-            problems.extend(d.into_iter().map(|m| {
-                format!("{m}; explain it with a `coverage-floor:` line in a commit message")
-            }));
-        }
+        problems.extend(
+            floor_drops(&old, &new)
+                .into_iter()
+                .filter(|_| !explained("coverage-floor:"))
+                .map(|m| {
+                    format!("{m}; explain it with a `coverage-floor:` line in a commit message")
+                }),
+        );
     }
     for p in &problems {
         eprintln!("{p}");
@@ -158,6 +161,13 @@ mod tests {
             floor_drops(&oc, &serde_json::json!({ "floors": { "a": 95, "b": 80 } })).is_empty()
         );
         assert!(budget_loosenings(&serde_json::json!({}), &new).is_empty());
+        // A bench that is not an object is passed over; documents without
+        // floors have none to drop.
+        let odd = serde_json::json!({ "benches": { "parse/x": 7 } });
+        assert!(budget_loosenings(&odd, &new).is_empty());
+        let words = serde_json::json!({ "benches": { "parse/x": { "max_ms": "ten" } } });
+        assert!(budget_loosenings(&words, &new).is_empty());
+        assert!(floor_drops(&serde_json::json!({}), &nc).is_empty());
     }
 
     fn git(dir: &Path, args: &[&str]) {
@@ -178,6 +188,8 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let root = dir.path();
         git(root, &["init", "-q", "-b", "main"]);
+        git(root, &["commit", "-q", "--allow-empty", "-m", "empty"]);
+        git(root, &["tag", "empty"]);
         std::fs::create_dir_all(root.join("bench")).unwrap();
         std::fs::write(
             root.join("bench/budgets.json"),
@@ -218,5 +230,6 @@ mod tests {
         assert!(run(root, "base").unwrap());
         // A base without the files has nothing to compare.
         assert!(run(root, "HEAD").unwrap());
+        assert!(run(root, "empty").unwrap());
     }
 }

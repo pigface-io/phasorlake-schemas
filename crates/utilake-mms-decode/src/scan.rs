@@ -136,28 +136,27 @@ pub fn scan_with<R: Read, S: Sink>(
     // what was wrong with it.
     let mut first_bad: Option<(u64, Box<RowError<S::Reject>>)> = None;
 
-    while !eof || filled > 0 {
+    // Each turn fills, then consumes whole lines; at the end of input the
+    // tail is consumed as the last line, so nothing is left once `eof`.
+    while !eof {
         // Fill.
-        if !eof {
-            if filled == buf.len() {
-                if buf.len() >= opts.max_line_bytes {
-                    return Err(ScanError::LineTooLong {
-                        line: stats.lines + 1,
-                        limit: opts.max_line_bytes,
-                    });
-                }
-                buf.resize((buf.len() * 2).min(opts.max_line_bytes), 0);
+        if filled == buf.len() {
+            if buf.len() >= opts.max_line_bytes {
+                return Err(ScanError::LineTooLong {
+                    line: stats.lines + 1,
+                    limit: opts.max_line_bytes,
+                });
             }
-            match fill(&mut reader, &mut buf[filled..]) {
-                Ok(0) => eof = true,
-                Ok(n) => filled += n,
-                Err(source) => {
-                    return Err(ScanError::Io {
-                        bytes: stats.bytes,
-                        source,
-                    });
-                }
-            }
+            buf.resize((buf.len() * 2).min(opts.max_line_bytes), 0);
+        }
+        let n = fill(&mut reader, &mut buf[filled..]).map_err(|source| ScanError::Io {
+            bytes: stats.bytes,
+            source,
+        })?;
+        if n == 0 {
+            eof = true;
+        } else {
+            filled += n;
         }
         // Consume whole lines.
         let mut consumed = 0usize;

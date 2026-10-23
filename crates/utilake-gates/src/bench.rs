@@ -201,10 +201,27 @@ fn run_e2e(root: &Path, package: &str) -> Result<Measurements> {
         .args(["build", "--release", "-q", "-p", package])
         .current_dir(root)
         .status()?;
-    if !status.success() {
-        bail!("building {package} failed");
-    }
+    anyhow::ensure!(status.success(), "building {package} failed");
     measure_e2e(root, &root.join("target/release").join(package), package)
+}
+
+/// The `/usr/bin/time` flag that prints the peak resident set size: BSD's
+/// `-l` on macOS, GNU's `-v` elsewhere.
+const TIME_FLAG: &str = if cfg!(target_os = "macos") {
+    "-l"
+} else {
+    "-v"
+};
+
+/// Adds the peak resident set size `time_output` reports, when it reports
+/// one, to every bench measured.
+fn with_rss(measured: &mut Measurements, time_output: &str) {
+    let Some(rss) = parse_rss_mb(time_output) else {
+        return;
+    };
+    for keys in measured.values_mut() {
+        keys.insert("max_rss_mb".into(), round3(rss));
+    }
 }
 
 /// Runs the built harness `bin` three times; each metric keeps its
@@ -231,13 +248,8 @@ pub fn measure_e2e(root: &Path, bin: &Path, package: &str) -> Result<Measurement
 }
 
 fn run_e2e_once(root: &Path, bin: &Path, package: &str) -> Result<Measurements> {
-    let flag = if cfg!(target_os = "macos") {
-        "-l"
-    } else {
-        "-v"
-    };
     let out = Command::new("/usr/bin/time")
-        .arg(flag)
+        .arg(TIME_FLAG)
         .arg(bin)
         .current_dir(root)
         .output()?;
@@ -248,11 +260,7 @@ fn run_e2e_once(root: &Path, bin: &Path, package: &str) -> Result<Measurements> 
     let stderr = String::from_utf8_lossy(&out.stderr);
     let mut measured: Measurements = serde_json::from_str(stdout.trim())
         .with_context(|| format!("{package} did not print JSON measurements"))?;
-    if let Some(rss) = parse_rss_mb(&stderr) {
-        for keys in measured.values_mut() {
-            keys.insert("max_rss_mb".into(), round3(rss));
-        }
-    }
+    with_rss(&mut measured, &stderr);
     Ok(measured)
 }
 
@@ -295,9 +303,7 @@ pub fn run(root: &Path, targets: Targets<'_>, set: &str, do_tighten: bool) -> Re
             ])
             .current_dir(root)
             .status()?;
-        if !status.success() {
-            bail!("cargo bench -p {p} failed");
-        }
+        anyhow::ensure!(status.success(), "cargo bench -p {p} failed");
     }
     let mut measured = read_criterion(&target_dir)?;
     if set == "full"
@@ -374,6 +380,26 @@ mod tests {
         );
         let (breaches, _) = compare(&b, &m);
         assert_eq!(breaches.len(), 3, "{breaches:?}");
+        // A measurement no budget names is not held.
+        m.get_mut("parse/x")
+            .unwrap()
+            .insert("max_other".into(), 1.0);
+        let (breaches, rows) = compare(&b, &m);
+        assert_eq!((breaches.len(), rows.len()), (3, 2), "{breaches:?}");
+    }
+
+    #[test]
+    fn the_rss_joins_every_bench_when_time_reports_one() {
+        let mut m: Measurements = BTreeMap::new();
+        m.insert(
+            "e2e/run".into(),
+            [("max_ms".to_owned(), 1.0)].into_iter().collect(),
+        );
+        with_rss(&mut m, "nothing here");
+        assert!(!m["e2e/run"].contains_key("max_rss_mb"));
+        with_rss(&mut m, "  2000000  maximum resident set size\n");
+        assert_eq!(m["e2e/run"]["max_rss_mb"], 2.0);
+        assert!(TIME_FLAG == "-l" || TIME_FLAG == "-v");
     }
 
     #[test]
@@ -439,6 +465,8 @@ mod tests {
         std::fs::write(slow.join("benchmark.json"), "{}").unwrap();
         let quick = root.join("target/criterion/quick/new");
         std::fs::create_dir_all(&quick).unwrap();
+        // A file among the bench directories is passed over.
+        std::fs::write(root.join("target/criterion/notes.txt"), "x").unwrap();
         std::fs::write(
             quick.join("estimates.json"),
             r#"{"median": {"point_estimate": 500.0}}"#,
@@ -477,6 +505,68 @@ mod tests {
         )
         .unwrap();
         assert!(tight.benches.is_empty());
+        // No budgets to hold to, or budgets that are not a document.
+        let bare = tempfile::tempdir().unwrap();
+        assert!(run(bare.path(), none, "fast", false).is_err());
+        std::fs::create_dir_all(bare.path().join("bench")).unwrap();
+        std::fs::write(bare.path().join("bench/budgets.json"), "{not").unwrap();
+        assert!(run(bare.path(), none, "fast", false).is_err());
+    }
+
+    /// The gate over a repository with an end-to-end harness: a cargo
+    /// package that prints its measurements, built and run in the full
+    /// set, its rows printed, a bench without a budget breached, and the
+    /// budgets tightened to it, or not when they cannot be written.
+    #[cfg(unix)]
+    #[test]
+    fn runs_the_harness_of_a_repository_and_tightens_or_cannot() {
+        use std::os::unix::fs::PermissionsExt as _;
+        let dir = tempfile::tempdir().unwrap();
+        let root = dir.path();
+        std::fs::write(
+            root.join("Cargo.toml"),
+            "[workspace]\nmembers = [\"harness\"]\nresolver = \"2\"\n",
+        )
+        .unwrap();
+        std::fs::create_dir_all(root.join("harness/src")).unwrap();
+        std::fs::write(
+            root.join("harness/Cargo.toml"),
+            "[package]\nname = \"harness\"\nversion = \"0.0.0\"\nedition = \"2021\"\n",
+        )
+        .unwrap();
+        std::fs::write(
+            root.join("harness/src/main.rs"),
+            "fn main() { println!(\"{{\\\"e2e/run\\\": {{\\\"max_ms\\\": 1.5}}}}\"); }\n",
+        )
+        .unwrap();
+        std::fs::create_dir_all(root.join("bench")).unwrap();
+        let budgets = root.join("bench/budgets.json");
+        std::fs::write(
+            &budgets,
+            r#"{"machine": "t", "tolerance": {"time_pct": 10, "mem_pct": 5}, "benches": {}}"#,
+        )
+        .unwrap();
+        let e2e = Targets {
+            fast: &[],
+            full: &[],
+            e2e: Some("harness"),
+        };
+        // Measured, no budget for it: a breach.
+        assert!(!run(root, e2e, "full", false).unwrap());
+        // Tightened to what was measured: held.
+        assert!(run(root, e2e, "full", true).unwrap());
+        let tight: Budgets =
+            serde_json::from_str(&std::fs::read_to_string(&budgets).unwrap()).unwrap();
+        let held = tight.benches["e2e/run"]["max_ms"];
+        assert!(
+            (1.5..=1.8).contains(&held),
+            "tightened with headroom: {held}"
+        );
+        assert!(run(root, e2e, "full", false).unwrap());
+        // Budgets that cannot be written.
+        std::fs::set_permissions(&budgets, std::fs::Permissions::from_mode(0o444)).unwrap();
+        assert!(run(root, e2e, "full", true).is_err());
+        std::fs::set_permissions(&budgets, std::fs::Permissions::from_mode(0o644)).unwrap();
     }
 
     #[cfg(unix)]

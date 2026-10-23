@@ -176,6 +176,12 @@ mod tests {
         assert!(!run(root).unwrap());
         std::fs::write(root.join(ENTRY), "@llm/index.md\n").unwrap();
         assert!(!run(root).unwrap());
+        // An entry that does not point at the index; an index of too many
+        // lines; no justfile, so no recipe can be checked.
+        std::fs::write(root.join(ENTRY), "Nothing to see.\n").unwrap();
+        std::fs::write(root.join(INDEX), "x\n".repeat(INDEX_BUDGET.0 + 1)).unwrap();
+        std::fs::remove_file(root.join("justfile")).unwrap();
+        assert!(!run(root).unwrap());
         std::fs::remove_file(root.join(ENTRY)).unwrap();
         assert!(!run(root).unwrap());
     }

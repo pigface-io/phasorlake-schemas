@@ -208,12 +208,13 @@ mod tests {
 
     #[test]
     fn finds_codes() {
-        let src = r#"Diagnostic::error("csv.field_count_mismatch", Category::Csv, "x"); let c = "net.offline"; code: "schema.drift", "not a code", "the file.txt", "config.toml""#;
+        let src = r#"Diagnostic::error("csv.field_count_mismatch", Category::Csv, "x"); let c = "net.offline"; code: "schema.drift", "not a code", "the file.txt", "config.toml", "csv.zip", "net.Mixed", "unterminated"#;
         let l = literals(src, &CATS);
         assert_eq!(
             l,
             ["csv.field_count_mismatch", "net.offline", "schema.drift"]
         );
+        assert!(literals("no quotes", &CATS).is_empty());
         let mut m = BTreeMap::new();
         m.insert("net.offline".to_owned(), "crates/x.rs".to_owned());
         let r = render(&SPEC, &m);
@@ -252,5 +253,12 @@ mod tests {
         assert!(run(root, &SPEC, false, false).unwrap());
         std::fs::write(src.join("more.rs"), "code: \"schema.old\",").unwrap();
         assert!(!run(root, &SPEC, false, true).unwrap());
+        // A source that is not text is passed over; a root without crates
+        // has no codes.
+        std::fs::write(src.join("bytes.rs"), [0xffu8, 0xfe, b'"', b'c']).unwrap();
+        std::fs::remove_file(src.join("more.rs")).unwrap();
+        assert!(run(root, &SPEC, false, true).unwrap());
+        let bare = tempfile::tempdir().unwrap();
+        assert!(collect_codes(bare.path(), &CATS).is_empty());
     }
 }

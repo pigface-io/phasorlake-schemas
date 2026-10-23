@@ -135,6 +135,10 @@ mod tests {
             floors: [("crates/a/src".to_owned(), 50.0)].into_iter().collect(),
         };
         assert!(check(&config, &files).is_empty());
+        // A file of no lines is wholly covered.
+        let mut none = files.clone();
+        none.insert("crates/a/src/empty.rs".into(), (0, 0));
+        assert!(check(&config, &none).is_empty());
     }
 
     #[test]
@@ -163,5 +167,22 @@ mod tests {
         assert!(!run(dir.path(), &lcov).unwrap());
         assert!(run(dir.path(), &dir.path().join("missing.lcov")).is_err());
         assert!(run(&dir.path().join("nowhere"), &lcov).is_err());
+        std::fs::write(dir.path().join("coverage.json"), "{not json").unwrap();
+        assert!(run(dir.path(), &lcov).is_err());
+        // A file of no lines is wholly covered, and so is a profile of none.
+        std::fs::write(
+            dir.path().join("coverage.json"),
+            r#"{"exclude": [], "floors": {"crates/a/src": 100}}"#,
+        )
+        .unwrap();
+        std::fs::write(
+            &lcov,
+            format!(
+                "SF:{}/crates/a/src/empty.rs\nend_of_record\n",
+                dir.path().display()
+            ),
+        )
+        .unwrap();
+        assert!(run(dir.path(), &lcov).unwrap());
     }
 }
