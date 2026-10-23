@@ -343,8 +343,13 @@ fn scratch() -> Result<tempfile::TempDir, ExitCode> {
     tempfile::tempdir().map_err(|e| fail(&e))
 }
 
+/// The market's declarations; none yet when it has no `tables/{market}/`.
 fn catalog(root: &Path, market: Market) -> Result<Catalog, ExitCode> {
-    Catalog::read(&tables_dir(root, market)).map_err(|e| fail(&e))
+    let dir = tables_dir(root, market);
+    if !dir.exists() {
+        return Catalog::new(Vec::new()).map_err(|e| fail(&e));
+    }
+    Catalog::read(&dir).map_err(|e| fail(&e))
 }
 
 fn main() -> ExitCode {

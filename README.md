@@ -1,12 +1,17 @@
 # utilake-schemas
 
-Every table of the National Electricity Market data that AEMO publishes on
-nemweb.com.au, as an [Apache Iceberg](https://iceberg.apache.org/) table:
-its fields with ids that never change meaning, its schemas, and the runs
-of AEMO files written under each, with every change between them. The
-schemas are derived from what AEMO's files hold, file by file, and the
-code that derives them is here, so anyone can check the result or improve
-it.
+Every table of the market data AEMO publishes, as an
+[Apache Iceberg](https://iceberg.apache.org/) table: its fields with ids
+that never change meaning, its schemas, and the runs of AEMO files written
+under each, with every change between them. Three markets, each under its
+own directory: the National Electricity Market (`nem/`, from nemweb's
+MMSDM archive and report folders), the east-coast gas markets (`gas/`:
+the Gas Bulletin Board, the Gas Supply Hub, the Short Term Trading Market
+and the Declared Wholesale Gas Market, from nemweb's gas report folders)
+and the Wholesale Electricity Market of Western Australia (`wem/`, from
+data.wa.aemo.com.au's datafiles and WEMDE documents). The schemas are
+derived from what AEMO's files hold, file by file, and the code that
+derives them is here, so anyone can check the result or improve it.
 
 ## Layout
 
@@ -49,8 +54,22 @@ sidecar disagrees with the census, is named, every one, and nothing is
 written; `--check` lists each sources file that would change. The
 publication time is held in `sources/` alone: no census, history or
 document under `nem/` depends on it.
-`reports` reads a local copy of nemweb's `Reports/ARCHIVE` and
-`Reports/CURRENT`. A file nemweb rewrote in place is kept by nemweb-mirror
+`reports` reads a market's feeds from the host directory of a mirror
+archive (`…/archive/www.nemweb.com.au`, `…/archive/data.wa.aemo.com.au`):
+the NEM's `Reports/ARCHIVE` and `Reports/CURRENT` (less the gas folders),
+the gas feeds `gsh` (MMS rows under `Reports/{ARCHIVE,CURRENT}/GSH`),
+`gbb`, `sttm` and `dwgm` (header-row CSVs under `Reports/CURRENT/{GBB,
+STTM,VicGas}`), and the WEM's `datafiles` (header-row CSVs) and `wemde`
+(JSON documents, one block per array). A plain file's block is named by
+its path (`crates/utilake-plain-decode`: the family is the feed, the name
+the file's stem, the version its `_vN`), its columns by their headers,
+every date rewritten into the MMS form before it is read, and `true` and
+`false` as booleans. An entry found again under another file with the
+same name and bytes (a day's slot zip beside the current day's) is read
+once and counted as `repeated`; a feed whose files restate the ones
+before them has each file's rows compared against the last file of the
+same block, so a run's `rows` are the rows its files added and
+`rows_repeated` the rest. A file nemweb rewrote in place is kept by nemweb-mirror
 as `{name}@{listed time}` beside the first version; each such file is listed
 under `[[rewritten]]`, every version classed `first`, `data` (new data),
 `report_time` (only AEMO's report time changed) or `reverted` (an earlier
@@ -59,13 +78,18 @@ version's data again). With `--mirror` (the nemweb-mirror home, else
 the file was listed again with the same bytes (`relisted`) or as a zip of
 the same entries (`repacked`). A sidecar written before nemweb-mirror kept
 its `_at` instants has them read from the text beside them.
-`fold` keeps every history to the one `nem/` last
-published (read back out of each table's metadata): a field keeps its id,
-name and type, a schema its id, and every file its schema, however much
-evidence from before or between the published files is added later; data
-a field's type cannot hold gets a new field, recorded as breaking. Once,
-`fold --rebaseline REASON` keeps nothing and begins the next data version,
-recorded in `evidence/histories/BASELINE.toml` and `manifest.json`.
+`models --market gas --dir …/MMSDataModelReport/Gas` reads AEMO's Gas
+Data Model Report (a web report, not a create script) into the same model
+files; the WEM publishes no model, so its tables are declared by hand.
+`fold` reads a market's evidence in the market's clock (+10:00 for the
+NEM and gas, +08:00 for the WEM) and keeps every history to the one the
+market's directory last published (read back out of each table's
+metadata): a field keeps its id, name and type, a schema its id, and every
+file its schema, however much evidence from before or between the
+published files is added later; data a field's type cannot hold gets a
+new field, recorded as breaking. Once, `fold --market M --rebaseline
+REASON` keeps nothing and begins the market's next data version, recorded
+in `evidence/histories/{market}/BASELINE.toml` and `manifest.json`.
 `export` writes each table's metadata and everything derived from it.
 Each step has a `just` recipe of the same name.
 
@@ -82,21 +106,22 @@ just census 2026-09 mirror/MMSDM_2026_09
 just models 2026-09 mirror/MMSDM_2026_09
 git diff --exit-code evidence/            # the same bytes
 just fold-check                           # the histories follow from the evidence
-just export-check                         # nem/ follows from the histories
+just export-check                         # every market directory follows from the histories
 just iceberg && just replay               # two Iceberg readers read every table as its history says
 ```
 
 ## Reading a table
 
-A table is its Iceberg table metadata, `nem/{TABLE}/metadata/v1.metadata.json`
-(format version 3, no data files). Any Iceberg reader loads it as it is;
+A table is its Iceberg table metadata,
+`{market}/{TABLE}/metadata/v1.metadata.json` (format version 3, no data
+files). Any Iceberg reader loads it as it is;
 the published location is the raw GitHub URL, and `just iceberg` writes
 the same tables under `target/iceberg/` at file locations for readers
 that cannot fetch over HTTP:
 
 ```python
 from pyiceberg.table import StaticTable
-t = StaticTable.from_metadata("target/iceberg/DISPATCHPRICE/metadata/v1.metadata.json")
+t = StaticTable.from_metadata("target/iceberg/nem/DISPATCHPRICE/metadata/v1.metadata.json")
 print(t.schemas(), t.properties["comment"])
 for s in t.snapshots():            # one per run of AEMO files, in release order
     print(s.schema_id, s.summary["utilake.from.file"], s.summary["utilake.rows"])
@@ -105,8 +130,8 @@ print(t.scan().to_arrow())         # the current columns, no rows
 
 ```sql
 -- DuckDB, with the iceberg extension
-DESCRIBE SELECT * FROM iceberg_scan('target/iceberg/DISPATCHPRICE');   -- the columns, no rows
-SELECT * FROM iceberg_snapshots('target/iceberg/DISPATCHPRICE');       -- one row per run
+DESCRIBE SELECT * FROM iceberg_scan('target/iceberg/nem/DISPATCHPRICE');   -- the columns, no rows
+SELECT * FROM iceberg_snapshots('target/iceberg/nem/DISPATCHPRICE');       -- one row per run
 ```
 
 `just replay` reads every table back with pyiceberg and DuckDB and holds
@@ -116,16 +141,19 @@ id, `current-schema-id`), the metadata carries, as strings:
 | Where                       | Key                                                                                   | What it holds                                                                                                                                                      |
 | --------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `properties`                | `utilake.format`, `utilake.table`                                                     | The layout's generation (3) and the table's name.                                                                                                                  |
-| `properties`                | `utilake.declared`                                                                    | Whether `tables/` declares the table. When `true`: `utilake.package`, `utilake.reports` (`[[type, subtype], …]`), `utilake.key`, `utilake.time`, `utilake.load`, `utilake.visibility`, `utilake.temporal.valid.kind`, `utilake.temporal.valid.column`, `utilake.temporal.entity`, `utilake.temporal.order`, `utilake.temporal.cutoff`, `utilake.temporal.origin`. Every list is a JSON array. |
+| `properties`                | `utilake.market`, `utilake.offset`                                                    | The market (`wem`, `gas`) and its clock (`+08:00`, `+10:00`), for a table that is not the NEM's; a NEM table carries neither, and reads at `+10:00`.                 |
+| `properties`                | `utilake.headers`, `utilake.model`                                                    | The header a file wrote for a column named from it (`{field id: "Load Forecast (MW)"}`), and the data-model tables whose words describe a table not named in the model (a JSON array); only when there are any. |
+| `properties`                | `utilake.declared`                                                                    | Whether `tables/{market}/` declares the table. When `true`: `utilake.package`, `utilake.reports` (`[[type, subtype], …]`), `utilake.key`, `utilake.time`, `utilake.load`, `utilake.visibility`, `utilake.temporal.valid.kind`, `utilake.temporal.valid.column`, `utilake.temporal.entity`, `utilake.temporal.order`, `utilake.temporal.cutoff`, `utilake.temporal.origin`. Every list is a JSON array. |
 | `properties`                | `comment`, `utilake.model-types`                                                      | What the table holds and each column's type (`{field id: "NUMERIC(16,6)"}`) in the latest data-model release that has them; each column's words are its field's `doc`. |
 | `properties`                | `utilake.breaks`                                                                      | The columns whose values left their field's type: `[{column, old-field-id, old-type, new-field-id, new-type, at: {file, sha256, release, data-time}}]`.             |
-| each snapshot's `summary`   | `utilake.report-type`, `utilake.report-subtype`, `utilake.version`, `utilake.kinds`  | The run's report pair, AEMO version and the kinds of file it came in.                                                                                              |
+| each snapshot's `summary`   | `utilake.report-type`, `utilake.report-subtype`, `utilake.version`, `utilake.kinds`  | The run's report pair, AEMO version and the kinds of file it came in. For a file without MMS rows the report type is its feed (`GBB`, `STTM`, `DWGM`, `WEM`, `WEMDE`), the subtype the file's stem (`ACTUAL_FLOW_STORAGE`, `INT651_EX_ANTE_MARKET_PRICE_RPT_1`, `REFERENCE_TRADING_PRICE_REFERENCE_TRADING_PRICES`) and the version its `_vN`, else 1. |
 | each snapshot's `summary`   | `utilake.files`, `utilake.rows`, `utilake.total-rows`                                 | Its files and rows, and the rows of every run so far.                                                                                                              |
 | each snapshot's `summary`   | `utilake.from.file`, `.sha256`, `.release`, `.time`; `utilake.to.*`                   | Its first and last file: name, SHA-256, release month, and where its data starts or ends (absent when the rows carry no time).                                     |
 
 Each schema's `schema-{id}.json` is a JSON Schema of a row under that
-schema, with each field's id, Iceberg type and, where the data model has
-them, its words and model type; `nem/headers.json` maps every header
+schema, with each field's id, Iceberg type, the header it was written
+under where that is not its name (`x-header`) and, where the data model
+has them, its words and model type; `{market}/headers.json` maps every header
 AEMO's files carry (report pair, version, columns in order) to its table
 and the schemas it was read with, each with the releases of its runs (a
 file resolves to the last schema whose first release is at or before the
@@ -179,8 +207,8 @@ by field id:
 utilake-schemas sql DISPATCHPRICE --files files.json --from 2024-08-01 --to 2024-09-01 [--as-of 0]
 ```
 
-A time is RFC 3339, or a day, which is its midnight in market time
-(+10:00).
+A time is RFC 3339, or a day, which is its midnight in the table's
+market (`--market`, `nem` by default: +10:00; the WEM's +08:00).
 
 ## Contributing
 
@@ -193,9 +221,9 @@ two kinds:
 - **A rule change**: a change to the code under `crates/`, with a test
   that shows the case it fixes.
 
-Run `just fold` and `just export`, and commit the evidence, histories and
-`nem/` together. CI proves the effect: `just export-check` that `nem/` is
-what the evidence exports, `just compat origin/main` that nothing
+Run `just fold` (per market) and `just export`, and commit the evidence,
+histories and market directories together. CI proves the effect: `just
+export-check` that every market directory is what the evidence exports, `just compat origin/main` that nothing
 published changed meaning (every table's metadata keeps what it promised,
 every schema document says the same of its fields), `just iceberg` and
 `just replay` that two Iceberg readers read every table as its history
@@ -208,8 +236,8 @@ for commits and gates; install [just](https://just.systems),
 ## Licences
 
 The code under `crates/` is licensed under Apache-2.0 (`LICENSE`). The
-files under `evidence/`, `sources/`, `nem/` and `testdata/`, and
-`manifest.json`, are derived from information AEMO publishes and are
+files under `evidence/`, `sources/`, `nem/`, `wem/`, `gas/` and
+`testdata/`, and `manifest.json`, are derived from information AEMO publishes and are
 attributed to AEMO; they are not covered by that licence. See
 `LICENCE-DATA.md` and `NOTICE`. This repository is not produced or
 endorsed by AEMO.
