@@ -8,6 +8,12 @@
 //! local header disagrees with the central directory (AEMO's monthly
 //! archives have such) is read from where the directory says, and refused
 //! unless it inflates to the directory's size and CRC-32.
+//!
+//! [`zipdir`] reads a zip's central directory alone, from byte spans the
+//! caller fetches (ranged requests, or a file on disk), so what a zip holds
+//! is known before, or without, downloading the rest of it.
+
+pub mod zipdir;
 
 use std::fs::File;
 use std::io::{Read, Seek, SeekFrom, Write as _};
