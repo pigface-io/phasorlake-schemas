@@ -10,7 +10,7 @@
 //! unless it inflates to the directory's size and CRC-32.
 
 use std::fs::File;
-use std::io::{BufReader, Read, Seek, SeekFrom, Write as _};
+use std::io::{Read, Seek, SeekFrom, Write as _};
 use std::path::Path;
 
 /// Zips nested deeper than this are refused.
@@ -141,8 +141,8 @@ pub fn walk_csv_entries<E>(
     walk_entries(path, tmp_dir, CSV, on_entry, on_other)
 }
 
-/// [`walk_entries`] over a zip already open as `reader` (read through a
-/// large buffer here), named `label` in errors.
+/// [`walk_entries`] over a zip already open as `reader` (read in large
+/// chunks here), named `label` in errors.
 pub fn walk_entries_in<R: Read + Seek, E>(
     reader: R,
     label: &str,
@@ -151,8 +151,8 @@ pub fn walk_entries_in<R: Read + Seek, E>(
     on_entry: &mut dyn FnMut(Entry<'_>) -> Result<(), E>,
     on_other: &mut dyn FnMut(Entry<'_>),
 ) -> Result<Walked, WalkError<E>> {
-    let archive = zip::ZipArchive::new(BufReader::with_capacity(ZIP_READ_BUFFER, reader))
-        .map_err(|e| open_error(label, e.to_string()))?;
+    let archive =
+        zip::ZipArchive::new(Chunked::new(reader)).map_err(|e| open_error(label, e.to_string()))?;
     walk_zip(
         archive,
         label,
@@ -217,11 +217,113 @@ pub enum WalkError<E> {
     Callback(E),
 }
 
-/// Read buffer of a zip on disk. The zip reader asks for its compressed
-/// bytes 8 KiB at a time; this lets each system call bring many of them,
-/// and keeps each visit of a spinning disk's head a long sequential read
-/// while several files are read at once.
+/// The chunk a zip on disk is read in. The zip reader asks for its
+/// compressed bytes 8 KiB at a time, and scans for its directory in 1 KiB
+/// windows, seeking before each; a chunk this size brings many of either
+/// in one system call, and keeps each visit of a spinning disk's head a
+/// long sequential read while several files are read at once.
 const ZIP_READ_BUFFER: usize = 8 << 20;
+
+/// A reader of `R` in aligned chunks of one size: a seek costs nothing,
+/// and a read of any length within a chunk reads that chunk from `R` once.
+///
+/// A `BufReader` would not do: its buffer is dropped by every seek and
+/// refilled whole by the next read, so the zip reader's scan for the
+/// directory (a seek and a 1 KiB read per window, from the start of the
+/// file to the directory at its end) reads the file over thousands of
+/// times, which a volume whose every read is dear (exFAT under FSKit)
+/// turns into hours per file.
+struct Chunked<R> {
+    inner: R,
+    chunk: usize,
+    /// Where the next read is from.
+    pos: u64,
+    /// The offset of `buf` in `inner`.
+    start: u64,
+    buf: Vec<u8>,
+    /// The length of `inner`, once a seek from the end asked for it.
+    len: Option<u64>,
+}
+
+impl<R: Read + Seek> Chunked<R> {
+    fn new(inner: R) -> Self {
+        Self::with_chunk(inner, ZIP_READ_BUFFER)
+    }
+
+    fn with_chunk(inner: R, chunk: usize) -> Self {
+        Self {
+            inner,
+            chunk,
+            pos: 0,
+            start: 0,
+            buf: Vec::new(),
+            len: None,
+        }
+    }
+
+    /// Loads the chunk holding `pos`, short at the end of `inner`.
+    fn load(&mut self) -> std::io::Result<()> {
+        let start = self.pos - self.pos % self.chunk as u64;
+        self.inner.seek(SeekFrom::Start(start))?;
+        self.buf.resize(self.chunk, 0);
+        let mut got = 0;
+        while got < self.chunk {
+            let n = self.inner.read(&mut self.buf[got..])?;
+            if n == 0 {
+                break;
+            }
+            got += n;
+        }
+        self.buf.truncate(got);
+        self.start = start;
+        Ok(())
+    }
+}
+
+impl<R: Read + Seek> Read for Chunked<R> {
+    fn read(&mut self, out: &mut [u8]) -> std::io::Result<usize> {
+        if out.is_empty() {
+            return Ok(0);
+        }
+        let end = self.start + self.buf.len() as u64;
+        if self.buf.is_empty() || self.pos < self.start || self.pos >= end {
+            self.load()?;
+        }
+        let at = usize::try_from(self.pos - self.start).unwrap_or(usize::MAX);
+        let have = self.buf.get(at..).unwrap_or(&[]);
+        let n = have.len().min(out.len());
+        out[..n].copy_from_slice(&have[..n]);
+        self.pos += n as u64;
+        Ok(n)
+    }
+}
+
+impl<R: Read + Seek> Seek for Chunked<R> {
+    fn seek(&mut self, to: SeekFrom) -> std::io::Result<u64> {
+        let (base, delta) = match to {
+            SeekFrom::Start(p) => (p, 0),
+            SeekFrom::Current(d) => (self.pos, d),
+            SeekFrom::End(d) => {
+                let len = match self.len {
+                    Some(len) => len,
+                    None => {
+                        let len = self.inner.seek(SeekFrom::End(0))?;
+                        self.len = Some(len);
+                        len
+                    }
+                };
+                (len, d)
+            }
+        };
+        self.pos = base.checked_add_signed(delta).ok_or_else(|| {
+            std::io::Error::new(
+                std::io::ErrorKind::InvalidInput,
+                "a seek before the start of the file",
+            )
+        })?;
+        Ok(self.pos)
+    }
+}
 /// A nested zip up to this size is read into memory and walked there;
 /// a larger one goes to a temporary file.
 const NESTED_IN_MEMORY: u64 = 64 << 20;
@@ -241,8 +343,8 @@ fn walk<E>(
 ) -> Result<Walked, WalkError<E>> {
     let p = path.display().to_string();
     let file = File::open(path).map_err(|e| open_error(&p, e.to_string()))?;
-    let archive = zip::ZipArchive::new(BufReader::with_capacity(ZIP_READ_BUFFER, file))
-        .map_err(|e| open_error(&p, e.to_string()))?;
+    let archive =
+        zip::ZipArchive::new(Chunked::new(file)).map_err(|e| open_error(&p, e.to_string()))?;
     walk_zip(
         archive, &p, tmp_dir, in_memory, depth, prefix, accepts, on_entry, on_other,
     )
@@ -451,8 +553,7 @@ fn visit<E>(
             .map_err(|e| spool_err(tmp.path(), e))?;
     }
     let file = tmp.reopen().map_err(|e| spool_err(tmp.path(), e))?;
-    let inner = zip::ZipArchive::new(BufReader::with_capacity(ZIP_READ_BUFFER, file))
-        .map_err(|e| bad_inner(e.to_string()))?;
+    let inner = zip::ZipArchive::new(Chunked::new(file)).map_err(|e| bad_inner(e.to_string()))?;
     walk_zip(
         inner,
         &inner_label,
@@ -721,6 +822,93 @@ mod tests {
             &mut |o| others.push(o.name),
         )?;
         Ok((got, others, w.failed))
+    }
+
+    /// A cursor that counts what is read from it.
+    struct Counting {
+        inner: std::io::Cursor<Vec<u8>>,
+        bytes: u64,
+        reads: u64,
+    }
+
+    impl Read for Counting {
+        fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+            let n = self.inner.read(buf)?;
+            self.bytes += n as u64;
+            self.reads += 1;
+            Ok(n)
+        }
+    }
+
+    impl Seek for Counting {
+        fn seek(&mut self, to: SeekFrom) -> std::io::Result<u64> {
+            self.inner.seek(to)
+        }
+    }
+
+    #[test]
+    fn a_zip_is_read_in_chunks_once_however_its_reader_seeks() {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("a.zip");
+        let entries: Vec<(String, Vec<u8>)> = (0..40)
+            .map(|i| (format!("{i}.CSV"), vec![b'a' + (i % 26) as u8; 997]))
+            .collect();
+        let borrowed: Vec<(&str, &[u8])> = entries
+            .iter()
+            .map(|(n, b)| (n.as_str(), b.as_slice()))
+            .collect();
+        make_zip(&path, &borrowed);
+        let bytes = std::fs::read(&path).unwrap();
+        let len = bytes.len() as u64;
+        // Chunks far smaller than the zip: every chunk is read from the
+        // cursor at most a few times over the whole walk, in whole chunks.
+        let mut archive = zip::ZipArchive::new(Chunked::with_chunk(
+            Counting {
+                inner: std::io::Cursor::new(bytes.clone()),
+                bytes: 0,
+                reads: 0,
+            },
+            512,
+        ))
+        .unwrap();
+        for (i, (name, body)) in entries.iter().enumerate() {
+            let mut e = archive.by_index(i).unwrap();
+            assert_eq!(e.name().unwrap(), name.as_str());
+            let mut got = Vec::new();
+            e.read_to_end(&mut got).unwrap();
+            assert_eq!(&got, body);
+        }
+        let c = archive.into_inner();
+        assert!(c.inner.bytes <= 4 * len, "{} of {len}", c.inner.bytes);
+        assert!(
+            c.inner.reads <= 4 * len / 512 + 4,
+            "{} reads",
+            c.inner.reads
+        );
+        // The seeks of a reader, and reads across a chunk's end and past
+        // the file's.
+        let mut r = Chunked::with_chunk(std::io::Cursor::new(bytes.clone()), 100);
+        let mut buf = [0u8; 150];
+        assert_eq!(r.seek(SeekFrom::Start(70)).unwrap(), 70);
+        r.read_exact(&mut buf).unwrap();
+        assert_eq!(&buf[..], &bytes[70..220]);
+        assert_eq!(r.seek(SeekFrom::Current(-20)).unwrap(), 200);
+        assert_eq!(r.read(&mut buf).unwrap(), 100, "to the chunk's end");
+        assert_eq!(&buf[..100], &bytes[200..300]);
+        assert_eq!(r.seek(SeekFrom::End(-10)).unwrap(), len - 10);
+        r.read_exact(&mut buf[..10]).unwrap();
+        assert_eq!(&buf[..10], &bytes[bytes.len() - 10..]);
+        assert_eq!(r.read(&mut buf).unwrap(), 0, "at the end");
+        assert_eq!(r.seek(SeekFrom::End(10)).unwrap(), len + 10);
+        assert_eq!(r.read(&mut buf).unwrap(), 0, "past the end");
+        assert_eq!(r.read(&mut []).unwrap(), 0);
+        assert_eq!(
+            r.seek(SeekFrom::Start(0))
+                .and_then(|_| r.seek(SeekFrom::Current(-1)))
+                .unwrap_err()
+                .kind(),
+            std::io::ErrorKind::InvalidInput
+        );
     }
 
     #[test]
