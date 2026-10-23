@@ -137,17 +137,24 @@ enum Cmd {
     /// (`DOCUMENTATION/MMS Data Model/v5.x/MMSDM_create_v5.x.zip`, from
     /// 2022-10 on) in `{root}/evidence/models/{market}/{version}.toml`, one
     /// file per release with the months it shipped in, and `months.toml`. A
-    /// version already recorded only widens its months.
+    /// version already recorded only widens its months. For `--market gas`,
+    /// `--dir` is AEMO's Gas Data Model Report as the mirror holds it
+    /// (`Reports/CURRENT/MMSDataModelReport/Gas`), read from its pages.
     Models {
-        /// The month, `YYYY-MM`.
+        /// The month, `YYYY-MM`: the archive month, or the month the
+        /// report was listed.
         #[arg(long)]
         month: YearMonth,
-        /// The month's directory.
+        /// The month's directory, or the report's.
         #[arg(long)]
         dir: PathBuf,
-        /// The market: `nem`, `wem` or `gas`.
+        /// The market: `nem` or `gas` (the WEM publishes no data model;
+        /// its tables are declared by hand).
         #[arg(long, default_value = "nem")]
         market: Market,
+        /// The report's version, when its pages do not say.
+        #[arg(long)]
+        version: Option<String>,
         /// The repository root.
         #[arg(long, default_value = ".")]
         root: PathBuf,
@@ -482,18 +489,40 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             month,
             dir,
             market,
+            version,
             root,
         } => {
-            let files = utilake_schemas::census::files_under(&dir).map_err(|e| fail(&e))?;
-            let zips = utilake_schemas::models::model_zips(&files);
-            let r = utilake_schemas::models::record(&root, market, month, &zips)
-                .map_err(|e| fail(&e))?;
+            let (r, read) = match market {
+                Market::Nem => {
+                    let files = utilake_schemas::census::files_under(&dir).map_err(|e| fail(&e))?;
+                    let zips = utilake_schemas::models::model_zips(&files);
+                    let r = utilake_schemas::models::record(&root, market, month, &zips)
+                        .map_err(|e| fail(&e))?;
+                    (r, format!("{} model zip(s)", zips.len()))
+                }
+                Market::Gas => {
+                    let r = utilake_schemas::report_model::record(
+                        &root,
+                        market,
+                        month,
+                        &dir,
+                        version.as_deref(),
+                    )
+                    .map_err(|e| fail(&e))?;
+                    (r, "the data model report".to_owned())
+                }
+                Market::Wem => {
+                    eprintln!(
+                        "error: the WEM publishes no data model; declare its tables by hand under tables/wem/"
+                    );
+                    return Ok(ExitCode::FAILURE);
+                }
+            };
             for p in &r.problems {
                 eprintln!("error: {p}");
             }
             println!(
-                "{month}: {} model zip(s), versions [{}], {} new",
-                zips.len(),
+                "{month}: {read}, versions [{}], {} new",
                 r.versions.join(", "),
                 r.new_versions.len()
             );

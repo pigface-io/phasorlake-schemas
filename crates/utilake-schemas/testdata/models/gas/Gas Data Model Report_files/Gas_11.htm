@@ -1,0 +1,159 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Gas Data Model Report
+</title>
+</head>
+<body>
+<h2>
+<a name="1">Table: GAS_DAILY_FLOW_ACTUAL</a>
+</h2>
+<h3>
+<a name="2">GAS_DAILY_FLOW_ACTUAL</a>
+</h3>
+<table class="Form" width="100%">
+<tr>
+<td class="Header" width="25%">
+<p align="left">Name
+</p>
+</td>
+<td width="75%">
+<p align="left"><a href="Gas_11.htm#1">GAS_DAILY_FLOW_ACTUAL</a>
+</p>
+</td>
+</tr>
+<tr>
+<td class="Header" width="25%">
+<p align="left">Comment
+</p>
+</td>
+<td width="75%">
+<p align="left">Provides on each gas day D, the BB facility operator’s daily gas flow data for gas day D-1.
+</p>
+</td>
+</tr>
+</table><br />
+<h3>
+<a name="4">Primary Key Columns</a>
+</h3>
+<table class="Grid" width="100%">
+<tr>
+<td class="Header">
+<p align="left">Name
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p align="left">ConnectionPointId
+</p>
+</td>
+</tr>
+<tr>
+<td class="TD2">
+<p align="left">GasDate
+</p>
+</td>
+</tr>
+</table><br />
+<h3>
+<a name="5">Content</a>
+</h3>
+<table class="Grid" border="1" cellspacing="1" width="100%">
+<tr>
+<td class="Header">
+<p align="center">Name
+</p>
+</td>
+<td class="Header">
+<p align="center">Data Type
+</p>
+</td>
+<td class="Header">
+<p align="center">Mandatory
+</p>
+</td>
+<td class="Header">
+<p align="center">Comment
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p align="left">GasDate
+</p>
+</td>
+<td>
+<p align="left">DATE
+</p>
+</td>
+<td>
+<p align="left">X
+</p>
+</td>
+<td>
+<p align="left">Date of gas day
+</p>
+</td>
+</tr>
+<tr>
+<td class="TD2">
+<p align="left">ConnectionPointId
+</p>
+</td>
+<td class="TD2">
+<p align="left">NUMBER(10,0)
+</p>
+</td>
+<td class="TD2">
+<p align="left">X
+</p>
+</td>
+<td class="TD2">
+<p align="left">Unique connection point identifier.
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p align="left">ActualQuantity
+</p>
+</td>
+<td>
+<p align="left">NUMBER(18,3)
+</p>
+</td>
+<td>
+<p align="left">&nbsp;
+</p>
+</td>
+<td>
+<p align="left">The actual flow quantity reported in TJ &amp; GJ, &quot;to the nearest&quot;.
+</p>
+</td>
+</tr>
+<tr>
+<td class="TD2">
+<p align="left">Quality
+</p>
+</td>
+<td class="TD2">
+<p align="left">VARCHAR2 (5)
+</p>
+</td>
+<td class="TD2">
+<p align="left">&nbsp;
+</p>
+</td>
+<td class="TD2">
+<p align="left">
+</p>
+</td>
+</tr>
+</table><br />
+<hr />
+<table><tr>
+<td><table class="NavGroup"><tr><td><a class="NavButton" href="Gas_10.htm">Previous</a></td></tr></table></td>
+</tr></table>
+</body>
+</html>

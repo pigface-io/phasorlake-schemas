@@ -110,7 +110,7 @@ pub struct Declarations {
 impl Declarations {
     /// The numeric columns of `table` in the newest release out by `month`
     /// that declares it, else the first release that does.
-    fn numeric(&self, table: &str, month: YearMonth) -> Option<&Numeric> {
+    pub(crate) fn numeric(&self, table: &str, month: YearMonth) -> Option<&Numeric> {
         let declaring = || {
             self.releases
                 .iter()

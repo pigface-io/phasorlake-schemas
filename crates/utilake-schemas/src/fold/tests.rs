@@ -443,7 +443,7 @@ fn another_market_folds_in_its_own_clock_with_its_headers() {
         blocks: vec![plain_tally(
             ("GBB", "ACTUAL_FLOW_STORAGE"),
             &columns,
-            &["GasDate", "FacilityName", "Demand"],
+            &["GasDate", "FACILITYNAME", "Demand"],
         )],
         ..FolderCensus::default()
     };
@@ -483,7 +483,7 @@ fn another_market_folds_in_its_own_clock_with_its_headers() {
     let demand = h.schemas[0].by_name("DEMAND").unwrap().id;
     assert_eq!(h.headers.get(&gasdate).map(String::as_str), Some("GasDate"));
     assert_eq!(h.headers.get(&demand).map(String::as_str), Some("Demand"));
-    assert_eq!(h.headers.len(), 3);
+    assert_eq!(h.headers.len(), 2, "a header that is its name is not kept");
     let text = std::fs::read_to_string(history_path(root, Market::Gas, "GBB_ACTUAL_FLOW_STORAGE"))
         .unwrap();
     assert!(text.contains("\"headers\": {"), "{text}");

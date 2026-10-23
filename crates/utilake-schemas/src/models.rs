@@ -113,7 +113,9 @@ pub enum ModelType {
 impl ModelType {
     /// Reads a type as the model's script writes it.
     pub fn parse(s: &str) -> Self {
-        let upper = s.trim().to_ascii_uppercase();
+        // AEMO's report writes `VARCHAR2 (20)` with a space, and Oracle's
+        // `NUMBER` for the script's `NUMERIC`.
+        let upper = s.trim().to_ascii_uppercase().replace(" (", "(");
         let args = |p: &str| {
             upper
                 .strip_prefix(p)
@@ -125,13 +127,19 @@ impl ModelType {
                         .collect::<Vec<_>>()
                 })
         };
-        if let Some(a) = args("VARCHAR").or_else(|| args("CHAR")) {
+        if let Some(a) = args("VARCHAR2")
+            .or_else(|| args("VARCHAR"))
+            .or_else(|| args("CHAR"))
+        {
             return a
                 .first()
                 .and_then(|n| n.parse().ok())
                 .map_or(Self::Other, Self::Varchar);
         }
-        if let Some(a) = args("NUMERIC").or_else(|| args("DECIMAL")) {
+        if let Some(a) = args("NUMERIC")
+            .or_else(|| args("DECIMAL"))
+            .or_else(|| args("NUMBER"))
+        {
             let p = a.first().and_then(|n| n.parse().ok());
             let s = a.get(1).map_or(Some(0), |n| n.parse().ok());
             return match (p, s) {
@@ -309,7 +317,7 @@ fn read_text(path: &Path) -> Result<Option<String>, ModelError> {
 }
 
 /// Writes a model file whole (see [`crate::files::write_atomic`]).
-fn write_text(path: &Path, text: &str) -> Result<(), ModelError> {
+pub(crate) fn write_text(path: &Path, text: &str) -> Result<(), ModelError> {
     crate::files::write_atomic(path, text.as_bytes()).map_err(|source| ModelError::Write {
         path: path.display().to_string(),
         source,
@@ -408,23 +416,42 @@ pub fn record(
     zips: &[&Path],
 ) -> Result<Recorded, ModelError> {
     let mut recorded = Recorded::default();
+    let mut fresh = Vec::new();
+    for zip in zips {
+        match read_zip(zip) {
+            Ok((version, sha, script)) => {
+                fresh.push((
+                    from_script(&version, &sha, &script, month),
+                    zip.display().to_string(),
+                ));
+            }
+            Err(e) => recorded.problems.push(e.to_string()),
+        }
+    }
+    record_fresh(root, market, month, fresh, &mut recorded)?;
+    Ok(recorded)
+}
+
+/// Records the models `fresh` read of `month`, each with where it was
+/// read from: a version seen before widens its months; a new one is
+/// written; a version whose source differs from the recorded one, with
+/// other tables, is a problem, and the recorded one stays.
+pub(crate) fn record_fresh(
+    root: &Path,
+    market: Market,
+    month: YearMonth,
+    fresh: Vec<(Model, String)>,
+    recorded: &mut Recorded,
+) -> Result<(), ModelError> {
     let mut months = read_months(root, market)?;
     let mut seen: BTreeSet<String> = BTreeSet::new();
-    for zip in zips {
-        let (version, sha, script) = match read_zip(zip) {
-            Ok(v) => v,
-            Err(e) => {
-                recorded.problems.push(e.to_string());
-                continue;
-            }
-        };
-        let fresh = from_script(&version, &sha, &script, month);
+    for (fresh, from) in fresh {
+        let version = fresh.version.clone();
         let model = match read_model(root, market, &version)? {
             Some(mut have) => {
-                if have.script_sha256 != sha && have.tables != fresh.tables {
+                if have.script_sha256 != fresh.script_sha256 && have.tables != fresh.tables {
                     recorded.problems.push(format!(
-                        "The {month} script of data model {version} ({}) differs from the one recorded from {}; the recorded one stays.",
-                        zip.display(),
+                        "The {month} script of data model {version} ({from}) differs from the one recorded from {}; the recorded one stays.",
                         have.first_seen
                     ));
                 }
@@ -445,7 +472,7 @@ pub fn record(
         write_text(&months_path(root, market), &render_months(&months))?;
     }
     recorded.versions = months.get(&month).cloned().unwrap_or_default();
-    Ok(recorded)
+    Ok(())
 }
 
 /// The versions in the order their first archive month comes: each

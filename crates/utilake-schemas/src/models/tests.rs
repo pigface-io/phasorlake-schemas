@@ -276,6 +276,12 @@ fn broken_zips_and_files_are_problems_naming_them() {
 
 #[test]
 fn model_types_read_as_the_script_writes_them() {
+    // AEMO's report writes Oracle's types, with a space before the size.
+    assert_eq!(ModelType::parse("NUMBER(18,3)"), ModelType::Numeric(18, 3));
+    assert_eq!(ModelType::parse("NUMBER(10)"), ModelType::Numeric(10, 0));
+    assert_eq!(ModelType::parse("VARCHAR2 (20)"), ModelType::Varchar(20));
+    assert_eq!(ModelType::parse("Varchar2 (100)"), ModelType::Varchar(100));
+    assert_eq!(ModelType::parse("Date"), ModelType::Timestamp);
     assert_eq!(ModelType::parse("varchar(20)"), ModelType::Varchar(20));
     assert_eq!(ModelType::parse(" CHAR(1) "), ModelType::Varchar(1));
     assert_eq!(ModelType::parse("VARCHAR(MAX)"), ModelType::Other);

@@ -49,6 +49,7 @@ pub mod models;
 pub mod pool;
 pub mod profile;
 pub mod published;
+pub mod report_model;
 pub mod reports;
 pub mod sources;
 pub mod sql;
