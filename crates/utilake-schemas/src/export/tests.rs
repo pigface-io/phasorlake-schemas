@@ -826,6 +826,65 @@ fn another_market_is_published_beside_the_nem_with_its_words_and_headers() {
     assert_eq!(d["properties"]["GASDATE"]["x-header"], "GasDate");
     assert!(d["properties"]["DUID"].get("x-header").is_none());
     assert!(root.join("gas/headers.json").is_file());
+    // No folder census recorded: no folders.json for either market.
+    assert!(!root.join("gas/folders.json").exists());
+    assert!(!root.join("nem/folders.json").exists());
+    // A folder census of the GBB root and of one of its sub-folders: each
+    // folder with the blocks it carried, their versions and releases.
+    put(
+        "evidence/census/gas/gbb/CURRENT/_root.toml",
+        &format!(
+            "{}{}{}{}",
+            FOLDER_HEAD,
+            block("ACTUAL_FLOW_STORAGE", 1, "2026-09"),
+            block("ACTUAL_FLOW_STORAGE", 1, "2026-10"),
+            block("ACTUAL_FLOW_STORAGE", 1, "2026-08")
+        ),
+    );
+    put(
+        "evidence/census/gas/gbb/CURRENT/ForecastUtilisation.toml",
+        &format!(
+            "{}{}{}",
+            FOLDER_HEAD,
+            block("FORECAST_UTILISATION", 2, "2026-10"),
+            block("FORECAST_UTILISATION", 1, "2026-08")
+        ),
+    );
+    export(root);
+    let f = read(root, "gas/folders.json");
+    assert_eq!(f["x-format"], 3);
+    assert_eq!(
+        f["folders"],
+        json!([
+            {"feed": "gbb", "label": "CURRENT", "root": "Reports/CURRENT/GBB", "folder": "GBB",
+             "blocks": [{"report": ["GBB", "ACTUAL_FLOW_STORAGE"], "version": 1,
+                         "first-release": "2026-08", "last-release": "2026-10", "months": 3}]},
+            {"feed": "gbb", "label": "CURRENT", "root": "Reports/CURRENT/GBB", "folder": "ForecastUtilisation",
+             "blocks": [{"report": ["GBB", "FORECAST_UTILISATION"], "version": 1,
+                         "first-release": "2026-08", "last-release": "2026-08", "months": 1},
+                        {"report": ["GBB", "FORECAST_UTILISATION"], "version": 2,
+                         "first-release": "2026-10", "last-release": "2026-10", "months": 1}]},
+        ])
+    );
+    assert!(read(root, "manifest.json")["sha256"]["gas/folders.json"].is_string());
+    // A folder census that does not read stops the export.
+    put(
+        "evidence/census/gas/gbb/CURRENT/_root.toml",
+        "files = 'x'\n",
+    );
+    assert!(matches!(
+        Export::load(root, DEFAULT_BASE_URL),
+        Err(ExportError::Census(_))
+    ));
+    put(
+        "evidence/census/gas/gbb/CURRENT/_root.toml",
+        &format!(
+            "{}{}",
+            FOLDER_HEAD,
+            block("ACTUAL_FLOW_STORAGE", 1, "2026-09")
+        ),
+    );
+    let r = export(root);
     let m = read(root, "manifest.json");
     assert_eq!(m["markets"]["gas"]["tables"], 1);
     assert_eq!(m["markets"]["nem"]["tables"], 1);
@@ -995,4 +1054,34 @@ fn the_consumer_check_refuses_what_the_index_refuses() {
         import_check(empty.path()),
         Err("manifest.json: names no table".into())
     );
+}
+
+/// The head of a folder census file.
+const FOLDER_HEAD: &str = "files = 2\ncsvs = 2\nother = 0\n";
+
+/// One tally of a folder census: a block of one GBB report in one month.
+fn block(name: &str, version: u16, month: &str) -> String {
+    format!(
+        r#"
+[[block]]
+month = "{month}"
+csvs = 1
+first_csv = "GasBB.csv"
+last_csv = "GasBB.csv"
+shape = "ef44f4a7f758e85a"
+report = ["GBB", "{name}"]
+version = {version}
+rows = 1
+columns = ["GASDATE"]
+ctl = "?"
+kinds = "D"
+nulls = [0]
+int_digits = [0]
+scale = [0]
+sig_digits = [0]
+max_len = [10]
+min = ["2026/09/01"]
+max = ["2026/09/01"]
+"#
+    )
 }

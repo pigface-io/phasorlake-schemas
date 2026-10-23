@@ -14,6 +14,10 @@
 //! `nem/headers.json` maps every header AEMO's files carry (report pair,
 //! version, columns) to its table and schemas; `manifest.json` names every
 //! file under `nem/` with its SHA-256, and lists the tables.
+//! `{market}/folders.json` says which report folder of a feed carries each
+//! block (report pair and version) and over which releases, from the folder
+//! census: what a reader asks before fetching an interval of a table from the
+//! report folders rather than the monthly archive.
 //!
 //! Everything is a function of the files read: no clock, no git. Every
 //! document is pretty JSON with its keys sorted and a newline at the end,
@@ -30,9 +34,12 @@ use utilake_iceberg::publish::{Declaration, PublishError, Published, Table, to_m
 use utilake_iceberg::{History, from_metadata};
 
 use crate::catalog::{Catalog, CatalogError, TableDecl, tables_dir};
-use crate::fold::{Baseline, FoldError, histories_dir};
+use crate::census::CensusError;
+use crate::fold::{Baseline, FoldError, histories_dir, recorded_folders};
 use crate::models::{Model, ModelError, ModelTable, by_first_seen, read_models};
+use crate::reports::read_folder;
 use utilake_iceberg::Market;
+use utilake_plain_decode::feeds::{Feed, feeds_of};
 
 pub mod schema;
 mod write;
@@ -68,6 +75,9 @@ pub enum ExportError {
     /// The baseline record that cannot be read.
     #[error(transparent)]
     Baseline(#[from] FoldError),
+    /// A folder census that cannot be read.
+    #[error(transparent)]
+    Census(#[from] CensusError),
     /// A history file that cannot be read.
     #[error("The history {path} cannot be read: {message}")]
     History {
@@ -199,6 +209,9 @@ struct MarketExport {
     models: Vec<Model>,
     /// The data version of the histories.
     baseline: Baseline,
+    /// Which report folder carries each block, from the folder census;
+    /// empty when none is recorded.
+    folders: Vec<Value>,
 }
 
 /// Everything the export reads, loaded: each market that has declarations
@@ -255,6 +268,7 @@ impl MarketExport {
                 .cloned()
                 .collect(),
             baseline: Baseline::read(root, market)?,
+            folders: folders(root, market)?,
         }))
     }
 
@@ -409,6 +423,12 @@ impl Export {
                 format!("{market}/headers.json"),
                 text(&headers(histories.iter())).into(),
             );
+            if !e.folders.is_empty() {
+                out.files.insert(
+                    format!("{market}/folders.json"),
+                    text(&json!({"x-format": FORMAT, "folders": e.folders})).into(),
+                );
+            }
             markets.insert(
                 market.id().to_owned(),
                 json!({
@@ -509,6 +529,72 @@ fn headers<'a>(histories: impl Iterator<Item = &'a History>) -> Value {
         })
         .collect();
     json!({"x-format": FORMAT, "headers": headers})
+}
+
+/// `{market}/folders.json`: each report folder the census recorded, under
+/// its feed and root, with every block it carried: report pair, the
+/// versions seen, the first and last release and how many months. A
+/// reader fetching an interval of a table from the report folders asks it
+/// which folders carry the table's report pairs.
+fn folders(root: &Path, market: Market) -> Result<Vec<Value>, ExportError> {
+    /// A block: report pair and version.
+    type Key = ([String; 2], u16);
+    let mut out = Vec::new();
+    for feed in feeds_of(market.id()) {
+        for feed_root in feed.roots {
+            let label = Feed::label(feed_root);
+            // The root's own census (`_root`, an empty name) first, then
+            // its sub-folders by name.
+            let mut rels = recorded_folders(root, market, (feed, label))?;
+            rels.sort();
+            for rel in rels {
+                // Listed, so recorded: an empty census if it has gone since.
+                let census = read_folder(root, market, (feed, label, &rel))?.unwrap_or_default();
+                let mut blocks: BTreeMap<Key, (String, String, u64)> = BTreeMap::new();
+                for t in &census.blocks {
+                    let key = (
+                        [t.block.report.0.clone(), t.block.report.1.clone()],
+                        t.block.version,
+                    );
+                    let month = t.month.to_string();
+                    let e = blocks
+                        .entry(key)
+                        .or_insert_with(|| (month.clone(), month.clone(), 0));
+                    if month < e.0 {
+                        e.0 = month.clone();
+                    }
+                    if month > e.1 {
+                        e.1 = month;
+                    }
+                    e.2 += 1;
+                }
+                let folder = if rel.is_empty() {
+                    feed_root.rsplit('/').next().unwrap_or(feed_root).to_owned()
+                } else {
+                    rel.clone()
+                };
+                out.push(json!({
+                    "feed": feed.id,
+                    "label": label,
+                    "root": feed_root,
+                    "folder": folder,
+                    "blocks": blocks
+                        .into_iter()
+                        .map(|((report, version), (first, last, months))| {
+                            json!({
+                                "report": report,
+                                "version": version,
+                                "first-release": first,
+                                "last-release": last,
+                                "months": months,
+                            })
+                        })
+                        .collect::<Vec<_>>(),
+                }));
+            }
+        }
+    }
+    Ok(out)
 }
 
 fn non_empty(s: &str) -> Option<&str> {
