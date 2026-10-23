@@ -8,10 +8,23 @@ use std::process::Command;
 
 use anyhow::{Context, Result};
 
+/// A `git` command run in `root`, clear of the variables a running git
+/// hook sets (`GIT_DIR`, `GIT_INDEX_FILE`, ...), which would otherwise
+/// point it at the hook's repository, or its worktree, instead of `root`.
+pub fn git(root: &Path) -> Command {
+    let mut cmd = Command::new("git");
+    cmd.current_dir(root);
+    for (key, _) in std::env::vars_os() {
+        if key.to_string_lossy().starts_with("GIT_") {
+            cmd.env_remove(key);
+        }
+    }
+    cmd
+}
+
 fn git_show(root: &Path, base: &str, path: &str) -> Result<Option<String>> {
-    let out = Command::new("git")
+    let out = git(root)
         .args(["show", &format!("{base}:{path}")])
-        .current_dir(root)
         .output()
         .context("running git show")?;
     if out.status.success() {
@@ -22,9 +35,8 @@ fn git_show(root: &Path, base: &str, path: &str) -> Result<Option<String>> {
 }
 
 fn commit_messages_since(root: &Path, base: &str) -> Result<String> {
-    let out = Command::new("git")
+    let out = git(root)
         .args(["log", "--format=%B", &format!("{base}..HEAD")])
-        .current_dir(root)
         .output()
         .context("running git log")?;
     Ok(String::from_utf8_lossy(&out.stdout).into_owned())
@@ -171,9 +183,8 @@ mod tests {
     }
 
     fn git(dir: &Path, args: &[&str]) {
-        let st = Command::new("git")
+        let st = super::git(dir)
             .args(args)
-            .current_dir(dir)
             .env("GIT_AUTHOR_NAME", "t")
             .env("GIT_AUTHOR_EMAIL", "t@t")
             .env("GIT_COMMITTER_NAME", "t")

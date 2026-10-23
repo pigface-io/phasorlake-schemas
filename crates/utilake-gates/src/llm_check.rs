@@ -102,9 +102,8 @@ pub fn run(root: &Path) -> Result<bool> {
     let index = read(INDEX, INDEX_BUDGET, &mut failures);
     for p in path_spans(&index) {
         let path = root.join(&p);
-        let ignored = Command::new("git")
+        let ignored = crate::ratchet::git(root)
             .args(["check-ignore", "-q", &p])
-            .current_dir(root)
             .status()
             .is_ok_and(|s| s.success());
         if !path.exists() && !ignored {
