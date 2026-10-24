@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 [temporal]
 cutoff = "RUN_DATETIME"
 entity = ["DUID"]
-order = ["RUN_DATETIME"]
+order = ["RUN_DATETIME", "LASTCHANGED"]
 origin = "derived"
 
 [temporal.valid]

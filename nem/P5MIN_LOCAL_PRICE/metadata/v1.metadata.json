@@ -29,7 +29,7 @@
     "utilake.table": "P5MIN_LOCAL_PRICE",
     "utilake.temporal.cutoff": "RUN_DATETIME",
     "utilake.temporal.entity": "[\"DUID\"]",
-    "utilake.temporal.order": "[\"RUN_DATETIME\"]",
+    "utilake.temporal.order": "[\"RUN_DATETIME\",\"LASTCHANGED\"]",
     "utilake.temporal.origin": "derived",
     "utilake.temporal.valid.column": "INTERVAL_DATETIME",
     "utilake.temporal.valid.kind": "interval_end",
