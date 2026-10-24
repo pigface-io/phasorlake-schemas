@@ -104,11 +104,18 @@ pub struct Temporal {
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Valid {
-    /// `interval_end`, `instant`, `from`, `timeless`.
+    /// `interval_end` (the time ends the period the row covers),
+    /// `instant` (the time labels the row), `day` (the time is a trading
+    /// day's label, at midnight), `from` (the row is in force from the
+    /// time), `timeless` (no column says when).
     pub kind: String,
     /// The column, when there is one.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub column: Option<String>,
+    /// `from` only: the column that ends a version before the next one
+    /// starts (`END_DATE`); AEMO's "no end" dates (2999, 9999) are open.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub until: Option<String>,
 }
 
 /// A table as published: its history, its declaration when it has one,
@@ -200,6 +207,7 @@ const K_LOAD: &str = "utilake.load";
 const K_VISIBILITY: &str = "utilake.visibility";
 const K_VALID_KIND: &str = "utilake.temporal.valid.kind";
 const K_VALID_COLUMN: &str = "utilake.temporal.valid.column";
+const K_VALID_UNTIL: &str = "utilake.temporal.valid.until";
 const K_ENTITY: &str = "utilake.temporal.entity";
 const K_ORDER: &str = "utilake.temporal.order";
 const K_CUTOFF: &str = "utilake.temporal.cutoff";
@@ -338,6 +346,9 @@ fn properties(p: &Published) -> BTreeMap<String, String> {
         put(K_VALID_KIND, d.temporal.valid.kind.clone());
         if let Some(c) = &d.temporal.valid.column {
             put(K_VALID_COLUMN, c.clone());
+        }
+        if let Some(c) = &d.temporal.valid.until {
+            put(K_VALID_UNTIL, c.clone());
         }
         put(K_ENTITY, json(&d.temporal.entity));
         put(K_ORDER, json(&d.temporal.order));
@@ -517,6 +528,7 @@ fn declaration_of(p: &Props<'_>) -> Result<Declaration, PublishError> {
             valid: Valid {
                 kind: p.need(K_VALID_KIND)?.to_owned(),
                 column: p.owned(K_VALID_COLUMN),
+                until: p.owned(K_VALID_UNTIL),
             },
             entity: p.need_json(K_ENTITY)?,
             order: p.need_json(K_ORDER)?,
@@ -631,6 +643,7 @@ mod tests {
                     valid: Valid {
                         kind: "interval_end".into(),
                         column: Some("SETTLEMENTDATE".into()),
+                        until: None,
                     },
                     entity: vec![],
                     order: vec!["LASTCHANGED".into()],
@@ -643,6 +656,23 @@ mod tests {
             model_types: BTreeMap::from([(1, "TIMESTAMP(0)".to_owned())]),
             model: Vec::new(),
         }
+    }
+
+    #[test]
+    fn a_version_end_column_is_a_property_and_reads_back() {
+        let mut p = published();
+        let d = p.declaration.as_mut().unwrap();
+        d.temporal.valid = Valid {
+            kind: "from".into(),
+            column: Some("SETTLEMENTDATE".into()),
+            until: Some("END_DATE".into()),
+        };
+        let t = to_metadata(&p, "file:///t", "u").unwrap();
+        assert_eq!(t.metadata.properties[K_VALID_UNTIL], "END_DATE");
+        assert_eq!(from_metadata(&t.metadata).unwrap(), p);
+        // Without one, the key is absent, as every table before had it.
+        let plain = to_metadata(&published(), "file:///t", "u").unwrap();
+        assert!(!plain.metadata.properties.contains_key(K_VALID_UNTIL));
     }
 
     #[test]
