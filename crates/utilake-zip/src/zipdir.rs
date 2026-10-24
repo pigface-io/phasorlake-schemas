@@ -279,15 +279,20 @@ impl DirectoryReader {
 
 /// Every entry of the zip `r` of `len` bytes, read by seeking.
 pub fn read_from<R: Read + Seek>(r: &mut R, len: u64) -> Result<Vec<Entry>, DirError> {
+    zone!(DIR_READ_FROM);
     let mut reader = DirectoryReader::new(len);
     let mut step = reader.next();
     loop {
         match step {
             Step::Read { start, end } => {
                 let mut buf = vec![0u8; usize::try_from(end - start).map_err(|_| damaged())?];
-                r.seek(SeekFrom::Start(start))
-                    .and_then(|_| r.read_exact(&mut buf))
-                    .map_err(|_| DirError::Damaged("the file could not be read"))?;
+                {
+                    zone!(DIR_SPAN);
+                    r.seek(SeekFrom::Start(start))
+                        .and_then(|_| r.read_exact(&mut buf))
+                        .map_err(|_| DirError::Damaged("the file could not be read"))?;
+                    count!(read, buf.len());
+                }
                 step = reader.feed(buf)?;
             }
             Step::Done(entries) => return Ok(entries),
@@ -329,6 +334,7 @@ fn damaged() -> DirError {
 
 /// The end record in `tail` and where it says the directory is.
 fn locate(tail: &[u8]) -> Result<Found, DirError> {
+    zone!(DIR_LOCATE);
     let at = tail
         .windows(4)
         .rposition(|w| w == EOCD)
@@ -356,6 +362,7 @@ fn zip64_directory(record: &[u8]) -> Result<(u64, u64), DirError> {
 
 /// Every record of a central directory.
 fn entries(mut cd: &[u8]) -> Result<Vec<Entry>, DirError> {
+    zone!(DIR_PARSE);
     let mut out = Vec::with_capacity(cd.len() / 80);
     while !cd.is_empty() {
         if cd.len() < 46 || &cd[..4] != CENTRAL {

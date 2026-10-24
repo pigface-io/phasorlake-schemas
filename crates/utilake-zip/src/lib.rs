@@ -13,7 +13,27 @@
 //! caller fetches (ranged requests, or a file on disk), so what a zip holds
 //! is known before, or without, downloading the rest of it.
 
+/// Opens a zone of `utilake-zones` until the end of the block, with the
+/// feature `zones`; nothing without it.
+macro_rules! zone {
+    ($z:ident) => {
+        #[cfg(feature = "zones")]
+        let _zone = utilake_zones::enter(&crate::zones::$z);
+    };
+}
+
+/// Counts bytes `read` from the source or `copied` between buffers in the
+/// open zone, with the feature `zones`; nothing without it.
+macro_rules! count {
+    ($what:ident, $n:expr) => {
+        #[cfg(feature = "zones")]
+        utilake_zones::$what($n as u64);
+    };
+}
+
 pub mod zipdir;
+#[cfg(feature = "zones")]
+pub mod zones;
 
 use std::fs::File;
 use std::io::{Read, Seek, SeekFrom, Write as _};
@@ -157,8 +177,9 @@ pub fn walk_entries_in<R: Read + Seek, E>(
     on_entry: &mut dyn FnMut(Entry<'_>) -> Result<(), E>,
     on_other: &mut dyn FnMut(Entry<'_>),
 ) -> Result<Walked, WalkError<E>> {
+    zone!(WALK);
     let archive =
-        zip::ZipArchive::new(Chunked::new(reader)).map_err(|e| open_error(label, e.to_string()))?;
+        open_archive(Chunked::new(reader)).map_err(|e| open_error(label, e.to_string()))?;
     walk_zip(
         archive,
         label,
@@ -303,6 +324,7 @@ impl<R: Read + Seek> Chunked<R> {
         let start = self.pos - self.pos % self.chunk as u64;
         let left = len.saturating_sub(start);
         let want = usize::try_from(left).map_or(self.chunk, |n| n.min(self.chunk));
+        zone!(CHUNK_LOAD);
         self.inner.seek(SeekFrom::Start(start))?;
         self.buf.clear();
         self.buf.shrink_to(want);
@@ -311,6 +333,7 @@ impl<R: Read + Seek> Chunked<R> {
         (&mut self.inner)
             .take(want as u64)
             .read_to_end(&mut self.buf)?;
+        count!(read, self.buf.len());
         self.start = start;
         Ok(())
     }
@@ -328,6 +351,8 @@ impl<R: Read + Seek> Read for Chunked<R> {
         let at = usize::try_from(self.pos - self.start).unwrap_or(usize::MAX);
         let have = self.buf.get(at..).unwrap_or(&[]);
         let n = have.len().min(out.len());
+        zone!(CHUNK_COPY);
+        count!(copied, n);
         out[..n].copy_from_slice(&have[..n]);
         self.pos += n as u64;
         Ok(n)
@@ -368,9 +393,9 @@ fn walk<E>(
     on_other: &mut dyn FnMut(Entry<'_>),
 ) -> Result<Walked, WalkError<E>> {
     let p = path.display().to_string();
+    zone!(WALK);
     let file = File::open(path).map_err(|e| open_error(&p, e.to_string()))?;
-    let archive =
-        zip::ZipArchive::new(Chunked::new(file)).map_err(|e| open_error(&p, e.to_string()))?;
+    let archive = open_archive(Chunked::new(file)).map_err(|e| open_error(&p, e.to_string()))?;
     walk_zip(
         archive, &p, tmp_dir, in_memory, depth, prefix, accepts, on_entry, on_other,
     )
@@ -413,7 +438,11 @@ fn walk_zip<R: Read + Seek, E>(
         if misplaced.iter().any(|m| m.index == i) {
             continue;
         }
-        let mut entry = match archive.by_index(i) {
+        let opened = {
+            zone!(ENTRY_OPEN);
+            archive.by_index(i)
+        };
+        let mut entry = match opened {
             Ok(e) => e,
             Err(e) => {
                 found
@@ -456,6 +485,12 @@ fn walk_zip<R: Read + Seek, E>(
         }));
     }
     Ok(found)
+}
+
+/// The zip reader over `r`, its directory read.
+fn open_archive<R: Read + Seek>(r: R) -> zip::result::ZipResult<zip::ZipArchive<R>> {
+    zone!(ARCHIVE_OPEN);
+    zip::ZipArchive::new(r)
 }
 
 /// The archive at `path` could not be opened as a zip.
@@ -509,11 +544,14 @@ fn visit<E>(
             entry: &full,
             failed: None,
         };
-        let result = (w.on_entry)(Entry {
-            name: full.clone(),
-            size: Some(size),
-            reader: &mut reader,
-        });
+        let result = {
+            zone!(ON_ENTRY);
+            (w.on_entry)(Entry {
+                name: full.clone(),
+                size: Some(size),
+                reader: &mut reader,
+            })
+        };
         if let Some(e) = reader.failed.take() {
             return Err(WalkError::Archive(e));
         }
@@ -524,6 +562,7 @@ fn visit<E>(
         });
     }
     if !has_extension(name, ".zip") {
+        zone!(ON_OTHER);
         (w.on_other)(Entry {
             name: full,
             size: Some(size),
@@ -543,12 +582,17 @@ fn visit<E>(
     if size <= w.in_memory {
         // The zip format needs to seek to its central directory; a small
         // inner zip is walked in memory, never on disk.
-        let mut bytes = Vec::with_capacity(size as usize);
-        entry
-            .read_to_end(&mut bytes)
-            .map_err(|e| bad_inner(e.to_string()))?;
-        let inner = zip::ZipArchive::new(std::io::Cursor::new(bytes))
-            .map_err(|e| bad_inner(e.to_string()))?;
+        let bytes = {
+            zone!(NESTED_MEMORY);
+            let mut bytes = Vec::with_capacity(size as usize);
+            entry
+                .read_to_end(&mut bytes)
+                .map_err(|e| bad_inner(e.to_string()))?;
+            count!(copied, bytes.len());
+            bytes
+        };
+        let inner =
+            open_archive(std::io::Cursor::new(bytes)).map_err(|e| bad_inner(e.to_string()))?;
         return walk_zip(
             inner,
             &inner_label,
@@ -573,13 +617,15 @@ fn visit<E>(
     // Unique, and removed when dropped, whatever happens.
     let tmp = tempfile::NamedTempFile::new_in(w.tmp_dir).map_err(|e| spool_err(w.tmp_dir, e))?;
     {
+        zone!(NESTED_SPOOL);
         let mut out = std::io::BufWriter::with_capacity(SPOOL_BUFFER, tmp.as_file());
-        std::io::copy(entry, &mut out)
-            .and_then(|_| out.flush())
+        let _n = std::io::copy(entry, &mut out)
+            .and_then(|n| out.flush().map(|()| n))
             .map_err(|e| spool_err(tmp.path(), e))?;
+        count!(copied, _n);
     }
     let file = tmp.reopen().map_err(|e| spool_err(tmp.path(), e))?;
-    let inner = zip::ZipArchive::new(Chunked::new(file)).map_err(|e| bad_inner(e.to_string()))?;
+    let inner = open_archive(Chunked::new(file)).map_err(|e| bad_inner(e.to_string()))?;
     walk_zip(
         inner,
         &inner_label,
@@ -635,6 +681,7 @@ fn find_misplaced<R: Read + Seek, E>(
     mut archive: zip::ZipArchive<R>,
     p: &str,
 ) -> Result<(zip::ZipArchive<R>, Vec<Misplaced>), WalkError<E>> {
+    zone!(FIND_MISPLACED);
     let mut central = Vec::with_capacity(archive.len());
     for i in 0..archive.len() {
         let Ok(f) = archive.by_index_raw(i) else {
@@ -686,7 +733,10 @@ fn find_misplaced<R: Read + Seek, E>(
             deflated,
         });
     }
-    let archive = zip::ZipArchive::new(r).map_err(|e| open_error(p, e.to_string()))?;
+    let archive = {
+        zone!(REOPEN);
+        zip::ZipArchive::new(r).map_err(|e| open_error(p, e.to_string()))?
+    };
     Ok((archive, out))
 }
 
@@ -694,6 +744,7 @@ fn find_misplaced<R: Read + Seek, E>(
 /// does. A header that cannot be read or has no signature counts as
 /// agreeing: the zip reader reports it.
 fn local_header_agrees<R: Read + Seek>(r: &mut R, c: &Central) -> bool {
+    zone!(LOCAL_HEADER);
     let mut head = [0u8; LOCAL_HEADER as usize];
     if r.seek(SeekFrom::Start(c.header_start)).is_err() || r.read_exact(&mut head).is_err() {
         return true;
@@ -745,6 +796,7 @@ impl<'m, R: Read> Verified<'m, R> {
 
 impl<R: Read> Read for Verified<'_, R> {
     fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+        zone!(VERIFIED_READ);
         let n = match &mut self.inner {
             Raw::Deflated(d) => d.read(buf)?,
             Raw::Stored(s) => s.read(buf)?,
@@ -778,6 +830,7 @@ struct Counting<'a> {
 
 impl Read for Counting<'_> {
     fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+        zone!(ENTRY_READ);
         match self.inner.read(buf) {
             Ok(n) => Ok(n),
             Err(e) => {
