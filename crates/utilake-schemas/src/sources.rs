@@ -110,13 +110,33 @@ fn month_of(at: &str) -> Option<YearMonth> {
     at.get(..7)?.parse().ok()
 }
 
+/// The names each folder holds, read once.
+type Folders = HashMap<PathBuf, std::collections::HashSet<String>>;
+
 /// The row of the file at `path`, named `file`, held to its sidecar: the
 /// census's `sha256`, and `size` when the census records one.
-fn vouch(file: &str, path: &Path, sha256: &str, size: Option<u64>) -> Result<Found, Mismatch> {
-    let sc = match Archive::read(path) {
-        Ok(Some(sc)) => sc,
-        Ok(None) => return Err(mismatch(file, "the archive has no sidecar for it")),
-        Err(_) => return Err(mismatch(file, "its sidecar does not read")),
+fn vouch(
+    file: &str,
+    path: &Path,
+    (sha256, size): (&str, Option<u64>),
+    folders: &mut Folders,
+) -> Result<Found, Mismatch> {
+    // The record found among its folder's names, read once per folder: on
+    // exFAT a look for a name not there reads the whole folder.
+    let dir = path.parent().unwrap_or(Path::new("."));
+    let names = folders.entry(dir.to_path_buf()).or_insert_with(|| {
+        std::fs::read_dir(dir)
+            .into_iter()
+            .flatten()
+            .flatten()
+            .map(|e| e.file_name().to_string_lossy().into_owned())
+            .collect()
+    });
+    let Some(record) = Archive::record_where(path, |n| names.contains(n)) else {
+        return Err(mismatch(file, "the archive has no sidecar for it"));
+    };
+    let Ok(sc) = Archive::read_record(&record) else {
+        return Err(mismatch(file, "its sidecar does not read"));
     };
     let hex = sc.content.sha256.hex();
     if hex != sha256 {
@@ -170,13 +190,14 @@ fn vouch_all(
     paths: impl Fn(&str) -> Vec<PathBuf>,
 ) -> (Vec<(String, Found)>, Vec<Mismatch>) {
     let (mut found, mut bad) = (Vec::new(), Vec::new());
+    let mut folders = Folders::new();
     for (name, (sha256, size)) in want {
         let file = label(&name);
         // The first place whose sidecar agrees; else what the first said.
         let mut first = None;
         let mut hit = None;
         for p in paths(&name) {
-            match vouch(&file, &p, &sha256, size) {
+            match vouch(&file, &p, (&sha256, size), &mut folders) {
                 Ok(f) => {
                     hit = Some(f);
                     break;

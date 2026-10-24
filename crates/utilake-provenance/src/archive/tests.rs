@@ -263,4 +263,17 @@ fn the_walk_finds_held_files_by_their_records() {
         ]
     );
     assert!(Archive::walk(&root.join("nope")).is_err());
+    // Each with its record, found from the folder's names alone.
+    let records = Archive::walk_records(root).unwrap();
+    assert_eq!(records[2].1, sub.join("old.zip.json"));
+    assert_eq!(records[0].1, sub.join("A.zip.provenance.json"));
+    let p = Archive::read_record(&records[0].1).unwrap();
+    assert_eq!(p.url(), URL);
+    assert!(Archive::read_record(&sub.join("none")).is_err());
+    std::fs::write(sub.join("cut.zip.provenance.json"), b"{").unwrap();
+    assert!(matches!(
+        Archive::read_record(&sub.join("cut.zip.provenance.json")),
+        Err(Error::Record { .. })
+    ));
+    assert_eq!(Archive::record_where(Path::new("/"), |_| true), None);
 }

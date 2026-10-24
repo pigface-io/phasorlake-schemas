@@ -166,6 +166,30 @@ impl Archive {
         Ok(c.same(&held.provenance.content))
     }
 
+    /// The record of the file at `path` among the names its folder holds,
+    /// as `has` says: `{name}.provenance.json`, else a format-1
+    /// `{name}.json`. No name is looked for on disk, so a walk that has read
+    /// a folder finds each record without the look for an absent name that
+    /// on exFAT reads the whole folder.
+    pub fn record_where(path: &Path, has: impl Fn(&str) -> bool) -> Option<PathBuf> {
+        let name = path.file_name()?.to_string_lossy();
+        [RECORD, OLD_RECORD]
+            .iter()
+            .map(|s| format!("{name}{s}"))
+            .find(|n| has(n))
+            .map(|n| path.with_file_name(n))
+    }
+
+    /// The record at `record`, a path a walk or [`Archive::record_where`]
+    /// found.
+    pub fn read_record(record: &Path) -> Result<Provenance, Error> {
+        let bytes = std::fs::read(record).map_err(io(record))?;
+        Provenance::from_json(&bytes).map_err(|source| Error::Record {
+            path: record.display().to_string(),
+            source,
+        })
+    }
+
     /// The provenance of the file at `path`: its record, else its format-1
     /// record; none when it has neither.
     pub fn read(path: &Path) -> Result<Option<Provenance>, Error> {
@@ -270,6 +294,14 @@ impl Archive {
     /// where its `{name}` is there too). Paths in name order; no record is
     /// read.
     pub fn walk(dir: &Path) -> Result<Vec<PathBuf>, Error> {
+        Ok(Self::walk_records(dir)?
+            .into_iter()
+            .map(|(p, _)| p)
+            .collect())
+    }
+
+    /// The same, each file with the path of its record.
+    pub fn walk_records(dir: &Path) -> Result<Vec<(PathBuf, PathBuf)>, Error> {
         let mut out = Vec::new();
         let mut stack = vec![dir.to_path_buf()];
         while let Some(d) = stack.pop() {
@@ -290,11 +322,9 @@ impl Archive {
                 if is_record(name) || old_record {
                     continue;
                 }
-                let recorded = [RECORD, OLD_RECORD]
-                    .iter()
-                    .any(|s| files.contains(&format!("{name}{s}")));
-                if recorded {
-                    out.push(d.join(name));
+                let path = d.join(name);
+                if let Some(record) = Self::record_where(&path, |n| files.contains(n)) {
+                    out.push((path, record));
                 }
             }
         }

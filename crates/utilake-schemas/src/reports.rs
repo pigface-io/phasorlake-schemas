@@ -476,10 +476,13 @@ pub fn journal_of(mirror: &Path, host: &str, folder: &str) -> PathBuf {
         .join("changes.ndjson")
 }
 
-/// The provenance of the file at `path`, when it has a record that reads
-/// (`{path}.provenance.json`, or a format-1 `{path}.json`).
-pub(crate) fn sidecar(path: &Path) -> Option<Provenance> {
-    Archive::read(path).ok().flatten()
+/// The provenance of the file at `path`, its record found among `names`,
+/// the names of its folder (`{path}.provenance.json`, or a format-1
+/// `{path}.json`), when it has one that reads. No name is looked for on
+/// disk, which on exFAT reads the whole folder when the name is not there.
+fn sidecar_in(path: &Path, names: &HashSet<&str>) -> Option<Provenance> {
+    let record = Archive::record_where(path, |n| names.contains(n))?;
+    Archive::read_record(&record).ok()
 }
 
 /// When the listing showed the file the record was obtained from, in the
@@ -539,7 +542,11 @@ struct Rewrite {
 
 /// The files of `files` nemweb rewrote in place: more than one version,
 /// or listings `counts` found with nothing new.
-fn rewrites(files: &[PathBuf], counts: &HashMap<String, (u64, u64)>) -> Vec<Rewrite> {
+fn rewrites(
+    files: &[PathBuf],
+    names: &HashSet<&str>,
+    counts: &HashMap<String, (u64, u64)>,
+) -> Vec<Rewrite> {
     let mut by_file: BTreeMap<String, Vec<(Option<String>, usize)>> = BTreeMap::new();
     for (i, path) in files.iter().enumerate() {
         let name = base(&path.to_string_lossy()).to_owned();
@@ -557,7 +564,7 @@ fn rewrites(files: &[PathBuf], counts: &HashMap<String, (u64, u64)>) -> Vec<Rewr
             v.sort();
             let versions: Vec<_> = v
                 .into_iter()
-                .map(|(_, i)| (i, sidecar(&files[i])))
+                .map(|(_, i)| (i, sidecar_in(&files[i], names)))
                 .collect();
             let (relisted, repacked) = versions
                 .iter()
@@ -829,7 +836,7 @@ pub fn census_folder(
         .collect();
     // An entry read once under one name and bytes is a repeat elsewhere.
     let mut seen: HashSet<(String, String)> = HashSet::new();
-    let rewrites = rewrites(files, &journal_counts(journal));
+    let rewrites = rewrites(files, &names, &journal_counts(journal));
     // A version of a file rewritten in place is printed and hashed as it
     // is read; any other file only read.
     let versions: HashSet<usize> = rewrites
@@ -846,7 +853,7 @@ pub fn census_folder(
         if archive::is_noise(&name) || is_sidecar(file, &names, feed) {
             continue;
         }
-        if let Some(l) = sidecar(path).and_then(|s| layout::listing(s.url()))
+        if let Some(l) = sidecar_in(path, &names).and_then(|s| layout::listing(s.url()))
             && !g.census.listings.contains(&l)
         {
             g.census.listings.push(l);
@@ -855,7 +862,7 @@ pub fn census_folder(
         let outer_month = match feed.decoder {
             Decoder::Mms => name_month(file),
             _ => feed.release_month(&rel_path).or_else(|| {
-                sidecar(path)
+                sidecar_in(path, &names)
                     .as_ref()
                     .and_then(listed_at)
                     .as_deref()
@@ -1362,7 +1369,7 @@ mod tests {
             r#"{{"url":"https://h/d/f.zip","size":3,"sha256":"{ZERO}","fetched_at":"2026-10-18T00:03:51Z","last_modified":"Mon, 18 May 2026 07:27:50 GMT","listed_size":3,"listed_modified":"Monday, May 18, 2026 05:27 PM","tool":"utilake-mirror/0.1.0"}}"#
         );
         std::fs::write(dir.path().join("f.zip.json"), &v1).unwrap();
-        let sc = sidecar(&path).unwrap();
+        let sc = Archive::read(&path).ok().flatten().unwrap();
         assert_eq!(
             (sc.url(), sc.content.sha256.hex().as_str()),
             ("https://h/d/f.zip", ZERO)
@@ -1374,7 +1381,7 @@ mod tests {
         assert_eq!(listed_at(&sc).as_deref(), Some("2026-05-18T17:27:00+10:00"));
         // Written again, it reads the same from its new name.
         Archive::write(&path, &sc).unwrap();
-        assert_eq!(sidecar(&path), Some(sc));
+        assert_eq!(Archive::read(&path).ok().flatten(), Some(sc));
         // A record is never a file of the folder, whatever its feed.
         assert!(is_sidecar(
             "f.zip.provenance.json",
@@ -1383,8 +1390,18 @@ mod tests {
         ));
         // A record that does not read, or none at all.
         std::fs::write(dir.path().join("f.zip.provenance.json"), b"{").unwrap();
-        assert!(sidecar(&path).is_none());
-        assert!(sidecar(&dir.path().join("none")).is_none());
+        assert!(Archive::read(&path).ok().flatten().is_none());
+        assert!(
+            Archive::read(&dir.path().join("none"))
+                .ok()
+                .flatten()
+                .is_none()
+        );
+        let names: HashSet<&str> = ["f.zip.json"].into();
+        assert!(
+            sidecar_in(&path, &names).is_none(),
+            "one that does not read"
+        );
     }
 
     #[test]
@@ -1497,6 +1514,14 @@ mod tests {
         files.push(v(lone, None, b"a,b\n1,2\n"));
         let quiet = "int111_v5_sdpc_1.csv";
         files.push(v(quiet, None, b"a,b\n1,2\n"));
+        // A folder's files are listed with their records, as a walk lists
+        // them.
+        let records: Vec<PathBuf> = files
+            .iter()
+            .map(|f| PathBuf::from(format!("{}.json", f.display())))
+            .filter(|r| r.exists())
+            .collect();
+        files.extend(records);
         files.sort();
 
         let mirror = dir.path().join("mirror-home");
