@@ -16,6 +16,9 @@
 #                archive and the rule that names a file's local path.
 #   utilake-zip      walking a zip, zips inside zips included, entries whose
 #                local header lies read from the central directory. Pure.
+#   utilake-zones    zones: named stretches of code timed per thread into a
+#                call tree, with bytes read and copied, the tracer's own
+#                cost taken out. Reads the CPU's counter.
 #   utilake-gates    the repository gates every utilake repository runs from
 #                its xtask: coverage floors, their ratchet, benchmark budgets,
 #                the agent index, the error catalogue.
@@ -30,6 +33,7 @@ members = [
     "crates/utilake-provenance",
     "crates/utilake-schemas",
     "crates/utilake-zip",
+    "crates/utilake-zones",
     "crates/xtask",
 ]
 
@@ -72,12 +76,16 @@ utilake-mms-decode = { path = "crates/utilake-mms-decode" }
 utilake-plain-decode = { path = "crates/utilake-plain-decode" }
 utilake-provenance = { path = "crates/utilake-provenance" }
 utilake-zip = { path = "crates/utilake-zip" }
+utilake-zones = { path = "crates/utilake-zones" }
 
 anyhow = "1"
 crc32fast = "1.5"
+criterion = { version = "0.8", default-features = false }
 clap = { version = "4.6", features = ["derive", "env", "wrap_help"] }
 flate2 = { version = "1", default-features = false, features = ["zlib-rs"] }
 memchr = "2.8"
+peak_alloc = "0.3"
+quanta = { version = "0.12", default-features = false }
 rustix = { version = "1.1", features = ["fs"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"

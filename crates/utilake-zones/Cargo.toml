@@ -1,0 +1,22 @@
+[package]
+name = "utilake-zones"
+description = "Zones: named stretches of code declared as statics, timed per thread into a call tree whose nodes link to the zone they ran in, with bytes read and copied counted per zone and the tracer's own cost measured and taken out. One dependency, the CPU counter, and no allocation per zone once a path is known."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+quanta.workspace = true
+
+[dev-dependencies]
+criterion.workspace = true
+
+[[bench]]
+name = "overhead"
+harness = false
