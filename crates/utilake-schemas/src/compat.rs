@@ -72,7 +72,7 @@ pub fn compat(rev: &str, base: &Published, now: &Published) -> Compat {
             ),
         }
     }
-    for (path, bytes) in base.schemas.iter().filter(|(p, _)| !base.legacy && held(p)) {
+    for (path, bytes) in base.schemas.iter().filter(|(p, _)| held(p)) {
         match now.schemas.get(path) {
             None => violations.push(format!("{path}: published at {rev} and missing now")),
             Some(b) if identity(b) != identity(bytes) => {
@@ -168,15 +168,6 @@ mod tests {
             compat("main", &base, &reworded).violations,
             [format!("{first}: differs from main")]
         );
-        let mut legacy = base.clone();
-        legacy.legacy = true;
-        legacy.schemas.insert(
-            "nem/DISPATCH_UNIT_SCADA/schema-2e75294ff617bace.json".into(),
-            b"{}".to_vec(),
-        );
-        let c = compat("main", &legacy, &grown);
-        assert!(c.violations.is_empty());
-        assert_eq!(c.schemas, 3);
         // Re-based: nothing is held, and the versions are named.
         broken.baselines.insert(
             Market::Nem,

@@ -19,7 +19,6 @@
 use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 
-use serde::Deserialize as _;
 use utilake_iceberg::table::TableMetadata;
 use utilake_iceberg::{History, from_metadata};
 
@@ -389,8 +388,8 @@ pub fn declarations(
 /// `{market}/{TABLE}/metadata/v1.metadata.json`, by table
 /// ([`utilake_iceberg::from_metadata`]). A directory without one
 /// published no history. Metadata from before the format carried the
-/// history (no `utilake.format`) is read from the `iceberg` block of the
-/// `table.json` beside it, so one fold can cross the format change.
+/// history (no `utilake.format`) is refused: the format change has been
+/// crossed.
 pub fn published(root: &Path, market: Market) -> Result<BTreeMap<String, History>, FoldError> {
     let mut out = BTreeMap::new();
     let nem = root.join(market.id());
@@ -412,17 +411,10 @@ pub fn published(root: &Path, market: Market) -> Result<BTreeMap<String, History
         let m: TableMetadata =
             serde_json::from_str(&text).map_err(|e| bad(&path, e.to_string()))?;
         if !m.properties.contains_key("utilake.format") {
-            let legacy = dir.join("table.json");
-            let doc: serde_json::Value = std::fs::read_to_string(&legacy)
-                .map_err(|e| e.to_string())
-                .and_then(|t| serde_json::from_str(&t).map_err(|e| e.to_string()))
-                .map_err(|e| bad(&legacy, e))?;
-            let Some(iceberg) = doc.get("iceberg") else {
-                continue;
-            };
-            let h = History::deserialize(iceberg).map_err(|e| bad(&legacy, e.to_string()))?;
-            out.insert(h.table.clone(), h);
-            continue;
+            return Err(bad(
+                &path,
+                "no utilake.format: published before the metadata carried the history".into(),
+            ));
         }
         let p = from_metadata(&m).map_err(|e| bad(&path, e.to_string()))?;
         out.insert(p.history.table.clone(), p.history);

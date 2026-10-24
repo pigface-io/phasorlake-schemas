@@ -204,41 +204,19 @@ fn the_published_history_is_kept_and_a_wider_month_splits() {
     let root = dir.path();
     fold(root, Market::Nem, &cat, false, None).unwrap();
     // Publish it as the export does, beside a directory that publishes
-    // none and a table of format 2, whose history is in its table.json.
+    // none and a table of format 2, which is refused: the format change
+    // has been crossed.
     let text =
         std::fs::read_to_string(history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA")).unwrap();
     let old: History = serde_json::from_str(&text).unwrap();
     publish(root, &old);
     std::fs::create_dir_all(root.join("nem/EMPTY")).unwrap();
     std::fs::write(root.join("nem/README.md"), "x").unwrap();
-    let mut legacy = old.clone();
-    legacy.table = "LEGACY".into();
-    let plain = utilake_iceberg::table::TableMetadata::new("u", "l", &legacy.schemas[0], 0);
+    let plain = utilake_iceberg::table::TableMetadata::new("u", "l", &old.schemas[0], 0);
     let meta = published_path(root, Market::Nem, "LEGACY");
     crate::files::write_atomic(&meta, serde_json::to_string(&plain).unwrap().as_bytes()).unwrap();
-    let err = |root: &Path| published(root, Market::Nem).unwrap_err().to_string();
-    assert!(
-        err(root).contains("LEGACY/table.json cannot be read"),
-        "{}",
-        err(root)
-    );
-    let doc = root.join("nem/LEGACY/table.json");
-    std::fs::write(&doc, "{}").unwrap();
-    assert_eq!(
-        published(root, Market::Nem).unwrap().len(),
-        1,
-        "no iceberg block: no history"
-    );
-    std::fs::write(&doc, r#"{"iceberg": {"table": 1}}"#).unwrap();
-    assert!(
-        err(root).contains("LEGACY/table.json cannot be read"),
-        "{}",
-        err(root)
-    );
-    std::fs::write(&doc, serde_json::json!({"iceberg": &legacy}).to_string()).unwrap();
-    let both = published(root, Market::Nem).unwrap();
-    assert_eq!(both.len(), 2);
-    assert_eq!(both["LEGACY"], legacy);
+    let e = published(root, Market::Nem).unwrap_err().to_string();
+    assert!(e.contains("no utilake.format"), "{e}");
     std::fs::remove_dir_all(root.join("nem/LEGACY")).unwrap();
     assert_eq!(published(root, Market::Nem).unwrap().len(), 1);
     // A September of 12 digits before the point: past decimal(16, 6).

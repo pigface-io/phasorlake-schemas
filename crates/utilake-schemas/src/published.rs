@@ -2,12 +2,10 @@
 //! metadata, and every schema document under each market's directory
 //! (`nem/`, `wem/`, `gas/`), from a git revision or from a directory, so
 //! [`crate::compat`] and [`crate::diff`] can hold one to the other. A
-//! table is keyed by its directory, `{market}/{TABLE}`.
-//!
-//! A revision from before the metadata carried the history (format 2)
-//! published it in the `iceberg` block of `nem/{TABLE}/table.json`; such a
-//! revision is read from there, and marked `legacy`, so a table can be
-//! held across the format change once.
+//! table is keyed by its directory, `{market}/{TABLE}`. A revision from
+//! before the metadata carried the history (format 2) is not read: the
+//! format change has been crossed and every published table carries its
+//! history.
 
 use std::collections::BTreeMap;
 use std::path::Path;
@@ -79,9 +77,6 @@ pub struct Published {
     /// Each market's data version, and why it began; a market absent is
     /// at the first.
     pub baselines: BTreeMap<Market, Baseline>,
-    /// Whether any history was read from a `table.json` of format 2,
-    /// whose schema documents were named by hash.
-    pub legacy: bool,
 }
 
 impl Published {
@@ -129,10 +124,9 @@ fn baseline_of(manifest: &[u8], at: &str) -> Result<BTreeMap<Market, Baseline>, 
 }
 
 /// Where a path under a market's directory falls: a table's metadata, a
-/// format-2 table document, a schema document, or neither.
+/// schema document, or neither.
 enum Kind {
     Metadata,
-    Legacy,
     Schema,
     Other,
 }
@@ -141,7 +135,6 @@ fn kind(path: &str) -> Kind {
     let parts: Vec<&str> = path.split('/').collect();
     match parts.as_slice() {
         [m, _, "metadata", "v1.metadata.json"] if Market::parse(m).is_some() => Kind::Metadata,
-        ["nem", _, "table.json"] => Kind::Legacy,
         [m, _, file]
             if Market::parse(m).is_some()
                 && file.starts_with("schema-")
@@ -158,13 +151,6 @@ fn dir_of(path: &str) -> String {
     path.splitn(3, '/').take(2).collect::<Vec<_>>().join("/")
 }
 
-/// The history a format-2 `table.json` holds in its `iceberg` block.
-fn legacy_history(doc: &[u8]) -> Result<History, String> {
-    let doc: serde_json::Value = serde_json::from_slice(doc).map_err(|e| e.to_string())?;
-    let iceberg = doc.get("iceberg").ok_or_else(|| "no iceberg".to_owned())?;
-    serde_json::from_value(iceberg.clone()).map_err(|e| e.to_string())
-}
-
 impl Published {
     /// From each file's path under the root and its bytes; `at` names
     /// where they came from, for an error.
@@ -174,7 +160,6 @@ impl Published {
     ) -> Result<Self, PublishedError> {
         let mut out = Self::default();
         let mut metadata: BTreeMap<String, (String, TableMetadata)> = BTreeMap::new();
-        let mut legacy: BTreeMap<String, (String, Vec<u8>)> = BTreeMap::new();
         for (path, bytes) in files {
             if path == MANIFEST {
                 out.baselines = baseline_of(&bytes, at)?;
@@ -190,9 +175,6 @@ impl Published {
                         })?;
                     metadata.insert(dir_of(&path), (path, m));
                 }
-                Kind::Legacy => {
-                    legacy.insert(dir_of(&path), (path, bytes));
-                }
                 Kind::Schema => {
                     out.schemas.insert(path, bytes);
                 }
@@ -205,16 +187,13 @@ impl Published {
                 at: at.to_owned(),
                 message,
             };
-            // Metadata from before the format carried the history: the
-            // table.json beside it does.
+            // Metadata from before the format carried the history is not
+            // read: the format change has been crossed.
             if !m.properties.contains_key("utilake.format") {
-                let (lpath, doc) = legacy
-                    .get(&table)
-                    .ok_or_else(|| bad(&path, "no utilake.format, and no table.json".into()))?;
-                let h = legacy_history(doc).map_err(|e| bad(lpath, e))?;
-                out.tables.insert(table, h);
-                out.legacy = true;
-                continue;
+                return Err(bad(
+                    &path,
+                    "no utilake.format: published before the metadata carried the history".into(),
+                ));
             }
             let p = from_metadata(&m).map_err(|e| bad(&path, e.to_string()))?;
             out.tables.insert(table, p.history);
@@ -375,7 +354,6 @@ pub(crate) mod tests {
         );
         assert_eq!(now.schemas.len(), 2);
         assert_eq!(now.baseline(Market::Nem), Baseline::FIRST);
-        assert!(!now.legacy);
         assert_eq!(Published::at(&git, "base").unwrap(), now);
         // The manifest names the data version; one that names none, or
         // is gone, is of the first; one that cannot be read is an error.
@@ -461,38 +439,12 @@ pub(crate) mod tests {
         let e = Published::read(root).unwrap_err();
         assert!(e.to_string().contains("utilake.declared"), "{e}");
 
-        // A table of format 2: the history is in table.json, and the set
-        // is legacy. Without the table.json, it holds no history.
+        // Metadata from before the format carried the history (format 2)
+        // is not read any more.
         m["properties"] = serde_json::json!({});
         std::fs::write(&table, m.to_string()).unwrap();
         let e = Published::read(root).unwrap_err();
-        assert!(
-            e.to_string()
-                .contains("no utilake.format, and no table.json"),
-            "{e}"
-        );
-        let legacy = root.join("nem/DISPATCH_UNIT_SCADA/table.json");
-        std::fs::write(&legacy, "{}").unwrap();
-        let e = Published::read(root).unwrap_err();
-        assert!(
-            e.to_string()
-                .ends_with("table.json (working tree) holds no history: no iceberg"),
-            "{e}"
-        );
-        std::fs::write(&legacy, "[").unwrap();
-        assert!(Published::read(root).is_err());
-        std::fs::write(&legacy, r#"{"iceberg": {}}"#).unwrap();
-        assert!(Published::read(root).is_err());
-        let h = crate::export::tests::sample();
-        std::fs::write(
-            &legacy,
-            serde_json::json!({"iceberg": serde_json::to_value(&h).unwrap()}).to_string(),
-        )
-        .unwrap();
-        let old = Published::read(root).unwrap();
-        assert!(old.legacy);
-        assert_eq!(old.tables["nem/DISPATCH_UNIT_SCADA"], h);
-        std::fs::remove_file(&legacy).unwrap();
+        assert!(e.to_string().contains("no utilake.format"), "{e}");
         std::fs::write(&table, &original).unwrap();
 
         // A directory where the metadata is holds nothing; a document that
