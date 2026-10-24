@@ -1,7 +1,7 @@
 //! The census of a feed's folders: every block of every file under each
 //! root of a feed ([`utilake_plain_decode::Feed`]), nested zips included.
-//! The NEM's report folders (`Reports/ARCHIVE`, `Reports/CURRENT`) are
-//! one feed; the gas markets' (GBB, GSH, STTM, DWGM) and the WEM's
+//! The NEM's report folders (listed under `Reports/ARCHIVE` and
+//! `Reports/CURRENT`, held once under `Reports/`) are one feed; the gas markets' (GBB, GSH, STTM, DWGM) and the WEM's
 //! (datafiles, WEMDE) are others, each read by its decoder: MMS rows,
 //! header-row CSV, or JSON documents.
 //!
@@ -26,12 +26,13 @@
 //! two shapes at once (a new version beside the old), so each shape has
 //! its own run, and a run ends when a CSV holds the table but not the
 //! run's shape. The CSV where anything changed is kept. It is written to
-//! `{root}/evidence/census/reports/{ARCHIVE|CURRENT}/{folder}.toml`.
+//! `{root}/evidence/census/{market}/reports/{folder}.toml`.
 //!
 //! nemweb rewrites some files in place under the same name (most gas
 //! reports under `Reports/CURRENT/`). utilake-mirror keeps the first
 //! version under the file's name and each later one with new data beside
-//! it as `{name}@{listed time}`, each with its sidecar `{path}.json`. A
+//! it as `{name}@{listed time}`, each with its record
+//! `{path}.provenance.json`. A
 //! version is read as its name's kind and month, its blocks counted with
 //! the rest, and the census lists each such file under `[[rewritten]]`
 //! with every version classed against the ones before it. The folder's
@@ -69,8 +70,8 @@ use utilake_plain_decode::names::block_name;
 use utilake_plain_decode::{Format, PlainOptions, peek, sniff};
 use utilake_provenance::{Archive, Provenance, Stamp, archive, layout};
 
-/// The NEM's report feed: `Reports/ARCHIVE` and `Reports/CURRENT`, less
-/// the gas folders.
+/// The NEM's report feed: the folders listed under `Reports/ARCHIVE` and
+/// `Reports/CURRENT`, less the gas folders.
 pub fn nem_reports() -> &'static Feed {
     feed("reports").expect("the NEM reports feed is in the table")
 }

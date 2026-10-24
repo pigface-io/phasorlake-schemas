@@ -103,8 +103,8 @@ enum Cmd {
         jobs: usize,
     },
     /// Record every folder of every root of a market's feeds in
-    /// `{root}/evidence/census/{market}/{feed}/{ROOT}/{folder}.toml` (the
-    /// NEM's report folders under `reports/`).
+    /// `{root}/evidence/census/{market}/{feed}/{folder}.toml` (the NEM's
+    /// report folders under `reports/`), a folder's listings as one.
     Reports {
         /// The directory of the host in the mirror archive:
         /// `…/archive/www.nemweb.com.au`, holding `Reports/`.
@@ -121,7 +121,8 @@ enum Cmd {
         /// control files type the blocks; without it nothing is typed.
         #[arg(long)]
         mmsdm: Option<PathBuf>,
-        /// The utilake-mirror home whose `mirror/journal/` notes each
+        /// The utilake-mirror home whose folder events
+        /// (`state/folders/{host}/{folder}/events.ndjson`) note each
         /// folder's listings, counted for the files rewritten in place.
         #[arg(long, env = "UTILAKE_MIRROR_HOME")]
         mirror: Option<PathBuf>,
