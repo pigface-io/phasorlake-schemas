@@ -230,6 +230,11 @@ pub enum WalkError<E> {
 /// long sequential read while several files are read at once.
 const ZIP_READ_BUFFER: usize = 8 << 20;
 
+/// The smallest chunk: a zip on disk is read in an eighth of its size, at
+/// least this and at most `ZIP_READ_BUFFER`, so a small zip does not cost
+/// a whole chunk of memory and a big one is read in long runs.
+const ZIP_READ_MIN: usize = 256 << 10;
+
 /// A reader of `R` in aligned chunks of one size: a seek costs nothing,
 /// and a read of any length within a chunk reads that chunk from `R` once.
 ///
@@ -242,6 +247,8 @@ const ZIP_READ_BUFFER: usize = 8 << 20;
 struct Chunked<R> {
     inner: R,
     chunk: usize,
+    /// Whether `chunk` is fitted to the file's size on the first load.
+    fit: bool,
     /// Where the next read is from.
     pos: u64,
     /// The offset of `buf` in `inner`.
@@ -253,13 +260,17 @@ struct Chunked<R> {
 
 impl<R: Read + Seek> Chunked<R> {
     fn new(inner: R) -> Self {
-        Self::with_chunk(inner, ZIP_READ_BUFFER)
+        Self {
+            fit: true,
+            ..Self::with_chunk(inner, ZIP_READ_BUFFER)
+        }
     }
 
     fn with_chunk(inner: R, chunk: usize) -> Self {
         Self {
             inner,
             chunk,
+            fit: false,
             pos: 0,
             start: 0,
             buf: Vec::new(),
@@ -267,13 +278,36 @@ impl<R: Read + Seek> Chunked<R> {
         }
     }
 
-    /// Loads the chunk holding `pos`, short at the end of `inner`.
+    /// The length of `inner`, asked for once.
+    fn inner_len(&mut self) -> std::io::Result<u64> {
+        match self.len {
+            Some(len) => Ok(len),
+            None => {
+                let len = self.inner.seek(SeekFrom::End(0))?;
+                self.len = Some(len);
+                Ok(len)
+            }
+        }
+    }
+
+    /// Loads the chunk holding `pos`, short at the end of `inner`. The
+    /// buffer is no longer than what is left of `inner`, so a small file
+    /// costs its own size, not a whole chunk.
     fn load(&mut self) -> std::io::Result<()> {
+        let len = self.inner_len()?;
+        if self.fit {
+            self.fit = false;
+            let eighth = usize::try_from(len / 8).unwrap_or(usize::MAX);
+            self.chunk = eighth.clamp(ZIP_READ_MIN, ZIP_READ_BUFFER);
+        }
         let start = self.pos - self.pos % self.chunk as u64;
+        let left = len.saturating_sub(start);
+        let want = usize::try_from(left).map_or(self.chunk, |n| n.min(self.chunk));
         self.inner.seek(SeekFrom::Start(start))?;
-        self.buf.resize(self.chunk, 0);
+        self.buf.resize(want, 0);
+        self.buf.shrink_to(want);
         let mut got = 0;
-        while got < self.chunk {
+        while got < want {
             let n = self.inner.read(&mut self.buf[got..])?;
             if n == 0 {
                 break;
@@ -309,17 +343,7 @@ impl<R: Read + Seek> Seek for Chunked<R> {
         let (base, delta) = match to {
             SeekFrom::Start(p) => (p, 0),
             SeekFrom::Current(d) => (self.pos, d),
-            SeekFrom::End(d) => {
-                let len = match self.len {
-                    Some(len) => len,
-                    None => {
-                        let len = self.inner.seek(SeekFrom::End(0))?;
-                        self.len = Some(len);
-                        len
-                    }
-                };
-                (len, d)
-            }
+            SeekFrom::End(d) => (self.inner_len()?, d),
         };
         self.pos = base.checked_add_signed(delta).ok_or_else(|| {
             std::io::Error::new(
@@ -852,6 +876,26 @@ mod tests {
         }
     }
 
+    /// A file of zeros of a given length, never held in memory.
+    struct Sized(u64);
+
+    impl Read for Sized {
+        fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+            buf.fill(0);
+            Ok(buf.len())
+        }
+    }
+
+    impl Seek for Sized {
+        fn seek(&mut self, to: SeekFrom) -> std::io::Result<u64> {
+            Ok(match to {
+                SeekFrom::End(d) => self.0.saturating_add_signed(d),
+                SeekFrom::Start(p) => p,
+                SeekFrom::Current(_) => 0,
+            })
+        }
+    }
+
     #[test]
     fn a_zip_is_read_in_chunks_once_however_its_reader_seeks() {
         let dir = tempfile::tempdir().unwrap();
@@ -908,6 +952,20 @@ mod tests {
         assert_eq!(r.seek(SeekFrom::End(10)).unwrap(), len + 10);
         assert_eq!(r.read(&mut buf).unwrap(), 0, "past the end");
         assert_eq!(r.read(&mut []).unwrap(), 0);
+        // A file smaller than a chunk is held at its own size.
+        let mut small = Chunked::new(std::io::Cursor::new(vec![7u8; 1000]));
+        let mut one = [0u8; 1];
+        small.read_exact(&mut one).unwrap();
+        assert!(small.buf.capacity() <= 1000, "{}", small.buf.capacity());
+        assert_eq!(small.chunk, ZIP_READ_MIN);
+        // A big one in an eighth of its size, at most a whole chunk.
+        let mut big = Chunked::new(std::io::Cursor::new(vec![0u8; 4 << 20]));
+        big.read_exact(&mut one).unwrap();
+        assert_eq!(big.chunk, 512 << 10);
+        let mut huge = Chunked::new(Sized(1 << 40));
+        huge.seek(SeekFrom::End(-1)).unwrap();
+        huge.read_exact(&mut one).unwrap();
+        assert_eq!(huge.chunk, ZIP_READ_BUFFER);
         assert_eq!(
             r.seek(SeekFrom::Start(0))
                 .and_then(|_| r.seek(SeekFrom::Current(-1)))
