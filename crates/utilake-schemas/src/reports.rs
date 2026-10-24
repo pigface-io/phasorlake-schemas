@@ -68,10 +68,6 @@ pub use utilake_plain_decode::feeds::{Decoder, Dedupe, Feed, feed, feeds_of};
 use utilake_plain_decode::names::block_name;
 use utilake_plain_decode::{Format, PlainOptions, peek, sniff};
 
-/// The NEM's report roots under `Reports/`, as the NEM reports feed names
-/// them.
-pub const ROOTS: [&str; 2] = ["ARCHIVE", "CURRENT"];
-
 /// The NEM's report feed: `Reports/ARCHIVE` and `Reports/CURRENT`, less
 /// the gas folders.
 pub fn nem_reports() -> &'static Feed {
@@ -92,11 +88,12 @@ pub fn census_sub(feed: &Feed) -> &str {
 /// How far back a report month looks for an MMSDM month's control files.
 const CTL_LOOKBACK_MONTHS: usize = 24;
 
-/// The kind of a file of a feed's root: `reports/archive` or
-/// `reports/current` for the NEM's report folders, else
-/// `{feed}/{label}` (`gbb/current`, `gsh/archive`, `datafiles/datafiles`).
-pub fn kind(feed: &Feed, label: &str) -> String {
-    format!("{}/{}", census_sub(feed), label.to_ascii_lowercase())
+/// The kind of a file of a feed's folders: `reports` for the NEM's
+/// report folders, else the feed's id (`gbb`, `gsh`, `datafiles`). Which
+/// listing a file came from (`CURRENT`, `ARCHIVE`) is in its sidecar's
+/// URL, not in where it is kept.
+pub fn kind(feed: &Feed) -> String {
+    census_sub(feed).to_owned()
 }
 
 /// CSVs in a row that held one table in one shape and version, in one
@@ -156,6 +153,10 @@ pub struct FolderCensus {
     /// Every file nemweb rewrote in place, with each of its versions.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub rewritten: Vec<Rewritten>,
+    /// The listings its files' URLs came from (`ARCHIVE`, `CURRENT`), as
+    /// their sidecars say; none for a host that lists a folder once.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub listings: Vec<String>,
 }
 
 #[allow(clippy::trivially_copy_pass_by_ref)]
@@ -484,6 +485,20 @@ pub(crate) struct Sidecar {
     /// The same as an instant, RFC 3339.
     #[serde(default)]
     listed_modified_at: Option<String>,
+    /// The other places the mirror found the same bytes served.
+    #[serde(default)]
+    pub(crate) also: Vec<Also>,
+}
+
+/// One other place the same bytes are served, as the mirror records it.
+#[derive(Debug, Deserialize)]
+pub(crate) struct Also {
+    /// Where: a URL, or `{zip URL}!{entry}`.
+    pub(crate) url: String,
+    /// How it was found: `same` (the same bytes at another URL) or
+    /// `entry` (an entry of a day's zip).
+    #[serde(default)]
+    pub(crate) how: String,
 }
 
 /// The sidecar of the file at `path`, when it has one that reads. Its
@@ -771,24 +786,19 @@ impl<R: Read> Read for Sha<R> {
 }
 
 /// Where a folder's files are: the feed, the root they are under (as the
-/// feed names it) and the folder's path below the root, `/`-joined and
-/// empty for the root itself.
+/// archive keeps it, [`Feed::local_roots`]) and the folder's path below
+/// the root, `/`-joined and empty for the root itself.
 #[derive(Debug, Clone, Copy)]
 pub struct Where<'a> {
     /// The feed.
     pub feed: &'a Feed,
-    /// The root under the host: `Reports/ARCHIVE`, `Reports/CURRENT/GBB`.
+    /// The root under the host: `Reports`, `Reports/GBB`.
     pub root: &'a str,
     /// The folder below the root.
     pub rel: &'a str,
 }
 
 impl Where<'_> {
-    /// The root's label: `ARCHIVE`, `CURRENT`, `datafiles`.
-    pub fn label(&self) -> &str {
-        Feed::label(self.root)
-    }
-
     /// The folder's path under the host.
     pub fn folder(&self) -> String {
         if self.rel.is_empty() {
@@ -861,6 +871,11 @@ pub fn census_folder(
         // `._` file is what macOS keeps beside a file on some disks.
         if name.starts_with("._") || is_sidecar(file, &names, feed) {
             continue;
+        }
+        if let Some(l) = sidecar(path).and_then(|s| utilake_plain_decode::layout::listing(&s.url))
+            && !g.census.listings.contains(&l)
+        {
+            g.census.listings.push(l);
         }
         let rel_path = format!("{folder}/{name}");
         let outer_month = match feed.decoder {
@@ -1170,15 +1185,14 @@ pub fn folders(dir: &Path, under: &Path) -> Result<BTreeMap<String, Vec<PathBuf>
     Ok(out)
 }
 
-/// Where the census of folder `rel` under root `label` of `feed` is
-/// written: `evidence/census/{market}/{feed}/{label}/{rel}.toml`, with the
-/// NEM's report folders under `reports/` as they were first recorded.
+/// Where the census of folder `rel` of `feed` is written:
+/// `evidence/census/{market}/{feed}/{rel}.toml`, the NEM's report folders
+/// under `reports/`; a feed's root folder is `_root`.
 #[must_use]
-pub fn folder_path(repo: &Path, market: Market, feed: &Feed, label: &str, rel: &str) -> PathBuf {
+pub fn folder_path(repo: &Path, market: Market, feed: &Feed, rel: &str) -> PathBuf {
     let name = if rel.is_empty() { "_root" } else { rel };
     census_dir(repo, market)
         .join(census_sub(feed))
-        .join(label)
         .join(format!("{name}.toml"))
 }
 
@@ -1186,24 +1200,24 @@ pub fn folder_path(repo: &Path, market: Market, feed: &Feed, label: &str, rel: &
 pub fn record_folder(
     repo: &Path,
     market: Market,
-    (feed, label, rel): (&Feed, &str, &str),
+    (feed, rel): (&Feed, &str),
     census: &FolderCensus,
 ) -> Result<(), CensusError> {
     let text = format!(
-        "# Generated by `utilake-schemas reports`: every shape of {}/{label}/{rel}, per month, and what each column held.\n{}",
+        "# Generated by `utilake-schemas reports`: every shape of {}/{rel}, per month, and what each column held.\n{}",
         census_sub(feed),
         toml::to_string(census).expect("a folder census serialises")
     );
-    write_text(&folder_path(repo, market, feed, label, rel), &text)
+    write_text(&folder_path(repo, market, feed, rel), &text)
 }
 
 /// The census of a folder as written, if it was.
 pub fn read_folder(
     repo: &Path,
     market: Market,
-    (feed, label, rel): (&Feed, &str, &str),
+    (feed, rel): (&Feed, &str),
 ) -> Result<Option<FolderCensus>, CensusError> {
-    let path = folder_path(repo, market, feed, label, rel);
+    let path = folder_path(repo, market, feed, rel);
     let Some(text) = read_text(&path)? else {
         return Ok(None);
     };
@@ -1218,7 +1232,7 @@ pub fn read_folder(
 /// One folder's census as taken by [`census_reports`].
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Taken {
-    /// `Reports/{ROOT}/{folder}`.
+    /// `Reports/{folder}`.
     pub folder: String,
     /// Its census.
     pub census: FolderCensus,
@@ -1242,8 +1256,8 @@ pub fn census_reports(
 ) -> Result<Vec<Taken>, CensusError> {
     let mut work = Vec::new();
     for feed in feeds_of(market.id()).filter(|f| only.is_none_or(|o| o == f.id)) {
-        for root in feed.roots {
-            let dir = host.join(root);
+        for root in feed.local_roots() {
+            let dir = host.join(&root);
             if !dir.is_dir() {
                 continue;
             }
@@ -1251,7 +1265,7 @@ pub fn census_reports(
                 if rel.split('/').next().is_some_and(|top| feed.ignores(top)) {
                     continue;
                 }
-                work.push((feed, *root, rel, files));
+                work.push((feed, root.clone(), rel, files));
             }
         }
     }
@@ -1269,7 +1283,7 @@ pub fn census_reports(
         let at = Where { feed, root, rel };
         let journal = journals.map(|j| j.join(feed.host).join(at.folder()).join("changes.ndjson"));
         let census = census_folder(catalog, &mut c, at, files, journal.as_deref(), &spool);
-        record_folder(repo, market, (feed, at.label(), rel), &census)?;
+        record_folder(repo, market, (feed, rel), &census)?;
         Ok(Taken {
             folder: at.folder(),
             census,
@@ -1296,11 +1310,11 @@ mod tests {
 
     /// The folder [`put_version`] writes into, under `Reports/`: a NEM
     /// report folder whose files nemweb rewrites in place.
-    const VIC_GAS: &str = "CURRENT/Mixed";
+    const VIC_GAS: &str = "Mixed";
 
     /// The URL of `file` of [`VIC_GAS`].
     fn vic_gas_url(file: &str) -> String {
-        format!("https://www.nemweb.com.au/Reports/{VIC_GAS}/{file}")
+        format!("https://www.nemweb.com.au/Reports/CURRENT/{VIC_GAS}/{file}")
     }
 
     /// Writes `bytes` as utilake-mirror keeps version `at` (`None`: the
@@ -1534,7 +1548,7 @@ mod tests {
         let cat = scada();
         let mut ctls = CtlSource::new(None);
         // Without a journal, only the files of more than one version.
-        let mixed = at("Reports/CURRENT", "Mixed");
+        let mixed = at("Reports", "Mixed");
         let census = census_folder(&cat, &mut ctls, mixed, &files, None, tmp.path());
         let names: Vec<&str> = census.rewritten.iter().map(|w| w.file.as_str()).collect();
         assert_eq!(names, [bad, day, gone, worse, gas, pdf]);
@@ -1571,16 +1585,10 @@ mod tests {
 
         // Recorded, read back, and taken by the census of the roots.
         let repo = dir.path().join("repo");
-        let here = (nem_reports(), "CURRENT", "Mixed");
+        let here = (nem_reports(), "Mixed");
         record_folder(&repo, Market::Nem, here, &census).unwrap();
-        let text = std::fs::read_to_string(folder_path(
-            &repo,
-            Market::Nem,
-            nem_reports(),
-            "CURRENT",
-            "Mixed",
-        ))
-        .unwrap();
+        let text = std::fs::read_to_string(folder_path(&repo, Market::Nem, nem_reports(), "Mixed"))
+            .unwrap();
         assert!(text.contains("[[rewritten.version]]"), "{text}");
         assert_eq!(
             read_folder(&repo, Market::Nem, here).unwrap().unwrap(),
@@ -1628,13 +1636,9 @@ mod tests {
             "month 13 is not a month"
         );
         assert_eq!(m("PUBLIC_TER_DAILY.zip"), None);
-        assert_eq!(kind(nem_reports(), "ARCHIVE"), "reports/archive");
-        assert_eq!(kind(nem_reports(), "CURRENT"), "reports/current");
-        assert_eq!(kind(feed("gbb").unwrap(), "CURRENT"), "gbb/current");
-        assert_eq!(
-            kind(feed("datafiles").unwrap(), "datafiles"),
-            "datafiles/datafiles"
-        );
+        assert_eq!(kind(nem_reports()), "reports");
+        assert_eq!(kind(feed("gbb").unwrap()), "gbb");
+        assert_eq!(kind(feed("datafiles").unwrap()), "datafiles");
     }
 
     #[test]
@@ -1657,7 +1661,7 @@ mod tests {
         );
         put(&mmsdm, "MMSDM_2026_09/CTL/README.txt", b"x");
         let reports = dir.path().join("Reports");
-        let folder = "ARCHIVE/Dispatch_SCADA";
+        let folder = "Dispatch_SCADA";
         // A day's zip of five-minute zips, each a CSV of three blocks.
         let inner = |stamp: &str, rows: usize| {
             zip_of(&[(
@@ -1743,12 +1747,12 @@ mod tests {
         );
         put(
             &reports,
-            "ARCHIVE/GSH/Benchmark_Price/PUBLIC_GSH_20260801.CSV",
+            "GSH/Benchmark_Price/PUBLIC_GSH_20260801.CSV",
             &three_tables(1),
         );
-        put(&reports, "CURRENT/._Dispatch_SCADA/x.CSV", &three_tables(1));
+        put(&reports, "._Dispatch_SCADA/x.CSV", &three_tables(1));
 
-        let root_dir = reports.join("ARCHIVE");
+        let root_dir = reports.clone();
         let tops = top_folders(&root_dir);
         assert_eq!(tops.len(), 2);
         assert!(top_folders(&dir.path().join("none")).is_empty());
@@ -1758,8 +1762,8 @@ mod tests {
         assert_eq!(gsh.keys().collect::<Vec<_>>(), ["GSH/Benchmark_Price"]);
         assert!(folders(&root_dir, &root_dir.join("none")).is_err());
         assert!(
-            folder_path(Path::new("s"), Market::Nem, nem_reports(), "ARCHIVE", "")
-                .ends_with("reports/ARCHIVE/_root.toml")
+            folder_path(Path::new("s"), Market::Nem, nem_reports(), "")
+                .ends_with("reports/_root.toml")
         );
 
         let tmp = tempfile::tempdir().unwrap();
@@ -1772,7 +1776,7 @@ mod tests {
         let census = census_folder(
             &cat,
             &mut ctls,
-            at("Reports/ARCHIVE", "Dispatch_SCADA"),
+            at("Reports", "Dispatch_SCADA"),
             &all["Dispatch_SCADA"],
             None,
             tmp.path(),
@@ -1849,27 +1853,23 @@ mod tests {
         // Recorded, and read back as it was.
         let repo = dir.path().join("repo");
         let nem = nem_reports();
-        let scada_at = (nem, "ARCHIVE", "Dispatch_SCADA");
+        let scada_at = (nem, "Dispatch_SCADA");
         record_folder(&repo, Market::Nem, scada_at, &census).unwrap();
         assert_eq!(
             read_folder(&repo, Market::Nem, scada_at).unwrap().unwrap(),
             census
         );
         assert_eq!(
-            read_folder(&repo, Market::Nem, (nem, "ARCHIVE", "None")).unwrap(),
+            read_folder(&repo, Market::Nem, (nem, "None")).unwrap(),
             None
         );
-        std::fs::write(
-            folder_path(&repo, Market::Nem, nem, "ARCHIVE", "Broken"),
-            "files = [",
-        )
-        .unwrap();
-        let e = read_folder(&repo, Market::Nem, (nem, "ARCHIVE", "Broken"))
+        std::fs::write(folder_path(&repo, Market::Nem, nem, "Broken"), "files = [").unwrap();
+        let e = read_folder(&repo, Market::Nem, (nem, "Broken"))
             .unwrap_err()
             .to_string();
         assert!(e.contains("Broken.toml cannot be read"), "{e}");
-        std::fs::create_dir_all(folder_path(&repo, Market::Nem, nem, "ARCHIVE", "Dir")).unwrap();
-        assert!(read_folder(&repo, Market::Nem, (nem, "ARCHIVE", "Dir")).is_err());
+        std::fs::create_dir_all(folder_path(&repo, Market::Nem, nem, "Dir")).unwrap();
+        assert!(read_folder(&repo, Market::Nem, (nem, "Dir")).is_err());
 
         // Every folder of the NEM's roots at once, each recorded: the gas
         // folder is the gas feeds', not the NEM's.
@@ -1884,7 +1884,7 @@ mod tests {
         )
         .unwrap();
         let names: Vec<&str> = taken.iter().map(|t| t.folder.as_str()).collect();
-        assert_eq!(names, ["Reports/ARCHIVE/Dispatch_SCADA"]);
+        assert_eq!(names, ["Reports/Dispatch_SCADA"]);
         assert_eq!(taken[0].census, census);
         let gsh = feed("gsh").unwrap();
         let taken = census_reports(
@@ -1898,8 +1898,8 @@ mod tests {
         )
         .unwrap();
         let names: Vec<&str> = taken.iter().map(|t| t.folder.as_str()).collect();
-        assert_eq!(names, ["Reports/ARCHIVE/GSH/Benchmark_Price"]);
-        assert!(folder_path(&repo, Market::Gas, gsh, "ARCHIVE", "Benchmark_Price").is_file());
+        assert_eq!(names, ["Reports/GSH/Benchmark_Price"]);
+        assert!(folder_path(&repo, Market::Gas, gsh, "Benchmark_Price").is_file());
         assert!(
             census_reports(
                 &cat,
@@ -1954,7 +1954,7 @@ mod tests {
         let tmp = tempfile::tempdir().unwrap();
         let host = dir.path();
         let gbb = feed("gbb").unwrap();
-        let root = "Reports/CURRENT/GBB";
+        let root = "Reports/GBB";
         let f = |name: &str| format!("{root}/{name}");
         // A cumulative file: its first version, and a later one that adds
         // a row and revises another. The header is not the column names.
@@ -2022,7 +2022,6 @@ mod tests {
             rel: "",
         };
         assert_eq!(here.folder(), root);
-        assert_eq!(here.label(), "CURRENT");
         let census = census_folder(&scada(), &mut ctls, here, &files, None, tmp.path());
         let unread: Vec<(&str, &str)> = census
             .unread
@@ -2103,18 +2102,17 @@ mod tests {
         assert_eq!(basins.block.rows_repeated, 0);
         // Recorded under the feed, read back.
         let repo = dir.path().join("repo");
-        let at = (gbb, "CURRENT", "");
+        let at = (gbb, "");
         record_folder(&repo, Market::Gas, at, &census).unwrap();
         assert_eq!(
             read_folder(&repo, Market::Gas, at).unwrap().unwrap(),
             census
         );
         assert!(
-            folder_path(&repo, Market::Gas, gbb, "CURRENT", "")
-                .ends_with("evidence/census/gas/gbb/CURRENT/_root.toml")
+            folder_path(&repo, Market::Gas, gbb, "")
+                .ends_with("evidence/census/gas/gbb/_root.toml")
         );
-        let text =
-            std::fs::read_to_string(folder_path(&repo, Market::Gas, gbb, "CURRENT", "")).unwrap();
+        let text = std::fs::read_to_string(folder_path(&repo, Market::Gas, gbb, "")).unwrap();
         assert!(text.contains("rows_repeated = 1"), "{text}");
         assert!(text.contains("headers = ["), "{text}");
     }
@@ -2125,7 +2123,7 @@ mod tests {
         let tmp = tempfile::tempdir().unwrap();
         let host = dir.path();
         let sttm = feed("sttm").unwrap();
-        let root = "Reports/CURRENT/STTM";
+        let root = "Reports/STTM";
         let f = |name: &str| format!("{root}/{name}");
         let entry = "int651_v1_ex_ante_market_price_rpt_1~20261001113227.csv";
         let rows1 = "gas_date,hub_identifier,ex_ante_market_price,report_datetime\n02 Oct 2026,ADL,11.0944,01 Oct 2026 11:32:27\n";
@@ -2257,7 +2255,7 @@ mod tests {
         assert_eq!(run.block.time.as_deref(), Some("TRADING_DAY"));
         assert_eq!(run.block.first.as_deref(), Some("2026/10/21"));
         assert_eq!(run.block.last.as_deref(), Some("2026/10/22"));
-        assert_eq!(kind(wemde, here.label()), "wemde/wemde");
+        assert_eq!(kind(wemde), "wemde");
     }
 
     #[test]
@@ -2266,7 +2264,7 @@ mod tests {
         let tmp = tempfile::tempdir().unwrap();
         let host = dir.path();
         let gsh = feed("gsh").unwrap();
-        let root = "Reports/CURRENT/GSH";
+        let root = "Reports/GSH";
         let rel = "Benchmark_Price";
         let f = |name: &str| format!("{root}/{rel}/{name}");
         put(
@@ -2299,7 +2297,59 @@ mod tests {
             scada[0].block.ctl, "???",
             "no control file types a gas table"
         );
-        assert_eq!(kind(gsh, here.label()), "gsh/current");
+        assert_eq!(kind(gsh), "gsh");
+    }
+
+    /// The two listings of one report folder are one local folder: a
+    /// 5-minute file kept from `CURRENT` and the day's zip from `ARCHIVE`
+    /// that holds it are read once, and the folder knows both listings.
+    #[test]
+    fn a_five_minute_file_and_the_days_zip_holding_it_count_once() {
+        let dir = tempfile::tempdir().unwrap();
+        let reports = dir.path().join("Reports");
+        let five = "PUBLIC_DISPATCHSCADA_202610190005_0000000001.zip";
+        let inner = zip_of(&[(
+            "PUBLIC_DISPATCHSCADA_202610190005_0000000001.CSV",
+            &three_tables(2),
+        )]);
+        let day = zip_of(&[(five, &inner)]);
+        let side = |listing: &str, name: &str, size: usize| {
+            format!(
+                r#"{{"url":"https://www.nemweb.com.au/Reports/{listing}/Dispatch_SCADA/{name}","size":{size},"sha256":"x","fetched_at":"2026-10-21T09:00:00Z","tool":"t"}}"#
+            )
+        };
+        put(&reports, &format!("Dispatch_SCADA/{five}"), &inner);
+        put(
+            &reports,
+            &format!("Dispatch_SCADA/{five}.json"),
+            side("CURRENT", five, inner.len()).as_bytes(),
+        );
+        let daily = "PUBLIC_DISPATCHSCADA_20261019.zip";
+        put(&reports, &format!("Dispatch_SCADA/{daily}"), &day);
+        put(
+            &reports,
+            &format!("Dispatch_SCADA/{daily}.json"),
+            side("ARCHIVE", daily, day.len()).as_bytes(),
+        );
+        put(&reports, "Dispatch_SCADA/._x.zip", b"\0\x05\x16\x07");
+        let all = folders(&reports, &reports).unwrap();
+        let tmp = tempfile::tempdir().unwrap();
+        let census = census_folder(
+            &scada(),
+            &mut CtlSource::new(None),
+            at("Reports", "Dispatch_SCADA"),
+            &all["Dispatch_SCADA"],
+            None,
+            tmp.path(),
+        );
+        assert_eq!(
+            census.files, 2,
+            "the zip and the day's zip; `._x.zip` is no file"
+        );
+        assert_eq!((census.csvs, census.repeated), (1, 1), "read once");
+        let mut listings = census.listings.clone();
+        listings.sort();
+        assert_eq!(listings, ["ARCHIVE", "CURRENT"]);
     }
 
     #[test]
@@ -2382,7 +2432,7 @@ mod tests {
         let census = census_folder(
             &scada(),
             &mut ctls,
-            at("Reports/ARCHIVE", "X"),
+            at("Reports", "X"),
             &files,
             None,
             dir.path(),

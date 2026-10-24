@@ -39,7 +39,7 @@ use crate::fold::{Baseline, FoldError, histories_dir, recorded_folders};
 use crate::models::{Model, ModelError, ModelTable, by_first_seen, read_models};
 use crate::reports::read_folder;
 use utilake_iceberg::Market;
-use utilake_plain_decode::feeds::{Feed, feeds_of};
+use utilake_plain_decode::feeds::feeds_of;
 
 pub mod schema;
 mod write;
@@ -574,15 +574,16 @@ fn folders(root: &Path, market: Market) -> Result<Vec<Value>, ExportError> {
     type Key = ([String; 2], u16);
     let mut out = Vec::new();
     for feed in feeds_of(market.id()) {
-        for feed_root in feed.roots {
-            let label = Feed::label(feed_root);
+        {
+            let feed_root = feed.local_roots().into_iter().next().unwrap_or_default();
+            let feed_root = feed_root.as_str();
             // The root's own census (`_root`, an empty name) first, then
             // its sub-folders by name.
-            let mut rels = recorded_folders(root, market, (feed, label))?;
+            let mut rels = recorded_folders(root, market, feed)?;
             rels.sort();
             for rel in rels {
                 // Listed, so recorded: an empty census if it has gone since.
-                let census = read_folder(root, market, (feed, label, &rel))?.unwrap_or_default();
+                let census = read_folder(root, market, (feed, &rel))?.unwrap_or_default();
                 let mut blocks: BTreeMap<Key, (String, String, u64)> = BTreeMap::new();
                 for t in &census.blocks {
                     let key = (
@@ -608,9 +609,9 @@ fn folders(root: &Path, market: Market) -> Result<Vec<Value>, ExportError> {
                 };
                 out.push(json!({
                     "feed": feed.id,
-                    "label": label,
                     "root": feed_root,
                     "folder": folder,
+                    "listings": census.listings,
                     "blocks": blocks
                         .into_iter()
                         .map(|((report, version), (first, last, months))| {

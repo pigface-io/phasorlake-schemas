@@ -246,14 +246,14 @@ pub fn recorded_months(root: &Path, market: Market) -> Result<Vec<YearMonth>, Ce
     Ok(months)
 }
 
-/// The folders under root `label` of `feed` whose census was recorded,
-/// as [`crate::reports::folder_path`] names them.
+/// The folders of `feed` whose census was recorded, as
+/// [`crate::reports::folder_path`] names them.
 pub fn recorded_folders(
     repo: &Path,
     market: Market,
-    (feed, label): (&Feed, &str),
+    feed: &Feed,
 ) -> Result<Vec<String>, CensusError> {
-    let dir = census_dir(repo, market).join(census_sub(feed)).join(label);
+    let dir = census_dir(repo, market).join(census_sub(feed));
     if !dir.is_dir() {
         return Ok(Vec::new());
     }
@@ -285,19 +285,17 @@ pub fn observe(
             }
         }
     }
-    for (feed, feed_root) in
-        feeds_of(market.id()).flat_map(|f| f.roots.iter().map(move |r| (f, *r)))
-    {
-        let label = Feed::label(feed_root);
-        for rel in recorded_folders(root, market, (feed, label))? {
-            let census = read_folder(root, market, (feed, label, &rel))?.unwrap_or_default();
+    for feed in feeds_of(market.id()) {
+        let feed_root = feed.local_roots().into_iter().next().unwrap_or_default();
+        for rel in recorded_folders(root, market, feed)? {
+            let census = read_folder(root, market, (feed, &rel))?.unwrap_or_default();
             // A folder's files are not hashed one by one: a run's marks
             // name its first and last file, with theirs.
             let file = FileRecord {
                 source: format!("{feed_root}/{rel}"),
                 sha256: String::new(),
                 size: 0,
-                kind: kind(feed, label),
+                kind: kind(feed),
                 bad_rows: 0,
                 footer_mismatches: 0,
                 block: Vec::new(),

@@ -49,18 +49,28 @@ taken from a local mirror archive instead (nemweb as laid out under
 `sources/` written by `sources --archive DIR` (`just sources DIR`): one row
 per file every census under `evidence/census/` records, report folders
 included, with the URL and `Last-Modified` its sidecar gives and the
-SHA-256 and size the census gives. A file without a sidecar, or whose
+SHA-256 and size the census gives, and, in a month where any file has
+one, a fifth column `archived_in`: the day's zip and entry the mirror
+found the same bytes in (`{zip URL}!{entry}`), where they are still
+served once AEMO stops listing the URL. A file without a sidecar, or whose
 sidecar disagrees with the census, is named, every one, and nothing is
 written; `--check` lists each sources file that would change. The
 publication time is held in `sources/` alone: no census, history or
 document under `nem/` depends on it.
 `reports` reads a market's feeds from the host directory of a mirror
-archive (`…/archive/www.nemweb.com.au`, `…/archive/data.wa.aemo.com.au`):
-the NEM's `Reports/ARCHIVE` and `Reports/CURRENT` (less the gas folders),
-the gas feeds `gsh` (MMS rows under `Reports/{ARCHIVE,CURRENT}/GSH`),
-`gbb`, `sttm` and `dwgm` (header-row CSVs under `Reports/CURRENT/{GBB,
-STTM,VicGas}`), and the WEM's `datafiles` (header-row CSVs) and `wemde`
-(JSON documents, one block per array). A plain file's block is named by
+archive (`…/archive/www.nemweb.com.au`, `…/archive/data.wa.aemo.com.au`),
+kept one local folder per report folder: AEMO lists a folder's files
+under `Reports/CURRENT/` for a few days and the day's zip of them under
+`Reports/ARCHIVE/`, and the archive keeps both at `Reports/{folder}/`
+(`utilake_plain_decode::layout`), the listing in each sidecar's URL. So a
+5-minute file and the day's zip holding it are one folder, and a CSV read
+in both counts once (`repeated`). The feeds: the NEM's `Reports` (less the
+gas folders), the gas feeds `gsh` (MMS rows under `Reports/GSH`), `gbb`,
+`sttm` and `dwgm` (header-row CSVs under `Reports/{GBB,STTM,VicGas}`), and
+the WEM's `datafiles` (header-row CSVs) and `wemde` (JSON documents, one
+block per array). A folder's census is
+`evidence/census/{market}/{feed}/{folder}.toml` (the NEM's feed is
+`reports`) and lists the listings its files came from. A plain file's block is named by
 its path (`crates/utilake-plain-decode`: the family is the feed, the name
 the file's stem, the version its `_vN`), its columns by their headers,
 every date rewritten into the MMS form before it is read, and `true` and
@@ -166,7 +176,12 @@ file resolves to the last schema whose first release is at or before the
 file's, else the first); `{market}/folders.json` says which report folder of
 which feed carried each report pair and version, and over which releases,
 so a reader fetching an interval of a table from the report folders rather
-than the monthly archive knows where to look. All three are derived at export;
+than the monthly archive knows where to look: each folder is `{feed, root,
+folder, listings, blocks}`, `root` and `folder` as the archive keeps them
+(`Reports`, `Dispatch_SCADA`) and `listings` the ones AEMO showed its files
+under (`ARCHIVE`, `CURRENT`), so a reader lists
+`{root}/{listing}/{folder}/` on the host
+(`utilake_plain_decode::layout::listed_path`). All three are derived at export;
 nothing in them is not in it.
 
 What the metadata means, beyond Iceberg:
@@ -176,9 +191,10 @@ What the metadata means, beyond Iceberg:
   its time is the start of the month the run's first file was released
   in, so snapshots rise in release order; its manifest list is empty.
   Kinds are `dvd` and `archive` (AEMO's monthly archive; `#all` for a
-  file of every forecast run), `other`, `reports/archive` and
-  `reports/current` (the NEM's report folders), and `{feed}/{root}` for
-  every other feed (`gbb/current`, `gsh/archive`, `datafiles/datafiles`). What changed at a run's start
+  file of every forecast run), `other`, `reports` (the NEM's report
+  folders) and the feed's id for every other feed (`gbb`, `gsh`,
+  `datafiles`); revisions folded before the report folders were held once
+  name `reports/archive`, `reports/current` and `{feed}/{root}`. What changed at a run's start
   and the schema updates from the run before are not stored: they follow
   from the snapshots in order, and `utilake_iceberg::history::derive`
   computes them as the fold did.

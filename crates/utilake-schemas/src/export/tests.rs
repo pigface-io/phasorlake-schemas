@@ -862,7 +862,7 @@ fn another_market_is_published_beside_the_nem_with_its_words_and_headers() {
     // A folder census of the GBB root and of one of its sub-folders: each
     // folder with the blocks it carried, their versions and releases.
     put(
-        "evidence/census/gas/gbb/CURRENT/_root.toml",
+        "evidence/census/gas/gbb/_root.toml",
         &format!(
             "{}{}{}{}",
             FOLDER_HEAD,
@@ -872,9 +872,9 @@ fn another_market_is_published_beside_the_nem_with_its_words_and_headers() {
         ),
     );
     put(
-        "evidence/census/gas/gbb/CURRENT/ForecastUtilisation.toml",
+        "evidence/census/gas/gbb/ForecastUtilisation.toml",
         &format!(
-            "{}{}{}",
+            "listings = [\"CURRENT\", \"ARCHIVE\"]\n{}{}{}",
             FOLDER_HEAD,
             block("FORECAST_UTILISATION", 2, "2026-10"),
             block("FORECAST_UTILISATION", 1, "2026-08")
@@ -886,10 +886,11 @@ fn another_market_is_published_beside_the_nem_with_its_words_and_headers() {
     assert_eq!(
         f["folders"],
         json!([
-            {"feed": "gbb", "label": "CURRENT", "root": "Reports/CURRENT/GBB", "folder": "GBB",
+            {"feed": "gbb", "root": "Reports/GBB", "folder": "GBB", "listings": [],
              "blocks": [{"report": ["GBB", "ACTUAL_FLOW_STORAGE"], "version": 1,
                          "first-release": "2026-08", "last-release": "2026-10", "months": 3}]},
-            {"feed": "gbb", "label": "CURRENT", "root": "Reports/CURRENT/GBB", "folder": "ForecastUtilisation",
+            {"feed": "gbb", "root": "Reports/GBB", "folder": "ForecastUtilisation",
+             "listings": ["CURRENT", "ARCHIVE"],
              "blocks": [{"report": ["GBB", "FORECAST_UTILISATION"], "version": 1,
                          "first-release": "2026-08", "last-release": "2026-08", "months": 1},
                         {"report": ["GBB", "FORECAST_UTILISATION"], "version": 2,
@@ -898,16 +899,13 @@ fn another_market_is_published_beside_the_nem_with_its_words_and_headers() {
     );
     assert!(read(root, "manifest.json")["sha256"]["gas/folders.json"].is_string());
     // A folder census that does not read stops the export.
-    put(
-        "evidence/census/gas/gbb/CURRENT/_root.toml",
-        "files = 'x'\n",
-    );
+    put("evidence/census/gas/gbb/_root.toml", "files = 'x'\n");
     assert!(matches!(
         Export::load(root, DEFAULT_BASE_URL),
         Err(ExportError::Census(_))
     ));
     put(
-        "evidence/census/gas/gbb/CURRENT/_root.toml",
+        "evidence/census/gas/gbb/_root.toml",
         &format!(
             "{}{}",
             FOLDER_HEAD,

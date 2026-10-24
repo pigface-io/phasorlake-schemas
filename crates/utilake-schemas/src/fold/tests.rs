@@ -111,17 +111,11 @@ fn repo() -> (tempfile::TempDir, Catalog) {
         blocks: vec![tally(csv)],
         ..FolderCensus::default()
     };
+    record_folder(root, Market::Nem, (nem_reports(), ""), &folder("ROOT")).unwrap();
     record_folder(
         root,
         Market::Nem,
-        (nem_reports(), "ARCHIVE", ""),
-        &folder("ROOT"),
-    )
-    .unwrap();
-    record_folder(
-        root,
-        Market::Nem,
-        (nem_reports(), "ARCHIVE", "Dispatch_SCADA/2026"),
+        (nem_reports(), "Dispatch_SCADA/2026"),
         &folder("NESTED"),
     )
     .unwrap();
@@ -183,7 +177,7 @@ fn every_census_folds_into_one_file_per_table() {
     // carry no SHA-256.
     let run = &h.runs[0];
     assert_eq!((run.files, run.rows), (10, 12));
-    assert_eq!(run.kinds, ["dvd", "reports/archive"]);
+    assert_eq!(run.kinds, ["dvd", "reports"]);
     assert_eq!(run.from.file, "SCADA_2026-07.CSV");
     assert_eq!(run.from.release, "2026-07");
     assert_eq!(
@@ -432,7 +426,7 @@ fn another_market_folds_in_its_own_clock_with_its_headers() {
     record_folder(
         root,
         Market::Gas,
-        (crate::reports::feed("gbb").unwrap(), "CURRENT", ""),
+        (crate::reports::feed("gbb").unwrap(), ""),
         &gbb,
     )
     .unwrap();
@@ -452,7 +446,7 @@ fn another_market_folds_in_its_own_clock_with_its_headers() {
     )
     .unwrap();
     let run = &h.runs[0];
-    assert_eq!(run.kinds, ["gbb/current"]);
+    assert_eq!(run.kinds, ["gbb"]);
     assert_eq!((run.files, run.rows), (2, 4));
     assert_eq!(run.from.file, "F.zip");
     assert_eq!(run.to.file, "F.zip@20261021T221100+1000");
@@ -485,11 +479,7 @@ fn another_market_folds_in_its_own_clock_with_its_headers() {
     record_folder(
         root,
         Market::Wem,
-        (
-            crate::reports::feed("datafiles").unwrap(),
-            "datafiles",
-            "facility-scada",
-        ),
+        (crate::reports::feed("datafiles").unwrap(), "facility-scada"),
         &wem,
     )
     .unwrap();
@@ -499,7 +489,7 @@ fn another_market_folds_in_its_own_clock_with_its_headers() {
         &std::fs::read(history_path(root, Market::Wem, "WEM_FACILITY_SCADA")).unwrap(),
     )
     .unwrap();
-    assert_eq!(h.runs[0].kinds, ["datafiles/datafiles"]);
+    assert_eq!(h.runs[0].kinds, ["datafiles"]);
     assert_eq!(
         h.runs[0].from.data_time.as_deref(),
         Some("2026-09-20T00:00:00+08:00")
@@ -515,12 +505,16 @@ fn another_market_folds_in_its_own_clock_with_its_headers() {
 #[test]
 fn reports_folders_are_found_below_their_root() {
     let (dir, _) = repo();
-    let found = recorded_folders(dir.path(), Market::Nem, (nem_reports(), "ARCHIVE")).unwrap();
+    let found = recorded_folders(dir.path(), Market::Nem, nem_reports()).unwrap();
     assert_eq!(found, ["Dispatch_SCADA/2026", ""], "by path");
     assert!(
-        recorded_folders(dir.path(), Market::Nem, (nem_reports(), "CURRENT"))
-            .unwrap()
-            .is_empty()
+        recorded_folders(
+            dir.path(),
+            Market::Gas,
+            crate::reports::feed("gbb").unwrap()
+        )
+        .unwrap()
+        .is_empty()
     );
     assert!(
         recorded_months(&dir.path().join("none"), Market::Nem)

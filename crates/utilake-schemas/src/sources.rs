@@ -130,10 +130,16 @@ fn vouch(file: &str, path: &Path, sha256: &str, size: Option<u64>) -> Result<Fou
     }
     let month = month_of(sc.last_modified_at.as_deref().unwrap_or(&sc.fetched_at));
     let published = sc.last_modified.filter(|t| !t.is_empty());
+    let archived_in = sc
+        .also
+        .iter()
+        .find(|a| a.how == "entry")
+        .map(|a| a.url.clone());
     let source = Source {
         sha256: sha256.to_owned(),
         size: sc.size,
         last_modified: published.or(sc.last_modified_at),
+        archived_in,
     };
     Ok((sc.url, source, month))
 }
@@ -245,8 +251,7 @@ fn folder_rows(
         format!("{feed_root}/{rel}")
     };
     let label = |name: &str| format!("{folder}/{name}");
-    let census =
-        read_folder(root, market, (feed, Feed::label(feed_root), rel))?.unwrap_or_default();
+    let census = read_folder(root, market, (feed, rel))?.unwrap_or_default();
     let mut named: Vec<(&str, &str)> = Vec::new();
     for t in &census.blocks {
         named.push((&t.first_file, &t.first_sha256));
@@ -294,14 +299,13 @@ pub fn collect(
     let mut done = crate::pool::map(jobs, &months, |_, &m| month_rows((root, market), &host, m));
     let mut folders = Vec::new();
     for feed in feeds_of(market.id()) {
-        for feed_root in feed.roots {
-            for rel in recorded_folders(root, market, (feed, Feed::label(feed_root)))? {
-                folders.push((feed, *feed_root, rel));
-            }
+        let feed_root = feed.local_roots().into_iter().next().unwrap_or_default();
+        for rel in recorded_folders(root, market, feed)? {
+            folders.push((feed, feed_root.clone(), rel));
         }
     }
     done.extend(crate::pool::map(jobs, &folders, |_, (f, r, rel)| {
-        folder_rows((root, market), archive, (f, r, rel.as_str()))
+        folder_rows((root, market), archive, (f, r.as_str(), rel.as_str()))
     }));
     for r in done {
         let (rows, bad) = r?;

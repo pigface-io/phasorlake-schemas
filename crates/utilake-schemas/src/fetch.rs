@@ -493,6 +493,10 @@ pub struct Source {
     pub size: u64,
     /// The `Last-Modified` the server sent, as sent.
     pub last_modified: Option<String>,
+    /// Where the same bytes are still served once the URL is no longer
+    /// listed: the day's zip and the entry they are, `{zip URL}!{entry}`,
+    /// when the mirror found them there.
+    pub archived_in: Option<String>,
 }
 
 /// The sources file of `month`: `sources/{market}/{YYYY-MM}.tsv`.
@@ -520,18 +524,28 @@ pub fn read_sources(path: &Path) -> Result<BTreeMap<String, Source>, FetchError>
     for (n, line) in text.lines().enumerate().skip(1) {
         let f: Vec<&str> = line.split('\t').collect();
         let size = f.get(2).and_then(|s| s.parse().ok());
-        let (Some(size), [url, sha256, _, last]) = (size, f.as_slice()) else {
+        // A file written before `archived_in` was kept has four columns.
+        let (Some(size), [url, sha256, _, last, rest @ ..]) = (size, f.as_slice()) else {
             return Err(bad(format!(
-                "line {} is not a URL, sha256, size and Last-Modified separated by tabs",
+                "line {} is not a URL, sha256, size, Last-Modified and archived-in separated by tabs",
                 n + 1
             )));
         };
+        let in_zip = match rest {
+            [] => "",
+            [a] => a,
+            _ => {
+                return Err(bad(format!("line {} has more than five columns", n + 1)));
+            }
+        };
         let last_modified = (!last.is_empty()).then(|| (*last).to_owned());
+        let archived_in = (!in_zip.is_empty()).then(|| in_zip.to_owned());
         let sha256 = (*sha256).to_owned();
         let s = Source {
             sha256,
             size,
             last_modified,
+            archived_in,
         };
         out.insert((*url).to_owned(), s);
     }
@@ -542,10 +556,21 @@ pub fn read_sources(path: &Path) -> Result<BTreeMap<String, Source>, FetchError>
 #[must_use]
 pub fn sources_text(sources: &BTreeMap<String, Source>) -> String {
     use std::fmt::Write as _;
-    let mut text = format!("{SOURCES_HEADER}\n");
+    // `archived_in` is a fifth column only in a file where some row has
+    // one: the monthly archive's files are listed as they always were.
+    let fifth = sources.values().any(|s| s.archived_in.is_some());
+    let mut text = if fifth {
+        format!("{SOURCES_HEADER}\tarchived_in\n")
+    } else {
+        format!("{SOURCES_HEADER}\n")
+    };
     for (url, s) in sources {
         let last = s.last_modified.as_deref().unwrap_or_default();
-        let _ = writeln!(text, "{url}\t{}\t{}\t{last}", s.sha256, s.size);
+        let _ = write!(text, "{url}\t{}\t{}\t{last}", s.sha256, s.size);
+        if fifth {
+            let _ = write!(text, "\t{}", s.archived_in.as_deref().unwrap_or_default());
+        }
+        text.push('\n');
     }
     text
 }
@@ -602,6 +627,7 @@ fn download(p: &mut Polite<'_>, url: &str, path: &Path) -> Result<Source, FetchE
             sha256: crate::files::hex(&tee.hash.finalize()),
             size: tee.len,
             last_modified: r.last_modified,
+            archived_in: None,
         })
     })
 }
@@ -657,6 +683,7 @@ pub fn fetch_month(
                 sha256,
                 size,
                 last_modified: None,
+                archived_in: None,
             };
             sources.insert(f.url.clone(), s);
         } else {

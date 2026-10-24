@@ -191,9 +191,15 @@ fn dataset_path<'a>(path: &'a str, feed: &Feed) -> Option<&'a str> {
 /// `path` relative to the feed root it sits under.
 fn under_root<'a>(path: &'a str, feed: &Feed) -> Option<&'a str> {
     let path = path.trim_start_matches('/');
-    feed.roots.iter().find_map(|root| {
-        let root = root.trim_matches('/');
-        path.strip_prefix(root)
+    // A root as AEMO lists it, else as the archive keeps it.
+    let roots = feed
+        .roots
+        .iter()
+        .map(|r| (*r).to_owned())
+        .chain(feed.local_roots());
+    roots.into_iter().find_map(|root| {
+        let root = root.trim_matches('/').to_owned();
+        path.strip_prefix(root.as_str())
             .and_then(|r| r.strip_prefix('/'))
             .or_else(|| path.split_once(&format!("{root}/")).map(|(_, r)| r))
     })

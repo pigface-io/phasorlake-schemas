@@ -117,18 +117,19 @@ impl Feed {
         }
     }
 
-    /// The label of one of this feed's roots: `ARCHIVE` or `CURRENT` when
-    /// the root is under one of nemweb's report roots, else the root's
-    /// last folder (`datafiles`, `wemde`, `market-data`).
-    pub fn label(root: &str) -> &str {
-        let segments: Vec<&str> = root.split('/').filter(|s| !s.is_empty()).collect();
-        segments
-            .iter()
-            .rev()
-            .find(|s| s.eq_ignore_ascii_case("ARCHIVE") || s.eq_ignore_ascii_case("CURRENT"))
-            .or(segments.last())
-            .copied()
-            .unwrap_or(root)
+    /// The feed's roots as the archive keeps them ([`crate::layout`]): a
+    /// root under two listings is one folder (`Reports/ARCHIVE` and
+    /// `Reports/CURRENT` are `Reports`), in table order.
+    #[must_use]
+    pub fn local_roots(&self) -> Vec<String> {
+        let mut out: Vec<String> = Vec::new();
+        for r in self.roots {
+            let local = crate::layout::local_root(self.host, r);
+            if !out.contains(&local) {
+                out.push(local);
+            }
+        }
+        out
     }
 
     /// Whether `folder` (one path segment) is a folder this feed skips.
@@ -364,12 +365,15 @@ mod tests {
     }
 
     #[test]
-    fn labels() {
-        assert_eq!(Feed::label("Reports/ARCHIVE/GSH"), "ARCHIVE");
-        assert_eq!(Feed::label("Reports/CURRENT"), "CURRENT");
-        assert_eq!(Feed::label("public/public-data/datafiles"), "datafiles");
-        assert_eq!(Feed::label("public/market-data/wemde/"), "wemde");
-        assert_eq!(Feed::label(""), "");
+    fn local_roots_merge_the_listings() {
+        assert_eq!(feed("reports").unwrap().local_roots(), ["Reports"]);
+        assert_eq!(feed("gsh").unwrap().local_roots(), ["Reports/GSH"]);
+        assert_eq!(feed("gbb").unwrap().local_roots(), ["Reports/GBB"]);
+        assert_eq!(feed("dwgm").unwrap().local_roots(), ["Reports/VicGas"]);
+        assert_eq!(
+            feed("wemde").unwrap().local_roots(),
+            ["public/market-data/wemde"]
+        );
     }
 
     #[test]

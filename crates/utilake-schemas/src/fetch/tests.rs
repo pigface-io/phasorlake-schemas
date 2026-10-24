@@ -493,8 +493,9 @@ fn what_cannot_be_fetched_or_written_is_an_error_naming_it() {
     .unwrap();
     let e = fetch(&mut s, &out, &repo);
     assert!(
-        e.to_string()
-            .ends_with("line 2 is not a URL, sha256, size and Last-Modified separated by tabs"),
+        e.to_string().ends_with(
+            "line 2 is not a URL, sha256, size, Last-Modified and archived-in separated by tabs"
+        ),
         "{e}"
     );
     std::fs::write(&tsv, "url\nhttps://h/x\tab\t1\n").unwrap();
@@ -502,6 +503,30 @@ fn what_cannot_be_fetched_or_written_is_an_error_naming_it() {
         read_sources(&tsv),
         Err(FetchError::Sources { .. })
     ));
+    // The fifth column: where the bytes are still served, written only in
+    // a file where some row has it.
+    std::fs::write(
+        &tsv,
+        "url\tsha256\tsize\tlast_modified\tarchived_in\nhttps://h/a\tab\t1\t\thttps://h/D.zip!a\nhttps://h/b\tcd\t2\tT\t\n",
+    )
+    .unwrap();
+    let read = read_sources(&tsv).unwrap();
+    assert_eq!(
+        read["https://h/a"].archived_in.as_deref(),
+        Some("https://h/D.zip!a")
+    );
+    assert_eq!(read["https://h/b"].archived_in, None);
+    assert_eq!(
+        crate::fetch::sources_text(&read),
+        std::fs::read_to_string(&tsv).unwrap()
+    );
+    std::fs::write(&tsv, "url\nhttps://h/a\tab\t1\t\tz\tmore\n").unwrap();
+    assert!(
+        read_sources(&tsv)
+            .unwrap_err()
+            .to_string()
+            .ends_with("line 2 has more than five columns")
+    );
     std::fs::remove_file(&tsv).unwrap();
     std::fs::create_dir(&tsv).unwrap();
     assert!(matches!(

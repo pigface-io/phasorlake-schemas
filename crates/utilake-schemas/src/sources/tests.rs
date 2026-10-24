@@ -327,7 +327,7 @@ fn report_folders_list_their_runs_and_versions_by_month() {
         blocks: vec![tally(("", ""), ("R_20260801.zip", "r"))],
         ..FolderCensus::default()
     };
-    record_folder(root, Market::Nem, (nem_reports(), "ARCHIVE", ""), &old).unwrap();
+    record_folder(root, Market::Nem, (nem_reports(), ""), &old).unwrap();
     let gas = FolderCensus {
         blocks: vec![
             tally(("P_20260801.zip", "p1"), ("P_20260902.zip", "p2")),
@@ -345,30 +345,36 @@ fn report_folders_list_their_runs_and_versions_by_month() {
         }],
         ..FolderCensus::default()
     };
-    record_folder(
-        root,
-        Market::Nem,
-        (nem_reports(), "CURRENT", "VicGas/sub"),
-        &gas,
-    )
-    .unwrap();
-    let sc = |rel: &str, sha: &str, rest: &str| {
-        let rel = format!("{host}/{rel}");
-        file(a, &rel, 2, Some(sidecar_json(&url(&rel), 2, sha, rest)));
+    record_folder(root, Market::Nem, (nem_reports(), "VicGas/sub"), &gas).unwrap();
+    // Kept in one folder per report folder; each sidecar names the listing
+    // the file came from.
+    let sc = |listing: &str, rel: &str, sha: &str, rest: &str| {
+        let kept = format!("{host}/{rel}");
+        let from = format!("{host}/{listing}/{}", rel.split('@').next().unwrap());
+        file(a, &kept, 2, Some(sidecar_json(&url(&from), 2, sha, rest)));
     };
-    sc("ARCHIVE/R_20260801.zip", "r", NEW);
-    sc("CURRENT/VicGas/sub/P_20260801.zip", "p1", NEW);
-    sc("CURRENT/VicGas/sub/P_20260902.zip", "p2", NEW);
+    sc("ARCHIVE", "R_20260801.zip", "r", NEW);
+    // Found again as an entry of the day's zip: where it is still served.
+    let in_zip = format!(
+        r#"{NEW},"also":[{{"url":"https://{host}/ARCHIVE/VicGas/sub/D.zip!P_20260801.zip","how":"entry","seen_at":"2026-10-22T00:00:00Z"}},{{"url":"x","how":"same"}}]"#
+    );
+    sc("CURRENT", "VicGas/sub/P_20260801.zip", "p1", &in_zip);
+    sc("CURRENT", "VicGas/sub/P_20260902.zip", "p2", NEW);
     // A name without a month: the month it was published, else fetched.
-    sc("CURRENT/VicGas/sub/int.csv", "v1", NEW);
-    sc("CURRENT/VicGas/sub/int.csv@20261021T191200+1000", "v2", "");
+    sc("CURRENT", "VicGas/sub/int.csv", "v1", NEW);
+    sc(
+        "CURRENT",
+        "VicGas/sub/int.csv@20261021T191200+1000",
+        "v2",
+        "",
+    );
     let s = collect(root, Market::Nem, a, 2).unwrap();
     let shown: Vec<String> = s.mismatches.iter().map(ToString::to_string).collect();
     assert_eq!(
         shown,
         [
-            "Reports/CURRENT/VicGas/sub/P_20260902.zip: the census gives it two SHA-256s or sizes",
-            "Reports/CURRENT/VicGas/sub/gone.csv: the archive has no sidecar for it",
+            "Reports/VicGas/sub/P_20260902.zip: the census gives it two SHA-256s or sizes",
+            "Reports/VicGas/sub/gone.csv: the archive has no sidecar for it",
         ]
     );
     let urls = |m: &str| {
@@ -385,10 +391,21 @@ fn report_folders_list_their_runs_and_versions_by_month() {
         ]
     );
     assert_eq!(urls("2026-09"), [("P_20260902.zip".to_owned(), 2)]);
+    let in_aug = &s.months[&"2026-08".parse().unwrap()];
+    let p1 = in_aug
+        .iter()
+        .find(|(u, _)| u.ends_with("P_20260801.zip"))
+        .unwrap()
+        .1;
+    assert_eq!(
+        p1.archived_in.as_deref(),
+        Some("https://www.nemweb.com.au/Reports/ARCHIVE/VicGas/sub/D.zip!P_20260801.zip")
+    );
     assert_eq!(urls("2026-05"), [("int.csv".to_owned(), 2)]);
     assert_eq!(
         urls("2026-10"),
-        [("int.csv@20261021T191200+1000".to_owned(), 2)]
+        [("int.csv".to_owned(), 2)],
+        "the version's URL is the file's"
     );
 }
 
@@ -412,7 +429,7 @@ fn a_census_or_sources_file_that_cannot_be_read_or_written_is_an_error() {
     let e = collect(root, Market::Nem, a, 1).unwrap_err();
     assert!(matches!(e, SourcesError::Census(_)), "{e}");
     let repo = tempfile::tempdir().unwrap();
-    let bad = crate::reports::folder_path(repo.path(), Market::Nem, nem_reports(), "CURRENT", "X");
+    let bad = crate::reports::folder_path(repo.path(), Market::Nem, nem_reports(), "X");
     crate::files::write_atomic(&bad, b"files = [").unwrap();
     assert!(
         collect(repo.path(), Market::Nem, a, 1)
