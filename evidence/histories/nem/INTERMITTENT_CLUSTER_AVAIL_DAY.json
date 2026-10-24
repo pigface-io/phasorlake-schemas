@@ -878,7 +878,7 @@
       "changes": [
         "schema"
       ],
-      "files": 22,
+      "files": 24,
       "from": {
         "data-time": "2026-09-30T00:00:00+10:00",
         "file": "PUBLIC_NEXT_DAY_AVAIL_SUBMISS_CLUSTER_20261001041036_0000000540509475.zip",
@@ -893,13 +893,13 @@
         "DEMAND",
         "INTERMITTENT_CLUSTER_AVAIL_DAY"
       ],
-      "rows": 78567,
+      "rows": 85889,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "PUBLIC_NEXT_DAY_AVAIL_SUBMISS_CLUSTER_20261022041101_0000000544169318.zip",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_AVAIL_SUBMISS_CLUSTER_20261024041035_0000000544540778.zip",
         "release": "2026-10",
-        "sha256": "82c6fd3dddac6c192f8e96fbe21a5be3783b9f2c67992f2f5864e114b7b7d708"
+        "sha256": "5606f8d7ac01300e1997c81aba86db6328fd976e7165b21b4af047a4f9dfb013"
       },
       "updates": [
         {

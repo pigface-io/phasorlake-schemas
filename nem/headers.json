@@ -1758,9 +1758,15 @@
       "schemas": [
         {
           "first-release": "2021-05",
-          "last-release": "2026-10",
+          "last-release": "2026-09",
           "runs": 1,
           "schema-id": 0
+        },
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 1
         }
       ],
       "table": "BILLING_DIRECTION_CRA",
@@ -6408,7 +6414,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 28,
+          "runs": 29,
           "schema-id": 1
         }
       ],
@@ -11564,7 +11570,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 15,
+          "runs": 16,
           "schema-id": 1
         }
       ],
@@ -20256,7 +20262,7 @@
       "schemas": [
         {
           "first-release": "2026-01",
-          "last-release": "2026-08",
+          "last-release": "2026-10",
           "runs": 1,
           "schema-id": 0
         }
@@ -20281,7 +20287,7 @@
       "schemas": [
         {
           "first-release": "2026-01",
-          "last-release": "2026-08",
+          "last-release": "2026-10",
           "runs": 1,
           "schema-id": 0
         }

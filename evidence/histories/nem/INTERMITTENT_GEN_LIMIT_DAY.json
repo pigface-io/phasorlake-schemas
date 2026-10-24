@@ -948,7 +948,7 @@
       "changes": [
         "schema"
       ],
-      "files": 22,
+      "files": 24,
       "from": {
         "data-time": "2026-09-30T00:00:00+10:00",
         "file": "PUBLIC_NEXT_DAY_AVAIL_SUBMISS_DAY_20261001041035_0000000540509477.zip",
@@ -963,13 +963,13 @@
         "DEMAND",
         "INTERMITTENT_GEN_LIMIT_DAY"
       ],
-      "rows": 48711,
+      "rows": 53267,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "PUBLIC_NEXT_DAY_AVAIL_SUBMISS_DAY_20261022041047_0000000544169320.zip",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_AVAIL_SUBMISS_DAY_20261024041111_0000000544540780.zip",
         "release": "2026-10",
-        "sha256": "056f13d5c875974f323ccc44cb2db423b183d52a819c80907b39de634dcb4c87"
+        "sha256": "e081bf847036e3752c379d66fc6ae1cb897a3c8acf2a46b5c374568d1b03128d"
       },
       "updates": [
         {

@@ -809,7 +809,7 @@
       "changes": [
         "schema"
       ],
-      "files": 2789,
+      "files": 2912,
       "from": {
         "data-time": "2026-09-01T00:30:00+10:00",
         "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260826_20260901.zip",
@@ -825,13 +825,13 @@
         "PREDISPATCH",
         "PRICESENSITIVITIES"
       ],
-      "rows": 774070,
+      "rows": 806920,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-23T04:00:00+10:00",
-        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20261021220759_0000000544124404.zip",
+        "data-time": "2026-10-25T04:00:00+10:00",
+        "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20261024113423_0000000544594813.zip",
         "release": "2026-10",
-        "sha256": "f414572f3fbb564da01ba327f2eee9e9e040e001f183750de97349fc2d4e4b6c"
+        "sha256": "7e70f874f03bd010270631d3bc235085bb030156f733ebbe31f5ff859993af2b"
       },
       "updates": [
         {

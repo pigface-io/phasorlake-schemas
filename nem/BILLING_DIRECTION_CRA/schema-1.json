@@ -1,0 +1,110 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/BILLING_DIRECTION_CRA/schema-1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DIRECTION_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "NSW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(11, 6)"
+    },
+    "PARTICIPANT CATEGORY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "QLD": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(11, 6)"
+    },
+    "SA": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(12, 6)"
+    },
+    "TAS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(6, 6)"
+    },
+    "VIC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(11, 6)"
+    }
+  },
+  "required": [],
+  "title": "BILLING_DIRECTION_CRA, Iceberg schema 1",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DIRECTION_ID",
+      "string"
+    ],
+    [
+      2,
+      "PARTICIPANT CATEGORY",
+      "string"
+    ],
+    [
+      8,
+      "NSW",
+      "decimal(11, 6)"
+    ],
+    [
+      9,
+      "QLD",
+      "decimal(11, 6)"
+    ],
+    [
+      5,
+      "SA",
+      "decimal(12, 6)"
+    ],
+    [
+      6,
+      "TAS",
+      "decimal(6, 6)"
+    ],
+    [
+      10,
+      "VIC",
+      "decimal(11, 6)"
+    ]
+  ],
+  "x-format": 3,
+  "x-identifier-field-ids": [],
+  "x-schema-id": 1,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "BILLING_DIRECTION_CRA"
+  }
+}

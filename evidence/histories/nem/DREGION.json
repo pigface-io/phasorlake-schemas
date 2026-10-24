@@ -5234,12 +5234,12 @@
         "schema",
         "version"
       ],
-      "files": 20,
+      "files": 23,
       "from": {
         "data-time": "2026-10-01T04:05:00+10:00",
-        "file": "PUBLIC_PRICES_202610010000_20261002040510.zip",
+        "file": "PUBLIC_DAILY_202610010000_20261002040503.zip",
         "release": "2026-10",
-        "sha256": "780178b548a94394012f201686519d52ba73e5b48d648cf7711ecbca704a0a8d"
+        "sha256": "85fe9c08ca71313733d01f616d8dc9c4a89c90b5043d87c3543e93e2a37d43ca"
       },
       "kinds": [
         "reports/current"
@@ -5249,13 +5249,13 @@
         "DREGION",
         ""
       ],
-      "rows": 28800,
-      "schema-id": 2,
+      "rows": 33120,
+      "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T04:00:00+10:00",
-        "file": "PUBLIC_PRICES_202610200000_20261021040504.zip",
+        "data-time": "2026-10-24T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_202610230000_20261024040503.zip",
         "release": "2026-10",
-        "sha256": "e0b7086843375b7360f2e90e530c967ad103ab5cc7740353fb109ab5eb9da423"
+        "sha256": "d06efb6a634646e9522bf1b1e7ca536462fe9fbaf8f39e5cb22b76d9175c9553"
       },
       "updates": [
         {
@@ -5297,38 +5297,6 @@
         {
           "action": "delete",
           "field-id": 126
-        },
-        {
-          "action": "restore",
-          "field-id": 127
-        },
-        {
-          "action": "restore",
-          "field-id": 128
-        },
-        {
-          "action": "restore",
-          "field-id": 129
-        },
-        {
-          "action": "restore",
-          "field-id": 130
-        },
-        {
-          "action": "restore",
-          "field-id": 131
-        },
-        {
-          "action": "restore",
-          "field-id": 132
-        },
-        {
-          "action": "restore",
-          "field-id": 133
-        },
-        {
-          "action": "restore",
-          "field-id": 134
         }
       ],
       "version": 2
@@ -5338,12 +5306,12 @@
         "schema",
         "version"
       ],
-      "files": 20,
+      "files": 23,
       "from": {
         "data-time": "2026-10-01T04:05:00+10:00",
-        "file": "PUBLIC_PRICES_202610010000_20261002040510.zip",
+        "file": "PUBLIC_DAILY_202610010000_20261002040503.zip",
         "release": "2026-10",
-        "sha256": "780178b548a94394012f201686519d52ba73e5b48d648cf7711ecbca704a0a8d"
+        "sha256": "85fe9c08ca71313733d01f616d8dc9c4a89c90b5043d87c3543e93e2a37d43ca"
       },
       "kinds": [
         "reports/current"
@@ -5353,13 +5321,13 @@
         "DREGION",
         ""
       ],
-      "rows": 28800,
-      "schema-id": 3,
+      "rows": 33120,
+      "schema-id": 1,
       "to": {
-        "data-time": "2026-10-21T04:00:00+10:00",
-        "file": "PUBLIC_PRICES_202610200000_20261021040504.zip",
+        "data-time": "2026-10-24T04:00:00+10:00",
+        "file": "PUBLIC_DAILY_202610230000_20261024040503.zip",
         "release": "2026-10",
-        "sha256": "e0b7086843375b7360f2e90e530c967ad103ab5cc7740353fb109ab5eb9da423"
+        "sha256": "d06efb6a634646e9522bf1b1e7ca536462fe9fbaf8f39e5cb22b76d9175c9553"
       },
       "updates": [
         {
@@ -5410,12 +5378,12 @@
         "schema",
         "version"
       ],
-      "files": 21,
+      "files": 23,
       "from": {
         "data-time": "2026-10-01T04:05:00+10:00",
-        "file": "PUBLIC_DAILY_202610010000_20261002040503.zip",
+        "file": "PUBLIC_PRICES_202610010000_20261002040510.zip",
         "release": "2026-10",
-        "sha256": "85fe9c08ca71313733d01f616d8dc9c4a89c90b5043d87c3543e93e2a37d43ca"
+        "sha256": "780178b548a94394012f201686519d52ba73e5b48d648cf7711ecbca704a0a8d"
       },
       "kinds": [
         "reports/current"
@@ -5425,13 +5393,13 @@
         "DREGION",
         ""
       ],
-      "rows": 30240,
-      "schema-id": 0,
+      "rows": 33120,
+      "schema-id": 2,
       "to": {
-        "data-time": "2026-10-22T04:00:00+10:00",
-        "file": "PUBLIC_DAILY_202610210000_20261022040504.zip",
+        "data-time": "2026-10-24T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_202610230000_20261024040502.zip",
         "release": "2026-10",
-        "sha256": "bac06517d803861e78b6fe9e026953010ff38c78a9744595a735f4b156b84ed1"
+        "sha256": "76bf236a7c719971b3448e4a741587fc324cbc8386fdc3b6d3b785ebd7cf2dd0"
       },
       "updates": [
         {
@@ -5474,6 +5442,141 @@
           "action": "delete",
           "field-id": 126
         },
+        {
+          "action": "restore",
+          "field-id": 127
+        },
+        {
+          "action": "restore",
+          "field-id": 128
+        },
+        {
+          "action": "restore",
+          "field-id": 129
+        },
+        {
+          "action": "restore",
+          "field-id": 130
+        },
+        {
+          "action": "restore",
+          "field-id": 131
+        },
+        {
+          "action": "restore",
+          "field-id": 132
+        },
+        {
+          "action": "restore",
+          "field-id": 133
+        },
+        {
+          "action": "restore",
+          "field-id": 134
+        }
+      ],
+      "version": 2
+    },
+    {
+      "changes": [
+        "schema",
+        "version"
+      ],
+      "files": 23,
+      "from": {
+        "data-time": "2026-10-01T04:05:00+10:00",
+        "file": "PUBLIC_PRICES_202610010000_20261002040510.zip",
+        "release": "2026-10",
+        "sha256": "780178b548a94394012f201686519d52ba73e5b48d648cf7711ecbca704a0a8d"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 33120,
+      "schema-id": 3,
+      "to": {
+        "data-time": "2026-10-24T04:00:00+10:00",
+        "file": "PUBLIC_PRICES_202610230000_20261024040502.zip",
+        "release": "2026-10",
+        "sha256": "76bf236a7c719971b3448e4a741587fc324cbc8386fdc3b6d3b785ebd7cf2dd0"
+      },
+      "updates": [
+        {
+          "action": "restore",
+          "field-id": 117
+        },
+        {
+          "action": "restore",
+          "field-id": 118
+        },
+        {
+          "action": "restore",
+          "field-id": 119
+        },
+        {
+          "action": "restore",
+          "field-id": 120
+        },
+        {
+          "action": "restore",
+          "field-id": 121
+        },
+        {
+          "action": "restore",
+          "field-id": 122
+        },
+        {
+          "action": "restore",
+          "field-id": 123
+        },
+        {
+          "action": "restore",
+          "field-id": 124
+        },
+        {
+          "action": "restore",
+          "field-id": 125
+        },
+        {
+          "action": "restore",
+          "field-id": 126
+        }
+      ],
+      "version": 3
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1731,
+      "from": {
+        "data-time": "2026-10-18T08:50:00+10:00",
+        "file": "PUBLIC_DISPATCH_202610180850_20261018084507_LEGACY.zip",
+        "release": "2026-10",
+        "sha256": "ed48bfce8b539a8229a46c74cb0ed495716018cbe297e4d9c0eb736f9a832709"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "DREGION",
+        ""
+      ],
+      "rows": 8655,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-10-24T11:45:00+10:00",
+        "file": "PUBLIC_DISPATCH_202610241145_20261024114007_LEGACY.zip",
+        "release": "2026-10",
+        "sha256": "feded39bcfed27e54e2c9e2ca0483b9d2d2926e0f4bfa822e52436ca9e466f48"
+      },
+      "updates": [
         {
           "action": "delete",
           "field-id": 127
@@ -5505,78 +5608,6 @@
         {
           "action": "delete",
           "field-id": 134
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1177,
-      "from": {
-        "data-time": "2026-10-01T04:05:00+10:00",
-        "file": "PUBLIC_DAILY_202610010000_20261002040503.zip",
-        "release": "2026-10",
-        "sha256": "85fe9c08ca71313733d01f616d8dc9c4a89c90b5043d87c3543e93e2a37d43ca"
-      },
-      "kinds": [
-        "reports/current"
-      ],
-      "overlaps": true,
-      "report": [
-        "DREGION",
-        ""
-      ],
-      "rows": 36020,
-      "schema-id": 1,
-      "to": {
-        "data-time": "2026-10-22T09:05:00+10:00",
-        "file": "PUBLIC_DISPATCH_202610220905_20261022090010_LEGACY.zip",
-        "release": "2026-10",
-        "sha256": "b8096c5f4d1334a0d687a40a1abdff0449817f78441044b16bf39189b1a2017f"
-      },
-      "updates": [
-        {
-          "action": "restore",
-          "field-id": 117
-        },
-        {
-          "action": "restore",
-          "field-id": 118
-        },
-        {
-          "action": "restore",
-          "field-id": 119
-        },
-        {
-          "action": "restore",
-          "field-id": 120
-        },
-        {
-          "action": "restore",
-          "field-id": 121
-        },
-        {
-          "action": "restore",
-          "field-id": 122
-        },
-        {
-          "action": "restore",
-          "field-id": 123
-        },
-        {
-          "action": "restore",
-          "field-id": 124
-        },
-        {
-          "action": "restore",
-          "field-id": 125
-        },
-        {
-          "action": "restore",
-          "field-id": 126
         }
       ],
       "version": 3

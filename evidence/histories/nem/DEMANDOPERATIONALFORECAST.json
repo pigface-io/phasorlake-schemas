@@ -1724,28 +1724,28 @@
       "changes": [
         "schema"
       ],
-      "files": 1028,
+      "files": 1,
       "from": {
-        "data-time": "2026-10-01T00:30:00+10:00",
-        "file": "PUBLIC_FORECAST_OPERATIONAL_DEMAND_HH_202610010000_20260930233148.zip",
+        "data-time": "2026-10-23T17:00:00+10:00",
+        "file": "PUBLIC_FORECAST_OPERATIONAL_DEMAND_HH_202610231700_20261023163147.zip",
         "release": "2026-10",
-        "sha256": "6c410b776a37fa4718168724b5e1129a430f3be7f529089f8b95d19b286a83f9"
+        "sha256": "3d21aceb9e7f168790ca83de018053bf09456e46193e6e6f03aeaccb4ebc0dee"
       },
       "kinds": [
         "reports/current"
       ],
-      "overlaps": true,
+      "overlaps": false,
       "report": [
         "OPERATIONAL_DEMAND",
         "FORECAST"
       ],
-      "rows": 2106120,
+      "rows": 1995,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-31T00:00:00+10:00",
-        "file": "PUBLIC_FORECAST_OPERATIONAL_DEMAND_HH_202610220930_20261022090121.zip",
+        "data-time": "2026-11-01T00:00:00+10:00",
+        "file": "PUBLIC_FORECAST_OPERATIONAL_DEMAND_HH_202610231700_20261023163147.zip",
         "release": "2026-10",
-        "sha256": "eac0af14913f473ec25b3fab45bb0cc515377f24db3fde3e4e7966ec237ee9e0"
+        "sha256": "3d21aceb9e7f168790ca83de018053bf09456e46193e6e6f03aeaccb4ebc0dee"
       },
       "updates": [
         {
@@ -1768,9 +1768,39 @@
     },
     {
       "changes": [
+        "published"
+      ],
+      "files": 1129,
+      "from": {
+        "data-time": "2026-10-01T00:30:00+10:00",
+        "file": "PUBLIC_FORECAST_OPERATIONAL_DEMAND_HH_202610010000_20260930233148.zip",
+        "release": "2026-10",
+        "sha256": "6c410b776a37fa4718168724b5e1129a430f3be7f529089f8b95d19b286a83f9"
+      },
+      "kinds": [
+        "reports/current"
+      ],
+      "overlaps": true,
+      "report": [
+        "OPERATIONAL_DEMAND",
+        "FORECAST"
+      ],
+      "rows": 2312945,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2026-11-02T00:00:00+10:00",
+        "file": "PUBLIC_FORECAST_OPERATIONAL_DEMAND_HH_202610241200_20261024113111.zip",
+        "release": "2026-10",
+        "sha256": "28798661692178a35f8fa263a2d6de62f96df690ab3d41c9fae4b553bd54e0ab"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
         "schema"
       ],
-      "files": 1028,
+      "files": 1129,
       "from": {
         "data-time": "2026-10-01T00:30:00+10:00",
         "file": "PUBLIC_FORECAST_OPERATIONAL_DEMAND_HH_AREA_202610010000_20260930233148.zip",
@@ -1785,13 +1815,13 @@
         "OPERATIONAL_DEMAND",
         "FORECAST"
       ],
-      "rows": 3369792,
+      "rows": 3700712,
       "schema-id": 2,
       "to": {
-        "data-time": "2026-10-31T00:00:00+10:00",
-        "file": "PUBLIC_FORECAST_OPERATIONAL_DEMAND_HH_AREA_202610220930_20261022090121.zip",
+        "data-time": "2026-11-02T00:00:00+10:00",
+        "file": "PUBLIC_FORECAST_OPERATIONAL_DEMAND_HH_AREA_202610241200_20261024113111.zip",
         "release": "2026-10",
-        "sha256": "6ff0a48f0ff62387fd605e4cbd2a7d37593626991a8b3e5d2e3e8b7762d7b223"
+        "sha256": "3cad313440311c777e7533504c0df8b71b36a2d1914e181db2bacba140b2cd9b"
       },
       "updates": [
         {

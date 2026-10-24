@@ -2134,7 +2134,7 @@
       "changes": [
         "schema"
       ],
-      "files": 21,
+      "files": 23,
       "from": {
         "data-time": "2026-10-01T04:30:00+10:00",
         "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20261001_0000000540695920.zip",
@@ -2149,13 +2149,13 @@
         "PREDISPATCH",
         "UNIT_SOLUTION"
       ],
-      "rows": 32028356,
+      "rows": 35086628,
       "schema-id": 6,
       "to": {
-        "data-time": "2026-10-22T04:00:00+10:00",
-        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20261021_0000000544173639.zip",
+        "data-time": "2026-10-24T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_20261023_0000000544544777.zip",
         "release": "2026-10",
-        "sha256": "28fd2fba9098d1f279e5b8e1b47ee2060478a1fae71dc4a58d5e704015e3ea37"
+        "sha256": "45ff56e056fe801a04c46b7893298b4a9d2e5241916a3bdbef1600cbc987f934"
       },
       "updates": [
         {
@@ -2169,7 +2169,7 @@
       "changes": [
         "schema"
       ],
-      "files": 20,
+      "files": 22,
       "from": {
         "data-time": "2026-10-01T04:30:00+10:00",
         "file": "PUBLIC_NEXT_DAY_PREDISPATCH_D_20261001_0000000540695921.zip",
@@ -2184,13 +2184,13 @@
         "PREDISPATCH",
         "UNIT_SOLUTION"
       ],
-      "rows": 549616,
+      "rows": 604720,
       "schema-id": 7,
       "to": {
-        "data-time": "2026-10-22T04:00:00+10:00",
-        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_D_20261021_0000000544173640.zip",
+        "data-time": "2026-10-24T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_PREDISPATCH_D_20261023_0000000544544778.zip",
         "release": "2026-10",
-        "sha256": "86d3381cd8609513643185ff6c8990ef31e0ac001679a81415adabefa365972d"
+        "sha256": "b5ac7eceaafb58da88d8890ab61c28db88d739e0de6ecd639312451d7f7d6b47"
       },
       "updates": [
         {

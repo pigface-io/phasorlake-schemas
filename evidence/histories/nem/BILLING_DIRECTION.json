@@ -257,7 +257,7 @@
       "changes": [
         "schema"
       ],
-      "files": 3,
+      "files": 4,
       "from": {
         "data-time": "2026-03-08T13:25:00+10:00",
         "file": "PUBLIC_BILLING_DIRECT_FINAL_RECON_2026Week11REVISE_20261008110723.zip",
@@ -272,7 +272,7 @@
         "BILLING",
         "DIRECTION"
       ],
-      "rows": 5,
+      "rows": 70,
       "schema-id": 1,
       "to": {
         "data-time": "2026-05-31T21:50:00+10:00",
@@ -292,7 +292,7 @@
       "changes": [
         "schema"
       ],
-      "files": 3,
+      "files": 4,
       "from": {
         "data-time": "2026-08-30T00:05:00+10:00",
         "file": "PUBLIC_BILLING_DIRECT_PROV_RECON_2026Week36REVISE_20261002110905.zip",
@@ -307,13 +307,13 @@
         "BILLING",
         "DIRECTION"
       ],
-      "rows": 18,
+      "rows": 25,
       "schema-id": 2,
       "to": {
-        "data-time": "2026-09-19T17:05:00+10:00",
-        "file": "PUBLIC_BILLING_DIRECT_PROV_RECON_2026Week38REVISE_20261016105405.zip",
+        "data-time": "2026-09-25T11:25:00+10:00",
+        "file": "PUBLIC_BILLING_DIRECT_PROV_RECON_2026Week39REVISE_20261023111540.zip",
         "release": "2026-10",
-        "sha256": "338778db1a67bab0775c271fbb52e28bd983a6ad8f67291b10ea7133bcb99f3c"
+        "sha256": "c1a07785833401efed04cdf48bbb14b03740cb280dabe1bd4371a05f849cd49f"
       },
       "updates": [
         {

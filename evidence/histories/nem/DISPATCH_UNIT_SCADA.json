@@ -38,7 +38,7 @@
       "changes": [
         "schema"
       ],
-      "files": 109735,
+      "files": 110310,
       "from": {
         "data-time": "2024-10-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#DISPATCH_UNIT_SCADA#FILE01#202410010000.zip",
@@ -55,13 +55,13 @@
         "DISPATCH",
         "UNIT_SCADA"
       ],
-      "rows": 156544304,
+      "rows": 156841578,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-22T09:05:00+10:00",
-        "file": "PUBLIC_DISPATCHSCADA_202610220905_0000000544203633.zip",
+        "data-time": "2026-10-24T11:45:00+10:00",
+        "file": "PUBLIC_DISPATCHSCADA_202610241145_0000000544595550.zip",
         "release": "2026-10",
-        "sha256": "19881df6ea63be01776fa427a068e94af3aae681a4b5e882ceff81bb43e1fcb3"
+        "sha256": "ff535d56c8fe5d1f080955be6ee0e1d6b38c49d09d240a7a8d422f5a87e2552b"
       },
       "updates": [
         {

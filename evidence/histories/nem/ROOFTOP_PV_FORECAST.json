@@ -1306,7 +1306,7 @@
       "changes": [
         "schema"
       ],
-      "files": 723,
+      "files": 845,
       "from": {
         "data-time": "2026-10-06T22:00:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_FORECAST_20261006213000_0000000541508115.zip",
@@ -1321,13 +1321,13 @@
         "ROOFTOP",
         "FORECAST"
       ],
-      "rows": 1329120,
+      "rows": 1554575,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-29T04:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_FORECAST_20261021223000_0000000544127046.zip",
+        "data-time": "2026-11-01T04:00:00+10:00",
+        "file": "PUBLIC_ROOFTOP_PV_FORECAST_20261024113000_0000000544594224.zip",
         "release": "2026-10",
-        "sha256": "d746708b7cae73b48142e7a8703e2632217c556963f9483156a9bc70066e1be8"
+        "sha256": "0c0b3d65db8ddbedf19439ccc71d76933b52cef3b1bca6ff41b2b20e74221df0"
       },
       "updates": [
         {
@@ -1353,7 +1353,7 @@
       "changes": [
         "schema"
       ],
-      "files": 723,
+      "files": 845,
       "from": {
         "data-time": "2026-10-06T22:00:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_FORECAST_AREA_20261006213000_0000000541508116.zip",
@@ -1368,13 +1368,13 @@
         "ROOFTOP",
         "FORECAST"
       ],
-      "rows": 2126592,
+      "rows": 2487320,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-29T04:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_FORECAST_AREA_20261021223000_0000000544127047.zip",
+        "data-time": "2026-11-01T04:00:00+10:00",
+        "file": "PUBLIC_ROOFTOP_PV_FORECAST_AREA_20261024113000_0000000544594225.zip",
         "release": "2026-10",
-        "sha256": "7f02cdba071b98f53241e406d227e8edfa58ac2b9a3a1729bc834d8fad4d38d3"
+        "sha256": "abd48cd572be4d21a7f0b4a1201bf785610e32f47ed281802ea6f3713ec63eeb"
       },
       "updates": [
         {

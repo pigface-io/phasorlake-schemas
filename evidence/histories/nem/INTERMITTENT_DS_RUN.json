@@ -1413,7 +1413,7 @@
       "changes": [
         "schema"
       ],
-      "files": 51,
+      "files": 53,
       "from": {
         "data-time": "2026-09-01T04:05:00+10:00",
         "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260901_0000000535633840.zip",
@@ -1428,13 +1428,13 @@
         "DEMAND",
         "INTERMITTENT_DS_RUN"
       ],
-      "rows": 54272074,
+      "rows": 56434352,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-22T04:00:00+10:00",
-        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20261021_0000000544169325.zip",
+        "data-time": "2026-10-24T04:00:00+10:00",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20261023_0000000544540785.zip",
         "release": "2026-10",
-        "sha256": "1158934191d8b22c0a017a67ae307a707ed87d1427b99d71450739087c1fd1de"
+        "sha256": "cb861eeb2707476db726a9a8bed6d2fb30e95fe51949047eeb2989db8d8c55d7"
       },
       "updates": [
         {
