@@ -6,13 +6,3 @@ primary_key = ["SETTLEMENTDATE", "RUNNO", "INTERVENTION", "GENCONID", "REGIONID"
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["INTERVENTION", "GENCONID", "REGIONID", "BIDTYPE"]
-order = ["RUNNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "SETTLEMENTDATE"
-kind = "interval_end"

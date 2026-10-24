@@ -5,12 +5,3 @@ primary_key = []
 time_column = "DAY"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = []
-order = ["PUBLISH_DATETIME", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

@@ -6,12 +6,3 @@ primary_key = ["PREDISPATCHSEQNO", "LINKID", "PERIODID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["LINKID", "PERIODID"]
-order = ["PREDISPATCHSEQNO", "OFFERDATE", "VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

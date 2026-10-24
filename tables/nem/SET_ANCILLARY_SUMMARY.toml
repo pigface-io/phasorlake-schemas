@@ -6,13 +6,3 @@ primary_key = ["SETTLEMENTDATE", "VERSIONNO", "SERVICE", "PAYMENTTYPE", "REGIONI
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["SERVICE", "PAYMENTTYPE", "REGIONID", "PERIODID"]
-order = ["VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "SETTLEMENTDATE"
-kind = "interval_end"

@@ -6,12 +6,3 @@ primary_key = ["CONTRACTYEAR", "WEEKNO", "SETTLEMENTDATE", "REGIONID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-entity = ["CONTRACTYEAR", "WEEKNO", "REGIONID"]
-order = ["BILLRUNNO"]
-origin = "derived"
-
-[temporal.valid]
-column = "SETTLEMENTDATE"
-kind = "interval_end"

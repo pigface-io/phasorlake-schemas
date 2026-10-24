@@ -5,13 +5,3 @@ report_pairs = [["MTPASA", "RESERVELIMIT_SET"]]
 primary_key = ["EFFECTIVEDATE", "VERSION_DATETIME"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "VERSION_DATETIME"
-entity = []
-order = ["VERSION_DATETIME", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

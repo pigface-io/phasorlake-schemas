@@ -5,13 +5,3 @@ report_pairs = [["AP", "REGIONAPCINTERVALS"]]
 primary_key = ["REGIONID", "EFFECTIVEDATE", "VERSIONNO", "PERIODID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["REGIONID", "PERIODID"]
-order = ["VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

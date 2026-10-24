@@ -5,12 +5,3 @@ primary_key = ["NOTICEID"]
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["NOTICEID"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

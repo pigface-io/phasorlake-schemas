@@ -5,13 +5,3 @@ report_pairs = [["PARTICIPANT_REGISTRATION", "STATIONOPERATINGSTATUS"]]
 primary_key = ["EFFECTIVEDATE", "STATIONID", "VERSIONNO"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["STATIONID"]
-order = ["VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

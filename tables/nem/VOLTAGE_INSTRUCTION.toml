@@ -6,12 +6,3 @@ primary_key = ["RUN_DATETIME", "EMS_ID", "VERSION_DATETIME"]
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-entity = ["EMS_ID"]
-order = ["VERSION_DATETIME"]
-origin = "derived"
-
-[temporal.valid]
-column = "RUN_DATETIME"
-kind = "instant"

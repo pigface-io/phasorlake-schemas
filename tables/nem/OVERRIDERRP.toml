@@ -5,13 +5,3 @@ report_pairs = [["FORCE_MAJEURE", "OVERRIDERRP"]]
 primary_key = ["REGIONID", "STARTDATE", "STARTPERIOD"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["REGIONID", "STARTPERIOD"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "STARTDATE"
-kind = "from"

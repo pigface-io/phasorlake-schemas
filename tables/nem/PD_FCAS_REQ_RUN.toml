@@ -5,12 +5,3 @@ primary_key = []
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = []
-order = ["RUN_DATETIME", "PREDISPATCHSEQNO", "RUNNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

@@ -5,12 +5,3 @@ report_pairs = [["GEQDESC", ""], ["GEQDESC", "NULL"]]
 primary_key = ["EQUATIONID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["EQUATIONID"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

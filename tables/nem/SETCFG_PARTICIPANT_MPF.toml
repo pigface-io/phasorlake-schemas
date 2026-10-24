@@ -6,13 +6,3 @@ primary_key = ["PARTICIPANTID", "EFFECTIVEDATE", "VERSIONNO", "PARTICIPANTCATEGO
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["PARTICIPANTID", "PARTICIPANTCATEGORYID", "CONNECTIONPOINTID"]
-order = ["VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

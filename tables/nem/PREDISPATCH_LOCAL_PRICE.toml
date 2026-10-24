@@ -6,13 +6,3 @@ primary_key = ["DATETIME", "DUID"]
 time_column = "DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["DUID"]
-order = ["PREDISPATCHSEQNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "DATETIME"
-kind = "interval_end"

@@ -6,13 +6,3 @@ primary_key = ["RUN_DATETIME", "DUID", "OFFERDATETIME", "ORIGIN", "FORECAST_PRIO
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["DUID", "ORIGIN", "FORECAST_PRIORITY"]
-order = ["OFFERDATETIME", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "RUN_DATETIME"
-kind = "instant"

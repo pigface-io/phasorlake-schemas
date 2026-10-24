@@ -6,13 +6,3 @@ primary_key = ["RUN_DATETIME", "RUN_NO"]
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = []
-order = ["RUN_NO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "RUN_DATETIME"
-kind = "instant"

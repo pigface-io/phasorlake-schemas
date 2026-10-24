@@ -6,12 +6,3 @@ primary_key = ["SRA_YEAR", "SRA_QUARTER", "SRA_RUNNO"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["SRA_YEAR", "SRA_QUARTER", "SRA_RUNNO"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

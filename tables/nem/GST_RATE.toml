@@ -5,13 +5,3 @@ report_pairs = [["BILLING_CONFIG", "GST_RATE"]]
 primary_key = ["EFFECTIVEDATE", "VERSIONNO", "BAS_CLASS"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["BAS_CLASS"]
-order = ["VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

@@ -6,13 +6,3 @@ primary_key = ["VERSION_DATETIME", "REGIONID", "INTERVAL_DATETIME"]
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "VERSION_DATETIME"
-entity = ["REGIONID"]
-order = ["VERSION_DATETIME", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "INTERVAL_DATETIME"
-kind = "interval_end"

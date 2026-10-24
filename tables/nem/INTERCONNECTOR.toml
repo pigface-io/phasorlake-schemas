@@ -5,12 +5,3 @@ report_pairs = [["MARKET_CONFIG", "INTERCONNECTOR"]]
 primary_key = ["INTERCONNECTORID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["INTERCONNECTORID"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

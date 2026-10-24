@@ -5,12 +5,3 @@ report_pairs = [["GD_INSTRUCT", "INSTRUCTIONTYPE"]]
 primary_key = ["INSTRUCTIONTYPEID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["INSTRUCTIONTYPEID"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

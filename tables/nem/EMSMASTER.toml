@@ -5,12 +5,3 @@ report_pairs = [["GENERIC_CONSTRAINT", "EMSMASTER"]]
 primary_key = ["SPD_ID", "SPD_TYPE"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["SPD_ID", "SPD_TYPE"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

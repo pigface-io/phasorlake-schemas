@@ -6,13 +6,3 @@ primary_key = ["SUBSTATIONID", "EQUIPMENTTYPE", "EQUIPMENTID", "VALIDFROM"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["SUBSTATIONID", "EQUIPMENTTYPE", "EQUIPMENTID"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "VALIDFROM"
-kind = "from"

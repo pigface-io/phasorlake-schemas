@@ -5,13 +5,3 @@ report_pairs = [["PARTICIPANT_REGISTRATION", "DUALLOC"]]
 primary_key = ["EFFECTIVEDATE", "VERSIONNO", "DUID", "GENSETID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["DUID", "GENSETID"]
-order = ["VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

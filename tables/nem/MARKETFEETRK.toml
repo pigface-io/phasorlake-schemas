@@ -5,13 +5,3 @@ report_pairs = [["SETTLEMENT_CONFIG", "MARKETFEETRK"]]
 primary_key = ["MARKETFEEVERSIONNO", "EFFECTIVEDATE"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["MARKETFEEVERSIONNO"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

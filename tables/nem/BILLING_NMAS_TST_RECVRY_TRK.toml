@@ -5,11 +5,3 @@ report_pairs = [["BILLING", "NMAS_TST_RECVRY_TRK"]]
 primary_key = ["CONTRACTYEAR", "WEEKNO", "BILLRUNNO", "RECOVERY_CONTRACTYEAR", "RECOVERY_WEEKNO", "RECOVERY_BILLRUNNO"]
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-entity = ["CONTRACTYEAR", "WEEKNO", "RECOVERY_CONTRACTYEAR", "RECOVERY_WEEKNO", "RECOVERY_BILLRUNNO"]
-order = ["BILLRUNNO"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

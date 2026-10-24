@@ -5,12 +5,3 @@ report_pairs = [["BILLING_CONFIG", "GST_BAS_CLASS"]]
 primary_key = ["BAS_CLASS"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["BAS_CLASS"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

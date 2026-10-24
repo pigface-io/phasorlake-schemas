@@ -107,7 +107,7 @@ pub fn baseline_path(root: &Path, market: Market) -> PathBuf {
 }
 
 /// What a fold found, and what it wrote or would write.
-#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
 pub struct Folded {
     /// Tables with a history.
     pub tables: usize,
@@ -119,6 +119,59 @@ pub struct Folded {
     pub breaks: usize,
     /// History files whose bytes changed, or were removed.
     pub changed: usize,
+    /// What the evidence says a person should look at: a declared table
+    /// whose valid time is an interval end or an instant, but whose every
+    /// recorded value is at midnight, which is how a trading day is
+    /// labelled.
+    pub notes: Vec<String>,
+}
+
+/// The notes of a fold: each declared table whose valid column the census
+/// saw only at midnight, while its roles call it an interval end or an
+/// instant. The roles are the declaration's hand block, else derived from
+/// the key and the history's current schema, as the publisher does.
+fn day_label_notes(
+    market: Market,
+    catalog: &Catalog,
+    midnight_only: &[String],
+    tables: &BTreeMap<String, History>,
+) -> Vec<String> {
+    let mut notes = Vec::new();
+    for name in midnight_only {
+        let Some(t) = catalog.table(name) else {
+            continue;
+        };
+        let (kind, column) = match &t.temporal {
+            Some(block) => {
+                let valid = block.get("valid").and_then(toml::Value::as_table);
+                let get = |k: &str| {
+                    valid
+                        .and_then(|v| v.get(k))
+                        .and_then(toml::Value::as_str)
+                        .map(str::to_owned)
+                };
+                (get("kind").unwrap_or_default(), get("column"))
+            }
+            None => {
+                let fields = tables
+                    .get(name)
+                    .and_then(|h| h.schema(h.current_schema_id))
+                    .map_or(&[][..], |s| s.fields.as_slice());
+                let v = utilake_iceberg::derive(&t.primary_key, fields).valid;
+                (v.kind, v.column)
+            }
+        };
+        if !matches!(kind.as_str(), "interval_end" | "instant") {
+            continue;
+        }
+        if let Some(c) = column.filter(|c| Some(c) == t.time_column.as_ref()) {
+            notes.push(format!(
+                "{name}: every recorded value of {c} is at midnight, which labels a day, not a {kind}; if it is the trading day, set valid = {{ kind = \"day\", column = \"{c}\" }} in a [temporal] block of tables/{}/{name}.toml",
+                market.id()
+            ));
+        }
+    }
+    notes
 }
 
 /// AEMO's `YYYY/MM/DD[ HH:MM:SS[.f]]` as RFC 3339 at `offset`, the
@@ -409,9 +462,16 @@ pub fn fold(
         Some(_) => BTreeMap::new(),
         None => published(root, market)?,
     };
+    let midnight_only: Vec<String> = catalog
+        .tables()
+        .iter()
+        .filter(|t| obs.midnight_only(&t.name) == Some(true))
+        .map(|t| t.name.clone())
+        .collect();
     let tables = obs.finish(&declarations(root, market, catalog)?, &floor)?;
     let mut folded = Folded {
         tables: tables.len(),
+        notes: day_label_notes(market, catalog, &midnight_only, &tables),
         ..Folded::default()
     };
     if let Some(reason) = rebaseline {

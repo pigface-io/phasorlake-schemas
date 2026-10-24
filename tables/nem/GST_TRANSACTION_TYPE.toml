@@ -5,12 +5,3 @@ report_pairs = [["BILLING_CONFIG", "GST_TRANSACTION_TYPE"]]
 primary_key = ["TRANSACTION_TYPE"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["TRANSACTION_TYPE"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

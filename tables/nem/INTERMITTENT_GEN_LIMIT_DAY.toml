@@ -6,13 +6,3 @@ primary_key = ["TRADINGDATE", "DUID", "OFFERDATETIME"]
 time_column = "TRADINGDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "OFFERDATETIME"
-entity = ["DUID"]
-order = ["OFFERDATETIME", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "TRADINGDATE"
-kind = "instant"

@@ -5,13 +5,3 @@ report_pairs = [["SETTLEMENT_CONFIG", "ANCILLARY_RECOVERY_SPLIT"]]
 primary_key = ["EFFECTIVEDATE", "VERSIONNO", "SERVICE", "PAYMENTTYPE"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["SERVICE", "PAYMENTTYPE"]
-order = ["VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

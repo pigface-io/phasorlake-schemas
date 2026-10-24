@@ -544,6 +544,9 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             let cat = catalog(&root, market)?;
             let f = utilake_schemas::fold::fold(&root, market, &cat, check, rebaseline.as_deref())
                 .map_err(|e| fail(&e))?;
+            for note in &f.notes {
+                eprintln!("note: {note}");
+            }
             println!(
                 "{} table(s), {} schema(s), {} run(s), {} break(s); {} file(s) {}",
                 f.tables,

@@ -5,12 +5,3 @@ report_pairs = [["FORCE_MAJEURE", "IRFMEVENTS"]]
 primary_key = ["IRFMID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["IRFMID"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

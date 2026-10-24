@@ -6,13 +6,3 @@ primary_key = ["RUN_DATETIME", "INTERVAL_DATETIME", "INTERCONNECTORID", "RUNTYPE
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "RUN_DATETIME"
-entity = ["INTERCONNECTORID", "RUNTYPE"]
-order = ["RUN_DATETIME", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "INTERVAL_DATETIME"
-kind = "interval_end"

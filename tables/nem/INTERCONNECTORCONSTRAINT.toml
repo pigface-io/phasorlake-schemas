@@ -5,13 +5,3 @@ report_pairs = [["MARKET_CONFIG", "INTERCONNECTORCONSTRAINT"]]
 primary_key = ["EFFECTIVEDATE", "VERSIONNO", "INTERCONNECTORID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["INTERCONNECTORID"]
-order = ["VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

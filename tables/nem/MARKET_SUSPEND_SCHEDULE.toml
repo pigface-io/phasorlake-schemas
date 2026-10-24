@@ -6,13 +6,3 @@ primary_key = ["EFFECTIVEDATE", "DAY_TYPE", "REGIONID", "PERIODID"]
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["DAY_TYPE", "REGIONID", "PERIODID"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

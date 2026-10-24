@@ -6,11 +6,3 @@ primary_key = ["OUTAGEID", "GENCONSETID"]
 time_column = "STARTINTERVAL"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-entity = ["OUTAGEID", "GENCONSETID"]
-order = []
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

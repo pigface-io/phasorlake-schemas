@@ -5,12 +5,3 @@ report_pairs = [["PARTICIPANT_REGISTRATION", "STATION"]]
 primary_key = ["STATIONID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["STATIONID"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

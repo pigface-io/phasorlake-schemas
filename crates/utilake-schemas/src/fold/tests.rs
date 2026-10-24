@@ -150,7 +150,8 @@ fn every_census_folds_into_one_file_per_table() {
             schemas: 2,
             runs: 2,
             breaks: 0,
-            changed: 3
+            changed: 3,
+            notes: Vec::new(),
         }
     );
     assert!(
@@ -572,4 +573,59 @@ fn market_times() {
     assert_eq!(nem("2024/08/01 00:05"), None);
     assert_eq!(nem("2024-08-01"), None);
     assert_eq!(nem("2024/08/01X"), None);
+}
+
+#[test]
+fn a_valid_column_seen_only_at_midnight_is_noted_unless_declared_a_day() {
+    let dir = tempfile::tempdir().unwrap();
+    let root = dir.path();
+    let mut b = scada_block("2026-08", 3);
+    b.first = Some("2026/08/01".into());
+    b.last = Some("2026/08/31".into());
+    b.midnight = Some(true);
+    let files = BTreeMap::from([(
+        "SCADA_2026-08.CSV".to_owned(),
+        FileRecord {
+            source: "x.zip".into(),
+            sha256: "ab".into(),
+            size: 9,
+            kind: "dvd".into(),
+            bad_rows: 0,
+            footer_mismatches: 0,
+            block: vec![b],
+        },
+    )]);
+    let path = census_path(root, Market::Nem, "2026-08".parse().unwrap());
+    crate::files::write_atomic(&path, toml::to_string(&files).unwrap().as_bytes()).unwrap();
+
+    // Derived roles call SETTLEMENTDATE an interval end: a note.
+    let f = fold(root, Market::Nem, &scada(), true, None).unwrap();
+    assert_eq!(f.notes.len(), 1, "{:?}", f.notes);
+    assert!(
+        f.notes[0].starts_with(
+            "DISPATCH_UNIT_SCADA: every recorded value of SETTLEMENTDATE is at midnight"
+        ) && f.notes[0].contains("valid = { kind = \"day\", column = \"SETTLEMENTDATE\" }")
+            && f.notes[0].ends_with("tables/nem/DISPATCH_UNIT_SCADA.toml"),
+        "{}",
+        f.notes[0]
+    );
+    // A hand block that calls it a day: nothing to say.
+    let mut d = crate::catalog::tests::decl(
+        "DISPATCH_UNIT_SCADA",
+        ("DISPATCH", "UNIT_SCADA"),
+        Some("SETTLEMENTDATE"),
+    );
+    d.temporal = Some(
+        toml::from_str(
+            "entity = []\norder = []\nvalid = { kind = \"day\", column = \"SETTLEMENTDATE\" }",
+        )
+        .unwrap(),
+    );
+    let cat = Catalog::new(vec![("DISPATCH_UNIT_SCADA.toml".into(), d)]).unwrap();
+    assert!(
+        fold(root, Market::Nem, &cat, true, None)
+            .unwrap()
+            .notes
+            .is_empty()
+    );
 }

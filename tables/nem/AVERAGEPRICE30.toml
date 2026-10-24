@@ -6,13 +6,3 @@ primary_key = ["PERIODDATE", "REGIONID"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["REGIONID"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "PERIODDATE"
-kind = "instant"

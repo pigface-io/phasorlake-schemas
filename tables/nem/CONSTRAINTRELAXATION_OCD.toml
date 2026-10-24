@@ -6,13 +6,3 @@ primary_key = ["SETTLEMENTDATE", "RUNNO", "CONSTRAINTID", "VERSIONNO"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["CONSTRAINTID"]
-order = ["RUNNO", "VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "SETTLEMENTDATE"
-kind = "interval_end"

@@ -8,9 +8,11 @@
 //! export publishes; [`compat::check`] holds a new version of it to what the
 //! old one promised. [`publish`] writes a history, with the table's
 //! declaration and documentation, as Iceberg table metadata and reads it
-//! back: the one document a published table is. [`plan`] reads any time
-//! interval of a table's files across its schemas, and [`table`] writes
-//! table metadata and manifests as bytes.
+//! back: the one document a published table is. [`derive()`] gives a
+//! table's temporal roles from its key and columns, the one rule every
+//! reader and the publisher share. [`plan`] reads any time interval of a
+//! table's files across its schemas, and [`table`] writes table metadata
+//! and manifests as bytes.
 //!
 //! Std, serde and SHA-256 only; no I/O.
 
@@ -22,12 +24,16 @@ mod plan;
 pub mod publish;
 mod schema;
 pub mod table;
+pub mod temporal;
 mod types;
 
 pub use evidence::{Choice, Declared, Evidence, Kind, choose, holds};
 pub use history::History;
 pub use market::Market;
 pub use plan::{Column, DataFile, PlanError, Read, Target, casts_to, duckdb_sql, plan};
-pub use publish::{Declaration, PublishError, Published, from_metadata, to_metadata};
+pub use publish::{
+    Declaration, PublishError, Published, Temporal, Valid, from_metadata, to_metadata,
+};
 pub use schema::{Field, Schema};
+pub use temporal::derive;
 pub use types::IcebergType;

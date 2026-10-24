@@ -5,12 +5,3 @@ report_pairs = [["BILLING_CONFIG", "BILLINGCALENDAR"]]
 primary_key = ["CONTRACTYEAR", "WEEKNO"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["CONTRACTYEAR", "WEEKNO"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

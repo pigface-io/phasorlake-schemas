@@ -6,12 +6,3 @@ primary_key = ["PRUDENTIAL_DATE", "PRUDENTIAL_RUNNO"]
 time_column = "PRUDENTIAL_DATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-entity = ["PRUDENTIAL_RUNNO"]
-order = []
-origin = "derived"
-
-[temporal.valid]
-column = "PRUDENTIAL_DATE"
-kind = "instant"

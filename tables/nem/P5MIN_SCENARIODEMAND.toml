@@ -5,11 +5,3 @@ primary_key = []
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-entity = []
-order = ["VERSION_DATETIME"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

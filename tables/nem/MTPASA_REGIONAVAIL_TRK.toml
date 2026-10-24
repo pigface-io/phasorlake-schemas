@@ -6,12 +6,3 @@ primary_key = ["PUBLISH_DATETIME"]
 time_column = "PUBLISH_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-entity = []
-order = []
-origin = "derived"
-
-[temporal.valid]
-column = "PUBLISH_DATETIME"
-kind = "instant"

@@ -5,7 +5,7 @@
 //! ```
 //!
 //! A declaration says which report pairs a table is published under, its
-//! key and time column, its temporal roles (copied as they are), how it is
+//! key and time column, its temporal roles when a person set them, how it is
 //! loaded, its visibility, and any column whose type is set by hand
 //! (`[[override]]`, applied by the fold). The census asks it for the table
 //! of a report pair and for that table's time column; a pair no table
@@ -111,9 +111,11 @@ pub struct TableDecl {
     pub load_mode: LoadMode,
     /// Who may see it, as AEMO's control files say (`PUBLIC`).
     pub visibility: String,
-    /// Its temporal roles (`valid`, `entity`, `order`, `cutoff`,
-    /// `origin`), as written.
-    pub temporal: toml::Table,
+    /// Its temporal roles (`valid`, `entity`, `order`, `cutoff`) when a
+    /// person set them, as written; absent, the publisher derives them
+    /// from the key and the columns ([`utilake_iceberg::derive()`]).
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub temporal: Option<toml::Table>,
     /// Columns typed by hand.
     #[serde(default, rename = "override", skip_serializing_if = "Vec::is_empty")]
     pub overrides: Vec<Override>,
@@ -320,7 +322,7 @@ pub(crate) mod tests {
             time_column: time.map(str::to_owned),
             load_mode: LoadMode::Append,
             visibility: "PUBLIC".into(),
-            temporal: toml::Table::new(),
+            temporal: None,
             overrides: Vec::new(),
             model: Vec::new(),
         }
@@ -349,7 +351,6 @@ load_mode = "append"
 visibility = "PUBLIC"
 
 [temporal]
-origin = "derived"
 entity = ["DUID"]
 valid = { kind = "interval_end", column = "SETTLEMENTDATE" }
 order = ["LASTCHANGED"]
@@ -374,7 +375,12 @@ reason = "Six places are what AEMO measures."
         let t = c.declared_by_pair("DISPATCH", "UNIT_SCADA").unwrap();
         assert_eq!(t.time_column.as_deref(), Some("SETTLEMENTDATE"));
         assert_eq!(t.primary_key, ["SETTLEMENTDATE", "DUID"]);
-        assert_eq!(t.temporal["cutoff"].as_str(), Some("LASTCHANGED"));
+        let roles = t.temporal.as_ref().unwrap();
+        assert_eq!(roles["cutoff"].as_str(), Some("LASTCHANGED"));
+        assert!(
+            c.table("DISPATCHPRICE").unwrap().temporal.is_none(),
+            "no block: the publisher derives the roles"
+        );
         assert_eq!(
             t.overrides[0].iceberg_type(),
             IcebergType::decimal(16, 6),

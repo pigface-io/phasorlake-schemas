@@ -6,12 +6,3 @@ primary_key = ["CONTRACTYEAR", "QUARTER", "TRANCHE"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["CONTRACTYEAR", "QUARTER", "TRANCHE"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

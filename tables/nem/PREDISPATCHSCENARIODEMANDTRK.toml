@@ -5,13 +5,3 @@ report_pairs = [["PREDISPATCH", "SCENARIO_DEMAND_TRK"]]
 primary_key = ["EFFECTIVEDATE", "VERSIONNO"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = []
-order = ["VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

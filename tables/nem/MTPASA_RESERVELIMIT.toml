@@ -6,13 +6,3 @@ primary_key = ["EFFECTIVEDATE", "VERSION_DATETIME", "RESERVELIMITID"]
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "VERSION_DATETIME"
-entity = ["RESERVELIMITID"]
-order = ["VERSION_DATETIME", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

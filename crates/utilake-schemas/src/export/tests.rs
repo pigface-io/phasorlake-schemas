@@ -13,9 +13,19 @@ primary_key = ["SETTLEMENTDATE", "DUID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
+"#;
+
+/// The same table with its roles set by hand: an order the history has no
+/// column for, which only a person would write.
+const SCADA_HAND: &str = r#"name = "DISPATCH_UNIT_SCADA"
+package = "DISPATCH"
+report_pairs = [["DISPATCH", "UNIT_SCADA"]]
+primary_key = ["SETTLEMENTDATE", "DUID"]
+time_column = "SETTLEMENTDATE"
+load_mode = "append"
+visibility = "PUBLIC"
 
 [temporal]
-origin = "derived"
 entity = ["DUID"]
 valid = { kind = "interval_end", column = "SETTLEMENTDATE" }
 order = ["LASTCHANGED"]
@@ -164,8 +174,14 @@ fn the_metadata_describes_the_table_and_holds_its_history() {
     assert_eq!(p["utilake.time"], "SETTLEMENTDATE");
     assert_eq!(p["utilake.load"], "append");
     assert_eq!(p["utilake.visibility"], "PUBLIC");
+    // No [temporal] block: the roles are derived from the key and the
+    // current schema, which has no LASTCHANGED.
     assert_eq!(p["utilake.temporal.valid.kind"], "interval_end");
-    assert_eq!(p["utilake.temporal.order"], r#"["LASTCHANGED"]"#);
+    assert_eq!(p["utilake.temporal.valid.column"], "SETTLEMENTDATE");
+    assert_eq!(p["utilake.temporal.entity"], r#"["DUID"]"#);
+    assert_eq!(p["utilake.temporal.order"], "[]");
+    assert!(p.get("utilake.temporal.cutoff").is_none());
+    assert_eq!(p["utilake.temporal.origin"], "derived");
     // Only 5.6 has SCADAVALUE: the latest release with the column.
     assert_eq!(
         p["utilake.model-types"],
@@ -608,12 +624,12 @@ fn what_cannot_be_read_or_written_is_named() {
             .to_string()
             .contains("BAD.toml")
     );
+    let bad = SCADA_HAND
+        .replace("DISPATCH_UNIT_SCADA", "BAD")
+        .replace("UNIT_SCADA", "BAD");
     std::fs::write(
         root.join("tables/nem/BAD.toml"),
-        SCADA
-            .replace("DISPATCH_UNIT_SCADA", "BAD")
-            .replace("UNIT_SCADA", "BAD")
-            .replace("cutoff = ", "horizon = "),
+        bad.replace("cutoff = ", "horizon = "),
     )
     .unwrap();
     let err = Export::load(root, DEFAULT_BASE_URL)
@@ -621,6 +637,20 @@ fn what_cannot_be_read_or_written_is_named() {
         .to_string();
     assert!(
         err.starts_with("The declaration of BAD cannot be published: its temporal roles are not the published ones: "),
+        "{err}"
+    );
+    // A block is hand by its presence: one that claims to be derived is
+    // refused, so no table says one thing and holds another.
+    std::fs::write(
+        root.join("tables/nem/BAD.toml"),
+        bad.replace("[temporal]\n", "[temporal]\norigin = \"derived\"\n"),
+    )
+    .unwrap();
+    let err = Export::load(root, DEFAULT_BASE_URL)
+        .unwrap_err()
+        .to_string();
+    assert!(
+        err.contains("a [temporal] block is kept by hand, but it says origin = \"derived\""),
         "{err}"
     );
     std::fs::remove_file(root.join("tables/nem/BAD.toml")).unwrap();
@@ -1084,4 +1114,33 @@ min = ["2026/09/01"]
 max = ["2026/09/01"]
 "#
     )
+}
+
+#[test]
+fn a_temporal_block_is_the_roles_a_person_set() {
+    let dir = exported();
+    let root = dir.path();
+    crate::files::write_atomic(
+        &root.join("tables/nem/DISPATCH_UNIT_SCADA.toml"),
+        SCADA_HAND.as_bytes(),
+    )
+    .unwrap();
+    export(root);
+    let p = read(root, TABLE)["properties"].clone();
+    assert_eq!(p["utilake.temporal.origin"], "hand");
+    assert_eq!(p["utilake.temporal.order"], r#"["LASTCHANGED"]"#);
+    assert_eq!(p["utilake.temporal.cutoff"], "LASTCHANGED");
+    // A block may say it is hand; it is the one word it may say.
+    crate::files::write_atomic(
+        &root.join("tables/nem/DISPATCH_UNIT_SCADA.toml"),
+        SCADA_HAND
+            .replace("[temporal]\n", "[temporal]\norigin = \"hand\"\n")
+            .as_bytes(),
+    )
+    .unwrap();
+    export(root);
+    assert_eq!(
+        read(root, TABLE)["properties"]["utilake.temporal.origin"],
+        "hand"
+    );
 }

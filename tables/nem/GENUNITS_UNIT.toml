@@ -6,13 +6,3 @@ primary_key = ["GENSETID", "EFFECTIVEDATE", "VERSIONNO", "UNIT_GROUPING_LABEL"]
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["GENSETID", "UNIT_GROUPING_LABEL"]
-order = ["VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

@@ -5,12 +5,3 @@ report_pairs = [["PARTICIPANT_REGISTRATION", "PARTICIPANTCATEGORY"]]
 primary_key = ["PARTICIPANTCATEGORYID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["PARTICIPANTCATEGORYID"]
-order = ["LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-kind = "timeless"

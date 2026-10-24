@@ -4,13 +4,3 @@ report_pairs = [["BILLING_CONFIG", "BILLSMELTERRATE"]]
 primary_key = ["EFFECTIVEDATE", "VERSIONNO", "CONTRACTYEAR"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["CONTRACTYEAR"]
-order = ["VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "from"

@@ -6,13 +6,3 @@ primary_key = ["DUID", "BIDTYPE", "SETTLEMENTDATE", "OFFERDATE"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "OFFERDATE"
-entity = ["DUID", "BIDTYPE"]
-order = ["OFFERDATE", "VERSIONNO", "LASTCHANGED"]
-origin = "derived"
-
-[temporal.valid]
-column = "SETTLEMENTDATE"
-kind = "interval_end"
