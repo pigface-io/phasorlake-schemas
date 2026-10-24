@@ -11,7 +11,7 @@ model = ["GAS_LNG_SHIPMENT"]
 cutoff = "VERSIONDATETIME"
 entity = ["TRANSACTIONID", "FACILITYID"]
 order = ["VERSIONDATETIME"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "SHIPMENTDATE"

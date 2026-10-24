@@ -11,7 +11,7 @@ model = ["GAS_NOMINATIONS_FORECAST_AGG", "GAS_FACILITY", "GAS_LOCATION"]
 cutoff = "LASTUPDATED"
 entity = ["FACILITYID", "LOCATIONID"]
 order = ["LASTUPDATED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "GASDATE"

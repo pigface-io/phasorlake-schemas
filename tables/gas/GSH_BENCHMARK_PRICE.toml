@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 cutoff = "LASTCHANGED"
 entity = ["PRODUCT_LOCATION", "PRODUCT_TYPE"]
 order = ["LASTCHANGED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "GAS_DATE"

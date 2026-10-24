@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 cutoff = "LASTCHANGED"
 entity = ["CONNECTION_TYPE", "FACILITY_ID", "FROM_ID", "SEGMENT_ID", "TO_ID"]
 order = ["VERSION_DATETIME", "LASTCHANGED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "EFFECTIVEDATE"

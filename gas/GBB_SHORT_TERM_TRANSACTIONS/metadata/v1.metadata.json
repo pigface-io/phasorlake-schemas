@@ -32,7 +32,7 @@
     "utilake.table": "GBB_SHORT_TERM_TRANSACTIONS",
     "utilake.temporal.entity": "[\"PERIODID\",\"STATE\"]",
     "utilake.temporal.order": "[]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.column": "SUPPLYPERIODSTART",
     "utilake.temporal.valid.kind": "instant",
     "utilake.time": "SUPPLYPERIODSTART",

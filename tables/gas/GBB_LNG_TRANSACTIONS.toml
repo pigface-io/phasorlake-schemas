@@ -10,7 +10,7 @@ model = ["GAS_LNG_TRANSACTION"]
 [temporal]
 entity = []
 order = []
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "SUPPLYSTARTDATE"

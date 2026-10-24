@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 cutoff = "LASTCHANGED"
 entity = ["ZONE_ID"]
 order = ["VERSION_DATETIME", "LASTCHANGED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "EFFECTIVEDATE"

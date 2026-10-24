@@ -10,7 +10,7 @@ model = ["GAS_SHORT_TERM_SWAP_TRANS"]
 [temporal]
 entity = ["PERIODID", "STATE"]
 order = []
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "SUPPLYPERIODSTART"

@@ -8,8 +8,8 @@ visibility = "PUBLIC"
 
 [temporal]
 entity = ["TRANSMISSION_ID"]
-order = ["TRANSMISSION_ID"]
-origin = "derived"
+order = []
+origin = "hand"
 
 [temporal.valid]
 column = "GAS_DATE"

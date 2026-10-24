@@ -10,8 +10,7 @@ visibility = "PUBLIC"
 cutoff = "CURRENT_DATE"
 entity = ["COMPANY_ID"]
 order = ["CURRENT_DATE"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
-column = "CURRENT_DATE"
-kind = "instant"
+kind = "timeless"

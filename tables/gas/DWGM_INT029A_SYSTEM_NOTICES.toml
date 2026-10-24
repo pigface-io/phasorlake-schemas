@@ -1,7 +1,7 @@
 # The declaration of DWGM_INT029A_SYSTEM_NOTICES: first drafted from the census and the data model, kept by hand.
 name = "DWGM_INT029A_SYSTEM_NOTICES"
 report_pairs = [["DWGM", "INT029A_SYSTEM_NOTICES_1"]]
-primary_key = []
+primary_key = ["SYSTEM_WIDE_NOTICE_ID"]
 time_column = "NOTICE_START_DATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 cutoff = "CURRENT_DATE"
 entity = ["SYSTEM_WIDE_NOTICE_ID"]
 order = ["CURRENT_DATE"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "NOTICE_START_DATE"

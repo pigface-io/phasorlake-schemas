@@ -23,7 +23,7 @@
     "utilake.format": "3",
     "utilake.headers": "{\"1\":\"Operator\",\"2\":\"LinepackZone\",\"3\":\"LinepackZoneDescription\"}",
     "utilake.key": "[]",
-    "utilake.load": "snapshot",
+    "utilake.load": "append",
     "utilake.market": "gas",
     "utilake.model": "[\"GAS_LOCATION\",\"GAS_LOCATION_NODE\"]",
     "utilake.offset": "+10:00",
@@ -31,7 +31,7 @@
     "utilake.table": "GBB_LINEPACK_ZONES",
     "utilake.temporal.entity": "[]",
     "utilake.temporal.order": "[]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.kind": "timeless",
     "utilake.visibility": "PUBLIC"
   },

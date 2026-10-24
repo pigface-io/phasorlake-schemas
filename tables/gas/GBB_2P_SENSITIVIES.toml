@@ -8,7 +8,7 @@ visibility = "PUBLIC"
 [temporal]
 entity = ["PERIODID"]
 order = []
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 kind = "timeless"

@@ -6,10 +6,9 @@ load_mode = "append"
 visibility = "PUBLIC"
 
 [temporal]
-cutoff = "CURRENT_DATE"
 entity = ["SSC_ID"]
 order = ["CURRENT_DATE"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 kind = "timeless"

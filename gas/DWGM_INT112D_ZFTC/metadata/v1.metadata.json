@@ -27,10 +27,9 @@
     "utilake.offset": "+10:00",
     "utilake.reports": "[[\"DWGM\",\"INT112D_ZFTC_1\"]]",
     "utilake.table": "DWGM_INT112D_ZFTC",
-    "utilake.temporal.cutoff": "CURRENT_DATE",
     "utilake.temporal.entity": "[]",
     "utilake.temporal.order": "[\"CURRENT_DATE\"]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.kind": "timeless",
     "utilake.visibility": "PUBLIC"
   },

@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 cutoff = "CURRENT_DATE"
 entity = ["SYSTEM_WIDE_NOTICE_ID"]
 order = ["CURRENT_DATE"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "NOTICE_START_DATE"

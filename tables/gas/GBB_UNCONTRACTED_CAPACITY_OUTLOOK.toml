@@ -11,8 +11,7 @@ model = ["GAS_UNCONTRACTED_CAP_OUTLOOK", "GAS_FACILITY"]
 cutoff = "LASTUPDATED"
 entity = ["FACILITYID"]
 order = ["LASTUPDATED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
-column = "LASTUPDATED"
-kind = "instant"
+kind = "timeless"

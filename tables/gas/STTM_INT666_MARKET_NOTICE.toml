@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 cutoff = "REPORT_DATETIME"
 entity = ["MARKET_NOTICE_IDENTIFIER"]
 order = ["REPORT_DATETIME"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "NOTICE_START_DATE"

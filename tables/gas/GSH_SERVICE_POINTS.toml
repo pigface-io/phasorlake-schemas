@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 cutoff = "LASTCHANGED"
 entity = ["AUCTION_PRODUCT_TYPE", "FACILITY_ID", "SERVICE_POINT_ID", "SERVICE_POINT_TYPE"]
 order = ["VERSION_DATETIME", "LASTCHANGED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "EFFECTIVEDATE"

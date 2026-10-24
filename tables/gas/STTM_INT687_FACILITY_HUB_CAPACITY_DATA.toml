@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 cutoff = "REPORT_DATETIME"
 entity = ["HUB_IDENTIFIER", "FACILITY_IDENTIFIER"]
 order = ["REPORT_DATETIME"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "EFFECTIVE_FROM_DATE"

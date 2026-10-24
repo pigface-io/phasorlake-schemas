@@ -31,7 +31,7 @@
     "utilake.temporal.cutoff": "LASTCHANGED",
     "utilake.temporal.entity": "[\"AUCTION_PRODUCT_TYPE\",\"FACILITY_ID\",\"SERVICE_POINT_ID\",\"SERVICE_POINT_TYPE\"]",
     "utilake.temporal.order": "[\"VERSION_DATETIME\",\"LASTCHANGED\"]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.column": "EFFECTIVEDATE",
     "utilake.temporal.valid.kind": "instant",
     "utilake.time": "EFFECTIVEDATE",

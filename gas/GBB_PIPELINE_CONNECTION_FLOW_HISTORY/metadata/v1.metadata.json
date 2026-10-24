@@ -32,7 +32,7 @@
     "utilake.table": "GBB_PIPELINE_CONNECTION_FLOW_HISTORY",
     "utilake.temporal.entity": "[\"FACILITYID\",\"CONNECTIONPOINTID\",\"LOCATIONID\"]",
     "utilake.temporal.order": "[]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.column": "GASDATE",
     "utilake.temporal.valid.kind": "instant",
     "utilake.time": "GASDATE",

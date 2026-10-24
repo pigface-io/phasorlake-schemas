@@ -22,7 +22,7 @@
     "utilake.declared": "true",
     "utilake.format": "3",
     "utilake.headers": "{\"1\":\"FacilityName\",\"2\":\"FacilityType\",\"3\":\"FacilityId\",\"4\":\"NodeId\",\"5\":\"ConnectionPointId\",\"6\":\"FlowDirection\",\"7\":\"ConnectionPointName\",\"8\":\"State\",\"9\":\"DemandZone\"}",
-    "utilake.key": "[]",
+    "utilake.key": "[\"FACILITYID\",\"NODEID\",\"CONNECTIONPOINTID\"]",
     "utilake.load": "snapshot",
     "utilake.market": "gas",
     "utilake.model": "[\"GAS_LOCATION_NODE\",\"GAS_FACILITY_NODE_CONNECTION\"]",
@@ -32,7 +32,7 @@
     "utilake.table": "GBB_DEMAND_ZONES_PIPELINE_CONNECTION_POINT_MAPPING",
     "utilake.temporal.entity": "[\"FACILITYID\",\"NODEID\",\"CONNECTIONPOINTID\"]",
     "utilake.temporal.order": "[]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.kind": "timeless",
     "utilake.visibility": "PUBLIC"
   },

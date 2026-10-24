@@ -27,10 +27,9 @@
     "utilake.offset": "+10:00",
     "utilake.reports": "[[\"DWGM\",\"INT039B_INDICATIVE_LOCATIONAL_PRICE_1\"]]",
     "utilake.table": "DWGM_INT039B_INDICATIVE_LOCATIONAL_PRICE",
-    "utilake.temporal.cutoff": "CURRENT_DATE",
     "utilake.temporal.entity": "[\"TRANSMISSION_ID\"]",
-    "utilake.temporal.order": "[\"TRANSMISSION_ID\",\"CURRENT_DATE\"]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.order": "[\"CURRENT_DATE\"]",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.kind": "timeless",
     "utilake.visibility": "PUBLIC"
   },

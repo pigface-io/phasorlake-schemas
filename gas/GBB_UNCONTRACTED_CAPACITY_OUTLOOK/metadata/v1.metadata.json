@@ -33,9 +33,8 @@
     "utilake.temporal.cutoff": "LASTUPDATED",
     "utilake.temporal.entity": "[\"FACILITYID\"]",
     "utilake.temporal.order": "[\"LASTUPDATED\"]",
-    "utilake.temporal.origin": "derived",
-    "utilake.temporal.valid.column": "LASTUPDATED",
-    "utilake.temporal.valid.kind": "instant",
+    "utilake.temporal.origin": "hand",
+    "utilake.temporal.valid.kind": "timeless",
     "utilake.time": "LASTUPDATED",
     "utilake.visibility": "PUBLIC"
   },

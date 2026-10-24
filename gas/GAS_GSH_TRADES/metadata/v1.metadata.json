@@ -30,7 +30,7 @@
     "utilake.table": "GAS_GSH_TRADES",
     "utilake.temporal.entity": "[\"LOCATION\",\"PRODUCT\",\"TRADE_PRICE\",\"TYPE\"]",
     "utilake.temporal.order": "[]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.column": "TRADE_DATE",
     "utilake.temporal.valid.kind": "instant",
     "utilake.time": "TRADE_DATE",

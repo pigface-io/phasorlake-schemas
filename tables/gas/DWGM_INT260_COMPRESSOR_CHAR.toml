@@ -1,7 +1,7 @@
 # The declaration of DWGM_INT260_COMPRESSOR_CHAR: first drafted from the census and the data model, kept by hand.
 name = "DWGM_INT260_COMPRESSOR_CHAR"
 report_pairs = [["DWGM", "INT260_COMPRESSOR_CHAR_1"]]
-primary_key = []
+primary_key = ["COMPRESSOR_ID", "PIPE_SEGMENT_ID", "COMPRESSOR_STATION_ID"]
 time_column = "LAST_MOD_DATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 cutoff = "CURRENT_DATE"
 entity = ["COMPRESSOR_ID", "PIPE_SEGMENT_ID", "COMPRESSOR_STATION_ID"]
 order = ["CURRENT_DATE"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "LAST_MOD_DATE"

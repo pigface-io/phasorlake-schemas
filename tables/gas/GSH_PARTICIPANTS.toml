@@ -10,8 +10,7 @@ visibility = "PUBLIC"
 cutoff = "LASTCHANGED"
 entity = ["MARKET_ID", "PARTICIPANT_ID"]
 order = ["LASTCHANGED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
-column = "LASTCHANGED"
-kind = "instant"
+kind = "timeless"

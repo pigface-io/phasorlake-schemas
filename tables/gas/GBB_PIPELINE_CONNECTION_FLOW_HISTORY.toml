@@ -10,7 +10,7 @@ model = ["GAS_DAILY_FLOW_ACTUAL", "GAS_FACILITY", "GAS_LOCATION"]
 [temporal]
 entity = ["FACILITYID", "CONNECTIONPOINTID", "LOCATIONID"]
 order = []
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "GASDATE"

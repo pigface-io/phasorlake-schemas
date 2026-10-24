@@ -9,8 +9,8 @@ visibility = "PUBLIC"
 [temporal]
 cutoff = "CURRENT_DATE"
 entity = ["TRANSMISSION_ID", "TRANSMISSION_DOCUMENT_ID", "TRANSMISSION_GROUP_ID", "SCHEDULE_TYPE_ID", "DFS_INTERFACE_AUDIT_ID", "LAST_OS_FOR_GAS_DAY_TDOC_ID", "OS_PRIOR_GAS_DAY_TDOC_ID", "DEMAND_TYPE_ID"]
-order = ["TRANSMISSION_ID", "CURRENT_DATE"]
-origin = "derived"
+order = ["CURRENT_DATE"]
+origin = "hand"
 
 [temporal.valid]
 column = "GAS_START_DATETIME"

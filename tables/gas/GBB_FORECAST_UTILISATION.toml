@@ -10,7 +10,7 @@ model = ["GAS_NOMINATIONS_FORECAST_AGG", "GAS_NAMEPLATE_RATING"]
 [temporal]
 entity = ["FACILITYID", "RECEIPTLOCATIONID", "DELIVERYLOCATIONID"]
 order = []
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "FORECAST_DATE"

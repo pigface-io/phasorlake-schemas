@@ -32,7 +32,7 @@
     "utilake.table": "GBB_LATE_ACTUAL_FLOW_AND_STORAGE",
     "utilake.temporal.entity": "[\"FACILITYID\",\"CONNECTIONPOINTID\"]",
     "utilake.temporal.order": "[]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.column": "GASDATE",
     "utilake.temporal.valid.kind": "instant",
     "utilake.time": "GASDATE",

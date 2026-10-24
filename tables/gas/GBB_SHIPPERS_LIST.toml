@@ -1,7 +1,7 @@
 # The declaration of GBB_SHIPPERS_LIST: first drafted from the census and the data model, kept by hand.
 name = "GBB_SHIPPERS_LIST"
 report_pairs = [["GBB", "SHIPPERS_LIST"]]
-primary_key = []
+primary_key = ["FACILITYID", "COMPANYID"]
 time_column = "EFFECTIVEDATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
@@ -11,7 +11,7 @@ model = ["GAS_SHIPPER_LIST"]
 cutoff = "LASTUPDATED"
 entity = ["FACILITYID", "COMPANYID"]
 order = ["LASTUPDATED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "EFFECTIVEDATE"

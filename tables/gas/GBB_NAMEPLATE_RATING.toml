@@ -11,7 +11,7 @@ model = ["GAS_NAMEPLATE_RATING", "GAS_FACILITY", "GAS_LOCATION"]
 cutoff = "LASTUPDATED"
 entity = ["FACILITYID"]
 order = ["LASTUPDATED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "EFFECTIVEDATE"

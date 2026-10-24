@@ -9,7 +9,7 @@ visibility = "PUBLIC"
 [temporal]
 entity = ["LOCATION", "PRODUCT", "TRADE_PRICE", "TYPE"]
 order = []
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "TRADE_DATE"

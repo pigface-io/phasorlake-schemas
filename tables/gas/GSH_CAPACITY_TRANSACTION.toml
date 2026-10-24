@@ -9,8 +9,8 @@ visibility = "PUBLIC"
 [temporal]
 cutoff = "LASTCHANGED"
 entity = ["TRANSACTION_ID"]
-order = ["VERSION_DATETIME", "LASTCHANGED"]
-origin = "derived"
+order = ["LASTCHANGED"]
+origin = "hand"
 
 [temporal.valid]
 column = "VERSION_DATETIME"

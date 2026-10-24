@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 cutoff = "REPORT_DATETIME"
 entity = ["SETTLEMENT_RUN_IDENTIFIER"]
 order = ["REPORT_DATETIME"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "VERSION_FROM_DATE"

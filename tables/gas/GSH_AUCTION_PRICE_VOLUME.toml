@@ -8,9 +8,9 @@ visibility = "PUBLIC"
 
 [temporal]
 cutoff = "LASTCHANGED"
-entity = ["FACILITY_ID", "LIMIT_ID"]
+entity = ["FACILITY_ID", "LIMIT_ID", "GAS_DATE"]
 order = ["LASTCHANGED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "AUCTION_DATE"

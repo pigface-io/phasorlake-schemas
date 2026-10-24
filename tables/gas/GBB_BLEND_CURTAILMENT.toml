@@ -11,7 +11,7 @@ model = ["GAS_BLEND_CURTAILMENT"]
 cutoff = "LASTUPDATED"
 entity = ["FACILITYID", "CONNECTIONPOINTID", "LOCATIONID"]
 order = ["LASTUPDATED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "MAXGASDATE"

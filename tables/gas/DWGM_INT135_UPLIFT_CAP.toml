@@ -6,10 +6,9 @@ load_mode = "append"
 visibility = "PUBLIC"
 
 [temporal]
-cutoff = "CURRENT_DATETIME"
 entity = []
 order = ["CURRENT_DATETIME"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 kind = "timeless"

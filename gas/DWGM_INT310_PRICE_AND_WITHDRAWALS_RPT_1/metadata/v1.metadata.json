@@ -28,8 +28,8 @@
     "utilake.reports": "[[\"DWGM\",\"INT310_PRICE_AND_WITHDRAWALS_RPT_1\"]]",
     "utilake.table": "DWGM_INT310_PRICE_AND_WITHDRAWALS_RPT_1",
     "utilake.temporal.entity": "[\"TRANSMISSION_ID\"]",
-    "utilake.temporal.order": "[\"TRANSMISSION_ID\"]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.order": "[]",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.kind": "timeless",
     "utilake.visibility": "PUBLIC"
   },

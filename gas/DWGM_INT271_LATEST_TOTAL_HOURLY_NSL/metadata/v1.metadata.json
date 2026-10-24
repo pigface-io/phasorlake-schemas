@@ -30,7 +30,7 @@
     "utilake.temporal.cutoff": "CURRENT_DATE",
     "utilake.temporal.entity": "[\"NETWORK_ID\"]",
     "utilake.temporal.order": "[\"CURRENT_DATE\"]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.column": "NSL_UPDATE",
     "utilake.temporal.valid.kind": "instant",
     "utilake.time": "NSL_UPDATE",

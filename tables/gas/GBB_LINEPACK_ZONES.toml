@@ -2,14 +2,14 @@
 name = "GBB_LINEPACK_ZONES"
 report_pairs = [["GBB", "LINEPACK_ZONES"]]
 primary_key = []
-load_mode = "snapshot"
+load_mode = "append"
 visibility = "PUBLIC"
 model = ["GAS_LOCATION", "GAS_LOCATION_NODE"]
 
 [temporal]
 entity = []
 order = []
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 kind = "timeless"

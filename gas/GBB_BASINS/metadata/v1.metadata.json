@@ -22,7 +22,7 @@
     "utilake.declared": "true",
     "utilake.format": "3",
     "utilake.headers": "{\"1\":\"BasinId\",\"2\":\"BasinName\"}",
-    "utilake.key": "[]",
+    "utilake.key": "[\"BASINID\"]",
     "utilake.load": "snapshot",
     "utilake.market": "gas",
     "utilake.model": "[\"GAS_BASIN\"]",
@@ -32,7 +32,7 @@
     "utilake.table": "GBB_BASINS",
     "utilake.temporal.entity": "[\"BASINID\"]",
     "utilake.temporal.order": "[]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.kind": "timeless",
     "utilake.visibility": "PUBLIC"
   },

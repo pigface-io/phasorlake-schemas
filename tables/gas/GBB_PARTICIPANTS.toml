@@ -1,7 +1,7 @@
 # The declaration of GBB_PARTICIPANTS: first drafted from the census and the data model, kept by hand.
 name = "GBB_PARTICIPANTS"
 report_pairs = [["GBB", "PARTICIPANTS"]]
-primary_key = []
+primary_key = ["COMPANYID"]
 time_column = "LASTUPDATED"
 load_mode = "snapshot"
 visibility = "PUBLIC"
@@ -11,8 +11,7 @@ model = ["GAS_PARTICIPANT", "GAS_PARTICIPANT_DETAIL"]
 cutoff = "LASTUPDATED"
 entity = ["COMPANYID"]
 order = ["LASTUPDATED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
-column = "LASTUPDATED"
-kind = "instant"
+kind = "timeless"

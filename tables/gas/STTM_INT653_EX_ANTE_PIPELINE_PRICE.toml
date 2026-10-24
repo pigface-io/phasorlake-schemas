@@ -9,8 +9,8 @@ visibility = "PUBLIC"
 [temporal]
 cutoff = "REPORT_DATETIME"
 entity = ["HUB_IDENTIFIER", "SCHEDULE_IDENTIFIER", "FACILITY_IDENTIFIER"]
-order = ["SCHEDULE_IDENTIFIER", "APPROVAL_DATETIME", "REPORT_DATETIME"]
-origin = "derived"
+order = ["APPROVAL_DATETIME", "REPORT_DATETIME"]
+origin = "hand"
 
 [temporal.valid]
 column = "GAS_DATE"

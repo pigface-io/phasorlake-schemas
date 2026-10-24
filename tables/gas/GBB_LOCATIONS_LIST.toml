@@ -1,7 +1,7 @@
 # The declaration of GBB_LOCATIONS_LIST: first drafted from the census and the data model, kept by hand.
 name = "GBB_LOCATIONS_LIST"
 report_pairs = [["GBB", "LOCATIONS_LIST"]]
-primary_key = []
+primary_key = ["LOCATIONID"]
 time_column = "LASTUPDATED"
 load_mode = "snapshot"
 visibility = "PUBLIC"
@@ -11,8 +11,7 @@ model = ["GAS_LOCATION"]
 cutoff = "LASTUPDATED"
 entity = ["LOCATIONID"]
 order = ["LASTUPDATED"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
-column = "LASTUPDATED"
-kind = "instant"
+kind = "timeless"

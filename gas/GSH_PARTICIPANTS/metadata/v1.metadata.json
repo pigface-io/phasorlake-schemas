@@ -31,9 +31,8 @@
     "utilake.temporal.cutoff": "LASTCHANGED",
     "utilake.temporal.entity": "[\"MARKET_ID\",\"PARTICIPANT_ID\"]",
     "utilake.temporal.order": "[\"LASTCHANGED\"]",
-    "utilake.temporal.origin": "derived",
-    "utilake.temporal.valid.column": "LASTCHANGED",
-    "utilake.temporal.valid.kind": "instant",
+    "utilake.temporal.origin": "hand",
+    "utilake.temporal.valid.kind": "timeless",
     "utilake.time": "LASTCHANGED",
     "utilake.visibility": "PUBLIC"
   },

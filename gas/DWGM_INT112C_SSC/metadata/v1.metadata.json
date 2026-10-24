@@ -27,10 +27,9 @@
     "utilake.offset": "+10:00",
     "utilake.reports": "[[\"DWGM\",\"INT112C_SSC_1\"]]",
     "utilake.table": "DWGM_INT112C_SSC",
-    "utilake.temporal.cutoff": "CURRENT_DATE",
     "utilake.temporal.entity": "[\"SSC_ID\"]",
     "utilake.temporal.order": "[\"CURRENT_DATE\"]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.kind": "timeless",
     "utilake.visibility": "PUBLIC"
   },

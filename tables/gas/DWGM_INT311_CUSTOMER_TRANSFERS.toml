@@ -9,7 +9,7 @@ visibility = "PUBLIC"
 [temporal]
 entity = []
 order = []
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "GAS_DATE"

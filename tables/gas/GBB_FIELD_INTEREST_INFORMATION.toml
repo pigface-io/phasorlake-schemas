@@ -1,7 +1,7 @@
 # The declaration of GBB_FIELD_INTEREST_INFORMATION: first drafted from the census and the data model, kept by hand.
 name = "GBB_FIELD_INTEREST_INFORMATION"
 report_pairs = [["GBB", "FIELD_INTEREST_INFORMATION"]]
-primary_key = []
+primary_key = ["FIELDINTERESTID", "COMPANYID", "BASINID"]
 time_column = "EFFECTIVEDATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
@@ -11,7 +11,7 @@ model = ["GAS_FIELDINTEREST", "GAS_FIELDINTEREST_DETAIL", "GAS_FIELDINTEREST_PAR
 cutoff = "VERSIONDATETIME"
 entity = ["FIELDINTERESTID", "COMPANYID", "BASINID"]
 order = ["VERSIONDATETIME"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "EFFECTIVEDATE"

@@ -3,14 +3,14 @@ name = "DWGM_INT284_TUOS_ZONE_POSTCODE_MAP"
 report_pairs = [["DWGM", "INT284_TUOS_ZONE_POSTCODE_MAP_1"]]
 primary_key = []
 time_column = "LAST_UPDATE_DATETIME"
-load_mode = "snapshot"
+load_mode = "append"
 visibility = "PUBLIC"
 
 [temporal]
 cutoff = "CURRENT_DATE"
 entity = []
 order = ["CURRENT_DATE"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "LAST_UPDATE_DATETIME"

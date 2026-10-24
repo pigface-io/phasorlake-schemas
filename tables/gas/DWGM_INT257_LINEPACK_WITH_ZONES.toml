@@ -1,7 +1,7 @@
 # The declaration of DWGM_INT257_LINEPACK_WITH_ZONES: first drafted from the census and the data model, kept by hand.
 name = "DWGM_INT257_LINEPACK_WITH_ZONES"
 report_pairs = [["DWGM", "INT257_LINEPACK_WITH_ZONES_1"]]
-primary_key = []
+primary_key = ["LINEPACK_ZONE_ID"]
 time_column = "LAST_MOD_DATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 cutoff = "CURRENT_DATE"
 entity = ["LINEPACK_ZONE_ID"]
 order = ["CURRENT_DATE"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "LAST_MOD_DATE"

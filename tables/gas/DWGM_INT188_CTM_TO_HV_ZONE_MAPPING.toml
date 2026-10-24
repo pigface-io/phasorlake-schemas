@@ -3,14 +3,14 @@ name = "DWGM_INT188_CTM_TO_HV_ZONE_MAPPING"
 report_pairs = [["DWGM", "INT188_CTM_TO_HV_ZONE_MAPPING_1"]]
 primary_key = []
 time_column = "EFFECTIVE_FROM"
-load_mode = "snapshot"
+load_mode = "append"
 visibility = "PUBLIC"
 
 [temporal]
 cutoff = "CURRENT_DATE"
 entity = []
 order = ["CURRENT_DATE"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "EFFECTIVE_FROM"

@@ -10,7 +10,7 @@ visibility = "PUBLIC"
 cutoff = "REPORT_DATETIME"
 entity = ["HUB_IDENTIFIER", "CONTINGENCY_GAS_CALLED_IDENTIFIER"]
 order = ["APPROVAL_DATETIME", "REPORT_DATETIME"]
-origin = "derived"
+origin = "hand"
 
 [temporal.valid]
 column = "GAS_DATE"

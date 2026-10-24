@@ -30,7 +30,7 @@
     "utilake.temporal.cutoff": "CURRENT_DATE",
     "utilake.temporal.entity": "[\"NODE_ID\"]",
     "utilake.temporal.order": "[\"CURRENT_DATE\"]",
-    "utilake.temporal.origin": "derived",
+    "utilake.temporal.origin": "hand",
     "utilake.temporal.valid.column": "MEASUREMENT_DATETIME",
     "utilake.temporal.valid.kind": "instant",
     "utilake.time": "MEASUREMENT_DATETIME",
