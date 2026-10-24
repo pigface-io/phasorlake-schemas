@@ -718,6 +718,55 @@ fn a_report_run_inside_a_published_run_keeps_its_schema() {
     );
 }
 
+/// One report zip whose blocks change shape part way through its month
+/// ends one run and begins the next at the same file: the fold of the
+/// same evidence again keeps both runs whole, and more files at the end
+/// of the second block extend it.
+#[test]
+fn a_file_that_ends_one_run_and_begins_the_next_marks_each_by_its_time() {
+    let d = decl();
+    let evidence = |later: u64| {
+        let mut obs = observe(&[("2024-04", 1, "dvd", &[T, R, P])]);
+        let file = ("R2024-05.zip", "cd");
+        let early = ("2024/05/01 00:05:00", "2024/05/14 00:00:00");
+        let late = ("2024/05/14 00:05:00", "2024/05/28 00:00:00");
+        let current = record("reports/current");
+        obs.run(
+            "DISPATCHPRICE",
+            month("2024-05"),
+            (file, file, 13),
+            &current,
+            &block(1, Some(early), &[T, R, P]),
+        );
+        obs.run(
+            "DISPATCHPRICE",
+            month("2024-05"),
+            (file, file, later),
+            &current,
+            &block(1, Some(late), &[T, R, X, P]),
+        );
+        obs
+    };
+    let fold = |obs: Observations, floor: &BTreeMap<String, History>| {
+        obs.finish(&d, floor)
+            .map(|mut t| t.remove("DISPATCHPRICE").unwrap())
+            .unwrap()
+    };
+    let published = fold(evidence(17), &BTreeMap::new());
+    assert_eq!(schemas_of(&published), [0, 1]);
+    assert_eq!(published.runs[0].files, 14);
+    assert_eq!(published.runs[0].to.file, "R2024-05.zip");
+    assert_eq!(published.runs[1].from.file, "R2024-05.zip");
+    let floor = BTreeMap::from([("DISPATCHPRICE".to_owned(), published.clone())]);
+    let again = fold(evidence(17), &floor);
+    assert_eq!(check(&published, &again), []);
+    assert_eq!(again.runs, published.runs);
+    let grown = fold(evidence(20), &floor);
+    assert_eq!(check(&published, &grown), []);
+    assert_eq!(schemas_of(&grown), [0, 1]);
+    assert_eq!((grown.runs[0].files, grown.runs[1].files), (14, 20));
+}
+
 /// Two column lists that alternate keep their two schemas and ids when a
 /// month of either is added before them.
 #[test]

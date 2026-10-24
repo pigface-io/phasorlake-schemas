@@ -68,7 +68,8 @@
 //!   is a new field, named by the check only when the file began a run);
 //!   a key column null in a backfill before a published required field is
 //!   its own, optional, field; and two blocks of one file with the same
-//!   report pair and version are covered from the first to the last.
+//!   report pair and version are covered from the first to the last,
+//!   unless each marks a run of its own, told apart by its data time.
 //! - **An override** (`[[override]]` in the table's declaration) is the
 //!   type of each of the column's lineages that no published field sets,
 //!   and the column's lineage does not end where its values turn to text.
@@ -567,12 +568,23 @@ fn coverage<'a>(published: Option<&'a History>, obs: &[Obs]) -> Vec<(Option<&'a 
                 && mark.file == m.file
                 && mark.sha256 == m.sha256
         };
-        let Some(from) = obs.iter().position(|o| is(o, &o.from, &r.from)) else {
+        // One file may hold blocks of more than one schema (a report
+        // folder's zip of a month whose shape changed part way), each an
+        // observation of its own that ends one run and begins the next:
+        // the run's mark is the observation at its data time, else the
+        // first (or last) at the file.
+        let at = |o: &Obs, mark: &Mark, m: &Mark| is(o, mark, m) && mark.data_time == m.data_time;
+        let Some(from) = obs
+            .iter()
+            .position(|o| at(o, &o.from, &r.from))
+            .or_else(|| obs.iter().position(|o| is(o, &o.from, &r.from)))
+        else {
             continue;
         };
         let to = obs
             .iter()
-            .rposition(|o| is(o, &o.to, &r.to))
+            .rposition(|o| at(o, &o.to, &r.to))
+            .or_else(|| obs.iter().rposition(|o| is(o, &o.to, &r.to)))
             .filter(|&t| t >= from)
             .unwrap_or(from);
         let schema = h.schema(r.schema_id);
