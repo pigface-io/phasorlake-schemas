@@ -466,11 +466,11 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
             }
             let cat = catalog(&root, market)?;
             let tmp = scratch()?;
-            let journals = mirror.as_deref().map(reports::journals);
+
             let taken = reports::census_reports(
                 &cat,
                 &dir,
-                (mmsdm.as_deref(), journals.as_deref()),
+                (mmsdm.as_deref(), mirror.as_deref()),
                 (&root, market),
                 tmp.path(),
                 jobs,

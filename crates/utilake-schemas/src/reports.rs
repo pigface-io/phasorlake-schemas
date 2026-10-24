@@ -455,11 +455,25 @@ pub fn version_of(name: &str) -> (&str, Option<&str>) {
     }
 }
 
-/// Where utilake-mirror's journals are, under its home:
-/// `{mirror}/mirror/journal`, with a folder's at `{host}/{folder}/changes.ndjson`.
+/// The journal of a report folder (`folder` under `host`) in the
+/// utilake-mirror home `mirror`: the folder's `events.ndjson` under
+/// `state/folders/`, else, in a home not yet upgraded, its
+/// `changes.ndjson` under `mirror/journal/`.
 #[must_use]
-pub fn journals(mirror: &Path) -> PathBuf {
-    mirror.join("mirror/journal")
+pub fn journal_of(mirror: &Path, host: &str, folder: &str) -> PathBuf {
+    let events = mirror
+        .join("state/folders")
+        .join(host)
+        .join(folder)
+        .join("events.ndjson");
+    if events.exists() {
+        return events;
+    }
+    mirror
+        .join("mirror/journal")
+        .join(host)
+        .join(folder)
+        .join("changes.ndjson")
 }
 
 /// The provenance of the file at `path`, when it has a record that reads
@@ -1203,13 +1217,14 @@ pub struct Taken {
 /// `host` (the directory of the host, `…/www.nemweb.com.au`), or of the
 /// one feed `only` names, each recorded under `repo` as it is taken.
 /// `mmsdm` holds the MMSDM months whose control files type the NEM's
-/// blocks; `journals` the mirror's journals (see [`journals`]); `tmp`
+/// blocks; `mirror` the utilake-mirror home, whose journals it counts
+/// ([`journal_of`]); `tmp`
 /// takes nested zips while they are read. A root the host does not hold
 /// is passed over.
 pub fn census_reports(
     catalog: &Catalog,
     host: &Path,
-    (mmsdm, journals): (Option<&Path>, Option<&Path>),
+    (mmsdm, mirror): (Option<&Path>, Option<&Path>),
     (repo, market): (&Path, Market),
     tmp: &Path,
     jobs: usize,
@@ -1242,7 +1257,7 @@ pub fn census_reports(
             .lock()
             .unwrap_or_else(std::sync::PoisonError::into_inner);
         let at = Where { feed, root, rel };
-        let journal = journals.map(|j| j.join(feed.host).join(at.folder()).join("changes.ndjson"));
+        let journal = mirror.map(|m| journal_of(m, feed.host, &at.folder()));
         let census = census_folder(catalog, &mut c, at, files, journal.as_deref(), &spool);
         record_folder(repo, market, (feed, rel), &census)?;
         Ok(Taken {
@@ -1322,7 +1337,15 @@ mod tests {
         ] {
             assert_eq!(version_of(plain), (plain, None), "{plain}");
         }
-        assert_eq!(journals(Path::new("/m")), Path::new("/m/mirror/journal"));
+        assert_eq!(
+            journal_of(Path::new("/m"), "h", "Reports/X"),
+            Path::new("/m/mirror/journal/h/Reports/X/changes.ndjson")
+        );
+        let home = tempfile::tempdir().unwrap();
+        let events = home.path().join("state/folders/h/Reports/X/events.ndjson");
+        std::fs::create_dir_all(events.parent().unwrap()).unwrap();
+        std::fs::write(&events, "").unwrap();
+        assert_eq!(journal_of(home.path(), "h", "Reports/X"), events);
     }
 
     /// The SHA-256 the test sidecars give.
@@ -1477,10 +1500,7 @@ mod tests {
         files.sort();
 
         let mirror = dir.path().join("mirror-home");
-        let journal = journals(&mirror)
-            .join("www.nemweb.com.au/Reports")
-            .join(VIC_GAS)
-            .join("changes.ndjson");
+        let journal = journal_of(&mirror, "www.nemweb.com.au", &format!("Reports/{VIC_GAS}"));
         let line = |f: &str, event: &str| {
             format!("{{\"url\":\"{}\",\"event\":\"{event}\"}}\n", vic_gas_url(f))
         };
@@ -1547,7 +1567,7 @@ mod tests {
         let taken = census_reports(
             &cat,
             dir.path(),
-            (None, Some(&journals(&mirror))),
+            (None, Some(&mirror)),
             (&repo, Market::Nem),
             tmp.path(),
             2,
