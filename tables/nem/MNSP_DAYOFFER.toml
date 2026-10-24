@@ -6,3 +6,10 @@ primary_key = ["SETTLEMENTDATE", "OFFERDATE", "VERSIONNO", "PARTICIPANTID", "LIN
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
+
+# SETTLEMENTDATE labels the trading day the rows are for (04:00 to 04:00 the next day), written at midnight.
+[temporal]
+entity = ["PARTICIPANTID", "LINKID"]
+order = ["OFFERDATE", "VERSIONNO", "LASTCHANGED"]
+cutoff = "OFFERDATE"
+valid = { kind = "day", column = "SETTLEMENTDATE" }

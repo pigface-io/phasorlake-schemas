@@ -6,3 +6,10 @@ primary_key = ["TRADINGDATE", "DUID", "OFFERDATETIME", "PERIODID"]
 time_column = "TRADINGDATE"
 load_mode = "append"
 visibility = "PUBLIC"
+
+# TRADINGDATE labels the trading day the rows are for (04:00 to 04:00 the next day), written at midnight.
+[temporal]
+entity = ["DUID", "PERIODID"]
+order = ["OFFERDATETIME"]
+cutoff = "OFFERDATETIME"
+valid = { kind = "day", column = "TRADINGDATE" }
