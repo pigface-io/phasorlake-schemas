@@ -1144,3 +1144,18 @@ fn a_temporal_block_is_the_roles_a_person_set() {
         "hand"
     );
 }
+
+/// A market whose histories were censused but whose declarations do not
+/// exist yet exports every table undeclared.
+#[test]
+fn a_market_with_histories_but_no_declarations_exports_undeclared() {
+    let dir = exported();
+    let root = dir.path();
+    std::fs::remove_dir_all(root.join("tables/nem")).unwrap();
+    let r = Export::load(root, DEFAULT_BASE_URL)
+        .unwrap()
+        .render()
+        .unwrap();
+    let m: serde_json::Value = serde_json::from_slice(&r.files["manifest.json"]).unwrap();
+    assert_eq!(m["markets"]["nem"]["listed"][0]["declared"], json!(false));
+}

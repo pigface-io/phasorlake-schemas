@@ -138,9 +138,9 @@ fn day_label_notes(
 ) -> Vec<String> {
     let mut notes = Vec::new();
     for name in midnight_only {
-        let Some(t) = catalog.table(name) else {
-            continue;
-        };
+        let t = catalog
+            .table(name)
+            .expect("the midnight-only tables are the catalog's");
         let (kind, column) = match &t.temporal {
             Some(block) => {
                 let valid = block.get("valid").and_then(toml::Value::as_table);

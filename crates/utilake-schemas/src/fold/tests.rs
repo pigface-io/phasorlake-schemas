@@ -628,4 +628,12 @@ fn a_valid_column_seen_only_at_midnight_is_noted_unless_declared_a_day() {
             .notes
             .is_empty()
     );
+    // A table no declaration names has no roles to hold it to.
+    let none = Catalog::new(vec![]).unwrap();
+    assert!(
+        fold(root, Market::Nem, &none, true, None)
+            .unwrap()
+            .notes
+            .is_empty()
+    );
 }
