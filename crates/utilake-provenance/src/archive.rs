@@ -15,6 +15,7 @@ use std::path::{Path, PathBuf};
 
 use crate::layout;
 use crate::provenance::{Provenance, ReadError};
+use crate::stamp::Stamp;
 
 /// What a record's name ends with.
 pub const RECORD: &str = ".provenance.json";
@@ -124,6 +125,47 @@ impl Archive {
         beside(path, RECORD)
     }
 
+    /// Where a later version of the file at `path` is kept: beside it, as
+    /// `{name}@{at}`, `at` the time AEMO listed that version with
+    /// (`20261021T115300+1000`). The first version keeps the plain name.
+    #[must_use]
+    pub fn version_path(path: &Path, at: Stamp) -> PathBuf {
+        beside(path, &format!("@{}", at.compact()))
+    }
+
+    /// Where a download of the file at `path` is written until it is whole.
+    #[must_use]
+    pub fn part_path(path: &Path) -> PathBuf {
+        beside(path, ".part")
+    }
+
+    /// Notes in the record of the file at `path` that the listing no
+    /// longer names each of `urls`. Whether the record changed; a file with
+    /// no record changes nothing.
+    pub fn gone<'a>(
+        path: &Path,
+        urls: impl IntoIterator<Item = &'a str>,
+        at: Stamp,
+    ) -> Result<bool, Error> {
+        let Some(mut p) = Self::read(path)? else {
+            return Ok(false);
+        };
+        let mut changed = false;
+        for u in urls {
+            changed |= p.gone(u, at);
+        }
+        if changed {
+            Self::write(path, &p)?;
+        }
+        Ok(changed)
+    }
+
+    /// Reads the file a record describes again and holds it to the record.
+    pub fn verify(held: &Held) -> Result<bool, Error> {
+        let c = crate::content::Content::of_file(&held.path).map_err(io(&held.path))?;
+        Ok(c.same(&held.provenance.content))
+    }
+
     /// The provenance of the file at `path`: its record, else its format-1
     /// record; none when it has neither.
     pub fn read(path: &Path) -> Result<Option<Provenance>, Error> {
@@ -172,7 +214,9 @@ impl Archive {
     /// Every file held at `path`: the file there, then each `{name}@{at}`
     /// beside it, in name order, so in the order AEMO listed them. Two URLs
     /// can share a path (both listings of a report folder are one folder);
-    /// their files never replace each other.
+    /// their files never replace each other. A file is held only with a
+    /// record that reads and gives its size: a record cut short, or bytes
+    /// cut short, are not held, so they are fetched again.
     pub fn held_at(path: &Path) -> Result<Vec<Held>, Error> {
         let mut out = Vec::new();
         // A version is kept only beside a first file: with none there, the
@@ -180,12 +224,7 @@ impl Archive {
         if std::fs::symlink_metadata(path).is_err() {
             return Ok(out);
         }
-        if let Some(provenance) = Self::read(path)? {
-            out.push(Held {
-                path: path.to_path_buf(),
-                provenance,
-            });
-        }
+        out.extend(Self::held_file(path)?);
         let dir = path.parent().unwrap_or(Path::new("."));
         let name = path.file_name().unwrap_or_default().to_string_lossy();
         let prefix = format!("{name}@");
@@ -197,15 +236,25 @@ impl Archive {
             .collect();
         names.sort();
         for n in names {
-            let p = dir.join(n);
-            if let Some(provenance) = Self::read(&p)? {
-                out.push(Held {
-                    path: p,
-                    provenance,
-                });
-            }
+            out.extend(Self::held_file(&dir.join(n))?);
         }
         Ok(out)
+    }
+
+    /// The file at `path` with its provenance, when it has a record that
+    /// reads and gives the file's size.
+    fn held_file(path: &Path) -> Result<Option<Held>, Error> {
+        let Ok(meta) = std::fs::metadata(path) else {
+            return Ok(None);
+        };
+        match Self::read(path) {
+            Ok(Some(provenance)) if provenance.content.size == meta.len() => Ok(Some(Held {
+                path: path.to_path_buf(),
+                provenance,
+            })),
+            Ok(_) | Err(Error::Record { .. }) => Ok(None),
+            Err(e) => Err(e),
+        }
     }
 
     /// The file held for `url`: the first at its path whose provenance

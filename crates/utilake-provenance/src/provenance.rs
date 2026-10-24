@@ -222,6 +222,25 @@ impl Provenance {
         self.origin().seen
     }
 
+    /// What the server said when the bytes were obtained.
+    #[must_use]
+    pub fn served(&self) -> Option<&Served> {
+        self.origin().via.served()
+    }
+
+    /// The `ETag` the bytes were obtained with.
+    #[must_use]
+    pub fn etag(&self) -> Option<&str> {
+        self.served()?.etag.as_deref()
+    }
+
+    /// The `Last-Modified` the bytes were obtained with: when AEMO
+    /// published them.
+    #[must_use]
+    pub fn modified(&self) -> Option<Stamp> {
+        self.served()?.modified
+    }
+
     /// The address `url`, when the bytes are served there.
     #[must_use]
     pub fn address(&self, url: &str) -> Option<&Address> {

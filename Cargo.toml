@@ -74,6 +74,7 @@ utilake-provenance = { path = "crates/utilake-provenance" }
 utilake-zip = { path = "crates/utilake-zip" }
 
 anyhow = "1"
+crc32fast = "1.5"
 clap = { version = "4.6", features = ["derive", "env", "wrap_help"] }
 flate2 = { version = "1", default-features = false, features = ["zlib-rs"] }
 memchr = "2.8"

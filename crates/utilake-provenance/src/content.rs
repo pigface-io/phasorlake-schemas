@@ -98,6 +98,58 @@ pub struct Content {
     pub crc32: Option<u32>,
 }
 
+impl Content {
+    /// The content of `bytes`.
+    #[must_use]
+    pub fn of(bytes: &[u8]) -> Self {
+        Self {
+            size: bytes.len() as u64,
+            sha256: Sha256::of(bytes),
+            crc32: Some(crc32fast::hash(bytes)),
+        }
+    }
+
+    /// The content of everything `reader` gives, read once in 1 MiB
+    /// pieces so a file of any size takes the same memory. Blocking.
+    pub fn of_reader(mut reader: impl std::io::Read) -> std::io::Result<Self> {
+        use sha2::Digest as _;
+        let (mut sha, mut crc) = (sha2::Sha256::new(), crc32fast::Hasher::new());
+        let mut buf = vec![0u8; 1 << 20];
+        let mut size = 0u64;
+        loop {
+            let n = reader.read(&mut buf)?;
+            if n == 0 {
+                break;
+            }
+            sha.update(&buf[..n]);
+            crc.update(&buf[..n]);
+            size += n as u64;
+        }
+        Ok(Self {
+            size,
+            sha256: Sha256(sha.finalize().into()),
+            crc32: Some(crc.finalize()),
+        })
+    }
+
+    /// The content of the file at `path`. Blocking.
+    pub fn of_file(path: &std::path::Path) -> std::io::Result<Self> {
+        Self::of_reader(std::fs::File::open(path)?)
+    }
+
+    /// Whether `other` is the same bytes: size and SHA-256 equal, and the
+    /// CRC-32 when both have one.
+    #[must_use]
+    pub fn same(&self, other: &Self) -> bool {
+        self.size == other.size
+            && self.sha256 == other.sha256
+            && match (self.crc32, other.crc32) {
+                (Some(a), Some(b)) => a == b,
+                _ => true,
+            }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -120,6 +172,36 @@ mod tests {
             );
         }
         assert!(BadSha256("x".into()).to_string().contains("64 hex digits"));
+    }
+
+    #[test]
+    fn content_of_bytes_a_reader_and_a_file() {
+        let c = Content::of(b"abc");
+        assert_eq!(
+            (c.size, c.sha256.hex().as_str(), c.crc32),
+            (3, ABC, Some(0x3524_41c2))
+        );
+        assert_eq!(Content::of_reader(&b"abc"[..]).unwrap(), c);
+        let dir = tempfile::tempdir().unwrap();
+        let p = dir.path().join("f");
+        std::fs::write(&p, b"abc").unwrap();
+        assert_eq!(Content::of_file(&p).unwrap(), c);
+        assert!(Content::of_file(&dir.path().join("none")).is_err());
+        assert!(c.same(&Content { crc32: None, ..c }));
+        assert!(!c.same(&Content {
+            crc32: Some(1),
+            ..c
+        }));
+        assert!(!c.same(&Content::of(b"abd")));
+        assert!(!c.same(&Content { size: 4, ..c }));
+        // A reader that fails part way.
+        struct Broken;
+        impl std::io::Read for Broken {
+            fn read(&mut self, _: &mut [u8]) -> std::io::Result<usize> {
+                Err(std::io::Error::other("broken"))
+            }
+        }
+        assert!(Content::of_reader(Broken).is_err());
     }
 
     #[test]

@@ -1,7 +1,6 @@
 use super::*;
 use crate::content::{Content, Sha256};
 use crate::provenance::{Address, Via};
-use crate::stamp::Stamp;
 
 const URL: &str = "https://www.nemweb.com.au/Reports/CURRENT/Dispatch_SCADA/A.zip";
 const OTHER: &str = "https://www.nemweb.com.au/Reports/ARCHIVE/Dispatch_SCADA/A.zip";
@@ -68,6 +67,36 @@ fn paths_follow_the_layout() {
         assert!(is_noise(noise), "{noise}");
     }
     assert!(!is_noise("x.zip") && !is_noise("x.json"));
+}
+
+#[test]
+fn versions_parts_gone_and_verify() {
+    let dir = tempfile::tempdir().unwrap();
+    let path = dir.path().join("A.zip");
+    let at = Stamp::parse("2026-10-21T11:53:00+10:00").unwrap();
+    assert_eq!(
+        Archive::version_path(&path, at),
+        dir.path().join("A.zip@20261021T115300+1000")
+    );
+    assert_eq!(Archive::part_path(&path), dir.path().join("A.zip.part"));
+    let gone = Stamp::from_unix(1_800_000_200);
+    assert!(!Archive::gone(&path, [URL], gone).unwrap(), "no record");
+    let p = hold(&path, URL, b"abc");
+    assert!(Archive::gone(&path, [URL, OTHER], gone).unwrap());
+    assert!(!Archive::gone(&path, [URL], gone).unwrap(), "noted already");
+    assert_eq!(
+        Archive::read(&path).unwrap().unwrap().origin().gone,
+        Some(gone)
+    );
+    let held = Held {
+        path: path.clone(),
+        provenance: p,
+    };
+    assert!(Archive::verify(&held).unwrap());
+    std::fs::write(&path, b"abd").unwrap();
+    assert!(!Archive::verify(&held).unwrap());
+    std::fs::remove_file(&path).unwrap();
+    assert!(Archive::verify(&held).is_err());
 }
 
 #[test]
@@ -184,12 +213,26 @@ fn every_version_at_a_path_and_the_one_a_url_names() {
             .unwrap(),
         None
     );
-    // A version whose record does not read stops the read.
+    // A version whose record does not read, or whose bytes are cut
+    // short, is not held.
     std::fs::write(
         path.with_file_name("A.zip@20261021T000000Z.provenance.json"),
         b"[",
     )
     .unwrap();
+    assert_eq!(Archive::held_at(&path).unwrap().len(), 2);
+    std::fs::write(&later, b"tw").unwrap();
+    assert_eq!(Archive::held_at(&path).unwrap().len(), 1);
+    // A version that is a link to nothing is not held.
+    std::os::unix::fs::symlink(
+        dir.path().join("nowhere"),
+        path.with_file_name("A.zip@20261020T000000Z"),
+    )
+    .unwrap();
+    assert_eq!(Archive::held_at(&path).unwrap().len(), 1);
+    // A record that cannot be read at all stops the read.
+    std::fs::create_dir(path.with_file_name("A.zip@20261022T000000Z")).unwrap();
+    std::fs::create_dir(path.with_file_name("A.zip@20261022T000000Z.provenance.json")).unwrap();
     assert!(Archive::held_at(&path).is_err());
 }
 

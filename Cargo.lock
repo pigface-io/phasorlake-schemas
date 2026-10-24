@@ -741,6 +741,7 @@ dependencies = [
 name = "utilake-provenance"
 version = "0.1.0"
 dependencies = [
+ "crc32fast",
  "rustix",
  "serde",
  "serde_json",

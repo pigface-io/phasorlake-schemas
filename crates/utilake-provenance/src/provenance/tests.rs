@@ -40,6 +40,8 @@ fn a_mirror_sidecar_reads_and_keeps_only_what_nothing_else_gives() {
     assert_eq!(p.tool, "nemweb-mirror/0.1.0");
     assert_eq!(p.url(), CURRENT);
     assert_eq!(p.fetched_at(), at("2026-10-19T23:14:57Z"));
+    assert_eq!(p.modified(), Some(at("2026-10-17T23:16:18Z")));
+    assert_eq!(p.etag(), None);
     // The listing's size is the file's and its time the server's cut to
     // the minute: neither is written, both are given back.
     assert_eq!(
@@ -128,6 +130,7 @@ fn an_old_sidecar_without_instants_reads_its_text() {
         panic!("fetched")
     };
     assert_eq!(served.as_ref().unwrap().etag.as_deref(), Some("\"e\""));
+    assert_eq!(p.etag(), Some("\"e\""));
     // 10:05 AEST is not 00:00 UTC cut to the minute: kept.
     assert_eq!(listed.unwrap().at, Some(at("2026-10-01T10:05:00+10:00")));
     assert_eq!(p.content.crc32, None);
