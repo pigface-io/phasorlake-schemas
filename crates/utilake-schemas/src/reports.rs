@@ -67,6 +67,7 @@ use utilake_iceberg::Market;
 pub use utilake_plain_decode::feeds::{Decoder, Dedupe, Feed, feed, feeds_of};
 use utilake_plain_decode::names::block_name;
 use utilake_plain_decode::{Format, PlainOptions, peek, sniff};
+use utilake_provenance::{Archive, Provenance, Stamp, archive, layout};
 
 /// The NEM's report feed: `Reports/ARCHIVE` and `Reports/CURRENT`, less
 /// the gas folders.
@@ -461,70 +462,21 @@ pub fn journals(mirror: &Path) -> PathBuf {
     mirror.join("mirror/journal")
 }
 
-/// What the census reads of a file's sidecar, `{path}.json`. Fields it
-/// does not know are passed over.
-#[derive(Debug, Deserialize)]
-pub(crate) struct Sidecar {
-    /// Where the file was fetched from.
-    pub(crate) url: String,
-    /// Its size in bytes.
-    pub(crate) size: u64,
-    /// Its SHA-256.
-    pub(crate) sha256: String,
-    /// When it was fetched, RFC 3339.
-    pub(crate) fetched_at: String,
-    /// The server's `Last-Modified`, as it sent it.
-    #[serde(default)]
-    pub(crate) last_modified: Option<String>,
-    /// The same as an instant, RFC 3339.
-    #[serde(default)]
-    pub(crate) last_modified_at: Option<String>,
-    /// The time the listing showed, as it wrote it.
-    #[serde(default)]
-    listed_modified: Option<String>,
-    /// The same as an instant, RFC 3339.
-    #[serde(default)]
-    listed_modified_at: Option<String>,
-    /// The other places the mirror found the same bytes served.
-    #[serde(default)]
-    pub(crate) also: Vec<Also>,
+/// The provenance of the file at `path`, when it has a record that reads
+/// (`{path}.provenance.json`, or a format-1 `{path}.json`).
+pub(crate) fn sidecar(path: &Path) -> Option<Provenance> {
+    Archive::read(path).ok().flatten()
 }
 
-/// One other place the same bytes are served, as the mirror records it.
-#[derive(Debug, Deserialize)]
-pub(crate) struct Also {
-    /// Where: a URL, or `{zip URL}!{entry}`.
-    pub(crate) url: String,
-    /// How it was found: `same` (the same bytes at another URL) or
-    /// `entry` (an entry of a day's zip).
-    #[serde(default)]
-    pub(crate) how: String,
+/// When the listing showed the file the record was obtained from, in the
+/// listing's clock.
+pub(crate) fn listed_at(p: &Provenance) -> Option<String> {
+    p.listed(p.url())?.at.map(|t| t.to_string())
 }
 
-/// The sidecar of the file at `path`, when it has one that reads. Its
-/// instants are written again as RFC 3339; one a sidecar written before
-/// they were kept lacks is read from the text beside it (market time when
-/// the text gives no offset), and a text that is not a time has none. An
-/// instant without an offset, or a `fetched_at` that is not a time with
-/// one, is a sidecar that does not read.
-pub(crate) fn sidecar(path: &Path) -> Option<Sidecar> {
-    use crate::stamp::{NEM_OFFSET_SECS, parse, parse_rfc3339};
-    let mut p = path.as_os_str().to_owned();
-    p.push(".json");
-    let mut sc: Sidecar = serde_json::from_slice(&std::fs::read(p).ok()?).ok()?;
-    parse_rfc3339(&sc.fetched_at)?;
-    let instant = |at: Option<String>, text: Option<&str>| -> Option<Option<String>> {
-        match at {
-            Some(at) => parse_rfc3339(&at).map(|t| Some(t.to_string())),
-            None => Some(
-                text.and_then(|t| parse(t, NEM_OFFSET_SECS))
-                    .map(|t| t.to_string()),
-            ),
-        }
-    };
-    sc.last_modified_at = instant(sc.last_modified_at.take(), sc.last_modified.as_deref())?;
-    sc.listed_modified_at = instant(sc.listed_modified_at.take(), sc.listed_modified.as_deref())?;
-    Some(sc)
+/// When AEMO published the bytes (the response's `Last-Modified`).
+pub(crate) fn published_at(p: &Provenance) -> Option<Stamp> {
+    p.origin().via.served()?.modified
 }
 
 /// One line of a folder's journal, as far as the census reads it.
@@ -568,7 +520,7 @@ struct Rewrite {
     repacked: u64,
     /// Each version's index in the folder's files and its sidecar, the
     /// first first.
-    versions: Vec<(usize, Option<Sidecar>)>,
+    versions: Vec<(usize, Option<Provenance>)>,
 }
 
 /// The files of `files` nemweb rewrote in place: more than one version,
@@ -596,7 +548,7 @@ fn rewrites(files: &[PathBuf], counts: &HashMap<String, (u64, u64)>) -> Vec<Rewr
             let (relisted, repacked) = versions
                 .iter()
                 .find_map(|(_, s)| s.as_ref())
-                .and_then(|s| counts.get(&s.url))
+                .and_then(|s| counts.get(s.url()))
                 .copied()
                 .unwrap_or_default();
             (versions.len() > 1 || relisted + repacked > 0).then_some(Rewrite {
@@ -733,9 +685,13 @@ fn classed(
         // records.
         let (sha256, listed_at, published_at) = match sc {
             Some(s) => (
-                if sha256.is_empty() { s.sha256 } else { sha256 },
-                s.listed_modified_at,
-                s.last_modified_at,
+                if sha256.is_empty() {
+                    s.content.sha256.hex()
+                } else {
+                    sha256
+                },
+                listed_at(&s),
+                published_at(&s).map(|t| t.to_string()),
             ),
             None => (sha256, None, None),
         };
@@ -815,9 +771,13 @@ fn month_of_instant(at: &str) -> Option<YearMonth> {
     YearMonth::new(y.parse().ok()?, m.parse().ok()?)
 }
 
-/// Whether `name` is the sidecar of another file among `names`: `{file}.json`
-/// beside `{file}`. In a feed that is not JSON every `.json` is one.
+/// Whether `name` is the record of another file among `names`:
+/// `{file}.provenance.json`, or a format-1 `{file}.json` beside `{file}`.
+/// In a feed that is not JSON every `.json` is one.
 fn is_sidecar(name: &str, names: &HashSet<&str>, feed: &Feed) -> bool {
+    if archive::is_record(name) {
+        return true;
+    }
     match name.strip_suffix(".json") {
         None => false,
         Some(_) if feed.decoder != Decoder::Json => true,
@@ -869,10 +829,10 @@ pub fn census_folder(
         let (file, _) = version_of(&name);
         // The mirror's sidecars are records of the files, not files; a
         // `._` file is what macOS keeps beside a file on some disks.
-        if name.starts_with("._") || is_sidecar(file, &names, feed) {
+        if archive::is_noise(&name) || is_sidecar(file, &names, feed) {
             continue;
         }
-        if let Some(l) = sidecar(path).and_then(|s| utilake_plain_decode::layout::listing(&s.url))
+        if let Some(l) = sidecar(path).and_then(|s| layout::listing(s.url()))
             && !g.census.listings.contains(&l)
         {
             g.census.listings.push(l);
@@ -882,7 +842,8 @@ pub fn census_folder(
             Decoder::Mms => name_month(file),
             _ => feed.release_month(&rel_path).or_else(|| {
                 sidecar(path)
-                    .and_then(|s| s.listed_modified_at)
+                    .as_ref()
+                    .and_then(listed_at)
                     .as_deref()
                     .and_then(month_of_instant)
             }),
@@ -1329,7 +1290,7 @@ mod tests {
             format!("2026-10-21T{}:{}:00+10:00", &a[9..11], &a[11..13])
         });
         let sidecar = format!(
-            r#"{{"url":"{}","size":{},"sha256":"x","fetched_at":"2026-10-21T09:00:00Z","last_modified_at":"2026-10-21T08:00:00Z","listed_modified_at":"{listed}","tool":"t"}}"#,
+            r#"{{"url":"{}","size":{},"sha256":"0000000000000000000000000000000000000000000000000000000000000000","fetched_at":"2026-10-21T09:00:00Z","last_modified_at":"2026-10-21T08:00:00Z","listed_modified_at":"{listed}","tool":"t"}}"#,
             vic_gas_url(file),
             bytes.len()
         );
@@ -1364,53 +1325,42 @@ mod tests {
         assert_eq!(journals(Path::new("/m")), Path::new("/m/mirror/journal"));
     }
 
+    /// The SHA-256 the test sidecars give.
+    const ZERO: &str = "0000000000000000000000000000000000000000000000000000000000000000";
+
     #[test]
-    fn older_sidecars_gain_their_instants_on_read() {
+    fn a_record_of_either_format_reads_and_one_that_does_not_is_none() {
         let dir = tempfile::tempdir().unwrap();
         let path = dir.path().join("f.zip");
-        let with = |json: &[u8]| {
-            std::fs::write(dir.path().join("f.zip.json"), json).unwrap();
-            sidecar(&path)
-        };
         // The mirror's record before it kept the `_at` fields: the HTTP
         // date as the server sent it, and the listing's text in market
-        // time with no offset. The instants are read from them.
-        let sc = with(br#"{"url":"https://h/d/f.zip","size":3,"sha256":"x","crc32":1,"fetched_at":"2026-10-18T00:03:51Z","last_modified":"Mon, 18 May 2026 07:27:50 GMT","listed_size":3,"listed_modified":"Monday, May 18, 2026 05:27 PM","tool":"utilake-mirror/0.1.0"}"#).unwrap();
-        assert_eq!(
-            (sc.url.as_str(), sc.sha256.as_str()),
-            ("https://h/d/f.zip", "x")
+        // time with no offset.
+        let v1 = format!(
+            r#"{{"url":"https://h/d/f.zip","size":3,"sha256":"{ZERO}","fetched_at":"2026-10-18T00:03:51Z","last_modified":"Mon, 18 May 2026 07:27:50 GMT","listed_size":3,"listed_modified":"Monday, May 18, 2026 05:27 PM","tool":"utilake-mirror/0.1.0"}}"#
         );
-        assert_eq!(sc.last_modified_at.as_deref(), Some("2026-05-18T07:27:50Z"));
+        std::fs::write(dir.path().join("f.zip.json"), &v1).unwrap();
+        let sc = sidecar(&path).unwrap();
         assert_eq!(
-            sc.listed_modified_at.as_deref(),
-            Some("2026-05-18T17:27:00+10:00")
+            (sc.url(), sc.content.sha256.hex().as_str()),
+            ("https://h/d/f.zip", ZERO)
         );
-        // The record with the `_at` fields reads the same, and what it
-        // wrote there is kept over what the text would give.
-        let kept = with(br#"{"url":"u","size":3,"sha256":"x","fetched_at":"2026-10-18T00:03:51Z","last_modified":"Mon, 18 May 2026 07:27:50 GMT","last_modified_at":"2026-05-18T08:27:50+01:00","listed_modified":"Monday, May 18, 2026 05:27 PM","listed_modified_at":"2026-05-18T17:27:00+10:00"}"#).unwrap();
         assert_eq!(
-            kept.last_modified_at.as_deref(),
-            Some("2026-05-18T08:27:50+01:00")
+            published_at(&sc).map(|t| t.to_string()).as_deref(),
+            Some("2026-05-18T07:27:50Z")
         );
-        assert_eq!(kept.listed_modified_at, sc.listed_modified_at);
-        // A text that is not a time has no instant; a zip entry's naive
-        // time is market time.
-        let odd = with(br#"{"url":"u","size":3,"sha256":"x","fetched_at":"2026-10-18T00:03:51Z","last_modified":"unknown","listed_modified":"2017-01-12 12:24:16"}"#).unwrap();
-        assert_eq!(odd.last_modified_at, None);
-        assert_eq!(
-            odd.listed_modified_at.as_deref(),
-            Some("2017-01-12T12:24:16+10:00")
-        );
-        // An `_at` without an offset, a fetched_at that is not a time, a
-        // field missing, or no sidecar at all: none that reads.
-        for bad in [
-            &br#"{"url":"u","size":3,"sha256":"x","fetched_at":"2026-10-18T00:03:51Z","last_modified_at":"2026-05-18T07:27:50"}"#[..],
-            br#"{"url":"u","size":3,"sha256":"x","fetched_at":"2026-10-18T00:03:51Z","listed_modified_at":"2026-05-18T07:27:50"}"#,
-            br#"{"url":"u","size":3,"sha256":"x","fetched_at":"t"}"#,
-            br#"{"url":"u","sha256":"x","fetched_at":"2026-10-18T00:03:51Z"}"#,
-        ] {
-            assert!(with(bad).is_none(), "{}", String::from_utf8_lossy(bad));
-        }
+        assert_eq!(listed_at(&sc).as_deref(), Some("2026-05-18T17:27:00+10:00"));
+        // Written again, it reads the same from its new name.
+        Archive::write(&path, &sc).unwrap();
+        assert_eq!(sidecar(&path), Some(sc));
+        // A record is never a file of the folder, whatever its feed.
+        assert!(is_sidecar(
+            "f.zip.provenance.json",
+            &HashSet::new(),
+            nem_reports()
+        ));
+        // A record that does not read, or none at all.
+        std::fs::write(dir.path().join("f.zip.provenance.json"), b"{").unwrap();
+        assert!(sidecar(&path).is_none());
         assert!(sidecar(&dir.path().join("none")).is_none());
     }
 
@@ -1576,8 +1526,8 @@ mod tests {
         assert_eq!(by[worse].versions[1].sha256, "", "gone before it was read");
         assert_eq!(by[worse].versions[1].listed_at, None, "no sidecar");
         assert_eq!(changes(gone), [First, Data]);
-        assert_eq!(by[gone].versions[1].sha256, "x", "its sidecar's");
-        assert_eq!(by[pdf].versions[0].sha256, "x", "not read: its sidecar's");
+        assert_eq!(by[gone].versions[1].sha256, ZERO, "its sidecar's");
+        assert_eq!(by[pdf].versions[0].sha256, ZERO, "not read: its sidecar's");
         assert_eq!(changes(pdf), [First, Data]);
         assert_eq!((by[lone].relisted, by[lone].versions.len()), (2, 1));
         // Every version is read as its name's kind: none is another file.
@@ -1943,7 +1893,7 @@ mod tests {
     /// A plain feed's sidecar for `rel` under `host`, listed at `listed`.
     fn sidecar_for(host: &Path, rel: &str, listed: &str) {
         let json = format!(
-            r#"{{"url":"https://x/{rel}","size":1,"sha256":"x","fetched_at":"2026-10-21T09:00:00Z","listed_modified_at":"{listed}","tool":"t"}}"#
+            r#"{{"url":"https://x/{rel}","size":1,"sha256":"0000000000000000000000000000000000000000000000000000000000000000","fetched_at":"2026-10-21T09:00:00Z","listed_modified_at":"{listed}","tool":"t"}}"#
         );
         put(host, &format!("{rel}.json"), json.as_bytes());
     }
@@ -2315,7 +2265,7 @@ mod tests {
         let day = zip_of(&[(five, &inner)]);
         let side = |listing: &str, name: &str, size: usize| {
             format!(
-                r#"{{"url":"https://www.nemweb.com.au/Reports/{listing}/Dispatch_SCADA/{name}","size":{size},"sha256":"x","fetched_at":"2026-10-21T09:00:00Z","tool":"t"}}"#
+                r#"{{"url":"https://www.nemweb.com.au/Reports/{listing}/Dispatch_SCADA/{name}","size":{size},"sha256":"0000000000000000000000000000000000000000000000000000000000000000","fetched_at":"2026-10-21T09:00:00Z","tool":"t"}}"#
             )
         };
         put(&reports, &format!("Dispatch_SCADA/{five}"), &inner);

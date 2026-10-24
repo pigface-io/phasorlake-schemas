@@ -29,7 +29,6 @@
 //!   loads each column as;
 //! - [`names`] reads a table and [`month::YearMonth`] out of an archive
 //!   file name;
-//! - [`stamp`] reads the times a utilake-mirror sidecar keeps;
 //! - [`shape`] gives a block's report pair and columns a content-addressed
 //!   [`shape::ShapeId`], the same id utilake gives it.
 
@@ -53,7 +52,6 @@ pub mod report_model;
 pub mod reports;
 pub mod sources;
 pub mod sql;
-pub mod stamp;
 pub mod text;
 
 pub use utilake_mms_decode::filename as names;

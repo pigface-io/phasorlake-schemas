@@ -23,7 +23,7 @@ derives them is here, so anyone can check the result or improve it.
 | `evidence/models/`    | The data-model create scripts the monthly archives ship: each release's tables, columns, types and comments.                                 |
 | `evidence/histories/{market}/` | Each table's history as an Iceberg table, folded from all of the above; `BASELINE.toml` names the market's data version when one was re-based. The census, the models and the sources sit under a market directory the same way (`evidence/census/{market}/`, `evidence/models/{market}/`, `sources/{market}/`). |
 | `{market}/`           | The published tables of a market (`nem/`, `wem/`, `gas/`): `{market}/{TABLE}/metadata/` is the table as Iceberg table metadata (`v1.metadata.json`, `version-hint.text`, one empty manifest list per run); beside it one `schema-{id}.json` per schema, derived from the metadata; `{market}/headers.json`; `{market}/folders.json` (which report folder of a feed carries each block, from the folder census; absent until one is recorded); `manifest.json` names every file with its SHA-256, and each market's data version and tables under `markets`. |
-| `crates/`             | `utilake-iceberg`, the Iceberg contract (no I/O): types, schemas, histories, the planner, metadata as bytes; `utilake-mms-decode`, AEMO's MMS files decoded; `utilake-plain-decode`, AEMO's header-row CSV and WEMDE JSON files decoded, with the naming, release and row-diff rules of every feed that is not MMSDM; `utilake-zip`, zips walked; `utilake-gates`, the gates every utilake repository runs; `utilake-schemas`, the tool; `xtask`, this repository's gates. utilake and pigface-io depend on the first five by git revision. |
+| `crates/`             | `utilake-iceberg`, the Iceberg contract (no I/O): types, schemas, histories, the planner, metadata as bytes; `utilake-mms-decode`, AEMO's MMS files decoded; `utilake-plain-decode`, AEMO's header-row CSV and WEMDE JSON files decoded, with the naming, release and row-diff rules of every feed that is not MMSDM; `utilake-provenance`, what an archived file is and every place AEMO served it (the record beside each file, the one time type, the archive, and the rule that names a file's local path); `utilake-zip`, zips walked; `utilake-gates`, the gates every utilake repository runs; `utilake-schemas`, the tool; `xtask`, this repository's gates. utilake depends on these crates by git revision. |
 
 ## The pipeline
 
@@ -45,7 +45,8 @@ utilake-schemas iceberg --out target/iceberg                       # the same ta
 `fetch` downloads one month of the MMSDM archive, one request at a time,
 and records each file in `sources/{YYYY-MM}.tsv` as it lands. A census
 taken from a local mirror archive instead (nemweb as laid out under
-`www.nemweb.com.au/`, a sidecar `{file}.json` beside each file) has
+`www.nemweb.com.au/`, a provenance record `{file}.provenance.json` beside
+each file, or `{file}.json` where the mirror wrote it before format 2) has
 `sources/` written by `sources --archive DIR` (`just sources DIR`): one row
 per file every census under `evidence/census/` records, report folders
 included, with the URL and `Last-Modified` its sidecar gives and the
@@ -62,7 +63,7 @@ archive (`…/archive/www.nemweb.com.au`, `…/archive/data.wa.aemo.com.au`),
 kept one local folder per report folder: AEMO lists a folder's files
 under `Reports/CURRENT/` for a few days and the day's zip of them under
 `Reports/ARCHIVE/`, and the archive keeps both at `Reports/{folder}/`
-(`utilake_plain_decode::layout`), the listing in each sidecar's URL. So a
+(`utilake_provenance::layout`), the listing in each record's URL. So a
 5-minute file and the day's zip holding it are one folder, and a CSV read
 in both counts once (`repeated`). The feeds: the NEM's `Reports` (less the
 gas folders), the gas feeds `gsh` (MMS rows under `Reports/GSH`), `gbb`,
@@ -92,8 +93,8 @@ under `[[rewritten]]`, every version classed `first`, `data` (new data),
 version's data again). With `--mirror` (the utilake-mirror home, else
 `UTILAKE_MIRROR_HOME`), it also counts from the mirror's journal how often
 the file was listed again with the same bytes (`relisted`) or as a zip of
-the same entries (`repacked`). A sidecar written before utilake-mirror kept
-its `_at` instants has them read from the text beside them.
+the same entries (`repacked`). A record of format 1, the flat sidecar the
+mirror wrote before, is read as format 2 (`utilake_provenance::provenance`).
 `models --market gas --dir …/MMSDataModelReport/Gas` reads AEMO's Gas
 Data Model Report (a web report, not a create script) into the same model
 files; the WEM publishes no model, so its tables are declared by hand.
@@ -181,7 +182,7 @@ folder, listings, blocks}`, `root` and `folder` as the archive keeps them
 (`Reports`, `Dispatch_SCADA`) and `listings` the ones AEMO showed its files
 under (`ARCHIVE`, `CURRENT`), so a reader lists
 `{root}/{listing}/{folder}/` on the host
-(`utilake_plain_decode::layout::listed_path`). All three are derived at export;
+(`utilake_provenance::layout::listed_path`). All three are derived at export;
 nothing in them is not in it.
 
 What the metadata means, beyond Iceberg:

@@ -30,6 +30,8 @@
 
 use std::io::{Read, Seek, SeekFrom};
 
+use utilake_provenance::Stamp;
+
 /// The end record, the longest comment it may be followed by, and the
 /// zip64 locator that may come before it.
 pub const TAIL: u64 = 20 + 22 + 0xFFFF;
@@ -86,6 +88,23 @@ impl Entry {
             (time >> 11) as u8,
             ((time >> 5) & 0x3F) as u8,
             ((time & 0x1F) * 2) as u8,
+        )
+    }
+
+    /// Modified, as an instant in the clock of the machine that packed the
+    /// zip (`offset_secs`: AEST for AEMO's zips); none when the DOS fields
+    /// are out of range.
+    pub fn modified_at(&self, offset_secs: i32) -> Option<Stamp> {
+        let (y, m, d, hh, mm, ss) = self.modified_fields();
+        let y = i32::try_from(y).ok()?;
+        Stamp::at(
+            y,
+            m.into(),
+            d.into(),
+            hh.into(),
+            mm.into(),
+            ss.into(),
+            offset_secs,
         )
     }
 
@@ -409,7 +428,25 @@ fn u64_at(b: &[u8], at: usize) -> u64 {
 mod tests {
     use std::io::{Cursor, Write as _};
 
+    use utilake_provenance::stamp::AEST;
+
     use super::*;
+
+    #[test]
+    fn a_dos_time_out_of_range_is_no_instant() {
+        let e = Entry {
+            name: "a".into(),
+            size: 0,
+            compressed: 0,
+            crc32: 0,
+            method: 0,
+            dos_date: 0,
+            dos_time: 0,
+            local_header_offset: 0,
+        };
+        assert_eq!(e.modified_text(), "1980-00-00 00:00:00");
+        assert_eq!(e.modified_at(AEST), None);
+    }
 
     /// Reads a zip in memory, counting the spans fed.
     fn read(bytes: &[u8]) -> (Result<Vec<Entry>, DirError>, usize) {
@@ -461,6 +498,10 @@ mod tests {
         assert_eq!(e[1].crc32, crc32(&b"x,y\n".repeat(100)));
         assert_eq!(e[1].modified_text(), "2026-10-01 12:34:56");
         assert_eq!(e[1].modified_fields(), (2026, 10, 1, 12, 34, 56));
+        assert_eq!(
+            e[1].modified_at(AEST).map(|t| t.to_string()).as_deref(),
+            Some("2026-10-01T12:34:56+10:00")
+        );
         assert_eq!((e[2].size, e[2].compressed, e[2].method), (3, 3, 0));
         // The local header offsets point at local headers; the stored
         // entry's data follows its header.

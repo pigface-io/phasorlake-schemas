@@ -117,14 +117,14 @@ impl Feed {
         }
     }
 
-    /// The feed's roots as the archive keeps them ([`crate::layout`]): a
+    /// The feed's roots as the archive keeps them ([`utilake_provenance::layout`]): a
     /// root under two listings is one folder (`Reports/ARCHIVE` and
     /// `Reports/CURRENT` are `Reports`), in table order.
     #[must_use]
     pub fn local_roots(&self) -> Vec<String> {
         let mut out: Vec<String> = Vec::new();
         for r in self.roots {
-            let local = crate::layout::local_root(self.host, r);
+            let local = utilake_provenance::layout::local_root(self.host, r);
             if !out.contains(&local) {
                 out.push(local);
             }

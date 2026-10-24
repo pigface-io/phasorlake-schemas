@@ -44,6 +44,18 @@ const LISTINGS: &[Listing] = &[
     },
 ];
 
+/// The clock a host's listings show times in: AWST (+08:00) for AEMO's
+/// WA host, AEST (+10:00) for nemweb and any other.
+#[must_use]
+pub fn listing_offset(url: &str) -> i32 {
+    let (host, _) = parts(url);
+    if host.eq_ignore_ascii_case("data.wa.aemo.com.au") {
+        crate::stamp::AWST
+    } else {
+        crate::stamp::AEST
+    }
+}
+
 /// `%XX` escapes decoded, as the archive always decoded them.
 fn percent_decode(s: &str) -> String {
     let bytes = s.as_bytes();
@@ -312,6 +324,20 @@ mod tests {
         let file = "https://data.wa.aemo.com.au/public/public-data/datafiles/facility-scada/facility-scada-2023-10.csv";
         assert_eq!(local_rel(file), file.trim_start_matches("https://"));
         assert_eq!(listing(file), None);
+    }
+
+    #[test]
+    fn each_host_lists_in_its_own_clock() {
+        use crate::stamp::{AEST, AWST};
+        assert_eq!(
+            listing_offset("https://www.nemweb.com.au/Reports/CURRENT/X/a.zip"),
+            AEST
+        );
+        assert_eq!(
+            listing_offset("https://DATA.wa.aemo.com.au/public/x.zip"),
+            AWST
+        );
+        assert_eq!(listing_offset("u"), AEST);
     }
 
     #[test]

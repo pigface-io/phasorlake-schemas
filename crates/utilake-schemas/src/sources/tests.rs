@@ -4,6 +4,11 @@ use crate::census::{BlockRecord, FileRecord, census_path};
 use crate::reports::{FolderCensus, Rewritten, Tally, Version, nem_reports, record_folder};
 use crate::shape::ShapeId;
 
+/// The SHA-256 a test names `label`: the digest of the label.
+fn h(label: &str) -> String {
+    utilake_provenance::Sha256::of(label.as_bytes()).hex()
+}
+
 /// The MMSDM directory of the archive's host.
 const MMSDM: &str = "www.nemweb.com.au/Data_Archive/Wholesale_Electricity/MMSDM";
 
@@ -15,7 +20,7 @@ fn census(root: &Path, month: &str, files: &[(&str, &str, &str, u64)]) {
         .map(|&(name, source, sha256, size)| {
             let r = FileRecord {
                 source: source.into(),
-                sha256: sha256.into(),
+                sha256: h(sha256),
                 size,
                 kind: "dvd".into(),
                 bad_rows: 0,
@@ -32,7 +37,8 @@ fn census(root: &Path, month: &str, files: &[(&str, &str, &str, u64)]) {
 /// A sidecar's JSON with these fields after its URL, size and sha256.
 fn sidecar_json(url: &str, size: u64, sha256: &str, rest: &str) -> String {
     format!(
-        r#"{{"url":"{url}","size":{size},"sha256":"{sha256}","fetched_at":"2026-10-17T23:38:12Z"{rest},"tool":"t"}}"#
+        r#"{{"url":"{url}","size":{size},"sha256":"{}","fetched_at":"2026-10-17T23:38:12Z"{rest},"tool":"t"}}"#,
+        h(sha256)
     )
 }
 
@@ -105,13 +111,16 @@ fn every_census_file_is_listed_from_its_sidecar() {
     assert_eq!(
         read("2026-04"),
         format!(
-            "url\tsha256\tsize\tlast_modified\n{d}/CTL/B.CTL\tbb\t2\tMon, 18 May 2026 07:27:48 GMT\n{d}/DATA/A.zip\taa\t3\tMon, 18 May 2026 07:27:48 GMT\n"
+            "url\tsha256\tsize\tlast_modified\n{d}/CTL/B.CTL\t{}\t2\tMon, 18 May 2026 07:27:48 GMT\n{d}/DATA/A.zip\t{}\t3\tMon, 18 May 2026 07:27:48 GMT\n",
+            h("bb"),
+            h("aa")
         )
     );
     assert_eq!(
         read("2009-07"),
         format!(
-            "url\tsha256\tsize\tlast_modified\nhttps://{MMSDM}/2009/MMSDM_2009_07.zip\tmm\t5\tWed, 15 Apr 2026 04:29:11 GMT\n"
+            "url\tsha256\tsize\tlast_modified\nhttps://{MMSDM}/2009/MMSDM_2009_07.zip\t{}\t5\tWed, 15 Apr 2026 04:29:11 GMT\n",
+            h("mm")
         )
     );
     // What `fetch` reads back is what was written.
@@ -167,7 +176,11 @@ fn an_older_sidecar_gives_its_times_from_the_text() {
         at("T.zip").as_deref(),
         Some("Mon, 18 May 2026 07:27:50 GMT")
     );
-    assert_eq!(at("I.zip").as_deref(), Some("2026-05-18T08:27:50+01:00"));
+    // An instant alone is written as the HTTP date it is.
+    assert_eq!(
+        at("I.zip").as_deref(),
+        Some("Mon, 18 May 2026 07:27:50 GMT")
+    );
     assert_eq!(at("N.zip"), None);
     assert_eq!(at("E.zip"), None);
 }
@@ -227,7 +240,12 @@ fn every_mismatch_is_named_and_nothing_is_written() {
             "2026-06/BAD.zip: its sidecar does not read",
             "2026-06/BARE.zip: the archive has no sidecar for it",
             "2026-06/GONE.zip: the archive does not have it",
-            "2026-06/SHA.zip: its sidecar has SHA-256 wrong, the census right",
+            format!(
+                "2026-06/SHA.zip: its sidecar has SHA-256 {}, the census {}",
+                h("wrong"),
+                h("right")
+            )
+            .as_str(),
             "2026-06/SIZE.zip: its sidecar has size 1, the census 4",
         ]
     );
@@ -254,7 +272,7 @@ fn check_lists_each_file_that_would_change() {
     let path = &all[1];
     let text = std::fs::read_to_string(path)
         .unwrap()
-        .replace("\taa\t", "\tzz\t");
+        .replace(&format!("\t{}\t", h("aa")), "\tzz\t");
     std::fs::write(path, text).unwrap();
     std::fs::write(root.join("sources/nem/2001-01.tsv"), "kept").unwrap();
     assert_eq!(stale(root, Market::Nem, &s), vec![all[1].clone()]);
@@ -298,9 +316,17 @@ fn tally(first: (&str, &str), last: (&str, &str)) -> Tally {
         first_csv: "F.CSV".into(),
         last_csv: "L.CSV".into(),
         first_file: first.0.into(),
-        first_sha256: first.1.into(),
+        first_sha256: if first.1.is_empty() {
+            String::new()
+        } else {
+            h(first.1)
+        },
         last_file: last.0.into(),
-        last_sha256: last.1.into(),
+        last_sha256: if last.1.is_empty() {
+            String::new()
+        } else {
+            h(last.1)
+        },
         block: record("SCADA"),
     }
 }
@@ -312,7 +338,7 @@ fn version(file: &str, sha256: &str) -> Version {
         same_data_as: None,
         listed_at: None,
         published_at: None,
-        sha256: sha256.into(),
+        sha256: h(sha256),
     }
 }
 

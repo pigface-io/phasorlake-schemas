@@ -31,8 +31,9 @@ use crate::census::{CensusError, base, files_under, read_month};
 use crate::fetch::{FetchError, Source, sources_path, sources_text, write_sources};
 use crate::fold::{recorded_folders, recorded_months};
 use crate::month::YearMonth;
-use crate::reports::{Feed, Sidecar, feeds_of, read_folder, sidecar};
+use crate::reports::{Feed, feeds_of, published_at, read_folder};
 use utilake_iceberg::Market;
+use utilake_provenance::Archive;
 
 /// Why `sources/` could not be made.
 #[derive(Debug, thiserror::Error)]
@@ -112,36 +113,34 @@ fn month_of(at: &str) -> Option<YearMonth> {
 /// The row of the file at `path`, named `file`, held to its sidecar: the
 /// census's `sha256`, and `size` when the census records one.
 fn vouch(file: &str, path: &Path, sha256: &str, size: Option<u64>) -> Result<Found, Mismatch> {
-    let mut json = path.as_os_str().to_owned();
-    json.push(".json");
-    if !Path::new(&json).is_file() {
-        return Err(mismatch(file, "the archive has no sidecar for it"));
-    }
-    let sc: Sidecar = sidecar(path).ok_or_else(|| mismatch(file, "its sidecar does not read"))?;
-    if sc.sha256 != sha256 {
-        let problem = format!("its sidecar has SHA-256 {}, the census {sha256}", sc.sha256);
+    let sc = match Archive::read(path) {
+        Ok(Some(sc)) => sc,
+        Ok(None) => return Err(mismatch(file, "the archive has no sidecar for it")),
+        Err(_) => return Err(mismatch(file, "its sidecar does not read")),
+    };
+    let hex = sc.content.sha256.hex();
+    if hex != sha256 {
+        let problem = format!("its sidecar has SHA-256 {hex}, the census {sha256}");
         return Err(mismatch(file, problem));
     }
     if let Some(size) = size
-        && sc.size != size
+        && sc.content.size != size
     {
-        let problem = format!("its sidecar has size {}, the census {size}", sc.size);
+        let problem = format!(
+            "its sidecar has size {}, the census {size}",
+            sc.content.size
+        );
         return Err(mismatch(file, problem));
     }
-    let month = month_of(sc.last_modified_at.as_deref().unwrap_or(&sc.fetched_at));
-    let published = sc.last_modified.filter(|t| !t.is_empty());
-    let archived_in = sc
-        .also
-        .iter()
-        .find(|a| a.how == "entry")
-        .map(|a| a.url.clone());
+    let published = published_at(&sc);
+    let month = month_of(&published.unwrap_or_else(|| sc.fetched_at()).to_string());
     let source = Source {
         sha256: sha256.to_owned(),
-        size: sc.size,
-        last_modified: published.or(sc.last_modified_at),
-        archived_in,
+        size: sc.content.size,
+        last_modified: published.map(utilake_provenance::Stamp::http_date),
+        archived_in: sc.archived_in().map(|a| a.url.clone()),
     };
-    Ok((sc.url, source, month))
+    Ok((sc.url().to_owned(), source, month))
 }
 
 /// Every file of `month` under the archive's host, by name: the month's

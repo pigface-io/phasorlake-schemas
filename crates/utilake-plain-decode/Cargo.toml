@@ -14,7 +14,7 @@ workspace = true
 [dependencies]
 memchr.workspace = true
 serde_json.workspace = true
-sha2.workspace = true
 thiserror.workspace = true
 utilake-mms-decode.workspace = true
+utilake-provenance.workspace = true
 xxhash-rust.workspace = true

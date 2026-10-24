@@ -731,10 +731,22 @@ version = "0.1.0"
 dependencies = [
  "memchr",
  "serde_json",
- "sha2",
  "thiserror",
  "utilake-mms-decode",
+ "utilake-provenance",
  "xxhash-rust",
+]
+
+[[package]]
+name = "utilake-provenance"
+version = "0.1.0"
+dependencies = [
+ "rustix",
+ "serde",
+ "serde_json",
+ "sha2",
+ "tempfile",
+ "thiserror",
 ]
 
 [[package]]
@@ -754,6 +766,7 @@ dependencies = [
  "utilake-iceberg",
  "utilake-mms-decode",
  "utilake-plain-decode",
+ "utilake-provenance",
  "utilake-zip",
  "xxhash-rust",
  "zip",
@@ -766,6 +779,7 @@ dependencies = [
  "flate2",
  "tempfile",
  "thiserror",
+ "utilake-provenance",
  "zip",
 ]
 

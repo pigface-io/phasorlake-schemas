@@ -15,8 +15,6 @@
 //!   header is, the stamps and months a file name carries.
 //! - [`feeds`]: every feed that is not MMSDM: its host, roots, decoder and
 //!   the rules its files follow.
-//! - [`layout`]: where a downloaded file is kept: one local folder per
-//!   report folder, the listing (`CURRENT`, `ARCHIVE`) dropped.
 //! - [`diff`]: the rows a version of a file adds to its previous version.
 //! - [`mod@sniff`]: what a file's first bytes say it is, when a folder holds
 //!   the odd file of another kind.
@@ -28,7 +26,6 @@ pub mod dates;
 pub mod diff;
 pub mod feeds;
 pub mod json;
-pub mod layout;
 pub mod names;
 pub mod sniff;
 
