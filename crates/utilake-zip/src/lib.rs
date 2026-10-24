@@ -488,8 +488,23 @@ fn walk_zip<R: Read + Seek, E>(
 }
 
 /// The zip reader over `r`, its directory read.
-fn open_archive<R: Read + Seek>(r: R) -> zip::result::ZipResult<zip::ZipArchive<R>> {
+///
+/// The zip reader's default looks for data put before the zip (a
+/// self-extractor's) by scanning the whole file from its first byte for
+/// directory signatures, every time it opens one: for a month's archive
+/// and the zips inside it, gigabytes read to find a directory whose place
+/// the end record already gives. A zip starting at its first byte is
+/// opened from there, which checks four bytes; only one that does not is
+/// scanned for.
+fn open_archive<R: Read + Seek>(mut r: R) -> zip::result::ZipResult<zip::ZipArchive<R>> {
     zone!(ARCHIVE_OPEN);
+    let len = r.seek(SeekFrom::End(0))?;
+    if zipdir::starts_at_zero(&mut r, len) {
+        let at_start = zip::read::Config {
+            archive_offset: zip::read::ArchiveOffset::Known(0),
+        };
+        return zip::ZipArchive::with_config(at_start, r);
+    }
     zip::ZipArchive::new(r)
 }
 
@@ -735,7 +750,7 @@ fn find_misplaced<R: Read + Seek, E>(
     }
     let archive = {
         zone!(REOPEN);
-        zip::ZipArchive::new(r).map_err(|e| open_error(p, e.to_string()))?
+        open_archive(r).map_err(|e| open_error(p, e.to_string()))?
     };
     Ok((archive, out))
 }
@@ -1059,6 +1074,20 @@ mod tests {
             std::fs::read_dir(&tmp).unwrap().next().is_none(),
             "spooled zip removed"
         );
+    }
+
+    #[test]
+    fn a_zip_with_data_before_it_is_still_found() {
+        let dir = tempfile::tempdir().unwrap();
+        let region = fixture("REGION_v1_head.csv");
+        let path = dir.path().join("sfx.zip");
+        make_zip(&path, &[("A.CSV", &region)]);
+        let mut bytes = b"a self-extractor's stub".to_vec();
+        bytes.extend_from_slice(&std::fs::read(&path).unwrap());
+        std::fs::write(&path, bytes).unwrap();
+        let (got, _, failed) = collect(&path, dir.path()).unwrap();
+        assert!(failed.is_empty(), "{failed:?}");
+        assert_eq!(got, [("A.CSV".to_owned(), region)]);
     }
 
     #[test]

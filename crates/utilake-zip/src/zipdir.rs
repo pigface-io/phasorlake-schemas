@@ -328,6 +328,36 @@ pub fn local_header_len(header: &[u8]) -> Result<usize, DirError> {
     Ok(LOCAL_HEADER + usize::from(u16_at(header, 26)) + usize::from(u16_at(header, 28)))
 }
 
+/// Whether the zip `r` of `len` bytes starts at its first byte: a central
+/// directory record lies where its end record says the directory is, or
+/// it has none. False for what does not read as a zip, or a zip with data
+/// put before it, whose offsets are all off by that much.
+pub(crate) fn starts_at_zero<R: Read + Seek>(r: &mut R, len: u64) -> bool {
+    let tail_start = len.saturating_sub(TAIL);
+    let Some(tail) = span(r, tail_start, len) else {
+        return false;
+    };
+    let (offset, size) = match locate(&tail) {
+        Ok(Found::Directory(offset, size)) => (offset, size),
+        Ok(Found::Zip64(at)) => {
+            match span(r, at, at.saturating_add(56)).map(|b| zip64_directory(&b)) {
+                Some(Ok(found)) => found,
+                _ => return false,
+            }
+        }
+        Err(_) => return false,
+    };
+    size == 0 || span(r, offset, offset.saturating_add(4)).is_some_and(|b| b == CENTRAL)
+}
+
+/// Bytes `start..end` of `r`, if it has them.
+fn span<R: Read + Seek>(r: &mut R, start: u64, end: u64) -> Option<Vec<u8>> {
+    let mut buf = vec![0u8; usize::try_from(end.checked_sub(start)?).ok()?];
+    r.seek(SeekFrom::Start(start)).ok()?;
+    r.read_exact(&mut buf).ok()?;
+    Some(buf)
+}
+
 fn damaged() -> DirError {
     DirError::Damaged("an offset outside the file")
 }
@@ -641,6 +671,30 @@ mod tests {
         let (r, reads) = read(&padded);
         assert_eq!(r.unwrap()[0].name, "big.bin");
         assert_eq!(reads, 3);
+    }
+
+    #[test]
+    fn a_zip_starts_at_zero_unless_data_comes_before_it() {
+        let at = |z: &[u8]| starts_at_zero(&mut Cursor::new(z), z.len() as u64);
+        assert!(at(&zip("")));
+        assert!(at(&zip64(0)));
+        let mut prefixed = b"a self-extractor".to_vec();
+        prefixed.extend_from_slice(&zip(""));
+        assert!(!at(&prefixed));
+        assert!(!at(b"just text"));
+        // An empty zip: no directory to look for.
+        let empty = zip::ZipWriter::new(Cursor::new(Vec::new()))
+            .finish()
+            .unwrap()
+            .into_inner();
+        assert!(at(&empty));
+        // A zip64 locator pointing at no zip64 end record.
+        let mut z = zip64(0);
+        let loc = z.windows(4).position(|w| w == b"PK\x06\x07").unwrap();
+        z[loc + 8..loc + 16].copy_from_slice(&0u64.to_le_bytes());
+        assert!(!at(&z));
+        // A file shorter than the length it is said to have.
+        assert!(!starts_at_zero(&mut Cursor::new(zip("")), 1 << 20));
     }
 
     #[test]
