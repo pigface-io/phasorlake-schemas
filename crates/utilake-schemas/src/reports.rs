@@ -403,6 +403,7 @@ impl Gather {
                 first: x.first.min(y.first),
                 last: x.last.max(y.last),
                 column: x.column,
+                midnight: x.midnight && y.midnight,
             }),
             (x, y) => x.or(y),
         };
@@ -2317,6 +2318,7 @@ mod tests {
                 first: first.into(),
                 last: last.into(),
                 column: column.into(),
+                midnight: first.len() == 10,
             }),
             ctl: vec![TypeClass::Unknown; 2],
             profile: vec![crate::profile::ColumnProfile::default(); 2],

@@ -31,6 +31,7 @@ fn block(version: u16, span: Option<(&str, &str)>, cols: &[Col<'_>]) -> BlockRec
         time: span.map(|_| "SETTLEMENTDATE".into()),
         first: span.map(|s| s.0.into()),
         last: span.map(|s| s.1.into()),
+        midnight: None,
         columns: cols.iter().map(|c| c.0.into()).collect(),
         ctl: cols.iter().map(|_| TypeClass::Unknown.letter()).collect(),
         kinds: cols.iter().map(|c| c.1.letter()).collect(),
@@ -986,4 +987,26 @@ fn every_block_resolves_to_its_runs_fields() {
         resolved: None,
     };
     assert!(none.to_string().contains("resolve to no schema"));
+}
+
+#[test]
+fn a_table_is_a_day_label_only_when_every_block_that_says_so_agrees() {
+    let mut h = Observations::default();
+    let rec = record("dvd");
+    let mut b = block(1, Some(("2024/01/01", "2024/01/31")), &[T, R, P]);
+    assert_eq!(h.midnight_only("DISPATCHPRICE"), None, "nothing observed");
+    // A block from before the census kept it says nothing.
+    b.midnight = None;
+    h.block("DISPATCHPRICE", month("2024-01"), ("A.zip", 0), &rec, &b);
+    assert_eq!(h.midnight_only("DISPATCHPRICE"), None);
+    b.midnight = Some(true);
+    h.block("DISPATCHPRICE", month("2024-02"), ("B.zip", 0), &rec, &b);
+    assert_eq!(h.midnight_only("DISPATCHPRICE"), Some(true));
+    b.midnight = Some(false);
+    h.block("DISPATCHPRICE", month("2024-03"), ("C.zip", 0), &rec, &b);
+    assert_eq!(
+        h.midnight_only("DISPATCHPRICE"),
+        Some(false),
+        "one time of day is enough"
+    );
 }

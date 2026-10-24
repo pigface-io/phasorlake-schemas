@@ -215,6 +215,9 @@ struct Obs {
     ctl: Vec<TypeClass>,
     evidence: Vec<Evidence>,
     nulls: Vec<u64>,
+    /// Whether every value of the span column was at midnight; none when
+    /// the block has no span or was recorded before that was.
+    midnight: Option<bool>,
 }
 
 /// Every observation of every table, gathering, in one market's clock.
@@ -306,7 +309,24 @@ impl Observations {
                 .map(crate::profile::ColumnProfile::evidence)
                 .collect(),
             nulls: profiles.iter().map(|p| p.nulls).collect(),
+            midnight: b.midnight,
         });
+    }
+
+    /// Whether every recorded value of `table`'s span column was at
+    /// midnight: `Some(true)` when every block that says is a day label,
+    /// `Some(false)` when any block saw a time of day, `None` when no block
+    /// of the table says (none has a span, or all were recorded before the
+    /// census kept this).
+    pub fn midnight_only(&self, table: &str) -> Option<bool> {
+        let seen: Vec<bool> = self
+            .tables
+            .get(table)
+            .into_iter()
+            .flatten()
+            .filter_map(|o| o.midnight)
+            .collect();
+        (!seen.is_empty()).then(|| seen.iter().all(|m| *m))
     }
 
     /// Every table's history: of every table observed, and of every table

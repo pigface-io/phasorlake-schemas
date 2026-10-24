@@ -215,12 +215,38 @@ pub struct RawBlock {
     /// Of them, the rows the file before this one did not hold: every row
     /// when files are not compared.
     pub rows_new: u64,
-    /// For every column whose first value is written as a date
-    /// (`YYYY/MM/DD…`): its index, and the least and greatest value over
-    /// every D row, as written.
-    pub bounds: Vec<(usize, Vec<u8>, Vec<u8>)>,
+    /// For every column with a value written as a date (`YYYY/MM/DD…`):
+    /// its index and what its dated values were, in column order.
+    pub bounds: Vec<Bound>,
     /// Every column's profile, in column order, over every D row.
     pub profile: Vec<ColumnProfile>,
+}
+
+/// What one dated column's values were over every D row of a block.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Bound {
+    /// The column's index.
+    pub column: usize,
+    /// The least dated value, as written.
+    pub min: Vec<u8>,
+    /// The greatest dated value, as written.
+    pub max: Vec<u8>,
+    /// Whether every dated value was a date, or a time at `00:00:00`: a
+    /// column that labels a day, not an instant.
+    pub midnight: bool,
+}
+
+impl Bound {
+    fn take(&mut self, v: &[u8]) {
+        if v < self.min.as_slice() {
+            self.min.clear();
+            self.min.extend_from_slice(v);
+        } else if v > self.max.as_slice() {
+            self.max.clear();
+            self.max.extend_from_slice(v);
+        }
+        self.midnight &= at_midnight(v);
+    }
 }
 
 /// Where a block's rows lie in time: the least and greatest value of its
@@ -234,6 +260,10 @@ pub struct Span {
     pub last: String,
     /// The column the values are of.
     pub column: String,
+    /// Whether every value of the column was at midnight (a date, or a
+    /// time at `00:00:00`): a column that labels a day.
+    #[serde(default)]
+    pub midnight: bool,
 }
 
 /// Columns that name the time an observation is for, most specific first:
@@ -259,6 +289,17 @@ fn date_like(v: &[u8]) -> bool {
         && [0, 1, 2, 3, 5, 6, 8, 9]
             .iter()
             .all(|&i| v[i].is_ascii_digit())
+}
+
+/// Whether a dated field is at midnight: a date alone, or a time of
+/// `00:00:00` (with any fraction of zeros).
+fn at_midnight(v: &[u8]) -> bool {
+    match v.get(10..) {
+        None | Some([]) => true,
+        Some(rest) => {
+            rest.starts_with(b" 00:00:00") && rest[9..].iter().all(|c| matches!(c, b'.' | b'0'))
+        }
+    }
 }
 
 /// The rows of the last file of each block, for the next file of it to be
@@ -344,18 +385,17 @@ fn take_row(b: &mut RawBlock, row: &Row<'_>, from: usize, differ: &mut Option<&m
         let Some(v) = v.filter(|v| date_like(v)) else {
             continue;
         };
-        match b.bounds.binary_search_by_key(&j, |(i, ..)| *i) {
-            Ok(at) => {
-                let (_, min, max) = &mut b.bounds[at];
-                if v < min.as_slice() {
-                    min.clear();
-                    min.extend_from_slice(v);
-                } else if v > max.as_slice() {
-                    max.clear();
-                    max.extend_from_slice(v);
-                }
-            }
-            Err(at) => b.bounds.insert(at, (j, v.to_vec(), v.to_vec())),
+        match b.bounds.binary_search_by_key(&j, |b| b.column) {
+            Ok(at) => b.bounds[at].take(v),
+            Err(at) => b.bounds.insert(
+                at,
+                Bound {
+                    column: j,
+                    min: v.to_vec(),
+                    max: v.to_vec(),
+                    midnight: at_midnight(v),
+                },
+            ),
         }
     }
 }
@@ -884,17 +924,18 @@ pub fn block_shape(
         b.columns
             .iter()
             .position(|c| c == name)
-            .and_then(|j| b.bounds.iter().find(|(i, ..)| *i == j))
+            .and_then(|j| b.bounds.iter().find(|b| b.column == j))
     };
     let span = declared
         .and_then(|t| t.time_column.as_deref())
         .and_then(bounded)
         .or_else(|| TARGET_TIME.iter().find_map(|n| bounded(n)))
         .or_else(|| b.bounds.first())
-        .map(|(j, min, max)| Span {
-            first: String::from_utf8_lossy(min).into_owned(),
-            last: String::from_utf8_lossy(max).into_owned(),
-            column: b.columns[*j].clone(),
+        .map(|bound| Span {
+            first: String::from_utf8_lossy(&bound.min).into_owned(),
+            last: String::from_utf8_lossy(&bound.max).into_owned(),
+            column: b.columns[bound.column].clone(),
+            midnight: bound.midnight,
         });
     let class = |column: &str| {
         ctl.and_then(|c| {
@@ -998,6 +1039,11 @@ pub struct BlockRecord {
     /// The greatest value of that column, as written.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub last: Option<String>,
+    /// Whether every value of that column was at midnight (a date, or a
+    /// time at `00:00:00`): a column that labels a day, not an instant.
+    /// None when the block has no span, or was recorded before this was.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub midnight: Option<bool>,
     /// The column names.
     pub columns: Vec<String>,
     /// The declared class of each column, one letter each
@@ -1041,6 +1087,7 @@ impl BlockRecord {
             time: b.span.as_ref().map(|s| s.column.clone()),
             first: b.span.as_ref().map(|s| s.first.clone()),
             last: b.span.as_ref().map(|s| s.last.clone()),
+            midnight: b.span.as_ref().map(|s| s.midnight),
             columns: b.shape.columns.clone(),
             ctl: b.ctl.iter().map(|c| c.letter()).collect(),
             kinds: b.profile.iter().map(|p| p.kind.letter()).collect(),

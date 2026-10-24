@@ -22,6 +22,7 @@ fn scada_block(month: &str, int: u8) -> BlockRecord {
         time: Some("SETTLEMENTDATE".into()),
         first: Some(format!("{day} 00:05:00")),
         last: Some(format!("{day} 00:15:00")),
+        midnight: None,
         columns: vec!["SETTLEMENTDATE".into(), "DUID".into(), "SCADAVALUE".into()],
         ctl: "tvn".into(),
         kinds: "tsd".into(),
@@ -100,6 +101,7 @@ fn repo() -> (tempfile::TempDir, Catalog) {
         last_sha256: String::new(),
         block: BlockRecord {
             last: Some("2026/08/01 00:30:00".into()),
+            midnight: None,
             ..scada_block("2026-08", 2)
         },
     };
@@ -418,6 +420,7 @@ fn plain_tally(pair: (&str, &str), columns: &[&str], headers: &[&str]) -> Tally 
             time: Some(columns[0].to_owned()),
             first: Some("2026/09/20".into()),
             last: Some("2026/09/21".into()),
+            midnight: None,
             columns: columns.iter().map(|c| (*c).to_owned()).collect(),
             ctl: "?".repeat(n),
             kinds: "Dsd".into(),

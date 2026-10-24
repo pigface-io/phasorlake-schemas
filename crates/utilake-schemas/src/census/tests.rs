@@ -110,7 +110,8 @@ C,\"END OF REPORT\",15\r\n";
         Some(Span {
             first: "2026/08/01 00:05:00".into(),
             last: "2026/08/31 23:55:00".into(),
-            column: "SETTLEMENTDATE".into()
+            column: "SETTLEMENTDATE".into(),
+            midnight: false,
         }),
         "the declared time column, min and max over unordered rows"
     );
@@ -119,7 +120,8 @@ C,\"END OF REPORT\",15\r\n";
         Some(Span {
             first: "2026/08/01".into(),
             last: "2026/08/03".into(),
-            column: "TRADINGDATE".into()
+            column: "TRADINGDATE".into(),
+            midnight: true,
         }),
         "no declaration: TRADINGDATE outranks EFFECTIVEDATE in the vocabulary"
     );
@@ -128,7 +130,8 @@ C,\"END OF REPORT\",15\r\n";
         Some(Span {
             first: "2026/08/04".into(),
             last: "2026/08/05".into(),
-            column: "WHEN".into()
+            column: "WHEN".into(),
+            midnight: true,
         }),
         "no known name: the first dated column; a short row bounds nothing"
     );
@@ -138,11 +141,19 @@ C,\"END OF REPORT\",15\r\n";
         Some(Span {
             first: "2026/08/02".into(),
             last: "2026/08/06".into(),
-            column: "WHEN".into()
+            column: "WHEN".into(),
+            midnight: true,
         }),
         "empty in the first row, empty and N/A later: the dated values alone bound it"
     );
     assert!(date_like(b"2026/08/01") && !date_like(b"2026-08-01") && !date_like(b"1.5"));
+    assert!(
+        at_midnight(b"2026/08/01")
+            && at_midnight(b"2026/08/01 00:00:00")
+            && at_midnight(b"2026/08/01 00:00:00.000")
+            && !at_midnight(b"2026/08/01 00:05:00")
+            && !at_midnight(b"2026/08/01 00:00:01")
+    );
 }
 
 #[test]
@@ -215,7 +226,8 @@ fn every_block_of_every_file_of_a_month_is_recorded_with_its_rows() {
         Some(Span {
             first: "2026/08/01 00:05:00".into(),
             last: "2026/08/01 00:05:00".into(),
-            column: "SETTLEMENTDATE".into()
+            column: "SETTLEMENTDATE".into(),
+            midnight: false,
         })
     );
     assert!(

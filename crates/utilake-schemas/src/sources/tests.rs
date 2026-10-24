@@ -277,6 +277,7 @@ fn record(report: &str) -> BlockRecord {
         time: None,
         first: None,
         last: None,
+        midnight: None,
         columns: vec!["A".into()],
         ctl: "u".into(),
         kinds: "s".into(),
