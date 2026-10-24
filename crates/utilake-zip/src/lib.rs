@@ -304,17 +304,13 @@ impl<R: Read + Seek> Chunked<R> {
         let left = len.saturating_sub(start);
         let want = usize::try_from(left).map_or(self.chunk, |n| n.min(self.chunk));
         self.inner.seek(SeekFrom::Start(start))?;
-        self.buf.resize(want, 0);
+        self.buf.clear();
         self.buf.shrink_to(want);
-        let mut got = 0;
-        while got < want {
-            let n = self.inner.read(&mut self.buf[got..])?;
-            if n == 0 {
-                break;
-            }
-            got += n;
-        }
-        self.buf.truncate(got);
+        self.buf.reserve_exact(want);
+        // Short when the file is cut short under the reader.
+        (&mut self.inner)
+            .take(want as u64)
+            .read_to_end(&mut self.buf)?;
         self.start = start;
         Ok(())
     }
@@ -964,6 +960,7 @@ mod tests {
         assert_eq!(big.chunk, 512 << 10);
         let mut huge = Chunked::new(Sized(1 << 40));
         huge.seek(SeekFrom::End(-1)).unwrap();
+        assert_eq!(huge.inner.stream_position().unwrap(), 0);
         huge.read_exact(&mut one).unwrap();
         assert_eq!(huge.chunk, ZIP_READ_BUFFER);
         assert_eq!(
