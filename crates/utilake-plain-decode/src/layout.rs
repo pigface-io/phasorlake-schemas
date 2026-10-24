@@ -144,6 +144,15 @@ pub fn local_segments(url: &str) -> Vec<String> {
     std::iter::once(host).chain(path).collect()
 }
 
+/// `url` as path segments with nothing dropped: the host, then every
+/// segment of its path, cleaned as `local_segments` cleans them. For a
+/// record of what a listing showed, which is kept per listing.
+#[must_use]
+pub fn url_segments(url: &str) -> Vec<String> {
+    let (host, path) = parts(url);
+    std::iter::once(host).chain(path).collect()
+}
+
 /// The same, `/`-joined: `www.nemweb.com.au/Reports/Dispatch_SCADA/x.zip`.
 #[must_use]
 pub fn local_rel(url: &str) -> String {
@@ -285,6 +294,20 @@ mod tests {
             "data.wa.aemo.com.au/public/market-data/wemde/referenceTradingPrice/ReferenceTradingPrice_20261021.zip"
         );
         assert_eq!(listing(prev).as_deref(), Some("PREVIOUS"));
+        // A listing's own record keeps the listing segment.
+        assert_eq!(
+            url_segments(prev).join("/"),
+            prev.trim_start_matches("https://")
+        );
+        assert_eq!(
+            url_segments("https://www.nemweb.com.au/Reports/CURRENT/X/?q#f"),
+            [
+                "www.nemweb.com.au",
+                "Reports",
+                "CURRENT",
+                &format!("X@{}", "8e35c2cd3bf6641b")
+            ]
+        );
         // The datafiles have no listings.
         let file = "https://data.wa.aemo.com.au/public/public-data/datafiles/facility-scada/facility-scada-2023-10.csv";
         assert_eq!(local_rel(file), file.trim_start_matches("https://"));
