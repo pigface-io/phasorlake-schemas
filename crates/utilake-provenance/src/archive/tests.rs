@@ -107,6 +107,9 @@ fn a_record_is_written_whole_and_read_back() {
     let p = hold(&path, URL, b"abc");
     assert_eq!(Archive::read(&path).unwrap(), Some(p.clone()));
     assert!(!dir.path().join("h/A.zip.provenance.json.tmp").exists());
+    // Without the sync, the same record.
+    Archive::write_unsynced(&path, &p).unwrap();
+    assert_eq!(Archive::read(&path).unwrap(), Some(p.clone()));
     // Written again, it replaces the record.
     let mut q = p;
     q.gone(URL, Stamp::from_unix(1_800_000_100));

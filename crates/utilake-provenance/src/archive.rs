@@ -214,15 +214,29 @@ impl Archive {
     /// synced, renamed over the record. A format-1 record beside it that
     /// reads as one is then removed: the new record holds all it held.
     pub fn write(path: &Path, provenance: &Provenance) -> Result<(), Error> {
+        Self::write_as(path, provenance, true)
+    }
+
+    /// [`Archive::write`] without the sync: for a batch of records the
+    /// caller hands to the disk at once (`sync`), since on exFAT a sync
+    /// after a large folder changed costs seconds. A record not yet on the
+    /// disk is lost to a power cut; its file is not.
+    pub fn write_unsynced(path: &Path, provenance: &Provenance) -> Result<(), Error> {
+        Self::write_as(path, provenance, false)
+    }
+
+    fn write_as(path: &Path, provenance: &Provenance, sync: bool) -> Result<(), Error> {
         use std::io::Write as _;
         let record = beside(path, RECORD);
         let tmp = beside(&record, ".tmp");
         let mut f = std::fs::File::create(&tmp).map_err(io(&tmp))?;
         f.write_all(provenance.to_json().as_bytes())
             .map_err(io(&tmp))?;
-        rustix::fs::fsync(&f)
-            .map_err(std::io::Error::from)
-            .map_err(io(&tmp))?;
+        if sync {
+            rustix::fs::fsync(&f)
+                .map_err(std::io::Error::from)
+                .map_err(io(&tmp))?;
+        }
         drop(f);
         std::fs::rename(&tmp, &record).map_err(io(&record))?;
         let old = beside(path, OLD_RECORD);
