@@ -116,9 +116,13 @@ pub fn check(old: &History, new: &History) -> Vec<Violation> {
         let same = |n: &&crate::history::Run| {
             n.schema_id == o.schema_id && n.report == o.report && n.version == o.version
         };
-        match new.runs.iter().find(|n| n.from == o.from) {
-            None => out.push(Violation::RunGone { index }),
-            Some(n) if !same(&n) => out.push(Violation::RunChanged { index }),
+        // Several runs may begin at one file (a report folder's zip carries
+        // more than one version of a report), so the run held is the one
+        // that begins there with the old run's schema, report and version.
+        let mut begun = new.runs.iter().filter(|n| n.from == o.from);
+        match begun.clone().find(same) {
+            None if begun.next().is_none() => out.push(Violation::RunGone { index }),
+            None => out.push(Violation::RunChanged { index }),
             Some(_) => {
                 let reached = new
                     .runs
@@ -195,11 +199,22 @@ mod tests {
         extra.schema_id = 2;
         extra.from = mark("E.zip", None);
         new.runs.push(extra);
+        // Two runs begin at one file, under one schema, as versions 1 and
+        // 2 of the report: each is held to its own.
+        let mut twin = old.runs[1].clone();
+        twin.version += 1;
+        new.runs.push(twin);
         let mut s = new.schemas[1].clone();
         s.schema_id = 2;
         new.schemas.push(s);
         new.breaking.push(new.breaking[0].clone());
         assert!(check(&old, &new).is_empty());
+        // The twin at another version only: the run begins there, changed.
+        let mut twins = new.clone();
+        let i = twins.runs.len() - 1;
+        twins.runs[i].version += 1;
+        assert!(check(&twins, &twins).is_empty());
+        assert_eq!(check(&new, &twins), [Violation::RunChanged { index: i }]);
     }
 
     #[test]
