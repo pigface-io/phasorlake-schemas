@@ -75,14 +75,14 @@ same name and bytes (a day's slot zip beside the current day's) is read
 once and counted as `repeated`; a feed whose files restate the ones
 before them has each file's rows compared against the last file of the
 same block, so a run's `rows` are the rows its files added and
-`rows_repeated` the rest. A file nemweb rewrote in place is kept by nemweb-mirror
+`rows_repeated` the rest. A file nemweb rewrote in place is kept by utilake-mirror
 as `{name}@{listed time}` beside the first version; each such file is listed
 under `[[rewritten]]`, every version classed `first`, `data` (new data),
 `report_time` (only AEMO's report time changed) or `reverted` (an earlier
-version's data again). With `--mirror` (the nemweb-mirror home, else
-`NEMWEB_MIRROR_HOME`), it also counts from the mirror's journal how often
+version's data again). With `--mirror` (the utilake-mirror home, else
+`UTILAKE_MIRROR_HOME`), it also counts from the mirror's journal how often
 the file was listed again with the same bytes (`relisted`) or as a zip of
-the same entries (`repacked`). A sidecar written before nemweb-mirror kept
+the same entries (`repacked`). A sidecar written before utilake-mirror kept
 its `_at` instants has them read from the text beside them.
 `models --market gas --dir …/MMSDataModelReport/Gas` reads AEMO's Gas
 Data Model Report (a web report, not a create script) into the same model

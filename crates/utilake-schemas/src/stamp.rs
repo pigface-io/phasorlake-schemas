@@ -1,4 +1,4 @@
-//! Time as text in a nemweb-mirror sidecar: RFC 3339 that says its offset,
+//! Time as text in a utilake-mirror sidecar: RFC 3339 that says its offset,
 //! and the forms an older sidecar kept a time in beside it.
 //!
 //! A sidecar keeps the server's `Last-Modified` (an HTTP date) and the

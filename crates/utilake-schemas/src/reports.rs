@@ -29,7 +29,7 @@
 //! `{root}/evidence/census/reports/{ARCHIVE|CURRENT}/{folder}.toml`.
 //!
 //! nemweb rewrites some files in place under the same name (most gas
-//! reports under `Reports/CURRENT/`). nemweb-mirror keeps the first
+//! reports under `Reports/CURRENT/`). utilake-mirror keeps the first
 //! version under the file's name and each later one with new data beside
 //! it as `{name}@{listed time}`, each with its sidecar `{path}.json`. A
 //! version is read as its name's kind and month, its blocks counted with
@@ -452,7 +452,7 @@ pub fn version_of(name: &str) -> (&str, Option<&str>) {
     }
 }
 
-/// Where nemweb-mirror's journals are, under its home:
+/// Where utilake-mirror's journals are, under its home:
 /// `{mirror}/mirror/journal`, with a folder's at `{host}/{folder}/changes.ndjson`.
 #[must_use]
 pub fn journals(mirror: &Path) -> PathBuf {
@@ -815,7 +815,7 @@ fn is_sidecar(name: &str, names: &HashSet<&str>, feed: &Feed) -> bool {
 }
 
 /// The census of the `files` of one folder at `at`. `journal` is the
-/// folder's journal in nemweb-mirror, when there is one to count.
+/// folder's journal in utilake-mirror, when there is one to count.
 pub fn census_folder(
     catalog: &Catalog,
     ctls: &mut CtlSource,
@@ -1302,7 +1302,7 @@ mod tests {
         format!("https://www.nemweb.com.au/Reports/{VIC_GAS}/{file}")
     }
 
-    /// Writes `bytes` as nemweb-mirror keeps version `at` (`None`: the
+    /// Writes `bytes` as utilake-mirror keeps version `at` (`None`: the
     /// first) of `file` of [`VIC_GAS`] under `reports`, with its sidecar,
     /// listed at the time `at` names (the first at 19:00).
     fn put_version(reports: &Path, file: &str, at: Option<&str>, bytes: &[u8]) -> PathBuf {
@@ -1360,7 +1360,7 @@ mod tests {
         // The mirror's record before it kept the `_at` fields: the HTTP
         // date as the server sent it, and the listing's text in market
         // time with no offset. The instants are read from them.
-        let sc = with(br#"{"url":"https://h/d/f.zip","size":3,"sha256":"x","crc32":1,"fetched_at":"2026-10-18T00:03:51Z","last_modified":"Mon, 18 May 2026 07:27:50 GMT","listed_size":3,"listed_modified":"Monday, May 18, 2026 05:27 PM","tool":"nemweb-mirror/0.1.0"}"#).unwrap();
+        let sc = with(br#"{"url":"https://h/d/f.zip","size":3,"sha256":"x","crc32":1,"fetched_at":"2026-10-18T00:03:51Z","last_modified":"Mon, 18 May 2026 07:27:50 GMT","listed_size":3,"listed_modified":"Monday, May 18, 2026 05:27 PM","tool":"utilake-mirror/0.1.0"}"#).unwrap();
         assert_eq!(
             (sc.url.as_str(), sc.sha256.as_str()),
             ("https://h/d/f.zip", "x")

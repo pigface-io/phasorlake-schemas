@@ -10,7 +10,7 @@
 //! utilake-schemas fetch --month 2024-01 --dir mirror/MMSDM_2024_01 [--interval-ms 1000] [--root .]
 //! utilake-schemas census --month 2024-01 --dir mirror/MMSDM_2024_01 [--root .]
 //! utilake-schemas sources --archive /data/mirror/archive [--check] [--root .]
-//! utilake-schemas reports --dir mirror/archive/www.nemweb.com.au [--market gas] [--feed gbb] [--mmsdm mirror] [--mirror ~/.nemweb-mirror] [--root .]
+//! utilake-schemas reports --dir mirror/archive/www.nemweb.com.au [--market gas] [--feed gbb] [--mmsdm mirror] [--mirror ~/.utilake-mirror] [--root .]
 //! utilake-schemas models --month 2025-10 --dir mirror/MMSDM_2025_10 [--root .]
 //! utilake-schemas fold [--check] [--rebaseline REASON] [--root .]
 //! utilake-schemas export [--check] [--base-url URL] [--root .]
@@ -121,9 +121,9 @@ enum Cmd {
         /// control files type the blocks; without it nothing is typed.
         #[arg(long)]
         mmsdm: Option<PathBuf>,
-        /// The nemweb-mirror home whose `mirror/journal/` notes each
+        /// The utilake-mirror home whose `mirror/journal/` notes each
         /// folder's listings, counted for the files rewritten in place.
-        #[arg(long, env = "NEMWEB_MIRROR_HOME")]
+        #[arg(long, env = "UTILAKE_MIRROR_HOME")]
         mirror: Option<PathBuf>,
         /// The repository root, whose `tables/` declares the tables.
         #[arg(long, default_value = ".")]

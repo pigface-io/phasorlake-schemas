@@ -29,7 +29,7 @@
 //!   loads each column as;
 //! - [`names`] reads a table and [`month::YearMonth`] out of an archive
 //!   file name;
-//! - [`stamp`] reads the times a nemweb-mirror sidecar keeps;
+//! - [`stamp`] reads the times a utilake-mirror sidecar keeps;
 //! - [`shape`] gives a block's report pair and columns a content-addressed
 //!   [`shape::ShapeId`], the same id utilake gives it.
 
