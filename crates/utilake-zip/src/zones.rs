@@ -1,7 +1,7 @@
-//! The zones of a walk, for `utilake-zones` (feature `zones`). The numbers
+//! The zones of a walk, for `zonetrace` (feature `zones`). The numbers
 //! are fixed: a report from one revision diffs against the next.
 
-use utilake_zones::Zone;
+use zonetrace::Zone;
 
 /// The whole walk of one zip on disk.
 pub static WALK: Zone = Zone::new(1, "walk");

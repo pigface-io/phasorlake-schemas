@@ -41,7 +41,7 @@ struct Pass {
     peak: f64,
     entries: usize,
     bytes: u64,
-    report: utilake_zones::Report,
+    report: zonetrace::Report,
     note: String,
 }
 
@@ -55,7 +55,7 @@ fn main() {
         .filter(|p| utilake_zip::has_extension(&p.to_string_lossy(), ".zip"))
         .collect();
     zips.sort();
-    let overhead = utilake_zones::overhead();
+    let overhead = zonetrace::overhead();
     println!("tracer: {overhead:.1} ns a zone, taken out of each parent\n");
     let spool = std::env::temp_dir().join("zipbench-spool");
     let mut summary = String::new();
@@ -134,7 +134,7 @@ fn median(run: &dyn Fn() -> Pass) -> Pass {
 
 /// Starts a timed pass: a clean tree and a clean peak.
 fn start() -> Instant {
-    let _ = utilake_zones::take();
+    let _ = zonetrace::take();
     PEAK.reset_peak_usage();
     Instant::now()
 }
@@ -146,7 +146,7 @@ fn finish(t: Instant, entries: usize, bytes: u64, note: String) -> Pass {
         peak: f64::from(PEAK.peak_usage_as_mb()),
         entries,
         bytes,
-        report: utilake_zones::take(),
+        report: zonetrace::take(),
         note,
     }
 }

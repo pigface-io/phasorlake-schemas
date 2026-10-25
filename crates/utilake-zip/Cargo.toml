@@ -16,17 +16,17 @@ flate2.workspace = true
 tempfile.workspace = true
 thiserror.workspace = true
 utilake-provenance.workspace = true
-utilake-zones = { workspace = true, optional = true }
 zip.workspace = true
+zonetrace = { workspace = true, optional = true }
 
 [dev-dependencies]
 peak_alloc.workspace = true
-utilake-zones.workspace = true
+zonetrace.workspace = true
 
 [[example]]
 name = "zipbench"
 required-features = ["zones"]
 
 [features]
-# Times the walk in zones of utilake-zones, with bytes read and copied.
-zones = ["dep:utilake-zones"]
+# Times the walk in zones of zonetrace, with bytes read and copied.
+zones = ["dep:zonetrace"]

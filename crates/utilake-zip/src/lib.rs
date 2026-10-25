@@ -13,12 +13,12 @@
 //! caller fetches (ranged requests, or a file on disk), so what a zip holds
 //! is known before, or without, downloading the rest of it.
 
-/// Opens a zone of `utilake-zones` until the end of the block, with the
+/// Opens a zone of `zonetrace` until the end of the block, with the
 /// feature `zones`; nothing without it.
 macro_rules! zone {
     ($z:ident) => {
         #[cfg(feature = "zones")]
-        let _zone = utilake_zones::enter(&crate::zones::$z);
+        let _zone = zonetrace::enter(&crate::zones::$z);
     };
 }
 
@@ -27,7 +27,7 @@ macro_rules! zone {
 macro_rules! count {
     ($what:ident, $n:expr) => {
         #[cfg(feature = "zones")]
-        utilake_zones::$what($n as u64);
+        zonetrace::$what($n as u64);
     };
 }
 
