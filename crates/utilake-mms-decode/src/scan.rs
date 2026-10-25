@@ -120,6 +120,7 @@ pub fn scan_with<R: Read, S: Sink>(
     opts: &ScanOptions,
     buf: &mut Vec<u8>,
 ) -> Result<ScanStats, ScanError<S::Reject, S::Fatal>> {
+    zone!(SCAN);
     let want = BUF.min(opts.max_line_bytes.max(16));
     if buf.len() < want {
         buf.resize(want, 0);
@@ -149,10 +150,13 @@ pub fn scan_with<R: Read, S: Sink>(
             }
             buf.resize((buf.len() * 2).min(opts.max_line_bytes), 0);
         }
-        let n = fill(&mut reader, &mut buf[filled..]).map_err(|source| ScanError::Io {
-            bytes: stats.bytes,
-            source,
-        })?;
+        let n = {
+            zone!(FILL);
+            fill(&mut reader, &mut buf[filled..]).map_err(|source| ScanError::Io {
+                bytes: stats.bytes,
+                source,
+            })?
+        };
         if n == 0 {
             eof = true;
         } else {
@@ -191,7 +195,10 @@ pub fn scan_with<R: Read, S: Sink>(
                         stats.rows += 1;
                         continue;
                     }
-                    let row = splitter.split(line);
+                    let row = {
+                        zone!(SPLIT);
+                        splitter.split(line)
+                    };
                     match sink.row(&row, pos) {
                         Ok(()) => stats.rows += 1,
                         Err(RowFailure::Sink(e)) => return Err(ScanError::Sink(*e)),
@@ -201,6 +208,7 @@ pub fn scan_with<R: Read, S: Sink>(
                     }
                 }
                 Some(b'I') => {
+                    zone!(HEADER);
                     if opts.headers_only && seen_header {
                         sink.block_rows(block_rows);
                         block_rows = 0;
@@ -234,6 +242,7 @@ pub fn scan_with<R: Read, S: Sink>(
         }
         // Keep the partial tail.
         if consumed > 0 {
+            zone!(TAIL);
             buf.copy_within(consumed..filled, 0);
             filled -= consumed;
         } else if eof {

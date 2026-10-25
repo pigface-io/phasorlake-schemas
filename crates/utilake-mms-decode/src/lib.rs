@@ -21,6 +21,19 @@
 //! id every utilake repository gives it; [`filename`] reads a table and a
 //! [`month::YearMonth`] out of an archive file name.
 
+/// Opens a zone of `zonetrace` until the end of the block, with the
+/// feature `zones`; nothing without it.
+#[allow(unused_macros)]
+macro_rules! zone {
+    ($z:ident) => {
+        #[cfg(feature = "zones")]
+        let _zone = zonetrace::enter(&crate::zones::$z);
+    };
+}
+
+#[cfg(feature = "zones")]
+pub mod zones;
+
 pub mod error;
 pub mod fields;
 pub mod filename;

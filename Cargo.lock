@@ -729,6 +729,7 @@ dependencies = [
  "serde_json",
  "thiserror",
  "xxhash-rust",
+ "zonetrace",
 ]
 
 [[package]]

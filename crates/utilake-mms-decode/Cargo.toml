@@ -16,6 +16,11 @@ memchr.workspace = true
 serde.workspace = true
 thiserror.workspace = true
 xxhash-rust.workspace = true
+zonetrace = { workspace = true, optional = true }
+
+[features]
+# Times the scan in zones of zonetrace.
+zones = ["dep:zonetrace"]
 
 [dev-dependencies]
 serde_json.workspace = true
