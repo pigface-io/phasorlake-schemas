@@ -102,6 +102,10 @@ impl ScanStats {
 
 const BUF: usize = 1 << 20;
 
+/// Room for the widest row AEMO publishes (DREGION, 134 columns, and the
+/// four before them), so splitting never grows the splitter.
+const MAX_FIELDS: usize = 160;
+
 /// Scans `reader` to the end, delivering rows to `sink`.
 pub fn scan<R: Read, S: Sink>(
     reader: R,
@@ -127,7 +131,7 @@ pub fn scan_with<R: Read, S: Sink>(
     }
     let mut filled = 0usize;
     let mut stats = ScanStats::default();
-    let mut splitter = Splitter::with_capacity(64);
+    let mut splitter = Splitter::with_capacity(MAX_FIELDS);
     let mut irows = IRowScratch::default();
     let mut block_rows: u64 = 0;
     let mut seen_header = false;

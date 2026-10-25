@@ -1,12 +1,10 @@
 //! Splitting one line into fields without allocating per row.
 //!
 //! Most MMS lines contain quotes (timestamps are always quoted), so the
-//! quote-aware path has to be fast too. A line without quotes is split with
-//! `memchr_iter`; a line with quotes is walked once, and only a field with a
+//! quote-aware path is the only one: each line is walked once over its
+//! commas and quotes together, eight bytes at a time, and only a field with a
 //! doubled quote (`""`) is unescaped into a scratch buffer the splitter
 //! reuses across rows. Field boundaries go into a reusable `Vec<Span>`.
-
-use memchr::{memchr, memchr_iter};
 
 /// Fields AEMO always writes before the data: `D`, report type, subtype,
 /// version.
@@ -45,28 +43,52 @@ impl Splitter {
         }
     }
 
-    /// Splits `line` (no trailing newline) into fields.
+    /// Splits `line` (no trailing newline) into fields, in one pass over
+    /// its commas and quotes together. A field that starts with a quote
+    /// runs to its closing quote, `""` standing for one; anything after it
+    /// up to the next comma is dropped. Unterminated, it takes the rest of
+    /// the line.
     pub fn split<'a>(&'a mut self, line: &'a [u8]) -> Row<'a> {
         self.spans.clear();
         self.scratch.clear();
-        if memchr(b'"', line).is_none() {
-            let mut start = 0u32;
-            for i in memchr_iter(b',', line) {
-                self.spans.push(Span {
-                    start,
-                    end: i as u32,
-                    scratch: false,
-                });
-                start = i as u32 + 1;
+        let mut start = 0;
+        let mut field = Field::at(line, start);
+        // Commas and quotes before `from` are inside a field already read:
+        // its opening quote, or the second quote of a `""`.
+        let mut from = usize::from(matches!(field, Field::Open { .. }));
+        for i in Hits::new(line) {
+            if i < from {
+                continue;
             }
-            self.spans.push(Span {
-                start,
-                end: line.len() as u32,
-                scratch: false,
-            });
-        } else {
-            self.split_quoted(line);
+            match (field, line[i]) {
+                (Field::Plain, b',') => {
+                    // Most fields: no quote to look past.
+                    self.spans.push(Span {
+                        start: start as u32,
+                        end: i as u32,
+                        scratch: false,
+                    });
+                    start = i + 1;
+                    if line.get(start) == Some(&b'"') {
+                        field = Field::Open { escaped: false };
+                        from = start + 1;
+                    }
+                }
+                (Field::Closed { .. }, b',') => {
+                    self.push(line, start, i, field);
+                    start = i + 1;
+                    field = Field::at(line, start);
+                    from = start + usize::from(matches!(field, Field::Open { .. }));
+                }
+                (Field::Open { .. }, b'"') if line.get(i + 1) == Some(&b'"') => {
+                    field = Field::Open { escaped: true };
+                    from = i + 2;
+                }
+                (Field::Open { escaped }, b'"') => field = Field::Closed { end: i, escaped },
+                _ => {}
+            }
         }
+        self.push(line, start, line.len(), field);
         Row {
             line,
             scratch: &self.scratch,
@@ -74,93 +96,121 @@ impl Splitter {
         }
     }
 
-    fn split_quoted(&mut self, line: &[u8]) {
-        let mut i = 0usize;
-        let n = line.len();
-        loop {
-            if i < n && line[i] == b'"' {
-                // Quoted field: find the closing quote, unescaping "" if present.
-                let content_start = i + 1;
-                let mut j = content_start;
-                let mut escaped = false;
-                loop {
-                    match memchr(b'"', &line[j..]) {
-                        None => {
-                            // Unterminated: take the rest as the field.
-                            j = n;
-                            break;
-                        }
-                        Some(off) => {
-                            let q = j + off;
-                            if line.get(q + 1) == Some(&b'"') {
-                                escaped = true;
-                                j = q + 2;
-                            } else {
-                                j = q;
-                                break;
-                            }
-                        }
-                    }
-                }
-                if escaped {
-                    let s = self.scratch.len();
-                    let mut k = content_start;
-                    while k < j {
-                        if line[k] == b'"' && line.get(k + 1) == Some(&b'"') {
-                            self.scratch.push(b'"');
-                            k += 2;
-                        } else {
-                            self.scratch.push(line[k]);
-                            k += 1;
-                        }
-                    }
-                    self.spans.push(Span {
-                        start: s as u32,
-                        end: self.scratch.len() as u32,
-                        scratch: true,
-                    });
-                } else {
-                    self.spans.push(Span {
-                        start: content_start as u32,
-                        end: j as u32,
-                        scratch: false,
-                    });
-                }
-                // Skip the closing quote and anything up to the next comma.
-                i = (j + 1).min(n);
-                match memchr(b',', &line[i..]) {
-                    Some(off) => i += off + 1,
-                    None => return,
-                }
+    /// The field from `start` to the comma or line end at `end`.
+    fn push(&mut self, line: &[u8], start: usize, end: usize, field: Field) {
+        let (start, end, escaped) = match field {
+            Field::Plain => (start, end, false),
+            Field::Open { escaped } => (start + 1, end, escaped),
+            Field::Closed { end, escaped } => (start + 1, end, escaped),
+        };
+        if !escaped {
+            self.spans.push(Span {
+                start: start as u32,
+                end: end as u32,
+                scratch: false,
+            });
+            return;
+        }
+        let s = self.scratch.len();
+        let mut k = start;
+        while k < end {
+            self.scratch.push(line[k]);
+            k += if line[k] == b'"' && line.get(k + 1) == Some(&b'"') {
+                2
             } else {
-                match memchr(b',', &line[i..]) {
-                    Some(off) => {
-                        self.spans.push(Span {
-                            start: i as u32,
-                            end: (i + off) as u32,
-                            scratch: false,
-                        });
-                        i += off + 1;
-                    }
-                    None => {
-                        self.spans.push(Span {
-                            start: i as u32,
-                            end: n as u32,
-                            scratch: false,
-                        });
-                        return;
-                    }
-                }
+                1
+            };
+        }
+        self.spans.push(Span {
+            start: s as u32,
+            end: self.scratch.len() as u32,
+            scratch: true,
+        });
+    }
+}
+
+/// The field being read by [`Splitter::split`].
+#[derive(Clone, Copy)]
+enum Field {
+    /// Not quoted: it ends at the next comma.
+    Plain,
+    /// Quoted, its closing quote not yet found.
+    Open { escaped: bool },
+    /// Quoted, closed at `end`.
+    Closed { end: usize, escaped: bool },
+}
+
+/// Where a line's commas and quotes are, in order: eight bytes a word,
+/// each tested by arithmetic, so a field costs a few instructions however
+/// close the commas are.
+struct Hits<'a> {
+    line: &'a [u8],
+    /// Where the word in `mask` starts.
+    base: usize,
+    /// The high bit of each byte of the word that is a comma or a quote.
+    mask: u64,
+}
+
+const ONES: u64 = u64::from_ne_bytes([0x01; 8]);
+const LOW7: u64 = u64::from_ne_bytes([0x7f; 8]);
+
+/// The high bit of each byte of `word` that is zero, and of no other.
+const fn zero_bytes(word: u64) -> u64 {
+    !(((word & LOW7) + LOW7) | word | LOW7)
+}
+
+impl<'a> Hits<'a> {
+    fn new(line: &'a [u8]) -> Self {
+        let mut hits = Self {
+            line,
+            base: 0,
+            mask: 0,
+        };
+        hits.load();
+        hits
+    }
+
+    /// The mask of the word at `base`, short words padded with zeros.
+    fn load(&mut self) {
+        let rest = &self.line[self.base.min(self.line.len())..];
+        let word = match rest.first_chunk::<8>() {
+            Some(bytes) => u64::from_le_bytes(*bytes),
+            None => {
+                let mut bytes = [0u8; 8];
+                bytes[..rest.len()].copy_from_slice(rest);
+                u64::from_le_bytes(bytes)
             }
-            if i == n && line[n - 1] == b',' {
-                // A trailing comma means one more, empty, field.
-                self.spans.push(Span {
-                    start: n as u32,
-                    end: n as u32,
-                    scratch: false,
-                });
-                return;
+        };
+        self.mask = zero_bytes(word ^ (ONES * u64::from(b',')))
+            | zero_bytes(word ^ (ONES * u64::from(b'"')));
+    }
+}
+
+impl Iterator for Hits<'_> {
+    type Item = usize;
+
+    #[inline]
+    fn next(&mut self) -> Option<usize> {
+        while self.mask == 0 {
+            self.base += 8;
+            if self.base >= self.line.len() {
+                return None;
             }
+            self.load();
+        }
+        let i = self.base + (self.mask.trailing_zeros() / 8) as usize;
+        self.mask &= self.mask - 1;
+        Some(i)
+    }
+}
+
+impl Field {
+    /// The field that starts at `start`.
+    fn at(line: &[u8], start: usize) -> Self {
+        if line.get(start) == Some(&b'"') {
+            Self::Open { escaped: false }
+        } else {
+            Self::Plain
         }
     }
 }
@@ -250,6 +300,65 @@ mod tests {
             fields(br#"C,"END OF REPORT",9"#),
             ["C", "END OF REPORT", "9"]
         );
+    }
+
+    /// The rules byte by byte, for comparison.
+    fn reference(line: &[u8]) -> Vec<Vec<u8>> {
+        let mut out = Vec::new();
+        let mut i = 0;
+        loop {
+            let mut f = Vec::new();
+            if line.get(i) == Some(&b'"') {
+                i += 1;
+                while i < line.len() {
+                    if line[i] == b'"' {
+                        if line.get(i + 1) == Some(&b'"') {
+                            f.push(b'"');
+                            i += 2;
+                            continue;
+                        }
+                        i += 1;
+                        while i < line.len() && line[i] != b',' {
+                            i += 1;
+                        }
+                        break;
+                    }
+                    f.push(line[i]);
+                    i += 1;
+                }
+            } else {
+                while i < line.len() && line[i] != b',' {
+                    f.push(line[i]);
+                    i += 1;
+                }
+            }
+            out.push(f);
+            if i >= line.len() {
+                return out;
+            }
+            i += 1;
+        }
+    }
+
+    #[test]
+    fn every_short_line_of_commas_quotes_and_letters_splits_as_the_rules_say() {
+        let alphabet = *b",\"a";
+        let mut s = Splitter::default();
+        for len in 0..=7u32 {
+            for code in 0..3usize.pow(len) {
+                let mut c = code;
+                let line: Vec<u8> = (0..len)
+                    .map(|_| {
+                        let b = alphabet[c % 3];
+                        c /= 3;
+                        b
+                    })
+                    .collect();
+                let got: Vec<Vec<u8>> = s.split(&line).iter().map(<[u8]>::to_vec).collect();
+                // The line rides along, so a failure names it.
+                assert_eq!((&line, got), (&line, reference(&line)));
+            }
+        }
     }
 
     #[test]
