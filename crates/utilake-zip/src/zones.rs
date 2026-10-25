@@ -29,6 +29,8 @@ pub static CHUNK_LOAD: Zone = Zone::new(11, "chunk.load");
 pub static CHUNK_COPY: Zone = Zone::new(12, "chunk.copy_out");
 /// One read of an entry whose local header disagrees.
 pub static VERIFIED_READ: Zone = Zone::new(13, "verified.read");
+/// Copying out of a nested zip held in memory to the reader's buffer.
+pub static MEMORY_COPY: Zone = Zone::new(15, "memory.copy_out");
 /// The caller's callback for an entry it did not want.
 pub static ON_OTHER: Zone = Zone::new(14, "on_other");
 /// Reading a central directory from spans of a file.

@@ -375,6 +375,25 @@ impl<R: Read + Seek> Seek for Chunked<R> {
         Ok(self.pos)
     }
 }
+/// A nested zip held in memory: a cursor whose reads, each a copy out of
+/// the zip's bytes, are timed and counted as [`Chunked`]'s are.
+struct InMemory(std::io::Cursor<Vec<u8>>);
+
+impl Read for InMemory {
+    fn read(&mut self, out: &mut [u8]) -> std::io::Result<usize> {
+        zone!(MEMORY_COPY);
+        let n = self.0.read(out)?;
+        count!(copied, n);
+        Ok(n)
+    }
+}
+
+impl Seek for InMemory {
+    fn seek(&mut self, to: SeekFrom) -> std::io::Result<u64> {
+        self.0.seek(to)
+    }
+}
+
 /// A nested zip up to this size is read into memory and walked there;
 /// a larger one goes to a temporary file.
 const NESTED_IN_MEMORY: u64 = 64 << 20;
@@ -435,7 +454,7 @@ fn walk_zip<R: Read + Seek, E>(
     let (mut archive, misplaced) = find_misplaced(archive, p)?;
     let mut found = Walked::default();
     for i in 0..archive.len() {
-        if misplaced.iter().any(|m| m.index == i) {
+        if misplaced.binary_search_by_key(&i, |m| m.index).is_ok() {
             continue;
         }
         let opened = {
@@ -606,8 +625,8 @@ fn visit<E>(
             count!(copied, bytes.len());
             bytes
         };
-        let inner =
-            open_archive(std::io::Cursor::new(bytes)).map_err(|e| bad_inner(e.to_string()))?;
+        let inner = open_archive(InMemory(std::io::Cursor::new(bytes)))
+            .map_err(|e| bad_inner(e.to_string()))?;
         return walk_zip(
             inner,
             &inner_label,
@@ -682,7 +701,6 @@ struct Central {
     crc32: u32,
     method: zip::CompressionMethod,
     name_raw: Vec<u8>,
-    name: String,
     dir: bool,
 }
 
@@ -710,11 +728,14 @@ fn find_misplaced<R: Read + Seek, E>(
             crc32: f.crc32(),
             method: f.compression(),
             name_raw: f.name_raw().to_vec(),
-            name: String::from_utf8_lossy(f.name_raw()).into_owned(),
             dir: f.is_dir(),
         });
     }
     let directory = archive.central_directory_start();
+    // Where each entry's data ends is where the next record begins: the
+    // record starts in order, each found by a binary search.
+    let mut starts: Vec<u64> = central.iter().map(|c| c.header_start).collect();
+    starts.sort_unstable();
     let mut r = archive.into_inner();
     let mut out = Vec::new();
     for (index, c) in central.iter().enumerate() {
@@ -726,12 +747,8 @@ fn find_misplaced<R: Read + Seek, E>(
             zip::CompressionMethod::Stored => false,
             _ => continue,
         };
-        let end = central
-            .iter()
-            .map(|o| o.header_start)
-            .filter(|&h| h > c.header_start)
-            .min()
-            .unwrap_or(directory);
+        let next = starts.partition_point(|&h| h <= c.header_start);
+        let end = starts.get(next).copied().unwrap_or(directory);
         let Some(start) = end.checked_sub(c.compressed) else {
             continue;
         };
@@ -740,7 +757,7 @@ fn find_misplaced<R: Read + Seek, E>(
         }
         out.push(Misplaced {
             index,
-            name: c.name.clone(),
+            name: String::from_utf8_lossy(&c.name_raw).into_owned(),
             start,
             compressed: c.compressed,
             size: c.size,
@@ -1367,7 +1384,6 @@ mod tests {
             crc32: 0,
             method: zip::CompressionMethod::Stored,
             name_raw: b"A.CSV".to_vec(),
-            name: "A.CSV".into(),
             dir: false,
         };
         assert!(local_header_agrees(
