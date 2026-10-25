@@ -73,7 +73,7 @@ utilake-plain-decode = { path = "crates/utilake-plain-decode" }
 utilake-provenance = { path = "crates/utilake-provenance" }
 utilake-zip = { path = "crates/utilake-zip" }
 # zones timed into a call tree: https://github.com/pigface-io/zonetrace
-zonetrace = { git = "https://github.com/pigface-io/zonetrace", rev = "39b0b94647cf4ad3eed42a86e869625cd3d400f9" }
+zonetrace = "0.1.1"
 
 anyhow = "1"
 crc32fast = "1.5"
