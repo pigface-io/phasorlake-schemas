@@ -12,7 +12,8 @@
 //! table's temporal roles from its key and columns, the one rule every
 //! reader and the publisher share. [`plan`] reads any time interval of a
 //! table's files across its schemas, and [`table`] writes table metadata
-//! and manifests as bytes.
+//! and manifests as bytes. [`provenance`] names the two columns every lake
+//! file adds: each row's source and when it became public.
 //!
 //! Std, serde and SHA-256 only; no I/O.
 
@@ -21,6 +22,7 @@ mod evidence;
 pub mod history;
 pub mod market;
 mod plan;
+pub mod provenance;
 pub mod publish;
 mod schema;
 pub mod table;

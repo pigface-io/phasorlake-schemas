@@ -236,6 +236,18 @@ utilake-schemas sql DISPATCHPRICE --files files.json --from 2024-08-01 --to 2024
 A time is RFC 3339, or a day, which is its midnight in the table's
 market (`--market`, `nem` by default: +10:00; the WEM's +08:00).
 
+Every lake file holds two columns after its table's, so each row says
+where it came from whatever is done to the file later:
+
+| Column | Field id | Type | Holds |
+|---|---|---|---|
+| `_nl_source` | 2147483000 | `string` | The file the row was read from: its URL, and `!{entry}` for a file inside a zip |
+| `_nl_published` | 2147483001 | `timestamptz` | When that file became public; null when nothing says |
+
+A row's copies rank by the table's order columns, then `_nl_published`,
+then `_nl_source`; a point-in-time read keeps rows with `_nl_published`
+at or before its time. No table may declare a column starting `_nl_`.
+
 ## Contributing
 
 A table's types come from its evidence by a rule, so a change is one of
