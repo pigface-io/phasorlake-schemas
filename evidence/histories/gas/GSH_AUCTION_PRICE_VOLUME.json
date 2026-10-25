@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 462,
+      "files": 388,
       "from": {
         "data-time": "2025-10-01T00:00:00+10:00",
         "file": "PUBLIC_AUCTIONPRICEVOLUME_20251001.zip",
@@ -15,21 +15,20 @@
         "sha256": "a779a284ce3ab2b0880de02dca40619d331c5204c672e1af39e58d8760fde5fe"
       },
       "kinds": [
-        "gsh/archive",
-        "gsh/current"
+        "gsh"
       ],
       "overlaps": false,
       "report": [
         "GSH",
         "AUCTION_PRICE_VOLUME"
       ],
-      "rows": 64480,
+      "rows": 53950,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "PUBLIC_AUCTIONPRICEVOLUME_20261021_0000000544085426.zip",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "PUBLIC_AUCTIONPRICEVOLUME_20261023_0000000544453304.zip",
         "release": "2026-10",
-        "sha256": "91e4bbefae2969cb45e5a5cae26a120d4b95d2c0f253db893d593c3d844d885c"
+        "sha256": "ec7e789f98025d5d4a48a356cd093f68349f8efa4aff9343a31f0a531707b004"
       },
       "updates": [],
       "version": 1

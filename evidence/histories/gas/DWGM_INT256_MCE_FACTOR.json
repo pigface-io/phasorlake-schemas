@@ -30,7 +30,7 @@
         "sha256": "4846d8c1790cc5f552589656a22716710b2fe8c4e7a57c33f5bbdf95e7858734"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
@@ -55,8 +55,8 @@
         {
           "id": 1,
           "name": "GENERAL_INFORMATION_ID",
-          "required": false,
-          "type": "decimal(1, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 2,
@@ -131,7 +131,9 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        1
+      ],
       "schema-id": 0,
       "type": "struct"
     }

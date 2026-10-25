@@ -21,7 +21,7 @@
       "changes": [
         "first"
       ],
-      "files": 308,
+      "files": 327,
       "from": {
         "data-time": "2026-08-24T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -29,20 +29,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT126_DFS_DATA_1"
       ],
-      "rows": 636,
+      "rows": 816,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-23T00:00:00+10:00",
-        "file": "int126_v4_dfs_data_1.csv@20261021T220900+1000",
+        "data-time": "2026-10-26T00:00:00+10:00",
+        "file": "int126_v4_dfs_data_1.csv@20261024T113400+1000",
         "release": "2026-10",
-        "sha256": "837f1053422fdd111878af8b579132052e621b92ceb622fbda8aa7273445ff82"
+        "sha256": "1b75cc6dc5bf4a4e1dacb8fe58948ab190cbee0282d303d8d629d98ed586297b"
       },
       "updates": [],
       "version": 4

@@ -27,7 +27,7 @@
       "changes": [
         "first"
       ],
-      "files": 25,
+      "files": 28,
       "from": {
         "data-time": "2026-08-01T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -35,20 +35,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT322B_UPLIFT_BREAKDOWN_PRUD_1"
       ],
-      "rows": 645,
+      "rows": 851,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-18T00:00:00+10:00",
-        "file": "int322b_v4_uplift_breakdown_prud_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "int322b_v4_uplift_breakdown_prud_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "7037e3a96c45d766f72c600cd7460b6ab992c40d2a690b552ebed69f46b40493"
+        "sha256": "bb8bc8fb4150baafae9d76fc9694e15f0e27b3a20d8019ea89d3d1b6b95b70c6"
       },
       "updates": [],
       "version": 4

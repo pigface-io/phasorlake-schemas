@@ -23,7 +23,7 @@
       "changes": [
         "first"
       ],
-      "files": 43,
+      "files": 44,
       "from": {
         "data-time": "2019-08-29T00:00:00+10:00",
         "file": "GasBBNameplateRatingCurrent_20251028023825.csv",
@@ -31,20 +31,20 @@
         "sha256": "e421ff2195b95f8bb225a1517ef36d01840eadc0bb19be278246c5a1bc708eea"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
         "GBB",
         "NAMEPLATE_RATING_CURRENT"
       ],
-      "rows": 1503,
+      "rows": 1555,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-22T00:00:00+10:00",
-        "file": "GasBBNameplateRatingCurrent.csv@20261022T083600+1000",
+        "data-time": "2026-10-24T00:00:00+10:00",
+        "file": "GasBBNameplateRatingCurrent.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "0fe00bec458c77fa25c7056632ba42992e7962c0fe567c60b9d13a2a2cf09924"
+        "sha256": "83f66ee3b87323d420574cfe23c500d0411a4259f67b28cb0a2a2a3c03f12665"
       },
       "updates": [],
       "version": 1
@@ -53,7 +53,7 @@
       "changes": [
         "report"
       ],
-      "files": 3,
+      "files": 4,
       "from": {
         "data-time": "2018-09-30T00:00:00+10:00",
         "file": "GasBBNameplateRating.zip",
@@ -61,20 +61,20 @@
         "sha256": "49c67e6fcf2c2a8dfa50b13425e42d42c681658366f98961b679bb2ea04323a4"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "NAMEPLATE_RATING"
       ],
-      "rows": 138079,
+      "rows": 138152,
       "schema-id": 0,
       "to": {
         "data-time": "2029-01-01T00:00:00+10:00",
-        "file": "GasBBNameplateRating.zip@20261022T021200+1000",
+        "file": "GasBBNameplateRating.zip@20261024T021100+1000",
         "release": "2026-10",
-        "sha256": "96479030d31db3d9b7a13ea21b1fe068168d47e51d3558424ff2a487d1b96110"
+        "sha256": "c6efb9f880f470b507188ecef3f25daed5781094093dbe098550087b8f6ec25b"
       },
       "updates": [],
       "version": 1

@@ -23,7 +23,7 @@
         "sha256": "0b7a540c2a8314fab7cd4a9fe8e6c831e1f7b231c4261c3885b5356dd0e3a8f4"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
@@ -48,14 +48,14 @@
         {
           "id": 1,
           "name": "PIPELINE_ID",
-          "required": false,
-          "type": "decimal(1, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 2,
           "name": "POINT_GROUP_IDENTIFIER_ID",
-          "required": false,
-          "type": "decimal(2, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 3,
@@ -82,7 +82,10 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        1,
+        2
+      ],
       "schema-id": 0,
       "type": "struct"
     }

@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 102,
+      "files": 80,
       "from": {
         "data-time": "2014-07-01T01:29:45+10:00",
         "file": "PUBLIC_REGISTEREDPARTICIPANTS_20251001.zip",
@@ -15,15 +15,14 @@
         "sha256": "9862f38fbe1ffa9d5c5b0817578a2358d1f6b88d770f76c6f77e6423b27338f6"
       },
       "kinds": [
-        "gsh/archive",
-        "gsh/current"
+        "gsh"
       ],
       "overlaps": false,
       "report": [
         "GSH",
         "PARTICIPANTS"
       ],
-      "rows": 288,
+      "rows": 163,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-21T10:04:10+10:00",

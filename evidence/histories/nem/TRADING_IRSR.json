@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 113871,
+      "files": 112719,
       "from": {
         "data-time": "2025-09-28T00:30:00+10:00",
         "file": "PUBLIC_TRADING_IRSR_20250928_20251004.zip",
@@ -15,15 +15,14 @@
         "sha256": "64eb3b8640297639c24e5304c8bea7d55b821da00442fb3ee44be8ef68c0443f"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "TRADING",
         "IRSR"
       ],
-      "rows": 1382288,
+      "rows": 1366160,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T11:50:00+10:00",

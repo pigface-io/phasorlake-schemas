@@ -29,7 +29,7 @@
         "sha256": "1afe3c57e91f4beb70aa761e409572e62158d1135182daa44711531c80568d51"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -59,7 +59,7 @@
         "sha256": "30a1b7cfdcb5acd837ba4e1a011923354ef8472e5e9c66cad6cd99814f09574e"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
@@ -94,7 +94,7 @@
         "sha256": "eea5446d6a244d9bb20e7d4763a617a96965a4d5a084045ab415cf3879df49eb"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
@@ -129,7 +129,7 @@
         "sha256": "3889ad46db0b08ea646deb12bf775d4572f114c0c7c9f9530b1bc4de29ac8ca5"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
@@ -164,7 +164,7 @@
         "sha256": "8360978090f726012cc33709c8e7342f1856c4f3091fd2f53a836578cb29549d"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -195,7 +195,7 @@
         "sha256": "ae40cda9c1abad1fc18326c31485ff8bfa4781c9583b7166ff5c6e107f341d10"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
@@ -231,7 +231,7 @@
         "sha256": "55481b2493af63b1402401d0b7c05383e7c81e8a0426f7eea688ea6b2a9a9b3c"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -259,7 +259,7 @@
         "schema",
         "report"
       ],
-      "files": 4,
+      "files": 5,
       "from": {
         "data-time": "2025-01-01T00:00:00+10:00",
         "file": "GASBB_PIPELINE_CONNECTION_FLOW_2025.zip",
@@ -267,20 +267,20 @@
         "sha256": "db77575b66c4ae545c1cc263fc799769d284a9512d083a5c7077426f0f7f065e"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "PIPELINE_CONNECTION_FLOW"
       ],
-      "rows": 578318,
+      "rows": 580086,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-20T00:00:00+10:00",
-        "file": "GASBB_PIPELINE_CONNECTION_FLOW_2026.zip@20261022T020200+1000",
+        "data-time": "2026-10-22T00:00:00+10:00",
+        "file": "GASBB_PIPELINE_CONNECTION_FLOW_2026.zip@20261024T020200+1000",
         "release": "2026-10",
-        "sha256": "f123478c84537ed283a219dd7a79333aca3b6004aec666047cc85184b8bd9999"
+        "sha256": "f9e78d048bb9071cfc288bebe03bce7e1c2df3fb70145125dd1f8d979bd8f8e1"
       },
       "updates": [
         {
@@ -294,7 +294,7 @@
       "changes": [
         "schema"
       ],
-      "files": 6,
+      "files": 8,
       "from": {
         "data-time": "2018-09-29T00:00:00+10:00",
         "file": "GasBBPipelineConnectionFlow_2018_2023.zip",
@@ -302,20 +302,20 @@
         "sha256": "45bdb0f11198f9d76c20d29ec6f085dd4f163e433d4bd6df9e8666ace8b5795b"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "PIPELINE_CONNECTION_FLOW"
       ],
-      "rows": 1659459,
+      "rows": 1660769,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-20T00:00:00+10:00",
-        "file": "GasBBPipelineConnectionFlow_2023_2028.zip@20261021T210700+1000",
+        "data-time": "2026-10-22T00:00:00+10:00",
+        "file": "GasBBPipelineConnectionFlow_2023_2028.zip@20261023T210800+1000",
         "release": "2026-10",
-        "sha256": "cbce7a14a685d0c1d3e28286bd3091d405331923a523be33f14db40a46c03acd"
+        "sha256": "522ae0494e9424755fc5e6946f8c35fe7ab92714b1db79e313f0e3bbdf5c18fd"
       },
       "updates": [
         {
@@ -329,7 +329,7 @@
       "changes": [
         "report"
       ],
-      "files": 6,
+      "files": 7,
       "from": {
         "data-time": "2026-09-20T00:00:00+10:00",
         "file": "GasBBPipelineConnectionFlowLast31.CSV",
@@ -337,20 +337,20 @@
         "sha256": "b616f3471737526225200f3d6d8ee7f8c8b65f1cceb42b0d0674e90a2754796f"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "PIPELINE_CONNECTION_FLOW_LAST31"
       ],
-      "rows": 20463,
+      "rows": 22326,
       "schema-id": 1,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "GasBBPipelineConnectionFlowLast31.CSV@20261022T083600+1000",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "GasBBPipelineConnectionFlowLast31.CSV@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "a0b5ea2ca296c6a9dab19d4440c68aea2c9bbb68b78bd14c2d3de28bf851d709"
+        "sha256": "138db787b4e21b210dcc136c8c9f0acb4ddeea0cfd889418266ba9ec08b7ea91"
       },
       "updates": [],
       "version": 1

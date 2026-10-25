@@ -26,7 +26,7 @@
         "sha256": "4576619f1911f3201d10c834d4173cdce151350518600b80d2ebdd3bdd46d9c0"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -63,20 +63,20 @@
         {
           "id": 3,
           "name": "FACILITYID",
-          "required": false,
-          "type": "decimal(6, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 4,
           "name": "NODEID",
-          "required": false,
-          "type": "decimal(5, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 5,
           "name": "CONNECTIONPOINTID",
-          "required": false,
-          "type": "decimal(7, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 6,
@@ -103,7 +103,11 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        3,
+        4,
+        5
+      ],
       "schema-id": 0,
       "type": "struct"
     }

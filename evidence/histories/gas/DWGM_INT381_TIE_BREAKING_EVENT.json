@@ -19,7 +19,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 37,
       "from": {
         "data-time": "2026-08-30T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -27,20 +27,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT381_TIE_BREAKING_EVENT_1"
       ],
-      "rows": 2550,
+      "rows": 2775,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-20T00:00:00+10:00",
-        "file": "int381_v4_tie_breaking_event_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int381_v4_tie_breaking_event_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "8874c5385887762e6e34ff3834e470f7a7e2208a180793bdb20d606c721043ff"
+        "sha256": "b6f32ad7b25d91249d11cb720750a07483a26898f5d2f58e8e642efa45a80709"
       },
       "updates": [],
       "version": 4

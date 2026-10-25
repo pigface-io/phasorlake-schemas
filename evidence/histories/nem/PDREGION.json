@@ -15,7 +15,7 @@
         "sha256": "911cf5ba9d8a4adcb1c8dbc3bc964f8eb4c3d0752c684dbb44f016c7ed2fa3ee"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -38,7 +38,7 @@
         "schema",
         "version"
       ],
-      "files": 18989,
+      "files": 18791,
       "from": {
         "data-time": "2025-09-28T00:30:00+10:00",
         "file": "PUBLIC_PREDISPATCH_20250928_20251004.zip",
@@ -46,15 +46,14 @@
         "sha256": "a46acff23a6894743bc8cdc3c801d91f74dafd43b01fd331aae1d78e51f717c3"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "PDREGION",
         ""
       ],
-      "rows": 5268255,
+      "rows": 5213190,
       "schema-id": 1,
       "to": {
         "data-time": "2026-10-24T12:00:00+10:00",

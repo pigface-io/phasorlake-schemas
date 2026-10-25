@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 858,
+      "files": 836,
       "from": {
         "data-time": "2025-09-01T00:00:00+10:00",
         "file": "PUBLIC_NEXT_DAY_OFFER_ENERGY_SPARSE_20250901.zip",
@@ -15,15 +15,14 @@
         "sha256": "a1c5797b5a552ca7312c9b619df523d77d9c8ff0ca1a12b6ce4b982a8e34ccdc"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "BIDS",
         "BIDOFFERPERIOD_SPARSE"
       ],
-      "rows": 3409537092,
+      "rows": 3315715939,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-23T00:00:00+10:00",

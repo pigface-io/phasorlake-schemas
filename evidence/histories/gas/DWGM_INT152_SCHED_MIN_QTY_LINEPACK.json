@@ -22,7 +22,7 @@
       "changes": [
         "first"
       ],
-      "files": 294,
+      "files": 313,
       "from": {
         "data-time": "2026-08-23T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -30,20 +30,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT152_SCHED_MIN_QTY_LINEPACK_1"
       ],
-      "rows": 35122,
+      "rows": 45650,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-23T00:00:00+10:00",
-        "file": "int152_v4_sched_min_qty_linepack_1.csv@20261021T221100+1000",
+        "data-time": "2026-10-26T00:00:00+10:00",
+        "file": "int152_v4_sched_min_qty_linepack_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "0eaab9478f97be89ae4b07c2c2c293f25d9158f4bfc862c82f7f50b11ac9481a"
+        "sha256": "e7ed561a20f6b6f6ac89a884113629d145e3234c42dd02adcc9c35700dc95932"
       },
       "updates": [],
       "version": 4

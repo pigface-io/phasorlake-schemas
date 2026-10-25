@@ -16,7 +16,7 @@
       "changes": [
         "first"
       ],
-      "files": 51,
+      "files": 56,
       "from": {
         "data-time": "2026-08-27T00:00:00+10:00",
         "file": "Day31.zip",
@@ -24,20 +24,20 @@
         "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
       },
       "kinds": [
-        "sttm/current"
+        "sttm"
       ],
       "overlaps": false,
       "report": [
         "STTM",
         "INT654_PROVISIONAL_MARKET_PRICE_RPT_1"
       ],
-      "rows": 399,
+      "rows": 597,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-24T00:00:00+10:00",
-        "file": "int654_v1_provisional_market_price_rpt_1.csv@20261021T191600+1000",
+        "data-time": "2026-10-26T00:00:00+10:00",
+        "file": "int654_v1_provisional_market_price_rpt_1.csv@20261024T113100+1000",
         "release": "2026-10",
-        "sha256": "31422ed25ad4459c762da34040042aaa0b0895850e78ed195f20fe37f4079c73"
+        "sha256": "2e07e6d55bbcec170c6edbc1fe3feb183e9c8ad88294c350699ad410636d212c"
       },
       "updates": [],
       "version": 1

@@ -46,7 +46,7 @@
         "sha256": "416730d513cc695bf712ff4dae3c3153b730e5223194e201b20415f470c555c5"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -93,7 +93,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -140,7 +140,7 @@
         "sha256": "416730d513cc695bf712ff4dae3c3153b730e5223194e201b20415f470c555c5"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -187,7 +187,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -234,7 +234,7 @@
         "sha256": "95909174402abdaf1f48ede6f928db22ad6170b86239dda2cb5b62cddec2c90c"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -281,7 +281,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -328,7 +328,7 @@
         "sha256": "ddd1d1cdba05009e40097af9c77966436e9ffb8ad24f4f7259fcd355fd7a8269"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -375,7 +375,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -422,7 +422,7 @@
         "sha256": "b97490218037639e8a89b2c5c9c96b8201980d98690002436fce08972bcc0972"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -469,7 +469,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -516,7 +516,7 @@
         "sha256": "19b0db2a8bb24d996ee98aaa4c2d26e01afb6e254657f85cf2b427711c148920"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -563,7 +563,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -610,7 +610,7 @@
         "sha256": "bed0a3af320390debeed0730241911278649132b94489945da773b0d0255e148"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -657,7 +657,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -704,7 +704,7 @@
         "sha256": "548ca504e72cf804be62f770bc820bdbb3ba5861fced2cb0f94cd99d1bcd19aa"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -751,7 +751,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -798,7 +798,7 @@
         "sha256": "a2165a98cde425450ee73f27a8939f9ce01977e4d312fa5e0d902b4df5c3253c"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -845,7 +845,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -892,7 +892,7 @@
         "sha256": "d7aac004935258d464c23282ce43dd65666c3b0aa08e123b87f443761be787af"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -939,7 +939,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -986,7 +986,7 @@
         "sha256": "025ca10c88bef30da05d817fb96d9230b07500a1b97e0d7b95226cbde738d54c"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -1033,7 +1033,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -1080,7 +1080,7 @@
         "sha256": "1c0a6dc23212eb0817395577bf1e9068c4d6a7d943d617ffa0c7fca5cc1d0421"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -1127,7 +1127,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -1174,7 +1174,7 @@
         "sha256": "058c9fff5affac3642e5cfa6ee6d0084eb6a8e5d7dbd072d405f75dc48354927"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -1212,7 +1212,7 @@
       "changes": [
         "schema"
       ],
-      "files": 337,
+      "files": 1129,
       "from": {
         "data-time": "2026-09-01T01:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#ROOFTOP_PV_FORECAST#FILE01#202609010000.zip",
@@ -1221,107 +1221,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "ROOFTOP",
         "FORECAST"
       ],
-      "rows": 3265620,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2026-10-15T04:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_FORECAST_20261001.zip",
-        "release": "2026-10",
-        "sha256": "31e122da3a0d6c9a52ad4e21d57df1858123ccee8861ced0e8f4b70be5cad7dd"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 9
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            3
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema"
-      ],
-      "files": 576,
-      "from": {
-        "data-time": "2026-10-01T00:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_FORECAST_AREA_20260929.zip",
-        "release": "2026-10",
-        "sha256": "2fca49bfeda6adbf01be4c4f82e1d81889bb433be9d85bdec82315ba27e9b5ae"
-      },
-      "kinds": [
-        "reports/archive"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "FORECAST"
-      ],
-      "rows": 1694592,
-      "schema-id": 1,
-      "to": {
-        "data-time": "2026-10-20T04:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_FORECAST_AREA_20261006.zip",
-        "release": "2026-10",
-        "sha256": "8d6164d8fcd562fade91f958d2f6689737dcb80d6710dc8fdf17f928d038fa8e"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 9
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            3
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema"
-      ],
-      "files": 845,
-      "from": {
-        "data-time": "2026-10-06T22:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_FORECAST_20261006213000_0000000541508115.zip",
-        "release": "2026-10",
-        "sha256": "e1f56612517038d433eb420567493d0b46ac5dd30e0a155cffd01b68050d400d"
-      },
-      "kinds": [
-        "reports/current"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "FORECAST"
-      ],
-      "rows": 1554575,
+      "rows": 4723260,
       "schema-id": 0,
       "to": {
         "data-time": "2026-11-01T04:00:00+10:00",
@@ -1353,22 +1260,22 @@
       "changes": [
         "schema"
       ],
-      "files": 845,
+      "files": 1128,
       "from": {
-        "data-time": "2026-10-06T22:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_FORECAST_AREA_20261006213000_0000000541508116.zip",
+        "data-time": "2026-10-01T00:30:00+10:00",
+        "file": "PUBLIC_ROOFTOP_PV_FORECAST_AREA_20260929.zip",
         "release": "2026-10",
-        "sha256": "c4fc4edc7ef8d5cb3b17601cda5ca2f7a779774588f1ae0e66c0437e03201996"
+        "sha256": "2fca49bfeda6adbf01be4c4f82e1d81889bb433be9d85bdec82315ba27e9b5ae"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "ROOFTOP",
         "FORECAST"
       ],
-      "rows": 2487320,
+      "rows": 3320736,
       "schema-id": 1,
       "to": {
         "data-time": "2026-11-01T04:00:00+10:00",

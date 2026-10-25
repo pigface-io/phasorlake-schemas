@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 110520,
+      "files": 110044,
       "from": {
         "data-time": "2009-07-01T00:05:00+10:00",
         "file": "PUBLIC_DVD_DISPATCHCASESOLUTION_200907010000.zip",
@@ -17,15 +17,14 @@
       "kinds": [
         "archive",
         "dvd",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "CASE_SOLUTION"
       ],
-      "rows": 1927017,
+      "rows": 1926541,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T11:45:00+10:00",

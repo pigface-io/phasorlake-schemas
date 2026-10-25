@@ -20,7 +20,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 37,
       "from": {
         "data-time": "2025-08-31T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -28,20 +28,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT314_BID_STACK_1"
       ],
-      "rows": 238292,
+      "rows": 268813,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-20T00:00:00+10:00",
-        "file": "int314_v4_bid_stack_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int314_v4_bid_stack_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "8745c44a78ce203bb1dd6d65c48bff70d0b596649431b3631a47af35becfc5bf"
+        "sha256": "0839c0ff2f410c50995d3467d9ba93cb0e6b2144e0ee62960c12ca6ff5349e2e"
       },
       "updates": [],
       "version": 4

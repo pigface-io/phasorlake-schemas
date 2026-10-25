@@ -18,7 +18,7 @@
       "changes": [
         "first"
       ],
-      "files": 772,
+      "files": 821,
       "from": {
         "data-time": "2026-08-29T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -26,20 +26,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT236_OPERATIONAL_METER_READINGS_1"
       ],
-      "rows": 23114,
+      "rows": 26312,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "int236_v4_operational_meter_readings_1.csv@20261021T221100+1000",
+        "data-time": "2026-10-24T00:00:00+10:00",
+        "file": "int236_v4_operational_meter_readings_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "03cf58559c61c9d3db869cfff2722b4b079e3c786b1ca55eeeb748b038d3fe84"
+        "sha256": "a030d03c0452968f656ce5ab95d03f24dda7501a37f3eea2ff97d92700a1c35e"
       },
       "updates": [],
       "version": 4

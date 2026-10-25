@@ -25,7 +25,7 @@
       "changes": [
         "first"
       ],
-      "files": 2,
+      "files": 3,
       "from": {
         "data-time": "2018-11-08T00:00:00+10:00",
         "file": "GasBBNodesAndConnectionPoints.CSV",
@@ -33,20 +33,20 @@
         "sha256": "798b75f8ad6656f76110af3bc1f62de92689d7f016324838d179f6adf6092bcd"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
         "GBB",
         "NODES_AND_CONNECTION_POINTS"
       ],
-      "rows": 817,
+      "rows": 819,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-20T13:29:43+10:00",
-        "file": "GasBBNodesAndConnectionPoints.CSV@20261021T050100+1000",
+        "file": "GasBBNodesAndConnectionPoints.CSV@20261024T050200+1000",
         "release": "2026-10",
-        "sha256": "2b197d3fcc995b27d802289672732641bcbc55c75ae35076d4351d1b046e362a"
+        "sha256": "f036f8fae2181f7c3766b5395a093be2696091ba8918ca4d421a80bd9e824cfb"
       },
       "updates": [],
       "version": 1
@@ -56,7 +56,7 @@
         "schema",
         "report"
       ],
-      "files": 2,
+      "files": 3,
       "from": {
         "data-time": "2018-05-01T00:00:00+10:00",
         "file": "GasBBNodesAndConnectionPointsFull.CSV",
@@ -64,20 +64,20 @@
         "sha256": "243412f2543be1a9e11416d92403256a400d309f212b5adc7222d3face39ae34"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "NODES_AND_CONNECTION_POINTS_FULL"
       ],
-      "rows": 2931,
+      "rows": 2934,
       "schema-id": 1,
       "to": {
         "data-time": "2026-11-01T00:00:00+10:00",
-        "file": "GasBBNodesAndConnectionPointsFull.CSV@20261021T052700+1000",
+        "file": "GasBBNodesAndConnectionPointsFull.CSV@20261024T052700+1000",
         "release": "2026-10",
-        "sha256": "fc357505c0cc2d8351034c780a6289acc93f6a7f4db42d450c1a1af0a7c70914"
+        "sha256": "ea770a267fd76595245ac7d21ec1dacdc0c84291667daa1088db89b380bab3a9"
       },
       "updates": [
         {
@@ -104,8 +104,8 @@
         {
           "id": 2,
           "name": "FACILITYID",
-          "required": false,
-          "type": "decimal(6, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 3,
@@ -116,8 +116,8 @@
         {
           "id": 4,
           "name": "CONNECTIONPOINTID",
-          "required": false,
-          "type": "decimal(7, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 5,
@@ -146,14 +146,14 @@
         {
           "id": 9,
           "name": "NODEID",
-          "required": false,
-          "type": "decimal(5, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 10,
           "name": "STATEID",
-          "required": false,
-          "type": "decimal(1, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 11,
@@ -170,8 +170,8 @@
         {
           "id": 13,
           "name": "LOCATIONID",
-          "required": false,
-          "type": "decimal(6, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 14,
@@ -180,7 +180,13 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        2,
+        4,
+        9,
+        10,
+        13
+      ],
       "schema-id": 0,
       "type": "struct"
     },
@@ -195,8 +201,8 @@
         {
           "id": 2,
           "name": "FACILITYID",
-          "required": false,
-          "type": "decimal(6, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 3,
@@ -213,8 +219,8 @@
         {
           "id": 4,
           "name": "CONNECTIONPOINTID",
-          "required": false,
-          "type": "decimal(7, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 5,
@@ -243,14 +249,14 @@
         {
           "id": 9,
           "name": "NODEID",
-          "required": false,
-          "type": "decimal(5, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 10,
           "name": "STATEID",
-          "required": false,
-          "type": "decimal(1, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 11,
@@ -267,8 +273,8 @@
         {
           "id": 13,
           "name": "LOCATIONID",
-          "required": false,
-          "type": "decimal(6, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 16,
@@ -283,7 +289,13 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        2,
+        4,
+        9,
+        10,
+        13
+      ],
       "schema-id": 1,
       "type": "struct"
     }

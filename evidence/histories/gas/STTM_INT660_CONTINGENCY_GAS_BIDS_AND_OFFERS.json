@@ -23,7 +23,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 38,
       "from": {
         "data-time": "2026-08-24T00:00:00+10:00",
         "file": "Day31.zip",
@@ -31,20 +31,20 @@
         "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
       },
       "kinds": [
-        "sttm/current"
+        "sttm"
       ],
       "overlaps": false,
       "report": [
         "STTM",
         "INT660_CONTINGENCY_GAS_BIDS_AND_OFFERS_RPT_1"
       ],
-      "rows": 7904,
+      "rows": 11888,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-20T00:00:00+10:00",
-        "file": "int660_v1_contingency_gas_bids_and_offers_rpt_1.csv@20261021T191600+1000",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int660_v1_contingency_gas_bids_and_offers_rpt_1.csv@20261024T113100+1000",
         "release": "2026-10",
-        "sha256": "24f38d0af03de7c564f9075917c4c2abff66aa11ffb51be4bf9e93d0897d8de7"
+        "sha256": "12a4450d0c9fb0ff0bfd7f2de88a3b52a8a4d0863195f6bd8963dfff802a5ad3"
       },
       "updates": [],
       "version": 1

@@ -42,13 +42,10 @@
       "x-iceberg-type": "decimal(1, 0)"
     },
     "GENERAL_INFORMATION_ID": {
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 1,
       "x-header": "general_information_id",
-      "x-iceberg-type": "decimal(1, 0)"
+      "x-iceberg-type": "long"
     },
     "LAST_MOD_DATE": {
       "format": "date-time",
@@ -125,14 +122,16 @@
       "x-iceberg-type": "decimal(5, 2)"
     }
   },
-  "required": [],
+  "required": [
+    "GENERAL_INFORMATION_ID"
+  ],
   "title": "DWGM_INT256_MCE_FACTOR, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "GENERAL_INFORMATION_ID",
-      "decimal(1, 0)"
+      "long"
     ],
     [
       2,
@@ -196,7 +195,9 @@
     ]
   ],
   "x-format": 3,
-  "x-identifier-field-ids": [],
+  "x-identifier-field-ids": [
+    1
+  ],
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

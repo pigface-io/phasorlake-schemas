@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 458,
+      "files": 447,
       "from": {
         "data-time": "2024-08-13T15:20:00+10:00",
         "file": "PUBLIC_ARCHIVE#INTERMITTENT_GEN_SCADA#FILE01#202412010000.zip",
@@ -16,15 +16,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "DEMAND",
         "INTERMITTENT_GEN_SCADA"
       ],
-      "rows": 1143773494,
+      "rows": 1142480950,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T04:00:00+10:00",

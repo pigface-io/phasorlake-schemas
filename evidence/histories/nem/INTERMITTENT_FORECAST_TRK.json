@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 458,
+      "files": 447,
       "from": {
         "data-time": "2020-03-13T04:05:00+10:00",
         "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20200313_0000000320315048.zip",
@@ -16,15 +16,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "INTERMITTENT_FORECAST_TRK"
       ],
-      "rows": 68164073,
+      "rows": 67517801,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T04:00:00+10:00",

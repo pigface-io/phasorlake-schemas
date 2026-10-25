@@ -15,7 +15,7 @@
       "changes": [
         "first"
       ],
-      "files": 25,
+      "files": 28,
       "from": {
         "data-time": "2026-08-01T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -23,20 +23,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT089_LINEPACK_BALANCE_1"
       ],
-      "rows": 231,
+      "rows": 322,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-18T00:00:00+10:00",
-        "file": "int089_v4_linepack_balance_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "int089_v4_linepack_balance_1.csv@20261024T113400+1000",
         "release": "2026-10",
-        "sha256": "0fe93e911e979e1a6cdf21fd4fd649b128d350b5160ee3ac97edf4804d782928"
+        "sha256": "d09c88e77111a8fa1f76867ecba48317ed7de8e624e79352bc98e6ee13eb8d8a"
       },
       "updates": [],
       "version": 4

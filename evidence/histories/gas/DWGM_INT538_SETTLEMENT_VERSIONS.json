@@ -16,7 +16,7 @@
       "changes": [
         "first"
       ],
-      "files": 4,
+      "files": 6,
       "from": {
         "data-time": "2025-11-01T00:00:00+10:00",
         "file": "PublicRpts22.zip",
@@ -24,20 +24,20 @@
         "sha256": "20d32cafc8e00f1760ea246fec625d26dd91304d25f9a1caeb65db5bf23993a1"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT538_SETTLEMENT_VERSIONS_1"
       ],
-      "rows": 9,
+      "rows": 12,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-08-01T00:00:00+10:00",
-        "file": "int538_v4_settlement_versions_1.csv",
+        "data-time": "2026-09-01T00:00:00+10:00",
+        "file": "int538_v4_settlement_versions_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "606d64b5f47aadb7e1c2bc668e82123b8c900d28f268fe9015f069128e0ff04e"
+        "sha256": "fdd6ddea7ff46cb8916fc99d8272132bcbbdf80e6bc9b92f5e0501ea9ecac2bd"
       },
       "updates": [],
       "version": 4

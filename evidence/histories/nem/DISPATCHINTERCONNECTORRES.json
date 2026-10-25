@@ -67,7 +67,7 @@
       "changes": [
         "schema"
       ],
-      "files": 110339,
+      "files": 109863,
       "from": {
         "data-time": "2024-08-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#DISPATCHINTERCONNECTORRES#FILE01#202408010000.zip",
@@ -76,15 +76,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "INTERCONNECTORRES"
       ],
-      "rows": 2036013,
+      "rows": 2032681,
       "schema-id": 1,
       "to": {
         "data-time": "2026-10-24T11:45:00+10:00",

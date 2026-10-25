@@ -32,7 +32,7 @@
         "sha256": "4936bcb52e5c0219b07c98026fc3b238d8d592e038bbdee7f3daa93bdf80596d"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -54,7 +54,7 @@
       "changes": [
         "report"
       ],
-      "files": 3,
+      "files": 4,
       "from": {
         "data-time": "2018-09-30T08:41:58+10:00",
         "file": "GasBBUncontractedCapacityOutlookFullList.csv",
@@ -62,20 +62,20 @@
         "sha256": "46cdfc3f1b6587d68004a2e1f1f3d4ecbbe04595115cbcab75e5cbc162c49d40"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "UNCONTRACTED_CAPACITY_OUTLOOK_FULL_LIST"
       ],
-      "rows": 15696,
+      "rows": 16361,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T12:08:58+10:00",
-        "file": "GasBBUncontractedCapacityOutlookFullList.csv@20261022T002100+1000",
+        "data-time": "2026-10-23T13:01:01+10:00",
+        "file": "GasBBUncontractedCapacityOutlookFullList.csv@20261024T002200+1000",
         "release": "2026-10",
-        "sha256": "538f0c018372384c2c933e97bfbe3b86f312ea0ea290cf77aa8e45cde1f6e18a"
+        "sha256": "d4fb603f0bfd2a5ac8ad291173e176bbc216aa50c13be258ca6138dfbd82da14"
       },
       "updates": [],
       "version": 1
@@ -84,7 +84,7 @@
       "changes": [
         "report"
       ],
-      "files": 2,
+      "files": 3,
       "from": {
         "data-time": "2019-09-30T18:14:33+10:00",
         "file": "GasBBUncontractedCapacityOutlookFuture.csv",
@@ -92,20 +92,20 @@
         "sha256": "ef896d8901151ebb8edfa68ef782d998ca8a09f95b160b9659823217707de7df"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "UNCONTRACTED_CAPACITY_OUTLOOK_FUTURE"
       ],
-      "rows": 5684,
+      "rows": 6349,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T12:08:58+10:00",
-        "file": "GasBBUncontractedCapacityOutlookFuture.csv@20261021T190600+1000",
+        "data-time": "2026-10-24T11:16:51+10:00",
+        "file": "GasBBUncontractedCapacityOutlookFuture.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "c5486ac72221276cb7902ceaa36e1f1303830c152913001f2048c6ee77b58806"
+        "sha256": "8ec49cfcaa45c27952eaa3370d635bb8db518c9a6219a09063814bdc7ee116b7"
       },
       "updates": [],
       "version": 1

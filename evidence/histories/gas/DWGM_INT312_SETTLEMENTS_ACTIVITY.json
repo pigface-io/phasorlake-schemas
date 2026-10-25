@@ -21,7 +21,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 37,
       "from": {
         "data-time": "2025-08-01T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -29,20 +29,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT312_SETTLEMENTS_ACTIVITY_1"
       ],
-      "rows": 1094,
+      "rows": 1409,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-20T00:00:00+10:00",
-        "file": "int312_v4_settlements_activity_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int312_v4_settlements_activity_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "ad37705137c7deb2b781ed55cf1cc583ebf0ad9a9e378ce7c9a1cf30fde697bb"
+        "sha256": "b20ec72165fd3d4ddd145c45cb7378b8925151c0b86fa68269fda5d0d761f08c"
       },
       "updates": [],
       "version": 4

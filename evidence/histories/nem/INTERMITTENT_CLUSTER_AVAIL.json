@@ -45,7 +45,7 @@
         "sha256": "2a0cf2e361d36de7cbd0ef3f7173bf50014566e4d24411357164a09d37c1725d"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -115,7 +115,7 @@
         "sha256": "0bb8f53af39830a1b8eb675dbbd722d6b697d9347102112f96d6839616232d46"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -185,7 +185,7 @@
         "sha256": "1069e32f1cee93c7eda4074340f6085ac490160a7605e8c8ddc7c7cc6a7b1bd5"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -255,7 +255,7 @@
         "sha256": "aee2ab121a2fc25c2222631d8bd666f5c2085810a8834e6005c67c3a2ef859fd"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -325,7 +325,7 @@
         "sha256": "30d488c262ad5173b718a5992f08daaf66f234c51323901f289ad60a2d3f45e3"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -395,7 +395,7 @@
         "sha256": "24c09f9d23e196b35aa9e02927cdeacc3d69e2b2bb721cdb18eebbace7b98647"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -465,7 +465,7 @@
         "sha256": "7c803f8e2e4a16b0026728ac8a5aa3ec7fabcb00c21073523d7efe1cf118d38c"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -535,7 +535,7 @@
         "sha256": "96402a0d27bb1a0d6bfce3f4564d26785b0bc4fe4dd7ea1d316178e155bee33b"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -605,7 +605,7 @@
         "sha256": "9272f8daaee5abad9bba53deaa37de06afd5c6b59ea852dc498b5db4ba8a49f4"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -675,7 +675,7 @@
         "sha256": "a45fac810cd264c2a53c5c7fefae66197eae7d4d6d7ee690c94e2ee2dda4cb65"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -737,7 +737,7 @@
       "changes": [
         "schema"
       ],
-      "files": 41,
+      "files": 31,
       "from": {
         "data-time": "2026-07-31T00:00:00+10:00",
         "file": "PUBLIC_NEXT_DAY_AVAIL_SUBMISS_CLUSTER_20260801.zip",
@@ -745,21 +745,20 @@
         "sha256": "f84508df89f6920b63eefb28217116580e86b2491f597db6972bb59c50b26ae4"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "DEMAND",
         "INTERMITTENT_CLUSTER_AVAIL"
       ],
-      "rows": 7284240,
+      "rows": 5547744,
       "schema-id": 1,
       "to": {
         "data-time": "2026-08-30T00:00:00+10:00",
-        "file": "PUBLIC_NEXT_DAY_AVAIL_SUBMISS_CLUSTER_20260831041044_0000000535295303.zip",
+        "file": "PUBLIC_NEXT_DAY_AVAIL_SUBMISS_CLUSTER_20260801.zip",
         "release": "2026-08",
-        "sha256": "f59dbfe4355da3e4ff36b8320a4c6715709783a97eda0bba262630f36776d3a7"
+        "sha256": "f84508df89f6920b63eefb28217116580e86b2491f597db6972bb59c50b26ae4"
       },
       "updates": [
         {
@@ -816,7 +815,7 @@
         "sha256": "ec28b1770e32d46e0ea90bb36d91b125dcae26e0a3a4a7828490f39796596eaf"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -886,7 +885,7 @@
         "sha256": "1b4de13241a88a2101f75f4379fa3b02d8871cfe09d4a55fe1bb0990a6433c37"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [

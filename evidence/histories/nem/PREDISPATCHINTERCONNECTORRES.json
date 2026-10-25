@@ -46,7 +46,7 @@
         "sha256": "05c01348f57bfbc45b7ecb203854b00276f91041632e993e4ef41f29d7ccb18e"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -142,7 +142,7 @@
         "sha256": "bfa781b641ddc9e22267e5a6cc6abeaa6529f758ec8e05cc2cae887e5c338383"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -238,7 +238,7 @@
         "sha256": "bb5f7242d88693e25340deae4df30b191d76e7e53100ce3844768319d557a58a"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -334,7 +334,7 @@
         "sha256": "2a4238af6afc8c8046a893ddb2839214779f0e030c536b2df99aaad665989f15"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -430,7 +430,7 @@
         "sha256": "872e3ee17b35e79b8c7d97ad9fc5339de6df9d34ddbac5f941aa674924abdff7"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -526,7 +526,7 @@
         "sha256": "5b442c7613e719720767a0677e03f1ae8f4087a23e3f7e806e4fe63efebf0542"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -622,7 +622,7 @@
         "sha256": "8100552c4b7b150556d483bee56234345906f095ed03e4328ebe9da93deb5b78"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -739,7 +739,7 @@
       "changes": [
         "schema"
       ],
-      "files": 19038,
+      "files": 18839,
       "from": {
         "data-time": "2024-08-01T04:30:00+10:00",
         "file": "PUBLIC_ARCHIVE#PREDISPATCHINTERCONNECTORRES#FILE01#202408010000.zip",
@@ -749,15 +749,14 @@
       "kinds": [
         "archive",
         "archive#all",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "PREDISPATCH",
         "INTERCONNECTOR_SOLN"
       ],
-      "rows": 19268398,
+      "rows": 19190866,
       "schema-id": 1,
       "to": {
         "data-time": "2026-10-25T04:00:00+10:00",

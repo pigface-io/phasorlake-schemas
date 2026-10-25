@@ -38,7 +38,7 @@
       "changes": [
         "first"
       ],
-      "files": 772,
+      "files": 821,
       "from": {
         "data-time": "2026-08-31T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -46,20 +46,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT276_HOURLY_SCADA_PRESSURES_AT_MCE_NODES_1"
       ],
-      "rows": 47031,
+      "rows": 50020,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T21:00:00+10:00",
-        "file": "int276_v4_hourly_scada_pressures_at_mce_nodes_1.csv@20261021T221100+1000",
+        "data-time": "2026-10-24T12:00:00+10:00",
+        "file": "int276_v4_hourly_scada_pressures_at_mce_nodes_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "439ba3b5f5950297d65b22fd8667332ec80b9022af4d8c3f1b7f7a0c456ae77c"
+        "sha256": "168375b60074451160c578c2ff2f19d90b6bf0bd3bf800be17d495b05f300fcf"
       },
       "updates": [],
       "version": 4

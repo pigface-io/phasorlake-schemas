@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 19173,
+      "files": 18829,
       "from": {
         "data-time": "2009-07-01T00:30:00+10:00",
         "file": "PUBLIC_DVD_PREDISPATCHINTERCONNECTR_SENS_D_200907010000.zip",
@@ -16,15 +16,14 @@
       },
       "kinds": [
         "dvd",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "PREDISPATCH",
         "INTERCONNECTR_SENS"
       ],
-      "rows": 7995102,
+      "rows": 7861234,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-25T04:00:00+10:00",

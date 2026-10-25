@@ -16,7 +16,7 @@
       "changes": [
         "first"
       ],
-      "files": 47,
+      "files": 48,
       "from": {
         "data-time": "2025-09-30T11:15:00+10:00",
         "file": "GasBBLinepackCapacityAdequacyFuture_20250930111729.CSV",
@@ -24,20 +24,20 @@
         "sha256": "d4456c586d4f2ebb21266730267b1ff65d9561c186faeca712f5977628d3998f"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
         "GBB",
         "LINEPACK_CAPACITY_ADEQUACY_FUTURE"
       ],
-      "rows": 7398,
+      "rows": 7560,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-24T09:15:00+10:00",
-        "file": "GasBBLinepackCapacityAdequacyFuture.CSV@20261022T084700+1000",
+        "data-time": "2026-10-26T11:45:00+10:00",
+        "file": "GasBBLinepackCapacityAdequacyFuture.CSV@20261024T111700+1000",
         "release": "2026-10",
-        "sha256": "d978a4e1e3666efdeed8c64415ab5c6bf70d2f70b74abd7bfdfdc4a94a01c6ad"
+        "sha256": "c401c6c38a2dbc2372f2a6a48f604e30c1f8bbf7f99de56c451a7448fe576760"
       },
       "updates": [],
       "version": 1
@@ -46,7 +46,7 @@
       "changes": [
         "report"
       ],
-      "files": 3,
+      "files": 4,
       "from": {
         "data-time": "2018-09-30T00:00:00+10:00",
         "file": "GasBBLinepackCapacityAdequacyFullList.zip",
@@ -54,20 +54,20 @@
         "sha256": "f771b0d7c010115cf3df26baa85758d859d380a212fd6389a9ba26d72494758c"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "LINEPACK_CAPACITY_ADEQUACY_FULL_LIST"
       ],
-      "rows": 649582,
+      "rows": 650159,
       "schema-id": 0,
       "to": {
         "data-time": "2027-06-30T00:00:00+10:00",
-        "file": "GasBBLinepackCapacityAdequacyFullList.zip@20261022T031000+1000",
+        "file": "GasBBLinepackCapacityAdequacyFullList.zip@20261024T031200+1000",
         "release": "2026-10",
-        "sha256": "1c30428844cc7282fb4119711a9b068d20e9d90c2703df016e50f3d3c2390e97"
+        "sha256": "46e1431ca5d495e64f46e317260a4a62755a6d6bddb4b8244c5a84150513458c"
       },
       "updates": [],
       "version": 1

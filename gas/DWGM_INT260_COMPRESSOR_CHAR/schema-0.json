@@ -22,13 +22,10 @@
       "x-iceberg-type": "decimal(2, 2)"
     },
     "COMPRESSOR_ID": {
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 1,
       "x-header": "compressor_id",
-      "x-iceberg-type": "decimal(2, 0)"
+      "x-iceberg-type": "long"
     },
     "COMPRESSOR_NAME": {
       "type": [
@@ -40,13 +37,10 @@
       "x-iceberg-type": "string"
     },
     "COMPRESSOR_STATION_ID": {
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 13,
       "x-header": "compressor_station_id",
-      "x-iceberg-type": "decimal(2, 0)"
+      "x-iceberg-type": "long"
     },
     "CURRENT_DATE": {
       "format": "date-time",
@@ -123,13 +117,10 @@
       "x-iceberg-type": "decimal(4, 0)"
     },
     "PIPE_SEGMENT_ID": {
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 3,
       "x-header": "pipe_segment_id",
-      "x-iceberg-type": "decimal(2, 0)"
+      "x-iceberg-type": "long"
     },
     "STATION_NAME": {
       "type": [
@@ -150,14 +141,18 @@
       "x-iceberg-type": "decimal(2, 2)"
     }
   },
-  "required": [],
+  "required": [
+    "COMPRESSOR_ID",
+    "PIPE_SEGMENT_ID",
+    "COMPRESSOR_STATION_ID"
+  ],
   "title": "DWGM_INT260_COMPRESSOR_CHAR, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "COMPRESSOR_ID",
-      "decimal(2, 0)"
+      "long"
     ],
     [
       2,
@@ -167,7 +162,7 @@
     [
       3,
       "PIPE_SEGMENT_ID",
-      "decimal(2, 0)"
+      "long"
     ],
     [
       4,
@@ -217,7 +212,7 @@
     [
       13,
       "COMPRESSOR_STATION_ID",
-      "decimal(2, 0)"
+      "long"
     ],
     [
       14,
@@ -236,7 +231,11 @@
     ]
   ],
   "x-format": 3,
-  "x-identifier-field-ids": [],
+  "x-identifier-field-ids": [
+    1,
+    3,
+    13
+  ],
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

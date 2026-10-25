@@ -17,7 +17,7 @@
       "changes": [
         "first"
       ],
-      "files": 33,
+      "files": 36,
       "from": {
         "data-time": "2026-08-01T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -25,20 +25,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT351_CCREGISTRY_SUMMARY_1"
       ],
-      "rows": 225,
+      "rows": 231,
       "schema-id": 0,
       "to": {
         "data-time": "2029-06-01T00:00:00+10:00",
-        "file": "int351_v4_ccregistry_summary_1.csv",
+        "file": "int351_v4_ccregistry_summary_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "e006b0a8a9b6bbb5cf422205c8bacc399a09418f4245484ae0d13479da782e8b"
+        "sha256": "66ebaa93ef7e85556aaecc5ac4dfd4d81498eace7338c59eeb36cedd8c25523a"
       },
       "updates": [],
       "version": 4

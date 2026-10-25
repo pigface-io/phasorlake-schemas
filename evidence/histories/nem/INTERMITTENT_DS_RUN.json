@@ -15,7 +15,7 @@
         "sha256": "e2ffe2a22081b7fbeaace23188a3239b871db39189c869a99ec9fea84460a1d9"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -100,7 +100,7 @@
         "sha256": "f2eaf48b639ec28917e824e9914d413172fbc01bd11e4ca2adf20a5d51fa168c"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -210,7 +210,7 @@
         "sha256": "235e73bef23791a33d363b6f7fe3afca3af7247c5912d61c6ca5faaadb83f2df"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -320,7 +320,7 @@
         "sha256": "0e1572e983ce9a33f305823ff0f8285421ce5d4833d90b9a4de523feb2066369"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -430,7 +430,7 @@
         "sha256": "bb6e761b158e21ef7929fe89ce7594bee7cbe7b2db5c5d1713309697777341f6"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -540,7 +540,7 @@
         "sha256": "45cbedd5a01663b448958037755ead119faa78336da80a3e1b6841a3317b6d1c"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -650,7 +650,7 @@
         "sha256": "296df25b2cbd24013f906dffcd9cdb089dda88bbbef41a8c4571cec2b8a14ce9"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -760,7 +760,7 @@
         "sha256": "e80960a1d4355f5b1092f9a8875a04a60dd30221d82afa6be1c1aa02c0d86aaf"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -870,7 +870,7 @@
         "sha256": "7e697e0232b4fe6435184425a15acf7ac78bfe9d15087536e11a2524edfe39a2"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -980,7 +980,7 @@
         "sha256": "321d55bb11f5a0b42f96cb7b263400ae0b1ac1d42a571b9aa6d27b72a4ea2841"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -1090,7 +1090,7 @@
         "sha256": "e7d8f8c56321069000fe6cb604554ce13a6b3e048feab1e3c371d6ec4c3dff99"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -1200,7 +1200,7 @@
         "sha256": "b3236c57ee0b6e1b3051d010147762465eb7093909778f5e18ae2bdea38c41a9"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -1302,7 +1302,7 @@
       "changes": [
         "schema"
       ],
-      "files": 42,
+      "files": 31,
       "from": {
         "data-time": "2026-08-01T04:05:00+10:00",
         "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260801.zip",
@@ -1310,21 +1310,20 @@
         "sha256": "e4e1ba0014241f4d65d14e1558394c161c2ee7f76f352e0250e9abdb2c21c83f"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "DEMAND",
         "INTERMITTENT_DS_RUN"
       ],
-      "rows": 44695803,
+      "rows": 32980419,
       "schema-id": 0,
       "to": {
         "data-time": "2026-09-01T04:00:00+10:00",
-        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260831_0000000535460216.zip",
+        "file": "PUBLIC_NEXT_DAY_INTERMITTENT_DS_20260801.zip",
         "release": "2026-08",
-        "sha256": "fada0e8838d7e7d84d48ccb09f0adcae8bc07103ed9f1b5b59c2d612c939b2c8"
+        "sha256": "e4e1ba0014241f4d65d14e1558394c161c2ee7f76f352e0250e9abdb2c21c83f"
       },
       "updates": [
         {
@@ -1421,7 +1420,7 @@
         "sha256": "01eb346142f52e5e886637388685e4b48d23a0f14255e73906cc855bb5f99fe2"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [

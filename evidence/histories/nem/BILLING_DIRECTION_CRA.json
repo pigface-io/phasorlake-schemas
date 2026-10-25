@@ -1,53 +1,13 @@
 {
-  "breaking": [
-    {
-      "at": {
-        "data-time": null,
-        "file": "PUBLIC_BILLING_DIRECT_FINAL_CRA_SPLIT_CAT_REG_2026Week11_20261008115308.zip",
-        "release": "2026-10",
-        "sha256": "ba4317df9e2924bb862857d976d98fca8a052b96193fe8095eae856198766414"
-      },
-      "column": "NSW",
-      "new-field-id": 8,
-      "new-type": "decimal(11, 6)",
-      "old-field-id": 3,
-      "old-type": "decimal(6, 6)"
-    },
-    {
-      "at": {
-        "data-time": null,
-        "file": "PUBLIC_BILLING_DIRECT_FINAL_CRA_SPLIT_CAT_REG_2026Week11_20261008115308.zip",
-        "release": "2026-10",
-        "sha256": "ba4317df9e2924bb862857d976d98fca8a052b96193fe8095eae856198766414"
-      },
-      "column": "QLD",
-      "new-field-id": 9,
-      "new-type": "decimal(11, 6)",
-      "old-field-id": 4,
-      "old-type": "decimal(6, 6)"
-    },
-    {
-      "at": {
-        "data-time": null,
-        "file": "PUBLIC_BILLING_DIRECT_FINAL_CRA_SPLIT_CAT_REG_2026Week11_20261008115308.zip",
-        "release": "2026-10",
-        "sha256": "ba4317df9e2924bb862857d976d98fca8a052b96193fe8095eae856198766414"
-      },
-      "column": "VIC",
-      "new-field-id": 10,
-      "new-type": "decimal(11, 6)",
-      "old-field-id": 7,
-      "old-type": "decimal(6, 6)"
-    }
-  ],
-  "current-schema-id": 1,
+  "breaking": [],
+  "current-schema-id": 0,
   "format-version": 3,
   "runs": [
     {
       "changes": [
         "first"
       ],
-      "files": 10,
+      "files": 18,
       "from": {
         "data-time": null,
         "file": "PUBLIC_BILLING_DIRECT_PROV_CRA_SPLIT_CAT_REG_2021Week17_20210519110609.zip",
@@ -55,77 +15,22 @@
         "sha256": "4b545f104684ce0ed751b5fb13074eeb23c4ef694b4502cf5c99b4646ec707e5"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "BILLING",
         "DIRECTION_CRA"
       ],
-      "rows": 48,
+      "rows": 238,
       "schema-id": 0,
-      "to": {
-        "data-time": null,
-        "file": "PUBLIC_BILLING_DIRECT_PROV_CRA_SPLIT_CAT_REG_2026Week35_20260925125748.zip",
-        "release": "2026-09",
-        "sha256": "01506215374cb13d954b84183395e9d5046641d5616e6497f9a416b066a06da6"
-      },
-      "updates": [],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema"
-      ],
-      "files": 8,
-      "from": {
-        "data-time": null,
-        "file": "PUBLIC_BILLING_DIRECT_FINAL_CRA_SPLIT_CAT_REG_2026Week11_20261008115308.zip",
-        "release": "2026-10",
-        "sha256": "ba4317df9e2924bb862857d976d98fca8a052b96193fe8095eae856198766414"
-      },
-      "kinds": [
-        "reports/current"
-      ],
-      "overlaps": false,
-      "report": [
-        "BILLING",
-        "DIRECTION_CRA"
-      ],
-      "rows": 190,
-      "schema-id": 1,
       "to": {
         "data-time": null,
         "file": "PUBLIC_BILLING_DIRECT_PROV_CRA_SPLIT_CAT_REG_2026Week39_20261023113409.zip",
         "release": "2026-10",
         "sha256": "02e62b456ec26fc74dc87f24fc611684198ffae3700023b405ad980a4d7196c6"
       },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 3
-        },
-        {
-          "action": "delete",
-          "field-id": 4
-        },
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "add",
-          "field-id": 8
-        },
-        {
-          "action": "add",
-          "field-id": 9
-        },
-        {
-          "action": "add",
-          "field-id": 10
-        }
-      ],
+      "updates": [],
       "version": 1
     }
   ],
@@ -148,13 +53,13 @@
           "id": 3,
           "name": "NSW",
           "required": false,
-          "type": "decimal(6, 6)"
+          "type": "decimal(11, 6)"
         },
         {
           "id": 4,
           "name": "QLD",
           "required": false,
-          "type": "decimal(6, 6)"
+          "type": "decimal(11, 6)"
         },
         {
           "id": 5,
@@ -172,60 +77,11 @@
           "id": 7,
           "name": "VIC",
           "required": false,
-          "type": "decimal(6, 6)"
+          "type": "decimal(11, 6)"
         }
       ],
       "identifier-field-ids": [],
       "schema-id": 0,
-      "type": "struct"
-    },
-    {
-      "fields": [
-        {
-          "id": 1,
-          "name": "DIRECTION_ID",
-          "required": false,
-          "type": "string"
-        },
-        {
-          "id": 2,
-          "name": "PARTICIPANT CATEGORY",
-          "required": false,
-          "type": "string"
-        },
-        {
-          "id": 8,
-          "name": "NSW",
-          "required": false,
-          "type": "decimal(11, 6)"
-        },
-        {
-          "id": 9,
-          "name": "QLD",
-          "required": false,
-          "type": "decimal(11, 6)"
-        },
-        {
-          "id": 5,
-          "name": "SA",
-          "required": false,
-          "type": "decimal(12, 6)"
-        },
-        {
-          "id": 6,
-          "name": "TAS",
-          "required": false,
-          "type": "decimal(6, 6)"
-        },
-        {
-          "id": 10,
-          "name": "VIC",
-          "required": false,
-          "type": "decimal(11, 6)"
-        }
-      ],
-      "identifier-field-ids": [],
-      "schema-id": 1,
       "type": "struct"
     }
   ],

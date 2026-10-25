@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 49523,
+      "files": 31014,
       "from": {
         "data-time": "2025-01-31T09:30:00+10:00",
         "file": "PUBLIC_ACTUAL_OPERATIONAL_DEM_LESS_SNSG_UPDATE_202501310900_20250131115609.zip",
@@ -15,15 +15,14 @@
         "sha256": "9d2263ca2f47a1164ddce36ff6a668de12b473ecea1d79283f4c1fad8c05abcb"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "OPERATIONAL_DEM_LESS_SNSG",
         "ACTUAL"
       ],
-      "rows": 487080,
+      "rows": 308760,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T11:30:00+10:00",

@@ -23,7 +23,7 @@
         "sha256": "6e9b57a5d37b979209184fe3b04b114d2582fa7ec0d2f6e8cf3f01a6fed8f56d"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -54,8 +54,8 @@
         {
           "id": 2,
           "name": "LOCATIONID",
-          "required": false,
-          "type": "decimal(6, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 3,
@@ -82,7 +82,9 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        2
+      ],
       "schema-id": 0,
       "type": "struct"
     }

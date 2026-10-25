@@ -25,7 +25,7 @@
         "sha256": "ef078e61437e5f96ab61dd03ec399c296405dbd7b897f4da88db3fb4a4703074"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -56,8 +56,8 @@
         {
           "id": 2,
           "name": "FACILITYID",
-          "required": false,
-          "type": "decimal(6, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 3,
@@ -74,8 +74,8 @@
         {
           "id": 5,
           "name": "COMPANYID",
-          "required": false,
-          "type": "decimal(3, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 6,
@@ -96,7 +96,10 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        2,
+        5
+      ],
       "schema-id": 0,
       "type": "struct"
     }

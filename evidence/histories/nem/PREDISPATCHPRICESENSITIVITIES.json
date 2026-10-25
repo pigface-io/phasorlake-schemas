@@ -46,7 +46,7 @@
         "sha256": "dde5345939b0726b4eb5dfb1b3dd04da28cfb4196af2cacf844832f41efe0df8"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -116,7 +116,7 @@
         "sha256": "8fb41cf497f2c10ed2fc9a7beb626da99988f43ca92147e54e811773a70af83f"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -186,7 +186,7 @@
         "sha256": "c56da396e216ab8148d08f17a4c06124c0746ef114f5313cffa3ec7c6ebb52ac"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -256,7 +256,7 @@
         "sha256": "e7c6fc6637bef1408d26c425dbf702ef11829e6baa39de997d36580b8c76f830"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -326,8 +326,7 @@
         "sha256": "aa39b6571c3c2d70ee3ec09ebb29444f75af216321e1a81d716be9cf2a0a934c"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -397,7 +396,7 @@
         "sha256": "39e6fd5fec5fd3547d600422618025910a4bf465542a6aed0157d2ecc8f91606"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -467,7 +466,7 @@
         "sha256": "a5c84fe47e280b21c04ecc158074b6889aa7144fb49aa0cad8a31c25904f8f2f"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -537,7 +536,7 @@
         "sha256": "fc7467d26397ea14375f13fb99ae3f7be564ef8d6c7d41c54f3f131f0d8059c7"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -607,7 +606,7 @@
         "sha256": "7cb7859e73a3af38181a2173c2033d7e2c9f176bd57cfc931c92541751add1bf"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -677,7 +676,7 @@
         "sha256": "97e7854e49fad3802387c3a712cc62b63fb52d01801f67cc96cb790042c06c4b"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -747,7 +746,7 @@
         "sha256": "0b521f9ec2b23c85507006cbb845eb107236a0aa55ed9c94dba229955ab04ea3"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -809,7 +808,7 @@
       "changes": [
         "schema"
       ],
-      "files": 2912,
+      "files": 2568,
       "from": {
         "data-time": "2026-09-01T00:30:00+10:00",
         "file": "PUBLIC_PREDISPATCH_SENSITIVITIES_20260826_20260901.zip",
@@ -817,15 +816,14 @@
         "sha256": "d19270c0c82e4aff3923993f7d21a30f59df2283c326c4720aea38910cc0c270"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "PREDISPATCH",
         "PRICESENSITIVITIES"
       ],
-      "rows": 806920,
+      "rows": 711300,
       "schema-id": 1,
       "to": {
         "data-time": "2026-10-25T04:00:00+10:00",

@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 110032,
+      "files": 109698,
       "from": {
         "data-time": "2024-12-09T11:10:00+10:00",
         "file": "PUBLIC_ARCHIVE#P5MIN_FCAS_REQ_RUN#FILE01#202412010000.zip",
@@ -16,15 +16,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "P5MIN",
         "FCAS_REQ_RUN"
       ],
-      "rows": 1972494,
+      "rows": 1972160,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T11:45:00+10:00",

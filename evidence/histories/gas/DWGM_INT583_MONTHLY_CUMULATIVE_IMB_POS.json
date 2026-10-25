@@ -17,7 +17,7 @@
       "changes": [
         "first"
       ],
-      "files": 4,
+      "files": 6,
       "from": {
         "data-time": "2026-09-22T00:00:00+10:00",
         "file": "PublicRpts22.zip",
@@ -25,20 +25,20 @@
         "sha256": "20d32cafc8e00f1760ea246fec625d26dd91304d25f9a1caeb65db5bf23993a1"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT583_MONTHLY_CUMULATIVE_IMB_POS_1"
       ],
-      "rows": 140,
+      "rows": 210,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-07T00:00:00+10:00",
-        "file": "int583_v4_monthly_cumulative_imb_pos_1.csv",
+        "data-time": "2026-10-22T00:00:00+10:00",
+        "file": "int583_v4_monthly_cumulative_imb_pos_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "a81ef9f5aecfe68b6fb00b8531943631060c662f7a679d965dc75b32269fea71"
+        "sha256": "2f54a5a114fdf9f4a0bbc80f92e663d563ce76718e260738d5e24ec538dad0ac"
       },
       "updates": [],
       "version": 4

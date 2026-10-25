@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 18,
+      "files": 16,
       "from": {
         "data-time": "2026-03-16T00:00:00+10:00",
         "file": "PUBLIC_ZONECURTAILMENTINFORMATION_20260301.zip",
@@ -15,15 +15,14 @@
         "sha256": "6d641e972b5c6e7d8a329d45d750c58b40d78253bd20cbc042db4b1a754bdfe2"
       },
       "kinds": [
-        "gsh/archive",
-        "gsh/current"
+        "gsh"
       ],
       "overlaps": false,
       "report": [
         "GSH",
         "ZONE_CURTAILMENT_INFORMATION"
       ],
-      "rows": 18,
+      "rows": 16,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-14T00:00:00+10:00",

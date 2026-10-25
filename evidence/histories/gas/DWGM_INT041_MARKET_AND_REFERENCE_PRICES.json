@@ -19,7 +19,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 37,
       "from": {
         "data-time": "2026-08-17T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -27,20 +27,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT041_MARKET_AND_REFERENCE_PRICES_1"
       ],
-      "rows": 99,
+      "rows": 131,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-20T00:00:00+10:00",
-        "file": "int041_v4_market_and_reference_prices_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int041_v4_market_and_reference_prices_1.csv@20261024T113400+1000",
         "release": "2026-10",
-        "sha256": "4502395416cb937e311e1cc79db6d8b0d827961af1f6a30c619945b8a2fcb008"
+        "sha256": "4e2a2220387714335a59ccc895e0a99a186e26b9a5cd7890b6e7d448d0b876d1"
       },
       "updates": [],
       "version": 4

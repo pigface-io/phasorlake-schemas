@@ -16,7 +16,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -81,7 +81,7 @@
         "sha256": "74fdf21af8b52eda9d1f96b0d1bc5050a5b764e508f918fd3188f7ce8be124b5"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -108,7 +108,7 @@
       "changes": [
         "schema"
       ],
-      "files": 216,
+      "files": 176,
       "from": {
         "data-time": "2026-05-14T04:05:00+10:00",
         "file": "PUBLIC_NEXT_DAY_FPP_20260430.zip",
@@ -117,15 +117,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "FPP",
         "CONTRIBUTION_FACTOR"
       ],
-      "rows": 461956915,
+      "rows": 450381951,
       "schema-id": 1,
       "to": {
         "data-time": "2026-10-24T04:00:00+10:00",

@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 1537,
+      "files": 1502,
       "from": {
         "data-time": "2024-08-04T00:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#MTPASA_REGIONAVAILABILITY#FILE01#202408010000.zip",
@@ -16,15 +16,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "MTPASA",
         "REGIONAVAILABILITY"
       ],
-      "rows": 23386995,
+      "rows": 23195720,
       "schema-id": 0,
       "to": {
         "data-time": "2029-10-21T00:00:00+10:00",

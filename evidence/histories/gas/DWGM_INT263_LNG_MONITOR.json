@@ -12,7 +12,7 @@
       "changes": [
         "first"
       ],
-      "files": 66,
+      "files": 71,
       "from": {
         "data-time": "2026-07-02T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -20,20 +20,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT263_LNG_MONITOR_1"
       ],
-      "rows": 458,
+      "rows": 559,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-26T00:00:00+10:00",
-        "file": "int263_v4_lng_monitor_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-28T00:00:00+10:00",
+        "file": "int263_v4_lng_monitor_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "8a51e94bdc0a50e4ebd1bb713a5d429075a021d8cc9c3f49da2c3370848a1c62"
+        "sha256": "f6647ec474d59d2bc239926156bce93fb9f4f9ec06e14830ffb8904a8d41ceed"
       },
       "updates": [],
       "version": 4

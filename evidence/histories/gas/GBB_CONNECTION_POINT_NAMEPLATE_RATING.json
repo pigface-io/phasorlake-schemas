@@ -22,7 +22,7 @@
       "changes": [
         "first"
       ],
-      "files": 3,
+      "files": 4,
       "from": {
         "data-time": "2019-02-01T00:00:00+10:00",
         "file": "GasBBConnectionPointNameplateRatingFuture.CSV",
@@ -30,20 +30,20 @@
         "sha256": "b98e5729177035d35e422a1a268e3ec7537c03483eaab0cb327036be73800f51"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
         "GBB",
         "CONNECTION_POINT_NAMEPLATE_RATING_FUTURE"
       ],
-      "rows": 762,
+      "rows": 1017,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "GasBBConnectionPointNameplateRatingFuture.CSV@20261022T045200+1000",
+        "data-time": "2026-11-01T00:00:00+10:00",
+        "file": "GasBBConnectionPointNameplateRatingFuture.CSV@20261024T045100+1000",
         "release": "2026-10",
-        "sha256": "699ace05336d44d90a6d551f5d4acf2b289b6159ac754aa199358aef5d243e1a"
+        "sha256": "8c2723323943212988fb2d4ca68c1a4c023dca184ddf5aba04f83a88154d4ac3"
       },
       "updates": [],
       "version": 1

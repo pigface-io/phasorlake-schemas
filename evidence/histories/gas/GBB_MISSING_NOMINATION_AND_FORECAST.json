@@ -13,7 +13,7 @@
       "changes": [
         "first"
       ],
-      "files": 3,
+      "files": 4,
       "from": {
         "data-time": "2025-10-19T00:00:00+10:00",
         "file": "GasBBMissingNominationAndForecast.zip",
@@ -21,20 +21,20 @@
         "sha256": "a8e79c044dc43a1799db5e169d2e6b6ef6c26b1a49684bf2d3d0bf68f294ebfa"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
         "GBB",
         "MISSING_NOMINATION_AND_FORECAST"
       ],
-      "rows": 53863,
+      "rows": 54163,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-28T00:00:00+10:00",
-        "file": "GasBBMissingNominationAndForecast.zip@20261021T231200+1000",
+        "data-time": "2026-10-30T00:00:00+10:00",
+        "file": "GasBBMissingNominationAndForecast.zip@20261023T231200+1000",
         "release": "2026-10",
-        "sha256": "3e828709aba61757a1a47289d356f6850594f2b2a73f1e697fc0e24164bfe053"
+        "sha256": "487516293c66fecd4ea10c57fe25747a841249d68406d8b2267f7f5553c0fab7"
       },
       "updates": [],
       "version": 1

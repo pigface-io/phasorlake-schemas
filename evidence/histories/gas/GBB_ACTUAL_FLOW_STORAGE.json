@@ -31,7 +31,7 @@
         "sha256": "6ef6e46ef9cc34abae962a7ac027da7019cd023a6160f15f34c0a6d6b95c85a8"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -53,7 +53,7 @@
       "changes": [
         "report"
       ],
-      "files": 4,
+      "files": 5,
       "from": {
         "data-time": "2018-09-29T00:00:00+10:00",
         "file": "GasBBActualFlowStorage.zip",
@@ -61,20 +61,20 @@
         "sha256": "097535ef242fd928ee93784dc5050fef1749bfb3b9ef2fc727d43c0d02bf0990"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "ACTUAL_FLOW_STORAGE"
       ],
-      "rows": 898882,
+      "rows": 901745,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-20T00:00:00+10:00",
-        "file": "GasBBActualFlowStorage.zip@20261021T221100+1000",
+        "data-time": "2026-10-22T00:00:00+10:00",
+        "file": "GasBBActualFlowStorage.zip@20261023T221100+1000",
         "release": "2026-10",
-        "sha256": "14e4b05806f5dc68459a0544bc31b46bdaa428b8613e0343bdbdb7cf4c7b8597"
+        "sha256": "69ea397b2034a757940c6e886bf5c8da3e97fc3642577a0f1e775e16f58355ad"
       },
       "updates": [],
       "version": 1
@@ -83,7 +83,7 @@
       "changes": [
         "report"
       ],
-      "files": 3,
+      "files": 4,
       "from": {
         "data-time": "2026-09-20T00:00:00+10:00",
         "file": "GasBBActualFlowStorageLast31.CSV",
@@ -91,20 +91,20 @@
         "sha256": "6ba2fc220feb8a5a7b5d660a53395c75f4a324bdb40bdbbfc002add5766d7a7d"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "ACTUAL_FLOW_STORAGE_LAST31"
       ],
-      "rows": 6406,
+      "rows": 7118,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "GasBBActualFlowStorageLast31.CSV@20261022T084100+1000",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "GasBBActualFlowStorageLast31.CSV@20261024T114200+1000",
         "release": "2026-10",
-        "sha256": "1e545f07a874aa6a19a566ba5dff08fdab1d36be0fd1b00aa08b8d4b0efd2e0a"
+        "sha256": "49e67dfd90635f133b5760068f5a5e222af325b40031df7958cb2833a6166c48"
       },
       "updates": [],
       "version": 1

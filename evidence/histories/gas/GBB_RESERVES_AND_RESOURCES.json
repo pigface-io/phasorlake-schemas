@@ -40,7 +40,7 @@
       "changes": [
         "first"
       ],
-      "files": 44,
+      "files": 45,
       "from": {
         "data-time": "2023-03-15T00:00:00+10:00",
         "file": "GasBBReservesAndResources_20251028023045.csv",
@@ -48,14 +48,14 @@
         "sha256": "cc03aba906ad860fdc12b07c43e1dbea1a7b1e920f110c56a0a0ea32773db1d4"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
         "GBB",
         "RESERVES_AND_RESOURCES"
       ],
-      "rows": 12700,
+      "rows": 12730,
       "schema-id": 0,
       "to": {
         "data-time": "2026-08-25T00:00:00+10:00",
@@ -73,8 +73,8 @@
         {
           "id": 1,
           "name": "FIELDID",
-          "required": false,
-          "type": "decimal(6, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 2,
@@ -85,8 +85,8 @@
         {
           "id": 3,
           "name": "FIELDINTERESTID",
-          "required": false,
-          "type": "decimal(6, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 4,
@@ -257,7 +257,10 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        1,
+        3
+      ],
       "schema-id": 0,
       "type": "struct"
     }

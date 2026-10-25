@@ -357,7 +357,7 @@
         "sha256": "0f3ec12f713ac48332c3964ed75f2dd74a6ab8a663a6312f84a0949e8b51f6fc"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -443,7 +443,7 @@
         "sha256": "23edc372d33dfe6f3d2899676c60fe564be852795b0590b3b8d155f54e205fb2"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -529,7 +529,7 @@
         "sha256": "484d736da9d286609f795bf4d4325054c85221c5272e82acd04ec8b3cbdfb2c2"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -615,7 +615,7 @@
         "sha256": "cd15da0353aa72554be1f50b081e20e9888a68278e73a23b8c5559647688b74e"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -701,7 +701,7 @@
         "sha256": "37e94a57b169878ca5844b0973a728331edcadc364e74926b82f90c39e1d549d"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -787,7 +787,7 @@
         "sha256": "9c0659c5692f364bf2e9d56e6dca17f1ce29ba8f6fb0b2ea41716db56bfc5a4b"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -873,7 +873,7 @@
         "sha256": "b8daaedd0e0c939d623f15e3db1aba39b36fe20c385b3057b69486c2c4d387c8"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -959,8 +959,7 @@
         "sha256": "d0f277cd93a659d71834abb10badba4918f6d386d0541f76a18b1607c6ab629f"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -1046,8 +1045,7 @@
         "sha256": "3f1f1285a8528576125e9ade70d101d97258359e6cdd382f1583dd0d2546ac5a"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -1133,8 +1131,7 @@
         "sha256": "02e0c402aa142815a6545fccb7030036ed79e9ebeeee2dd7b671d205e3887a43"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -1220,8 +1217,7 @@
         "sha256": "c0e4a6d931517edfa7e000ecbb964bd0688b79dcf83afca7b7f0cc622ad8b133"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -1307,8 +1303,7 @@
         "sha256": "732f3600552ba96990f5ed8bb3ae6f66173242f508ab7feedafd9aa863c6f4c6"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -1386,7 +1381,7 @@
       "changes": [
         "schema"
       ],
-      "files": 7216,
+      "files": 6740,
       "from": {
         "data-time": "2026-10-07T12:20:00+10:00",
         "file": "PUBLIC_DISPATCHIS_202610071220_0000000541612934.zip",
@@ -1394,15 +1389,14 @@
         "sha256": "bc716d622acd23e65a3e571960f7b9fedfc2922ca3e0d8c6a8a8a19917bee465"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "REGIONSUM"
       ],
-      "rows": 36080,
+      "rows": 33700,
       "schema-id": 6,
       "to": {
         "data-time": "2026-10-24T11:45:00+10:00",

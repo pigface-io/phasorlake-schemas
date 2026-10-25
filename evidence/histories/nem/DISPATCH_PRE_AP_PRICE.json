@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 110280,
+      "files": 109816,
       "from": {
         "data-time": "2025-08-12T11:15:00+10:00",
         "file": "PUBLIC_DISPATCHPRICES_PRE_AP_202508121115_0000000475994494.zip",
@@ -15,15 +15,14 @@
         "sha256": "fdf995b0c14fca3cf5fdd0f86db998d5c3c6eadc8f551f7764831cce91771490"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "PRE_AP_PRICE"
       ],
-      "rows": 551400,
+      "rows": 549080,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T11:45:00+10:00",

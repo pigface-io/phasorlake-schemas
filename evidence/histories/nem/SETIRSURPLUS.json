@@ -16,7 +16,7 @@
       },
       "kinds": [
         "dvd",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -81,7 +81,7 @@
         "sha256": "4034fdc357ac04cc9851dc79bca949fed7a2a23a54e9116bc8c2c7eab4b2dba7"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -151,7 +151,7 @@
         "sha256": "8f1f54d3794223c4a3e5db7dc96e73ef05f6c8055386d35c606695b0933649fd"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -221,7 +221,7 @@
         "sha256": "e29de50cba5785323dbf207e1a1d94cd039e85e54bfa12727e9a8ab5dad2b6ca"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -291,7 +291,7 @@
         "sha256": "86916bcb639ecb4af54992bd447f7655732415d6faa4d854d2b819591c041f49"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -361,7 +361,7 @@
         "sha256": "5f15f9cef18776e8f1798db21dd7d1c42cf8bdb8b9ee2f2b92c907b022bb5b2e"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -431,7 +431,7 @@
         "sha256": "2bd49a999e6718f6f41d4380a4eb74f7af8a4e2385f0539f19bf7f30098d7dec"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -501,7 +501,7 @@
         "sha256": "655782e5c7334468cb9cde167f3fff5b1ca5e3457b32784774a7d4b4a8014b70"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -571,7 +571,7 @@
         "sha256": "350a067ca4c5c37e1c69f407e38d6f7bc2ff54ac4bcd45a485521c2bce2259a6"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -641,7 +641,7 @@
         "sha256": "d0b906933490d7257b7f4cd99ab57291de020051cb8ef06e0e87999ca2cdfe28"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -711,7 +711,7 @@
         "sha256": "475dfe256d0627db38fae8d3354052f4d987382bc6a99fc1f48887d64a8b61e3"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -781,7 +781,7 @@
         "sha256": "59d61959595d64e6aaea6ea45e99f89454ab01f56d28a34375e549821a88bf0b"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -851,7 +851,7 @@
         "sha256": "29edd2cfdfd118c5d1ab200cb152ce2be94d2b18f1285a6604e0da8fbf01d8ff"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -921,7 +921,7 @@
         "sha256": "0311b2d7aa8e9958943473e413758f010bfc65e160c55561ac7d54ba58555a92"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -983,7 +983,7 @@
       "changes": [
         "schema"
       ],
-      "files": 93,
+      "files": 47,
       "from": {
         "data-time": "2025-02-02T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20250901012212_0000000478705340.zip",
@@ -991,15 +991,14 @@
         "sha256": "4532f1a262bcac052a82d2ebdf793fccafb39cd226270cb20599c74f0eed7796"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "SETTLEMENTS",
         "IRSURPLUS"
       ],
-      "rows": 1026432,
+      "rows": 514944,
       "schema-id": 0,
       "to": {
         "data-time": "2025-09-29T00:00:00+10:00",
@@ -1054,7 +1053,7 @@
       "changes": [
         "schema"
       ],
-      "files": 100,
+      "files": 50,
       "from": {
         "data-time": "2025-03-02T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20250902.zip",
@@ -1062,21 +1061,20 @@
         "sha256": "2fe3fad4335f47f30077b58768aa754af1291be76adba2542ff19d616888af38"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "SETTLEMENTS",
         "IRSURPLUS"
       ],
-      "rows": 1133568,
+      "rows": 566784,
       "schema-id": 0,
       "to": {
         "data-time": "2025-10-30T00:00:00+10:00",
-        "file": "PUBLIC_SETTLEMENTS_20251031111455_0000000487247840.zip",
+        "file": "PUBLIC_SETTLEMENTS_20251002.zip",
         "release": "2025-10",
-        "sha256": "64389bf6fc7cfa65a4e7af5ac5024757c3dc541dda0acce842661b59034a4318"
+        "sha256": "23aa440f0a86ea7c47b3a1ebe8141a99278fa4273716b670d5a61272eceef24a"
       },
       "updates": [
         {
@@ -1125,7 +1123,7 @@
       "changes": [
         "schema"
       ],
-      "files": 92,
+      "files": 46,
       "from": {
         "data-time": "2025-04-06T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20251002.zip",
@@ -1133,21 +1131,20 @@
         "sha256": "23aa440f0a86ea7c47b3a1ebe8141a99278fa4273716b670d5a61272eceef24a"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "SETTLEMENTS",
         "IRSURPLUS"
       ],
-      "rows": 981504,
+      "rows": 490752,
       "schema-id": 0,
       "to": {
         "data-time": "2025-11-29T00:00:00+10:00",
-        "file": "PUBLIC_SETTLEMENTS_20251130011731_0000000491653484.zip",
+        "file": "PUBLIC_SETTLEMENTS_20251102.zip",
         "release": "2025-11",
-        "sha256": "32e27c97d0d8ee7cb22aad5e1c9b415186715b4cfd9cd9f05181b6115327f754"
+        "sha256": "aed560887cfb22eef6f777bdd7d08d5d1cf2dbb950ebd6d3f30674ae1eccffb4"
       },
       "updates": [
         {
@@ -1196,7 +1193,7 @@
       "changes": [
         "schema"
       ],
-      "files": 96,
+      "files": 48,
       "from": {
         "data-time": "2025-05-04T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20251102.zip",
@@ -1204,21 +1201,20 @@
         "sha256": "aed560887cfb22eef6f777bdd7d08d5d1cf2dbb950ebd6d3f30674ae1eccffb4"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "SETTLEMENTS",
         "IRSURPLUS"
       ],
-      "rows": 1036800,
+      "rows": 518400,
       "schema-id": 0,
       "to": {
         "data-time": "2025-12-30T00:00:00+10:00",
-        "file": "PUBLIC_SETTLEMENTS_20251231024018_0000000496494558.zip",
+        "file": "PUBLIC_SETTLEMENTS_20251202.zip",
         "release": "2025-12",
-        "sha256": "8491823adc7eb78569a4777626b38287064ed1e6fe9fcc62dc03b89d491360cc"
+        "sha256": "5072a87d86c242d1094926c23f37fb9ca1c8d103193a8767ac3e0047d9288c7d"
       },
       "updates": [
         {
@@ -1267,7 +1263,7 @@
       "changes": [
         "schema"
       ],
-      "files": 98,
+      "files": 49,
       "from": {
         "data-time": "2025-06-01T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20251202.zip",
@@ -1275,21 +1271,20 @@
         "sha256": "5072a87d86c242d1094926c23f37fb9ca1c8d103193a8767ac3e0047d9288c7d"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "SETTLEMENTS",
         "IRSURPLUS"
       ],
-      "rows": 1085184,
+      "rows": 542592,
       "schema-id": 0,
       "to": {
         "data-time": "2026-01-30T00:00:00+10:00",
-        "file": "PUBLIC_SETTLEMENTS_20260131011721_0000000501214673.zip",
+        "file": "PUBLIC_SETTLEMENTS_20260102.zip",
         "release": "2026-01",
-        "sha256": "b2107f2eef3a2ca97d038fab8f6177a7ccca02398913bfe77535ca87e626a083"
+        "sha256": "1048041a27fbd1b960c54bd08e6a3e00ca06cc69b92e649bf9b8e2de235a64ab"
       },
       "updates": [
         {
@@ -1338,7 +1333,7 @@
       "changes": [
         "schema"
       ],
-      "files": 90,
+      "files": 45,
       "from": {
         "data-time": "2025-07-06T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20260102.zip",
@@ -1346,21 +1341,20 @@
         "sha256": "1048041a27fbd1b960c54bd08e6a3e00ca06cc69b92e649bf9b8e2de235a64ab"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "SETTLEMENTS",
         "IRSURPLUS"
       ],
-      "rows": 1016064,
+      "rows": 508032,
       "schema-id": 0,
       "to": {
         "data-time": "2026-02-27T00:00:00+10:00",
-        "file": "PUBLIC_SETTLEMENTS_20260228012108_0000000505497214.zip",
+        "file": "PUBLIC_SETTLEMENTS_20260202.zip",
         "release": "2026-02",
-        "sha256": "257a32159e7b962e5d7cc8560fb1b57edbfa2ba673606079e2ff2133e747f3d4"
+        "sha256": "37e1af3e1deaa0744de137b124dbf20f459a08b5918104bbc1bc1157fa8a0dd3"
       },
       "updates": [
         {
@@ -1409,7 +1403,7 @@
       "changes": [
         "schema"
       ],
-      "files": 96,
+      "files": 48,
       "from": {
         "data-time": "2025-08-03T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20260202.zip",
@@ -1417,21 +1411,20 @@
         "sha256": "37e1af3e1deaa0744de137b124dbf20f459a08b5918104bbc1bc1157fa8a0dd3"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "SETTLEMENTS",
         "IRSURPLUS"
       ],
-      "rows": 1036800,
+      "rows": 518400,
       "schema-id": 0,
       "to": {
         "data-time": "2026-03-30T00:00:00+10:00",
-        "file": "PUBLIC_SETTLEMENTS_20260331112030_0000000510601385.zip",
+        "file": "PUBLIC_SETTLEMENTS_20260302.zip",
         "release": "2026-03",
-        "sha256": "22ea6861fe16af3d5e71eac58ddd578cb321504250852a87a38e6807932b6046"
+        "sha256": "dd002a6f8cccbd1d390d79ad4d385edb61c6f5539280437bd2056348143fa775"
       },
       "updates": [
         {
@@ -1480,7 +1473,7 @@
       "changes": [
         "schema"
       ],
-      "files": 96,
+      "files": 48,
       "from": {
         "data-time": "2025-08-31T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20260302.zip",
@@ -1488,21 +1481,20 @@
         "sha256": "dd002a6f8cccbd1d390d79ad4d385edb61c6f5539280437bd2056348143fa775"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "SETTLEMENTS",
         "IRSURPLUS"
       ],
-      "rows": 1078272,
+      "rows": 539136,
       "schema-id": 0,
       "to": {
         "data-time": "2026-04-29T00:00:00+10:00",
-        "file": "PUBLIC_SETTLEMENTS_20260430123820_0000000515463252.zip",
+        "file": "PUBLIC_SETTLEMENTS_20260402.zip",
         "release": "2026-04",
-        "sha256": "a7276e0c06bbd8b2300d159d608b55564b648ce545ebc013af7d12af0504a6fc"
+        "sha256": "76ab44268ff0f7a754f7c6d110f63646688a25b6402f05fd3f03678ae38f9e77"
       },
       "updates": [
         {
@@ -1551,7 +1543,7 @@
       "changes": [
         "schema"
       ],
-      "files": 96,
+      "files": 48,
       "from": {
         "data-time": "2025-10-05T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20260402.zip",
@@ -1559,21 +1551,20 @@
         "sha256": "76ab44268ff0f7a754f7c6d110f63646688a25b6402f05fd3f03678ae38f9e77"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "SETTLEMENTS",
         "IRSURPLUS"
       ],
-      "rows": 1036800,
+      "rows": 518400,
       "schema-id": 0,
       "to": {
         "data-time": "2026-05-30T00:00:00+10:00",
-        "file": "PUBLIC_SETTLEMENTS_20260531012252_0000000520130561.zip",
+        "file": "PUBLIC_SETTLEMENTS_20260502.zip",
         "release": "2026-05",
-        "sha256": "f9448ba86ad3babde50dc56ab8619dcaada763a637b942d201f542d6cd8cf9b7"
+        "sha256": "4f03cc476fa1edd2720c6b68eb43f30614546625180de2e5fcee36659d334f75"
       },
       "updates": [
         {
@@ -1622,7 +1613,7 @@
       "changes": [
         "schema"
       ],
-      "files": 94,
+      "files": 47,
       "from": {
         "data-time": "2025-11-02T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20260502.zip",
@@ -1630,21 +1621,20 @@
         "sha256": "4f03cc476fa1edd2720c6b68eb43f30614546625180de2e5fcee36659d334f75"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "SETTLEMENTS",
         "IRSURPLUS"
       ],
-      "rows": 1029888,
+      "rows": 514944,
       "schema-id": 0,
       "to": {
         "data-time": "2026-06-29T00:00:00+10:00",
-        "file": "PUBLIC_SETTLEMENTS_20260630121223_0000000525015794.zip",
+        "file": "PUBLIC_SETTLEMENTS_20260602.zip",
         "release": "2026-06",
-        "sha256": "eb5e0a905311a17b70f0f190a503b3027e3d8c40d57a9df38f05d3ced4bd445a"
+        "sha256": "e390dedf0b3e14cdc3d74e8c8f35725743efd57e3b46bc0e83e1968026e27ab5"
       },
       "updates": [
         {
@@ -1693,7 +1683,7 @@
       "changes": [
         "schema"
       ],
-      "files": 100,
+      "files": 50,
       "from": {
         "data-time": "2025-11-30T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20260602.zip",
@@ -1701,21 +1691,20 @@
         "sha256": "e390dedf0b3e14cdc3d74e8c8f35725743efd57e3b46bc0e83e1968026e27ab5"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "SETTLEMENTS",
         "IRSURPLUS"
       ],
-      "rows": 1133568,
+      "rows": 566784,
       "schema-id": 0,
       "to": {
         "data-time": "2026-07-30T00:00:00+10:00",
-        "file": "PUBLIC_SETTLEMENTS_20260731121601_0000000530178209.zip",
+        "file": "PUBLIC_SETTLEMENTS_20260702.zip",
         "release": "2026-07",
-        "sha256": "517edf09519c4cbe5e73812e6356e6b4f5b4107107c9bb0e75491de524435012"
+        "sha256": "5d71513f91815ebf20736ad78890c3ce5914a93e51976ba6a6b7acfd3d875d89"
       },
       "updates": [
         {
@@ -1764,7 +1753,7 @@
       "changes": [
         "schema"
       ],
-      "files": 96,
+      "files": 47,
       "from": {
         "data-time": "2026-01-04T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20260702.zip",
@@ -1772,20 +1761,19 @@
         "sha256": "5d71513f91815ebf20736ad78890c3ce5914a93e51976ba6a6b7acfd3d875d89"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "SETTLEMENTS",
         "IRSURPLUS"
       ],
-      "rows": 1016064,
+      "rows": 494208,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-08-31T00:00:00+10:00",
+        "data-time": "2026-08-30T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20260802.zip",
-        "release": "2026-09",
+        "release": "2026-08",
         "sha256": "f68ca261040fab49ca5c315534f2943ec4e93f154cedd46bbf05b35eef11714d"
       },
       "updates": [
@@ -1838,12 +1826,12 @@
       "files": 95,
       "from": {
         "data-time": "2026-02-01T00:00:00+10:00",
-        "file": "PUBLIC_SETTLEMENTS_20260901012321_0000000535441999.zip",
+        "file": "PUBLIC_SETTLEMENTS_20260802.zip",
         "release": "2026-09",
-        "sha256": "c752f52361f6953bbecda0706cc468d97a3d55db8a3f79d040a43d57c144e935"
+        "sha256": "f68ca261040fab49ca5c315534f2943ec4e93f154cedd46bbf05b35eef11714d"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [

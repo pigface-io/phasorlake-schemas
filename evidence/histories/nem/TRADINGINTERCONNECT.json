@@ -37,7 +37,7 @@
       "changes": [
         "version"
       ],
-      "files": 114028,
+      "files": 112864,
       "from": {
         "data-time": "2015-07-01T00:30:00+10:00",
         "file": "PUBLIC_DVD_TRADINGINTERCONNECT_201507010000.zip",
@@ -47,15 +47,14 @@
       "kinds": [
         "archive",
         "dvd",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "TRADING",
         "INTERCONNECTORRES"
       ],
-      "rows": 4506424,
+      "rows": 4498276,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T11:50:00+10:00",

@@ -19,7 +19,7 @@
         "sha256": "3b4cbc9ecc3017f3d9375f253db43159e7056c8ae130a8de3baa65f5ce8f67d7"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -44,8 +44,8 @@
         {
           "id": 1,
           "name": "BASINID",
-          "required": false,
-          "type": "decimal(5, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 2,
@@ -54,7 +54,9 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        1
+      ],
       "schema-id": 0,
       "type": "struct"
     }

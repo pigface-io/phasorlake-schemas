@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 19860,
+      "files": 19638,
       "from": {
         "data-time": "2016-10-23T14:30:00+10:00",
         "file": "PUBLIC_PREDISPATCHIS_201610231430_20161023140222.zip",
@@ -16,15 +16,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "PREDISPATCH",
         "LOCAL_PRICE"
       ],
-      "rows": 54090641,
+      "rows": 53389381,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-25T04:00:00+10:00",

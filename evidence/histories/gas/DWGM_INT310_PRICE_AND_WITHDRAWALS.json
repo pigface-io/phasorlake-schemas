@@ -18,7 +18,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 37,
       "from": {
         "data-time": "2025-08-01T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -26,20 +26,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT310_PRICE_AND_WITHDRAWALS_1"
       ],
-      "rows": 3622,
+      "rows": 4003,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "int310_v4_price_and_withdrawals_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-24T00:00:00+10:00",
+        "file": "int310_v4_price_and_withdrawals_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "97d20eeb25a85b10eb4e5c52f7c5769ca906264b213b704f4cc062c7d0e578d4"
+        "sha256": "97694be96f62cf8aef15685bf6d25512094fc8b8980f809284de61d5f136d624"
       },
       "updates": [],
       "version": 4

@@ -21,7 +21,7 @@
       "changes": [
         "first"
       ],
-      "files": 1907,
+      "files": 1910,
       "from": {
         "data-time": "2021-08-05T00:00:00+10:00",
         "file": "GBB_ForecastUtilisation_20210804.CSV",
@@ -29,20 +29,20 @@
         "sha256": "09b5bb265a0c4cca9bffb247f910cd9b7e4e3013d2050a102f7f9c6eaf670a96"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
         "GBB",
         "FORECAST_UTILISATION"
       ],
-      "rows": 2546851,
+      "rows": 2551642,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-28T00:00:00+10:00",
-        "file": "GBB_ForecastUtilisation_20261021.CSV",
+        "data-time": "2026-10-30T00:00:00+10:00",
+        "file": "GBB_ForecastUtilisation_20261023.CSV",
         "release": "2026-10",
-        "sha256": "b568f5ccfea671c88f81eacaacc1678e03bb87c60cbcbf7d970580b1c89c50b7"
+        "sha256": "7211fee497787cf84078dcbda8d564f3422f346bbb352a0c9f6433f68b0788cb"
       },
       "updates": [],
       "version": 1

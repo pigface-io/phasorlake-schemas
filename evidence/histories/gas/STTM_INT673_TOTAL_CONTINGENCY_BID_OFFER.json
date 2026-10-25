@@ -15,7 +15,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 38,
       "from": {
         "data-time": "2026-08-24T00:00:00+10:00",
         "file": "Day31.zip",
@@ -23,20 +23,20 @@
         "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
       },
       "kinds": [
-        "sttm/current"
+        "sttm"
       ],
       "overlaps": false,
       "report": [
         "STTM",
         "INT673_TOTAL_CONTINGENCY_BID_OFFER_RPT_1"
       ],
-      "rows": 252,
+      "rows": 393,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-24T00:00:00+10:00",
-        "file": "int673_v1_total_contingency_bid_offer_rpt_1.csv@20261021T191600+1000",
+        "data-time": "2026-10-26T00:00:00+10:00",
+        "file": "int673_v1_total_contingency_bid_offer_rpt_1.csv@20261024T113100+1000",
         "release": "2026-10",
-        "sha256": "496ad7c5a00da02a99e792c4279d94b79068cbb1b7a4beebac065cfb37a276ad"
+        "sha256": "d05b8470e89eeb604e263ff0e186cbd99a64eeb22e963ccf3370aa2d4b330961"
       },
       "updates": [],
       "version": 1

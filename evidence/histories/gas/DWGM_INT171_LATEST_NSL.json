@@ -14,7 +14,7 @@
       "changes": [
         "first"
       ],
-      "files": 62,
+      "files": 69,
       "from": {
         "data-time": "2025-06-30T10:09:00+10:00",
         "file": "PublicRpts31.zip",
@@ -22,20 +22,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT171_LATEST_NSL_1"
       ],
-      "rows": 11976,
+      "rows": 15159,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T10:09:13+10:00",
-        "file": "int171_v4_latest_nsl_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-23T09:09:06+10:00",
+        "file": "int171_v4_latest_nsl_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "f0a3178188fa09a6e3afc180bee47fe92dddf6c95f002f760d547a0668c475f8"
+        "sha256": "22077dba4cf0e650f6d054fff406df3ba075302b880a352fb484f409d4abecd3"
       },
       "updates": [],
       "version": 4

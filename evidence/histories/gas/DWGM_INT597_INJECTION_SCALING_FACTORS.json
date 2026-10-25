@@ -16,7 +16,7 @@
       "changes": [
         "first"
       ],
-      "files": 4,
+      "files": 6,
       "from": {
         "data-time": "2026-08-01T00:00:00+10:00",
         "file": "PublicRpts22.zip",
@@ -24,20 +24,20 @@
         "sha256": "20d32cafc8e00f1760ea246fec625d26dd91304d25f9a1caeb65db5bf23993a1"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT597_INJECTION_SCALING_FACTORS_1"
       ],
-      "rows": 496,
+      "rows": 736,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-08-31T00:00:00+10:00",
-        "file": "PublicRpts07.zip",
+        "data-time": "2026-09-30T00:00:00+10:00",
+        "file": "int597_v4_injection_scaling_factors_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "d5207d761a8093a627cd6446b9eba33d8caace28718278d5a06bfab96e6f2a8c"
+        "sha256": "dd8c4eacf76c4a02146612cda7c1fde8da53ed1cb3d0e20b11f34b15ec973cf9"
       },
       "updates": [],
       "version": 4

@@ -26,14 +26,14 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT311_CUSTOMER_TRANSFERS_1"
       ],
-      "rows": 166,
+      "rows": 224,
       "schema-id": 0,
       "to": {
         "data-time": "2026-09-30T00:00:00+10:00",
@@ -57,7 +57,7 @@
         "sha256": "10ff54b9d02c48922c739dd212ca5ec856ad16e2dd7517919a5bb207d70a05a4"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": true,
       "report": [
@@ -85,28 +85,28 @@
         "schema",
         "version"
       ],
-      "files": 22,
+      "files": 25,
       "from": {
         "data-time": "2025-10-01T00:00:00+10:00",
-        "file": "CurrentDay.zip",
+        "file": "PublicRpts21.zip@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "d09196e8f849c4ebc0e465437c211d955f435f96ed792cf5f7cd6da3bf36fa31"
+        "sha256": "e584aa321a196e72679e83a5ac9471811c889a16c7cf63c20bbf80c16ce37a4e"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT311_CUSTOMER_TRANSFERS_1"
       ],
-      "rows": 946,
+      "rows": 1022,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "int311_v5_customer_transfers_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-24T00:00:00+10:00",
+        "file": "int311_v5_customer_transfers_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "d7ee0ee8bdc474874c68b3f5c3c44d2f19ca498f5cb4d98f3070a997f8f74743"
+        "sha256": "9af56c0c6113d2379480f7a85ef1c2abbd589324c10ad86644968a58fb72c8df"
       },
       "updates": [
         {

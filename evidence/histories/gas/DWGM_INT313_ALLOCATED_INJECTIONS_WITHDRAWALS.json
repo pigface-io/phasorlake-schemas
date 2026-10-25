@@ -15,7 +15,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 37,
       "from": {
         "data-time": "2025-08-01T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -23,20 +23,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT313_ALLOCATED_INJECTIONS_WITHDRAWALS_1"
       ],
-      "rows": 8610,
+      "rows": 9861,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-15T00:00:00+10:00",
-        "file": "int313_v4_allocated_injections_withdrawals_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-20T00:00:00+10:00",
+        "file": "int313_v4_allocated_injections_withdrawals_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "eae5a1505f7339985b01eb4008fa0f7433f67aa79ac65a8e090c47ac8d9dcad0"
+        "sha256": "1be41e66ea89a7a3046d19b97adadae0d8a4c3fa57e42936ad791c759e30280f"
       },
       "updates": [],
       "version": 4

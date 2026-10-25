@@ -38,7 +38,7 @@
         "schema",
         "version"
       ],
-      "files": 10354,
+      "files": 10114,
       "from": {
         "data-time": "2021-02-02T04:30:00+10:00",
         "file": "PUBLIC_DVD_STPASA_INTERCONNECTORSOLN_202102010000.zip",
@@ -48,15 +48,14 @@
       "kinds": [
         "archive",
         "dvd",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "STPASA",
         "INTERCONNECTORSOLN"
       ],
-      "rows": 654806016,
+      "rows": 652732416,
       "schema-id": 1,
       "to": {
         "data-time": "2026-10-31T04:00:00+10:00",

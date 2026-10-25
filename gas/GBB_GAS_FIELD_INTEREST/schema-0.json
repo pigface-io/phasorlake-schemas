@@ -4,13 +4,10 @@
   "additionalProperties": false,
   "properties": {
     "COMPANYID": {
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 3,
       "x-header": "CompanyId",
-      "x-iceberg-type": "decimal(3, 0)"
+      "x-iceberg-type": "long"
     },
     "COMPANYNAME": {
       "type": [
@@ -35,13 +32,10 @@
     },
     "FIELDINTERESTID": {
       "description": "A unique AEMO defined Field Interest Identifier",
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 2,
       "x-header": "FieldInterestId",
-      "x-iceberg-type": "decimal(6, 0)",
+      "x-iceberg-type": "long",
       "x-model-type": "NUMBER(20,0)"
     },
     "FIELDNAME": {
@@ -74,7 +68,10 @@
       "x-iceberg-type": "decimal(6, 3)"
     }
   },
-  "required": [],
+  "required": [
+    "FIELDINTERESTID",
+    "COMPANYID"
+  ],
   "title": "GBB_GAS_FIELD_INTEREST, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -86,12 +83,12 @@
     [
       2,
       "FIELDINTERESTID",
-      "decimal(6, 0)"
+      "long"
     ],
     [
       3,
       "COMPANYID",
-      "decimal(3, 0)"
+      "long"
     ],
     [
       4,
@@ -115,7 +112,10 @@
     ]
   ],
   "x-format": 3,
-  "x-identifier-field-ids": [],
+  "x-identifier-field-ids": [
+    2,
+    3
+  ],
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

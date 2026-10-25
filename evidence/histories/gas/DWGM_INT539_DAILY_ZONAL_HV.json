@@ -14,7 +14,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 37,
       "from": {
         "data-time": "2026-05-03T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -22,20 +22,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT539_DAILY_ZONAL_HV_1"
       ],
-      "rows": 3864,
+      "rows": 4760,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-20T00:00:00+10:00",
-        "file": "int539_v4_daily_zonal_hv_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-22T00:00:00+10:00",
+        "file": "int539_v4_daily_zonal_hv_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "352f279ebcc666800639ae4e83f92e98b1a8e09241fcc8ad0b9b6b02651681d5"
+        "sha256": "94557f37392e465d09b139c1b451bdf93b12326f025d4e018b35d705f5a3ce22"
       },
       "updates": [],
       "version": 4

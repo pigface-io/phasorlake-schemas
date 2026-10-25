@@ -37,7 +37,7 @@
         "sha256": "8a4f66fac084555d084e2fb75aadb9d4d0ff813ad707a741ad227e37d5b4a169"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
@@ -62,8 +62,8 @@
         {
           "id": 1,
           "name": "PIPE_SEGMENT_ID",
-          "required": false,
-          "type": "decimal(2, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 2,
@@ -74,8 +74,8 @@
         {
           "id": 3,
           "name": "LINEPACK_ZONE_ID",
-          "required": false,
-          "type": "decimal(2, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 4,
@@ -92,14 +92,14 @@
         {
           "id": 6,
           "name": "NODE_DESTINATION_ID",
-          "required": false,
-          "type": "decimal(2, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 7,
           "name": "NODE_ORIGIN_ID",
-          "required": false,
-          "type": "decimal(2, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 8,
@@ -180,7 +180,12 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        1,
+        3,
+        6,
+        7
+      ],
       "schema-id": 0,
       "type": "struct"
     }

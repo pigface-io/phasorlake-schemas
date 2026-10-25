@@ -28,7 +28,7 @@
         "sha256": "38c824118ca57f685085e09579ce80e6a0f5ddd154a34f495a54813b392b4636"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -53,8 +53,8 @@
         {
           "id": 1,
           "name": "COMPANYID",
-          "required": false,
-          "type": "decimal(3, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 2,
@@ -123,7 +123,9 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        1
+      ],
       "schema-id": 0,
       "type": "struct"
     }

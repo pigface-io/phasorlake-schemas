@@ -20,7 +20,7 @@
       "changes": [
         "first"
       ],
-      "files": 1,
+      "files": 2,
       "from": {
         "data-time": "2008-07-01T00:00:00+10:00",
         "file": "GasBBFacilities.CSV",
@@ -28,20 +28,20 @@
         "sha256": "9e28806670e13042b2c0d723f3579d55e6dac09207d812968de78f4f4cb94e49"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
         "GBB",
         "FACILITIES"
       ],
-      "rows": 159,
+      "rows": 161,
       "schema-id": 0,
       "to": {
         "data-time": "2026-09-01T00:00:00+10:00",
-        "file": "GasBBFacilities.CSV",
+        "file": "GasBBFacilities.CSV@20261024T030200+1000",
         "release": "2026-10",
-        "sha256": "9e28806670e13042b2c0d723f3579d55e6dac09207d812968de78f4f4cb94e49"
+        "sha256": "f5e79820d3bdc8abcccdfa06c9eefe75e91f5665f764dccb41cfa91de878c4f2"
       },
       "updates": [],
       "version": 1
@@ -51,7 +51,7 @@
         "schema",
         "report"
       ],
-      "files": 1,
+      "files": 2,
       "from": {
         "data-time": "2008-01-01T00:00:00+10:00",
         "file": "GasBBFacilitiesFull.CSV",
@@ -59,20 +59,20 @@
         "sha256": "4a86674156d4a3bb885792c1507cf782848377d2261433f6ccb4ac99a9e6eda0"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "FACILITIES_FULL"
       ],
-      "rows": 266,
+      "rows": 270,
       "schema-id": 1,
       "to": {
         "data-time": "2026-09-01T00:00:00+10:00",
-        "file": "GasBBFacilitiesFull.CSV",
+        "file": "GasBBFacilitiesFull.CSV@20261024T040000+1000",
         "release": "2026-10",
-        "sha256": "4a86674156d4a3bb885792c1507cf782848377d2261433f6ccb4ac99a9e6eda0"
+        "sha256": "b78addf0d5b1d523265d9a08929f4e3cd412e9ccf56e9fdc04759d32d1c212ce"
       },
       "updates": [
         {
@@ -101,8 +101,8 @@
         {
           "id": 3,
           "name": "FACILITYID",
-          "required": false,
-          "type": "decimal(6, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 4,
@@ -138,7 +138,7 @@
           "id": 9,
           "name": "OPERATORID",
           "required": false,
-          "type": "decimal(3, 0)"
+          "type": "long"
         },
         {
           "id": 10,
@@ -147,7 +147,9 @@
           "type": "date"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        3
+      ],
       "schema-id": 0,
       "type": "struct"
     },
@@ -168,8 +170,8 @@
         {
           "id": 3,
           "name": "FACILITYID",
-          "required": false,
-          "type": "decimal(6, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 4,
@@ -205,7 +207,7 @@
           "id": 9,
           "name": "OPERATORID",
           "required": false,
-          "type": "decimal(3, 0)"
+          "type": "long"
         },
         {
           "id": 10,
@@ -220,7 +222,9 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        3
+      ],
       "schema-id": 1,
       "type": "struct"
     }

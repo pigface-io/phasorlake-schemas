@@ -18,7 +18,7 @@
       "changes": [
         "first"
       ],
-      "files": 772,
+      "files": 821,
       "from": {
         "data-time": "2026-08-30T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -26,20 +26,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT140_GAS_QUALITY_DATA_1"
       ],
-      "rows": 121270,
+      "rows": 129574,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "int140_v5_gas_quality_data_1.csv@20261021T221100+1000",
+        "data-time": "2026-10-24T00:00:00+10:00",
+        "file": "int140_v5_gas_quality_data_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "166df20288b31c05825256d1c7dfa63829563b9cb8034d204ee55c32b2ff8f82"
+        "sha256": "cb45aee7a5ee69a92f17adad5841af5405028c1af84ae40fc13a111806e4bc7e"
       },
       "updates": [],
       "version": 5

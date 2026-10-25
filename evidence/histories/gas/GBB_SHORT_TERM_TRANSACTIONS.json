@@ -24,7 +24,7 @@
         "sha256": "a8bdd9b4bb5bafd9e745950c617edabb4fdaa8adcfcfe5916a152f9cbf326f55"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -54,7 +54,7 @@
         "sha256": "531b39795c1bfc0bf0dfed4b7ba1d7dbff999082283015c06d854243a8a686ec"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
@@ -84,7 +84,7 @@
         "sha256": "ab7abcd985b137428d6453c764290407a858005c337e4b82549a0c25d4eecfe9"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -106,7 +106,7 @@
       "changes": [
         "report"
       ],
-      "files": 1,
+      "files": 2,
       "from": {
         "data-time": "2023-03-14T00:00:00+10:00",
         "file": "GasBBShortTermTransactionsQLD.CSV",
@@ -114,20 +114,20 @@
         "sha256": "a23faee1a8b9a733d48c348d7effc9fd0cc18b49f529c5324cf8ed2707deb979"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
         "GBB",
         "SHORT_TERM_TRANSACTIONS_QLD"
       ],
-      "rows": 188,
+      "rows": 189,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-06T00:00:00+10:00",
-        "file": "GasBBShortTermTransactionsQLD.CSV",
+        "data-time": "2026-10-12T00:00:00+10:00",
+        "file": "GasBBShortTermTransactionsQLD.CSV@20261022T230100+1000",
         "release": "2026-10",
-        "sha256": "a23faee1a8b9a733d48c348d7effc9fd0cc18b49f529c5324cf8ed2707deb979"
+        "sha256": "847dad0e750ac00b224b20f1c1f12e30792fc5a098e535a3d812304e7a0ae6db"
       },
       "updates": [],
       "version": 1
@@ -136,7 +136,7 @@
       "changes": [
         "report"
       ],
-      "files": 1,
+      "files": 2,
       "from": {
         "data-time": "2023-03-16T00:00:00+10:00",
         "file": "GasBBShortTermTransactionsSA.CSV",
@@ -144,20 +144,20 @@
         "sha256": "f898631ccc379a24d691873d81b8f995a58f7940458e5d16e500e4a6e500168d"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "SHORT_TERM_TRANSACTIONS_SA"
       ],
-      "rows": 188,
+      "rows": 189,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-06T00:00:00+10:00",
-        "file": "GasBBShortTermTransactionsSA.CSV",
+        "data-time": "2026-10-13T00:00:00+10:00",
+        "file": "GasBBShortTermTransactionsSA.CSV@20261023T105100+1000",
         "release": "2026-10",
-        "sha256": "f898631ccc379a24d691873d81b8f995a58f7940458e5d16e500e4a6e500168d"
+        "sha256": "2317defcf8c807ca934720f8610677e62f63a9a2a980e04bcbbf5c5eae0d80cd"
       },
       "updates": [],
       "version": 1
@@ -166,7 +166,7 @@
       "changes": [
         "report"
       ],
-      "files": 1,
+      "files": 2,
       "from": {
         "data-time": "2023-03-22T00:00:00+10:00",
         "file": "GasBBShortTermTransactionsVIC.CSV",
@@ -174,20 +174,20 @@
         "sha256": "3759a210098537955956c95a862d3d52e8bd3e3a45e05e23cc036b74255b0427"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "SHORT_TERM_TRANSACTIONS_VIC"
       ],
-      "rows": 188,
+      "rows": 189,
       "schema-id": 0,
       "to": {
         "data-time": "2027-01-01T00:00:00+10:00",
-        "file": "GasBBShortTermTransactionsVIC.CSV",
+        "file": "GasBBShortTermTransactionsVIC.CSV@20261022T230100+1000",
         "release": "2026-10",
-        "sha256": "3759a210098537955956c95a862d3d52e8bd3e3a45e05e23cc036b74255b0427"
+        "sha256": "0414330d32e9e9eca4000b5e98ec6dfea834645508602f74bcc4657d8e6fa761"
       },
       "updates": [],
       "version": 1

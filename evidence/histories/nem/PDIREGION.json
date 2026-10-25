@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 18990,
+      "files": 18792,
       "from": {
         "data-time": "2017-06-19T14:00:00+10:00",
         "file": "PUBLIC_PREDISPATCH_201706191400_20170619133258_LEGACY.zip",
@@ -15,15 +15,14 @@
         "sha256": "911cf5ba9d8a4adcb1c8dbc3bc964f8eb4c3d0752c684dbb44f016c7ed2fa3ee"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "PDIREGION",
         ""
       ],
-      "rows": 94950,
+      "rows": 93960,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T12:00:00+10:00",

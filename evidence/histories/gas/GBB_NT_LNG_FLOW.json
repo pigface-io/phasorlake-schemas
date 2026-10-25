@@ -12,7 +12,7 @@
       "changes": [
         "first"
       ],
-      "files": 3,
+      "files": 4,
       "from": {
         "data-time": "2025-10-19T00:00:00+10:00",
         "file": "GasBBNTLngFlow.CSV",
@@ -20,20 +20,20 @@
         "sha256": "8ad1cb2bc948b245e22244da94e906093bdfd82eb8c3060c9a34e3a69437d363"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
         "GBB",
         "NT_LNG_FLOW"
       ],
-      "rows": 367,
+      "rows": 369,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-20T00:00:00+10:00",
-        "file": "GasBBNTLngFlow.CSV@20261021T230300+1000",
+        "data-time": "2026-10-22T00:00:00+10:00",
+        "file": "GasBBNTLngFlow.CSV@20261023T230100+1000",
         "release": "2026-10",
-        "sha256": "f8192c0478a36fcde03aa994a37022ac7c3bbb01358e18e5ea7e7f987d831971"
+        "sha256": "f6a87c623344c3a5e85ac9c1e02132dbc61fb32494b992a8957a4b8dbe25eac3"
       },
       "updates": [],
       "version": 1

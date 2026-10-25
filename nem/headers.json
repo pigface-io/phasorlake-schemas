@@ -1758,15 +1758,9 @@
       "schemas": [
         {
           "first-release": "2021-05",
-          "last-release": "2026-09",
-          "runs": 1,
-          "schema-id": 0
-        },
-        {
-          "first-release": "2026-10",
           "last-release": "2026-10",
           "runs": 1,
-          "schema-id": 1
+          "schema-id": 0
         }
       ],
       "table": "BILLING_DIRECTION_CRA",
@@ -6128,7 +6122,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 15,
+          "runs": 14,
           "schema-id": 0
         }
       ],
@@ -6270,7 +6264,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 15,
+          "runs": 14,
           "schema-id": 2
         }
       ],
@@ -6414,7 +6408,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 29,
+          "runs": 27,
           "schema-id": 1
         }
       ],
@@ -6566,7 +6560,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 15,
+          "runs": 14,
           "schema-id": 3
         }
       ],
@@ -6625,7 +6619,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 15,
+          "runs": 14,
           "schema-id": 0
         }
       ],
@@ -6692,7 +6686,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 15,
+          "runs": 14,
           "schema-id": 1
         }
       ],
@@ -11423,7 +11417,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 29,
+          "runs": 28,
           "schema-id": 2
         }
       ],
@@ -11471,7 +11465,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 29,
+          "runs": 28,
           "schema-id": 1
         }
       ],
@@ -11520,7 +11514,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 15,
+          "runs": 14,
           "schema-id": 2
         }
       ],
@@ -11570,7 +11564,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 16,
+          "runs": 14,
           "schema-id": 1
         }
       ],
@@ -19341,7 +19335,7 @@
         {
           "first-release": "2025-11",
           "last-release": "2026-10",
-          "runs": 13,
+          "runs": 12,
           "schema-id": 7
         }
       ],
@@ -19422,7 +19416,7 @@
         {
           "first-release": "2025-11",
           "last-release": "2026-10",
-          "runs": 13,
+          "runs": 12,
           "schema-id": 6
         }
       ],
@@ -19756,7 +19750,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 15,
+          "runs": 14,
           "schema-id": 1
         }
       ],
@@ -19782,7 +19776,7 @@
         {
           "first-release": "2016-08",
           "last-release": "2026-10",
-          "runs": 15,
+          "runs": 14,
           "schema-id": 0
         }
       ],
@@ -21157,7 +21151,7 @@
         {
           "first-release": "2017-02",
           "last-release": "2026-10",
-          "runs": 16,
+          "runs": 15,
           "schema-id": 0
         }
       ],
@@ -21180,7 +21174,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 15,
+          "runs": 14,
           "schema-id": 1
         }
       ],

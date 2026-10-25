@@ -17,7 +17,7 @@
         "null"
       ],
       "x-field-id": 3,
-      "x-iceberg-type": "decimal(6, 6)"
+      "x-iceberg-type": "decimal(11, 6)"
     },
     "PARTICIPANT CATEGORY": {
       "type": [
@@ -33,7 +33,7 @@
         "null"
       ],
       "x-field-id": 4,
-      "x-iceberg-type": "decimal(6, 6)"
+      "x-iceberg-type": "decimal(11, 6)"
     },
     "SA": {
       "type": [
@@ -57,7 +57,7 @@
         "null"
       ],
       "x-field-id": 7,
-      "x-iceberg-type": "decimal(6, 6)"
+      "x-iceberg-type": "decimal(11, 6)"
     }
   },
   "required": [],
@@ -77,12 +77,12 @@
     [
       3,
       "NSW",
-      "decimal(6, 6)"
+      "decimal(11, 6)"
     ],
     [
       4,
       "QLD",
-      "decimal(6, 6)"
+      "decimal(11, 6)"
     ],
     [
       5,
@@ -97,7 +97,7 @@
     [
       7,
       "VIC",
-      "decimal(6, 6)"
+      "decimal(11, 6)"
     ]
   ],
   "x-format": 3,

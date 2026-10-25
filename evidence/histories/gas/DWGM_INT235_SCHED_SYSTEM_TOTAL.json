@@ -19,7 +19,7 @@
       "changes": [
         "first"
       ],
-      "files": 294,
+      "files": 313,
       "from": {
         "data-time": "2026-08-29T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -27,20 +27,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT235_SCHED_SYSTEM_TOTAL_1"
       ],
-      "rows": 15755,
+      "rows": 18011,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-23T00:00:00+10:00",
-        "file": "int235_v4_sched_system_total_1.csv@20261021T221100+1000",
+        "data-time": "2026-10-26T00:00:00+10:00",
+        "file": "int235_v4_sched_system_total_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "5977d5c421960be8e0886ff71d7eb31a46305f32c118486098d08b724acb1fe0"
+        "sha256": "bc338d477516ed623fbbc4f0c60f6646a53dfa9958a98674029c2d56b2f95102"
       },
       "updates": [],
       "version": 4

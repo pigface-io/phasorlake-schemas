@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 6193,
+      "files": 5619,
       "from": {
         "data-time": "2016-07-03T00:00:00+10:00",
         "file": "PUBLIC_SETTLEMENTS_20170202011150_0000000280585184.zip",
@@ -16,15 +16,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "SETTLEMENTS",
         "NMAS_RECOVERY_RBF"
       ],
-      "rows": 267014025,
+      "rows": 236111985,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-23T00:00:00+10:00",

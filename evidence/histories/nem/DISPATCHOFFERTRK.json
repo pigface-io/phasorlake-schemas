@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 971,
+      "files": 625,
       "from": {
         "data-time": "2009-07-01T00:05:00+10:00",
         "file": "PUBLIC_DVD_DISPATCHOFFERTRK_200907010000.zip",
@@ -17,15 +17,14 @@
       "kinds": [
         "archive",
         "dvd",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "OFFERTRK"
       ],
-      "rows": 2584435098,
+      "rows": 2386785354,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T04:00:00+10:00",

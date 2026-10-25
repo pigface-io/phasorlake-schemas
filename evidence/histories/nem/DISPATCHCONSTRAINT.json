@@ -103,7 +103,7 @@
       "changes": [
         "schema"
       ],
-      "files": 111103,
+      "files": 110281,
       "from": {
         "data-time": "2024-08-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#DISPATCHCONSTRAINT#FILE01#202408010000.zip",
@@ -112,15 +112,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "CONSTRAINT"
       ],
-      "rows": 429747627,
+      "rows": 405015138,
       "schema-id": 2,
       "to": {
         "data-time": "2026-10-24T11:45:00+10:00",

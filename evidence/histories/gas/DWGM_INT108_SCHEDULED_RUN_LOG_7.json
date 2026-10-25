@@ -24,7 +24,7 @@
       "changes": [
         "first"
       ],
-      "files": 294,
+      "files": 313,
       "from": {
         "data-time": "2026-08-24T10:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -32,20 +32,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT108_SCHEDULED_RUN_LOG_7_1"
       ],
-      "rows": 1220,
+      "rows": 1570,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-23T06:00:00+10:00",
-        "file": "int108_v4_scheduled_run_log_7_1.csv@20261021T220900+1000",
+        "data-time": "2026-10-26T06:00:00+10:00",
+        "file": "int108_v4_scheduled_run_log_7_1.csv@20261024T113400+1000",
         "release": "2026-10",
-        "sha256": "5b3622bce7bba03220c57de50df16b8f7c9e1d1c91404433a899bf5fb679a7aa"
+        "sha256": "bd0e3a7188f5696b8af77b282bc87150049bac0d045a00ee3aa2d6b6ceaff42f"
       },
       "updates": [],
       "version": 4

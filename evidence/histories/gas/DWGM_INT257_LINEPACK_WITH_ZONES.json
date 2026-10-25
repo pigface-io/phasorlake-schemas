@@ -21,7 +21,7 @@
         "sha256": "0aa3d70aec337be23819d0b7608c5b69d13bc1cace7d7e2d9d1977d34226eb01"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
@@ -46,8 +46,8 @@
         {
           "id": 1,
           "name": "LINEPACK_ZONE_ID",
-          "required": false,
-          "type": "decimal(2, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 2,
@@ -68,7 +68,9 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        1
+      ],
       "schema-id": 0,
       "type": "struct"
     }

@@ -31,7 +31,7 @@
         "sha256": "84fcd8319b564990114969b5123b31c36f216115950bbe10d447d53d26ee2d97"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -53,7 +53,7 @@
       "changes": [
         "report"
       ],
-      "files": 3,
+      "files": 4,
       "from": {
         "data-time": "2018-10-01T00:00:00+10:00",
         "file": "GasBBMediumTermCapacityOutlook.csv",
@@ -61,20 +61,20 @@
         "sha256": "7a23ae643b747734c3054451bc3db54e93a36a2d7fd56c128cf337db14753771"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "MEDIUM_TERM_CAPACITY_OUTLOOK"
       ],
-      "rows": 95093,
+      "rows": 102665,
       "schema-id": 0,
       "to": {
         "data-time": "2029-10-05T00:00:00+10:00",
-        "file": "GasBBMediumTermCapacityOutlook.csv@20261022T021300+1000",
+        "file": "GasBBMediumTermCapacityOutlook.csv@20261024T021100+1000",
         "release": "2026-10",
-        "sha256": "ac28610454916c65488b123b362cd710a193708de76f55873d9e9a4d979962f7"
+        "sha256": "5ed5dd2991d938e4553b1a2c8d69c8d41e8692e4d86a10edaa488bf4526da22e"
       },
       "updates": [],
       "version": 1
@@ -83,7 +83,7 @@
       "changes": [
         "report"
       ],
-      "files": 7,
+      "files": 8,
       "from": {
         "data-time": "2026-01-06T00:00:00+10:00",
         "file": "GasBBMediumTermCapacityOutlookFuture.csv",
@@ -91,20 +91,20 @@
         "sha256": "261e38eec21e9b5669089233926851efabb1f3d4d06b816ce0d06226d093ed01"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": true,
       "report": [
         "GBB",
         "MEDIUM_TERM_CAPACITY_OUTLOOK_FUTURE"
       ],
-      "rows": 29356,
+      "rows": 36862,
       "schema-id": 0,
       "to": {
         "data-time": "2029-10-05T00:00:00+10:00",
-        "file": "GasBBMediumTermCapacityOutlookFuture.csv@20261022T085700+1000",
+        "file": "GasBBMediumTermCapacityOutlookFuture.csv@20261024T112700+1000",
         "release": "2026-10",
-        "sha256": "edcaaf6c635ac903890dcfd249be83d724bf6865c64322bdcd918567f35530f5"
+        "sha256": "f1c6b288bf5367d568c8470553148207c13d90861d9e61fd56615967dcdd380b"
       },
       "updates": [],
       "version": 1

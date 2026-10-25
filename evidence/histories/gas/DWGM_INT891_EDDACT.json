@@ -14,7 +14,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 37,
       "from": {
         "data-time": "2026-07-04T07:00:01+10:00",
         "file": "PublicRpts31.zip",
@@ -22,20 +22,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT891_EDDACT_1"
       ],
-      "rows": 430,
+      "rows": 558,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T07:00:02+10:00",
-        "file": "int891_v1_eddact_1.csv@20261021T191200+1000",
+        "data-time": "2026-10-23T07:00:01+10:00",
+        "file": "int891_v1_eddact_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "deca66eeeb43ea1a11fbb561746f33b161bd758a8de5fe80c865cf558875e1d0"
+        "sha256": "4b500a9b1ad9f887120323b9c891201598aa57e1a71b7a269590085b5dbf408a"
       },
       "updates": [],
       "version": 1

@@ -7,28 +7,28 @@
       "changes": [
         "first"
       ],
-      "files": 3,
+      "files": 4,
       "from": {
-        "data-time": "2014-03-21T00:00:00+10:00",
+        "data-time": "2014-01-01T00:00:00+10:00",
         "file": "GasBBGSHGasTrades.CSV",
         "release": "2026-10",
         "sha256": "fdb6cb436a8daeefef4c6a78d71f2ab699c51fe4bfe1c58c705df523f254dad3"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
         "GSH",
         "GAS_TRADES"
       ],
-      "rows": 39796,
+      "rows": 39809,
       "schema-id": 0,
       "to": {
-        "data-time": "2027-01-01T00:00:00+10:00",
-        "file": "GasBBGSHGasTrades.CSV@20261022T060100+1000",
+        "data-time": "2026-10-24T00:00:00+10:00",
+        "file": "GasBBGSHGasTrades.CSV@20261024T060000+1000",
         "release": "2026-10",
-        "sha256": "2210d9528242f46fa473a6ac57c48fef959fb5ff51431a171e987a077a310afc"
+        "sha256": "2528b54e2677219a73d1d3c54f4f5ca70ef6238d04fc62b4addb6530ed2b3303"
       },
       "updates": [],
       "version": 1

@@ -14,7 +14,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 37,
       "from": {
         "data-time": "2026-08-24T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -22,20 +22,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT079_TOTAL_GAS_WITHDRAWN_1"
       ],
-      "rows": 97,
+      "rows": 117,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-20T00:00:00+10:00",
-        "file": "int079_v4_total_gas_withdrawn_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int079_v4_total_gas_withdrawn_1.csv@20261024T113400+1000",
         "release": "2026-10",
-        "sha256": "051b5199a8d9a03eb0ec9f4525aaa828bc5a6dcf126747dd6f14a3078dba14b8"
+        "sha256": "341733487406f821147149afebbc84d641137e87584a84671208987265c5c819"
       },
       "updates": [],
       "version": 4

@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 19010,
+      "files": 18811,
       "from": {
         "data-time": "2024-12-09T12:00:00+10:00",
         "file": "PUBLIC_ARCHIVE#PD_FCAS_REQ_RUN#FILE01#202412010000.zip",
@@ -16,15 +16,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "PREDISPATCH",
         "FCAS_REQ_RUN"
       ],
-      "rows": 325452,
+      "rows": 325253,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T12:00:00+10:00",

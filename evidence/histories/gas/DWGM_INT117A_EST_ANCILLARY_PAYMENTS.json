@@ -13,7 +13,7 @@
       "changes": [
         "first"
       ],
-      "files": 294,
+      "files": 313,
       "from": {
         "data-time": "2026-07-01T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -21,20 +21,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT117A_EST_ANCILLARY_PAYMENTS_1"
       ],
-      "rows": 1162,
+      "rows": 1503,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "int117a_v4_est_ancillary_payments_1.csv@20261021T220900+1000",
+        "data-time": "2026-10-24T00:00:00+10:00",
+        "file": "int117a_v4_est_ancillary_payments_1.csv@20261024T113400+1000",
         "release": "2026-10",
-        "sha256": "d040277cf8e726255877a1414e3cc74d70824309255d3fceeac22e7b523922cc"
+        "sha256": "752072f629d210195c4fd3ba013fac2498f312d0a6d92506c9fa8e53ec600791"
       },
       "updates": [],
       "version": 4

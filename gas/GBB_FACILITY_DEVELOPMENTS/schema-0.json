@@ -27,13 +27,10 @@
     },
     "DEVFACILITYID": {
       "description": "A unique AEMO defined Development Facility Identifier",
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 1,
       "x-header": "DevFacilityId",
-      "x-iceberg-type": "decimal(6, 0)",
+      "x-iceberg-type": "long",
       "x-model-type": "NUMBER(20,0)"
     },
     "EFFECTIVEDATE": {
@@ -153,14 +150,16 @@
       "x-iceberg-type": "string"
     }
   },
-  "required": [],
+  "required": [
+    "DEVFACILITYID"
+  ],
   "title": "GBB_FACILITY_DEVELOPMENTS, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "DEVFACILITYID",
-      "decimal(6, 0)"
+      "long"
     ],
     [
       2,
@@ -229,7 +228,9 @@
     ]
   ],
   "x-format": 3,
-  "x-identifier-field-ids": [],
+  "x-identifier-field-ids": [
+    1
+  ],
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

@@ -5,13 +5,10 @@
   "properties": {
     "BASINID": {
       "description": "A unique AEMO defined Facility Identifier",
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 1,
       "x-header": "BasinId",
-      "x-iceberg-type": "decimal(5, 0)",
+      "x-iceberg-type": "long",
       "x-model-type": "NUMBER(20,0)"
     },
     "BASINNAME": {
@@ -26,14 +23,16 @@
       "x-model-type": "VARCHAR2(100)"
     }
   },
-  "required": [],
+  "required": [
+    "BASINID"
+  ],
   "title": "GBB_BASINS, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "BASINID",
-      "decimal(5, 0)"
+      "long"
     ],
     [
       2,
@@ -42,7 +41,9 @@
     ]
   ],
   "x-format": 3,
-  "x-identifier-field-ids": [],
+  "x-identifier-field-ids": [
+    1
+  ],
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

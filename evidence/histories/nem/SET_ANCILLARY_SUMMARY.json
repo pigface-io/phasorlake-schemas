@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 6373,
+      "files": 5799,
       "from": {
         "data-time": "2008-11-30T00:00:00+10:00",
         "file": "PUBLIC_DVD_SET_ANCILLARY_SUMMARY_200907010000.zip",
@@ -17,15 +17,14 @@
       "kinds": [
         "archive",
         "dvd",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "SETTLEMENTS",
         "ANCILLARY_SUMMARY"
       ],
-      "rows": 81468192,
+      "rows": 74875584,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-23T00:00:00+10:00",

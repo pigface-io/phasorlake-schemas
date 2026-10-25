@@ -5,13 +5,10 @@
   "properties": {
     "FACILITYID": {
       "description": "Unique Facility Identifier",
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 3,
       "x-header": "FacilityId",
-      "x-iceberg-type": "decimal(6, 0)",
+      "x-iceberg-type": "long",
       "x-model-type": "NUMBER(10,0)"
     },
     "FACILITYNAME": {
@@ -99,12 +96,12 @@
     },
     "OPERATORID": {
       "type": [
-        "number",
+        "integer",
         "null"
       ],
       "x-field-id": 9,
       "x-header": "OperatorId",
-      "x-iceberg-type": "decimal(3, 0)"
+      "x-iceberg-type": "long"
     },
     "OPERATORNAME": {
       "type": [
@@ -116,7 +113,9 @@
       "x-iceberg-type": "string"
     }
   },
-  "required": [],
+  "required": [
+    "FACILITYID"
+  ],
   "title": "GBB_FACILITIES, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -133,7 +132,7 @@
     [
       3,
       "FACILITYID",
-      "decimal(6, 0)"
+      "long"
     ],
     [
       4,
@@ -163,7 +162,7 @@
     [
       9,
       "OPERATORID",
-      "decimal(3, 0)"
+      "long"
     ],
     [
       10,
@@ -177,7 +176,9 @@
     ]
   ],
   "x-format": 3,
-  "x-identifier-field-ids": [],
+  "x-identifier-field-ids": [
+    3
+  ],
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

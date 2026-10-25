@@ -24,7 +24,7 @@
         "sha256": "d5415103cd7d9a95d14e8148c0635edff94e90f4dcf387494ceaa5c8b195a5e2"
       },
       "kinds": [
-        "gbb/current"
+        "gbb"
       ],
       "overlaps": false,
       "report": [
@@ -55,14 +55,14 @@
         {
           "id": 2,
           "name": "FIELDINTERESTID",
-          "required": false,
-          "type": "decimal(6, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 3,
           "name": "COMPANYID",
-          "required": false,
-          "type": "decimal(3, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 4,
@@ -89,7 +89,10 @@
           "type": "date"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        2,
+        3
+      ],
       "schema-id": 0,
       "type": "struct"
     }

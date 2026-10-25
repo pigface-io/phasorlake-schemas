@@ -16,7 +16,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -38,7 +38,7 @@
       "changes": [
         "schema"
       ],
-      "files": 47377,
+      "files": 46918,
       "from": {
         "data-time": "2026-05-14T10:55:00+10:00",
         "file": "PUBLIC_FPP_RUN_20260514.zip",
@@ -47,15 +47,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "FPP",
         "FPP_RCR"
       ],
-      "rows": 2228505,
+      "rows": 2226669,
       "schema-id": 1,
       "to": {
         "data-time": "2026-10-24T11:35:00+10:00",

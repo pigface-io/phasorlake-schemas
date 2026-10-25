@@ -24,13 +24,10 @@
       "x-iceberg-type": "timestamptz"
     },
     "LINEPACK_ZONE_ID": {
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 1,
       "x-header": "linepack_zone_id",
-      "x-iceberg-type": "decimal(2, 0)"
+      "x-iceberg-type": "long"
     },
     "LINEPACK_ZONE_NAME": {
       "type": [
@@ -42,14 +39,16 @@
       "x-iceberg-type": "string"
     }
   },
-  "required": [],
+  "required": [
+    "LINEPACK_ZONE_ID"
+  ],
   "title": "DWGM_INT257_LINEPACK_WITH_ZONES, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "LINEPACK_ZONE_ID",
-      "decimal(2, 0)"
+      "long"
     ],
     [
       2,
@@ -68,7 +67,9 @@
     ]
   ],
   "x-format": 3,
-  "x-identifier-field-ids": [],
+  "x-identifier-field-ids": [
+    1
+  ],
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

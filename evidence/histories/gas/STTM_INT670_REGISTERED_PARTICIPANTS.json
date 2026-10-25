@@ -30,7 +30,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 38,
       "from": {
         "data-time": "2026-08-31T00:00:00+10:00",
         "file": "Day31.zip",
@@ -38,20 +38,20 @@
         "sha256": "ae9eda135c5f3c28548b31911da9dcc65c767009ef5b7d16ceee4cce2755509e"
       },
       "kinds": [
-        "sttm/current"
+        "sttm"
       ],
       "overlaps": false,
       "report": [
         "STTM",
         "INT670_REGISTERED_PARTICIPANTS_RPT_1"
       ],
-      "rows": 7992,
+      "rows": 8932,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "int670_v1_registered_participants_rpt_1.csv@20261021T191600+1000",
+        "data-time": "2026-10-24T00:00:00+10:00",
+        "file": "int670_v1_registered_participants_rpt_1.csv@20261024T113100+1000",
         "release": "2026-10",
-        "sha256": "93376258074fbb495cc109664e7442f7d50d1ace27b6b12d9946630be0f40b82"
+        "sha256": "6fff8b1e7fc30739e63132fb1994f0cd89e360eeb963d1f944088befa44bc8bb"
       },
       "updates": [],
       "version": 1
@@ -69,7 +69,7 @@
         {
           "id": 2,
           "name": "HUB_IDENTIFIER",
-          "required": false,
+          "required": true,
           "type": "string"
         },
         {
@@ -81,8 +81,8 @@
         {
           "id": 4,
           "name": "COMPANY_IDENTIFIER",
-          "required": false,
-          "type": "decimal(3, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 5,
@@ -187,7 +187,10 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        2,
+        4
+      ],
       "schema-id": 0,
       "type": "struct"
     }

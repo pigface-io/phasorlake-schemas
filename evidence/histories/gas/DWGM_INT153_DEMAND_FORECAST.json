@@ -15,7 +15,7 @@
       "changes": [
         "first"
       ],
-      "files": 308,
+      "files": 327,
       "from": {
         "data-time": "2026-08-31T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -23,20 +23,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT153_DEMAND_FORECAST_RPT_1"
       ],
-      "rows": 6848,
+      "rows": 7788,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-23T00:00:00+10:00",
-        "file": "int153_v4_demand_forecast_rpt_1.csv@20261021T221100+1000",
+        "data-time": "2026-10-26T00:00:00+10:00",
+        "file": "int153_v4_demand_forecast_rpt_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "e424ab414c245e7e106f970a4a8db9ce5b2b1735e90ceef09031389774244c55"
+        "sha256": "9bd07b5d8a2d1b88dafb9d4dc5f8bd6bf07d8e831f602a2d8d86e237fa4d76dd"
       },
       "updates": [],
       "version": 4

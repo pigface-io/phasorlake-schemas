@@ -5,13 +5,10 @@
   "properties": {
     "CONNECTIONPOINTID": {
       "description": "Unique connection point identifier.",
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 5,
       "x-header": "ConnectionPointId",
-      "x-iceberg-type": "decimal(7, 0)",
+      "x-iceberg-type": "long",
       "x-model-type": "NUMBER(10,0)"
     },
     "CONNECTIONPOINTNAME": {
@@ -36,13 +33,10 @@
     },
     "FACILITYID": {
       "description": "Unique Facility Identifier",
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 3,
       "x-header": "FacilityId",
-      "x-iceberg-type": "decimal(6, 0)",
+      "x-iceberg-type": "long",
       "x-model-type": "NUMBER(10,0)"
     },
     "FACILITYNAME": {
@@ -76,13 +70,10 @@
     },
     "NODEID": {
       "description": "Unique Node Identifier",
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 4,
       "x-header": "NodeId",
-      "x-iceberg-type": "decimal(5, 0)",
+      "x-iceberg-type": "long",
       "x-model-type": "NUMBER(10,0)"
     },
     "STATE": {
@@ -95,7 +86,11 @@
       "x-iceberg-type": "string"
     }
   },
-  "required": [],
+  "required": [
+    "FACILITYID",
+    "NODEID",
+    "CONNECTIONPOINTID"
+  ],
   "title": "GBB_DEMAND_ZONES_PIPELINE_CONNECTION_POINT_MAPPING, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -112,17 +107,17 @@
     [
       3,
       "FACILITYID",
-      "decimal(6, 0)"
+      "long"
     ],
     [
       4,
       "NODEID",
-      "decimal(5, 0)"
+      "long"
     ],
     [
       5,
       "CONNECTIONPOINTID",
-      "decimal(7, 0)"
+      "long"
     ],
     [
       6,
@@ -146,7 +141,11 @@
     ]
   ],
   "x-format": 3,
-  "x-identifier-field-ids": [],
+  "x-identifier-field-ids": [
+    3,
+    4,
+    5
+  ],
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

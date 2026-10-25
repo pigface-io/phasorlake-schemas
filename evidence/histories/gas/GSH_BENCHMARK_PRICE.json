@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 529,
+      "files": 464,
       "from": {
         "data-time": "2014-03-19T00:00:00+10:00",
         "file": "PUBLIC_WALLUMBILLABENCHMARKPRICE_20251001.zip",
@@ -15,21 +15,20 @@
         "sha256": "e1bdb8b5d5413d7dcc33648935767c868d87556dc08db35ed3b4643b4cb32352"
       },
       "kinds": [
-        "gsh/archive",
-        "gsh/current"
+        "gsh"
       ],
       "overlaps": false,
       "report": [
         "GSH",
         "BENCHMARK_PRICE"
       ],
-      "rows": 34341,
+      "rows": 17608,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-22T00:00:00+10:00",
-        "file": "PUBLIC_WALLUMBILLABENCHMARKPRICE_20261021_0000000544105083.zip",
+        "data-time": "2026-10-25T00:00:00+10:00",
+        "file": "PUBLIC_WALLUMBILLABENCHMARKPRICE_20261024.zip",
         "release": "2026-10",
-        "sha256": "46629870be572f8fbc9d6d7a3c4578020f2a6ceb099781b4118f2e26dc835d58"
+        "sha256": "47d4d3a9bddc526ade3f541c9521b6ed00300e5f4732b48086550c3b4e355cfe"
       },
       "updates": [],
       "version": 1

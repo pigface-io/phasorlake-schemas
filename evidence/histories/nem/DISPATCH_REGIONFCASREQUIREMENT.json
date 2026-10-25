@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 7584,
+      "files": 7553,
       "from": {
         "data-time": "2025-09-01T04:05:00+10:00",
         "file": "PUBLIC_DAILY_20250901.zip",
@@ -15,15 +15,14 @@
         "sha256": "f32a1de67b3dde4bb2090f93af680c207ab9f9cc02e8f7be41591cc604412af0"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "REGIONFCASREQUIREMENT"
       ],
-      "rows": 97151811,
+      "rows": 94696123,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T11:20:00+10:00",

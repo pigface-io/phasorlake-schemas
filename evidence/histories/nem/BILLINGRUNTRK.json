@@ -17,8 +17,7 @@
       "kinds": [
         "archive",
         "dvd",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -85,7 +84,7 @@
         "sha256": "b2a4e97d27e9bcfa9967773ee21df225bed66534ccaed72f6a83863530c97bcd"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -157,7 +156,7 @@
         "sha256": "bdff7ff2bc5b77cede6468158b7950178506723e0b638a77628eda01eafc3cba"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -229,7 +228,7 @@
         "sha256": "9d10038c75bace951c5e89af35aecccf6acd67ecb4039fb5fcf5bd4ab2c6de2d"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -301,7 +300,7 @@
         "sha256": "3c5a02f55ec4e994adab91ec4c4dcda2ac69ef8fc923b7bfce1bdf2344d54ed3"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [

@@ -15,7 +15,7 @@
       "changes": [
         "first"
       ],
-      "files": 34,
+      "files": 37,
       "from": {
         "data-time": "2024-05-01T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -23,7 +23,7 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
@@ -34,9 +34,9 @@
       "schema-id": 0,
       "to": {
         "data-time": "2024-05-01T00:00:00+10:00",
-        "file": "int188_v4_ctm_to_hv_zone_mapping_1.csv@20261021T191100+1000",
+        "file": "int188_v4_ctm_to_hv_zone_mapping_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "fe1b5b5d54cf241d66f661d4dd83333260ed0b5ee4b73ee50e80b34697d304e2"
+        "sha256": "2ea6a6917db00a2cba2bb1b25439144f1eefb0b56da0bf781c617d841ac7a09d"
       },
       "updates": [],
       "version": 4

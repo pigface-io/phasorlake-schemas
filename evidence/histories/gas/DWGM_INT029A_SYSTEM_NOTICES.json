@@ -17,7 +17,7 @@
       "changes": [
         "first"
       ],
-      "files": 92,
+      "files": 98,
       "from": {
         "data-time": "2026-07-27T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -25,20 +25,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT029A_SYSTEM_NOTICES_1"
       ],
-      "rows": 88,
+      "rows": 106,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "int029a_v4_system_notices_1.csv@20261021T191100+1000",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int029a_v4_system_notices_1.csv@20261024T113400+1000",
         "release": "2026-10",
-        "sha256": "a34c4e94842caa74d8b8a27a6b93d90ba8898e6eb606bb2373ab808d884c403c"
+        "sha256": "04c1b3db11b0c87007dfcc36e0667403d7c619183dca8529243269fca2646a70"
       },
       "updates": [],
       "version": 4
@@ -50,8 +50,8 @@
         {
           "id": 1,
           "name": "SYSTEM_WIDE_NOTICE_ID",
-          "required": false,
-          "type": "decimal(5, 0)"
+          "required": true,
+          "type": "long"
         },
         {
           "id": 2,
@@ -96,7 +96,9 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [],
+      "identifier-field-ids": [
+        1
+      ],
       "schema-id": 0,
       "type": "struct"
     }

@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 462,
+      "files": 388,
       "from": {
         "data-time": "2025-09-02T00:00:00+10:00",
         "file": "PUBLIC_HISTORICALTRANSACTIONSUMMARY_20251001.zip",
@@ -15,21 +15,20 @@
         "sha256": "4c30fb186c7c767a557fe07b13738e46c2ceb407118422e5bad4e933add9a2a8"
       },
       "kinds": [
-        "gsh/archive",
-        "gsh/current"
+        "gsh"
       ],
       "overlaps": false,
       "report": [
         "GSH",
         "HISTORICAL_SUMMARY"
       ],
-      "rows": 166320,
+      "rows": 139680,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-21T00:00:00+10:00",
-        "file": "PUBLIC_HISTORICALTRANSACTIONSUMMARY_20261021_0000000544105654.zip",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "PUBLIC_HISTORICALTRANSACTIONSUMMARY_20261023_0000000544475248.zip",
         "release": "2026-10",
-        "sha256": "0bd7f832e18b123bbc142ee0022b7772dae18de8a4f7072c49497401066222b4"
+        "sha256": "2002a03f927e3b4417b1d60d36d6dddd8081ee617fd25089503c565d8d2297a0"
       },
       "updates": [],
       "version": 1

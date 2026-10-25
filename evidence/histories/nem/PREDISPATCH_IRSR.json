@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 18991,
+      "files": 18793,
       "from": {
         "data-time": null,
         "file": "PUBLIC_PREDISPATCH_IRSR_20250928_20251004.zip",
@@ -15,15 +15,14 @@
         "sha256": "6c71a6c575ee42eaa5fceab6d3b728d50b76c04e2f20b71c8bc22409f0112fe2"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "PREDISPATCH",
         "IRSR"
       ],
-      "rows": 12795374,
+      "rows": 12641192,
       "schema-id": 0,
       "to": {
         "data-time": null,

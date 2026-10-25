@@ -33,22 +33,16 @@
       "x-iceberg-type": "decimal(3, 0)"
     },
     "PIPELINE_ID": {
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 1,
       "x-header": "pipeline_id",
-      "x-iceberg-type": "decimal(1, 0)"
+      "x-iceberg-type": "long"
     },
     "POINT_GROUP_IDENTIFIER_ID": {
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 2,
       "x-header": "point_group_identifier_id",
-      "x-iceberg-type": "decimal(2, 0)"
+      "x-iceberg-type": "long"
     },
     "POINT_GROUP_IDENTIFIER_NAME": {
       "type": [
@@ -60,19 +54,22 @@
       "x-iceberg-type": "string"
     }
   },
-  "required": [],
+  "required": [
+    "PIPELINE_ID",
+    "POINT_GROUP_IDENTIFIER_ID"
+  ],
   "title": "DWGM_INT258_MCE_NODES, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "PIPELINE_ID",
-      "decimal(1, 0)"
+      "long"
     ],
     [
       2,
       "POINT_GROUP_IDENTIFIER_ID",
-      "decimal(2, 0)"
+      "long"
     ],
     [
       3,
@@ -96,7 +93,10 @@
     ]
   ],
   "x-format": 3,
-  "x-identifier-field-ids": [],
+  "x-identifier-field-ids": [
+    1,
+    2
+  ],
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

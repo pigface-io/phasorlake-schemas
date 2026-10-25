@@ -84,7 +84,7 @@
         "sha256": "f6c28e565336758323af82881359a0de2f196f3ee14a6f355b68edd226693630"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -154,7 +154,7 @@
         "sha256": "080775be383ef235adc9dcecf053b9c8e5d277284a4ae48abb9a2d01b0bbc118"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -224,7 +224,7 @@
         "sha256": "903eb791b497226df74884296c949241b81be06a83af6f14c7fcab25aa58ba33"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -294,7 +294,7 @@
         "sha256": "f2fdb2ce57d5473e0251344bb73c077640b376b8dd3e31cca29d0563678940c4"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -364,7 +364,7 @@
         "sha256": "89a90d36defa6e1e8d97e10ef4f6f4f8c12b99113e463364dc13e981fe85ff68"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -434,7 +434,7 @@
         "sha256": "f3fb06ba9b8178d79fe1d9c5b07f4bf26d7b47ea33df9cf3c8137dd068cad8f2"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -504,7 +504,7 @@
         "sha256": "85c3a8f5dab12275eaa3f18c45a3bacdd0494723811e470808eb701e870ac3b7"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -574,7 +574,7 @@
         "sha256": "8bd7879cfd8a75c07295d2adbcb7787d8c4e807d944adfd7b4f154453cc6476d"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -609,7 +609,7 @@
         "sha256": "296a25fbca2d1d67c399b200008da4e9242b89d083e671a173801df041e6402a"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -679,8 +679,7 @@
         "sha256": "a62f2e701432ebcbced60551ebe22f57501c45973af5b8627580d96d08c94c2c"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -750,7 +749,7 @@
         "sha256": "a352b3fae75051c8cb4a2b68db1116667e19000aeee021085a4a8e0b999ce2fb"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -820,7 +819,7 @@
         "sha256": "e34f3154544639c62273a5fb2b0ce954262672ef9b91086b525335df26d430ff"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -890,7 +889,7 @@
         "sha256": "592ac4936a9cdd55733f69f6ee102efe8b1b2eeafa45d6d68e4bf37e5db4b78f"
       },
       "kinds": [
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -952,7 +951,7 @@
       "changes": [
         "schema"
       ],
-      "files": 7180,
+      "files": 6721,
       "from": {
         "data-time": "2026-10-01T00:00:00+10:00",
         "file": "PUBLIC_FPP_RATES_20260930.zip",
@@ -960,15 +959,14 @@
         "sha256": "20e1f56d6fa6e519adcba826ed7ed194738d9c77d99355bd40bf298ba53009d8"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "FPP",
         "FCAS_SUMMARY"
       ],
-      "rows": 28217,
+      "rows": 26381,
       "schema-id": 3,
       "to": {
         "data-time": "2026-10-24T11:35:00+10:00",

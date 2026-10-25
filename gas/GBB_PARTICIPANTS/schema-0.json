@@ -48,13 +48,10 @@
     },
     "COMPANYID": {
       "description": "Unique company identifier",
-      "type": [
-        "number",
-        "null"
-      ],
+      "type": "integer",
       "x-field-id": 1,
       "x-header": "CompanyId",
-      "x-iceberg-type": "decimal(3, 0)",
+      "x-iceberg-type": "long",
       "x-model-type": "Number(10,0)"
     },
     "COMPANYNAME": {
@@ -132,14 +129,16 @@
       "x-iceberg-type": "string"
     }
   },
-  "required": [],
+  "required": [
+    "COMPANYID"
+  ],
   "title": "GBB_PARTICIPANTS, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "COMPANYID",
-      "decimal(3, 0)"
+      "long"
     ],
     [
       2,
@@ -198,7 +197,9 @@
     ]
   ],
   "x-format": 3,
-  "x-identifier-field-ids": [],
+  "x-identifier-field-ids": [
+    1
+  ],
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

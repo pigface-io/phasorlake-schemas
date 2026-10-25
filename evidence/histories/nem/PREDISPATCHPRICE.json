@@ -16,7 +16,7 @@
       },
       "kinds": [
         "dvd",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -86,7 +86,7 @@
         "schema",
         "version"
       ],
-      "files": 19038,
+      "files": 18839,
       "from": {
         "data-time": "2024-08-01T04:30:00+10:00",
         "file": "PUBLIC_ARCHIVE#PREDISPATCHPRICE#FILE01#202408010000.zip",
@@ -96,15 +96,14 @@
       "kinds": [
         "archive",
         "archive#all",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "PREDISPATCH",
         "REGION_PRICES"
       ],
-      "rows": 15992675,
+      "rows": 15937295,
       "schema-id": 2,
       "to": {
         "data-time": "2026-10-25T04:00:00+10:00",

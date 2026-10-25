@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 429,
+      "files": 418,
       "from": {
         "data-time": "2025-09-01T00:00:00+10:00",
         "file": "PUBLIC_HISTDEMAND_20250901.zip",
@@ -15,15 +15,14 @@
         "sha256": "486404e62f45bb9b1ea2974fbc92d6c686a6be167a154bcf19aa3f07714883c5"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "DEMAND",
         "HISTORIC"
       ],
-      "rows": 102960,
+      "rows": 100320,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-23T00:00:00+10:00",

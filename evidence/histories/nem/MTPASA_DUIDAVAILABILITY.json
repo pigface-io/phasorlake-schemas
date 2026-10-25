@@ -15,7 +15,7 @@
         "sha256": "5f52e454139734a50d533dffc3d4c592f6956be524460ab161a4e5571f7a7683"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -46,7 +46,7 @@
         "sha256": "0c55af36f305ff8354511e32685dfab2a1787efc54efbd805fd72ec48820b640"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -82,7 +82,7 @@
         "sha256": "81e5dfe03d6e95683e903176e7810b07e67bc60e5e475a4d9ff628e8d81d095e"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -160,7 +160,7 @@
         "sha256": "00c9bc39a3ab1a11dabdf88d1fed5f742a0d2ab63769ba9914732b89684791b0"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -238,7 +238,7 @@
         "sha256": "c7be255b4c4f470283accd8cb78f335f17bfd41d25837125ae916678da0596e8"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -316,7 +316,7 @@
         "sha256": "234d469d7bbd4879a8af65d8ccb791c3e43fe4d68c7c39e90e0e5e437086c149"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -394,7 +394,7 @@
         "sha256": "e13663a6c0e8b39ab0f151cd6d0f01cef4a1eac465954f5d1271db69e1328683"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -472,7 +472,7 @@
         "sha256": "f54f10249eb908deb13a082541ef810a33335aeeba1ea91eeb340d4b4eaff62c"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -550,7 +550,7 @@
         "sha256": "0fdabced850292274836c89d148cd8316383665c4574bcdc9d6839e3a9d4cbc5"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -628,7 +628,7 @@
         "sha256": "9e90baf25000e2d1e427420d2c5a41751c91a92ef5450396aeec3336433bbb3e"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -706,7 +706,7 @@
         "sha256": "52a86db79feb70eb757bf3f4570992d7abd92613a9a6cda6e52dd1bc4a840eed"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -784,7 +784,7 @@
         "sha256": "56dce4158f381197bbb8b79592da6ee0c03098e64c4ef7e144a636902aedb700"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -862,7 +862,7 @@
         "sha256": "b20ec888fc92a5df3cbbbf1db07376c30df98c133225fef91c3bf9f335dad181"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -940,7 +940,7 @@
         "sha256": "091159bb2760089e1f74d984b2fa2166ea8ba768b6cd4b4050bc56297f9076e2"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -1018,7 +1018,7 @@
         "sha256": "eb4b24bb9879e9b72b0a20cced2ef7b4877a9c862ae0d9cdbdd015900067de6f"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -1096,7 +1096,7 @@
         "sha256": "f00006c0fc7a1270b21e43d68056fb9ba1cd78a2cf8cbb2c404bf86516d76237"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
@@ -1166,7 +1166,7 @@
       "changes": [
         "schema"
       ],
-      "files": 210,
+      "files": 105,
       "from": {
         "data-time": "2025-09-07T00:00:00+10:00",
         "file": "PUBLIC_MTPASADUIDAVAILABILITY_20250901.zip",
@@ -1174,21 +1174,20 @@
         "sha256": "9b0a018a718508a15d5c1ecd5cd3ac268b4dfdbb09ad1001311edba0cc1c5416"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "MTPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 49718384,
+      "rows": 24859192,
       "schema-id": 2,
       "to": {
         "data-time": "2028-10-01T00:00:00+10:00",
-        "file": "PUBLIC_MTPASADUIDAVAILABILITY_202509301800_0000000482867153.zip",
+        "file": "PUBLIC_MTPASADUIDAVAILABILITY_20250901.zip",
         "release": "2025-09",
-        "sha256": "8b43abacdd96b89914cab386154c8c1f19cb5bb7095213518ccbbc5d059ce6d6"
+        "sha256": "9b0a018a718508a15d5c1ecd5cd3ac268b4dfdbb09ad1001311edba0cc1c5416"
       },
       "updates": [
         {
@@ -1245,7 +1244,7 @@
       "changes": [
         "schema"
       ],
-      "files": 224,
+      "files": 112,
       "from": {
         "data-time": "2025-10-05T00:00:00+10:00",
         "file": "PUBLIC_MTPASADUIDAVAILABILITY_20251001.zip",
@@ -1253,21 +1252,20 @@
         "sha256": "140c7f6e3921a09036af0eb2df44350a1cc900284ea901e3f93bb22c59f186a9"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "MTPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 53808390,
+      "rows": 26904195,
       "schema-id": 2,
       "to": {
         "data-time": "2028-10-29T00:00:00+10:00",
-        "file": "PUBLIC_MTPASADUIDAVAILABILITY_202510311800_0000000487295168.zip",
+        "file": "PUBLIC_MTPASADUIDAVAILABILITY_20251001.zip",
         "release": "2025-10",
-        "sha256": "9a445e90e9f05d212532e2bde535e2887016f9e4d94cc0b0c05a45680e6f7e9b"
+        "sha256": "140c7f6e3921a09036af0eb2df44350a1cc900284ea901e3f93bb22c59f186a9"
       },
       "updates": [
         {
@@ -1324,7 +1322,7 @@
       "changes": [
         "schema"
       ],
-      "files": 202,
+      "files": 101,
       "from": {
         "data-time": "2025-11-02T00:00:00+10:00",
         "file": "PUBLIC_MTPASADUIDAVAILABILITY_20251101.zip",
@@ -1332,21 +1330,20 @@
         "sha256": "9ee471c8f3cb371fd991e2bc16e0437ce77f053135968c640e412337f3343205"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "MTPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 49202488,
+      "rows": 24601244,
       "schema-id": 2,
       "to": {
         "data-time": "2028-11-26T00:00:00+10:00",
-        "file": "PUBLIC_MTPASADUIDAVAILABILITY_202511291800_0000000491611047.zip",
+        "file": "PUBLIC_MTPASADUIDAVAILABILITY_20251101.zip",
         "release": "2025-11",
-        "sha256": "2b393cc299ab0cb73490435cc364fda211adb18f259a841d82d3ecec1cd34329"
+        "sha256": "9ee471c8f3cb371fd991e2bc16e0437ce77f053135968c640e412337f3343205"
       },
       "updates": [
         {
@@ -1403,7 +1400,7 @@
       "changes": [
         "schema"
       ],
-      "files": 222,
+      "files": 111,
       "from": {
         "data-time": "2025-12-07T00:00:00+10:00",
         "file": "PUBLIC_MTPASADUIDAVAILABILITY_20251201.zip",
@@ -1411,21 +1408,20 @@
         "sha256": "7ab058afaeda9c5aa339088d587f3c808a143c96ccd67f211da670aed2fab316"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "MTPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 54453260,
+      "rows": 27226630,
       "schema-id": 2,
       "to": {
         "data-time": "2028-12-31T00:00:00+10:00",
-        "file": "PUBLIC_MTPASADUIDAVAILABILITY_202512311800_0000000496592821.zip",
+        "file": "PUBLIC_MTPASADUIDAVAILABILITY_20251201.zip",
         "release": "2025-12",
-        "sha256": "acca1e1c9c28286143792d3e92c600fba82c6dbd8e1eb370fb7c72224c38d113"
+        "sha256": "7ab058afaeda9c5aa339088d587f3c808a143c96ccd67f211da670aed2fab316"
       },
       "updates": [
         {
@@ -1482,7 +1478,7 @@
       "changes": [
         "schema"
       ],
-      "files": 220,
+      "files": 110,
       "from": {
         "data-time": "2026-01-04T00:00:00+10:00",
         "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260101.zip",
@@ -1490,21 +1486,20 @@
         "sha256": "c07dbedfb328483243b6fbe322d3f5048b11f0e63e6d57d38d28ab0ed2f3a2cb"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "MTPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 54103500,
+      "rows": 27051750,
       "schema-id": 2,
       "to": {
         "data-time": "2029-01-28T00:00:00+10:00",
-        "file": "PUBLIC_MTPASADUIDAVAILABILITY_202601311800_0000000501321552.zip",
+        "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260101.zip",
         "release": "2026-01",
-        "sha256": "45d61348cf88049c95e3e7425c60ead0560ad104a114a13104d7126660fd43e6"
+        "sha256": "c07dbedfb328483243b6fbe322d3f5048b11f0e63e6d57d38d28ab0ed2f3a2cb"
       },
       "updates": [
         {
@@ -1561,7 +1556,7 @@
       "changes": [
         "schema"
       ],
-      "files": 195,
+      "files": 98,
       "from": {
         "data-time": "2026-02-08T00:00:00+10:00",
         "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260201.zip",
@@ -1569,21 +1564,20 @@
         "sha256": "a54568ab2dbf39bd849340cb6c562fed49dec78647f2a3bd0c0c3c217f036d56"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "MTPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 48262508,
+      "rows": 24254763,
       "schema-id": 2,
       "to": {
         "data-time": "2029-02-25T00:00:00+10:00",
-        "file": "PUBLIC_MTPASADUIDAVAILABILITY_202602281800_0000000505604846.zip",
+        "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260201.zip",
         "release": "2026-02",
-        "sha256": "fdd0811abc6fa263fb623340d94159660a5634768c263697ae061b74e09497ad"
+        "sha256": "a54568ab2dbf39bd849340cb6c562fed49dec78647f2a3bd0c0c3c217f036d56"
       },
       "updates": [
         {
@@ -1640,7 +1634,7 @@
       "changes": [
         "schema"
       ],
-      "files": 216,
+      "files": 108,
       "from": {
         "data-time": "2026-03-08T00:00:00+10:00",
         "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260301.zip",
@@ -1648,21 +1642,20 @@
         "sha256": "1bcae1f2ee3081d14829e5cd4ea3f80dbb6c8525e910d8a7d3702c62f1e3ab1a"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "MTPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 54129732,
+      "rows": 27064866,
       "schema-id": 2,
       "to": {
         "data-time": "2029-04-01T00:00:00+10:00",
-        "file": "PUBLIC_MTPASADUIDAVAILABILITY_202603311800_0000000510650216.zip",
+        "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260301.zip",
         "release": "2026-03",
-        "sha256": "23235b1b7195c381bb7b12ae0a3fdc90e9ca635e1b06d95f3d1a9d8ff4432949"
+        "sha256": "1bcae1f2ee3081d14829e5cd4ea3f80dbb6c8525e910d8a7d3702c62f1e3ab1a"
       },
       "updates": [
         {
@@ -1719,7 +1712,7 @@
       "changes": [
         "schema"
       ],
-      "files": 222,
+      "files": 111,
       "from": {
         "data-time": "2026-04-05T00:00:00+10:00",
         "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260401.zip",
@@ -1727,21 +1720,20 @@
         "sha256": "90142154a8de83b5c25889b722d062063d01b619e962930e0bab2daa2b255c76"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "MTPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 56554006,
+      "rows": 28277003,
       "schema-id": 2,
       "to": {
         "data-time": "2029-04-29T00:00:00+10:00",
-        "file": "PUBLIC_MTPASADUIDAVAILABILITY_202604301800_0000000515502882.zip",
+        "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260401.zip",
         "release": "2026-04",
-        "sha256": "a582403f451b95a8bdcefb0f3147eaf61571dca7ba65a1676bc2a423247fb001"
+        "sha256": "90142154a8de83b5c25889b722d062063d01b619e962930e0bab2daa2b255c76"
       },
       "updates": [
         {
@@ -1798,7 +1790,7 @@
       "changes": [
         "schema"
       ],
-      "files": 208,
+      "files": 104,
       "from": {
         "data-time": "2026-05-03T00:00:00+10:00",
         "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260501.zip",
@@ -1806,21 +1798,20 @@
         "sha256": "0d5f2194b394e98ba9b154b701ed50ad8f5a589c1b2582995baaf01c9d4efef3"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "MTPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 53198496,
+      "rows": 26599248,
       "schema-id": 2,
       "to": {
         "data-time": "2029-05-27T00:00:00+10:00",
-        "file": "PUBLIC_MTPASADUIDAVAILABILITY_202605301800_0000000520087070.zip",
+        "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260501.zip",
         "release": "2026-05",
-        "sha256": "92c4581a48a382e6937a81e5574ede7949eac0ce6983c13146c850e5bdb87356"
+        "sha256": "0d5f2194b394e98ba9b154b701ed50ad8f5a589c1b2582995baaf01c9d4efef3"
       },
       "updates": [
         {
@@ -1877,7 +1868,7 @@
       "changes": [
         "schema"
       ],
-      "files": 212,
+      "files": 106,
       "from": {
         "data-time": "2026-06-07T00:00:00+10:00",
         "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260601.zip",
@@ -1885,21 +1876,20 @@
         "sha256": "a52b27a00cb2548ffc46e83d146a2b22fdbd6fd563dba1d33770baf313f90fbf"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "MTPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 54553852,
+      "rows": 27276926,
       "schema-id": 2,
       "to": {
         "data-time": "2029-07-01T00:00:00+10:00",
-        "file": "PUBLIC_MTPASADUIDAVAILABILITY_202606301800_0000000525098488.zip",
+        "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260601.zip",
         "release": "2026-06",
-        "sha256": "c4b5b08d402863e1901cef20b6cbbc14f4cfd1d6e354ab17be45b11cd959c9fd"
+        "sha256": "a52b27a00cb2548ffc46e83d146a2b22fdbd6fd563dba1d33770baf313f90fbf"
       },
       "updates": [
         {
@@ -1956,7 +1946,7 @@
       "changes": [
         "schema"
       ],
-      "files": 224,
+      "files": 112,
       "from": {
         "data-time": "2026-07-05T00:00:00+10:00",
         "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260701.zip",
@@ -1964,21 +1954,20 @@
         "sha256": "9012dc84236aede574f7e1093d72a872d2b164a7bbe3995db6709418573b4531"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "MTPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 57262270,
+      "rows": 28631135,
       "schema-id": 2,
       "to": {
         "data-time": "2029-07-29T00:00:00+10:00",
-        "file": "PUBLIC_MTPASADUIDAVAILABILITY_202607311800_0000000530223364.zip",
+        "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260701.zip",
         "release": "2026-07",
-        "sha256": "587a197cf3357059d3d8b3ef546f127e08c72d5b850073758f0a9acc4b70064d"
+        "sha256": "9012dc84236aede574f7e1093d72a872d2b164a7bbe3995db6709418573b4531"
       },
       "updates": [
         {
@@ -2035,7 +2024,7 @@
       "changes": [
         "schema"
       ],
-      "files": 220,
+      "files": 110,
       "from": {
         "data-time": "2026-08-02T00:00:00+10:00",
         "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260801.zip",
@@ -2043,21 +2032,20 @@
         "sha256": "8851c7c50969c1bd530635a2a2e328460ea4d11ee83e95de32cb604215a01948"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [
         "MTPASA",
         "DUIDAVAILABILITY"
       ],
-      "rows": 56864418,
+      "rows": 28432209,
       "schema-id": 2,
       "to": {
         "data-time": "2029-09-02T00:00:00+10:00",
-        "file": "PUBLIC_MTPASADUIDAVAILABILITY_202608311800_0000000535395855.zip",
+        "file": "PUBLIC_MTPASADUIDAVAILABILITY_20260801.zip",
         "release": "2026-08",
-        "sha256": "73bbaa9b4b4c8af18fa7a4058c211918bc7aaddacde759bcc10176a5beb8df58"
+        "sha256": "8851c7c50969c1bd530635a2a2e328460ea4d11ee83e95de32cb604215a01948"
       },
       "updates": [
         {
@@ -2122,7 +2110,7 @@
         "sha256": "548de76445949d4f2e04c0ccd171b2e8ab64a8eaf7a7987c1805c7c18b62f04d"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": true,
       "report": [

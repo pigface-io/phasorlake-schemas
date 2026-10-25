@@ -38,7 +38,7 @@
       "changes": [
         "schema"
       ],
-      "files": 110310,
+      "files": 109845,
       "from": {
         "data-time": "2024-10-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#DISPATCH_UNIT_SCADA#FILE01#202410010000.zip",
@@ -47,15 +47,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "UNIT_SCADA"
       ],
-      "rows": 156841578,
+      "rows": 156601178,
       "schema-id": 1,
       "to": {
         "data-time": "2026-10-24T11:45:00+10:00",

@@ -31,14 +31,14 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT112B_NFTC_1"
       ],
-      "rows": 960,
+      "rows": 1152,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-02T00:00:00+10:00",
@@ -62,7 +62,7 @@
         "sha256": "578a160c10fcea6f90e4c83d1f8daccf61752d8df343ae5168fa513a90e15e42"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": true,
       "report": [
@@ -102,28 +102,28 @@
         "schema",
         "version"
       ],
-      "files": 185,
+      "files": 204,
       "from": {
-        "data-time": "2026-09-29T00:00:00+10:00",
-        "file": "CurrentDay.zip",
+        "data-time": "2026-10-19T00:00:00+10:00",
+        "file": "PublicRpts21.zip@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "d09196e8f849c4ebc0e465437c211d955f435f96ed792cf5f7cd6da3bf36fa31"
+        "sha256": "e584aa321a196e72679e83a5ac9471811c889a16c7cf63c20bbf80c16ce37a4e"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT112B_NFTC_1"
       ],
-      "rows": 1728,
+      "rows": 2208,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-23T00:00:00+10:00",
-        "file": "int112b_v5_nftc_1.csv@20261021T220900+1000",
+        "data-time": "2026-10-26T00:00:00+10:00",
+        "file": "int112b_v5_nftc_1.csv@20261024T113400+1000",
         "release": "2026-10",
-        "sha256": "83c1e5a4bdd83456d64bddd5cbc8393cfa54e5fc7861c4caad5989343e195b6a"
+        "sha256": "c58f46834d73a5ed827dec6bd81793fe0cd6f3f036195ecbd5b0fb8a56945030"
       },
       "updates": [
         {

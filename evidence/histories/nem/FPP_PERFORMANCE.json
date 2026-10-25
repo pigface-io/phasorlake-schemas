@@ -16,7 +16,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -38,7 +38,7 @@
       "changes": [
         "schema"
       ],
-      "files": 208,
+      "files": 168,
       "from": {
         "data-time": "2026-05-14T04:05:00+10:00",
         "file": "PUBLIC_NEXT_DAY_FPP_20260430.zip",
@@ -47,15 +47,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "FPP",
         "FPP_PERFORMANCE"
       ],
-      "rows": 248897073,
+      "rows": 243312657,
       "schema-id": 1,
       "to": {
         "data-time": "2026-10-24T04:00:00+10:00",

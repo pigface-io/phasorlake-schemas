@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 93716,
+      "files": 92897,
       "from": {
         "data-time": "2024-08-01T00:05:00+10:00",
         "file": "PUBLIC_ARCHIVE#DISPATCH_LOCAL_PRICE#FILE01#202408010000.zip",
@@ -16,15 +16,14 @@
       },
       "kinds": [
         "archive",
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "DISPATCH",
         "LOCAL_PRICE"
       ],
-      "rows": 15461205,
+      "rows": 15311636,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T11:45:00+10:00",

@@ -16,7 +16,7 @@
       },
       "kinds": [
         "archive",
-        "reports/archive"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -38,7 +38,7 @@
       "changes": [
         "schema"
       ],
-      "files": 421,
+      "files": 324,
       "from": {
         "data-time": "2026-05-14T04:05:00+10:00",
         "file": "PUBLIC_NEXT_DAY_FPPMW_20260510.zip",
@@ -46,15 +46,14 @@
         "sha256": "76c7241874988a15246af0f336c31f9699ddfc2a60a2644db2728f85f67819ae"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "FPP",
         "UNIT_MW"
       ],
-      "rows": 2188663800,
+      "rows": 1682641125,
       "schema-id": 1,
       "to": {
         "data-time": "2026-10-24T04:00:00+10:00",

@@ -15,7 +15,7 @@
       "changes": [
         "first"
       ],
-      "files": 5,
+      "files": 6,
       "from": {
         "data-time": "2025-08-01T00:00:00+10:00",
         "file": "PublicRpts26.zip",
@@ -23,20 +23,20 @@
         "sha256": "879200058ceb925d35eceb6b2b475b9e03c72989e40ffa59701be58e63f3d75c"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT316_OPERATIONAL_GAS_1"
       ],
-      "rows": 5107,
+      "rows": 5184,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-16T00:00:00+10:00",
-        "file": "int316_v4_operational_gas_1.csv",
+        "data-time": "2026-10-23T00:00:00+10:00",
+        "file": "int316_v4_operational_gas_1.csv@20261024T113600+1000",
         "release": "2026-10",
-        "sha256": "2e424f283bbd39826244fb1166bf943f4273247a89edaef66058830731731426"
+        "sha256": "682ee2a5ac0254a8831e80eed2f5dfe3296d6585d53099fdc2fca4870fc385a8"
       },
       "updates": [],
       "version": 4

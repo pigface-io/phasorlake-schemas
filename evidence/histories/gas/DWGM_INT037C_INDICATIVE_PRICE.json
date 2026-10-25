@@ -17,7 +17,7 @@
       "changes": [
         "first"
       ],
-      "files": 326,
+      "files": 347,
       "from": {
         "data-time": "2026-08-30T00:00:00+10:00",
         "file": "PublicRpts31.zip",
@@ -25,20 +25,20 @@
         "sha256": "735fad42989ef107a70ecdfc43f290c13afc957673461c78e4538d9ffcc9b0fe"
       },
       "kinds": [
-        "dwgm/current"
+        "dwgm"
       ],
       "overlaps": false,
       "report": [
         "DWGM",
         "INT037C_INDICATIVE_PRICE_1"
       ],
-      "rows": 329,
+      "rows": 370,
       "schema-id": 0,
       "to": {
-        "data-time": "2026-10-23T00:00:00+10:00",
-        "file": "int037c_v4_indicative_price_1.csv@20261021T220900+1000",
+        "data-time": "2026-10-26T00:00:00+10:00",
+        "file": "int037c_v4_indicative_price_1.csv@20261024T113400+1000",
         "release": "2026-10",
-        "sha256": "be53b960874b46f3cbed187a25e3f5a9994d1a5c38a8031afb15cca5e0141839"
+        "sha256": "879872ea09ed26ab400476d9928b545bcbd942930a7350d95229ba925c82573a"
       },
       "updates": [],
       "version": 4

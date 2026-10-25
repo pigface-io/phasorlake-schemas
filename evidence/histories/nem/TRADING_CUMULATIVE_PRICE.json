@@ -15,7 +15,7 @@
         "sha256": "6448f09c6366d9220713a0e817ffb4bb9a67b12eb1590bf9e5ecacf7deacd98a"
       },
       "kinds": [
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
@@ -38,7 +38,7 @@
         "schema",
         "version"
       ],
-      "files": 113886,
+      "files": 112728,
       "from": {
         "data-time": "2025-08-12T11:15:00+10:00",
         "file": "PUBLIC_TRADING_CUMULATIVE_PRICE_202508121115_0000000475994479.zip",
@@ -46,15 +46,14 @@
         "sha256": "1bd4a5eba875b9301eda8536f8caff71a6b56fedc140c9c58a8102c325a4655e"
       },
       "kinds": [
-        "reports/archive",
-        "reports/current"
+        "reports"
       ],
       "overlaps": false,
       "report": [
         "TRADING",
         "CUMULATIVE_PRICE"
       ],
-      "rows": 569430,
+      "rows": 563640,
       "schema-id": 1,
       "to": {
         "data-time": "2026-10-24T11:45:00+10:00",

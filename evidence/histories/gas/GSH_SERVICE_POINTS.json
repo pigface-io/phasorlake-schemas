@@ -7,7 +7,7 @@
       "changes": [
         "first"
       ],
-      "files": 20,
+      "files": 16,
       "from": {
         "data-time": "2018-11-01T00:00:00+10:00",
         "file": "PUBLIC_REGISTEREDSERVICEPOINTS_20251001.zip",
@@ -15,15 +15,14 @@
         "sha256": "590d20d9b40c26928f87cc4e6b50f3e29982ac1bc55b772be5a8adee77129fbe"
       },
       "kinds": [
-        "gsh/archive",
-        "gsh/current"
+        "gsh"
       ],
       "overlaps": false,
       "report": [
         "GSH",
         "SERVICE_POINTS"
       ],
-      "rows": 6386,
+      "rows": 5322,
       "schema-id": 0,
       "to": {
         "data-time": "2026-09-14T00:00:00+10:00",
