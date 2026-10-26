@@ -19,10 +19,10 @@ pub struct YearMonth {
 #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
 pub enum YearMonthError {
     /// The text is not of the form `YYYY-MM`.
-    #[error("{0:?} is not a month of the form YYYY-MM, such as 2024-01.")]
+    #[error("{0:?} is not a month of the form YYYY-MM, such as 2024-01")]
     Shape(String),
     /// The month number is outside 1..=12.
-    #[error("{0:?} has month {1}, which is not between 01 and 12.")]
+    #[error("{0:?} has month {1}, which is not between 01 and 12")]
     Month(String, u8),
 }
 
@@ -163,7 +163,7 @@ mod tests {
         );
         assert_eq!(
             "2024-1".parse::<YearMonth>().unwrap_err().to_string(),
-            "\"2024-1\" is not a month of the form YYYY-MM, such as 2024-01."
+            "\"2024-1\" is not a month of the form YYYY-MM, such as 2024-01"
         );
         assert_eq!(YearMonth::new(2024, 0), None);
     }

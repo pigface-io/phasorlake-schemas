@@ -1,7 +1,5 @@
 # Error messages not yet in the Rust style (utilake_gates::msg_style), one
 # exact message or path:line per line. It only shrinks; delete it when empty.
-{0:?} is not a month of the form YYYY-MM, such as 2024-01.
-{0:?} has month {1}, which is not between 01 and 12.
 The table has no schema {0}.
 Column {name} is {from} in schema {schema} and {to} in the target; Iceberg does not promote one to the other.
 The run beginning at {file} was released in {release:?}, which is not a month (YYYY-MM).
