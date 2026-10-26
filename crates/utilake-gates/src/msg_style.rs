@@ -227,10 +227,14 @@ pub fn run(root: &Path) -> Result<bool> {
         eprintln!("{ALLOW}: {e:?} allows nothing any more; remove it");
     }
     if open.is_empty() && stale.is_empty() {
-        println!(
-            "msg-style: every message in the Rust style but the {} {ALLOW} lists",
-            found.len()
-        );
+        if found.is_empty() {
+            println!("msg-style: every message in the Rust style");
+        } else {
+            println!(
+                "msg-style: every message in the Rust style but the {} {ALLOW} lists",
+                found.len()
+            );
+        }
         return Ok(true);
     }
     if !open.is_empty() {
