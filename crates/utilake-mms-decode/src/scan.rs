@@ -12,15 +12,7 @@ use crate::error::{RowError, RowFailure, ScanError};
 use crate::fields::{Row, Splitter};
 
 pub use crate::error::Pos;
-
-/// What to do after a bad row.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum Flow {
-    /// Keep scanning.
-    Continue,
-    /// Stop now.
-    Stop,
-}
+pub use utilake_decode::Flow;
 
 /// Receives the rows of one file.
 pub trait Sink {

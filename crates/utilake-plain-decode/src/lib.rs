@@ -35,4 +35,4 @@ pub use feeds::{Decoder, Dedupe, FEEDS, Feed, Release};
 pub use json::{JsonError, JsonStats};
 pub use names::{BlockName, column_name};
 pub use sniff::{Format, peek, sniff};
-pub use utilake_mms_decode::{Flow, Pos, Row};
+pub use utilake_decode::{Flow, Pos, Row};

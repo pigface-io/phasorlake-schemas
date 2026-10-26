@@ -6,6 +6,12 @@
 #                Pure: no I/O.
 #   utilake-schemas  the tool: fetches AEMO's files, takes their census, folds
 #                the census into each table's history, exports nem/.
+#   utilake-decode   what every decoder shares, whatever the format: a row's
+#                fields, its position, the month, a normalised name and a
+#                column list's fingerprint. Pure.
+#   utilake-mms-decode
+#                the MMS C/I/D row format: scanner, I rows, shape ids,
+#                archive file names. Pure.
 #   utilake-plain-decode
 #                plain CSV and WEMDE JSON as blocks of rows, dates in the one
 #                MMS form, and the names, release months and row-diff rules
@@ -23,6 +29,7 @@
 [workspace]
 resolver = "3"
 members = [
+    "crates/utilake-decode",
     "crates/utilake-gates",
     "crates/utilake-iceberg",
     "crates/utilake-mms-decode",
@@ -66,6 +73,7 @@ explicit_iter_loop = "deny"
 uninlined_format_args = "deny"
 
 [workspace.dependencies]
+utilake-decode = { path = "crates/utilake-decode" }
 utilake-gates = { path = "crates/utilake-gates" }
 utilake-iceberg = { path = "crates/utilake-iceberg" }
 utilake-mms-decode = { path = "crates/utilake-mms-decode" }

@@ -10,7 +10,7 @@
 //! `(report_type, report_subtype, version)`: the same three fields,
 //! persisted under the same names everywhere.
 
-use utilake_mms_decode::YearMonth;
+use utilake_decode::YearMonth;
 
 use crate::feeds::{Decoder, Feed};
 

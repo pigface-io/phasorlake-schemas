@@ -6,7 +6,7 @@
 //! walks a feed's roots in the mirror; the lake's sources list and claim
 //! the same roots. Both read this table, so the two agree on every file.
 
-use utilake_mms_decode::YearMonth;
+use utilake_decode::YearMonth;
 
 use crate::names::{name_month, stamp_month};
 

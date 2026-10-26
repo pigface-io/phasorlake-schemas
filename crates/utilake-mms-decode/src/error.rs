@@ -2,16 +2,7 @@
 //! is refused and the scan goes on; a sink's own refusals and failures are
 //! its own types, carried through here untouched.
 
-use std::fmt;
-
-/// Where in the file something happened.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
-pub struct Pos {
-    /// 1-based line.
-    pub line: u64,
-    /// 0-based byte offset of the line start.
-    pub byte_offset: u64,
-}
+pub use utilake_decode::{Never, Pos};
 
 /// What is wrong with a row: its structure, which the scanner sees, or
 /// its values, which the sink sees (`Q`, the sink's [`crate::Sink::Reject`]).
@@ -175,18 +166,6 @@ impl<Q, F> ScanError<Q, F> {
         }
     }
 }
-
-/// The refusal or failure of a sink that has none.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum Never {}
-
-impl fmt::Display for Never {
-    fn fmt(&self, _: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match *self {}
-    }
-}
-
-impl std::error::Error for Never {}
 
 #[cfg(test)]
 mod tests {

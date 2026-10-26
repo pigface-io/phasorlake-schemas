@@ -15,11 +15,13 @@
 //! ([`Sink::Reject`], [`Sink::Fatal`]): this crate knows no registry, no
 //! lake and no diagnostics.
 //!
-//! Beside the scanner: [`names`] normalises a column name and
-//! [`fingerprint`] identifies a column list; [`shape`] gives a block's
+//! Beside the scanner: [`shape`] gives a block's
 //! report pair and columns a content-addressed [`shape::ShapeId`], the one
 //! id every utilake repository gives it; [`filename`] reads a table and a
-//! [`month::YearMonth`] out of an archive file name.
+//! [`YearMonth`] out of an archive file name. The primitives every decoder
+//! shares (a row's fields, its position, the month, a normalised name and a
+//! column list's fingerprint) are [`utilake_decode`]'s, re-exported here at
+//! the paths they always had.
 
 /// Opens a zone of `zonetrace` until the end of the block, with the
 /// feature `zones`; nothing without it.
@@ -37,12 +39,11 @@ pub mod zones;
 pub mod error;
 pub mod fields;
 pub mod filename;
-pub mod fingerprint;
 pub mod irow;
-pub mod month;
-pub mod names;
 pub mod scan;
 pub mod shape;
+
+pub use utilake_decode::{fingerprint, month, names};
 
 pub use error::{Never, Pos, RowError, RowFailure, ScanError};
 pub use fields::{PREFIX_FIELDS, Row};

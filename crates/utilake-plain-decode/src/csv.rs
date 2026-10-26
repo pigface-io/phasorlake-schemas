@@ -12,8 +12,8 @@ use std::fmt;
 use std::io::{self, BufRead, BufReader, Read};
 
 use memchr::memchr_iter;
-use utilake_mms_decode::fields::Splitter;
-pub use utilake_mms_decode::{Flow, Pos, Row};
+use utilake_decode::fields::Splitter;
+pub use utilake_decode::{Flow, Pos, Row};
 
 use crate::dates;
 use crate::names::column_name;
@@ -461,7 +461,7 @@ fn read_record<R: BufRead>(
 #[cfg(test)]
 pub(crate) mod tests {
     use super::*;
-    use utilake_mms_decode::Never;
+    use utilake_decode::Never;
 
     /// Collects everything as owned strings.
     #[derive(Default, Debug)]

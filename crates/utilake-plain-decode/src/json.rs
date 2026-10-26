@@ -25,7 +25,7 @@ use serde_json::Value;
 
 use crate::csv::{Header, PlainError, PlainOptions, PlainSink, Rows};
 use crate::names::json_name;
-use utilake_mms_decode::Pos;
+use utilake_decode::Pos;
 
 /// Counts from one document.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
@@ -244,7 +244,7 @@ pub fn scan_bytes<S: PlainSink>(
 mod tests {
     use super::*;
     use crate::csv::tests::Collect;
-    use utilake_mms_decode::Never;
+    use utilake_decode::Never;
 
     #[test]
     fn the_fixture_document_reads() {

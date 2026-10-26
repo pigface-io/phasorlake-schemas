@@ -15,6 +15,7 @@ workspace = true
 memchr.workspace = true
 serde.workspace = true
 thiserror.workspace = true
+utilake-decode.workspace = true
 xxhash-rust.workspace = true
 zonetrace = { workspace = true, optional = true }
 

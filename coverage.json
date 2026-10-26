@@ -4,6 +4,7 @@
     "crates/utilake-schemas/src/main.rs"
   ],
   "floors": {
+    "crates/utilake-decode/src": 100,
     "crates/utilake-gates/src": 100,
     "crates/utilake-schemas/src": 100,
     "crates/utilake-iceberg/src": 100,

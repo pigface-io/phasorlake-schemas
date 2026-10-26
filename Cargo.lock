@@ -701,6 +701,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "06abde3611657adf66d383f00b093d7faecc7fa57071cce2578660c9f1010821"
 
 [[package]]
+name = "utilake-decode"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+ "thiserror",
+ "xxhash-rust",
+]
+
+[[package]]
 name = "utilake-gates"
 version = "0.1.0"
 dependencies = [
@@ -728,6 +738,7 @@ dependencies = [
  "serde",
  "serde_json",
  "thiserror",
+ "utilake-decode",
  "xxhash-rust",
  "zonetrace",
 ]
@@ -739,7 +750,7 @@ dependencies = [
  "memchr",
  "serde_json",
  "thiserror",
- "utilake-mms-decode",
+ "utilake-decode",
  "utilake-provenance",
  "xxhash-rust",
 ]

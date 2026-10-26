@@ -16,7 +16,7 @@
 use std::collections::HashSet;
 use std::io::Read;
 
-use utilake_mms_decode::{Flow, Never, Pos, Row};
+use utilake_decode::{Flow, Never, Pos, Row};
 use xxhash_rust::xxh3::Xxh3;
 
 use crate::csv::{self, Header, PlainError, PlainOptions, PlainRowError, PlainSink};
@@ -129,7 +129,7 @@ impl RowSet {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use utilake_mms_decode::fields::Splitter;
+    use utilake_decode::fields::Splitter;
 
     const V1: &[u8] = b"gas_date,hub,price,report_datetime\n01 Oct 2026,ADL,10.98,30 Sep 2026 11:32:27\n01 Oct 2026,BRI,10.95,30 Sep 2026 11:32:27\n";
     const V2: &[u8] = b"gas_date,hub,price,report_datetime\n01 Oct 2026,ADL,10.98,01 Oct 2026 11:32:27\n01 Oct 2026,BRI,10.96,01 Oct 2026 11:32:27\n02 Oct 2026,ADL,11.09,01 Oct 2026 11:32:27\n";
