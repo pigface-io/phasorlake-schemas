@@ -10,7 +10,7 @@ pub use utilake_decode::{Never, Pos};
 #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
 pub enum RowError<Q> {
     /// More non-empty fields than the I row declared.
-    #[error("The D row has {observed} fields but the I row declared {declared}.")]
+    #[error("the D row has {observed} fields but the I row declared {declared}")]
     FieldCount {
         /// Declared data columns.
         declared: usize,
@@ -19,7 +19,7 @@ pub enum RowError<Q> {
     },
     /// The D row's report prefix differs from its block's I row.
     #[error(
-        "The D row belongs to ({report_type}, {report_subtype}) version {version} but the current block is ({block_type}, {block_subtype}) version {block_version}."
+        "the D row belongs to ({report_type}, {report_subtype}) version {version} but the current block is ({block_type}, {block_subtype}) version {block_version}"
     )]
     BlockMismatch {
         /// Row's report type.
@@ -36,12 +36,10 @@ pub enum RowError<Q> {
         block_version: u16,
     },
     /// Fewer than four fields: no report prefix.
-    #[error(
-        "The D row has only {0} fields; a row starts with D, report type, subtype and version."
-    )]
+    #[error("the D row has only {0} fields; a row starts with D, report type, subtype and version")]
     TooShort(usize),
     /// A line that starts with neither C, I nor D.
-    #[error("The row starts with {0:?}; a row of an MMS file starts with C, I or D.")]
+    #[error("the row starts with {0:?}; a row of an MMS file starts with C, I or D")]
     UnknownRecord(char),
     /// A value the sink refused.
     #[error("{0}")]
@@ -90,7 +88,7 @@ impl<Q, F> From<Box<RowError<Q>>> for RowFailure<Q, F> {
 #[derive(Debug, thiserror::Error)]
 pub enum ScanError<Q, F> {
     /// Reading the input failed.
-    #[error("Reading the CSV failed after {bytes} bytes.")]
+    #[error("reading the CSV failed after {bytes} bytes")]
     Io {
         /// Bytes read before the failure.
         bytes: u64,
@@ -100,7 +98,7 @@ pub enum ScanError<Q, F> {
     },
     /// One line exceeded the limit.
     #[error(
-        "Line {line} is longer than {limit} bytes; an MMS row never is, so the file is not a CSV or is corrupt."
+        "line {line} is longer than {limit} bytes; an MMS row never is, so the file is not a CSV or is corrupt"
     )]
     LineTooLong {
         /// Line.
@@ -109,13 +107,13 @@ pub enum ScanError<Q, F> {
         limit: usize,
     },
     /// A D row before any I row.
-    #[error("A D row appears at line {line} before any I row has declared the columns.")]
+    #[error("a D row appears at line {line} before any I row has declared the columns")]
     DataBeforeHeader {
         /// Line.
         line: u64,
     },
     /// An I row that could not be read.
-    #[error("The I row at line {line} is malformed: {message}")]
+    #[error("the I row at line {line} is malformed: {message}")]
     BadHeader {
         /// Line.
         line: u64,
@@ -124,7 +122,7 @@ pub enum ScanError<Q, F> {
     },
     /// Too many rows quarantined.
     #[error(
-        "{bad} row(s) could not be read, more than the limit of {limit}, so the file is refused. The first is line {line}: {first}"
+        "{bad} row(s) could not be read, more than the limit of {limit}, so the file is refused; the first is line {line}: {first}"
     )]
     TooManyBadRows {
         /// Bad rows seen.
@@ -140,7 +138,7 @@ pub enum ScanError<Q, F> {
     #[error("{0}")]
     Sink(F),
     /// The sink asked to stop (fail-fast).
-    #[error("The scan stopped at line {line} because the run is failing fast.")]
+    #[error("the scan stopped at line {line} because the run is failing fast")]
     Stopped {
         /// Line.
         line: u64,
@@ -176,7 +174,7 @@ mod tests {
         let short: RowError<Never> = RowError::TooShort(2);
         assert_eq!(
             short.to_string(),
-            "The D row has only 2 fields; a row starts with D, report type, subtype and version."
+            "the D row has only 2 fields; a row starts with D, report type, subtype and version"
         );
         let value: RowError<String> = RowError::Value("odd".into());
         assert_eq!(value.to_string(), "odd");
@@ -185,7 +183,7 @@ mod tests {
         let f: RowFailure<String, String> = RowFailure::fatal("down".into());
         assert_eq!(f.to_string(), "down");
         let f: RowFailure<Never, Never> = RowError::UnknownRecord('x').into();
-        assert!(f.to_string().starts_with("The row starts with 'x'"));
+        assert!(f.to_string().starts_with("the row starts with 'x'"));
         let f: RowFailure<Never, Never> = Box::new(RowError::<Never>::TooShort(1)).into();
         assert!(matches!(f, RowFailure::Row(_)));
         let e: ScanError<Never, String> = "down".to_owned().into();
@@ -213,7 +211,7 @@ mod tests {
         ];
         let lines: Vec<Option<u64>> = errs.iter().map(ScanError::line).collect();
         assert_eq!(lines, [Some(1), Some(2), Some(3), Some(4), Some(5)]);
-        assert!(errs[3].to_string().contains("The first is line 4"));
+        assert!(errs[3].to_string().contains("; the first is line 4"));
         let mismatch: RowError<Never> = RowError::BlockMismatch {
             report_type: "A".into(),
             report_subtype: "B".into(),

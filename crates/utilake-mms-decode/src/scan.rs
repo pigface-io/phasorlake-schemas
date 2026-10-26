@@ -731,12 +731,12 @@ pub(crate) mod tests {
         let stats = scan(text.as_slice(), &mut sink, &opts).unwrap();
         assert_eq!((stats.blocks, stats.rows, stats.bad_rows), (1, 0, 2));
         assert_eq!(sink.bad[0], "refused at the value");
-        assert!(sink.bad[1].starts_with("The row starts with 'x'"));
+        assert!(sink.bad[1].starts_with("the row starts with 'x'"));
         // Rejected rows past the limit refuse the file, the first named.
         let e = scan(text.as_slice(), &mut refuse("", 5), &ScanOptions::default()).unwrap_err();
         let text_of = e.to_string();
         assert!(
-            text_of.ends_with("The first is line 3: refused at the value"),
+            text_of.ends_with("; the first is line 3: refused at the value"),
             "{e}"
         );
         // Headers only: a sink that does not take block counts is fine.
