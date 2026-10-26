@@ -41,9 +41,3 @@ The file list {path} cannot be read: {message}
 {0:?} is not an RFC 3339 time or a day (YYYY-MM-DD).
 The interval from {from} to {to} ends before it starts.
 The read of {table} cannot be planned: {source}
-The archive {path} could not be opened: {message}
-Entry {entry} of {path} could not be read: {message}
-Entry {entry} of {path} is a zip nested {depth} deep; the limit is {MAX_DEPTH}.
-The archive {path} has no {wanted} entry at any depth.
-Spooling nested entry {entry} of {path} to {tmp} failed.
-The callback for an entry of the archive failed.

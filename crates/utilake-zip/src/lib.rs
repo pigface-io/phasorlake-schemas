@@ -52,7 +52,7 @@ pub const MAX_DEPTH: u8 = 2;
 #[derive(Debug, thiserror::Error)]
 pub enum ArchiveError {
     /// The file could not be opened as a zip.
-    #[error("The archive {path} could not be opened: {message}")]
+    #[error("the archive {path} could not be opened: {message}")]
     Open {
         /// The file.
         path: String,
@@ -60,7 +60,7 @@ pub enum ArchiveError {
         message: String,
     },
     /// An entry could not be read.
-    #[error("Entry {entry} of {path} could not be read: {message}")]
+    #[error("entry {entry} of {path} could not be read: {message}")]
     Entry {
         /// The file.
         path: String,
@@ -70,7 +70,7 @@ pub enum ArchiveError {
         message: String,
     },
     /// Nested too deep.
-    #[error("Entry {entry} of {path} is a zip nested {depth} deep; the limit is {MAX_DEPTH}.")]
+    #[error("entry {entry} of {path} is a zip nested {depth} deep; the limit is {MAX_DEPTH}")]
     TooDeep {
         /// The file.
         path: String,
@@ -80,7 +80,7 @@ pub enum ArchiveError {
         depth: u8,
     },
     /// No wanted entry, at any depth.
-    #[error("The archive {path} has no {wanted} entry at any depth.")]
+    #[error("the archive {path} has no {wanted} entry at any depth")]
     NoEntry {
         /// The archive.
         path: String,
@@ -88,7 +88,7 @@ pub enum ArchiveError {
         wanted: String,
     },
     /// Spooling a nested zip to disk failed.
-    #[error("Spooling nested entry {entry} of {path} to {tmp} failed.")]
+    #[error("spooling nested entry {entry} of {path} to {tmp} failed")]
     Spool {
         /// The file.
         path: String,
@@ -260,7 +260,7 @@ pub enum WalkError<E> {
     #[error(transparent)]
     Archive(ArchiveError),
     /// The callback.
-    #[error("The callback for an entry of the archive failed.")]
+    #[error("the callback for an entry of the archive failed")]
     Callback(E),
 }
 
@@ -1234,7 +1234,7 @@ mod tests {
         assert_eq!(
             e.to_string(),
             format!(
-                "The archive {} has no .CSV entry at any depth.",
+                "the archive {} has no .CSV entry at any depth",
                 empty.display()
             )
         );
@@ -1273,7 +1273,7 @@ mod tests {
                 depth: 3,
             }
             .to_string(),
-            "Entry e of p is a zip nested 3 deep; the limit is 2."
+            "entry e of p is a zip nested 3 deep; the limit is 2"
         );
         // Callback error propagates.
         let one = dir.path().join("one.zip");
@@ -1283,7 +1283,7 @@ mod tests {
         assert!(matches!(r, Err(WalkError::Callback("stop"))));
         assert_eq!(
             r.unwrap_err().to_string(),
-            "The callback for an entry of the archive failed."
+            "the callback for an entry of the archive failed"
         );
         // Spool failure: tmp dir is a file.
         let tmp_file = dir.path().join("tmpfile");
@@ -1331,7 +1331,7 @@ mod tests {
                 message: "m".into()
             }
             .to_string(),
-            "Entry e of p could not be read: m"
+            "entry e of p could not be read: m"
         );
         assert_eq!(
             ArchiveError::Open {
@@ -1339,7 +1339,7 @@ mod tests {
                 message: "m".into()
             }
             .to_string(),
-            "The archive p could not be opened: m"
+            "the archive p could not be opened: m"
         );
         let e = ArchiveError::Spool {
             path: "p".into(),
@@ -1347,7 +1347,7 @@ mod tests {
             tmp: "t".into(),
             source: std::io::Error::other("x"),
         };
-        assert_eq!(e.to_string(), "Spooling nested entry e of p to t failed.");
+        assert_eq!(e.to_string(), "spooling nested entry e of p to t failed");
         assert_eq!(
             std::error::Error::source(&e).map(ToString::to_string),
             Some("x".to_owned())
