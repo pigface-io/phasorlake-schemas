@@ -34,7 +34,8 @@ pub use history::History;
 pub use market::Market;
 pub use plan::{Column, DataFile, PlanError, Read, Target, casts_to, duckdb_sql, plan};
 pub use publish::{
-    Declaration, PublishError, Published, Temporal, Valid, from_metadata, to_metadata,
+    Declaration, PublishError, Published, Temporal, Valid, breaks_of_properties,
+    declaration_of_properties, from_metadata, to_metadata,
 };
 pub use schema::{Field, Schema};
 pub use temporal::derive;

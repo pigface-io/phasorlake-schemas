@@ -550,6 +550,35 @@ fn declaration_of(p: &Props<'_>) -> Result<Declaration, PublishError> {
     })
 }
 
+/// A table's declaration from its properties alone: what a reader of a
+/// table built from the published one (the lake's, whose snapshots are its
+/// own) needs of it. `None` for a table not declared.
+pub fn declaration_of_properties(
+    properties: &BTreeMap<String, String>,
+) -> Result<Option<Declaration>, PublishError> {
+    let p = Props {
+        map: properties,
+        at: "the table's properties".to_owned(),
+    };
+    match p.need(K_DECLARED)? {
+        "true" => Ok(Some(declaration_of(&p)?)),
+        "false" => Ok(None),
+        other => Err(p.malformed(K_DECLARED, other, "true or false")),
+    }
+}
+
+/// A table's breaking columns from its properties alone; none when it has
+/// none.
+pub fn breaks_of_properties(
+    properties: &BTreeMap<String, String>,
+) -> Result<Vec<Break>, PublishError> {
+    let p = Props {
+        map: properties,
+        at: "the table's properties".to_owned(),
+    };
+    Ok(p.json(K_BREAKS)?.unwrap_or_default())
+}
+
 /// The table `m` holds, as [`to_metadata`] wrote it: every `utilake.*`
 /// key it needs must be there and well formed. Snapshots are taken in
 /// sequence order.
@@ -695,6 +724,21 @@ mod tests {
         let t = to_metadata(&area, "file:///t", "u").unwrap();
         assert_eq!(t.metadata.properties[K_WITH_COLUMNS], r#"["AREAID"]"#);
         assert_eq!(from_metadata(&t.metadata).unwrap(), area);
+        // Its declaration and breaks read from its properties alone, as a
+        // reader of a table built from this one does.
+        let d = declaration_of_properties(&t.metadata.properties).unwrap();
+        assert_eq!(d, area.declaration);
+        assert_eq!(
+            breaks_of_properties(&t.metadata.properties).unwrap(),
+            area.history.breaking
+        );
+        let mut undeclared = t.metadata.properties.clone();
+        undeclared.insert(K_DECLARED.into(), "false".into());
+        assert_eq!(declaration_of_properties(&undeclared).unwrap(), None);
+        undeclared.insert(K_DECLARED.into(), "maybe".into());
+        assert!(declaration_of_properties(&undeclared).is_err());
+        undeclared.insert(K_BREAKS.into(), "not json".into());
+        assert!(breaks_of_properties(&undeclared).is_err());
         // Format 3 is read as 4 with no such tables.
         let mut old = plain.metadata.clone();
         old.properties.insert(K_FORMAT.into(), "3".into());
