@@ -25,7 +25,8 @@
 #   utilake-gates    the repository gates every utilake repository runs from
 #                its xtask: coverage floors, their ratchet, benchmark budgets,
 #                the agent index, the error catalogue.
-#   xtask        this repository's gates: coverage floors and their ratchet.
+#   xtask        this repository's gates: coverage floors and their ratchet,
+#                dependency layers (layers.json).
 [workspace]
 resolver = "3"
 members = [

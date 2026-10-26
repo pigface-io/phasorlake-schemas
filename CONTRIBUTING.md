@@ -14,6 +14,9 @@ from the history by git-cliff (`cliff.toml`).
 
 - rustfmt, clippy with warnings as errors, rustdoc with broken links as
   errors;
+- every dependency between the workspace's crates is one `layers.json`
+  declares (`normal` for normal and build edges, `dev` for dev edges; see
+  `utilake_gates::layers`), and none it declares is gone;
 - every test;
 - line coverage held to `coverage.json`: every source file falls under a
   floor, new code at 100%. Floors only rise; lowering one needs a

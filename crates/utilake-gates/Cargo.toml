@@ -1,6 +1,6 @@
 [package]
 name = "utilake-gates"
-description = "The repository gates every utilake repository runs from its xtask: coverage floors, budget ratchet, agent-index check, benchmark budgets, error catalogue."
+description = "The repository gates every utilake repository runs from its xtask: coverage floors, budget ratchet, agent-index check, benchmark budgets, error catalogue, dependency layers."
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true

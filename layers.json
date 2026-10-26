@@ -1,0 +1,29 @@
+{
+  "normal": {
+    "utilake-decode": [],
+    "utilake-gates": [],
+    "utilake-iceberg": [],
+    "utilake-mms-decode": [
+      "utilake-decode"
+    ],
+    "utilake-plain-decode": [
+      "utilake-decode",
+      "utilake-provenance"
+    ],
+    "utilake-provenance": [],
+    "utilake-schemas": [
+      "utilake-iceberg",
+      "utilake-mms-decode",
+      "utilake-plain-decode",
+      "utilake-provenance",
+      "utilake-zip"
+    ],
+    "utilake-zip": [
+      "utilake-provenance"
+    ],
+    "xtask": [
+      "utilake-gates"
+    ]
+  },
+  "dev": {}
+}

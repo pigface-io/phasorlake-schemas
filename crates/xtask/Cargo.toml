@@ -1,6 +1,6 @@
 [package]
 name = "xtask"
-description = "Repository gates: coverage floors and their ratchet."
+description = "Repository gates: coverage floors and their ratchet, dependency layers."
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true

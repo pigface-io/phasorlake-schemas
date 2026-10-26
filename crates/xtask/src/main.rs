@@ -7,6 +7,7 @@ use std::path::PathBuf;
 use std::process::ExitCode;
 
 use clap::{Parser, Subcommand};
+use utilake_gates::layers::{self, Family};
 use utilake_gates::{covergate, ratchet, repo_root};
 
 #[derive(Parser)]
@@ -29,6 +30,9 @@ enum Cmd {
         #[arg(long, default_value = "origin/main")]
         base: String,
     },
+    /// Fail on a dependency between the workspace's crates that layers.json
+    /// does not declare, or one it declares that is gone.
+    Layers,
 }
 
 fn main() -> ExitCode {
@@ -37,6 +41,7 @@ fn main() -> ExitCode {
     let result = match cli.cmd {
         Cmd::Covergate { lcov } => covergate::run(&root, &lcov),
         Cmd::Ratchet { base } => ratchet::run(&root, &base),
+        Cmd::Layers => layers::run(&root, &Family::UTILAKE),
     };
     match result {
         Ok(true) => ExitCode::SUCCESS,

@@ -31,6 +31,10 @@ lint:
     cargo clippy --workspace --all-targets --locked -- -D warnings
     RUSTDOCFLAGS="-D warnings" cargo doc --workspace --no-deps --locked --quiet
 
+# every dependency between the workspace's crates is one layers.json declares
+layers:
+    cargo run -q -p xtask -- layers
+
 # ── tests ────────────────────────────────────────────────────────────────────
 
 # every unit and integration test
