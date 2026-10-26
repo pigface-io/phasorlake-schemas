@@ -711,6 +711,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "utilake-diag"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "utilake-gates"
 version = "0.1.0"
 dependencies = [

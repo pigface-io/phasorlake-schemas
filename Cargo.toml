@@ -6,6 +6,8 @@
 #                Pure: no I/O.
 #   utilake-schemas  the tool: fetches AEMO's files, takes their census, folds
 #                the census into each table's history, exports nem/.
+#   utilake-diag     the one shape every error and warning is reported as: a
+#                diagnostic with a stable code, and the exit codes. Pure.
 #   utilake-decode   what every decoder shares, whatever the format: a row's
 #                fields, its position, the month, a normalised name and a
 #                column list's fingerprint. Pure.
@@ -31,6 +33,7 @@
 resolver = "3"
 members = [
     "crates/utilake-decode",
+    "crates/utilake-diag",
     "crates/utilake-gates",
     "crates/utilake-iceberg",
     "crates/utilake-mms-decode",
@@ -75,6 +78,7 @@ uninlined_format_args = "deny"
 
 [workspace.dependencies]
 utilake-decode = { path = "crates/utilake-decode" }
+utilake-diag = { path = "crates/utilake-diag" }
 utilake-gates = { path = "crates/utilake-gates" }
 utilake-iceberg = { path = "crates/utilake-iceberg" }
 utilake-mms-decode = { path = "crates/utilake-mms-decode" }
