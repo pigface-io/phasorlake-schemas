@@ -13,9 +13,11 @@
 //! - [`month`]: the calendar month AEMO cuts its archives in.
 //! - [`names`]: a report or column name normalised.
 //! - [`fingerprint`]: the identity of an ordered column list.
+//! - [`diagnose`]: the diagnostic of each error here, with its stable code.
 //!
 //! Pure: no I/O, no format, no registry, no lake.
 
+pub mod diagnose;
 pub mod fields;
 pub mod fingerprint;
 pub mod flow;

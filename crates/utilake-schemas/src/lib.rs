@@ -16,7 +16,9 @@
 //!   [`compat`] and [`diff`] hold them to what a git revision
 //!   [`published`];
 //! - [`sql`] plans a read of an interval of a table's files, and
-//!   [`iceberg`] writes each history as an Iceberg table without data.
+//!   [`iceberg`] writes each history as an Iceberg table without data;
+//! - [`diagnose`] gives every error here its diagnostic and stable code,
+//!   under the categories this repository declares beside the shared ones.
 //!
 //! The readers they are built on:
 //!
@@ -37,6 +39,7 @@ pub mod census;
 pub mod compat;
 pub mod ctl;
 pub mod ddl;
+pub mod diagnose;
 pub mod diff;
 pub mod export;
 pub mod fetch;

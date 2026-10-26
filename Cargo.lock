@@ -707,6 +707,7 @@ dependencies = [
  "serde",
  "serde_json",
  "thiserror",
+ "utilake-diag",
  "xxhash-rust",
 ]
 
@@ -736,6 +737,7 @@ dependencies = [
  "serde_json",
  "sha2",
  "thiserror",
+ "utilake-diag",
 ]
 
 [[package]]
@@ -747,6 +749,7 @@ dependencies = [
  "serde_json",
  "thiserror",
  "utilake-decode",
+ "utilake-diag",
  "xxhash-rust",
  "zonetrace",
 ]
@@ -759,6 +762,7 @@ dependencies = [
  "serde_json",
  "thiserror",
  "utilake-decode",
+ "utilake-diag",
  "utilake-provenance",
  "xxhash-rust",
 ]
@@ -774,6 +778,7 @@ dependencies = [
  "sha2",
  "tempfile",
  "thiserror",
+ "utilake-diag",
 ]
 
 [[package]]
@@ -790,6 +795,7 @@ dependencies = [
  "thiserror",
  "toml",
  "ureq",
+ "utilake-diag",
  "utilake-iceberg",
  "utilake-mms-decode",
  "utilake-plain-decode",
@@ -807,6 +813,7 @@ dependencies = [
  "peak_alloc",
  "tempfile",
  "thiserror",
+ "utilake-diag",
  "utilake-provenance",
  "zip",
  "zonetrace",

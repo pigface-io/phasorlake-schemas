@@ -42,6 +42,14 @@ impl fmt::Display for Fingerprint {
 #[error("{0:?} is not a fingerprint of the form xxh3:<32 hex digits>")]
 pub struct FingerprintError(String);
 
+impl FingerprintError {
+    /// The text that is not a fingerprint.
+    #[must_use]
+    pub fn text(&self) -> &str {
+        &self.0
+    }
+}
+
 impl std::str::FromStr for Fingerprint {
     type Err = FingerprintError;
 

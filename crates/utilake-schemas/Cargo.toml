@@ -16,6 +16,7 @@ name = "utilake-schemas"
 path = "src/main.rs"
 
 [dependencies]
+utilake-diag.workspace = true
 utilake-iceberg.workspace = true
 utilake-mms-decode.workspace = true
 utilake-plain-decode.workspace = true

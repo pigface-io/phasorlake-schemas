@@ -1,18 +1,27 @@
 {
   "normal": {
-    "utilake-decode": [],
+    "utilake-decode": [
+      "utilake-diag"
+    ],
     "utilake-diag": [],
     "utilake-gates": [],
-    "utilake-iceberg": [],
+    "utilake-iceberg": [
+      "utilake-diag"
+    ],
     "utilake-mms-decode": [
-      "utilake-decode"
+      "utilake-decode",
+      "utilake-diag"
     ],
     "utilake-plain-decode": [
       "utilake-decode",
+      "utilake-diag",
       "utilake-provenance"
     ],
-    "utilake-provenance": [],
+    "utilake-provenance": [
+      "utilake-diag"
+    ],
     "utilake-schemas": [
+      "utilake-diag",
       "utilake-iceberg",
       "utilake-mms-decode",
       "utilake-plain-decode",
@@ -20,6 +29,7 @@
       "utilake-zip"
     ],
     "utilake-zip": [
+      "utilake-diag",
       "utilake-provenance"
     ],
     "xtask": [

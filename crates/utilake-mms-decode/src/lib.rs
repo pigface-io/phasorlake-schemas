@@ -13,7 +13,9 @@
 //! (report pair, version, ordered column names), each D row as its fields,
 //! untyped. What a sink refuses or fails with is the sink's own type
 //! ([`Sink::Reject`], [`Sink::Fatal`]): this crate knows no registry, no
-//! lake and no diagnostics.
+//! lake. Each error here describes itself as a diagnostic ([`diagnose`]):
+//! the scanner's faults with the format's stable codes, a sink's by the
+//! sink.
 //!
 //! Beside the scanner: [`shape`] gives a block's
 //! report pair and columns a content-addressed [`shape::ShapeId`], the one
@@ -36,6 +38,7 @@ macro_rules! zone {
 #[cfg(feature = "zones")]
 pub mod zones;
 
+pub mod diagnose;
 pub mod error;
 pub mod fields;
 pub mod filename;

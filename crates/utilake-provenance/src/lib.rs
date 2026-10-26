@@ -9,12 +9,14 @@
 //!   whole.
 //! - [`layout`]: the rule that names a file's local path from its URL.
 //! - [`civil`]: the calendar the instants are counted in.
+//! - [`diagnose`]: the diagnostic of each error here, with its stable code.
 //!
 //! Pure but for the file system: knows no network and no decoder.
 
 pub mod archive;
 pub mod civil;
 pub mod content;
+pub mod diagnose;
 pub mod layout;
 pub mod provenance;
 pub mod stamp;

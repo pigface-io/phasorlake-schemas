@@ -13,11 +13,13 @@
 //! reader and the publisher share. [`plan`] reads any time interval of a
 //! table's files across its schemas, and [`table`] writes table metadata
 //! and manifests as bytes. [`provenance`] names the two columns every lake
-//! file adds: each row's source and when it became public.
+//! file adds: each row's source and when it became public. Every error
+//! here describes itself as a diagnostic with a stable code ([`diagnose`]).
 //!
 //! Std, serde and SHA-256 only; no I/O.
 
 pub mod compat;
+pub mod diagnose;
 mod evidence;
 pub mod history;
 pub mod market;

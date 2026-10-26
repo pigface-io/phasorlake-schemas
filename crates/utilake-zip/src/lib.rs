@@ -12,6 +12,9 @@
 //! [`zipdir`] reads a zip's central directory alone, from byte spans the
 //! caller fetches (ranged requests, or a file on disk), so what a zip holds
 //! is known before, or without, downloading the rest of it.
+//!
+//! Every error here describes itself as a diagnostic with a stable code
+//! ([`diagnose`]).
 
 /// Opens a zone of `zonetrace` until the end of the block, with the
 /// feature `zones`; nothing without it.
@@ -31,6 +34,7 @@ macro_rules! count {
     };
 }
 
+pub mod diagnose;
 pub mod zipdir;
 #[cfg(feature = "zones")]
 pub mod zones;

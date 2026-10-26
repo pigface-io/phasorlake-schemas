@@ -15,6 +15,8 @@
 //!   header is, the stamps and months a file name carries.
 //! - [`feeds`]: every feed that is not MMSDM: its host, roots, decoder and
 //!   the rules its files follow.
+//! - [`diagnose`]: the diagnostic of each error here, with its stable
+//!   code.
 //! - [`diff`]: the rows a version of a file adds to its previous version.
 //! - [`mod@sniff`]: what a file's first bytes say it is, when a folder holds
 //!   the odd file of another kind.
@@ -23,6 +25,7 @@
 
 pub mod csv;
 pub mod dates;
+pub mod diagnose;
 pub mod diff;
 pub mod feeds;
 pub mod json;
