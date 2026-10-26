@@ -161,7 +161,10 @@ fn the_metadata_describes_the_table_and_holds_its_history() {
     );
     // The declaration and the data model's words are properties.
     let p = &m["properties"];
-    assert_eq!(p["utilake.format"], "3");
+    assert_eq!(
+        p["utilake.format"],
+        utilake_iceberg::publish::FORMAT.to_string()
+    );
     assert_eq!(p["utilake.table"], "DISPATCH_UNIT_SCADA");
     assert_eq!(p["utilake.declared"], "true");
     assert_eq!(
@@ -219,7 +222,7 @@ fn the_metadata_describes_the_table_and_holds_its_history() {
     }
     // Every header, with its table and schemas.
     let hs = read(root, "nem/headers.json");
-    assert_eq!(hs["x-format"], 3);
+    assert_eq!(hs["x-format"], utilake_iceberg::publish::FORMAT);
     assert_eq!(
         hs["headers"],
         json!([
@@ -306,7 +309,7 @@ fn a_schema_document_is_named_by_its_id_and_its_fields_never_change() {
     let d: serde_json::Value = serde_json::from_slice(&before).unwrap();
     assert_eq!(d["$id"], format!("{DEFAULT_BASE_URL}{rel}"));
     assert_eq!(d["$schema"], "https://json-schema.org/draft/2020-12/schema");
-    assert_eq!(d["x-format"], 3);
+    assert_eq!(d["x-format"], utilake_iceberg::publish::FORMAT);
     assert_eq!(
         d["x-table"],
         json!({"name": "DISPATCH_UNIT_SCADA", "$ref": "metadata/v1.metadata.json"})
@@ -370,7 +373,7 @@ fn the_manifest_names_every_file_and_the_export_owns_nem() {
     let dir = exported();
     let root = dir.path();
     let m = read(root, "manifest.json");
-    assert_eq!(m["format"], 3);
+    assert_eq!(m["format"], utilake_iceberg::publish::FORMAT);
     assert!(m.get("market").is_none());
     assert_eq!(m["base_url"], DEFAULT_BASE_URL);
     let nem = &m["markets"]["nem"];
@@ -688,8 +691,10 @@ fn u(v: &serde_json::Value, at: &str) -> Result<u64, String> {
 fn import_check(dir: &Path) -> Result<usize, String> {
     // The manifest: its format, base URL and hashes.
     let manifest = read(dir, "manifest.json");
-    if u(get(&manifest, "format", "manifest.json")?, "manifest.json")? != 3 {
-        return Err("manifest.json: format is not 3".into());
+    if u(get(&manifest, "format", "manifest.json")?, "manifest.json")?
+        != u64::from(utilake_iceberg::publish::FORMAT)
+    {
+        return Err("manifest.json: format is not the published one".into());
     }
     let base = s(
         get(&manifest, "base_url", "manifest.json")?,
@@ -882,7 +887,7 @@ fn another_market_is_published_beside_the_nem_with_its_words_and_headers() {
     );
     export(root);
     let f = read(root, "gas/folders.json");
-    assert_eq!(f["x-format"], 3);
+    assert_eq!(f["x-format"], utilake_iceberg::publish::FORMAT);
     assert_eq!(
         f["folders"],
         json!([
@@ -947,7 +952,7 @@ fn the_consumer_check_refuses_what_the_index_refuses() {
         ),
         (
             Box::new(|t| t["properties"]["utilake.format"] = json!("2")),
-            "not format 3",
+            "not format 4",
         ),
         (
             Box::new(|t| t["format-version"] = json!(2)),
@@ -1060,7 +1065,11 @@ fn the_consumer_check_refuses_what_the_index_refuses() {
     let mut m: serde_json::Value = serde_json::from_slice(&manifest).unwrap();
     m["format"] = json!(1);
     std::fs::write(root.join("manifest.json"), super::text(&m)).unwrap();
-    assert!(import_check(root).unwrap_err().contains("format is not 3"));
+    assert!(
+        import_check(root)
+            .unwrap_err()
+            .contains("format is not the published one")
+    );
     std::fs::write(root.join("manifest.json"), &manifest).unwrap();
     std::fs::write(root.join("nem/extra.json"), "{}").unwrap();
     assert!(

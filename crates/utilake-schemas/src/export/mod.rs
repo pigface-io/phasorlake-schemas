@@ -208,6 +208,7 @@ fn declaration(
     Ok(Declaration {
         package: d.package.clone(),
         report_pairs: d.report_pairs.clone(),
+        with_columns: d.with_columns.clone(),
         primary_key: d.primary_key.clone(),
         time_column: d.time_column.clone(),
         load_mode: load_mode

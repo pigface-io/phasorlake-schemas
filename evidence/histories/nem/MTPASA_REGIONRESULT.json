@@ -93,16 +93,19 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 29
+          "action": "rename",
+          "field-id": 29,
+          "name": "TOTALSEMISCHEDULEGEN90"
         },
         {
-          "action": "delete",
-          "field-id": 30
+          "action": "rename",
+          "field-id": 30,
+          "name": "TOTALSEMISCHEDULEGEN50"
         },
         {
-          "action": "delete",
-          "field-id": 31
+          "action": "rename",
+          "field-id": 31,
+          "name": "TOTALSEMISCHEDULEGEN10"
         },
         {
           "action": "add",
@@ -123,18 +126,6 @@
         {
           "action": "add",
           "field-id": 36
-        },
-        {
-          "action": "add",
-          "field-id": 37
-        },
-        {
-          "action": "add",
-          "field-id": 38
-        },
-        {
-          "action": "add",
-          "field-id": 39
         }
       ],
       "version": 2
@@ -315,19 +306,19 @@
           "id": 29,
           "name": "TOTALSEMISCHEDULEDGEN90",
           "required": false,
-          "type": "decimal(6, 2)"
+          "type": "decimal(12, 2)"
         },
         {
           "id": 30,
           "name": "TOTALSEMISCHEDULEDGEN50",
           "required": false,
-          "type": "decimal(6, 2)"
+          "type": "decimal(12, 2)"
         },
         {
           "id": 31,
           "name": "TOTALSEMISCHEDULEDGEN10",
           "required": false,
-          "type": "decimal(6, 2)"
+          "type": "decimal(12, 2)"
         }
       ],
       "identifier-field-ids": [
@@ -512,49 +503,49 @@
           "type": "timestamptz"
         },
         {
-          "id": 32,
+          "id": 29,
           "name": "TOTALSEMISCHEDULEGEN90",
           "required": false,
           "type": "decimal(12, 2)"
         },
         {
-          "id": 33,
+          "id": 30,
           "name": "TOTALSEMISCHEDULEGEN50",
           "required": false,
           "type": "decimal(12, 2)"
         },
         {
-          "id": 34,
+          "id": 31,
           "name": "TOTALSEMISCHEDULEGEN10",
           "required": false,
           "type": "decimal(12, 2)"
         },
         {
-          "id": 35,
+          "id": 32,
           "name": "TOTALAVAILABLEGENMIN",
           "required": false,
           "type": "decimal(12, 2)"
         },
         {
-          "id": 36,
+          "id": 33,
           "name": "TOTALAVAILABLEGEN10",
           "required": false,
           "type": "decimal(12, 2)"
         },
         {
-          "id": 37,
+          "id": 34,
           "name": "TOTALAVAILABLEGEN50",
           "required": false,
           "type": "decimal(12, 2)"
         },
         {
-          "id": 38,
+          "id": 35,
           "name": "TOTALAVAILABLEGEN90",
           "required": false,
           "type": "decimal(12, 2)"
         },
         {
-          "id": 39,
+          "id": 36,
           "name": "TOTALAVAILABLEGENMAX",
           "required": false,
           "type": "decimal(12, 2)"

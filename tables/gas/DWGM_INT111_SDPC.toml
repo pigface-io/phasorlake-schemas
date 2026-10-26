@@ -15,3 +15,7 @@ origin = "hand"
 [temporal.valid]
 column = "GAS_DATE"
 kind = "instant"
+
+[[distinct]]
+columns = ["DAILY_MAXIMUM_QUANTITY", "DAILY_MINIMUM_QUANTITY", "HOURLY_MAXIMUM_QUANTITY", "HOURLY_MINIMUM_QUANTITY", "OS_DAILY_MAX_QTY", "OS_DAILY_MIN_QTY", "OS_HOURLY_MAX_QTY", "OS_HOURLY_MIN_QTY", "PS_DAILY_MAX_QTY", "PS_DAILY_MIN_QTY", "PS_HOURLY_MAX_QTY", "PS_HOURLY_MIN_QTY"]
+reason = "Each quantity limit split in two, one for the operating schedule (OS_) and one for the pricing schedule (PS_): a split, not a rename, so the old columns stay their own."

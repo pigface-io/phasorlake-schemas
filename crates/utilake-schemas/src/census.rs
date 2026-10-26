@@ -914,7 +914,7 @@ pub fn block_shape(
     file_table: Option<&str>,
     b: RawBlock,
 ) -> BlockShape {
-    let declared = catalog.declared_by_pair(&b.report_type, &b.report_subtype);
+    let declared = catalog.declared_by_pair(&b.report_type, &b.report_subtype, &b.columns);
     let table = declared.map(|t| t.name.as_str());
     let keys: Vec<&str> = table.into_iter().chain(file_table).collect();
     let ctl = ctls.for_table(&keys);

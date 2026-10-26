@@ -13,3 +13,7 @@ entity = ["DUID", "BIDTYPE", "INTERVAL_DATETIME"]
 order = ["OFFERDATE", "VERSIONNO", "LASTCHANGED"]
 cutoff = "LASTCHANGED"
 valid = { kind = "day", column = "SETTLEMENTDATE" }
+
+[[distinct]]
+columns = ["MR_CAPACITY", "RECALL_PERIOD"]
+reason = "MR_CAPACITY (mandatory restrictions capacity) left the bids as RECALL_PERIOD (a unit's recall time) arrived: two meanings, not one column renamed."

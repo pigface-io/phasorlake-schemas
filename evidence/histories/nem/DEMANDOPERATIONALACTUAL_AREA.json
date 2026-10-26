@@ -1,0 +1,86 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 19114,
+      "from": {
+        "data-time": "2025-09-30T00:00:00+10:00",
+        "file": "PUBLIC_ACTUAL_OPERATIONAL_DEMAND_HH_AREA_20250930.zip",
+        "release": "2025-09",
+        "sha256": "627dc4badb1e8626f91f1acec6ba46a9d4033048aa0998f24f11dbc9fab0af8f"
+      },
+      "kinds": [
+        "reports"
+      ],
+      "overlaps": false,
+      "report": [
+        "OPERATIONAL_DEMAND",
+        "ACTUAL"
+      ],
+      "rows": 310080,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-24T11:30:00+10:00",
+        "file": "PUBLIC_ACTUAL_OPERATIONAL_DEMAND_HH_AREA_202610241130_20261024113013.zip",
+        "release": "2026-10",
+        "sha256": "f85b045fb49be510b8d628faf69ac3c47df7140fa6faa193dee47311e8cddbd4"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "AREAID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "OPERATIONAL_DEMAND",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 4,
+          "name": "OPERATIONAL_DEMAND_ADJUSTMENT",
+          "required": false,
+          "type": "decimal(1, 0)"
+        },
+        {
+          "id": 5,
+          "name": "WDR_ESTIMATE",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 6,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        2,
+        1
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DEMANDOPERATIONALACTUAL_AREA"
+}

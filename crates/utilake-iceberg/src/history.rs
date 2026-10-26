@@ -109,6 +109,14 @@ pub enum Update {
         #[serde(rename = "field-id")]
         field_id: u32,
     },
+    /// A field under a new name: a column AEMO renamed, one field still.
+    Rename {
+        /// The field.
+        #[serde(rename = "field-id")]
+        field_id: u32,
+        /// Its name from here.
+        name: String,
+    },
     /// A field that now takes nulls.
     MakeOptional {
         /// The field.
@@ -175,13 +183,15 @@ impl History {
         self.schemas.iter().find(|s| s.schema_id == id)
     }
 
-    /// Every field any schema has, by id, as the first schema with it has
-    /// it: a field has one name and one type in every schema.
+    /// Every field any schema has, by id, as the last schema with it has
+    /// it: a field has one type in every schema, and its newest name when
+    /// it was renamed.
     pub fn fields(&self) -> Vec<&Field> {
         let mut out: Vec<&Field> = Vec::new();
         for f in self.schemas.iter().flat_map(|s| &s.fields) {
-            if let Err(i) = out.binary_search_by_key(&f.id, |g| g.id) {
-                out.insert(i, f);
+            match out.binary_search_by_key(&f.id, |g| g.id) {
+                Ok(i) => out[i] = f,
+                Err(i) => out.insert(i, f),
             }
         }
         out
@@ -317,6 +327,12 @@ pub fn updates(a: &Schema, b: &Schema, earlier: &[&Schema]) -> Vec<Update> {
             }
             None => out.push(Update::Add { field_id: f.id }),
             Some(old) => {
+                if old.name != f.name {
+                    out.push(Update::Rename {
+                        field_id: f.id,
+                        name: f.name.clone(),
+                    });
+                }
                 if old.required && !f.required {
                     out.push(Update::MakeOptional { field_id: f.id });
                 }
@@ -488,6 +504,16 @@ pub(crate) mod tests {
             updates(&a, &c, &[]),
             [Update::SetIdentifierFields {
                 field_ids: vec![2, 1]
+            }]
+        );
+        // A renamed field: one update, the field kept.
+        let mut renamed = a.clone();
+        renamed.fields[2].name = "F3_RENAMED".into();
+        assert_eq!(
+            updates(&a, &renamed, &[]),
+            [Update::Rename {
+                field_id: 3,
+                name: "F3_RENAMED".into()
             }]
         );
         // A required field made optional.

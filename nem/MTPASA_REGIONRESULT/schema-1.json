@@ -134,7 +134,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 36,
+      "x-field-id": 33,
       "x-iceberg-type": "decimal(12, 2)",
       "x-model-type": "NUMERIC(12,2)"
     },
@@ -144,7 +144,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 37,
+      "x-field-id": 34,
       "x-iceberg-type": "decimal(12, 2)",
       "x-model-type": "NUMERIC(12,2)"
     },
@@ -154,7 +154,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 38,
+      "x-field-id": 35,
       "x-iceberg-type": "decimal(12, 2)",
       "x-model-type": "NUMERIC(12,2)"
     },
@@ -164,7 +164,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 39,
+      "x-field-id": 36,
       "x-iceberg-type": "decimal(12, 2)",
       "x-model-type": "NUMERIC(12,2)"
     },
@@ -174,7 +174,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 35,
+      "x-field-id": 32,
       "x-iceberg-type": "decimal(12, 2)",
       "x-model-type": "NUMERIC(12,2)"
     },
@@ -244,7 +244,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 34,
+      "x-field-id": 31,
       "x-iceberg-type": "decimal(12, 2)",
       "x-model-type": "NUMERIC(12,2)"
     },
@@ -254,7 +254,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 33,
+      "x-field-id": 30,
       "x-iceberg-type": "decimal(12, 2)",
       "x-model-type": "NUMERIC(12,2)"
     },
@@ -264,7 +264,7 @@
         "number",
         "null"
       ],
-      "x-field-id": 32,
+      "x-field-id": 29,
       "x-iceberg-type": "decimal(12, 2)",
       "x-model-type": "NUMERIC(12,2)"
     },
@@ -501,47 +501,47 @@
       "timestamptz"
     ],
     [
-      32,
+      29,
       "TOTALSEMISCHEDULEGEN90",
       "decimal(12, 2)"
     ],
     [
-      33,
+      30,
       "TOTALSEMISCHEDULEGEN50",
       "decimal(12, 2)"
     ],
     [
-      34,
+      31,
       "TOTALSEMISCHEDULEGEN10",
       "decimal(12, 2)"
     ],
     [
-      35,
+      32,
       "TOTALAVAILABLEGENMIN",
       "decimal(12, 2)"
     ],
     [
-      36,
+      33,
       "TOTALAVAILABLEGEN10",
       "decimal(12, 2)"
     ],
     [
-      37,
+      34,
       "TOTALAVAILABLEGEN50",
       "decimal(12, 2)"
     ],
     [
-      38,
+      35,
       "TOTALAVAILABLEGEN90",
       "decimal(12, 2)"
     ],
     [
-      39,
+      36,
       "TOTALAVAILABLEGENMAX",
       "decimal(12, 2)"
     ]
   ],
-  "x-format": 3,
+  "x-format": 4,
   "x-identifier-field-ids": [
     1,
     2,

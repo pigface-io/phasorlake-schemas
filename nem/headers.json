@@ -11417,11 +11417,11 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 28,
-          "schema-id": 2
+          "runs": 1,
+          "schema-id": 0
         }
       ],
-      "table": "DEMANDOPERATIONALACTUAL",
+      "table": "DEMANDOPERATIONALACTUAL_AREA",
       "version": 1
     },
     {
@@ -11465,7 +11465,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 28,
+          "runs": 14,
           "schema-id": 1
         }
       ],
@@ -11514,11 +11514,11 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 14,
-          "schema-id": 2
+          "runs": 1,
+          "schema-id": 0
         }
       ],
-      "table": "DEMANDOPERATIONALFORECAST",
+      "table": "DEMANDOPERATIONALFORECAST_AREA",
       "version": 1
     },
     {
@@ -11564,7 +11564,7 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 14,
+          "runs": 13,
           "schema-id": 1
         }
       ],
@@ -19676,11 +19676,11 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 27,
-          "schema-id": 2
+          "runs": 1,
+          "schema-id": 0
         }
       ],
-      "table": "ROOFTOP_PV_ACTUAL",
+      "table": "ROOFTOP_PV_ACTUAL_AREA",
       "version": 1
     },
     {
@@ -19700,7 +19700,7 @@
         {
           "first-release": "2024-08",
           "last-release": "2026-09",
-          "runs": 14,
+          "runs": 13,
           "schema-id": 1
         }
       ],
@@ -19724,7 +19724,7 @@
         {
           "first-release": "2016-08",
           "last-release": "2026-10",
-          "runs": 27,
+          "runs": 14,
           "schema-id": 0
         }
       ],
@@ -19750,11 +19750,11 @@
         {
           "first-release": "2025-09",
           "last-release": "2026-10",
-          "runs": 14,
-          "schema-id": 1
+          "runs": 1,
+          "schema-id": 0
         }
       ],
-      "table": "ROOFTOP_PV_FORECAST",
+      "table": "ROOFTOP_PV_FORECAST_AREA",
       "version": 1
     },
     {
@@ -19776,7 +19776,7 @@
         {
           "first-release": "2016-08",
           "last-release": "2026-10",
-          "runs": 14,
+          "runs": 1,
           "schema-id": 0
         }
       ],
@@ -22740,5 +22740,5 @@
       "version": 3
     }
   ],
-  "x-format": 3
+  "x-format": 4
 }

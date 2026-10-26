@@ -1,0 +1,99 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DEMANDOPERATIONALACTUAL_AREA/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AREAID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "timestamptz"
+    },
+    "OPERATIONAL_DEMAND": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "OPERATIONAL_DEMAND_ADJUSTMENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(1, 0)"
+    },
+    "WDR_ESTIMATE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(2, 0)"
+    }
+  },
+  "required": [
+    "AREAID",
+    "INTERVAL_DATETIME"
+  ],
+  "title": "DEMANDOPERATIONALACTUAL_AREA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "AREAID",
+      "string"
+    ],
+    [
+      2,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "OPERATIONAL_DEMAND",
+      "decimal(5, 0)"
+    ],
+    [
+      4,
+      "OPERATIONAL_DEMAND_ADJUSTMENT",
+      "decimal(1, 0)"
+    ],
+    [
+      5,
+      "WDR_ESTIMATE",
+      "decimal(2, 0)"
+    ],
+    [
+      6,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 4,
+  "x-identifier-field-ids": [
+    2,
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DEMANDOPERATIONALACTUAL_AREA"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 18697,
+      "from": {
+        "data-time": "2025-09-30T00:30:00+10:00",
+        "file": "PUBLIC_FORECAST_OPERATIONAL_DEMAND_HH_AREA_20250930.zip",
+        "release": "2025-09",
+        "sha256": "1ee142180fa3c0ea15488e84e97237fb9e7bb9a17ef981ce2cf770a4173a40c8"
+      },
+      "kinds": [
+        "reports"
+      ],
+      "overlaps": false,
+      "report": [
+        "OPERATIONAL_DEMAND",
+        "FORECAST"
+      ],
+      "rows": 61250552,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-02T00:00:00+10:00",
+        "file": "PUBLIC_FORECAST_OPERATIONAL_DEMAND_HH_AREA_202610241200_20261024113111.zip",
+        "release": "2026-10",
+        "sha256": "3cad313440311c777e7533504c0df8b71b36a2d1914e181db2bacba140b2cd9b"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "AREAID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 3,
+          "name": "LOAD_DATE",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "OPERATIONAL_DEMAND_POE10",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 5,
+          "name": "OPERATIONAL_DEMAND_POE50",
+          "required": false,
+          "type": "decimal(5, 0)"
+        },
+        {
+          "id": 6,
+          "name": "OPERATIONAL_DEMAND_POE90",
+          "required": false,
+          "type": "decimal(7, 2)"
+        },
+        {
+          "id": 7,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        2,
+        1
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "DEMANDOPERATIONALFORECAST_AREA"
+}

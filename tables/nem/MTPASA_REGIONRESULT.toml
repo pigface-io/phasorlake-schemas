@@ -6,3 +6,22 @@ primary_key = ["RUN_DATETIME", "RUN_NO", "RUNTYPE", "DEMAND_POE_TYPE", "DAY", "R
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"
+
+# Version 1 files (2018-05 to 2024-07) spell the semi-scheduled columns
+# TOTALSEMISCHEDULEDGEN*; version 2 (from 2024-08) TOTALSEMISCHEDULEGEN*,
+# wider. The two never share a block, and the data model (5.1 on) knows
+# only the second spelling, with the same meaning.
+[[rename]]
+from = "TOTALSEMISCHEDULEDGEN10"
+to = "TOTALSEMISCHEDULEGEN10"
+evidence = "Version 2 of the report respells the column; data model 5.1+ describes TOTALSEMISCHEDULEGEN10 as the 10% percentile for semi-scheduled generation, the old column's meaning, and no block holds both."
+
+[[rename]]
+from = "TOTALSEMISCHEDULEDGEN50"
+to = "TOTALSEMISCHEDULEGEN50"
+evidence = "Version 2 of the report respells the column; data model 5.1+ describes TOTALSEMISCHEDULEGEN50 as the 50% percentile for semi-scheduled generation, the old column's meaning, and no block holds both."
+
+[[rename]]
+from = "TOTALSEMISCHEDULEDGEN90"
+to = "TOTALSEMISCHEDULEGEN90"
+evidence = "Version 2 of the report respells the column; data model 5.1+ describes TOTALSEMISCHEDULEGEN90 as the 90% percentile for semi-scheduled generation, the old column's meaning, and no block holds both."

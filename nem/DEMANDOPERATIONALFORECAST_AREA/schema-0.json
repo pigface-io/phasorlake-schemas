@@ -1,0 +1,113 @@
+{
+  "$id": "https://raw.githubusercontent.com/g0itb4/utilake-schemas/main/nem/DEMANDOPERATIONALFORECAST_AREA/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "AREAID": {
+      "type": "string",
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "INTERVAL_DATETIME": {
+      "format": "date-time",
+      "type": "string",
+      "x-field-id": 2,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LASTCHANGED": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "timestamptz"
+    },
+    "LOAD_DATE": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "timestamptz"
+    },
+    "OPERATIONAL_DEMAND_POE10": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-iceberg-type": "decimal(7, 2)"
+    },
+    "OPERATIONAL_DEMAND_POE50": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-iceberg-type": "decimal(5, 0)"
+    },
+    "OPERATIONAL_DEMAND_POE90": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-iceberg-type": "decimal(7, 2)"
+    }
+  },
+  "required": [
+    "AREAID",
+    "INTERVAL_DATETIME"
+  ],
+  "title": "DEMANDOPERATIONALFORECAST_AREA, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "AREAID",
+      "string"
+    ],
+    [
+      2,
+      "INTERVAL_DATETIME",
+      "timestamptz"
+    ],
+    [
+      3,
+      "LOAD_DATE",
+      "timestamptz"
+    ],
+    [
+      4,
+      "OPERATIONAL_DEMAND_POE10",
+      "decimal(7, 2)"
+    ],
+    [
+      5,
+      "OPERATIONAL_DEMAND_POE50",
+      "decimal(5, 0)"
+    ],
+    [
+      6,
+      "OPERATIONAL_DEMAND_POE90",
+      "decimal(7, 2)"
+    ],
+    [
+      7,
+      "LASTCHANGED",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 4,
+  "x-identifier-field-ids": [
+    2,
+    1
+  ],
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "DEMANDOPERATIONALFORECAST_AREA"
+  }
+}

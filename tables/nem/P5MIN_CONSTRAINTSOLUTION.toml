@@ -6,3 +6,7 @@ primary_key = ["RUN_DATETIME", "INTERVAL_DATETIME", "CONSTRAINTID"]
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"
+
+[[distinct]]
+columns = ["CONFIDENTIAL_TO", "DUID"]
+reason = "CONFIDENTIAL_TO names who may see a constraint row; DUID names the unit it binds: two columns, which some files carry and others do not."

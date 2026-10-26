@@ -1,6 +1,6 @@
 {
   "breaking": [],
-  "current-schema-id": 2,
+  "current-schema-id": 0,
   "format-version": 3,
   "runs": [
     {
@@ -37,7 +37,7 @@
       "changes": [
         "schema"
       ],
-      "files": 13,
+      "files": 14,
       "from": {
         "data-time": "2024-08-01T00:30:00+10:00",
         "file": "PUBLIC_ARCHIVE#ROOFTOP_PV_ACTUAL#FILE01#202408010000.zip",
@@ -52,102 +52,7 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 379960,
-      "schema-id": 1,
-      "to": {
-        "data-time": "2025-09-01T00:00:00+10:00",
-        "file": "PUBLIC_ARCHIVE#ROOFTOP_PV_ACTUAL#FILE01#202508010000.zip",
-        "release": "2025-08",
-        "sha256": "dfff6e9251d18a311138b6db6d5c5c86d43fafe811e9f694b8c70991db4b56af"
-      },
-      "updates": [
-        {
-          "action": "move",
-          "field-id": 6
-        },
-        {
-          "action": "move",
-          "field-id": 5
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 96,
-      "from": {
-        "data-time": "2025-09-29T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20250930.zip",
-        "release": "2025-09",
-        "sha256": "9a3cb4e6d418348036d2fd8bc0bf5749fd65e5cddd11822d109de0671d5068f1"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": false,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 768,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2025-09-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20250930.zip",
-        "release": "2025-09",
-        "sha256": "788b49245356566590f9c62a73954887df1357467472a5d5054b7fa204402f87"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "add",
-          "field-id": 7
-        },
-        {
-          "action": "move",
-          "field-id": 4
-        },
-        {
-          "action": "move",
-          "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1,
-      "from": {
-        "data-time": "2025-09-01T00:30:00+10:00",
-        "file": "PUBLIC_ARCHIVE#ROOFTOP_PV_ACTUAL#FILE01#202509010000.zip",
-        "release": "2025-09",
-        "sha256": "1a3e9a2cf3dd5fafa2b9e8fcf4e4f5690fa66c5ed22ca13fb4552f43f1dafaeb"
-      },
-      "kinds": [
-        "archive"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 28800,
+      "rows": 408760,
       "schema-id": 1,
       "to": {
         "data-time": "2025-10-01T00:00:00+10:00",
@@ -157,28 +62,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -187,7 +76,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1440,
+      "files": 2879,
       "from": {
         "data-time": "2025-10-01T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20251002.zip",
@@ -202,13 +91,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 14400,
+      "rows": 28790,
       "schema-id": 0,
       "to": {
         "data-time": "2025-10-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20251030.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20251030.zip",
         "release": "2025-10",
-        "sha256": "aeb9f54bb2b593d5c0e51bcd7413bf302bf5e924a0cdefdd13e8ca4697d90bad"
+        "sha256": "de04a988e15118d6dc46e747a5d563487ca7eb8a9c713e6deb736b8e9b2e3054"
       },
       "updates": [
         {
@@ -224,150 +113,7 @@
     },
     {
       "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2025-09-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20250930.zip",
-        "release": "2025-10",
-        "sha256": "9a3cb4e6d418348036d2fd8bc0bf5749fd65e5cddd11822d109de0671d5068f1"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11904,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2025-10-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20251028.zip",
-        "release": "2025-10",
-        "sha256": "7c6ae09c4a1db01d22d7ece0b95a1323d5158485c67d4765cb55f7227ae323cf"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1439,
-      "from": {
-        "data-time": "2025-10-01T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20251002.zip",
-        "release": "2025-10",
-        "sha256": "a236acf0800ad599f4a8da7a699e4bb00f375d85651b354b6ba4a85476b7e274"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 14390,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2025-10-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20251030.zip",
-        "release": "2025-10",
-        "sha256": "de04a988e15118d6dc46e747a5d563487ca7eb8a9c713e6deb736b8e9b2e3054"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1487,
-      "from": {
-        "data-time": "2025-09-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20250930.zip",
-        "release": "2025-10",
-        "sha256": "788b49245356566590f9c62a73954887df1357467472a5d5054b7fa204402f87"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11896,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2025-10-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20251028.zip",
-        "release": "2025-10",
-        "sha256": "19d6d5a1c5cff7ea07e4bed004d5dd1c69c5a7c343ece5cc4478cd6c92a39376"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
+        "schema"
       ],
       "files": 1,
       "from": {
@@ -394,28 +140,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -424,7 +154,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1440,
+      "files": 2880,
       "from": {
         "data-time": "2025-10-31T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20251030.zip",
@@ -439,13 +169,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 11135,
+      "rows": 22270,
       "schema-id": 0,
       "to": {
         "data-time": "2025-11-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20251127.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20251127.zip",
         "release": "2025-11",
-        "sha256": "9f1f19aa06c8a6ee3a76df293aab4bdff66a673acc209a9eae099243d17bbb8f"
+        "sha256": "0a14dec80c6feda4558e371263acc945598355c66126e05e5329b25829a33ba3"
       },
       "updates": [
         {
@@ -461,150 +191,7 @@
     },
     {
       "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1440,
-      "from": {
-        "data-time": "2025-10-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20251028.zip",
-        "release": "2025-11",
-        "sha256": "7c6ae09c4a1db01d22d7ece0b95a1323d5158485c67d4765cb55f7227ae323cf"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11520,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2025-11-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20251125.zip",
-        "release": "2025-11",
-        "sha256": "8a524806dd2cd0dc47b0b9a20008677378c029a688d7a08b5534227771463644"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1440,
-      "from": {
-        "data-time": "2025-10-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20251030.zip",
-        "release": "2025-11",
-        "sha256": "de04a988e15118d6dc46e747a5d563487ca7eb8a9c713e6deb736b8e9b2e3054"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11135,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2025-11-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20251127.zip",
-        "release": "2025-11",
-        "sha256": "0a14dec80c6feda4558e371263acc945598355c66126e05e5329b25829a33ba3"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1440,
-      "from": {
-        "data-time": "2025-10-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20251028.zip",
-        "release": "2025-11",
-        "sha256": "19d6d5a1c5cff7ea07e4bed004d5dd1c69c5a7c343ece5cc4478cd6c92a39376"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11520,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2025-11-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20251125.zip",
-        "release": "2025-11",
-        "sha256": "5d1e9c7b25693205d9844c34315afdf47ee3e2da466226239a5a500fe43df0ec"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
+        "schema"
       ],
       "files": 1,
       "from": {
@@ -631,28 +218,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -661,7 +232,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1488,
+      "files": 2938,
       "from": {
         "data-time": "2025-11-30T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20251127.zip",
@@ -676,13 +247,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 7440,
+      "rows": 14690,
       "schema-id": 0,
       "to": {
         "data-time": "2025-12-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20251225.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20251225.zip",
         "release": "2025-12",
-        "sha256": "d58e2adfb0fbbee8668d8bee3270d63fb3a15d4cc04e4e1ae5018863963a7661"
+        "sha256": "23a8b4c8f929fac0114d4a8958bbe0bcb5699fb3a3fa8b03912a7311b3cc1221"
       },
       "updates": [
         {
@@ -698,150 +269,7 @@
     },
     {
       "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2025-11-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20251125.zip",
-        "release": "2025-12",
-        "sha256": "8a524806dd2cd0dc47b0b9a20008677378c029a688d7a08b5534227771463644"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11904,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2025-12-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20251230.zip",
-        "release": "2025-12",
-        "sha256": "19c02f0b2251df00f17e20af9e49f5d092916f22be1692f5abb9b7e028660250"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1450,
-      "from": {
-        "data-time": "2025-11-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20251127.zip",
-        "release": "2025-12",
-        "sha256": "0a14dec80c6feda4558e371263acc945598355c66126e05e5329b25829a33ba3"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 7250,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2025-12-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20251225.zip",
-        "release": "2025-12",
-        "sha256": "23a8b4c8f929fac0114d4a8958bbe0bcb5699fb3a3fa8b03912a7311b3cc1221"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1450,
-      "from": {
-        "data-time": "2025-11-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20251125.zip",
-        "release": "2025-12",
-        "sha256": "5d1e9c7b25693205d9844c34315afdf47ee3e2da466226239a5a500fe43df0ec"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11600,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2025-12-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20251230.zip",
-        "release": "2025-12",
-        "sha256": "eb82ec79571bcc591c7bb27a28d35531ed99a2f04151e69c1388dce585fb9ca4"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
+        "schema"
       ],
       "files": 1,
       "from": {
@@ -868,28 +296,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -898,7 +310,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1488,
+      "files": 2976,
       "from": {
         "data-time": "2025-12-31T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260101.zip",
@@ -913,13 +325,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 7440,
+      "rows": 14880,
       "schema-id": 0,
       "to": {
         "data-time": "2026-01-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260129.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260129.zip",
         "release": "2026-01",
-        "sha256": "3c0f2097d2c3e8ac150d1c122aac433162f1204aeb653bda7dbb2d18ee73ba4f"
+        "sha256": "ddfbdd531d063e06863d648db41c4e8d0d67a814594edb4bc1b796f125521b43"
       },
       "updates": [
         {
@@ -935,150 +347,7 @@
     },
     {
       "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2025-12-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20251230.zip",
-        "release": "2026-01",
-        "sha256": "19c02f0b2251df00f17e20af9e49f5d092916f22be1692f5abb9b7e028660250"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11904,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-01-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260127.zip",
-        "release": "2026-01",
-        "sha256": "a845cbd6650bfa55b2811fdf4fa25679dde3d5ccd7ad54117f962a2af9de5bca"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2025-12-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260101.zip",
-        "release": "2026-01",
-        "sha256": "3e8c37304baa04e9bc916643d813e1e6be23941a43682d6d7f66d3678e6f770a"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 7440,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2026-01-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260129.zip",
-        "release": "2026-01",
-        "sha256": "ddfbdd531d063e06863d648db41c4e8d0d67a814594edb4bc1b796f125521b43"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2025-12-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20251230.zip",
-        "release": "2026-01",
-        "sha256": "eb82ec79571bcc591c7bb27a28d35531ed99a2f04151e69c1388dce585fb9ca4"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11904,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-01-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260127.zip",
-        "release": "2026-01",
-        "sha256": "be7fba2f1d2aeabfe0721a5994cbf0938ef84b66116c466fe0fecb49a2bc1fb4"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
+        "schema"
       ],
       "files": 1,
       "from": {
@@ -1105,28 +374,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -1135,7 +388,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1344,
+      "files": 2688,
       "from": {
         "data-time": "2026-01-31T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260129.zip",
@@ -1150,13 +403,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 6720,
+      "rows": 13440,
       "schema-id": 0,
       "to": {
         "data-time": "2026-02-28T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260226.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260226.zip",
         "release": "2026-02",
-        "sha256": "cb2689e1206a7e0cd25977eb8def60c7c7e0df35019e089221d450ed9dd1f8c3"
+        "sha256": "5c365e3136ec0afa0a26bc2112fc03ca597a8f1899535d603aab6f2e423b0d31"
       },
       "updates": [
         {
@@ -1172,150 +425,7 @@
     },
     {
       "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1344,
-      "from": {
-        "data-time": "2026-01-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260127.zip",
-        "release": "2026-02",
-        "sha256": "a845cbd6650bfa55b2811fdf4fa25679dde3d5ccd7ad54117f962a2af9de5bca"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 10752,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-02-28T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260224.zip",
-        "release": "2026-02",
-        "sha256": "8efbfd5897470204e6461759c28c5a600cc4472bdd2e4a7b85559b6fbefc92a9"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1344,
-      "from": {
-        "data-time": "2026-01-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260129.zip",
-        "release": "2026-02",
-        "sha256": "ddfbdd531d063e06863d648db41c4e8d0d67a814594edb4bc1b796f125521b43"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 6720,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2026-02-28T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260226.zip",
-        "release": "2026-02",
-        "sha256": "5c365e3136ec0afa0a26bc2112fc03ca597a8f1899535d603aab6f2e423b0d31"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1344,
-      "from": {
-        "data-time": "2026-01-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260127.zip",
-        "release": "2026-02",
-        "sha256": "be7fba2f1d2aeabfe0721a5994cbf0938ef84b66116c466fe0fecb49a2bc1fb4"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 10752,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-02-28T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260224.zip",
-        "release": "2026-02",
-        "sha256": "7a85023064b5e87a169c78cd464f0e2412f0afadfd95dba7419777f5b948704a"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
+        "schema"
       ],
       "files": 1,
       "from": {
@@ -1342,28 +452,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -1372,7 +466,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1481,
+      "files": 2962,
       "from": {
         "data-time": "2026-02-28T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260226.zip",
@@ -1387,13 +481,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 7405,
+      "rows": 14810,
       "schema-id": 0,
       "to": {
         "data-time": "2026-03-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260326.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260326.zip",
         "release": "2026-03",
-        "sha256": "44c3c6776c30fc7a0f6e237c3bbcb6e9b10115f2c6e89f092f7de04969b61b44"
+        "sha256": "fec69d824d296371b9437dbddb06899be411fd0877376401c15d6039c00ead98"
       },
       "updates": [
         {
@@ -1409,150 +503,7 @@
     },
     {
       "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2026-02-28T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260224.zip",
-        "release": "2026-03",
-        "sha256": "8efbfd5897470204e6461759c28c5a600cc4472bdd2e4a7b85559b6fbefc92a9"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11904,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-03-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260331.zip",
-        "release": "2026-03",
-        "sha256": "ec88b2a01727fd1297440766fe4e8cea8f8fc509640ac4ff5a96725f414fe77d"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1481,
-      "from": {
-        "data-time": "2026-02-28T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260226.zip",
-        "release": "2026-03",
-        "sha256": "5c365e3136ec0afa0a26bc2112fc03ca597a8f1899535d603aab6f2e423b0d31"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 7405,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2026-03-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260326.zip",
-        "release": "2026-03",
-        "sha256": "fec69d824d296371b9437dbddb06899be411fd0877376401c15d6039c00ead98"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2026-02-28T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260224.zip",
-        "release": "2026-03",
-        "sha256": "7a85023064b5e87a169c78cd464f0e2412f0afadfd95dba7419777f5b948704a"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11904,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-03-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260331.zip",
-        "release": "2026-03",
-        "sha256": "100c5f4e7db4061a803c2badebe1c9910572eb6ab3496b53efca8f1edc772435"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
+        "schema"
       ],
       "files": 1,
       "from": {
@@ -1579,28 +530,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -1609,7 +544,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1440,
+      "files": 2880,
       "from": {
         "data-time": "2026-03-31T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260326.zip",
@@ -1624,13 +559,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 7200,
+      "rows": 14400,
       "schema-id": 0,
       "to": {
         "data-time": "2026-04-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260430.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260430.zip",
         "release": "2026-04",
-        "sha256": "37a93c722dd733d71ffb84636a4c9fe347cb73d7b93636e45d1fb435b5f41678"
+        "sha256": "1cf12319dd204b1e02e18263b3b6e579a85c8b5b51402f59cacafe14467de105"
       },
       "updates": [
         {
@@ -1646,150 +581,7 @@
     },
     {
       "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1440,
-      "from": {
-        "data-time": "2026-03-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260331.zip",
-        "release": "2026-04",
-        "sha256": "ec88b2a01727fd1297440766fe4e8cea8f8fc509640ac4ff5a96725f414fe77d"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11520,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-04-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260428.zip",
-        "release": "2026-04",
-        "sha256": "ae23de5d7e74ba1be46dc9a41cdcbe728b5e1bc116f96fe6f9b63755334a0f0d"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1440,
-      "from": {
-        "data-time": "2026-03-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260326.zip",
-        "release": "2026-04",
-        "sha256": "fec69d824d296371b9437dbddb06899be411fd0877376401c15d6039c00ead98"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 7200,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2026-04-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260430.zip",
-        "release": "2026-04",
-        "sha256": "1cf12319dd204b1e02e18263b3b6e579a85c8b5b51402f59cacafe14467de105"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1440,
-      "from": {
-        "data-time": "2026-03-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260331.zip",
-        "release": "2026-04",
-        "sha256": "100c5f4e7db4061a803c2badebe1c9910572eb6ab3496b53efca8f1edc772435"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11520,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-04-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260428.zip",
-        "release": "2026-04",
-        "sha256": "84fc0fbc4959351f2cfae056c35400e8a89ab3d2322132e13fc7746ba053b1a4"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
+        "schema"
       ],
       "files": 1,
       "from": {
@@ -1816,28 +608,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -1846,7 +622,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1488,
+      "files": 2976,
       "from": {
         "data-time": "2026-04-30T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260430.zip",
@@ -1861,13 +637,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 7440,
+      "rows": 14880,
       "schema-id": 0,
       "to": {
         "data-time": "2026-05-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260528.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260528.zip",
         "release": "2026-05",
-        "sha256": "819dbb3edbc3f2b0003cc6456023711a01816bfb4829c2bb5ff97e811d42a789"
+        "sha256": "36998fd43394ed596556242aeab3bf6e5e5e5e54d6feb3fda5c0b5e37b9e33b6"
       },
       "updates": [
         {
@@ -1883,150 +659,7 @@
     },
     {
       "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2026-04-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260428.zip",
-        "release": "2026-05",
-        "sha256": "ae23de5d7e74ba1be46dc9a41cdcbe728b5e1bc116f96fe6f9b63755334a0f0d"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11904,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-05-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260526.zip",
-        "release": "2026-05",
-        "sha256": "bcdc47b51eb08fd49502d43c773ccceded01e389db36ded293760f12384f7121"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2026-04-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260430.zip",
-        "release": "2026-05",
-        "sha256": "1cf12319dd204b1e02e18263b3b6e579a85c8b5b51402f59cacafe14467de105"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 7440,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2026-05-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260528.zip",
-        "release": "2026-05",
-        "sha256": "36998fd43394ed596556242aeab3bf6e5e5e5e54d6feb3fda5c0b5e37b9e33b6"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2026-04-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260428.zip",
-        "release": "2026-05",
-        "sha256": "84fc0fbc4959351f2cfae056c35400e8a89ab3d2322132e13fc7746ba053b1a4"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11904,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-05-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260526.zip",
-        "release": "2026-05",
-        "sha256": "42da0d8d428b983db38e49d9a4c97e57d66ee0d621aa6109d9affeac03c5d783"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
+        "schema"
       ],
       "files": 1,
       "from": {
@@ -2053,28 +686,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -2083,7 +700,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1440,
+      "files": 2880,
       "from": {
         "data-time": "2026-05-31T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260528.zip",
@@ -2098,13 +715,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 7200,
+      "rows": 14400,
       "schema-id": 0,
       "to": {
         "data-time": "2026-06-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260625.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260625.zip",
         "release": "2026-06",
-        "sha256": "fc234b3dcebac3e3271af58a05f9748e53b871002a26a2a597d6fb8cf787318e"
+        "sha256": "aad55e3aca177c9244920becccd1f04268ce43e777840186b65efd607e16f200"
       },
       "updates": [
         {
@@ -2120,150 +737,7 @@
     },
     {
       "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1440,
-      "from": {
-        "data-time": "2026-05-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260526.zip",
-        "release": "2026-06",
-        "sha256": "bcdc47b51eb08fd49502d43c773ccceded01e389db36ded293760f12384f7121"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11520,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-06-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260630.zip",
-        "release": "2026-06",
-        "sha256": "ce282bc673754a9c5cb879ded3b5337e49c981359259ffbc8d86a532380d7c1f"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1440,
-      "from": {
-        "data-time": "2026-05-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260528.zip",
-        "release": "2026-06",
-        "sha256": "36998fd43394ed596556242aeab3bf6e5e5e5e54d6feb3fda5c0b5e37b9e33b6"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 7200,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2026-06-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260625.zip",
-        "release": "2026-06",
-        "sha256": "aad55e3aca177c9244920becccd1f04268ce43e777840186b65efd607e16f200"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1440,
-      "from": {
-        "data-time": "2026-05-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260526.zip",
-        "release": "2026-06",
-        "sha256": "42da0d8d428b983db38e49d9a4c97e57d66ee0d621aa6109d9affeac03c5d783"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11520,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-06-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260630.zip",
-        "release": "2026-06",
-        "sha256": "3ee04f53ed09b6d6f541b7798a7d7987a3da00c7ba502064b97040e14607e639"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
+        "schema"
       ],
       "files": 1,
       "from": {
@@ -2290,28 +764,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -2320,7 +778,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1488,
+      "files": 2976,
       "from": {
         "data-time": "2026-06-30T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260625.zip",
@@ -2335,13 +793,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 7440,
+      "rows": 14880,
       "schema-id": 0,
       "to": {
         "data-time": "2026-07-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260730.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260730.zip",
         "release": "2026-07",
-        "sha256": "3e26f80df2255486855383a03a7ffac0df40089a671bd8b1a40ce7f1f7d9e9f2"
+        "sha256": "f60e14a5a515704d50a575364508e029a7c14b4c480d44e690df2a45541c43a0"
       },
       "updates": [
         {
@@ -2357,150 +815,7 @@
     },
     {
       "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2026-06-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260630.zip",
-        "release": "2026-07",
-        "sha256": "ce282bc673754a9c5cb879ded3b5337e49c981359259ffbc8d86a532380d7c1f"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11904,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-07-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260728.zip",
-        "release": "2026-07",
-        "sha256": "6807125d07e55c5558b53a5098aad96b5e2583f0bbea5344100d1cc8f85669c1"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2026-06-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260625.zip",
-        "release": "2026-07",
-        "sha256": "aad55e3aca177c9244920becccd1f04268ce43e777840186b65efd607e16f200"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 7440,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2026-07-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260730.zip",
-        "release": "2026-07",
-        "sha256": "f60e14a5a515704d50a575364508e029a7c14b4c480d44e690df2a45541c43a0"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2026-06-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260630.zip",
-        "release": "2026-07",
-        "sha256": "3ee04f53ed09b6d6f541b7798a7d7987a3da00c7ba502064b97040e14607e639"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11904,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-07-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260728.zip",
-        "release": "2026-07",
-        "sha256": "494aa1282a79b65202fe838e8c67e91f1abb9cb95a52a24ceb63cb3fa39e66bf"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
+        "schema"
       ],
       "files": 1,
       "from": {
@@ -2527,28 +842,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -2557,7 +856,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1488,
+      "files": 2976,
       "from": {
         "data-time": "2026-07-31T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260730.zip",
@@ -2572,13 +871,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 7440,
+      "rows": 14880,
       "schema-id": 0,
       "to": {
         "data-time": "2026-08-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260827.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260827.zip",
         "release": "2026-08",
-        "sha256": "587d7a8409904822b1074912868a0853aab4f9f24df7eb58108aa2754ae21006"
+        "sha256": "9746e03271259f8fc4fbe6622caccefb9a689df94b330d0af25eacbbc8500a4f"
       },
       "updates": [
         {
@@ -2594,150 +893,7 @@
     },
     {
       "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2026-07-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260728.zip",
-        "release": "2026-08",
-        "sha256": "6807125d07e55c5558b53a5098aad96b5e2583f0bbea5344100d1cc8f85669c1"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11904,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-08-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260825.zip",
-        "release": "2026-08",
-        "sha256": "4f60e0e13660612ee93395a1e1cfc31ecbbd9c2031d43e35fd2e4c4c80932244"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2026-07-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260730.zip",
-        "release": "2026-08",
-        "sha256": "f60e14a5a515704d50a575364508e029a7c14b4c480d44e690df2a45541c43a0"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 7440,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2026-08-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260827.zip",
-        "release": "2026-08",
-        "sha256": "9746e03271259f8fc4fbe6622caccefb9a689df94b330d0af25eacbbc8500a4f"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1488,
-      "from": {
-        "data-time": "2026-07-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260728.zip",
-        "release": "2026-08",
-        "sha256": "494aa1282a79b65202fe838e8c67e91f1abb9cb95a52a24ceb63cb3fa39e66bf"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11904,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-08-31T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260825.zip",
-        "release": "2026-08",
-        "sha256": "72a2204c791c1b4a0077852fd20c4e844b4b4512a9c88c1968c9b3e74c81023e"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
+        "schema"
       ],
       "files": 1,
       "from": {
@@ -2764,28 +920,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -2794,7 +934,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1440,
+      "files": 2880,
       "from": {
         "data-time": "2026-08-31T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260827.zip",
@@ -2809,13 +949,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 7200,
+      "rows": 14400,
       "schema-id": 0,
       "to": {
         "data-time": "2026-09-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20260924.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260924.zip",
         "release": "2026-09",
-        "sha256": "8f5ca131ec3907e93809bd2f3453261cb8eee9efe14446080639aabca3ead273"
+        "sha256": "01ea28b0c86adb38ace362ea1ad17ea4dd3db1efac2f484b140cfc5c8c4ddce6"
       },
       "updates": [
         {
@@ -2831,150 +971,7 @@
     },
     {
       "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1440,
-      "from": {
-        "data-time": "2026-08-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260901.zip",
-        "release": "2026-09",
-        "sha256": "1be5a6276552a40e755901ebb1efbaf74b0e5573a3f8854ecca7b7e7f455314b"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11520,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-09-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260929.zip",
-        "release": "2026-09",
-        "sha256": "29490c87f801e756724838e1dcea73578bd700a0c7375d2b8a474e1592f0b7f4"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1440,
-      "from": {
-        "data-time": "2026-08-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260827.zip",
-        "release": "2026-09",
-        "sha256": "9746e03271259f8fc4fbe6622caccefb9a689df94b330d0af25eacbbc8500a4f"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 7200,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2026-09-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20260924.zip",
-        "release": "2026-09",
-        "sha256": "01ea28b0c86adb38ace362ea1ad17ea4dd3db1efac2f484b140cfc5c8c4ddce6"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1440,
-      "from": {
-        "data-time": "2026-08-31T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260901.zip",
-        "release": "2026-09",
-        "sha256": "7619e460986d24b77e3816bc97b07618c2aa543b96cbd98922eb306631412d4f"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 11520,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-09-30T23:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260929.zip",
-        "release": "2026-09",
-        "sha256": "f9f523d30c8294afbf0653e51291db1f8fde8e42ffb4a4f10c25928cbd020dde"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
+        "schema"
       ],
       "files": 1,
       "from": {
@@ -3001,28 +998,12 @@
       },
       "updates": [
         {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
           "action": "move",
           "field-id": 6
         },
         {
           "action": "move",
           "field-id": 5
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
         }
       ],
       "version": 2
@@ -3031,7 +1012,7 @@
       "changes": [
         "schema"
       ],
-      "files": 1126,
+      "files": 2254,
       "from": {
         "data-time": "2026-09-30T23:30:00+10:00",
         "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20261001.zip",
@@ -3046,13 +1027,13 @@
         "ROOFTOP",
         "ACTUAL"
       ],
-      "rows": 5630,
+      "rows": 11270,
       "schema-id": 0,
       "to": {
         "data-time": "2026-10-24T11:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_20261024113000_0000000544594226.zip",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20261024113000_0000000544594228.zip",
         "release": "2026-10",
-        "sha256": "46d3ee5153177c9df70f1927b5de3e9449ccb604d3dd9aeebe6693c21c7d9fe2"
+        "sha256": "5df2b660e937531dec778c968fea621b575b4d2944da75a79fc22fe875e083ee"
       },
       "updates": [
         {
@@ -3065,148 +1046,6 @@
         }
       ],
       "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1128,
-      "from": {
-        "data-time": "2026-09-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20260929.zip",
-        "release": "2026-10",
-        "sha256": "29490c87f801e756724838e1dcea73578bd700a0c7375d2b8a474e1592f0b7f4"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 9024,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-10-24T11:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20261024113000_0000000544594227.zip",
-        "release": "2026-10",
-        "sha256": "c5490d35f127f39e31b28508683d3949407298e88a29a720d76c1caac9923c4b"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1128,
-      "from": {
-        "data-time": "2026-09-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20261001.zip",
-        "release": "2026-10",
-        "sha256": "f84cf98201b86ff7d24b233c3f608eee700b94c567d509d3c3cb1e1297e1d78a"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 5640,
-      "schema-id": 0,
-      "to": {
-        "data-time": "2026-10-24T11:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_20261024113000_0000000544594228.zip",
-        "release": "2026-10",
-        "sha256": "5df2b660e937531dec778c968fea621b575b4d2944da75a79fc22fe875e083ee"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 7
-        },
-        {
-          "action": "restore",
-          "field-id": 2
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            2,
-            5
-          ]
-        }
-      ],
-      "version": 2
-    },
-    {
-      "changes": [
-        "schema",
-        "version"
-      ],
-      "files": 1128,
-      "from": {
-        "data-time": "2026-09-30T23:30:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20260929.zip",
-        "release": "2026-10",
-        "sha256": "f9f523d30c8294afbf0653e51291db1f8fde8e42ffb4a4f10c25928cbd020dde"
-      },
-      "kinds": [
-        "reports"
-      ],
-      "overlaps": true,
-      "report": [
-        "ROOFTOP",
-        "ACTUAL"
-      ],
-      "rows": 9024,
-      "schema-id": 2,
-      "to": {
-        "data-time": "2026-10-24T11:00:00+10:00",
-        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20261024113000_0000000544594229.zip",
-        "release": "2026-10",
-        "sha256": "ff3dca4b5d615bee21ffeff75d9e1a89088aad341a0284162705b4ee9fa95a73"
-      },
-      "updates": [
-        {
-          "action": "delete",
-          "field-id": 2
-        },
-        {
-          "action": "restore",
-          "field-id": 7
-        },
-        {
-          "action": "set-identifier-fields",
-          "field-ids": [
-            1,
-            5
-          ]
-        }
-      ],
-      "version": 1
     }
   ],
   "schemas": [
@@ -3302,52 +1141,6 @@
         5
       ],
       "schema-id": 1,
-      "type": "struct"
-    },
-    {
-      "fields": [
-        {
-          "id": 1,
-          "name": "INTERVAL_DATETIME",
-          "required": true,
-          "type": "timestamptz"
-        },
-        {
-          "id": 7,
-          "name": "AREAID",
-          "required": false,
-          "type": "string"
-        },
-        {
-          "id": 3,
-          "name": "POWER",
-          "required": false,
-          "type": "decimal(12, 3)"
-        },
-        {
-          "id": 4,
-          "name": "QI",
-          "required": false,
-          "type": "decimal(2, 1)"
-        },
-        {
-          "id": 5,
-          "name": "TYPE",
-          "required": true,
-          "type": "string"
-        },
-        {
-          "id": 6,
-          "name": "LASTCHANGED",
-          "required": false,
-          "type": "timestamptz"
-        }
-      ],
-      "identifier-field-ids": [
-        1,
-        5
-      ],
-      "schema-id": 2,
       "type": "struct"
     }
   ],

@@ -157,10 +157,10 @@ id, `current-schema-id`), the metadata carries, as strings:
 
 | Where                       | Key                                                                                   | What it holds                                                                                                                                                      |
 | --------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `properties`                | `utilake.format`, `utilake.table`                                                     | The layout's generation (3) and the table's name.                                                                                                                  |
+| `properties`                | `utilake.format`, `utilake.table`                                                     | The layout's generation (4) and the table's name.                                                                                                                  |
 | `properties`                | `utilake.market`, `utilake.offset`                                                    | The market (`wem`, `gas`) and its clock (`+08:00`, `+10:00`), for a table that is not the NEM's; a NEM table carries neither, and reads at `+10:00`.                 |
 | `properties`                | `utilake.headers`, `utilake.model`                                                    | The header a file wrote for a column named from it (`{field id: "Load Forecast (MW)"}`), and the data-model tables whose words describe a table not named in the model (a JSON array); only when there are any. |
-| `properties`                | `utilake.declared`                                                                    | Whether `tables/{market}/` declares the table. When `true`: `utilake.package`, `utilake.reports` (`[[type, subtype], …]`), `utilake.key`, `utilake.time`, `utilake.load`, `utilake.visibility`, `utilake.temporal.valid.kind`, `utilake.temporal.valid.column`, `utilake.temporal.valid.until` (a `from` table's end column, when it has one), `utilake.temporal.entity`, `utilake.temporal.order`, `utilake.temporal.cutoff`, `utilake.temporal.origin`. Every list is a JSON array. |
+| `properties`                | `utilake.declared`                                                                    | Whether `tables/{market}/` declares the table. When `true`: `utilake.package`, `utilake.reports` (`[[type, subtype], …]`), `utilake.with-columns` (the columns a block of those pairs must hold to be this table's, when a pair carries two kinds of row; absent for every block), `utilake.key`, `utilake.time`, `utilake.load`, `utilake.visibility`, `utilake.temporal.valid.kind`, `utilake.temporal.valid.column`, `utilake.temporal.valid.until` (a `from` table's end column, when it has one), `utilake.temporal.entity`, `utilake.temporal.order`, `utilake.temporal.cutoff`, `utilake.temporal.origin`. Every list is a JSON array. |
 | `properties`                | `comment`, `utilake.model-types`                                                      | What the table holds and each column's type (`{field id: "NUMERIC(16,6)"}`) in the latest data-model release that has them; each column's words are its field's `doc`. |
 | `properties`                | `utilake.breaks`                                                                      | The columns whose values left their field's type: `[{column, old-field-id, old-type, new-field-id, new-type, at: {file, sha256, release, data-time}}]`.             |
 | each snapshot's `summary`   | `utilake.report-type`, `utilake.report-subtype`, `utilake.version`, `utilake.kinds`  | The run's report pair, AEMO version and the kinds of file it came in. For a file without MMS rows the report type is its feed (`GBB`, `STTM`, `DWGM`, `WEM`, `WEMDE`), the subtype the file's stem (`ACTUAL_FLOW_STORAGE`, `INT651_EX_ANTE_MARKET_PRICE_RPT_1`, `REFERENCE_TRADING_PRICE_REFERENCE_TRADING_PRICES`) and the version its `_vN`, else 1. |
@@ -264,8 +264,26 @@ two kinds:
 - **An override**: a `[[override]]` in the table's file under `tables/`,
   setting a column's type, with a `reason` that cites the evidence (the
   census month, file or data-model release that shows it).
+- **Two kinds of row under one pair**: a second table with
+  `with_columns = ["AREAID"]` takes the pair's blocks that hold those
+  columns, as the `*_AREA` tables take AEMO's area reports from the
+  regional tables. The fold fails when a schema of a declared table lacks
+  a column of its key, naming the file: that is how such a pair shows.
+- **A rename**: a `[[rename]]` (`from`, `to`, `evidence`) makes a column
+  AEMO renamed one field under both names, Iceberg's rename (the run
+  records `rename`). Two names one block holds are refused as a rename.
+  Columns that only look renamed (a split, a redefinition, a replacement,
+  or two names one block carries together) are `[[distinct]]`
+  (`columns`, `reason`). The fold fails on a declared table that drops a
+  column as another of its kind is added with neither said, and notes
+  such pairs in an undeclared table.
 - **A rule change**: a change to the code under `crates/`, with a test
   that shows the case it fixes.
+
+`models` also records each data-model release's loader configuration
+(`evidence/loads/{market}/{version}.toml`: which version of which pair
+loads which table, and how), and the fold notes every run AEMO's loader
+puts into another table or does not load. Nothing routes by it.
 
 Run `just fold` (per market) and `just export`, and commit the evidence,
 histories and market directories together. CI proves the effect: `just

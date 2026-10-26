@@ -1,0 +1,16 @@
+# The declaration of DEMANDOPERATIONALACTUAL_AREA: kept by hand.
+#
+# The OPERATIONAL_DEMAND/ACTUAL blocks of the *_AREA report files
+# (ACTUAL_HH_AREA, ACTUAL_DAILY_AREA; version 1, first seen in the files
+# of 2025-09) are of areas: AREAID in place of REGIONID. AEMO's data model
+# 5.7 keys DEMANDOPERATIONALACTUAL on REGIONID, and its loader
+# configuration loads versions 2 and 3 of the pair into it, not version 1,
+# so the area rows are a table of their own.
+name = "DEMANDOPERATIONALACTUAL_AREA"
+package = "DEMAND_FORECASTS"
+report_pairs = [["OPERATIONAL_DEMAND", "ACTUAL"]]
+with_columns = ["AREAID"]
+primary_key = ["INTERVAL_DATETIME", "AREAID"]
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"

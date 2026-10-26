@@ -50,6 +50,34 @@ pub enum FoldError {
         /// What is wrong.
         message: String,
     },
+    /// A schema of a declared table without one of the table's key
+    /// columns: its rows are not the table's kind of row (an area's
+    /// beside a region's), so the blocks need a table of their own
+    /// (`with_columns`) or the key is wrong.
+    #[error(
+        "{table} is keyed on {column}, but its schema {schema_id} has no {column}: the blocks from {file} on are another kind of row."
+    )]
+    KeyMissing {
+        /// The table.
+        table: String,
+        /// The key column.
+        column: String,
+        /// The schema without it.
+        schema_id: u32,
+        /// The first file of that schema.
+        file: String,
+    },
+    /// A column dropped as another of its kind is added, with nothing
+    /// saying whether it was renamed: a rename split into two fields
+    /// would read null under the new name before it.
+    #[error(
+        "Columns dropped as another of their kind is added, with no [[rename]] or [[distinct]] in their table's declaration to say which: {}.",
+        undecided.iter().map(ToString::to_string).collect::<Vec<_>>().join("; ")
+    )]
+    RenameUndecided {
+        /// Every such pair.
+        undecided: Vec<Undecided>,
+    },
     /// A history file that cannot be written or removed.
     #[error("The history file {path} could not be written.")]
     Write {
@@ -279,7 +307,7 @@ pub fn observe(
         let files = read_month(root, market, month)?.unwrap_or_default();
         for (file, f) in &files {
             for (i, b) in f.block.iter().enumerate() {
-                let table = catalog.table_of(&b.report.0, &b.report.1);
+                let table = catalog.table_of(&b.report.0, &b.report.1, &b.columns);
                 let index = u32::try_from(i).unwrap_or(u32::MAX);
                 obs.block(&table, month, (file, index), f, b);
             }
@@ -302,7 +330,7 @@ pub fn observe(
             };
             for t in &census.blocks {
                 let b = &t.block;
-                let table = catalog.table_of(&b.report.0, &b.report.1);
+                let table = catalog.table_of(&b.report.0, &b.report.1, &b.columns);
                 // Records from before the files were hashed name the CSVs.
                 let named = |file: &str, csv: &'_ str| {
                     if file.is_empty() {
@@ -375,11 +403,211 @@ pub fn declarations(
             (t.name.clone(), typed)
         })
         .collect();
+    let renames = catalog
+        .tables()
+        .iter()
+        .filter(|t| !t.renames.is_empty())
+        .map(|t| {
+            let to_from = t
+                .renames
+                .iter()
+                .map(|r| (r.to.clone(), r.from.clone()))
+                .collect();
+            (t.name.clone(), to_from)
+        })
+        .collect();
     Ok(Declarations {
         keys,
         overrides,
+        renames,
         releases,
     })
+}
+
+/// Every schema of every declared table holds every column of its key.
+fn key_held(catalog: &Catalog, tables: &BTreeMap<String, History>) -> Result<(), FoldError> {
+    for (name, h) in tables {
+        let Some(d) = catalog.table(name) else {
+            continue;
+        };
+        for s in &h.schemas {
+            if let Some(column) = d
+                .primary_key
+                .iter()
+                .find(|k| !s.fields.iter().any(|f| &f.name == *k))
+            {
+                let file = h
+                    .runs
+                    .iter()
+                    .find(|r| r.schema_id == s.schema_id)
+                    .map_or_else(String::new, |r| r.from.file.clone());
+                return Err(FoldError::KeyMissing {
+                    table: name.clone(),
+                    column: column.clone(),
+                    schema_id: s.schema_id,
+                    file,
+                });
+            }
+        }
+    }
+    Ok(())
+}
+
+/// A column dropped as another of its kind is added, undeclared.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Undecided {
+    /// The table.
+    pub table: String,
+    /// The column dropped.
+    pub from: String,
+    /// The column added.
+    pub to: String,
+    /// The file of the run that adds it.
+    pub file: String,
+}
+
+impl std::fmt::Display for Undecided {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{} {} to {} in {}",
+            self.table, self.from, self.to, self.file
+        )
+    }
+}
+
+/// Every column a run of a declared table drops as it adds a new one of
+/// the same kind is declared a rename of it or distinct from it. An
+/// undeclared table has no declaration to say so: its pairs are notes.
+fn renames_decided(
+    catalog: &Catalog,
+    tables: &BTreeMap<String, History>,
+    notes: &mut Vec<String>,
+) -> Result<(), FoldError> {
+    use utilake_iceberg::history::Update;
+    let mut undecided: Vec<Undecided> = Vec::new();
+    for (name, h) in tables {
+        let d = catalog.table(name);
+        let decided = |a: &str, b: &str| {
+            d.is_some_and(|d| {
+                d.renames.iter().any(|r| r.from == a && r.to == b)
+                    || d.distinct.iter().any(|g| {
+                        g.columns.iter().any(|c| c == a) && g.columns.iter().any(|c| c == b)
+                    })
+            })
+        };
+        let field = |id: u32| {
+            h.schemas
+                .iter()
+                .flat_map(|s| &s.fields)
+                .find(|f| f.id == id)
+        };
+        let (mut unsaid, mut first) = (0, None::<String>);
+        for r in &h.runs {
+            let dropped = r.updates.iter().filter_map(|u| match u {
+                Update::Delete { field_id } => field(*field_id),
+                _ => None,
+            });
+            for gone in dropped {
+                let added = r.updates.iter().filter_map(|u| match u {
+                    Update::Add { field_id } => field(*field_id),
+                    _ => None,
+                });
+                // Of one kind: a renamed decimal may have widened.
+                let kind = |f: &utilake_iceberg::Field| std::mem::discriminant(&f.ty);
+                // A column under its own name again is a break, not a
+                // rename: its values left the old field's type.
+                for new in added.filter(|f| kind(f) == kind(gone) && f.name != gone.name) {
+                    let seen = undecided
+                        .iter()
+                        .any(|u| &u.table == name && u.from == gone.name && u.to == new.name);
+                    if d.is_none() {
+                        unsaid += 1;
+                        first.get_or_insert_with(|| {
+                            format!("{} as {} in {}", gone.name, new.name, r.from.file)
+                        });
+                    } else if !decided(&gone.name, &new.name) && !seen {
+                        undecided.push(Undecided {
+                            table: name.clone(),
+                            from: gone.name.clone(),
+                            to: new.name.clone(),
+                            file: r.from.file.clone(),
+                        });
+                    }
+                }
+            }
+        }
+        if let Some(first) = first {
+            notes.push(format!(
+                "{name}: {unsaid} column(s) dropped as another of their kind is added (first {first}); the table is undeclared, so nothing says which are renames"
+            ));
+        }
+    }
+    if undecided.is_empty() {
+        Ok(())
+    } else {
+        Err(FoldError::RenameUndecided { undecided })
+    }
+}
+
+/// Where AEMO's loader configuration (the newest release that loads it)
+/// puts a run's report pair and version into another table, or no
+/// recorded release loads that version: one note per table. Evidence only;
+/// the catalog routes the blocks.
+fn loads_agree(
+    loads: &BTreeMap<String, crate::models::Loads>,
+    tables: &BTreeMap<String, History>,
+    notes: &mut Vec<String>,
+) {
+    // Releases newest first, by their version number.
+    let mut releases: Vec<&crate::models::Loads> = loads.values().collect();
+    releases.sort_by(|a, b| {
+        let n = |v: &str| {
+            v.split('.')
+                .map(|p| p.parse::<u32>().unwrap_or(0))
+                .collect::<Vec<_>>()
+        };
+        n(&b.version).cmp(&n(&a.version))
+    });
+    for (name, h) in tables {
+        let mut said: Vec<String> = Vec::new();
+        for r in &h.runs {
+            if !releases
+                .iter()
+                .any(|l| l.loads.iter().any(|x| x.report == r.report))
+            {
+                continue;
+            }
+            // The newest release that loads this version, else the newest
+            // that names the pair at all.
+            let loaded = releases.iter().find_map(|l| {
+                l.loads
+                    .iter()
+                    .find(|x| x.report == r.report && x.version == r.version)
+                    .map(|x| (l, x))
+            });
+            let line = match loaded {
+                Some((_, x)) if &x.table == name => continue,
+                Some((l, x)) => format!(
+                    "{}/{} v{} loads {} in data model {}",
+                    r.report[0], r.report[1], r.version, x.table, l.version
+                ),
+                None => format!(
+                    "{}/{} v{} is a version no recorded data model loads",
+                    r.report[0], r.report[1], r.version
+                ),
+            };
+            if !said.contains(&line) {
+                said.push(line);
+            }
+        }
+        if !said.is_empty() {
+            notes.push(format!(
+                "{name}: AEMO's loader disagrees: {}",
+                said.join("; ")
+            ));
+        }
+    }
 }
 
 /// The histories the previous export published for `market`: every
@@ -459,11 +687,18 @@ pub fn fold(
         .map(|t| t.name.clone())
         .collect();
     let tables = obs.finish(&declarations(root, market, catalog)?, &floor)?;
+    key_held(catalog, &tables)?;
     let mut folded = Folded {
         tables: tables.len(),
         notes: day_label_notes(market, catalog, &midnight_only, &tables),
         ..Folded::default()
     };
+    renames_decided(catalog, &tables, &mut folded.notes)?;
+    loads_agree(
+        &crate::models::read_all_loads(root, market)?,
+        &tables,
+        &mut folded.notes,
+    );
     if let Some(reason) = rebaseline {
         let next = Baseline {
             version: Baseline::read(root, market)?.version + 1,

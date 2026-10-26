@@ -38,7 +38,8 @@ pub enum CatalogError {
         /// What is wrong.
         message: String,
     },
-    /// A report pair two tables declare.
+    /// A report pair two tables declare with the same number of
+    /// `with_columns`, so a block could be either's.
     #[error("The report pair {pair} is declared by both {first} and {second}.")]
     Duplicate {
         /// The pair, `TYPE/SUBTYPE`.
@@ -90,6 +91,33 @@ impl Override {
     }
 }
 
+/// A column AEMO renamed: the same column under a new name from some
+/// release on, so one field whose name changes (Iceberg's rename), not a
+/// column dropped and another added.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Rename {
+    /// The name it had.
+    pub from: String,
+    /// The name it has.
+    pub to: String,
+    /// What says it is a rename: an upgrade script's `RENAME COLUMN`, a
+    /// release note.
+    pub evidence: String,
+}
+
+/// Columns that look like a rename and are not: one dropped and another
+/// of its type added at once, each its own column (a split, a
+/// redefinition, a replacement, or two names one block holds together).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Distinct {
+    /// The columns.
+    pub columns: Vec<String>,
+    /// Why they are not one renamed column.
+    pub reason: String,
+}
+
 /// One table's declaration, as written in `tables/{name}.toml`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -102,6 +130,13 @@ pub struct TableDecl {
     pub package: Option<String>,
     /// The report pairs (type, subtype) its blocks are published under.
     pub report_pairs: Vec<[String; 2]>,
+    /// The columns a block of those pairs must hold to be this table's:
+    /// empty for every block of them. Where AEMO publishes two kinds of
+    /// row under one pair (a region's and an area's), the table of the
+    /// narrower kind names the column that marks it (`AREAID`), and a
+    /// block goes to the most specific table whose columns it holds.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub with_columns: Vec<String>,
     /// Its key, in order; empty for none.
     pub primary_key: Vec<String>,
     /// The column a block's time span is of.
@@ -119,6 +154,12 @@ pub struct TableDecl {
     /// Columns typed by hand.
     #[serde(default, rename = "override", skip_serializing_if = "Vec::is_empty")]
     pub overrides: Vec<Override>,
+    /// Columns AEMO renamed, each one field under both names.
+    #[serde(default, rename = "rename", skip_serializing_if = "Vec::is_empty")]
+    pub renames: Vec<Rename>,
+    /// Columns that look renamed and are not.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub distinct: Vec<Distinct>,
     /// The tables of AEMO's data model whose columns say what this
     /// table's are, when the table's own name is not in the model (a
     /// published file that is a view of model tables).
@@ -148,6 +189,28 @@ impl TableDecl {
             }
             seen.push(&o.column);
         }
+        if let Some(d) = self
+            .distinct
+            .iter()
+            .find(|d| d.columns.len() < 2 || d.reason.trim().is_empty())
+        {
+            return Some(format!(
+                "the distinct columns {:?} need two or more columns and a reason",
+                d.columns
+            ));
+        }
+        for r in &self.renames {
+            if r.from.is_empty()
+                || r.to.is_empty()
+                || r.from == r.to
+                || r.evidence.trim().is_empty()
+            {
+                return Some(format!(
+                    "the rename of {} to {} needs two different names and its evidence",
+                    r.from, r.to
+                ));
+            }
+        }
         None
     }
 
@@ -165,28 +228,33 @@ impl TableDecl {
 #[derive(Debug, Clone, Default)]
 pub struct Catalog {
     tables: Vec<TableDecl>,
-    by_pair: HashMap<(String, String), usize>,
+    /// The tables of each pair, the most `with_columns` first.
+    by_pair: HashMap<(String, String), Vec<usize>>,
 }
 
 impl Catalog {
     /// The declarations, each with the file it came from (for an error),
-    /// in name order. A pair two tables declare is refused.
+    /// in name order. Two tables of one pair with as many `with_columns`
+    /// as each other are refused: a block could be either's.
     pub fn new(tables: Vec<(PathBuf, TableDecl)>) -> Result<Self, CatalogError> {
         let mut tables = tables;
         tables.sort_by(|a, b| a.1.name.cmp(&b.1.name));
-        let mut by_pair = HashMap::new();
-        let mut from: HashMap<(String, String), &Path> = HashMap::new();
+        let mut by_pair: HashMap<(String, String), Vec<usize>> = HashMap::new();
         for (i, (path, t)) in tables.iter().enumerate() {
             for [a, b] in &t.report_pairs {
-                let key = (a.clone(), b.clone());
-                if let Some(first) = from.insert(key.clone(), path) {
+                let of_pair = by_pair.entry((a.clone(), b.clone())).or_default();
+                if let Some(&j) = of_pair
+                    .iter()
+                    .find(|&&j| tables[j].1.with_columns.len() == t.with_columns.len())
+                {
                     return Err(CatalogError::Duplicate {
                         pair: format!("{a}/{b}"),
-                        first: first.display().to_string(),
+                        first: tables[j].0.display().to_string(),
                         second: path.display().to_string(),
                     });
                 }
-                by_pair.insert(key, i);
+                of_pair.push(i);
+                of_pair.sort_by_key(|&j| std::cmp::Reverse(tables[j].1.with_columns.len()));
             }
         }
         Ok(Self {
@@ -231,11 +299,20 @@ impl Catalog {
         self.tables.iter().find(|t| t.name == name)
     }
 
-    /// The table that declares a report pair.
-    pub fn declared_by_pair(&self, report_type: &str, report_subtype: &str) -> Option<&TableDecl> {
+    /// The table that declares a report pair and whose `with_columns` a
+    /// block of these `columns` holds, the most specific first.
+    pub fn declared_by_pair<S: AsRef<str>>(
+        &self,
+        report_type: &str,
+        report_subtype: &str,
+        columns: &[S],
+    ) -> Option<&TableDecl> {
+        let holds = |c: &String| columns.iter().any(|x| x.as_ref().eq_ignore_ascii_case(c));
         self.by_pair
-            .get(&(report_type.to_owned(), report_subtype.to_owned()))
+            .get(&(report_type.to_owned(), report_subtype.to_owned()))?
+            .iter()
             .map(|&i| &self.tables[i])
+            .find(|t| t.with_columns.iter().all(holds))
     }
 
     /// The table a block of this report pair is recorded under: the one
@@ -244,8 +321,13 @@ impl Catalog {
     /// any character that is not a letter, digit or underscore written as
     /// `_` (a plain feed's name may carry a hyphen or a dot; an MMS pair
     /// never does).
-    pub fn table_of(&self, report_type: &str, report_subtype: &str) -> String {
-        self.declared_by_pair(report_type, report_subtype)
+    pub fn table_of<S: AsRef<str>>(
+        &self,
+        report_type: &str,
+        report_subtype: &str,
+        columns: &[S],
+    ) -> String {
+        self.declared_by_pair(report_type, report_subtype, columns)
             .map_or_else(
                 || {
                     let pair = if report_subtype.is_empty() {
@@ -313,17 +395,23 @@ pub(crate) mod tests {
     use super::*;
 
     /// A declaration of `name` for one pair.
+    /// A block's columns, where they do not matter.
+    const NONE: &[&str] = &[];
+
     pub(crate) fn decl(name: &str, pair: (&str, &str), time: Option<&str>) -> TableDecl {
         TableDecl {
             name: name.into(),
             package: None,
             report_pairs: vec![[pair.0.into(), pair.1.into()]],
+            with_columns: Vec::new(),
             primary_key: vec!["SETTLEMENTDATE".into()],
             time_column: time.map(str::to_owned),
             load_mode: LoadMode::Append,
             visibility: "PUBLIC".into(),
             temporal: None,
             overrides: Vec::new(),
+            renames: Vec::new(),
+            distinct: Vec::new(),
             model: Vec::new(),
         }
     }
@@ -372,7 +460,7 @@ reason = "Six places are what AEMO measures."
         std::fs::create_dir(dir.path().join("sub.toml")).unwrap();
         let c = Catalog::read(dir.path()).unwrap();
         assert_eq!(c.tables().len(), 2);
-        let t = c.declared_by_pair("DISPATCH", "UNIT_SCADA").unwrap();
+        let t = c.declared_by_pair("DISPATCH", "UNIT_SCADA", NONE).unwrap();
         assert_eq!(t.time_column.as_deref(), Some("SETTLEMENTDATE"));
         assert_eq!(t.primary_key, ["SETTLEMENTDATE", "DUID"]);
         let roles = t.temporal.as_ref().unwrap();
@@ -389,11 +477,14 @@ reason = "Six places are what AEMO measures."
         );
         assert_eq!(c.table("DISPATCHPRICE"), Some(&price));
         assert!(c.table("NOBODY").is_none());
-        assert_eq!(c.table_of("DISPATCH", "PRICE"), "DISPATCHPRICE");
-        assert_eq!(c.table_of("DISPATCH", "OTHER"), "DISPATCH_OTHER");
-        assert_eq!(c.table_of("WEM", "FACILITY-SCADA"), "WEM_FACILITY_SCADA");
-        assert_eq!(c.table_of("WEMDE", "A.B"), "WEMDE_A_B");
-        assert_eq!(c.table_of("DREGION", ""), "DREGION");
+        assert_eq!(c.table_of("DISPATCH", "PRICE", NONE), "DISPATCHPRICE");
+        assert_eq!(c.table_of("DISPATCH", "OTHER", NONE), "DISPATCH_OTHER");
+        assert_eq!(
+            c.table_of("WEM", "FACILITY-SCADA", NONE),
+            "WEM_FACILITY_SCADA"
+        );
+        assert_eq!(c.table_of("WEMDE", "A.B", NONE), "WEMDE_A_B");
+        assert_eq!(c.table_of("DREGION", "", NONE), "DREGION");
         // Written back, a declaration reads as it was.
         let out = dir.path().join("out");
         assert_eq!(c.write(&out).unwrap(), 2);
@@ -461,5 +552,57 @@ reason = "Six places are what AEMO measures."
             e.contains("DISPATCH_UNIT_SCADA.toml could not be written"),
             "{e}"
         );
+    }
+
+    #[test]
+    fn a_pair_of_two_kinds_goes_to_the_table_whose_columns_a_block_holds() {
+        let region = decl("ROOFTOP_PV_ACTUAL", ("ROOFTOP", "ACTUAL"), None);
+        let area = TableDecl {
+            with_columns: vec!["AREAID".into()],
+            ..decl("ROOFTOP_PV_ACTUAL_AREA", ("ROOFTOP", "ACTUAL"), None)
+        };
+        let c = Catalog::new(vec![
+            ("ROOFTOP_PV_ACTUAL.toml".into(), region.clone()),
+            ("ROOFTOP_PV_ACTUAL_AREA.toml".into(), area.clone()),
+        ])
+        .unwrap();
+        let regional = ["INTERVAL_DATETIME", "REGIONID", "POWER"];
+        let areas = ["INTERVAL_DATETIME", "areaid", "POWER"];
+        assert_eq!(
+            c.table_of("ROOFTOP", "ACTUAL", &regional),
+            "ROOFTOP_PV_ACTUAL"
+        );
+        assert_eq!(
+            c.table_of("ROOFTOP", "ACTUAL", &areas),
+            "ROOFTOP_PV_ACTUAL_AREA"
+        );
+        assert!(area.to_toml().contains("with_columns = [\"AREAID\"]"));
+        // Two tables a block could equally be is a catalog error.
+        let other = decl("ROOFTOP_OTHER", ("ROOFTOP", "ACTUAL"), None);
+        let e = Catalog::new(vec![
+            ("ROOFTOP_PV_ACTUAL.toml".into(), region),
+            ("ROOFTOP_OTHER.toml".into(), other),
+        ])
+        .unwrap_err();
+        assert!(matches!(e, CatalogError::Duplicate { .. }), "{e}");
+    }
+
+    #[test]
+    fn a_rename_or_distinct_columns_without_their_reason_are_refused() {
+        let dir = tempfile::tempdir().unwrap();
+        let bad = |extra: &str| {
+            let text = format!(
+                "{}{extra}",
+                decl("FPP_USAGE", ("FPP", "USAGE"), None).to_toml()
+            );
+            std::fs::write(dir.path().join("FPP_USAGE.toml"), text).unwrap();
+            Catalog::read(dir.path()).unwrap_err().to_string()
+        };
+        let e = bad("\n[[distinct]]\ncolumns = [\"USAGE\"]\nreason = \"x\"\n");
+        assert!(e.contains("two or more columns and a reason"), "{e}");
+        let e = bad("\n[[rename]]\nfrom = \"USAGE\"\nto = \"USAGE\"\nevidence = \"x\"\n");
+        assert!(e.contains("two different names and its evidence"), "{e}");
+        let e = bad("\n[[rename]]\nfrom = \"USAGE\"\nto = \"USAGE_VALUE\"\nevidence = \" \"\n");
+        assert!(e.contains("its evidence"), "{e}");
     }
 }

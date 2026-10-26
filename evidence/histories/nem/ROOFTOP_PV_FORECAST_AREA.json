@@ -1,0 +1,99 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 18696,
+      "from": {
+        "data-time": "2025-09-30T00:30:00+10:00",
+        "file": "PUBLIC_ROOFTOP_PV_FORECAST_AREA_20250930.zip",
+        "release": "2025-09",
+        "sha256": "416730d513cc695bf712ff4dae3c3153b730e5223194e201b20415f470c555c5"
+      },
+      "kinds": [
+        "reports"
+      ],
+      "overlaps": false,
+      "report": [
+        "ROOFTOP",
+        "FORECAST"
+      ],
+      "rows": 55005792,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-01T04:00:00+10:00",
+        "file": "PUBLIC_ROOFTOP_PV_FORECAST_AREA_20261024113000_0000000544594225.zip",
+        "release": "2026-10",
+        "sha256": "abd48cd572be4d21a7f0b4a1201bf785610e32f47ed281802ea6f3713ec63eeb"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "VERSION_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "AREAID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "POWERMEAN",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 5,
+          "name": "POWERPOE50",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 6,
+          "name": "POWERPOELOW",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 7,
+          "name": "POWERPOEHIGH",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 8,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        3
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "ROOFTOP_PV_FORECAST_AREA"
+}

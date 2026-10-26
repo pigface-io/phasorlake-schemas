@@ -1,0 +1,16 @@
+# The declaration of ROOFTOP_PV_ACTUAL_AREA: kept by hand.
+#
+# The ROOFTOP/ACTUAL blocks of the *_AREA report files (MEASUREMENT_AREA,
+# SATELLITE_AREA; version 1, first seen in the files of 2025-09) are of
+# areas, not regions: AREAID is NSW1, SA1, VIC1, QLDCENTRAL, QLDNORTH,
+# QLDSOUTH, TASNORTH or TASSOUTH, and the block has no REGIONID. AEMO's
+# data model 5.7 keys ROOFTOP_PV_ACTUAL on REGIONID and defines the areas
+# apart (AREA, REGION_AREA), so the area rows are a table of their own.
+name = "ROOFTOP_PV_ACTUAL_AREA"
+package = "DEMAND_FORECASTS"
+report_pairs = [["ROOFTOP", "ACTUAL"]]
+with_columns = ["AREAID"]
+primary_key = ["INTERVAL_DATETIME", "AREAID", "TYPE"]
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"

@@ -432,11 +432,14 @@ fn another_market_folds_in_its_own_clock_with_its_headers() {
     .unwrap();
     let cat = Catalog::new(vec![(
         "GBB_ACTUAL_FLOW_STORAGE.toml".into(),
-        decl(
-            "GBB_ACTUAL_FLOW_STORAGE",
-            ("GBB", "ACTUAL_FLOW_STORAGE"),
-            Some("GASDATE"),
-        ),
+        TableDecl {
+            primary_key: vec!["GASDATE".into()],
+            ..decl(
+                "GBB_ACTUAL_FLOW_STORAGE",
+                ("GBB", "ACTUAL_FLOW_STORAGE"),
+                Some("GASDATE"),
+            )
+        },
     )])
     .unwrap();
     let folded = fold(root, Market::Gas, &cat, false, None).unwrap();
@@ -608,4 +611,273 @@ fn a_valid_column_seen_only_at_midnight_is_noted_unless_declared_a_day() {
             .notes
             .is_empty()
     );
+}
+
+/// Records a month's census of one file per block, each block of
+/// `report` with `columns` (three, typed as SCADA's are).
+fn census_of(root: &Path, month: &str, report: (&str, &str), blocks: &[[&str; 3]]) {
+    let files: BTreeMap<String, FileRecord> = blocks
+        .iter()
+        .enumerate()
+        .map(|(i, columns)| {
+            let b = BlockRecord {
+                report: (report.0.into(), report.1.into()),
+                columns: columns.iter().map(|c| (*c).to_owned()).collect(),
+                shape: ShapeId(10 + i as u64),
+                ..scada_block(month, 3)
+            };
+            let f = FileRecord {
+                source: format!("F{i}.zip"),
+                sha256: "ab".into(),
+                size: 9,
+                kind: "dvd".into(),
+                bad_rows: 0,
+                footer_mismatches: 0,
+                block: vec![b],
+            };
+            (format!("F{i}_{month}.CSV"), f)
+        })
+        .collect();
+    let path = census_path(root, Market::Nem, month.parse().unwrap());
+    crate::files::write_atomic(&path, toml::to_string(&files).unwrap().as_bytes()).unwrap();
+}
+
+/// A declaration of `name` for `pair` keyed on `key`, taking only blocks
+/// with `with`.
+fn keyed(name: &str, pair: (&str, &str), key: &[&str], with: &[&str]) -> (PathBuf, TableDecl) {
+    let d = TableDecl {
+        primary_key: key.iter().map(|c| (*c).to_owned()).collect(),
+        with_columns: with.iter().map(|c| (*c).to_owned()).collect(),
+        ..decl(name, pair, Some("SETTLEMENTDATE"))
+    };
+    (format!("{name}.toml").into(), d)
+}
+
+#[test]
+fn a_pair_of_two_kinds_folds_into_two_tables_and_a_key_left_out_fails() {
+    let dir = tempfile::tempdir().unwrap();
+    let root = dir.path();
+    let pair = ("ROOFTOP", "ACTUAL");
+    census_of(
+        root,
+        "2026-08",
+        pair,
+        &[
+            ["SETTLEMENTDATE", "REGIONID", "POWER"],
+            ["SETTLEMENTDATE", "AREAID", "POWER"],
+        ],
+    );
+    let region = keyed(
+        "ROOFTOP_PV_ACTUAL",
+        pair,
+        &["SETTLEMENTDATE", "REGIONID"],
+        &[],
+    );
+    let area = keyed(
+        "ROOFTOP_PV_ACTUAL_AREA",
+        pair,
+        &["SETTLEMENTDATE", "AREAID"],
+        &["AREAID"],
+    );
+    let both = Catalog::new(vec![region.clone(), area]).unwrap();
+    let folded = fold(root, Market::Nem, &both, false, None).unwrap();
+    assert_eq!((folded.tables, folded.schemas), (2, 2));
+    let h: History = serde_json::from_slice(
+        &std::fs::read(history_path(root, Market::Nem, "ROOFTOP_PV_ACTUAL_AREA")).unwrap(),
+    )
+    .unwrap();
+    assert!(h.schemas[0].by_name("AREAID").is_some());
+    // With one table for both kinds, the area's schema has no REGIONID.
+    let one = Catalog::new(vec![region]).unwrap();
+    let e = fold(root, Market::Nem, &one, true, None).unwrap_err();
+    assert!(
+        matches!(&e, FoldError::KeyMissing { column, .. } if column == "REGIONID"),
+        "{e}"
+    );
+    assert!(e.to_string().contains("another kind of row"), "{e}");
+}
+
+#[test]
+fn a_renamed_column_is_one_field_and_an_undecided_one_fails() {
+    let dir = tempfile::tempdir().unwrap();
+    let root = dir.path();
+    let pair = ("MTPASA", "REGIONRESULT");
+    census_of(
+        root,
+        "2024-07",
+        pair,
+        &[["SETTLEMENTDATE", "DUID", "SPELT"]],
+    );
+    census_of(
+        root,
+        "2024-08",
+        pair,
+        &[["SETTLEMENTDATE", "DUID", "SPELLED"]],
+    );
+    let (path, plain) = keyed("MTPASA_REGIONRESULT", pair, &["SETTLEMENTDATE"], &[]);
+    let with = |d: TableDecl| Catalog::new(vec![(path.clone(), d)]).unwrap();
+    // Nothing says: the fold names the pair.
+    let e = fold(root, Market::Nem, &with(plain.clone()), true, None).unwrap_err();
+    assert!(e.to_string().contains("SPELT to SPELLED"), "{e}");
+    // A rename: one field, renamed in the second run.
+    let renamed = TableDecl {
+        renames: vec![crate::catalog::Rename {
+            from: "SPELT".into(),
+            to: "SPELLED".into(),
+            evidence: "respelt in version 2".into(),
+        }],
+        ..plain.clone()
+    };
+    fold(root, Market::Nem, &with(renamed.clone()), false, None).unwrap();
+    let h: History = serde_json::from_slice(
+        &std::fs::read(history_path(root, Market::Nem, "MTPASA_REGIONRESULT")).unwrap(),
+    )
+    .unwrap();
+    let fields = h.fields();
+    assert_eq!(fields.len(), 3, "{fields:?}");
+    assert_eq!(fields[2].name, "SPELLED", "the newest name");
+    assert_eq!(
+        h.runs[1].updates,
+        [utilake_iceberg::history::Update::Rename {
+            field_id: fields[2].id,
+            name: "SPELLED".into()
+        }]
+    );
+    // Distinct: two fields, decided.
+    let distinct = TableDecl {
+        distinct: vec![crate::catalog::Distinct {
+            columns: vec!["SPELT".into(), "SPELLED".into()],
+            reason: "two meanings".into(),
+        }],
+        ..plain
+    };
+    fold(root, Market::Nem, &with(distinct), false, None).unwrap();
+    let h: History = serde_json::from_slice(
+        &std::fs::read(history_path(root, Market::Nem, "MTPASA_REGIONRESULT")).unwrap(),
+    )
+    .unwrap();
+    assert_eq!(h.fields().len(), 4);
+    // One block with both names: they are two columns, not a rename.
+    census_of(root, "2024-09", pair, &[["SPELT", "DUID", "SPELLED"]]);
+    let e = fold(root, Market::Nem, &with(renamed), true, None).unwrap_err();
+    assert!(e.to_string().contains("holds both"), "{e}");
+}
+
+#[test]
+fn an_undeclared_tables_look_alike_columns_are_a_note() {
+    let dir = tempfile::tempdir().unwrap();
+    let root = dir.path();
+    let pair = ("DREGION", "");
+    census_of(
+        root,
+        "2025-08",
+        pair,
+        &[["SETTLEMENTDATE", "DUID", "OLDFLAG"]],
+    );
+    census_of(
+        root,
+        "2025-09",
+        pair,
+        &[["SETTLEMENTDATE", "DUID", "NEWFLAG"]],
+    );
+    let folded = fold(root, Market::Nem, &Catalog::default(), true, None).unwrap();
+    assert!(
+        folded
+            .notes
+            .iter()
+            .any(|n| n.starts_with("DREGION: 1 column(s) dropped")
+                && n.contains("OLDFLAG as NEWFLAG")),
+        "{:?}",
+        folded.notes
+    );
+}
+
+#[test]
+fn where_aemos_loader_puts_a_runs_blocks_elsewhere_is_a_note() {
+    let dir = tempfile::tempdir().unwrap();
+    let root = dir.path();
+    let pair = ("ROOFTOP", "ACTUAL");
+    census_of(
+        root,
+        "2026-08",
+        pair,
+        &[["SETTLEMENTDATE", "AREAID", "POWER"]],
+    );
+    let loads = crate::models::loads_dir(root, Market::Nem);
+    std::fs::create_dir_all(&loads).unwrap();
+    std::fs::write(
+        loads.join("5.7.toml"),
+        "version = \"5.7\"\n[[load]]\nreport = [\"ROOFTOP\", \"ACTUAL\"]\nversion = 1\ntable = \"ROOFTOP_PV_ACTUAL\"\ntransaction = \"INSERT\"\n\n[[load]]\nreport = [\"ROOFTOP\", \"ACTUAL\"]\nversion = 2\ntable = \"ROOFTOP_PV_ACTUAL\"\ntransaction = \"INSERT\"\n",
+    )
+    .unwrap();
+    let area = keyed(
+        "ROOFTOP_PV_ACTUAL_AREA",
+        pair,
+        &["SETTLEMENTDATE", "AREAID"],
+        &["AREAID"],
+    );
+    let folded = fold(
+        root,
+        Market::Nem,
+        &Catalog::new(vec![area]).unwrap(),
+        true,
+        None,
+    )
+    .unwrap();
+    assert!(
+        folded.notes.iter().any(|n| n
+            == "ROOFTOP_PV_ACTUAL_AREA: AEMO's loader disagrees: ROOFTOP/ACTUAL v1 loads ROOFTOP_PV_ACTUAL in data model 5.7"),
+        "{:?}",
+        folded.notes
+    );
+    // An older release that loads another version, and a version none
+    // loads: the newest that loads each decides.
+    std::fs::write(
+        loads.join("5.5.toml"),
+        "version = \"5.5\"\n[[load]]\nreport = [\"ROOFTOP\", \"ACTUAL\"]\nversion = 1\ntable = \"ROOFTOP_PV_ACTUAL_AREA\"\ntransaction = \"INSERT\"\n",
+    )
+    .unwrap();
+    census_of(
+        root,
+        "2026-09",
+        ("ROOFTOP", "FORECAST"),
+        &[["SETTLEMENTDATE", "AREAID", "POWER"]],
+    );
+    std::fs::write(
+        loads.join("5.10.toml"),
+        "version = \"5.10\"\n[[load]]\nreport = [\"ROOFTOP\", \"FORECAST\"]\nversion = 2\ntable = \"ROOFTOP_PV_FORECAST\"\ntransaction = \"INSERT\"\n",
+    )
+    .unwrap();
+    std::fs::write(loads.join("README.md"), "not a release").unwrap();
+    let forecast = keyed(
+        "ROOFTOP_PV_FORECAST_AREA",
+        ("ROOFTOP", "FORECAST"),
+        &["SETTLEMENTDATE", "AREAID"],
+        &["AREAID"],
+    );
+    let area = keyed(
+        "ROOFTOP_PV_ACTUAL_AREA",
+        pair,
+        &["SETTLEMENTDATE", "AREAID"],
+        &["AREAID"],
+    );
+    let both = Catalog::new(vec![area, forecast]).unwrap();
+    let folded = fold(root, Market::Nem, &both, true, None).unwrap();
+    let said: Vec<&String> = folded
+        .notes
+        .iter()
+        .filter(|n| n.contains("loader"))
+        .collect();
+    assert_eq!(
+        said,
+        [
+            "ROOFTOP_PV_ACTUAL_AREA: AEMO's loader disagrees: ROOFTOP/ACTUAL v1 loads ROOFTOP_PV_ACTUAL in data model 5.7",
+            "ROOFTOP_PV_FORECAST_AREA: AEMO's loader disagrees: ROOFTOP/FORECAST v1 is a version no recorded data model loads",
+        ],
+        "5.10 is newer than 5.7, and 5.7 newer than 5.5"
+    );
+    // A loads directory that is not one cannot be read.
+    std::fs::remove_dir_all(&loads).unwrap();
+    std::fs::write(&loads, "a file").unwrap();
+    assert!(fold(root, Market::Nem, &both, true, None).is_err());
 }

@@ -58,8 +58,10 @@ use crate::table::metadata::{Snapshot, TableMetadata};
 
 /// The generation of the published layout: the properties, the summary
 /// keys and their meaning. Raised when a reader of this format would
-/// misread a table.
-pub const FORMAT: u32 = 3;
+/// misread a table: 4 since a table may take only the blocks of its pairs
+/// that hold certain columns (`utilake.with-columns`), which a reader of
+/// 3 would route to the wrong table.
+pub const FORMAT: u32 = 4;
 
 /// A table's declaration, as `tables/{TABLE}.toml` holds it.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -70,6 +72,11 @@ pub struct Declaration {
     pub package: Option<String>,
     /// The report pairs (type, subtype) its blocks are published under.
     pub report_pairs: Vec<[String; 2]>,
+    /// The columns a block of those pairs must hold to be this table's;
+    /// empty for every block of them (the table of one kind of row where
+    /// a pair carries two, as an area's beside a region's).
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub with_columns: Vec<String>,
     /// Its key, in order; empty for none.
     pub primary_key: Vec<String>,
     /// The column a block's time span is of.
@@ -201,6 +208,7 @@ const K_TABLE: &str = "utilake.table";
 const K_DECLARED: &str = "utilake.declared";
 const K_PACKAGE: &str = "utilake.package";
 const K_REPORTS: &str = "utilake.reports";
+const K_WITH_COLUMNS: &str = "utilake.with-columns";
 const K_KEY: &str = "utilake.key";
 const K_TIME: &str = "utilake.time";
 const K_LOAD: &str = "utilake.load";
@@ -337,6 +345,9 @@ fn properties(p: &Published) -> BTreeMap<String, String> {
             put(K_PACKAGE, pkg.clone());
         }
         put(K_REPORTS, json(&d.report_pairs));
+        if !d.with_columns.is_empty() {
+            put(K_WITH_COLUMNS, json(&d.with_columns));
+        }
         put(K_KEY, json(&d.primary_key));
         if let Some(t) = &d.time_column {
             put(K_TIME, t.clone());
@@ -520,6 +531,7 @@ fn declaration_of(p: &Props<'_>) -> Result<Declaration, PublishError> {
     Ok(Declaration {
         package: p.owned(K_PACKAGE),
         report_pairs: p.need_json(K_REPORTS)?,
+        with_columns: p.json(K_WITH_COLUMNS)?.unwrap_or_default(),
         primary_key: p.need_json(K_KEY)?,
         time_column: p.owned(K_TIME),
         load_mode: p.need(K_LOAD)?.to_owned(),
@@ -546,8 +558,10 @@ pub fn from_metadata(m: &TableMetadata) -> Result<Published, PublishError> {
         map: &m.properties,
         at: "the table's properties".to_owned(),
     };
+    // Format 3 is format 4 with no table taking only some of a pair's
+    // blocks: read as such.
     let format = p.need(K_FORMAT)?;
-    if format != FORMAT.to_string() {
+    if format != FORMAT.to_string() && format != "3" {
         return Err(p.malformed(K_FORMAT, format, &format!("format {FORMAT}")));
     }
     let table = p.need(K_TABLE)?.to_owned();
@@ -635,6 +649,7 @@ mod tests {
             declaration: Some(Declaration {
                 package: Some("DISPATCH".into()),
                 report_pairs: vec![["DISPATCH".into(), "UNIT_SCADA".into()]],
+                with_columns: vec![],
                 primary_key: vec!["SETTLEMENTDATE".into()],
                 time_column: Some("SETTLEMENTDATE".into()),
                 load_mode: "append".into(),
@@ -673,6 +688,17 @@ mod tests {
         // Without one, the key is absent, as every table before had it.
         let plain = to_metadata(&published(), "file:///t", "u").unwrap();
         assert!(!plain.metadata.properties.contains_key(K_VALID_UNTIL));
+        assert!(!plain.metadata.properties.contains_key(K_WITH_COLUMNS));
+        // A table of one kind of a pair's rows says which, and reads back.
+        let mut area = published();
+        area.declaration.as_mut().unwrap().with_columns = vec!["AREAID".into()];
+        let t = to_metadata(&area, "file:///t", "u").unwrap();
+        assert_eq!(t.metadata.properties[K_WITH_COLUMNS], r#"["AREAID"]"#);
+        assert_eq!(from_metadata(&t.metadata).unwrap(), area);
+        // Format 3 is read as 4 with no such tables.
+        let mut old = plain.metadata.clone();
+        old.properties.insert(K_FORMAT.into(), "3".into());
+        assert_eq!(from_metadata(&old).unwrap(), published());
     }
 
     #[test]
@@ -728,7 +754,7 @@ mod tests {
         assert!(!s.contains_key("utilake.to.time"));
         // The declaration and documentation are properties; the docs are
         // on every schema's copy of a field.
-        assert_eq!(m.properties[K_FORMAT], "3");
+        assert_eq!(m.properties[K_FORMAT], "4");
         assert_eq!(m.properties[K_DECLARED], "true");
         assert_eq!(m.properties[K_KEY], r#"["SETTLEMENTDATE"]"#);
         assert_eq!(m.properties[K_REPORTS], r#"[["DISPATCH","UNIT_SCADA"]]"#);
@@ -911,7 +937,7 @@ mod tests {
         );
         assert_eq!(
             err(&with(K_FORMAT, "2")),
-            "In the table's properties, utilake.format is \"2\", which is not format 3."
+            "In the table's properties, utilake.format is \"2\", which is not format 4."
         );
         assert_eq!(
             err(&with(K_DECLARED, "maybe")),

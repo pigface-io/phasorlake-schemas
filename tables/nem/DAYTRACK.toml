@@ -13,3 +13,7 @@ entity = ["EXPOSTRUNNO"]
 order = ["LASTCHANGED"]
 cutoff = "LASTCHANGED"
 valid = { kind = "day", column = "SETTLEMENTDATE" }
+
+[[distinct]]
+columns = ["METERDATA_SOURCE", "METER_RUNTYPE", "METER_CASEID"]
+reason = "The archive and the report files carry different metering columns, each with its own meaning; the runs alternate between them."

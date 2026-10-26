@@ -1,0 +1,87 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 37353,
+      "from": {
+        "data-time": "2025-09-29T23:30:00+10:00",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_MEASUREMENT_AREA_20250930.zip",
+        "release": "2025-09",
+        "sha256": "9a3cb4e6d418348036d2fd8bc0bf5749fd65e5cddd11822d109de0671d5068f1"
+      },
+      "kinds": [
+        "reports"
+      ],
+      "overlaps": false,
+      "report": [
+        "ROOFTOP",
+        "ACTUAL"
+      ],
+      "rows": 298824,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-24T11:00:00+10:00",
+        "file": "PUBLIC_ROOFTOP_PV_ACTUAL_SATELLITE_AREA_20261024113000_0000000544594229.zip",
+        "release": "2026-10",
+        "sha256": "ff3dca4b5d615bee21ffeff75d9e1a89088aad341a0284162705b4ee9fa95a73"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "INTERVAL_DATETIME",
+          "required": true,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "AREAID",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "POWER",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 4,
+          "name": "QI",
+          "required": false,
+          "type": "decimal(2, 1)"
+        },
+        {
+          "id": 5,
+          "name": "TYPE",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "LASTCHANGED",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [
+        1,
+        2,
+        5
+      ],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "ROOFTOP_PV_ACTUAL_AREA"
+}

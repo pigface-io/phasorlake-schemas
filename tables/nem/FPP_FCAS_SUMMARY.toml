@@ -5,3 +5,7 @@ primary_key = []
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"
+
+[[distinct]]
+columns = ["USAGE", "USAGE_VALUE"]
+reason = "Data model 5.5 renames USAGE to USAGE_VALUE (its upgrade script), and the monthly archive carries USAGE_VALUE alone from 2025-04, but the FPP_RUN report files carry both columns in one block: two columns here, which a reader coalesces where the values agree."

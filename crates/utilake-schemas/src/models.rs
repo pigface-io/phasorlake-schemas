@@ -14,6 +14,12 @@
 //!
 //! The fold takes each release's numeric precision and scale as a
 //! declaration of its columns ([`ModelType`]).
+//!
+//! The same zips carry AEMO's loader configuration,
+//! `Config/{v}/PUBLIC_PDR_CONFIG_{v}_FULL.CSV`: which version of which
+//! report pair loads which table, and how. It is written beside the
+//! models as `{root}/evidence/loads/{market}/{version}.toml` ([`Loads`]),
+//! evidence the fold compares each table's runs with; nothing routes by it.
 
 use std::collections::{BTreeMap, BTreeSet};
 use std::fmt::Write as _;
@@ -182,6 +188,133 @@ pub fn read_zip(path: &Path) -> Result<(String, String, Script), ModelError> {
     let script =
         ddl::parse(&ddl::decode_cp1252(&raw)).map_err(|e| zip_err(format!("{name}: {e}")))?;
     Ok((version, sha256(&raw), script))
+}
+
+/// One line of AEMO's loader configuration: a version of a report pair
+/// and the table it loads, as `PDR_REPORT,TABLE` rows say.
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, Deserialize)]
+pub struct Load {
+    /// The report pair.
+    pub report: [String; 2],
+    /// Its version.
+    pub version: u16,
+    /// The table it loads.
+    pub table: String,
+    /// How: `INSERT`, `INSERT-UPDATE`, `UPDATE-INSERT`, …
+    pub transaction: String,
+    /// The column a newer row must exceed to replace one, when any
+    /// (`LASTCHANGED`).
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub row_filter: String,
+}
+
+/// A data-model version's loader configuration.
+#[derive(Debug, Clone, Default, PartialEq, Eq, serde::Serialize, Deserialize)]
+pub struct Loads {
+    /// The version.
+    pub version: String,
+    /// Every load, sorted.
+    #[serde(rename = "load")]
+    pub loads: Vec<Load>,
+}
+
+/// The loader configuration a model zip carries; `None` for a zip
+/// without one (the earliest releases).
+pub fn read_loads(path: &Path) -> Result<Option<Loads>, ModelError> {
+    let zip_err = |message: String| ModelError::Zip {
+        path: path.display().to_string(),
+        message,
+    };
+    let file = std::fs::File::open(path).map_err(|e| zip_err(e.to_string()))?;
+    let mut zip = ::zip::ZipArchive::new(file).map_err(|e| zip_err(e.to_string()))?;
+    let found = zip.file_names().find_map(|n| {
+        let n = n.ok()?.into_owned();
+        let slashed = n.replace('\\', "/");
+        let rest = slashed.strip_prefix("Config/")?;
+        let (version, file) = rest.split_once('/')?;
+        let version = version.to_owned();
+        (file == format!("PUBLIC_PDR_CONFIG_{version}_FULL.CSV")).then_some((n, version))
+    });
+    let Some((name, version)) = found else {
+        return Ok(None);
+    };
+    let mut raw = Vec::new();
+    zip.by_name(&name)
+        .map_err(|e| e.to_string())
+        .and_then(|mut entry| entry.read_to_end(&mut raw).map_err(|e| e.to_string()))
+        .map_err(|e| zip_err(format!("{name}: {e}")))?;
+    Ok(Some(parse_loads(&version, &ddl::decode_cp1252(&raw))))
+}
+
+/// The `PDR_REPORT,TABLE` rows of a loader configuration, by the column
+/// names its `I` row gives them.
+pub fn parse_loads(version: &str, text: &str) -> Loads {
+    let mut columns: Vec<String> = Vec::new();
+    let mut loads = Vec::new();
+    for line in text.lines() {
+        let fields: Vec<&str> = line.trim_end_matches('\r').split(',').collect();
+        match fields.as_slice() {
+            ["I", "PDR_REPORT", "TABLE", _, rest @ ..] => {
+                columns = rest.iter().map(|c| (*c).to_owned()).collect();
+            }
+            ["D", "PDR_REPORT", "TABLE", _, rest @ ..] => {
+                let get = |name: &str| {
+                    columns
+                        .iter()
+                        .position(|c| c == name)
+                        .and_then(|i| rest.get(i))
+                        .map_or("", |v| v.trim_matches('"'))
+                };
+                let Ok(v) = get("VERSION").parse() else {
+                    continue;
+                };
+                loads.push(Load {
+                    report: [
+                        get("REPORT_NAME").to_owned(),
+                        get("REPORT_SUB_TYPE").to_owned(),
+                    ],
+                    version: v,
+                    table: get("DESTINATION_TABLE").to_owned(),
+                    transaction: get("TRANSACTION_TYPE").to_owned(),
+                    row_filter: get("ROW_FILTER_TYPE").to_owned(),
+                });
+            }
+            _ => {}
+        }
+    }
+    loads.sort();
+    loads.dedup();
+    Loads {
+        version: version.to_owned(),
+        loads,
+    }
+}
+
+/// The directory of a market's loader configurations:
+/// `evidence/loads/{market}/`.
+pub fn loads_dir(root: &Path, market: Market) -> PathBuf {
+    root.join("evidence").join("loads").join(market.id())
+}
+
+/// Every recorded loader configuration of a market, by version.
+pub fn read_all_loads(root: &Path, market: Market) -> Result<BTreeMap<String, Loads>, ModelError> {
+    let dir = loads_dir(root, market);
+    let mut out = BTreeMap::new();
+    let entries = match std::fs::read_dir(&dir) {
+        Ok(e) => e,
+        Err(e) if e.kind() == std::io::ErrorKind::NotFound => return Ok(out),
+        Err(e) => return Err(read_error(&dir, e)),
+    };
+    for entry in entries {
+        let path = entry.map_err(|e| read_error(&dir, e))?.path();
+        if path.extension().is_none_or(|x| x != "toml") {
+            continue;
+        }
+        let text = read_text(&path)?.unwrap_or_default();
+        let l: Loads = toml::from_str(&text).map_err(|e| read_error(&path, e))?;
+        out.insert(l.version.clone(), l);
+    }
+    Ok(out)
 }
 
 /// The model zips among a month's archived files: `MMSDM_create_v*.zip`,
@@ -418,6 +551,19 @@ pub fn record(
     let mut recorded = Recorded::default();
     let mut fresh = Vec::new();
     for zip in zips {
+        match read_loads(zip) {
+            Ok(Some(l)) => {
+                let path = loads_dir(root, market).join(format!("{}.toml", l.version));
+                let text = format!(
+                    "# Generated by `utilake-schemas models`: AEMO's loader configuration for data model {}.\n{}",
+                    l.version,
+                    toml::to_string(&l).expect("loads serialise")
+                );
+                write_text(&path, &text)?;
+            }
+            Ok(None) => {}
+            Err(e) => recorded.problems.push(e.to_string()),
+        }
         match read_zip(zip) {
             Ok((version, sha, script)) => {
                 fresh.push((

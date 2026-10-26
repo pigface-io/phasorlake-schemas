@@ -1,0 +1,15 @@
+# The declaration of DEMANDOPERATIONALFORECAST_AREA: kept by hand.
+#
+# The OPERATIONAL_DEMAND/FORECAST blocks of the FORECAST_HH_AREA report
+# files (version 1, first seen in the files of 2025-09) are of areas:
+# AREAID in place of REGIONID. AEMO's data model 5.7 keys
+# DEMANDOPERATIONALFORECAST on REGIONID, so the area forecasts are a
+# table of their own.
+name = "DEMANDOPERATIONALFORECAST_AREA"
+package = "DEMAND_FORECASTS"
+report_pairs = [["OPERATIONAL_DEMAND", "FORECAST"]]
+with_columns = ["AREAID"]
+primary_key = ["INTERVAL_DATETIME", "AREAID"]
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"

@@ -1,0 +1,14 @@
+# The declaration of ROOFTOP_PV_FORECAST_AREA: kept by hand.
+#
+# The ROOFTOP/FORECAST blocks of the FORECAST_AREA report files (version
+# 1, first seen in the files of 2025-09) are of areas: AREAID in place of
+# REGIONID. AEMO's data model 5.7 keys ROOFTOP_PV_FORECAST on REGIONID,
+# so the area forecasts are a table of their own.
+name = "ROOFTOP_PV_FORECAST_AREA"
+package = "DEMAND_FORECASTS"
+report_pairs = [["ROOFTOP", "FORECAST"]]
+with_columns = ["AREAID"]
+primary_key = ["VERSION_DATETIME", "AREAID", "INTERVAL_DATETIME"]
+time_column = "INTERVAL_DATETIME"
+load_mode = "append"
+visibility = "PUBLIC"

@@ -294,3 +294,49 @@ fn model_types_read_as_the_script_writes_them() {
     assert_eq!(ModelType::parse("BLOB"), ModelType::Other);
     assert_eq!(q("a\tb\r\u{1}\\\n"), "\"a\\tb\\r\\u0001\\\\\\n\"");
 }
+
+const LOADER: &str = "C,PDR_CONFIG,5.7\r\n\
+I,PDR_REPORT,FILE,1,REPORT_TYPE,TRANSACTION_TYPE_OVERRIDE\r\n\
+D,PDR_REPORT,FILE,1,DEMAND,\r\n\
+I,PDR_REPORT,TABLE,1,REPORT_NAME,REPORT_SUB_TYPE,VERSION,DESTINATION_TABLE,TRANSACTION_TYPE,ROW_FILTER_TYPE,IS_ACTIVE,IS_NEW\r\n\
+D,PDR_REPORT,TABLE,1,ROOFTOP,ACTUAL,2,ROOFTOP_PV_ACTUAL,INSERT,,1,0\r\n\
+D,PDR_REPORT,TABLE,1,OPERATIONAL_DEMAND,ACTUAL,3,DEMANDOPERATIONALACTUAL,INSERT-UPDATE,LASTCHANGED,1,0\r\n\
+D,PDR_REPORT,TABLE,1,OPERATIONAL_DEMAND,ACTUAL,x,BAD,INSERT,,1,0\r\n";
+
+#[test]
+fn a_zips_loader_configuration_is_recorded_beside_its_model() {
+    let dir = tempfile::tempdir().unwrap();
+    let path = dir.path().join("MMSDM_create_v5.7.zip");
+    let mut w = ::zip::ZipWriter::new(std::fs::File::create(&path).unwrap());
+    let opts = ::zip::write::SimpleFileOptions::default();
+    w.start_file("postgreSQL/5.7/create_mms_data_model.sql", opts)
+        .unwrap();
+    w.write_all(PG.as_bytes()).unwrap();
+    w.start_file("Config/5.7/PUBLIC_PDR_CONFIG_5.7_FULL.CSV", opts)
+        .unwrap();
+    w.write_all(LOADER.as_bytes()).unwrap();
+    w.finish().unwrap();
+    let l = read_loads(&path).unwrap().unwrap();
+    assert_eq!(l.version, "5.7");
+    // Sorted, the row without a version left out.
+    assert_eq!(l.loads.len(), 2);
+    assert_eq!(l.loads[0].table, "DEMANDOPERATIONALACTUAL");
+    assert_eq!(l.loads[0].row_filter, "LASTCHANGED");
+    assert_eq!(
+        l.loads[1].report,
+        ["ROOFTOP".to_owned(), "ACTUAL".to_owned()]
+    );
+    let root = dir.path().join("repo");
+    let r = record(&root, Market::Nem, month("2026-05"), &[path.as_path()]).unwrap();
+    assert!(r.problems.is_empty(), "{:?}", r.problems);
+    let all = read_all_loads(&root, Market::Nem).unwrap();
+    assert_eq!(all["5.7"], l);
+    // A zip with no configuration has none.
+    let bare = zip_with(dir.path(), "MMSDM_create_v5.1.zip", "5.1", PG.as_bytes());
+    assert_eq!(read_loads(&bare).unwrap(), None);
+    assert!(
+        read_all_loads(&dir.path().join("none"), Market::Nem)
+            .unwrap()
+            .is_empty()
+    );
+}

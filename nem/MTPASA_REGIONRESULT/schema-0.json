@@ -189,28 +189,34 @@
       "x-model-type": "NUMERIC(12,2)"
     },
     "TOTALSEMISCHEDULEDGEN10": {
+      "description": "The 10% percentile for semi-scheduled generation across iterations and reference years (MW)",
       "type": [
         "number",
         "null"
       ],
       "x-field-id": 31,
-      "x-iceberg-type": "decimal(6, 2)"
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
     },
     "TOTALSEMISCHEDULEDGEN50": {
+      "description": "The 50% percentile for semi-scheduled generation across iterations and reference years (MW)",
       "type": [
         "number",
         "null"
       ],
       "x-field-id": 30,
-      "x-iceberg-type": "decimal(6, 2)"
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
     },
     "TOTALSEMISCHEDULEDGEN90": {
+      "description": "The 90% percentile for semi-scheduled generation across iterations and reference years (MW)",
       "type": [
         "number",
         "null"
       ],
       "x-field-id": 29,
-      "x-iceberg-type": "decimal(6, 2)"
+      "x-iceberg-type": "decimal(12, 2)",
+      "x-model-type": "NUMERIC(12,2)"
     },
     "USE_AVERAGE": {
       "description": "Average unserved energy, across iterations and reference years (MW)",
@@ -447,20 +453,20 @@
     [
       29,
       "TOTALSEMISCHEDULEDGEN90",
-      "decimal(6, 2)"
+      "decimal(12, 2)"
     ],
     [
       30,
       "TOTALSEMISCHEDULEDGEN50",
-      "decimal(6, 2)"
+      "decimal(12, 2)"
     ],
     [
       31,
       "TOTALSEMISCHEDULEDGEN10",
-      "decimal(6, 2)"
+      "decimal(12, 2)"
     ]
   ],
-  "x-format": 3,
+  "x-format": 4,
   "x-identifier-field-ids": [
     1,
     2,

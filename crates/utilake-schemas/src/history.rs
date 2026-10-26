@@ -103,6 +103,8 @@ pub struct Declarations {
     pub keys: BTreeMap<String, Vec<String>>,
     /// Columns typed by hand, by table.
     pub overrides: BTreeMap<String, BTreeMap<String, IcebergType>>,
+    /// Renamed columns by table: each new name to the name it had.
+    pub renames: BTreeMap<String, BTreeMap<String, String>>,
     /// Releases in the order they appeared: their first month and their
     /// tables' numeric columns.
     pub releases: Vec<(YearMonth, BTreeMap<String, Numeric>)>,
@@ -155,6 +157,20 @@ pub enum HistoryError {
         schema: u32,
         /// The schema it resolves to.
         resolved: Option<u32>,
+    },
+    /// A rename whose two names one block holds: they are two columns.
+    #[error(
+        "{table} renames {from} to {to}, but {file} holds both: they are two columns, not one renamed."
+    )]
+    RenameOverlap {
+        /// The table.
+        table: String,
+        /// The name it had.
+        from: String,
+        /// The name it has.
+        to: String,
+        /// A file holding both.
+        file: String,
     },
     /// A fold that breaks what the published history promised.
     #[error(
@@ -344,9 +360,11 @@ impl Observations {
         let mut out = BTreeMap::new();
         for (table, mut obs) in tables {
             obs.sort_by(|a, b| a.key.cmp(&b.key));
+            let no_renames = BTreeMap::new();
             let rules = Rules {
                 key: d.keys.get(&table).map_or(&[][..], Vec::as_slice),
                 overrides: d.overrides.get(&table).unwrap_or(&none),
+                renames: d.renames.get(&table).unwrap_or(&no_renames),
                 published: published.get(&table),
             };
             let (mut h, schemas) = fold_table(&table, &rules, d, &obs)?;
@@ -491,7 +509,23 @@ fn ends(old: Kind, new: Kind) -> bool {
 struct Rules<'a> {
     key: &'a [String],
     overrides: &'a BTreeMap<String, IcebergType>,
+    /// Each new name of a renamed column to the name it had.
+    renames: &'a BTreeMap<String, String>,
     published: Option<&'a History>,
+}
+
+impl Rules<'_> {
+    /// The name a column's lineage goes by: its first, down its renames.
+    fn lineage<'n>(&'n self, name: &'n str) -> &'n str {
+        let mut n = name;
+        for _ in 0..=self.renames.len() {
+            match self.renames.get(n) {
+                Some(from) => n = from,
+                None => break,
+            }
+        }
+        n
+    }
 }
 
 /// What a published run's schema gives a column: its field.
@@ -626,8 +660,21 @@ fn fold_table(
 ) -> Result<(History, Vec<u32>), HistoryError> {
     let key = rules.key;
     let covered = coverage(rules.published, obs);
-    // Each column's observations, and where its values turn to text.
+    // Each column's observations, and where its values turn to text: a
+    // renamed column's under the name it had, so both names are one field.
     let mut columns: BTreeMap<&str, Column> = BTreeMap::new();
+    for o in obs {
+        for (to, from) in rules.renames {
+            if o.columns.contains(to) && o.columns.contains(from) {
+                return Err(HistoryError::RenameOverlap {
+                    table: table.to_owned(),
+                    from: from.clone(),
+                    to: to.clone(),
+                    file: o.from.file.clone(),
+                });
+            }
+        }
+    }
     for (i, o) in obs.iter().enumerate() {
         let numeric = d.numeric(table, o.month);
         for (j, name) in o.columns.iter().enumerate() {
@@ -636,7 +683,7 @@ fn fold_table(
                 numeric.and_then(|n| n.get(name)).copied(),
                 key.contains(name),
             );
-            let c = columns.entry(name).or_default();
+            let c = columns.entry(rules.lineage(name)).or_default();
             let seen = o.evidence[j];
             if ends(c.kind, seen.kind) && !rules.overrides.contains_key(name) {
                 c.turns.push(c.occ.len());
@@ -688,7 +735,7 @@ fn fold_table(
         let mut fields = Vec::with_capacity(o.columns.len());
         for (j, name) in o.columns.iter().enumerate() {
             let c = columns
-                .get_mut(name.as_str())
+                .get_mut(rules.lineage(name))
                 .expect("every column was gathered");
             let p = c.next;
             c.next += 1;

@@ -1,2 +1,2 @@
-version = 3
-reason = "each report file held once: the CURRENT and ARCHIVE listings of a folder merged"
+version = 4
+reason = "The area reports are tables of their own (ROOFTOP_PV_ACTUAL_AREA, ROOFTOP_PV_FORECAST_AREA, DEMANDOPERATIONALACTUAL_AREA, DEMANDOPERATIONALFORECAST_AREA), and MTPASA_REGIONRESULT's respelt columns are one field each."
