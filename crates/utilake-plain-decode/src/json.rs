@@ -42,10 +42,10 @@ pub struct JsonStats {
 #[derive(Debug, thiserror::Error)]
 pub enum JsonError<F> {
     /// Reading or parsing failed.
-    #[error("The document is not JSON: {0}")]
+    #[error("the document is not JSON: {0}")]
     Syntax(#[from] serde_json::Error),
     /// Not the shape of a WEMDE document.
-    #[error("The document is not a WEMDE document: {0}.")]
+    #[error("the document is not a WEMDE document: {0}")]
     Shape(&'static str),
     /// The sink failed.
     #[error("{0}")]
@@ -416,10 +416,10 @@ mod tests {
         ));
         let e = run("{nope", "+08:00").1.unwrap_err();
         assert!(matches!(e, JsonError::Syntax(_)));
-        assert!(e.to_string().starts_with("The document is not JSON"));
+        assert!(e.to_string().starts_with("the document is not JSON"));
         assert_eq!(
             JsonError::<Never>::Shape("x").to_string(),
-            "The document is not a WEMDE document: x."
+            "the document is not a WEMDE document: x"
         );
         let (c, r) = run(r#"{"data":{"a":1}}"#, "+08:00");
         assert_eq!(r.unwrap(), JsonStats::default());

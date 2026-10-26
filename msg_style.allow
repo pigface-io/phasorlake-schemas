@@ -47,11 +47,3 @@ Entry {entry} of {path} is a zip nested {depth} deep; the limit is {MAX_DEPTH}.
 The archive {path} has no {wanted} entry at any depth.
 Spooling nested entry {entry} of {path} to {tmp} failed.
 The callback for an entry of the archive failed.
-The row has {observed} fields but the header has {declared}.
-Reading failed: {0}
-Line {line} is longer than {limit} bytes.
-The file has no header row.
-Header field {column} on line {line} ({text:?}) names no column.
-Stopped at line {line}.
-The document is not JSON: {0}
-The document is not a WEMDE document: {0}.

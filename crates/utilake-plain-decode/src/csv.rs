@@ -142,7 +142,7 @@ pub trait PlainSink {
 #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
 pub enum PlainRowError {
     /// More non-empty fields than the header has columns.
-    #[error("The row has {observed} fields but the header has {declared}.")]
+    #[error("the row has {observed} fields but the header has {declared}")]
     TooManyFields {
         /// Header columns.
         declared: usize,
@@ -155,10 +155,10 @@ pub enum PlainRowError {
 #[derive(Debug, thiserror::Error)]
 pub enum PlainError<F> {
     /// Reading failed.
-    #[error("Reading failed: {0}")]
+    #[error("reading failed: {0}")]
     Io(#[from] io::Error),
     /// A record longer than the limit.
-    #[error("Line {line} is longer than {limit} bytes.")]
+    #[error("line {line} is longer than {limit} bytes")]
     RecordTooLong {
         /// Line.
         line: u64,
@@ -166,10 +166,10 @@ pub enum PlainError<F> {
         limit: usize,
     },
     /// No header: the file is empty or blank.
-    #[error("The file has no header row.")]
+    #[error("the file has no header row")]
     HeaderMissing,
     /// A header field that names no column.
-    #[error("Header field {column} on line {line} ({text:?}) names no column.")]
+    #[error("header field {column} on line {line} ({text:?}) names no column")]
     BadHeader {
         /// Line.
         line: u64,
@@ -191,7 +191,7 @@ pub enum PlainError<F> {
         first: PlainRowError,
     },
     /// The sink asked to stop at a bad row.
-    #[error("Stopped at line {line}.")]
+    #[error("stopped at line {line}")]
     Stopped {
         /// Line.
         line: u64,
