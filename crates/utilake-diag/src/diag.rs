@@ -279,6 +279,30 @@ impl Diagnostic {
         matches!(self.severity, Severity::Error)
     }
 
+    /// Writes the diagnostic as one record of the installed `linelog`
+    /// logger, target `diag`: at `WARN` or `ERROR` from its severity, its
+    /// message as the record's, and the fields `code`, `file`, `url`,
+    /// `entry`, `table`, `line`, `column`, `expected` and `observed`, an
+    /// unknown one as null. With the feature `log`.
+    #[cfg(feature = "log")]
+    pub fn log(&self) {
+        let level = match self.severity {
+            Severity::Warning => linelog::Level::Warn,
+            Severity::Error => linelog::Level::Error,
+        };
+        linelog::log!(target: "diag", level, &self.message;
+            code = self.code.as_ref(),
+            file = self.file.as_deref(),
+            url = self.url.as_deref(),
+            entry = self.entry.as_deref(),
+            table = self.table.as_deref(),
+            line = self.line,
+            column = self.column.as_deref(),
+            expected = self.expected.as_deref(),
+            observed = self.observed.as_deref(),
+        );
+    }
+
     /// Renders every known field on one line in the Rust style, the human
     /// form used in terminals and logs:
     /// `{message} [{code}]; while running `{request}`; at {where}; expected

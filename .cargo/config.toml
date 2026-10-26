@@ -1,0 +1,3 @@
+# linelog is private: fetch it with git, which uses the SSH agent.
+[net]
+git-fetch-with-cli = true

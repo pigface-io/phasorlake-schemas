@@ -88,6 +88,8 @@ utilake-provenance = { path = "crates/utilake-provenance" }
 utilake-zip = { path = "crates/utilake-zip" }
 # zones timed into a call tree: https://github.com/pigface-io/zonetrace
 zonetrace = "0.1.1"
+# structured records, one line each: https://github.com/pigface-io/linelog
+linelog = { git = "ssh://git@github.com/pigface-io/linelog.git", rev = "f5ff0b5c94ad9f8a3d343ae666b00eefccc2db7a", default-features = false }
 
 anyhow = "1"
 crc32fast = "1.5"

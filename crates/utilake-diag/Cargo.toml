@@ -12,7 +12,12 @@ publish.workspace = true
 workspace = true
 
 [dependencies]
+linelog = { workspace = true, optional = true }
 serde.workspace = true
+
+[features]
+# Diagnostic::log: a diagnostic written as one linelog record.
+log = ["dep:linelog"]
 
 [dev-dependencies]
 serde_json.workspace = true

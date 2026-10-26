@@ -28,8 +28,8 @@ fmt-check:
 
 # clippy with warnings as errors, and the docs with broken links as errors
 lint:
-    cargo clippy --workspace --all-targets --locked -- -D warnings
-    RUSTDOCFLAGS="-D warnings" cargo doc --workspace --no-deps --locked --quiet
+    cargo clippy --workspace --all-targets --locked --features utilake-diag/log -- -D warnings
+    RUSTDOCFLAGS="-D warnings" cargo doc --workspace --no-deps --locked --quiet --features utilake-diag/log
 
 # every dependency between the workspace's crates is one layers.json declares
 layers:
@@ -51,12 +51,12 @@ msg-style:
 
 # every unit and integration test
 test:
-    cargo test --workspace --locked
+    cargo test --workspace --locked --features utilake-diag/log
 
 # tests with line coverage, held to the floors in coverage.json
 cover:
     @mkdir -p coverage
-    cargo llvm-cov --workspace --locked --lcov --output-path coverage/rust.lcov
+    cargo llvm-cov --workspace --locked --features utilake-diag/log --lcov --output-path coverage/rust.lcov
     cargo run -q -p xtask -- covergate coverage/rust.lcov
 
 # fail if a coverage floor dropped against the base branch

@@ -11,7 +11,8 @@
 //!   declares its own beside its errors.
 //! - [`exit`]: the exit codes every binary of the family returns.
 //!
-//! Pure: no I/O.
+//! Pure: no I/O. With the feature `log`, `Diagnostic::log` writes a
+//! diagnostic as one record of the installed `linelog` logger.
 
 pub mod category;
 pub mod diag;
