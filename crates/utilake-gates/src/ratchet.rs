@@ -1,7 +1,8 @@
 //! Budgets only tighten and floors only rise. Against the base ref's copy of
 //! `bench/budgets.json` and `coverage.json`, any loosened value fails unless
 //! a commit since the base explains it with a `bench-budget:` or
-//! `coverage-floor:` line.
+//! `coverage-floor:` line. The message-style allowlist only shrinks: an
+//! entry the base's list did not have fails.
 
 use std::path::Path;
 use std::process::Command;
@@ -143,6 +144,15 @@ pub fn run(root: &Path, base: &str) -> Result<bool> {
                 }),
         );
     }
+    if let Some(old) = git_show(root, base, crate::msg_style::ALLOW)? {
+        let new = std::fs::read_to_string(root.join(crate::msg_style::ALLOW)).unwrap_or_default();
+        problems.extend(crate::msg_style::growth(&old, &new).into_iter().map(|e| {
+            format!(
+                "{}: {e:?} is new; the allowlist only shrinks",
+                crate::msg_style::ALLOW
+            )
+        }));
+    }
     for p in &problems {
         eprintln!("{p}");
     }
@@ -242,5 +252,15 @@ mod tests {
         // A base without the files has nothing to compare.
         assert!(run(root, "HEAD").unwrap());
         assert!(run(root, "empty").unwrap());
+        // The message-style allowlist shrinks, and may go; it never grows.
+        std::fs::write(root.join("msg_style.allow"), "a.rs:1\nb.rs:2\n").unwrap();
+        git(root, &["add", "."]);
+        git(root, &["commit", "-q", "-m", "allow"]);
+        std::fs::write(root.join("msg_style.allow"), "a.rs:1\n").unwrap();
+        assert!(run(root, "HEAD").unwrap());
+        std::fs::remove_file(root.join("msg_style.allow")).unwrap();
+        assert!(run(root, "HEAD").unwrap());
+        std::fs::write(root.join("msg_style.allow"), "a.rs:1\nc.rs:3\n").unwrap();
+        assert!(!run(root, "HEAD").unwrap());
     }
 }

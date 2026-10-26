@@ -10,6 +10,7 @@
 //! - [`llm_check`]: the agent index stays small and every pointer in it is true.
 //! - [`mod@bench`]: criterion medians held to `bench/budgets.json`.
 //! - [`errors_doc`]: `docs/errors.md` lists every diagnostic code.
+//! - [`msg_style`]: every error message in the Rust style.
 //! - [`layers`]: every dependency between the workspace's crates, dev and
 //!   build ones included, is one `layers.json` declares.
 
@@ -18,6 +19,7 @@ pub mod covergate;
 pub mod errors_doc;
 pub mod layers;
 pub mod llm_check;
+pub mod msg_style;
 pub mod ratchet;
 
 use std::path::PathBuf;

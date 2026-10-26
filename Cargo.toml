@@ -28,7 +28,8 @@
 #                its xtask: coverage floors, their ratchet, benchmark budgets,
 #                the agent index, the error catalogue.
 #   xtask        this repository's gates: coverage floors and their ratchet,
-#                dependency layers (layers.json).
+#                dependency layers (layers.json), the error catalogue
+#                (docs/errors.md) and the message style.
 [workspace]
 resolver = "3"
 members = [

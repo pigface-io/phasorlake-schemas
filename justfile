@@ -35,6 +35,18 @@ lint:
 layers:
     cargo run -q -p xtask -- layers
 
+# docs/errors.md lists every diagnostic code; regenerate it
+errors-doc:
+    cargo run -q -p xtask -- errors-doc --write
+
+# fail if docs/errors.md is out of date
+errors-check:
+    cargo run -q -p xtask -- errors-doc --check
+
+# every error message lower-case first with no trailing period (msg_style.allow: not yet fixed)
+msg-style:
+    cargo run -q -p xtask -- msg-style
+
 # ── tests ────────────────────────────────────────────────────────────────────
 
 # every unit and integration test

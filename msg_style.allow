@@ -1,0 +1,75 @@
+# Error messages not yet in the Rust style (utilake_gates::msg_style), one
+# exact message or path:line per line. It only shrinks; delete it when empty.
+{0:?} is not a month of the form YYYY-MM, such as 2024-01.
+{0:?} has month {1}, which is not between 01 and 12.
+The table has no schema {0}.
+Column {name} is {from} in schema {schema} and {to} in the target; Iceberg does not promote one to the other.
+The run beginning at {file} was released in {release:?}, which is not a month (YYYY-MM).
+The table metadata lacks {key} in {at}.
+In {at}, {key} is {value:?}, which is not {wanted}.
+A snapshot was written under schema {0}, which the table lacks.
+Avro union branch {0} does not exist
+The D row has {observed} fields but the I row declared {declared}.
+The D row belongs to ({report_type}, {report_subtype}) version {version} but the current block is ({block_type}, {block_subtype}) version {block_version}.
+The D row has only {0} fields; a row starts with D, report type, subtype and version.
+The row starts with {0:?}; a row of an MMS file starts with C, I or D.
+Reading the CSV failed after {bytes} bytes.
+Line {line} is longer than {limit} bytes; an MMS row never is, so the file is not a CSV or is corrupt.
+A D row appears at line {line} before any I row has declared the columns.
+The I row at line {line} is malformed: {message}
+The scan stopped at line {line} because the run is failing fast.
+The row has {observed} fields but the header has {declared}.
+Reading failed: {0}
+Line {line} is longer than {limit} bytes.
+The file has no header row.
+Header field {column} on line {line} ({text:?}) names no column.
+Stopped at line {line}.
+The document is not JSON: {0}
+The document is not a WEMDE document: {0}.
+The table declarations at {path} cannot be read: {message}
+The table declaration {path} is not valid: {message}
+The report pair {pair} is declared by both {first} and {second}.
+The table declaration {path} could not be written.
+The census file {path} cannot be read: {message}
+The census file {path} could not be written.
+No file is in the directory {path}; download the month first with `utilake-schemas fetch`.
+The control file {path} cannot be read at line {line}, column {col}: {message}.
+The history {path} cannot be read: {message}
+The declaration of {table} cannot be published: {message}
+The history of {table} cannot be published: {source}
+The export could not read or write {path}.
+The request for {url} failed.
+nemweb answered {url} with HTTP {status}, so fetching stops; try again later with a longer --interval-ms.
+nemweb has no {url} (HTTP 404).
+nemweb answered {url} with HTTP {status}.
+{month} is not in the archive at {url}; it has {available}.
+The listing {url} links to no file; nemweb may have changed its listing pages.
+The file {path} could not be written.
+The file {path} cannot be read.
+The sources file {path} cannot be read: {message}
+The published history {path} cannot be read: {message}
+{table} is keyed on {column}, but its schema {schema_id} has no {column}: the blocks from {file} on are another kind of row.
+Columns dropped as another of their kind is added, with no [[rename]] or [[distinct]] in their table's declaration to say which: {}.
+The history file {path} could not be written.
+The override of {column} in {table} as {ty} cannot hold the values of {file}; tables/{table}.toml needs another type.
+In {table}, {file} is under schema {schema}, but its report pair, version, columns and month resolve to {}, with other fields; the lake would read it with the wrong schema.
+{table} renames {from} to {to}, but {file} holds both: they are two columns, not one renamed.
+The history of {table} breaks what nem/{table}/table.json published: {}.
+The data-model zip {path} cannot be read: {message}
+The model file {path} cannot be read: {message}
+The model file {path} could not be written.
+git could not read {path} at {rev}.
+The published file {path} cannot be read.
+The table document {path} ({at}) holds no history: {message}
+There is no published table {table} under {market}/.
+The table metadata {path} cannot be read: {message}
+The file list {path} cannot be read: {message}
+{0:?} is not an RFC 3339 time or a day (YYYY-MM-DD).
+The interval from {from} to {to} ends before it starts.
+The read of {table} cannot be planned: {source}
+The archive {path} could not be opened: {message}
+Entry {entry} of {path} could not be read: {message}
+Entry {entry} of {path} is a zip nested {depth} deep; the limit is {MAX_DEPTH}.
+The archive {path} has no {wanted} entry at any depth.
+Spooling nested entry {entry} of {path} to {tmp} failed.
+The callback for an entry of the archive failed.

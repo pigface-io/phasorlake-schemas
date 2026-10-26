@@ -17,6 +17,13 @@ from the history by git-cliff (`cliff.toml`).
 - every dependency between the workspace's crates is one `layers.json`
   declares (`normal` for normal and build edges, `dev` for dev edges; see
   `utilake_gates::layers`), and none it declares is gone;
+- every diagnostic code raised in the source is in `docs/errors.md`
+  (`just errors-doc` regenerates it), under a declared category;
+- every error message (`#[error("…")]`, and the message of a
+  `Diagnostic`) in the Rust style: a lower-case first letter, unless the
+  first word is an acronym or identifier such as `HTTP` or `DuckDB`, and
+  no trailing period (`utilake_gates::msg_style`). `msg_style.allow` lists
+  the messages not yet fixed; it only shrinks, and goes when empty;
 - every test;
 - line coverage held to `coverage.json`: every source file falls under a
   floor, new code at 100%. Floors only rise; lowering one needs a

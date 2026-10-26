@@ -34,11 +34,19 @@ pub fn reused<'a>(spec: &Spec<'a>, codes: &BTreeMap<String, String>) -> Vec<&'a 
         .collect()
 }
 
-/// Every `"category.name"` literal in the `.rs` files under `crates/`, with
-/// the first file that uses it.
+/// The categories of utilake's own catalogue: the ones every repository
+/// shares, then the mirror's.
+pub const UTILAKE_CATEGORIES: [&str; 15] = [
+    "config", "net", "listing", "cache", "zip", "csv", "json", "parse", "schema", "store",
+    "manifest", "verify", "query", "internal", "mirror",
+];
+
+/// Every shipped `.rs` file under `root`'s `crates/`, relative path and
+/// text, in path order: not `xtask`, `tests` or `benches`, and each cut at
+/// its first `#[cfg(test)]`, since test modules invent codes and messages.
 #[must_use]
-pub fn collect_codes(root: &Path, categories: &[&str]) -> BTreeMap<String, String> {
-    let mut out: BTreeMap<String, String> = BTreeMap::new();
+pub fn shipped_sources(root: &Path) -> Vec<(String, String)> {
+    let mut out = Vec::new();
     let mut stack = vec![root.join("crates")];
     while let Some(d) = stack.pop() {
         let Ok(rd) = std::fs::read_dir(&d) else {
@@ -65,15 +73,59 @@ pub fn collect_codes(root: &Path, categories: &[&str]) -> BTreeMap<String, Strin
             let Ok(text) = std::fs::read_to_string(&p) else {
                 continue;
             };
-            // Test modules invent codes; only shipped code counts.
-            let text = text.split("#[cfg(test)]").next().unwrap_or("");
+            let text = text.split("#[cfg(test)]").next().unwrap_or("").to_owned();
             let rel = p
                 .strip_prefix(root)
                 .unwrap_or(&p)
                 .to_string_lossy()
                 .replace('\\', "/");
-            for code in literals(text, categories) {
-                out.entry(code).or_insert_with(|| rel.clone());
+            out.push((rel, text));
+        }
+    }
+    out.sort();
+    out
+}
+
+/// Every `"category.name"` literal in the shipped `.rs` files under
+/// `crates/`, with the first file that uses it.
+#[must_use]
+pub fn collect_codes(root: &Path, categories: &[&str]) -> BTreeMap<String, String> {
+    let mut out: BTreeMap<String, String> = BTreeMap::new();
+    for (rel, text) in shipped_sources(root) {
+        for code in literals(&text, categories) {
+            out.entry(code).or_insert_with(|| rel.clone());
+        }
+    }
+    out
+}
+
+/// The codes passed to `Diagnostic::error`, `warning` or `new` in the
+/// shipped source whose category is not one of `categories`, with the
+/// file: a code the catalogue would silently leave out.
+#[must_use]
+pub fn undeclared(root: &Path, categories: &[&str]) -> Vec<(String, String)> {
+    let mut out = Vec::new();
+    for (rel, text) in shipped_sources(root) {
+        for call in [
+            "Diagnostic::error(",
+            "Diagnostic::warning(",
+            "Diagnostic::new(",
+        ] {
+            for (at, _) in text.match_indices(call) {
+                let rest = text[at + call.len()..].trim_start();
+                let Some(lit) = rest
+                    .strip_prefix('"')
+                    .and_then(|r| r.split_once('"'))
+                    .map(|(l, _)| l)
+                else {
+                    continue;
+                };
+                if lit
+                    .split_once('.')
+                    .is_none_or(|(cat, _)| !categories.contains(&cat))
+                {
+                    out.push((lit.to_owned(), rel.clone()));
+                }
             }
         }
     }
@@ -163,6 +215,13 @@ pub fn render(spec: &Spec<'_>, codes: &BTreeMap<String, String>) -> String {
 /// The gate: regenerates `docs/errors.md` under `root` with `write`, or
 /// fails with `check` when it would change.
 pub fn run(root: &Path, spec: &Spec<'_>, write: bool, check: bool) -> Result<bool> {
+    let stray = undeclared(root, spec.categories);
+    if !stray.is_empty() {
+        for (code, file) in &stray {
+            eprintln!("{file}: diagnostic code {code:?} is under no declared category");
+        }
+        return Ok(false);
+    }
     let mut codes = collect_codes(root, spec.categories);
     for (code, from) in spec.inherited {
         codes
@@ -260,5 +319,23 @@ mod tests {
         assert!(run(root, &SPEC, false, true).unwrap());
         let bare = tempfile::tempdir().unwrap();
         assert!(collect_codes(bare.path(), &CATS).is_empty());
+        // A code under a category the spec does not declare fails the gate.
+        std::fs::write(
+            src.join("stray.rs"),
+            "Diagnostic::warning(\"mirror.crawl\", c, m); Diagnostic::new(code, c, s, m); Diagnostic::error(\"nodot\", c, m);",
+        )
+        .unwrap();
+        assert_eq!(
+            undeclared(root, &CATS),
+            [
+                ("nodot".to_owned(), "crates/a/src/stray.rs".to_owned()),
+                (
+                    "mirror.crawl".to_owned(),
+                    "crates/a/src/stray.rs".to_owned()
+                )
+            ]
+        );
+        assert!(!run(root, &SPEC, false, true).unwrap());
+        assert!(UTILAKE_CATEGORIES.contains(&"mirror"));
     }
 }

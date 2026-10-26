@@ -61,6 +61,22 @@ files = '^(crates/.*/Cargo\.toml|Cargo\.(toml|lock)|layers\.json)$'
 pass_filenames = false
 
 [[repos.hooks]]
+id = "errors-doc"
+name = "docs: every diagnostic code is in docs/errors.md"
+language = "system"
+entry = "just errors-check"
+files = '^(crates/.*\.rs|docs/errors\.md)$'
+pass_filenames = false
+
+[[repos.hooks]]
+id = "msg-style"
+name = "lint: error messages lower-case first, no trailing period"
+language = "system"
+entry = "just msg-style"
+files = '^(crates/.*\.rs|msg_style\.allow)$'
+pass_filenames = false
+
+[[repos.hooks]]
 id = "rust-test"
 name = "test: every unit and integration test"
 language = "system"
@@ -104,7 +120,7 @@ name = "coverage: no floor dropped"
 language = "system"
 entry = "just ratchet"
 stages = ["pre-push"]
-files = '^coverage\.json$'
+files = '^(coverage\.json|msg_style\.allow)$'
 pass_filenames = false
 
 [[repos.hooks]]
