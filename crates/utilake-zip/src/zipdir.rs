@@ -95,23 +95,27 @@ impl Entry {
     /// zip (`offset_secs`: AEST for AEMO's zips); none when the DOS fields
     /// are out of range.
     pub fn modified_at(&self, offset_secs: i32) -> Option<Stamp> {
-        let (y, m, d, hh, mm, ss) = self.modified_fields();
-        let y = i32::try_from(y).ok()?;
-        Stamp::at(
-            y,
-            m.into(),
-            d.into(),
-            hh.into(),
-            mm.into(),
-            ss.into(),
-            offset_secs,
-        )
+        dos_stamp(self.dos_date, self.dos_time, offset_secs)
     }
 
     /// Whether the entry is a folder.
     pub fn is_dir(&self) -> bool {
         self.name.ends_with('/')
     }
+}
+
+/// A DOS date and time word pair as an instant in the clock of the machine
+/// that packed the zip; none when a field is out of range (a zero date).
+pub fn dos_stamp(date: u16, time: u16, offset_secs: i32) -> Option<Stamp> {
+    Stamp::at(
+        1980 + i32::from(date >> 9),
+        u32::from((date >> 5) & 0xF),
+        u32::from(date & 0x1F),
+        u32::from(time >> 11),
+        u32::from((time >> 5) & 0x3F),
+        u32::from((time & 0x1F) * 2),
+        offset_secs,
+    )
 }
 
 /// A DOS date and time as `YYYY-MM-DD HH:MM:SS`.

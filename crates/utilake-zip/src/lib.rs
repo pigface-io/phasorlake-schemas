@@ -39,6 +39,8 @@ use std::fs::File;
 use std::io::{Read, Seek, SeekFrom, Write as _};
 use std::path::Path;
 
+use utilake_provenance::Stamp;
+
 /// Zips nested deeper than this are refused.
 pub const MAX_DEPTH: u8 = 2;
 
@@ -102,8 +104,22 @@ pub struct Entry<'a> {
     pub name: String,
     /// Uncompressed size when the zip records it.
     pub size: Option<u64>,
+    /// The DOS date and time words of the entry's modified time, as its
+    /// zip's central directory records them: when the packer wrote the
+    /// file, in the packer's clock. None when the zip records none.
+    pub modified: Option<(u16, u16)>,
     /// The streaming reader of the entry's bytes.
     pub reader: &'a mut dyn Read,
+}
+
+impl Entry<'_> {
+    /// When the entry was written, as an instant in the clock of the
+    /// machine that packed the zip (`offset_secs`: AEST for AEMO's zips);
+    /// none when the zip records no time or one out of range.
+    pub fn modified_at(&self, offset_secs: i32) -> Option<Stamp> {
+        let (date, time) = self.modified?;
+        zipdir::dos_stamp(date, time, offset_secs)
+    }
 }
 
 /// Which entries a walk hands to `on_entry`: those whose name `accepts`,
@@ -477,7 +493,10 @@ fn walk_zip<R: Read + Seek, E>(
         // as the replacement character, never an error.
         let name = String::from_utf8_lossy(entry.name_raw()).into_owned();
         let size = entry.size();
-        found.take(visit(&mut w, p, depth, prefix, &name, size, &mut entry))?;
+        let modified = dos_words(entry.last_modified());
+        found.take(visit(
+            &mut w, p, depth, prefix, &name, size, modified, &mut entry,
+        ))?;
     }
     if !misplaced.is_empty() {
         let mut r = archive.into_inner();
@@ -493,6 +512,7 @@ fn walk_zip<R: Read + Seek, E>(
                 prefix,
                 &m.name,
                 m.size,
+                m.modified,
                 &mut reader,
             ))?;
         }
@@ -561,6 +581,7 @@ fn joined(prefix: &str, name: &str) -> String {
 /// One entry named `name` (in its own zip) read from `reader`: handed to
 /// `on_entry` when a `.CSV`, walked when a zip, else handed to `on_other`.
 /// Returns what it held.
+#[allow(clippy::too_many_arguments)]
 fn visit<E>(
     w: &mut Walk<'_, '_, E>,
     p: &str,
@@ -568,6 +589,7 @@ fn visit<E>(
     prefix: &str,
     name: &str,
     size: u64,
+    modified: Option<(u16, u16)>,
     entry: &mut dyn Read,
 ) -> Result<Walked, WalkError<E>> {
     let full = joined(prefix, name);
@@ -583,6 +605,7 @@ fn visit<E>(
             (w.on_entry)(Entry {
                 name: full.clone(),
                 size: Some(size),
+                modified,
                 reader: &mut reader,
             })
         };
@@ -600,6 +623,7 @@ fn visit<E>(
         (w.on_other)(Entry {
             name: full,
             size: Some(size),
+            modified,
             reader: entry,
         });
         return Ok(Walked::default());
@@ -691,6 +715,7 @@ struct Misplaced {
     size: u64,
     crc32: u32,
     deflated: bool,
+    modified: Option<(u16, u16)>,
 }
 
 /// The central directory record of one entry.
@@ -702,6 +727,12 @@ struct Central {
     method: zip::CompressionMethod,
     name_raw: Vec<u8>,
     dir: bool,
+    modified: Option<(u16, u16)>,
+}
+
+/// The DOS date and time words of a zip entry's modified time.
+fn dos_words(t: Option<zip::DateTime>) -> Option<(u16, u16)> {
+    t.map(|d| (d.datepart(), d.timepart()))
 }
 
 /// Size of a local file header before its name.
@@ -729,6 +760,7 @@ fn find_misplaced<R: Read + Seek, E>(
             method: f.compression(),
             name_raw: f.name_raw().to_vec(),
             dir: f.is_dir(),
+            modified: dos_words(f.last_modified()),
         });
     }
     let directory = archive.central_directory_start();
@@ -763,6 +795,7 @@ fn find_misplaced<R: Read + Seek, E>(
             size: c.size,
             crc32: c.crc32,
             deflated,
+            modified: c.modified,
         });
     }
     let archive = {
@@ -975,6 +1008,71 @@ mod tests {
                 SeekFrom::Current(_) => 0,
             })
         }
+    }
+
+    #[test]
+    fn an_entry_carries_when_it_was_written() {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("t.zip");
+        let f = File::create(&path).unwrap();
+        let mut w = zip::ZipWriter::new(f);
+        let at = zip::DateTime::from_date_and_time(2024, 1, 1, 0, 5, 31).unwrap();
+        w.start_file(
+            "A.CSV",
+            zip::write::SimpleFileOptions::default().last_modified_time(at),
+        )
+        .unwrap();
+        w.write_all(b"a").unwrap();
+        // The zip crate writes the DOS epoch for an entry given no time.
+        w.start_file(
+            "B.CSV",
+            zip::write::SimpleFileOptions::default().last_modified_time(
+                zip::DateTime::from_date_and_time(1980, 1, 1, 0, 0, 0).unwrap(),
+            ),
+        )
+        .unwrap();
+        w.write_all(b"b").unwrap();
+        w.start_file(
+            "notes.txt",
+            zip::write::SimpleFileOptions::default().last_modified_time(at),
+        )
+        .unwrap();
+        w.write_all(b"n").unwrap();
+        w.finish().unwrap();
+        let mut seen: Vec<(String, Option<String>)> = Vec::new();
+        let mut others: Vec<Option<(u16, u16)>> = Vec::new();
+        let accepts = Accepts {
+            accepts: &|n: &str| has_extension(n, ".csv"),
+            wanted: "csv",
+        };
+        walk_entries::<()>(
+            &path,
+            dir.path(),
+            accepts,
+            &mut |e| {
+                seen.push((e.name.clone(), e.modified_at(36_000).map(|s| s.rfc3339())));
+                Ok(())
+            },
+            &mut |o| others.push(o.modified),
+        )
+        .unwrap();
+        assert_eq!(seen.len(), 2);
+        // An entry not wanted carries its time too.
+        assert_eq!(others, [Some((at.datepart(), at.timepart()))]);
+        assert_eq!(seen[0].0, "A.CSV");
+        // DOS seconds are halved: 31 reads back as 30.
+        assert_eq!(seen[0].1.as_deref(), Some("2024-01-01T00:05:30+10:00"));
+        assert_eq!(seen[1].0, "B.CSV");
+        assert_eq!(seen[1].1.as_deref(), Some("1980-01-01T00:00:00+10:00"));
+        // A zero date word is no time at all.
+        assert_eq!(zipdir::dos_stamp(0, 0, 36_000), None);
+        let none = Entry {
+            name: "x".into(),
+            size: None,
+            modified: None,
+            reader: &mut std::io::empty(),
+        };
+        assert_eq!(none.modified_at(0), None);
     }
 
     #[test]
@@ -1385,6 +1483,7 @@ mod tests {
             method: zip::CompressionMethod::Stored,
             name_raw: b"A.CSV".to_vec(),
             dir: false,
+            modified: None,
         };
         assert!(local_header_agrees(
             &mut std::io::Cursor::new(b"PK"),
@@ -1409,6 +1508,7 @@ mod tests {
             size: 2,
             crc32: 0,
             deflated: false,
+            modified: None,
         };
         let mut v = Verified::new(&b"abcd"[..], &m);
         let mut out = Vec::new();
