@@ -199,7 +199,7 @@ fn broken_zips_and_files_are_problems_naming_them() {
     std::fs::write(&bad, b"not a zip").unwrap();
     let r = record(&root, Market::Nem, month("2025-10"), &[bad.as_path()]).unwrap();
     assert!(
-        r.problems[0].contains("The data-model zip") && r.problems[0].contains("v9.9.zip"),
+        r.problems[0].contains("the data-model zip") && r.problems[0].contains("v9.9.zip"),
         "{:?}",
         r.problems
     );
@@ -248,7 +248,7 @@ fn broken_zips_and_files_are_problems_naming_them() {
         .unwrap_err()
         .to_string();
     assert!(
-        e.starts_with("The model file ") && e.contains("v1.0.toml"),
+        e.starts_with("the model file ") && e.contains("v1.0.toml"),
         "{e}"
     );
     assert!(read_models(&root, Market::Nem).is_err());
@@ -271,7 +271,7 @@ fn broken_zips_and_files_are_problems_naming_them() {
     assert!(matches!(e, ModelError::Read { .. }), "{e}");
     // A file that cannot be written.
     let e = write_text(dir.path(), "x").unwrap_err().to_string();
-    assert!(e.ends_with("could not be written."), "{e}");
+    assert!(e.ends_with("could not be written"), "{e}");
 }
 
 #[test]

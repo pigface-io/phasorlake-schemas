@@ -131,7 +131,7 @@ impl Declarations {
 pub enum HistoryError {
     /// An override whose type cannot hold a block's values.
     #[error(
-        "The override of {column} in {table} as {ty} cannot hold the values of {file}; tables/{table}.toml needs another type."
+        "the override of {column} in {table} as {ty} cannot hold the values of {file}; tables/{table}.toml needs another type"
     )]
     Override {
         /// The table.
@@ -145,7 +145,7 @@ pub enum HistoryError {
     },
     /// A block the lake would read with another schema than its run's.
     #[error(
-        "In {table}, {file} is under schema {schema}, but its report pair, version, columns and month resolve to {}, with other fields; the lake would read it with the wrong schema.",
+        "in {table}, {file} is under schema {schema}, but its report pair, version, columns and month resolve to {}, with other fields; the lake would read it with the wrong schema",
         resolved.map_or_else(|| "no schema".to_owned(), |s| format!("schema {s}"))
     )]
     Unresolved {
@@ -160,7 +160,7 @@ pub enum HistoryError {
     },
     /// A rename whose two names one block holds: they are two columns.
     #[error(
-        "{table} renames {from} to {to}, but {file} holds both: they are two columns, not one renamed."
+        "{table} renames {from} to {to}, but {file} holds both: they are two columns, not one renamed"
     )]
     RenameOverlap {
         /// The table.
@@ -174,7 +174,7 @@ pub enum HistoryError {
     },
     /// A fold that breaks what the published history promised.
     #[error(
-        "The history of {table} breaks what nem/{table}/table.json published: {}.",
+        "the history of {table} breaks what nem/{table}/table.json published: {}",
         violations.iter().map(ToString::to_string).collect::<Vec<_>>().join("; ")
     )]
     Broken {

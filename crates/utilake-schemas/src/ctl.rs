@@ -110,7 +110,7 @@ impl CtlFile {
 
 /// Why a control file could not be parsed.
 #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
-#[error("The control file {path} cannot be read at line {line}, column {col}: {message}.")]
+#[error("the control file {path} cannot be read at line {line}, column {col}: {message}")]
 pub struct CtlError {
     /// The file.
     pub path: String,
@@ -578,7 +578,7 @@ SCADAVALUE FLOAT EXTERNAL)
         assert!(e.sample.contains("SCADAVALUE"));
         assert_eq!(
             e.to_string(),
-            "The control file x.ctl cannot be read at line 15, column 20: unsupported column datatype POSITION."
+            "the control file x.ctl cannot be read at line 15, column 20: unsupported column datatype POSITION"
         );
         for (bad, needle) in [
             (

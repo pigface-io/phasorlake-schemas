@@ -856,7 +856,7 @@ fn a_fold_that_cannot_keep_the_promise_is_an_error() {
     let e = fold_with(&blocks, &decl(), Some(&renamed)).unwrap_err();
     assert_eq!(
         e.to_string(),
-        "The history of DISPATCHPRICE breaks what nem/DISPATCHPRICE/table.json published: run 0 has changed."
+        "the history of DISPATCHPRICE breaks what nem/DISPATCHPRICE/table.json published: run 0 has changed"
     );
     // Published with a type the census's own values do not fit: the
     // field cannot be kept, and a new one is minted at once.
@@ -865,13 +865,13 @@ fn a_fold_that_cannot_keep_the_promise_is_an_error() {
         s.fields[2].ty = IcebergType::Long;
     }
     let e = fold_with(&blocks, &decl(), Some(&narrow)).unwrap_err();
-    assert!(e.to_string().ends_with("run 0 has changed."), "{e}");
+    assert!(e.to_string().ends_with("run 0 has changed"), "{e}");
     // Published from a file the census no longer has.
     let mut moved = months(&blocks);
     moved.runs[0].from.file = "Z.zip".into();
     let e = fold_with(&blocks, &decl(), Some(&moved)).unwrap_err();
     assert!(
-        e.to_string().ends_with("run 0's first file begins no run."),
+        e.to_string().ends_with("run 0's first file begins no run"),
         "{e}"
     );
     // Published to a file after every observation of it: the first alone.
@@ -923,7 +923,7 @@ fn an_override_types_the_column_and_must_hold_its_values() {
     let e = fold_with(&blocks, &overridden("RRP", d16), None).unwrap_err();
     assert_eq!(
         e.to_string(),
-        "The override of RRP in DISPATCHPRICE as decimal(16, 6) cannot hold the values of 2024-02.zip; tables/DISPATCHPRICE.toml needs another type."
+        "the override of RRP in DISPATCHPRICE as decimal(16, 6) cannot hold the values of 2024-02.zip; tables/DISPATCHPRICE.toml needs another type"
     );
     // A published field keeps its type; the override types the field that
     // follows it once the published type no longer holds the values.

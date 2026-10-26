@@ -25,7 +25,7 @@ use utilake_iceberg::Market;
 #[derive(Debug, thiserror::Error)]
 pub enum SqlError {
     /// No table of that name is published.
-    #[error("There is no published table {table} under {market}/.")]
+    #[error("there is no published table {table} under {market}/")]
     UnknownTable {
         /// The market.
         market: Market,
@@ -33,7 +33,7 @@ pub enum SqlError {
         table: String,
     },
     /// The table's metadata that cannot be read.
-    #[error("The table metadata {path} cannot be read: {message}")]
+    #[error("the table metadata {path} cannot be read: {message}")]
     Metadata {
         /// The file.
         path: String,
@@ -41,7 +41,7 @@ pub enum SqlError {
         message: String,
     },
     /// The file list that cannot be read.
-    #[error("The file list {path} cannot be read: {message}")]
+    #[error("the file list {path} cannot be read: {message}")]
     Files {
         /// The file.
         path: String,
@@ -49,10 +49,10 @@ pub enum SqlError {
         message: String,
     },
     /// A time that is not one.
-    #[error("{0:?} is not an RFC 3339 time or a day (YYYY-MM-DD).")]
+    #[error("{0:?} is not an RFC 3339 time or a day (YYYY-MM-DD)")]
     Time(String),
     /// An interval that ends before it starts.
-    #[error("The interval from {from} to {to} ends before it starts.")]
+    #[error("the interval from {from} to {to} ends before it starts")]
     Empty {
         /// Its start.
         from: String,
@@ -60,7 +60,7 @@ pub enum SqlError {
         to: String,
     },
     /// A read the planner refuses.
-    #[error("The read of {table} cannot be planned: {source}")]
+    #[error("the read of {table} cannot be planned: {source}")]
     Plan {
         /// The table.
         table: String,
@@ -332,15 +332,15 @@ mod tests {
         let e = |r: Result<String, SqlError>| r.unwrap_err().to_string();
         assert_eq!(
             e(q("x", "2024-08-01", None)),
-            "\"x\" is not an RFC 3339 time or a day (YYYY-MM-DD)."
+            "\"x\" is not an RFC 3339 time or a day (YYYY-MM-DD)"
         );
         assert_eq!(
             e(q("2024-08-02", "2024-08-01", None)),
-            "The interval from 2024-08-02 to 2024-08-01 ends before it starts."
+            "the interval from 2024-08-02 to 2024-08-01 ends before it starts"
         );
         assert!(
             e(q("2024-08-01", "2024-08-02", Some(9)))
-                .starts_with("The read of DISPATCH_UNIT_SCADA cannot be planned: ")
+                .starts_with("the read of DISPATCH_UNIT_SCADA cannot be planned: ")
         );
         assert_eq!(
             e(sql(
@@ -351,12 +351,12 @@ mod tests {
                 ("2024-08-01", "2024-08-02"),
                 None
             )),
-            "There is no published table NONE under nem/."
+            "there is no published table NONE under nem/"
         );
         std::fs::write(&files, r#"[{"path": 1}]"#).unwrap();
-        assert!(e(q("2024-08-01", "2024-08-02", None)).starts_with("The file list "));
+        assert!(e(q("2024-08-01", "2024-08-02", None)).starts_with("the file list "));
         std::fs::remove_file(&files).unwrap();
-        assert!(e(q("2024-08-01", "2024-08-02", None)).starts_with("The file list "));
+        assert!(e(q("2024-08-01", "2024-08-02", None)).starts_with("the file list "));
         // Metadata that is not JSON, not a published table, or a directory.
         let meta = crate::fold::published_path(root, Market::Nem, "DISPATCH_UNIT_SCADA");
         std::fs::write(&meta, "[").unwrap();

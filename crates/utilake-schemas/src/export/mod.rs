@@ -79,7 +79,7 @@ pub enum ExportError {
     #[error(transparent)]
     Census(#[from] CensusError),
     /// A history file that cannot be read.
-    #[error("The history {path} cannot be read: {message}")]
+    #[error("the history {path} cannot be read: {message}")]
     History {
         /// The file.
         path: String,
@@ -87,7 +87,7 @@ pub enum ExportError {
         message: String,
     },
     /// A declaration the published form cannot hold.
-    #[error("The declaration of {table} cannot be published: {message}")]
+    #[error("the declaration of {table} cannot be published: {message}")]
     Declaration {
         /// The table.
         table: String,
@@ -95,7 +95,7 @@ pub enum ExportError {
         message: String,
     },
     /// A history that cannot be written as table metadata.
-    #[error("The history of {table} cannot be published: {source}")]
+    #[error("the history of {table} cannot be published: {source}")]
     Publish {
         /// The table.
         table: String,
@@ -104,7 +104,7 @@ pub enum ExportError {
         source: PublishError,
     },
     /// A file that cannot be read, written or removed.
-    #[error("The export could not read or write {path}.")]
+    #[error("the export could not read or write {path}")]
     Io {
         /// The file or directory.
         path: String,

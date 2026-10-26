@@ -541,9 +541,9 @@ fn what_cannot_be_read_or_written_is_named() {
         check(root, &r)
             .unwrap_err()
             .to_string()
-            .ends_with("v1.metadata.json.")
+            .ends_with("v1.metadata.json")
     );
-    assert!(e(write(root, &r)).ends_with("v1.metadata.json."));
+    assert!(e(write(root, &r)).ends_with("v1.metadata.json"));
     std::fs::remove_dir(&table).unwrap();
     // A file where nem/ is.
     let flat = tempfile::tempdir().unwrap();
@@ -569,7 +569,7 @@ fn what_cannot_be_read_or_written_is_named() {
         .unwrap_err()
         .to_string();
     assert!(
-        err.starts_with("The export could not read or write ") && err.ends_with("histories/nem."),
+        err.starts_with("the export could not read or write ") && err.ends_with("histories/nem"),
         "{err}"
     );
     assert!(Export::load(flat.path(), DEFAULT_BASE_URL).is_err());
@@ -610,7 +610,7 @@ fn what_cannot_be_read_or_written_is_named() {
         .to_string();
     assert_eq!(
         err,
-        "The history of DISPATCH_UNIT_SCADA cannot be published: the run beginning at A.zip was released in \"August\", which is not a month (YYYY-MM)"
+        "the history of DISPATCH_UNIT_SCADA cannot be published: the run beginning at A.zip was released in \"August\", which is not a month (YYYY-MM)"
     );
     crate::files::write_atomic(
         &history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA"),
@@ -639,7 +639,7 @@ fn what_cannot_be_read_or_written_is_named() {
         .unwrap_err()
         .to_string();
     assert!(
-        err.starts_with("The declaration of BAD cannot be published: its temporal roles are not the published ones: "),
+        err.starts_with("the declaration of BAD cannot be published: its temporal roles are not the published ones: "),
         "{err}"
     );
     // A block is hand by its presence: one that claims to be derived is

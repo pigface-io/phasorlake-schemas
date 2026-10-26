@@ -23,7 +23,7 @@ use utilake_iceberg::Market;
 #[derive(Debug, thiserror::Error)]
 pub enum CatalogError {
     /// A file or directory that cannot be read.
-    #[error("The table declarations at {path} cannot be read: {message}")]
+    #[error("the table declarations at {path} cannot be read: {message}")]
     Read {
         /// The file or directory.
         path: String,
@@ -31,7 +31,7 @@ pub enum CatalogError {
         message: String,
     },
     /// A file that is not a declaration.
-    #[error("The table declaration {path} is not valid: {message}")]
+    #[error("the table declaration {path} is not valid: {message}")]
     Invalid {
         /// The file.
         path: String,
@@ -40,7 +40,7 @@ pub enum CatalogError {
     },
     /// A report pair two tables declare with the same number of
     /// `with_columns`, so a block could be either's.
-    #[error("The report pair {pair} is declared by both {first} and {second}.")]
+    #[error("the report pair {pair} is declared by both {first} and {second}")]
     Duplicate {
         /// The pair, `TYPE/SUBTYPE`.
         pair: String,
@@ -50,7 +50,7 @@ pub enum CatalogError {
         second: String,
     },
     /// A file that cannot be written.
-    #[error("The table declaration {path} could not be written.")]
+    #[error("the table declaration {path} could not be written")]
     Write {
         /// The file.
         path: String,
@@ -543,7 +543,7 @@ reason = "Six places are what AEMO measures."
         .unwrap_err();
         assert_eq!(
             e.to_string(),
-            "The report pair P/Q is declared by both a.toml and b.toml."
+            "the report pair P/Q is declared by both a.toml and b.toml"
         );
         let blocked = dir.path().join("blocked");
         std::fs::write(&blocked, "a file").unwrap();

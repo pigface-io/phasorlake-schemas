@@ -39,7 +39,7 @@ use utilake_iceberg::Market;
 #[derive(Debug, thiserror::Error)]
 pub enum CensusError {
     /// A census file or directory that cannot be read.
-    #[error("The census file {path} cannot be read: {message}")]
+    #[error("the census file {path} cannot be read: {message}")]
     Read {
         /// The file.
         path: String,
@@ -47,7 +47,7 @@ pub enum CensusError {
         message: String,
     },
     /// A census file that cannot be written.
-    #[error("The census file {path} could not be written.")]
+    #[error("the census file {path} could not be written")]
     Write {
         /// The file.
         path: String,
@@ -57,7 +57,7 @@ pub enum CensusError {
     },
     /// No file of the month is in the directory.
     #[error(
-        "No file is in the directory {path}; download the month first with `utilake-schemas fetch`."
+        "no file is in the directory {path}; download the month first with `utilake-schemas fetch`"
     )]
     Empty {
         /// The directory.
@@ -742,7 +742,7 @@ impl Reading {
     /// a problem of the month.
     fn readable<T>(&mut self, r: std::io::Result<T>, shown: &str) -> Option<T> {
         r.map_err(|e| {
-            let error = format!("The file cannot be read: {e}.");
+            let error = format!("the file cannot be read: {e}");
             self.problems.push(Unread {
                 file: shown.to_owned(),
                 error,

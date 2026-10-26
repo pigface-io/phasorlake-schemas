@@ -22,8 +22,9 @@ from the history by git-cliff (`cliff.toml`).
 - every error message (`#[error("…")]`, and the message of a
   `Diagnostic`) in the Rust style: a lower-case first letter, unless the
   first word is an acronym or identifier such as `HTTP` or `DuckDB`, and
-  no trailing period (`utilake_gates::msg_style`). `msg_style.allow` lists
-  the messages not yet fixed; it only shrinks, and goes when empty;
+  no trailing period (`utilake_gates::msg_style`). While a change of style
+  lands in steps, `msg_style.allow` lists the messages not yet fixed; it
+  only shrinks, and goes when empty;
 - every test;
 - line coverage held to `coverage.json`: every source file falls under a
   floor, new code at 100%. Floors only rise; lowering one needs a

@@ -356,7 +356,7 @@ fn a_file_that_cannot_be_read_is_a_problem_of_its_own() {
     assert!(
         census.problems[0]
             .error
-            .starts_with("The file cannot be read: "),
+            .starts_with("the file cannot be read: "),
         "{:?}",
         census.problems[0]
     );
@@ -659,7 +659,7 @@ fn a_file_that_opens_but_cannot_be_read_is_a_problem() {
     );
     assert_eq!(c.problems.len(), 1);
     assert!(
-        c.problems[0].error.starts_with("The file cannot be read"),
+        c.problems[0].error.starts_with("the file cannot be read"),
         "{:?}",
         c.problems
     );

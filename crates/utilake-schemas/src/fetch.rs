@@ -80,7 +80,7 @@ pub trait Http {
 #[derive(Debug, thiserror::Error)]
 pub enum FetchError {
     /// No answer, or the answer broke off.
-    #[error("The request for {url} failed.")]
+    #[error("the request for {url} failed")]
     Http {
         /// The URL.
         url: String,
@@ -90,7 +90,7 @@ pub enum FetchError {
     },
     /// The server refused: fetching stops.
     #[error(
-        "nemweb answered {url} with HTTP {status}, so fetching stops; try again later with a longer --interval-ms."
+        "nemweb answered {url} with HTTP {status}, so fetching stops; try again later with a longer --interval-ms"
     )]
     Refused {
         /// The URL.
@@ -99,13 +99,13 @@ pub enum FetchError {
         status: u16,
     },
     /// Not there.
-    #[error("nemweb has no {url} (HTTP 404).")]
+    #[error("nemweb has no {url} (HTTP 404)")]
     NotFound {
         /// The URL.
         url: String,
     },
     /// Any other status.
-    #[error("nemweb answered {url} with HTTP {status}.")]
+    #[error("nemweb answered {url} with HTTP {status}")]
     Status {
         /// The URL.
         url: String,
@@ -113,7 +113,7 @@ pub enum FetchError {
         status: u16,
     },
     /// The month is not in the archive.
-    #[error("{month} is not in the archive at {url}; it has {available}.")]
+    #[error("{month} is not in the archive at {url}; it has {available}")]
     MonthMissing {
         /// The month.
         month: YearMonth,
@@ -123,13 +123,13 @@ pub enum FetchError {
         available: String,
     },
     /// A listing of no file.
-    #[error("The listing {url} links to no file; nemweb may have changed its listing pages.")]
+    #[error("the listing {url} links to no file; nemweb may have changed its listing pages")]
     ListingParse {
         /// The URL.
         url: String,
     },
     /// A file that could not be written.
-    #[error("The file {path} could not be written.")]
+    #[error("the file {path} could not be written")]
     Write {
         /// The file.
         path: String,
@@ -138,7 +138,7 @@ pub enum FetchError {
         source: std::io::Error,
     },
     /// A file already fetched that cannot be read.
-    #[error("The file {path} cannot be read.")]
+    #[error("the file {path} cannot be read")]
     Read {
         /// The file.
         path: String,
@@ -147,7 +147,7 @@ pub enum FetchError {
         source: std::io::Error,
     },
     /// A sources file that cannot be read.
-    #[error("The sources file {path} cannot be read: {message}")]
+    #[error("the sources file {path} cannot be read: {message}")]
     Sources {
         /// The file.
         path: String,

@@ -35,7 +35,7 @@ pub trait Git {
 #[derive(Debug, thiserror::Error)]
 pub enum PublishedError {
     /// Git could not read the revision or a file of it.
-    #[error("git could not read {path} at {rev}.")]
+    #[error("git could not read {path} at {rev}")]
     Git {
         /// The revision.
         rev: String,
@@ -46,7 +46,7 @@ pub enum PublishedError {
         source: std::io::Error,
     },
     /// A file of the working tree that cannot be read.
-    #[error("The published file {path} cannot be read.")]
+    #[error("the published file {path} cannot be read")]
     Read {
         /// The file or directory.
         path: String,
@@ -55,7 +55,7 @@ pub enum PublishedError {
         source: std::io::Error,
     },
     /// A table document that is not a published table.
-    #[error("The table document {path} ({at}) holds no history: {message}")]
+    #[error("the table document {path} ({at}) holds no history: {message}")]
     Table {
         /// The file.
         path: String,
@@ -417,7 +417,7 @@ pub(crate) mod tests {
         .unwrap();
 
         let e = Published::at(&git, "nope").unwrap_err();
-        assert_eq!(e.to_string(), "git could not read nem at nope.");
+        assert_eq!(e.to_string(), "git could not read nem at nope");
         git.broken.borrow_mut().push(TABLE.into());
         let e = Published::at(&git, "base").unwrap_err();
         assert!(e.to_string().contains("v1.metadata.json at base"), "{e}");
@@ -458,7 +458,7 @@ pub(crate) mod tests {
             let doc = root.join("nem/DISPATCH_UNIT_SCADA/schema-0.json");
             std::fs::set_permissions(&doc, std::fs::Permissions::from_mode(0o000)).unwrap();
             let e = Published::read(root).unwrap_err();
-            assert!(e.to_string().starts_with("The published file "), "{e}");
+            assert!(e.to_string().starts_with("the published file "), "{e}");
             std::fs::set_permissions(&doc, std::fs::Permissions::from_mode(0o644)).unwrap();
         }
         let flat = tempfile::tempdir().unwrap();

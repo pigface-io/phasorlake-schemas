@@ -43,7 +43,7 @@ pub enum FoldError {
     #[error(transparent)]
     History(#[from] HistoryError),
     /// A published history that cannot be read.
-    #[error("The published history {path} cannot be read: {message}")]
+    #[error("the published history {path} cannot be read: {message}")]
     Published {
         /// The file.
         path: String,
@@ -55,7 +55,7 @@ pub enum FoldError {
     /// beside a region's), so the blocks need a table of their own
     /// (`with_columns`) or the key is wrong.
     #[error(
-        "{table} is keyed on {column}, but its schema {schema_id} has no {column}: the blocks from {file} on are another kind of row."
+        "{table} is keyed on {column}, but its schema {schema_id} has no {column}: the blocks from {file} on are another kind of row"
     )]
     KeyMissing {
         /// The table.
@@ -71,7 +71,7 @@ pub enum FoldError {
     /// saying whether it was renamed: a rename split into two fields
     /// would read null under the new name before it.
     #[error(
-        "Columns dropped as another of their kind is added, with no [[rename]] or [[distinct]] in their table's declaration to say which: {}.",
+        "columns dropped as another of their kind is added, with no [[rename]] or [[distinct]] in their table's declaration to say which: {}",
         undecided.iter().map(ToString::to_string).collect::<Vec<_>>().join("; ")
     )]
     RenameUndecided {
@@ -79,7 +79,7 @@ pub enum FoldError {
         undecided: Vec<Undecided>,
     },
     /// A history file that cannot be written or removed.
-    #[error("The history file {path} could not be written.")]
+    #[error("the history file {path} could not be written")]
     Write {
         /// The file.
         path: String,

@@ -295,7 +295,7 @@ fn an_old_month_is_its_whole_zip_from_the_year_listing() {
     let e = fetch_month(&mut s, BASE_URL, feb, &out, &repo, Duration::ZERO).unwrap_err();
     assert_eq!(
         e.to_string(),
-        format!("2012-02 is not in the archive at {year}; it has MMSDM_2012_01, MMSDM_2012_03.")
+        format!("2012-02 is not in the archive at {year}; it has MMSDM_2012_01, MMSDM_2012_03")
     );
     let e = fetch_month(
         &mut s,
@@ -306,7 +306,7 @@ fn an_old_month_is_its_whole_zip_from_the_year_listing() {
         Duration::ZERO,
     )
     .unwrap_err();
-    assert!(e.to_string().ends_with("it has no such year."), "{e}");
+    assert!(e.to_string().ends_with("it has no such year"), "{e}");
     let y2010 = year_root(BASE_URL, 2010);
     s.page(
         &y2010,
@@ -321,7 +321,7 @@ fn an_old_month_is_its_whole_zip_from_the_year_listing() {
         Duration::ZERO,
     )
     .unwrap_err();
-    assert!(e.to_string().ends_with("it has no months."), "{e}");
+    assert!(e.to_string().ends_with("it has no months"), "{e}");
     // A month from 2015 whose directory is missing is looked up by year:
     // listed there as a directory, and still not found, it is a 404.
     let y2016 = year_root(BASE_URL, 2016);
@@ -354,7 +354,7 @@ fn an_old_month_is_its_whole_zip_from_the_year_listing() {
     .unwrap_err();
     assert_eq!(
         e.to_string(),
-        format!("nemweb answered {y2016} with HTTP 500.")
+        format!("nemweb answered {y2016} with HTTP 500")
     );
 }
 
@@ -415,7 +415,7 @@ fn what_cannot_be_fetched_or_written_is_an_error_naming_it() {
     // No answer; an answer that breaks off, for a file and for a listing.
     s.pages.insert(ctl.clone(), Page::Fail);
     let e = fetch(&mut s, &out, &repo);
-    assert_eq!(e.to_string(), format!("The request for {ctl} failed."));
+    assert_eq!(e.to_string(), format!("the request for {ctl} failed"));
     s.pages.insert(ctl.clone(), Page::Broken);
     assert!(matches!(
         fetch(&mut s, &out, &repo),
@@ -453,7 +453,7 @@ fn what_cannot_be_fetched_or_written_is_an_error_naming_it() {
     let e = fetch(&mut s, &fresh, &repo);
     assert!(
         e.to_string()
-            .ends_with("CTL/PUBLIC_DVD_DISPATCHPRICE_202401.ctl could not be written."),
+            .ends_with("CTL/PUBLIC_DVD_DISPATCHPRICE_202401.ctl could not be written"),
         "{e}"
     );
     std::fs::create_dir_all(fresh.join("DATA/PUBLIC_ARCHIVE#X#FILE01#202401010000.zip.part"))
@@ -542,7 +542,7 @@ fn what_cannot_be_fetched_or_written_is_an_error_naming_it() {
     std::fs::write(&readme, "rd").unwrap();
     std::fs::set_permissions(&readme, std::fs::Permissions::from_mode(0o000)).unwrap();
     let e = fetch(&mut s, &locked, &dir.path().join("repo2"));
-    assert!(e.to_string().ends_with("README.txt cannot be read."), "{e}");
+    assert!(e.to_string().ends_with("README.txt cannot be read"), "{e}");
 }
 
 #[test]

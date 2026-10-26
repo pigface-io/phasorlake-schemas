@@ -291,7 +291,7 @@ fn every_failure_names_its_file() {
     let table = published_path(root, Market::Nem, "DISPATCH_UNIT_SCADA");
     crate::files::write_atomic(&table, b"{").unwrap();
     assert!(
-        err(root, &cat).starts_with("The published history "),
+        err(root, &cat).starts_with("the published history "),
         "{}",
         err(root, &cat)
     );
@@ -348,7 +348,7 @@ fn every_failure_names_its_file() {
     // History files that cannot be written or removed.
     std::fs::create_dir_all(history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA").join("x"))
         .unwrap();
-    assert!(err(root, &cat).ends_with("DISPATCH_UNIT_SCADA.json could not be written."));
+    assert!(err(root, &cat).ends_with("DISPATCH_UNIT_SCADA.json could not be written"));
     let stale = history_path(root, Market::Nem, "STALE");
     std::fs::create_dir_all(stale.join("x")).unwrap();
     assert!(err(root, &cat).contains("STALE.json could not be written"));
@@ -360,7 +360,7 @@ fn every_failure_names_its_file() {
     // Model files and census files that cannot be read.
     let model = crate::models::model_path(root, Market::Nem, "5.7");
     std::fs::write(&model, "version = ").unwrap();
-    assert!(err(root, &cat).starts_with("The model file "));
+    assert!(err(root, &cat).starts_with("the model file "));
     std::fs::remove_file(&model).unwrap();
     let month = census_path(root, Market::Nem, "2026-08".parse().unwrap());
     std::fs::write(&month, "x = ").unwrap();
