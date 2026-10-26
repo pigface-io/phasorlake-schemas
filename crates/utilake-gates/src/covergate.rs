@@ -50,12 +50,21 @@ pub fn parse_lcov(text: &str, root: &Path) -> BTreeMap<String, (u64, u64)> {
     out
 }
 
+/// Whether the gate holds `file` to a floor: every file under `crates/`,
+/// and any under a floor's prefix (a crate at the repository's root), but
+/// none the config excludes.
+fn gated(config: &Config, file: &str) -> bool {
+    let held =
+        file.starts_with("crates/") || config.floors.keys().any(|p| file.starts_with(p.as_str()));
+    held && !config.exclude.iter().any(|x| file.starts_with(x))
+}
+
 /// Checks files against the config; returns every failure message.
 #[must_use]
 pub fn check(config: &Config, files: &BTreeMap<String, (u64, u64)>) -> Vec<String> {
     let mut failures = Vec::new();
     for (file, (hit, total)) in files {
-        if !file.starts_with("crates/") || config.exclude.iter().any(|x| file.starts_with(x)) {
+        if !gated(config, file) {
             continue;
         }
         let floor = config
@@ -97,7 +106,7 @@ pub fn run(root: &Path, lcov: &Path) -> Result<bool> {
     }
     let (hit, total) = files
         .iter()
-        .filter(|(f, _)| f.starts_with("crates/"))
+        .filter(|(f, _)| gated(&config, f))
         .fold((0u64, 0u64), |(h, t), (_, (fh, ft))| (h + fh, t + ft));
     println!(
         "coverage: {hit}/{total} lines ({:.1}%) over {} files; {} failure(s)",
@@ -139,6 +148,22 @@ mod tests {
         let mut none = files.clone();
         none.insert("crates/a/src/empty.rs".into(), (0, 0));
         assert!(check(&config, &none).is_empty());
+        // A floor outside `crates/` holds the files under it, and an
+        // exclusion there frees them.
+        let mut root = Config {
+            exclude: vec!["crates/b/".into()],
+            floors: [
+                ("crates/a/src".to_owned(), 50.0),
+                ("other".to_owned(), 100.0),
+            ]
+            .into_iter()
+            .collect(),
+        };
+        let f = check(&root, &files);
+        assert_eq!(f.len(), 1, "{f:?}");
+        assert!(f[0].starts_with("other/z.rs: 0.0% of 1 lines"));
+        root.exclude.push("other/z.rs".into());
+        assert!(check(&root, &files).is_empty());
     }
 
     #[test]
