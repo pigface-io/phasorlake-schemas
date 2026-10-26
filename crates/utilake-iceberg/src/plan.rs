@@ -82,11 +82,11 @@ pub struct Read {
 #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
 pub enum PlanError {
     /// The target or a file names a schema the table lacks.
-    #[error("The table has no schema {0}.")]
+    #[error("the table has no schema {0}")]
     UnknownSchema(u32),
     /// A field's type in the target is not one Iceberg reaches from the file's.
     #[error(
-        "Column {name} is {from} in schema {schema} and {to} in the target; Iceberg does not promote one to the other."
+        "column {name} is {from} in schema {schema} and {to} in the target; Iceberg does not promote one to the other"
     )]
     NotAPromotion {
         /// The column.

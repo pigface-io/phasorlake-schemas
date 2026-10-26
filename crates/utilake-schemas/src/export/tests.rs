@@ -610,7 +610,7 @@ fn what_cannot_be_read_or_written_is_named() {
         .to_string();
     assert_eq!(
         err,
-        "The history of DISPATCH_UNIT_SCADA cannot be published: The run beginning at A.zip was released in \"August\", which is not a month (YYYY-MM)."
+        "The history of DISPATCH_UNIT_SCADA cannot be published: the run beginning at A.zip was released in \"August\", which is not a month (YYYY-MM)"
     );
     crate::files::write_atomic(
         &history_path(root, Market::Nem, "DISPATCH_UNIT_SCADA"),

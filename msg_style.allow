@@ -1,12 +1,5 @@
 # Error messages not yet in the Rust style (utilake_gates::msg_style), one
 # exact message or path:line per line. It only shrinks; delete it when empty.
-The table has no schema {0}.
-Column {name} is {from} in schema {schema} and {to} in the target; Iceberg does not promote one to the other.
-The run beginning at {file} was released in {release:?}, which is not a month (YYYY-MM).
-The table metadata lacks {key} in {at}.
-In {at}, {key} is {value:?}, which is not {wanted}.
-A snapshot was written under schema {0}, which the table lacks.
-Avro union branch {0} does not exist
 The D row has {observed} fields but the I row declared {declared}.
 The D row belongs to ({report_type}, {report_subtype}) version {version} but the current block is ({block_type}, {block_subtype}) version {block_version}.
 The D row has only {0} fields; a row starts with D, report type, subtype and version.

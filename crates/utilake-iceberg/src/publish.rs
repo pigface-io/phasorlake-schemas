@@ -170,7 +170,7 @@ pub struct Table {
 pub enum PublishError {
     /// A run's first file has a release that is not a month.
     #[error(
-        "The run beginning at {file} was released in {release:?}, which is not a month (YYYY-MM)."
+        "the run beginning at {file} was released in {release:?}, which is not a month (YYYY-MM)"
     )]
     Release {
         /// The file.
@@ -179,7 +179,7 @@ pub enum PublishError {
         release: String,
     },
     /// A key the metadata needs and lacks.
-    #[error("The table metadata lacks {key} in {at}.")]
+    #[error("the table metadata lacks {key} in {at}")]
     Missing {
         /// Where: the properties, or a snapshot's summary.
         at: String,
@@ -187,7 +187,7 @@ pub enum PublishError {
         key: String,
     },
     /// A key whose value is not what it must be.
-    #[error("In {at}, {key} is {value:?}, which is not {wanted}.")]
+    #[error("in {at}, {key} is {value:?}, which is not {wanted}")]
     Malformed {
         /// Where.
         at: String,
@@ -199,7 +199,7 @@ pub enum PublishError {
         wanted: String,
     },
     /// A snapshot written under a schema the table lacks.
-    #[error("A snapshot was written under schema {0}, which the table lacks.")]
+    #[error("a snapshot was written under schema {0}, which the table lacks")]
     UnknownSchema(u32),
 }
 
@@ -977,15 +977,15 @@ mod tests {
         };
         assert_eq!(
             err(&without(K_TABLE)),
-            "The table metadata lacks utilake.table in the table's properties."
+            "the table metadata lacks utilake.table in the table's properties"
         );
         assert_eq!(
             err(&with(K_FORMAT, "2")),
-            "In the table's properties, utilake.format is \"2\", which is not format 4."
+            "in the table's properties, utilake.format is \"2\", which is not format 4"
         );
         assert_eq!(
             err(&with(K_DECLARED, "maybe")),
-            "In the table's properties, utilake.declared is \"maybe\", which is not true or false."
+            "in the table's properties, utilake.declared is \"maybe\", which is not true or false"
         );
         assert!(err(&without(K_LOAD)).contains("lacks utilake.load"));
         assert!(err(&without(K_KEY)).contains("lacks utilake.key"));
@@ -996,11 +996,11 @@ mod tests {
         assert!(err(&with(K_MODEL, "{}")).contains("utilake.model"));
         assert_eq!(
             err(&with(K_MARKET, "mars")),
-            "In the table's properties, utilake.market is \"mars\", which is not a market."
+            "in the table's properties, utilake.market is \"mars\", which is not a market"
         );
         assert_eq!(
             err(&with(K_OFFSET, "+08:00")),
-            "In the table's properties, utilake.offset is \"+08:00\", which is not nem's offset."
+            "in the table's properties, utilake.offset is \"+08:00\", which is not nem's offset"
         );
         let summary = |key: &str, value: Option<&str>| {
             let mut m = m.clone();
@@ -1014,12 +1014,12 @@ mod tests {
         let id = m.snapshots[1].snapshot_id;
         assert_eq!(
             err(&summary(S_VERSION, None)),
-            format!("The table metadata lacks utilake.version in the summary of snapshot {id}.")
+            format!("the table metadata lacks utilake.version in the summary of snapshot {id}")
         );
         assert_eq!(
             err(&summary(S_VERSION, Some("x"))),
             format!(
-                "In the summary of snapshot {id}, utilake.version is \"x\", which is not a number."
+                "in the summary of snapshot {id}, utilake.version is \"x\", which is not a number"
             )
         );
         assert!(err(&summary(S_KINDS, Some("archive"))).contains("utilake.kinds"));
@@ -1028,7 +1028,7 @@ mod tests {
         unknown.snapshots[0].schema_id = 9;
         assert_eq!(
             err(&unknown),
-            "A snapshot was written under schema 9, which the table lacks."
+            "a snapshot was written under schema 9, which the table lacks"
         );
         // Snapshots are taken in sequence order, however they are listed.
         let mut shuffled = m.clone();
@@ -1040,7 +1040,7 @@ mod tests {
         bad.history.runs[1].from.release = "2024".into();
         assert_eq!(
             to_metadata(&bad, "file:///t", "u").unwrap_err().to_string(),
-            "The run beginning at C.zip was released in \"2024\", which is not a month (YYYY-MM)."
+            "the run beginning at C.zip was released in \"2024\", which is not a month (YYYY-MM)"
         );
     }
 }

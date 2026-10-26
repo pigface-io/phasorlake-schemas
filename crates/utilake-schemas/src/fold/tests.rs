@@ -309,7 +309,7 @@ fn every_failure_names_its_file() {
     crate::files::write_atomic(&table, m.to_string().as_bytes()).unwrap();
     assert!(
         err(root, &cat).contains(
-            "v1.metadata.json cannot be read: In the table's properties, utilake.declared"
+            "v1.metadata.json cannot be read: in the table's properties, utilake.declared"
         ),
         "{}",
         err(root, &cat)

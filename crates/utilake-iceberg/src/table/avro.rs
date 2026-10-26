@@ -34,7 +34,7 @@ pub enum AvroError {
     #[error("an Avro string is not UTF-8")]
     Utf8,
     /// A union branch past the union's types.
-    #[error("Avro union branch {0} does not exist")]
+    #[error("the Avro union has no branch {0}")]
     Branch(i64),
     /// Not an object container file.
     #[error("the bytes are not an Avro object container file")]
