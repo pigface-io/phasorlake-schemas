@@ -1,5 +1,5 @@
 //! `cargo run -p xtask -- <command>`: the gates the hooks and CI run, from
-//! [`utilake_gates`].
+//! [`phasor_gates`].
 //!
 //! Everything here is Rust so the repository needs no second toolchain.
 
@@ -7,14 +7,14 @@ use std::path::PathBuf;
 use std::process::ExitCode;
 
 use clap::{Parser, Subcommand};
-use utilake_gates::errors_doc::{self, Spec};
-use utilake_gates::layers::{self, Family};
-use utilake_gates::{covergate, msg_style, ratchet, repo_root};
+use phasor_gates::errors_doc::{self, Spec};
+use phasor_gates::layers::{self, Family};
+use phasor_gates::{covergate, msg_style, ratchet, repo_root};
 
 /// This repository's error catalogue: the categories every repository
-/// shares, then its own (`utilake_schemas::diagnose`).
+/// shares, then its own (`phasor_schemas::diagnose`).
 const ERRORS: Spec<'static> = Spec {
-    product: "utilake-schemas",
+    product: "phasor-schemas",
     categories: &[
         "config",
         "net",
@@ -44,7 +44,7 @@ const ERRORS: Spec<'static> = Spec {
 };
 
 #[derive(Parser)]
-#[command(name = "xtask", about = "utilake-schemas repository gates")]
+#[command(name = "xtask", about = "phasor-schemas repository gates")]
 struct Cli {
     #[command(subcommand)]
     cmd: Cmd,
@@ -87,7 +87,7 @@ fn main() -> ExitCode {
     let result = match cli.cmd {
         Cmd::Covergate { lcov } => covergate::run(&root, &lcov),
         Cmd::Ratchet { base } => ratchet::run(&root, &base),
-        Cmd::Layers => layers::run(&root, &Family::UTILAKE),
+        Cmd::Layers => layers::run(&root, &Family::PHASOR),
         Cmd::ErrorsDoc { write, check } => errors_doc::run(&root, &ERRORS, write, check),
         Cmd::MsgStyle => msg_style::run(&root),
     };

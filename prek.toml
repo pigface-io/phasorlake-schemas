@@ -53,6 +53,14 @@ files = '^(crates/|Cargo\.(toml|lock)$|rust-toolchain\.toml$)'
 pass_filenames = false
 
 [[repos.hooks]]
+id = "old-name"
+name = "lint: no file or path names the project's old name"
+language = "system"
+entry = "just old-name"
+always_run = true
+pass_filenames = false
+
+[[repos.hooks]]
 id = "layers"
 name = "lint: crate dependencies are the ones layers.json declares"
 language = "system"

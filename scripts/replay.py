@@ -3,13 +3,13 @@ history.
 
     uv run --with pyiceberg --with pyarrow --with duckdb python scripts/replay.py [DIR] [HISTORIES]
 
-DIR (default target/iceberg, as `utilake-schemas iceberg --out DIR` wrote
+DIR (default target/iceberg, as `phasor-schemas iceberg --out DIR` wrote
 it: the same tables the export publishes under each market's directory, at
 file locations) holds one directory per market, each with one table per
 directory with a `metadata/` in it; HISTORIES (default evidence/histories)
 holds each market's histories under its directory. Every history must have
 a table and every table a history. A table of a market other than the NEM
-must name it in `utilake.market`; a NEM table must not. Each table is loaded as a pyiceberg
+must name it in `phasor.market`; a NEM table must not. Each table is loaded as a pyiceberg
 `StaticTable` from the metadata its `version-hint.text` names, and must
 have the history's schemas by id, each with its fields' ids, names, types
 and nullability in order and its key, and the history's current schema as
@@ -93,12 +93,12 @@ def run_of(snapshot) -> tuple:
     s = snapshot.summary
     return (
         snapshot.schema_id,
-        [s["utilake.report-type"], s["utilake.report-subtype"]],
-        int(s["utilake.version"]),
-        int(s["utilake.files"]),
-        int(s["utilake.rows"]),
-        s["utilake.from.file"],
-        s["utilake.to.file"],
+        [s["phasor.report-type"], s["phasor.report-subtype"]],
+        int(s["phasor.version"]),
+        int(s["phasor.files"]),
+        int(s["phasor.rows"]),
+        s["phasor.from.file"],
+        s["phasor.to.file"],
     )
 
 
@@ -144,9 +144,9 @@ def main() -> None:
                 f"{name}: the current schema is {table.metadata.current_schema_id}, "
                 f"the history's is {current}"
             )
-        if table.properties.get("utilake.table") != path.stem:
-            fail(f"{name}: the metadata names table {table.properties.get('utilake.table')!r}")
-        said = table.properties.get("utilake.market")
+        if table.properties.get("phasor.table") != path.stem:
+            fail(f"{name}: the metadata names table {table.properties.get('phasor.table')!r}")
+        said = table.properties.get("phasor.market")
         if said != (None if market == "nem" else market):
             fail(f"{name}: the metadata names market {said!r}")
         # One snapshot per run, in order, saying what the run says.

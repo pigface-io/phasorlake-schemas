@@ -1,39 +1,39 @@
 {
   "normal": {
-    "utilake-decode": [
-      "utilake-diag"
+    "phasor-decode": [
+      "phasor-diag"
     ],
-    "utilake-diag": [],
-    "utilake-gates": [],
-    "utilake-iceberg": [
-      "utilake-diag"
+    "phasor-diag": [],
+    "phasor-gates": [],
+    "phasor-iceberg": [
+      "phasor-diag"
     ],
-    "utilake-mms-decode": [
-      "utilake-decode",
-      "utilake-diag"
+    "phasor-mms-decode": [
+      "phasor-decode",
+      "phasor-diag"
     ],
-    "utilake-plain-decode": [
-      "utilake-decode",
-      "utilake-diag",
-      "utilake-provenance"
+    "phasor-plain-decode": [
+      "phasor-decode",
+      "phasor-diag",
+      "phasor-provenance"
     ],
-    "utilake-provenance": [
-      "utilake-diag"
+    "phasor-provenance": [
+      "phasor-diag"
     ],
-    "utilake-schemas": [
-      "utilake-diag",
-      "utilake-iceberg",
-      "utilake-mms-decode",
-      "utilake-plain-decode",
-      "utilake-provenance",
-      "utilake-zip"
+    "phasor-schemas": [
+      "phasor-diag",
+      "phasor-iceberg",
+      "phasor-mms-decode",
+      "phasor-plain-decode",
+      "phasor-provenance",
+      "phasor-zip"
     ],
-    "utilake-zip": [
-      "utilake-diag",
-      "utilake-provenance"
+    "phasor-zip": [
+      "phasor-diag",
+      "phasor-provenance"
     ],
     "xtask": [
-      "utilake-gates"
+      "phasor-gates"
     ]
   },
   "dev": {}

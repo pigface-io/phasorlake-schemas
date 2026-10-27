@@ -16,13 +16,13 @@ from the history by git-cliff (`cliff.toml`).
   errors;
 - every dependency between the workspace's crates is one `layers.json`
   declares (`normal` for normal and build edges, `dev` for dev edges; see
-  `utilake_gates::layers`), and none it declares is gone;
+  `phasor_gates::layers`), and none it declares is gone;
 - every diagnostic code raised in the source is in `docs/errors.md`
   (`just errors-doc` regenerates it), under a declared category;
 - every error message (`#[error("…")]`, and the message of a
   `Diagnostic`) in the Rust style: a lower-case first letter, unless the
   first word is an acronym or identifier such as `HTTP` or `DuckDB`, and
-  no trailing period (`utilake_gates::msg_style`). While a change of style
+  no trailing period (`phasor_gates::msg_style`). While a change of style
   lands in steps, `msg_style.allow` lists the messages not yet fixed; it
   only shrinks, and goes when empty;
 - every test;

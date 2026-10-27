@@ -1,30 +1,30 @@
-# utilake-schemas: every table of Australia's National Electricity Market data
+# phasor-schemas: every table of Australia's National Electricity Market data
 # as an Apache Iceberg table, derived from AEMO's published files.
 #
-#   utilake-iceberg  the Iceberg contract: types, schemas, the type rule, the
+#   phasor-iceberg  the Iceberg contract: types, schemas, the type rule, the
 #                interval planner, and table metadata and manifests as bytes.
 #                Pure: no I/O.
-#   utilake-schemas  the tool: fetches AEMO's files, takes their census, folds
+#   phasor-schemas  the tool: fetches AEMO's files, takes their census, folds
 #                the census into each table's history, exports nem/.
-#   utilake-diag     the one shape every error and warning is reported as: a
+#   phasor-diag     the one shape every error and warning is reported as: a
 #                diagnostic with a stable code, and the exit codes. Pure.
-#   utilake-decode   what every decoder shares, whatever the format: a row's
+#   phasor-decode   what every decoder shares, whatever the format: a row's
 #                fields, its position, the month, a normalised name and a
 #                column list's fingerprint. Pure.
-#   utilake-mms-decode
+#   phasor-mms-decode
 #                the MMS C/I/D row format: scanner, I rows, shape ids,
 #                archive file names. Pure.
-#   utilake-plain-decode
+#   phasor-plain-decode
 #                plain CSV and WEMDE JSON as blocks of rows, dates in the one
 #                MMS form, and the names, release months and row-diff rules
 #                of every feed that is not MMS. Pure.
-#   utilake-provenance
+#   phasor-provenance
 #                what an archived file is and every place AEMO served it:
 #                the record beside each file, the one time type, the
 #                archive and the rule that names a file's local path.
-#   utilake-zip      walking a zip, zips inside zips included, entries whose
+#   phasor-zip      walking a zip, zips inside zips included, entries whose
 #                local header lies read from the central directory. Pure.
-#   utilake-gates    the repository gates every utilake repository runs from
+#   phasor-gates    the repository gates every phasor repository runs from
 #                its xtask: coverage floors, their ratchet, benchmark budgets,
 #                the agent index, the error catalogue.
 #   xtask        this repository's gates: coverage floors and their ratchet,
@@ -33,15 +33,15 @@
 [workspace]
 resolver = "3"
 members = [
-    "crates/utilake-decode",
-    "crates/utilake-diag",
-    "crates/utilake-gates",
-    "crates/utilake-iceberg",
-    "crates/utilake-mms-decode",
-    "crates/utilake-plain-decode",
-    "crates/utilake-provenance",
-    "crates/utilake-schemas",
-    "crates/utilake-zip",
+    "crates/phasor-decode",
+    "crates/phasor-diag",
+    "crates/phasor-gates",
+    "crates/phasor-iceberg",
+    "crates/phasor-mms-decode",
+    "crates/phasor-plain-decode",
+    "crates/phasor-provenance",
+    "crates/phasor-schemas",
+    "crates/phasor-zip",
     "crates/xtask",
 ]
 
@@ -50,7 +50,7 @@ version = "0.1.0"
 edition = "2024"
 rust-version = "1.97"
 license = "Apache-2.0"
-repository = "https://github.com/g0itb4/utilake-schemas"
+repository = "https://github.com/pigface-io/phasorlake-schemas"
 publish = false
 
 [workspace.lints.rust]
@@ -78,14 +78,14 @@ explicit_iter_loop = "deny"
 uninlined_format_args = "deny"
 
 [workspace.dependencies]
-utilake-decode = { path = "crates/utilake-decode" }
-utilake-diag = { path = "crates/utilake-diag" }
-utilake-gates = { path = "crates/utilake-gates" }
-utilake-iceberg = { path = "crates/utilake-iceberg" }
-utilake-mms-decode = { path = "crates/utilake-mms-decode" }
-utilake-plain-decode = { path = "crates/utilake-plain-decode" }
-utilake-provenance = { path = "crates/utilake-provenance" }
-utilake-zip = { path = "crates/utilake-zip" }
+phasor-decode = { path = "crates/phasor-decode" }
+phasor-diag = { path = "crates/phasor-diag" }
+phasor-gates = { path = "crates/phasor-gates" }
+phasor-iceberg = { path = "crates/phasor-iceberg" }
+phasor-mms-decode = { path = "crates/phasor-mms-decode" }
+phasor-plain-decode = { path = "crates/phasor-plain-decode" }
+phasor-provenance = { path = "crates/phasor-provenance" }
+phasor-zip = { path = "crates/phasor-zip" }
 # zones timed into a call tree: https://github.com/pigface-io/zonetrace
 zonetrace = "0.1.1"
 # structured records, one line each: https://github.com/pigface-io/linelog

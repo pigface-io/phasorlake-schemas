@@ -1,2 +1,2 @@
-version = 4
-reason = "The area reports are tables of their own (ROOFTOP_PV_ACTUAL_AREA, ROOFTOP_PV_FORECAST_AREA, DEMANDOPERATIONALACTUAL_AREA, DEMANDOPERATIONALFORECAST_AREA), and MTPASA_REGIONRESULT's respelt columns are one field each."
+version = 5
+reason = "Every property and summary key is under phasor., the project's new name; tables otherwise unchanged."
