@@ -42,8 +42,6 @@ jobs:
           # No job pushes: the token does not stay on disk for a tool to find.
           persist-credentials: false
       - uses: ./.github/actions/setup
-        with:
-          linelog-key: ${{ secrets.LINELOG_DEPLOY_KEY }}
       - name: Install gitleaks, shellcheck, prek and cargo-llvm-cov
         run: |
           scripts/fetch-tool.sh \
@@ -84,8 +82,6 @@ jobs:
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup
-        with:
-          linelog-key: ${{ secrets.LINELOG_DEPLOY_KEY }}
       - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
         with:
           version: ${{ env.UV_VERSION }}
@@ -100,7 +96,5 @@ jobs:
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup
-        with:
-          linelog-key: ${{ secrets.LINELOG_DEPLOY_KEY }}
       - run: cargo install --locked cargo-audit --version "$CARGO_AUDIT_VERSION"
       - run: just audit

@@ -6,31 +6,9 @@
 name: setup
 description: Install the toolchain and just
 
-inputs:
-  linelog-key:
-    description: A read-only deploy key of the private pigface-io/linelog repository.
-    required: true
-
 runs:
   using: composite
   steps:
-    # linelog is a private git dependency, fetched over SSH (.cargo/config.toml). The host
-    # key is GitHub's published ed25519 key, not one taken from the network.
-    - name: SSH agent with the linelog deploy key
-      shell: bash
-      env:
-        KEY: ${{ inputs.linelog-key }}
-      run: |
-        if [ -z "$KEY" ]; then
-          echo "::error::the LINELOG_DEPLOY_KEY secret is not set: cargo cannot fetch linelog"
-          exit 1
-        fi
-        mkdir -p ~/.ssh
-        echo "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl" >> ~/.ssh/known_hosts
-        eval "$(ssh-agent -s)" >/dev/null
-        echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >> "$GITHUB_ENV"
-        echo "SSH_AGENT_PID=$SSH_AGENT_PID" >> "$GITHUB_ENV"
-        printf '%s\n' "$KEY" | ssh-add -
     # rust-toolchain.toml names the version and the components; rustup reads it on first use.
     - run: rustup show
       shell: bash
