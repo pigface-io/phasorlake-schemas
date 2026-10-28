@@ -47,6 +47,10 @@ errors-check:
 msg-style:
     cargo run -q -p xtask -- msg-style
 
+# shellcheck over every shell script the repository tracks
+shellcheck:
+    git ls-files -z '*.sh' '*.bash' | xargs -0 shellcheck
+
 # ── tests ────────────────────────────────────────────────────────────────────
 
 # every unit and integration test

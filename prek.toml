@@ -148,3 +148,13 @@ entry = "just compat"
 stages = ["pre-push"]
 files = '^(nem|wem|gas)/'
 pass_filenames = false
+
+# ── Shell ────────────────────────────────────────────────────────────────────
+
+[[repos.hooks]]
+id = "shellcheck"
+name = "lint: shellcheck"
+language = "system"
+entry = "just shellcheck"
+files = '\.(sh|bash)$'
+pass_filenames = false
