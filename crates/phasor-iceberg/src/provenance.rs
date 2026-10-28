@@ -10,12 +10,15 @@
 //! the file's name. Nothing is combined or judged at write time; a reader
 //! chooses which to trust, or takes the earliest.
 //!
-//! The names fall under the `_ul_` prefix no table may declare, and the
+//! The names fall under the `_phasor_` prefix no table may declare, and the
 //! field ids sit far above any a census gives out and below the ones
 //! Iceberg reserves for itself (2147483447 and up).
 
 use crate::schema::{Field, Schema};
 use crate::types::IcebergType;
+
+/// What every provenance column's name begins with, and no table's may.
+pub const PREFIX: &str = "_phasor_";
 
 /// One provenance column.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -35,7 +38,7 @@ pub struct Column {
 /// The row's source: the source file's URL, then `!` and the entry for a
 /// row read from inside a zip (nested zips joined by `!` too).
 pub const SOURCE: Column = Column {
-    name: "_ul_source",
+    name: "_phasor_source",
     id: 2_147_483_000,
     ty: IcebergType::String,
     required: true,
@@ -49,7 +52,7 @@ pub const SOURCE: Column = Column {
 /// one the server touched again (AEMO touched most of its archive again in
 /// April 2026).
 pub const SERVER_LAST_MODIFIED: Column = Column {
-    name: "_ul_server_last_modified",
+    name: "_phasor_server_last_modified",
     id: 2_147_483_001,
     ty: IcebergType::Timestamptz,
     required: false,
@@ -62,7 +65,7 @@ pub const SERVER_LAST_MODIFIED: Column = Column {
 /// the file was written, so at or before it was public. None for a file
 /// not read from a zip, or a zip that records no time.
 pub const ZIP_ENTRY_MODIFIED: Column = Column {
-    name: "_ul_zip_entry_modified",
+    name: "_phasor_zip_entry_modified",
     id: 2_147_483_002,
     ty: IcebergType::Timestamptz,
     required: false,
@@ -78,7 +81,7 @@ pub const ZIP_ENTRY_MODIFIED: Column = Column {
 /// carries is the interval it reports, not a time it was made, and is not
 /// read here. None when the name carries no fourteen-digit run.
 pub const FILENAME_TIMESTAMP: Column = Column {
-    name: "_ul_filename_timestamp",
+    name: "_phasor_filename_timestamp",
     id: 2_147_483_003,
     ty: IcebergType::Timestamptz,
     required: false,
@@ -147,17 +150,17 @@ mod tests {
             names,
             [
                 "DUID",
-                "_ul_source",
-                "_ul_server_last_modified",
-                "_ul_zip_entry_modified",
-                "_ul_filename_timestamp",
+                "_phasor_source",
+                "_phasor_server_last_modified",
+                "_phasor_zip_entry_modified",
+                "_phasor_filename_timestamp",
             ]
         );
         assert_eq!(lake.last_column_id, FILENAME_TIMESTAMP.id);
         assert_eq!(lake.identifier_field_ids, [1]);
         // Twice is once.
         assert_eq!(lake_schema(&lake), lake);
-        assert!(is_provenance("_ul_zip_entry_modified"));
+        assert!(is_provenance("_phasor_zip_entry_modified"));
         assert!(!is_provenance("DUID"));
         // Ids in order, clear of the ones Iceberg keeps for itself.
         let ids: Vec<u32> = COLUMNS.iter().map(|c| c.id).collect();
@@ -166,6 +169,6 @@ mod tests {
             [2_147_483_000, 2_147_483_001, 2_147_483_002, 2_147_483_003]
         );
         assert!(COLUMNS.iter().all(|c| c.id < 2_147_483_447));
-        assert!(COLUMNS.iter().all(|c| c.name.starts_with("_ul_")));
+        assert!(COLUMNS.iter().all(|c| c.name.starts_with(PREFIX)));
     }
 }

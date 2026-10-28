@@ -244,17 +244,17 @@ write time, so a reader chooses which to be known by:
 
 | Column | Field id | Type | Holds |
 |---|---|---|---|
-| `_ul_source` | 2147483000 | `string` | The file the row was read from: its URL, and `!{entry}` for a file inside a zip |
-| `_ul_server_last_modified` | 2147483001 | `timestamptz` | The HTTP `Last-Modified` the web server gave for the source's bytes: the server's word for when they were public. Exact for a file fetched as it came out; late, never early, for one the server touched again (AEMO touched most of its archive again in April 2026). Null when it gave none |
-| `_ul_zip_entry_modified` | 2147483002 | `timestamptz` | The entry's modified time in its zip's central directory (DOS date and time, two-second resolution), in the packer's clock (AEST for AEMO's zips): when the file was written, at or before it was public. Null for a file not read from a zip |
-| `_ul_filename_timestamp` | 2147483003 | `timestamptz` | The first run of exactly fourteen digits, `YYYYMMDDHHMMSS`, in the source's file name, in the host's clock: AEMO's creation time of a report (`PUBLIC_YESTBID_201612220000_20161223040519.zip`), the restatement time of a gas file (`~20261023113222`). The twelve-digit interval stamp a report also carries is not read. Null when the name has none |
+| `_phasor_source` | 2147483000 | `string` | The file the row was read from: its URL, and `!{entry}` for a file inside a zip |
+| `_phasor_server_last_modified` | 2147483001 | `timestamptz` | The HTTP `Last-Modified` the web server gave for the source's bytes: the server's word for when they were public. Exact for a file fetched as it came out; late, never early, for one the server touched again (AEMO touched most of its archive again in April 2026). Null when it gave none |
+| `_phasor_zip_entry_modified` | 2147483002 | `timestamptz` | The entry's modified time in its zip's central directory (DOS date and time, two-second resolution), in the packer's clock (AEST for AEMO's zips): when the file was written, at or before it was public. Null for a file not read from a zip |
+| `_phasor_filename_timestamp` | 2147483003 | `timestamptz` | The first run of exactly fourteen digits, `YYYYMMDDHHMMSS`, in the source's file name, in the host's clock: AEMO's creation time of a report (`PUBLIC_YESTBID_201612220000_20161223040519.zip`), the restatement time of a gas file (`~20261023113222`). The twelve-digit interval stamp a report also carries is not read. Null when the name has none |
 
 A row's copies rank by the table's order columns, then
-`_ul_server_last_modified`, then `_ul_source`. A point-in-time read keeps
+`_phasor_server_last_modified`, then `_phasor_source`. A point-in-time read keeps
 rows whose chosen time is at or before its own: the server's word for
 proof, the zip entry's or the file name's for the moment AEMO made the
 file, or the earliest of the three. No table may declare a column
-starting `_ul_`.
+starting `_phasor_`.
 
 ## Contributing
 
