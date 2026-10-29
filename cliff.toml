@@ -1,5 +1,5 @@
-# Release notes from Conventional Commits, read by git-cliff in the release
-# workflow. Each tag's section lists its commits by type.
+# Release notes from Conventional Commits, drafted by git-cliff for each tag:
+# a tag's section lists its commits by type.
 [changelog]
 header = "# Changelog\n"
 body = """

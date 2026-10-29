@@ -5,8 +5,9 @@
 Commits follow [Conventional Commits](https://www.conventionalcommits.org):
 `feat`, `fix`, `perf`, `refactor`, `docs`, `test`, `build`, `ci`, `chore`,
 with a scope where one fits (`feat(census): …`). A breaking change says so
-with `!` and a `BREAKING CHANGE:` paragraph. Release notes are generated
-from the history by git-cliff (`cliff.toml`).
+with `!` and a `BREAKING CHANGE:` paragraph. A release is a tag
+`vX.Y.Z` on main, its notes drafted from the history by git-cliff
+(`cliff.toml`).
 
 ## Gates
 
@@ -22,9 +23,7 @@ from the history by git-cliff (`cliff.toml`).
 - every error message (`#[error("…")]`, and the message of a
   `Diagnostic`) in the Rust style: a lower-case first letter, unless the
   first word is an acronym or identifier such as `HTTP` or `DuckDB`, and
-  no trailing period (`phasor_gates::msg_style`). While a change of style
-  lands in steps, `msg_style.allow` lists the messages not yet fixed; it
-  only shrinks, and goes when empty;
+  no trailing period (`phasor_gates::msg_style`);
 - every test;
 - line coverage held to `coverage.json`: every source file falls under a
   floor, new code at 100%. Floors only rise; lowering one needs a

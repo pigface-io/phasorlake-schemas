@@ -43,7 +43,7 @@ errors-doc:
 errors-check:
     cargo run -q -p xtask -- errors-doc --check
 
-# every error message lower-case first with no trailing period (msg_style.allow: not yet fixed)
+# every error message lower-case first with no trailing period
 msg-style:
     cargo run -q -p xtask -- msg-style
 
