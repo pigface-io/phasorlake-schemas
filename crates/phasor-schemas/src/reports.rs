@@ -287,56 +287,60 @@ impl CtlSource {
         &self.by_month[&month]
     }
 
-    /// The loose control files of a month directory: its `CTL/`, as
-    /// `fetch` lays it out or as nemweb does, the month directly under
-    /// the directory or under its year, as phasor-mirror keeps nemweb's
-    /// `MMSDM/{YYYY}/`.
+    /// The loose control files of a month, from the first of its
+    /// [`ctl_dirs`] that has any.
     fn month_texts(&mut self, month: YearMonth) -> Option<Vec<(String, String)>> {
         if !self.read.contains_key(&month) {
-            let name = format!("MMSDM_{}_{:02}", month.year(), month.month());
-            let texts = self.dir.as_ref().and_then(|d| {
-                [d.join(&name), d.join(month.year().to_string()).join(&name)]
-                    .iter()
-                    .flat_map(|m| [m.join("CTL"), m.join("MMSDM_Historical_Data_SQLLoader/CTL")])
-                    .find_map(|d| ctl_texts(&d))
-            });
+            let texts = self
+                .dir
+                .as_deref()
+                .and_then(|d| ctl_dirs(d, month).find_map(|c| ctl_texts(&c)));
             self.read.insert(month, texts);
         }
         self.read[&month].clone()
     }
 }
 
-/// Whether `dir` holds an MMSDM month directory (`MMSDM_{YYYY}_{MM}`),
-/// directly or under a year (`{YYYY}/MMSDM_{YYYY}_{MM}`): a directory of
-/// neither types nothing, which `--mmsdm` refuses rather than read every
-/// block untyped.
+/// Where the control files of `month` may be under a directory of MMSDM
+/// months: the month directly in it or under its year, as phasor-mirror
+/// keeps nemweb's `MMSDM/{YYYY}/`; its `CTL/` as `fetch` lays it out or as
+/// nemweb does.
+fn ctl_dirs(dir: &Path, month: YearMonth) -> impl Iterator<Item = PathBuf> {
+    let name = format!("MMSDM_{}_{:02}", month.year(), month.month());
+    [
+        dir.join(&name),
+        dir.join(month.year().to_string()).join(&name),
+    ]
+    .into_iter()
+    .flat_map(|m| [m.join("CTL"), m.join("MMSDM_Historical_Data_SQLLoader/CTL")])
+}
+
+/// Whether some month directory in `dir`, or in a year under it, has its
+/// `CTL/` where the control files are looked for: a directory with none
+/// types nothing, which `--mmsdm` refuses rather than read every block
+/// untyped.
 #[must_use]
 pub fn holds_mmsdm_months(dir: &Path) -> bool {
-    let is_month = |p: &Path| {
-        p.is_dir()
-            && p.file_name()
-                .and_then(|n| n.to_str())
-                .and_then(|n| n.strip_prefix("MMSDM_"))
-                .is_some_and(|ym| {
-                    let b = ym.as_bytes();
-                    b.len() == 7
-                        && b[4] == b'_'
-                        && ym.bytes().filter(u8::is_ascii_digit).count() == 6
-                })
-    };
-    let entries = |d: &Path| -> Vec<PathBuf> {
-        std::fs::read_dir(d)
-            .map(|r| r.filter_map(Result::ok).map(|e| e.path()).collect())
-            .unwrap_or_default()
-    };
-    entries(dir).iter().any(|p| {
-        is_month(p)
-            || (p.is_dir()
-                && p.file_name()
-                    .and_then(|n| n.to_str())
-                    .is_some_and(|n| n.len() == 4 && n.bytes().all(|b| b.is_ascii_digit()))
-                && entries(p).iter().any(|q| is_month(q)))
-    })
+    subdirs(dir)
+        .chain(subdirs(dir).flat_map(|(_, p)| subdirs(&p)))
+        .filter_map(|(name, _)| mmsdm_month(&name))
+        .any(|m| ctl_dirs(dir, m).any(|c| c.is_dir()))
+}
+
+/// The month a directory named `MMSDM_{YYYY}_{MM}` is for.
+fn mmsdm_month(name: &str) -> Option<YearMonth> {
+    let (y, m) = name.strip_prefix("MMSDM_")?.split_once('_')?;
+    YearMonth::new(y.parse().ok()?, m.parse().ok()?)
+}
+
+/// The directories directly in `dir`, by name; none when it cannot be read.
+fn subdirs(dir: &Path) -> impl Iterator<Item = (String, PathBuf)> + use<> {
+    std::fs::read_dir(dir)
+        .into_iter()
+        .flatten()
+        .filter_map(Result::ok)
+        .filter(|e| e.path().is_dir())
+        .map(|e| (e.file_name().to_string_lossy().into_owned(), e.path()))
 }
 
 /// The control files directly in `dir`, by name; `None` for none.
@@ -1693,9 +1697,18 @@ mod tests {
             let typed = sept.for_table(&["DISPATCH_UNIT_SCADA"]).is_some();
             assert!(typed, "{}", d.display());
         }
-        // The host directory, or a year of zips only, holds no month.
+        // A month the lookup would not find is no month: a zip, a name that
+        // is not the month's, a month under another year, or one with no CTL/.
         put(dir.path(), "zips/2009/MMSDM_2009_07.zip", b"x");
-        put(dir.path(), "odd/MMSDM_2026_8/x", b"x");
+        for odd in [
+            "MMSDM_2026_8/CTL/x",
+            "MMSDM_2026_13/CTL/x",
+            "2026/MMSDM_20x6_08/CTL/x",
+            "2025/MMSDM_2026_08/CTL/x",
+            "MMSDM_2026_09/DATA/x",
+        ] {
+            put(&dir.path().join("odd"), odd, b"x");
+        }
         for d in ["zips", "odd", "none"] {
             assert!(!holds_mmsdm_months(&dir.path().join(d)), "{d}");
         }
