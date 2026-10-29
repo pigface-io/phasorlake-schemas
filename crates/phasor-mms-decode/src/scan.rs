@@ -3,7 +3,7 @@
 use std::io::Read;
 
 use crate::irow::{IRow, IRowScratch};
-use memchr::memchr;
+use memchr::{memchr, memchr_iter};
 
 use std::fmt;
 
@@ -71,7 +71,8 @@ impl Default for ScanOptions {
 /// Counts from one scan.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
 pub struct ScanStats {
-    /// Lines, including header, headers and footer.
+    /// Lines, including header, headers and footer, as AEMO's footer
+    /// counts them: a line break inside a quoted value does not end one.
     pub lines: u64,
     /// Bytes consumed.
     pub bytes: u64,
@@ -162,10 +163,8 @@ pub fn scan_with<R: Read, S: Sink>(
         let mut consumed = 0usize;
         loop {
             let rest = &buf[consumed..filled];
-            let (line_end, next) = match memchr(b'\n', rest) {
-                Some(i) => (i, i + 1),
-                None if eof && !rest.is_empty() => (rest.len(), rest.len()),
-                None => break,
+            let Some((line_end, next)) = record_end(rest, eof) else {
+                break;
             };
             let mut line = &rest[..line_end];
             if line.last() == Some(&b'\r') {
@@ -257,6 +256,25 @@ pub fn scan_with<R: Read, S: Sink>(
         },
     )?;
     Ok(stats)
+}
+
+/// Where the record at the start of `rest` ends, and where the next one
+/// starts: at the first line end with an even number of quotes before it,
+/// so a quoted value may hold a line break (a market notice's subject that
+/// starts on a new line). At the end of input the rest is the last record;
+/// `None` when it may run past what `rest` holds.
+fn record_end(rest: &[u8], eof: bool) -> Option<(usize, usize)> {
+    let mut from = 0;
+    let mut quotes = 0usize;
+    while let Some(i) = memchr(b'\n', &rest[from..]) {
+        let end = from + i;
+        quotes += memchr_iter(b'"', &rest[from..end]).count();
+        if quotes.is_multiple_of(2) {
+            return Some((end, end + 1));
+        }
+        from = end + 1;
+    }
+    (eof && !rest.is_empty()).then_some((rest.len(), rest.len()))
 }
 
 /// One read into `buf`, read again when interrupted.
@@ -512,6 +530,58 @@ pub(crate) mod tests {
         );
         assert_eq!(stats.lines, 4);
         assert!(!stats.footer_mismatch());
+    }
+
+    /// A quoted value may hold a line break: July 2011's MARKETNOTICEDATA
+    /// has a notice whose EXTERNALREFERENCE starts on a new line. The row
+    /// is one line, as AEMO's footer counts it, however the bytes arrive.
+    #[test]
+    fn a_line_break_inside_quotes_is_part_of_the_value() {
+        let text = b"I,MARKET_NOTICE,MARKETNOTICEDATA,1,NOTICEID,REASON,EXTERNALREFERENCE\r\n\
+            D,MARKET_NOTICE,MARKETNOTICEDATA,1,35572,Q0FO,\"\nEMERGENCY PLANNED SYSTEM CHANGE\"\r\n\
+            D,MARKET_NOTICE,MARKETNOTICEDATA,1,35573,Q0FP,\"a \"\"quoted\"\"\r\nsubject\"\r\n\
+            C,\"END OF REPORT\",4\r\n";
+        struct OneByte<'a>(&'a [u8]);
+        impl Read for OneByte<'_> {
+            fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+                let n = self.0.len().min(1);
+                buf[..n].copy_from_slice(&self.0[..n]);
+                self.0 = &self.0[n..];
+                Ok(n)
+            }
+        }
+        for whole in [true, false] {
+            let mut c = Collect::default();
+            let stats = if whole {
+                scan(text.as_slice(), &mut c, &ScanOptions::default())
+            } else {
+                scan(OneByte(text), &mut c, &ScanOptions::default())
+            }
+            .unwrap();
+            assert_eq!((stats.rows, stats.bad_rows), (2, 0));
+            assert!(!stats.footer_mismatch(), "{stats:?}");
+            assert_eq!(c.rows[0][6], "\nEMERGENCY PLANNED SYSTEM CHANGE");
+            assert_eq!(c.rows[1][6], "a \"quoted\"\r\nsubject");
+            assert_eq!(stats.bytes, text.len() as u64);
+        }
+        // An open quote at the end of input closes it.
+        let mut c = Collect::default();
+        let stats = scan(
+            b"I,A,B,1,X\nD,A,B,1,\"open\nstill".as_slice(),
+            &mut c,
+            &ScanOptions::default(),
+        )
+        .unwrap();
+        assert_eq!((stats.lines, stats.rows), (2, 1));
+        assert_eq!(c.rows[0][4], "open\nstill");
+        // Census reads count it once too.
+        let mut c = Collect::default();
+        let only = ScanOptions {
+            headers_only: true,
+            ..Default::default()
+        };
+        let stats = scan(text.as_slice(), &mut c, &only).unwrap();
+        assert_eq!((stats.rows, stats.bad_rows, c.block_rows[0]), (2, 0, 2));
     }
 
     #[test]
