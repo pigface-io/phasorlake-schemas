@@ -288,20 +288,55 @@ impl CtlSource {
     }
 
     /// The loose control files of a month directory: its `CTL/`, as
-    /// `fetch` lays it out or as nemweb does.
+    /// `fetch` lays it out or as nemweb does, the month directly under
+    /// the directory or under its year, as phasor-mirror keeps nemweb's
+    /// `MMSDM/{YYYY}/`.
     fn month_texts(&mut self, month: YearMonth) -> Option<Vec<(String, String)>> {
         if !self.read.contains_key(&month) {
             let name = format!("MMSDM_{}_{:02}", month.year(), month.month());
             let texts = self.dir.as_ref().and_then(|d| {
-                let m = d.join(name);
-                [m.join("CTL"), m.join("MMSDM_Historical_Data_SQLLoader/CTL")]
+                [d.join(&name), d.join(month.year().to_string()).join(&name)]
                     .iter()
-                    .find_map(|d| ctl_texts(d))
+                    .flat_map(|m| [m.join("CTL"), m.join("MMSDM_Historical_Data_SQLLoader/CTL")])
+                    .find_map(|d| ctl_texts(&d))
             });
             self.read.insert(month, texts);
         }
         self.read[&month].clone()
     }
+}
+
+/// Whether `dir` holds an MMSDM month directory (`MMSDM_{YYYY}_{MM}`),
+/// directly or under a year (`{YYYY}/MMSDM_{YYYY}_{MM}`): a directory of
+/// neither types nothing, which `--mmsdm` refuses rather than read every
+/// block untyped.
+#[must_use]
+pub fn holds_mmsdm_months(dir: &Path) -> bool {
+    let is_month = |p: &Path| {
+        p.is_dir()
+            && p.file_name()
+                .and_then(|n| n.to_str())
+                .and_then(|n| n.strip_prefix("MMSDM_"))
+                .is_some_and(|ym| {
+                    let b = ym.as_bytes();
+                    b.len() == 7
+                        && b[4] == b'_'
+                        && ym.bytes().filter(u8::is_ascii_digit).count() == 6
+                })
+    };
+    let entries = |d: &Path| -> Vec<PathBuf> {
+        std::fs::read_dir(d)
+            .map(|r| r.filter_map(Result::ok).map(|e| e.path()).collect())
+            .unwrap_or_default()
+    };
+    entries(dir).iter().any(|p| {
+        is_month(p)
+            || (p.is_dir()
+                && p.file_name()
+                    .and_then(|n| n.to_str())
+                    .is_some_and(|n| n.len() == 4 && n.bytes().all(|b| b.is_ascii_digit()))
+                && entries(p).iter().any(|q| is_month(q)))
+    })
 }
 
 /// The control files directly in `dir`, by name; `None` for none.
@@ -1635,6 +1670,35 @@ mod tests {
         assert_eq!(kind(nem_reports()), "reports");
         assert_eq!(kind(feed("gbb").unwrap()), "gbb");
         assert_eq!(kind(feed("datafiles").unwrap()), "datafiles");
+    }
+
+    #[test]
+    fn mmsdm_months_are_found_directly_or_under_their_year() {
+        let dir = tempfile::tempdir().unwrap();
+        let ctl = "MMSDM_Historical_Data_SQLLoader/CTL/PUBLIC_ARCHIVE#DISPATCH_UNIT_SCADA#FILE01#202608.ctl";
+        let flat = dir.path().join("flat");
+        put(&flat, &format!("MMSDM_2026_08/{ctl}"), SCADA_CTL.as_bytes());
+        // As phasor-mirror keeps nemweb's MMSDM/{YYYY}/, beside a month's zip.
+        let mirror = dir.path().join("mirror");
+        put(
+            &mirror,
+            &format!("2026/MMSDM_2026_08/{ctl}"),
+            SCADA_CTL.as_bytes(),
+        );
+        put(&mirror, "2009/MMSDM_2009_07.zip", b"x");
+        for d in [&flat, &mirror] {
+            assert!(holds_mmsdm_months(d), "{}", d.display());
+            let mut ctls = CtlSource::new(Some(d));
+            let sept = ctls.for_month(YearMonth::new(2026, 9).unwrap());
+            let typed = sept.for_table(&["DISPATCH_UNIT_SCADA"]).is_some();
+            assert!(typed, "{}", d.display());
+        }
+        // The host directory, or a year of zips only, holds no month.
+        put(dir.path(), "zips/2009/MMSDM_2009_07.zip", b"x");
+        put(dir.path(), "odd/MMSDM_2026_8/x", b"x");
+        for d in ["zips", "odd", "none"] {
+            assert!(!holds_mmsdm_months(&dir.path().join(d)), "{d}");
+        }
     }
 
     #[test]

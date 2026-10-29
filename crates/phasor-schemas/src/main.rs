@@ -117,7 +117,8 @@ enum Cmd {
         /// `datafiles`, `wemde`); every feed when not given.
         #[arg(long)]
         feed: Option<String>,
-        /// The directory of MMSDM months (`MMSDM_{YYYY}_{MM}/CTL/`) whose
+        /// The directory of MMSDM months (`MMSDM_{YYYY}_{MM}/CTL/`, or
+        /// `{YYYY}/MMSDM_{YYYY}_{MM}/` as phasor-mirror keeps them) whose
         /// control files type the blocks; without it nothing is typed.
         #[arg(long)]
         mmsdm: Option<PathBuf>,
@@ -463,6 +464,15 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                 && !reports::feeds_of(market.id()).any(|x| x.id == f)
             {
                 eprintln!("error: {market} has no feed {f:?}");
+                return Ok(ExitCode::FAILURE);
+            }
+            if let Some(m) = &mmsdm
+                && !reports::holds_mmsdm_months(m)
+            {
+                eprintln!(
+                    "error: --mmsdm {}: no MMSDM_{{YYYY}}_{{MM}} directory in it or in a year under it, so nothing would be typed",
+                    m.display()
+                );
                 return Ok(ExitCode::FAILURE);
             }
             let cat = catalog(&root, market)?;
