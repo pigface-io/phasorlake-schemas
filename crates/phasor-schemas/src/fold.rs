@@ -50,23 +50,6 @@ pub enum FoldError {
         /// What is wrong.
         message: String,
     },
-    /// A schema of a declared table without one of the table's key
-    /// columns: its rows are not the table's kind of row (an area's
-    /// beside a region's), so the blocks need a table of their own
-    /// (`with_columns`) or the key is wrong.
-    #[error(
-        "{table} is keyed on {column}, but its schema {schema_id} has no {column}: the blocks from {file} on are another kind of row"
-    )]
-    KeyMissing {
-        /// The table.
-        table: String,
-        /// The key column.
-        column: String,
-        /// The schema without it.
-        schema_id: u32,
-        /// The first file of that schema.
-        file: String,
-    },
     /// A column dropped as another of its kind is added, with nothing
     /// saying whether it was renamed: a rename split into two fields
     /// would read null under the new name before it.
@@ -146,59 +129,9 @@ pub struct Folded {
     pub breaks: usize,
     /// History files whose bytes changed, or were removed.
     pub changed: usize,
-    /// What the evidence says a person should look at: a declared table
-    /// whose valid time is an interval end or an instant, but whose every
-    /// recorded value is at midnight, which is how a trading day is
-    /// labelled.
+    /// What the evidence says a person should look at: a rename decided
+    /// by its evidence, or AEMO's loader disagreeing with a table's blocks.
     pub notes: Vec<String>,
-}
-
-/// The notes of a fold: each declared table whose valid column the census
-/// saw only at midnight, while its roles call it an interval end or an
-/// instant. The roles are the declaration's hand block, else derived from
-/// the key and the history's current schema, as the publisher does.
-fn day_label_notes(
-    market: Market,
-    catalog: &Catalog,
-    midnight_only: &[String],
-    tables: &BTreeMap<String, History>,
-) -> Vec<String> {
-    let mut notes = Vec::new();
-    for name in midnight_only {
-        let t = catalog
-            .table(name)
-            .expect("the midnight-only tables are the catalog's");
-        let (kind, column) = match &t.temporal {
-            Some(block) => {
-                let valid = block.get("valid").and_then(toml::Value::as_table);
-                let get = |k: &str| {
-                    valid
-                        .and_then(|v| v.get(k))
-                        .and_then(toml::Value::as_str)
-                        .map(str::to_owned)
-                };
-                (get("kind").unwrap_or_default(), get("column"))
-            }
-            None => {
-                let fields = tables
-                    .get(name)
-                    .and_then(|h| h.schema(h.current_schema_id))
-                    .map_or(&[][..], |s| s.fields.as_slice());
-                let v = phasor_iceberg::derive(&t.primary_key, fields).valid;
-                (v.kind, v.column)
-            }
-        };
-        if !matches!(kind.as_str(), "interval_end" | "instant") {
-            continue;
-        }
-        if let Some(c) = column.filter(|c| Some(c) == t.time_column.as_ref()) {
-            notes.push(format!(
-                "{name}: every recorded value of {c} is at midnight, which labels a day, not a {kind}; if it is the trading day, set valid = {{ kind = \"day\", column = \"{c}\" }} in a [temporal] block of tables/{}/{name}.toml",
-                market.id()
-            ));
-        }
-    }
-    notes
 }
 
 /// AEMO's `YYYY/MM/DD[ HH:MM:SS[.f]]` as RFC 3339 at `offset`, the
@@ -385,11 +318,6 @@ pub fn declarations(
             (m.first_seen, tables)
         })
         .collect();
-    let keys = catalog
-        .tables()
-        .iter()
-        .map(|t| (t.name.clone(), t.primary_key.clone()))
-        .collect();
     let overrides = catalog
         .tables()
         .iter()
@@ -417,40 +345,10 @@ pub fn declarations(
         })
         .collect();
     Ok(Declarations {
-        keys,
         overrides,
         renames,
         releases,
     })
-}
-
-/// Every schema of every declared table holds every column of its key.
-fn key_held(catalog: &Catalog, tables: &BTreeMap<String, History>) -> Result<(), FoldError> {
-    for (name, h) in tables {
-        let Some(d) = catalog.table(name) else {
-            continue;
-        };
-        for s in &h.schemas {
-            if let Some(column) = d
-                .primary_key
-                .iter()
-                .find(|k| !s.fields.iter().any(|f| &f.name == *k))
-            {
-                let file = h
-                    .runs
-                    .iter()
-                    .find(|r| r.schema_id == s.schema_id)
-                    .map_or_else(String::new, |r| r.from.file.clone());
-                return Err(FoldError::KeyMissing {
-                    table: name.clone(),
-                    column: column.clone(),
-                    schema_id: s.schema_id,
-                    file,
-                });
-            }
-        }
-    }
-    Ok(())
 }
 
 /// A column dropped as another of its kind is added, undeclared.
@@ -680,17 +578,9 @@ pub fn fold(
         Some(_) => BTreeMap::new(),
         None => published(root, market)?,
     };
-    let midnight_only: Vec<String> = catalog
-        .tables()
-        .iter()
-        .filter(|t| obs.midnight_only(&t.name) == Some(true))
-        .map(|t| t.name.clone())
-        .collect();
     let tables = obs.finish(&declarations(root, market, catalog)?, &floor)?;
-    key_held(catalog, &tables)?;
     let mut folded = Folded {
         tables: tables.len(),
-        notes: day_label_notes(market, catalog, &midnight_only, &tables),
         ..Folded::default()
     };
     renames_decided(catalog, &tables, &mut folded.notes)?;

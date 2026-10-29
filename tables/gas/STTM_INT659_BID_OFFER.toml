@@ -1,17 +1,6 @@
 # The declaration of STTM_INT659_BID_OFFER: first drafted from the census and the data model, kept by hand.
 name = "STTM_INT659_BID_OFFER"
 report_pairs = [["STTM", "INT659_BID_OFFER"], ["STTM", "INT659_BID_OFFER_RPT_1"]]
-primary_key = []
 time_column = "GAS_DATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "REPORT_DATETIME"
-entity = ["COMPANY_IDENTIFIER", "HUB_IDENTIFIER", "SCHEDULE_IDENTIFIER", "FACILITY_IDENTIFIER", "BID_OFFER_IDENTIFIER"]
-order = ["REPORT_DATETIME"]
-origin = "hand"
-
-[temporal.valid]
-column = "GAS_DATE"
-kind = "instant"

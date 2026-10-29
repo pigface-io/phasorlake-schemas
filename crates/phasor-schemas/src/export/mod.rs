@@ -33,7 +33,7 @@ use phasor_iceberg::publish::{Declaration, PublishError, Published, Table, to_me
 use phasor_iceberg::{History, from_metadata};
 use serde_json::{Value, json};
 
-use crate::catalog::{Catalog, CatalogError, TableDecl, tables_dir};
+use crate::catalog::{Catalog, CatalogError, LoadMode, TableDecl, tables_dir};
 use crate::census::CensusError;
 use crate::fold::{Baseline, FoldError, histories_dir, recorded_folders};
 use crate::models::{Model, ModelError, ModelTable, by_first_seen, read_models};
@@ -84,14 +84,6 @@ pub enum ExportError {
     History {
         /// The file.
         path: String,
-        /// What is wrong.
-        message: String,
-    },
-    /// A declaration the published form cannot hold.
-    #[error("the declaration of {table} cannot be published: {message}")]
-    Declaration {
-        /// The table.
-        table: String,
         /// What is wrong.
         message: String,
     },
@@ -170,61 +162,21 @@ pub fn read_histories(
     Ok(out)
 }
 
-/// A table's declaration in its published form. Its temporal roles are
-/// derived from its key and `fields` (the current schema's), unless the
-/// declaration holds a `[temporal]` block: then they are the block's, set
-/// by hand, and must be the ones the form names.
-fn declaration(
-    d: &TableDecl,
-    fields: &[phasor_iceberg::Field],
-) -> Result<Declaration, ExportError> {
-    let bad = |message: String| ExportError::Declaration {
-        table: d.name.clone(),
-        message,
+/// A table's declaration in its published form: what phasor reads its
+/// files by. Its key and temporal roles are a reader's, and not published.
+fn declaration(d: &TableDecl) -> Declaration {
+    let load_mode = match d.load_mode {
+        LoadMode::Append => "append",
+        LoadMode::Snapshot => "snapshot",
     };
-    let temporal = match &d.temporal {
-        None => phasor_iceberg::derive(&d.primary_key, fields),
-        Some(block) => {
-            let mut block = block.clone();
-            match block.get("origin").and_then(toml::Value::as_str) {
-                None => {
-                    block.insert("origin".into(), toml::Value::String("hand".into()));
-                }
-                Some("hand") => {}
-                Some(other) => {
-                    return Err(bad(format!(
-                        "a [temporal] block is kept by hand, but it says origin = {other:?}; drop the block to derive the roles, or drop origin"
-                    )));
-                }
-            }
-            let v = serde_json::to_value(&block).map_err(|e| bad(e.to_string()))?;
-            serde_json::from_value(v).map_err(|e| {
-                bad(format!(
-                    "its temporal roles are not the published ones: {e}"
-                ))
-            })?
-        }
-    };
-    let load_mode = serde_json::to_value(d.load_mode).map_err(|e| bad(e.to_string()))?;
-    Ok(Declaration {
+    Declaration {
         package: d.package.clone(),
         report_pairs: d.report_pairs.clone(),
         with_columns: d.with_columns.clone(),
-        primary_key: d.primary_key.clone(),
         time_column: d.time_column.clone(),
-        load_mode: load_mode
-            .as_str()
-            .ok_or_else(|| bad("the load mode is not a word".into()))?
-            .to_owned(),
+        load_mode: load_mode.to_owned(),
         visibility: d.visibility.clone(),
-        temporal,
-    })
-}
-
-/// The fields of a history's current schema; none without a history.
-fn current_fields(h: Option<&History>) -> &[phasor_iceberg::Field] {
-    h.and_then(|h| h.schema(h.current_schema_id))
-        .map_or(&[], |s| s.fields.as_slice())
+    }
 }
 
 /// What the export reads of one market.
@@ -279,11 +231,8 @@ impl MarketExport {
             let declarations = catalog
                 .tables()
                 .iter()
-                .map(|d| {
-                    let fields = current_fields(histories_read.get(&d.name));
-                    Ok((d.name.clone(), declaration(d, fields)?))
-                })
-                .collect::<Result<_, ExportError>>()?;
+                .map(|d| (d.name.clone(), declaration(d)))
+                .collect();
             let models_of = catalog
                 .tables()
                 .iter()

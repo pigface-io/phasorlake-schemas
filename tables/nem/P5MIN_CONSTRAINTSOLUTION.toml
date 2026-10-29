@@ -2,7 +2,6 @@
 name = "P5MIN_CONSTRAINTSOLUTION"
 package = "P5MIN"
 report_pairs = [["P5MIN", "CONSTRAINTSOLUTION"]]
-primary_key = ["RUN_DATETIME", "INTERVAL_DATETIME", "CONSTRAINTID"]
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

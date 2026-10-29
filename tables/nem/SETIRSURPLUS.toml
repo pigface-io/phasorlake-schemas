@@ -2,14 +2,6 @@
 name = "SETIRSURPLUS"
 package = "SETTLEMENT_DATA"
 report_pairs = [["SETTLEMENTS", "IRSURPLUS"]]
-primary_key = ["SETTLEMENTDATE", "SETTLEMENTRUNNO", "PERIODID", "INTERCONNECTORID", "REGIONID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-# SETTLEMENTDATE labels the trading day the rows are for (04:00 to 04:00 the next day), written at midnight.
-[temporal]
-entity = ["SETTLEMENTRUNNO", "PERIODID", "INTERCONNECTORID", "REGIONID"]
-order = ["LASTCHANGED"]
-cutoff = "LASTCHANGED"
-valid = { kind = "day", column = "SETTLEMENTDATE" }

@@ -4,13 +4,19 @@
   "additionalProperties": false,
   "properties": {
     "AREAID": {
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string"
     },
     "INTERVAL_DATETIME": {
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "timestamptz"
     },
@@ -57,16 +63,15 @@
     },
     "VERSION_DATETIME": {
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz"
     }
   },
-  "required": [
-    "VERSION_DATETIME",
-    "AREAID",
-    "INTERVAL_DATETIME"
-  ],
+  "required": [],
   "title": "ROOFTOP_PV_FORECAST_AREA, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -111,12 +116,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

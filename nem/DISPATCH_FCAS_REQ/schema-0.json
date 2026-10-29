@@ -25,7 +25,10 @@
     },
     "BIDTYPE": {
       "description": "DUID offered type",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 6,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -63,7 +66,10 @@
     },
     "GENCONID": {
       "description": "Generic Constraint ID - Join to table GenConData",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -80,9 +86,12 @@
     },
     "INTERVENTION": {
       "description": "Intervention Flag",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(2, 0)",
       "x-model-type": "NUMERIC(2,0)"
     },
     "LASTCHANGED": {
@@ -126,35 +135,37 @@
       "x-model-type": "NUMERIC(18,8)"
     },
     "REGIONID": {
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 5,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
     },
     "RUNNO": {
       "description": "Dispatch run no; always 1",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "SETTLEMENTDATE": {
       "description": "Settlement date and time of Dispatch Interval",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "RUNNO",
-    "INTERVENTION",
-    "GENCONID",
-    "REGIONID",
-    "BIDTYPE"
-  ],
+  "required": [],
   "title": "DISPATCH_FCAS_REQ, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -166,12 +177,12 @@
     [
       2,
       "RUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
       "INTERVENTION",
-      "long"
+      "decimal(2, 0)"
     ],
     [
       4,
@@ -239,15 +250,7 @@
       "decimal(18, 8)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

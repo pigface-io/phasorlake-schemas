@@ -58,14 +58,20 @@
     },
     "EQUIPMENTID": {
       "description": "A unique identifier for this equipment at this substation, and based on its type",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(30)"
     },
     "EQUIPMENTTYPE": {
       "description": "The type of equipment. Valid values are:\nLINE = Line\nTRANS = Transformer\nCB = Circuit breaker\nISOL = Isolator\nCAP = Capacitor\nREAC = Reactor\nUNIT = Unit",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -93,9 +99,12 @@
     },
     "OUTAGEID": {
       "description": "ID uniquely identifying the outage",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(15, 0)",
       "x-model-type": "NUMERIC(15,0)"
     },
     "OUTAGESTATUSCODE": {
@@ -161,7 +170,10 @@
     "STARTTIME": {
       "description": "The planned starting date and time of the outage",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 5,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -179,26 +191,23 @@
     },
     "SUBSTATIONID": {
       "description": "The substation this equipment is located at",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(30)"
     }
   },
-  "required": [
-    "OUTAGEID",
-    "SUBSTATIONID",
-    "EQUIPMENTTYPE",
-    "EQUIPMENTID",
-    "STARTTIME"
-  ],
+  "required": [],
   "title": "NETWORK_OUTAGEDETAIL, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "OUTAGEID",
-      "long"
+      "decimal(15, 0)"
     ],
     [
       2,
@@ -291,14 +300,7 @@
       "decimal(15, 0)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

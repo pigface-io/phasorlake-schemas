@@ -1,17 +1,6 @@
 # The declaration of DWGM_INT287_GAS_CONSUMPTION: first drafted from the census and the data model, kept by hand.
 name = "DWGM_INT287_GAS_CONSUMPTION"
 report_pairs = [["DWGM", "INT287_GAS_CONSUMPTION_1"]]
-primary_key = []
 time_column = "GAS_DATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "CURRENT_DATE"
-entity = []
-order = ["CURRENT_DATE"]
-origin = "hand"
-
-[temporal.valid]
-column = "GAS_DATE"
-kind = "instant"

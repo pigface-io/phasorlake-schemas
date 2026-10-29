@@ -1057,19 +1057,19 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1189,7 +1189,7 @@
         {
           "id": 23,
           "name": "RUNTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1253,12 +1253,7 @@
           "type": "decimal(12, 2)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        23
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -1267,19 +1262,19 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1399,7 +1394,7 @@
         {
           "id": 23,
           "name": "RUNTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1481,12 +1476,7 @@
           "type": "decimal(16, 6)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        23
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -1495,19 +1485,19 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1627,7 +1617,7 @@
         {
           "id": 23,
           "name": "RUNTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1745,12 +1735,7 @@
           "type": "decimal(12, 2)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        23
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     },
@@ -1759,19 +1744,19 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1891,7 +1876,7 @@
         {
           "id": 23,
           "name": "RUNTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -2027,12 +2012,7 @@
           "type": "decimal(12, 2)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        23
-      ],
+      "identifier-field-ids": [],
       "schema-id": 3,
       "type": "struct"
     },
@@ -2041,19 +2021,19 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -2173,7 +2153,7 @@
         {
           "id": 23,
           "name": "RUNTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -2309,12 +2289,7 @@
           "type": "decimal(12, 2)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        23
-      ],
+      "identifier-field-ids": [],
       "schema-id": 4,
       "type": "struct"
     }

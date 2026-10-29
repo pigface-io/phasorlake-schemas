@@ -2,7 +2,6 @@
 name = "PREDISPATCHLOAD"
 package = "PRE_DISPATCH"
 report_pairs = [["PREDISPATCH", "UNIT_SOLUTION"]]
-primary_key = ["DUID", "DATETIME"]
 time_column = "DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

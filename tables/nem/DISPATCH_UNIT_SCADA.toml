@@ -2,7 +2,6 @@
 name = "DISPATCH_UNIT_SCADA"
 package = "DISPATCH"
 report_pairs = [["DISPATCH", "UNIT_SCADA"]]
-primary_key = ["SETTLEMENTDATE", "DUID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"

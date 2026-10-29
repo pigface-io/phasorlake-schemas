@@ -77,9 +77,12 @@
     },
     "INVOCATION_ID": {
       "description": "Abstract unique identifier for the record. Allows Invocations to be modified without affecting PK values",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(9, 0)",
       "x-model-type": "NUMERIC(9)"
     },
     "LASTCHANGED": {
@@ -146,9 +149,7 @@
       "x-model-type": "VARCHAR(1)"
     }
   },
-  "required": [
-    "INVOCATION_ID"
-  ],
+  "required": [],
   "title": "GENCONSETINVOKE, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -220,13 +221,10 @@
     [
       1,
       "INVOCATION_ID",
-      "long"
+      "decimal(9, 0)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

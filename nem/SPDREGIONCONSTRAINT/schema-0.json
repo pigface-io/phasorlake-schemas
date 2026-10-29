@@ -5,7 +5,10 @@
   "properties": {
     "BIDTYPE": {
       "description": "AS Service type - relates to the BidType table; one of (RAISE6SEC, RAISE60SEC, RAISE5MIN, LOWER6SEC, LOWER60SEC, LOWER5MIN, RAISEREG, LOWERREG)",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 7,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -13,7 +16,10 @@
     "EFFECTIVEDATE": {
       "description": "Effective date of this record",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -30,7 +36,10 @@
     },
     "GENCONID": {
       "description": "Generic Constraint Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -48,26 +57,26 @@
     },
     "REGIONID": {
       "description": "Region Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
     },
     "VERSIONNO": {
       "description": "Version no of this record for the effective date",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "REGIONID",
-    "EFFECTIVEDATE",
-    "VERSIONNO",
-    "GENCONID",
-    "BIDTYPE"
-  ],
+  "required": [],
   "title": "SPDREGIONCONSTRAINT, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -84,7 +93,7 @@
     [
       3,
       "VERSIONNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       4,
@@ -107,14 +116,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    7
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

@@ -2,7 +2,6 @@
 name = "BILLINGREGIONIMPORTS"
 package = "BILLING_RUN"
 report_pairs = [["BILLING", "REGIONIMPORTS"]]
-primary_key = ["CONTRACTYEAR", "WEEKNO", "BILLRUNNO", "REGIONID", "IMPORTFROM"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

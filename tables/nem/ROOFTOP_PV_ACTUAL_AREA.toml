@@ -10,7 +10,6 @@ name = "ROOFTOP_PV_ACTUAL_AREA"
 package = "DEMAND_FORECASTS"
 report_pairs = [["ROOFTOP", "ACTUAL"]]
 with_columns = ["AREAID"]
-primary_key = ["INTERVAL_DATETIME", "AREAID", "TYPE"]
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

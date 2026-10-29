@@ -2,14 +2,6 @@
 name = "INTERMITTENT_CLUSTER_AVAIL_DAY"
 package = "DEMAND_FORECASTS"
 report_pairs = [["DEMAND", "INTERMITTENT_CLUSTER_AVAIL_DAY"]]
-primary_key = ["TRADINGDATE", "DUID", "OFFERDATETIME", "CLUSTERID"]
 time_column = "TRADINGDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-# TRADINGDATE labels the trading day the rows are for (04:00 to 04:00 the next day), written at midnight.
-[temporal]
-entity = ["DUID", "CLUSTERID"]
-order = ["OFFERDATETIME"]
-cutoff = "OFFERDATETIME"
-valid = { kind = "day", column = "TRADINGDATE" }

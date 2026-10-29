@@ -2,14 +2,6 @@
 name = "INTERMITTENT_GEN_LIMIT_DAY"
 package = "DEMAND_FORECASTS"
 report_pairs = [["DEMAND", "INTERMITTENT_GEN_LIMIT_DAY"]]
-primary_key = ["TRADINGDATE", "DUID", "OFFERDATETIME"]
 time_column = "TRADINGDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-# TRADINGDATE labels the trading day the rows are for (04:00 to 04:00 the next day), written at midnight.
-[temporal]
-entity = ["DUID"]
-order = ["OFFERDATETIME", "LASTCHANGED"]
-cutoff = "OFFERDATETIME"
-valid = { kind = "day", column = "TRADINGDATE" }

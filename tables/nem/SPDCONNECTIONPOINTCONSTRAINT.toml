@@ -2,7 +2,6 @@
 name = "SPDCONNECTIONPOINTCONSTRAINT"
 package = "GENERIC_CONSTRAINT"
 report_pairs = [["SPDCPC", ""], ["SPDCPC", "NULL"]]
-primary_key = ["CONNECTIONPOINTID", "EFFECTIVEDATE", "VERSIONNO", "GENCONID", "BIDTYPE"]
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"

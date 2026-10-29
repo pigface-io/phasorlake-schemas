@@ -25,14 +25,20 @@
     },
     "EQUIPMENTID": {
       "description": "A unique identifier for this type of equipment at this substation",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(30)"
     },
     "EQUIPMENTTYPE": {
       "description": "The type of equipment. Valid values are:\nLINE = Line\nTRANS = Transformer\nCB = Circuit breaker\nISOL = Isolator\nCAP = Capacitor\nREAC = Reactor\nUNIT = Unit",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -50,7 +56,10 @@
     },
     "SUBSTATIONID": {
       "description": "ID uniquely identifying the substation this equipment is located at",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(30)"
@@ -58,7 +67,10 @@
     "VALIDFROM": {
       "description": "The date that this record is applies from (inclusive)",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(3)"
@@ -85,12 +97,7 @@
       "x-model-type": "VARCHAR(20)"
     }
   },
-  "required": [
-    "SUBSTATIONID",
-    "EQUIPMENTTYPE",
-    "EQUIPMENTID",
-    "VALIDFROM"
-  ],
+  "required": [],
   "title": "NETWORK_EQUIPMENTDETAIL, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -140,13 +147,7 @@
       "decimal(15, 0)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

@@ -25,16 +25,22 @@
     },
     "DUID": {
       "description": "DUID (or Area for non-scheduled) where this forecast applies",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     },
     "FORECAST_PRIORITY": {
       "description": "Unsuppressed forecasts with higher priority values are used in Dispatch in preference to unsuppressed forecasts with lower priority values.",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 4,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(10, 0)",
       "x-model-type": "NUMERIC(10,0)"
     },
     "LASTCHANGED": {
@@ -61,14 +67,20 @@
     "OFFERDATETIME": {
       "description": "Date and Time when this forecast submission was loaded.",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 5,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "ORIGIN": {
       "description": "Origin of this forecast (PARTICIPANTID, AWEFS/ASEFS, or another vendor)",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -87,7 +99,10 @@
     "RUN_DATETIME": {
       "description": "Date and Time where the forecast applies (dispatch interval ending)",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -123,13 +138,7 @@
       "x-model-type": "VARCHAR(100)"
     }
   },
-  "required": [
-    "RUN_DATETIME",
-    "DUID",
-    "OFFERDATETIME",
-    "ORIGIN",
-    "FORECAST_PRIORITY"
-  ],
+  "required": [],
   "title": "INTERMITTENT_DS_RUN, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -156,7 +165,7 @@
     [
       4,
       "FORECAST_PRIORITY",
-      "long"
+      "decimal(10, 0)"
     ],
     [
       11,
@@ -199,14 +208,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    5,
-    3,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

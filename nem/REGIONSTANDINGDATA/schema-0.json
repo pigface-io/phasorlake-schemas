@@ -27,7 +27,10 @@
     "EFFECTIVEDATE": {
       "description": "Effective date of this record, only the latest date applies",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -65,7 +68,10 @@
     },
     "REGIONID": {
       "description": "Differentiates this region from all other regions",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -92,17 +98,16 @@
     },
     "VERSIONNO": {
       "description": "Version No of the standing data that should be effective on this date",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "EFFECTIVEDATE",
-    "VERSIONNO",
-    "REGIONID"
-  ],
+  "required": [],
   "title": "REGIONSTANDINGDATA, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -114,7 +119,7 @@
     [
       2,
       "VERSIONNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
@@ -157,12 +162,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

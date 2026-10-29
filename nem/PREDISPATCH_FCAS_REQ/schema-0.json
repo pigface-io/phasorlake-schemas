@@ -25,7 +25,10 @@
     },
     "BIDTYPE": {
       "description": "Bid Type Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 7,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -33,7 +36,10 @@
     "DATETIME": {
       "description": "Date and Time of trading interval",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 11,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -71,7 +77,10 @@
     },
     "GENCONID": {
       "description": "Generic Constraint ID - Join to table GenConData",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 5,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -159,7 +168,10 @@
     },
     "REGIONID": {
       "description": "Region ID",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 6,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -175,12 +187,7 @@
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "GENCONID",
-    "REGIONID",
-    "BIDTYPE",
-    "DATETIME"
-  ],
+  "required": [],
   "title": "PREDISPATCH_FCAS_REQ, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -275,13 +282,7 @@
       "decimal(18, 8)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    5,
-    6,
-    7,
-    11
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

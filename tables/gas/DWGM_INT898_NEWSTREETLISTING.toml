@@ -1,16 +1,6 @@
 # The declaration of DWGM_INT898_NEWSTREETLISTING: first drafted from the census and the data model, kept by hand.
 name = "DWGM_INT898_NEWSTREETLISTING"
 report_pairs = [["DWGM", "INT898_NEWSTREETLISTING_1"]]
-primary_key = ["STREET_ID"]
 time_column = "CURRENT_DATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "CURRENT_DATE"
-entity = ["STREET_ID"]
-order = ["CURRENT_DATE"]
-origin = "hand"
-
-[temporal.valid]
-kind = "timeless"

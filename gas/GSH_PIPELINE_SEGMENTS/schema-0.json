@@ -5,7 +5,10 @@
   "properties": {
     "CONNECTION_TYPE": {
       "description": "Type of connection (eg. SERVICE_POINT, ZONE)",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 13,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR2(20)"
@@ -13,14 +16,20 @@
     "EFFECTIVEDATE": {
       "description": "The effective date of the segment.",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 11,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
     },
     "FACILITY_ID": {
       "description": "The unique identifier of the parent facility.",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
@@ -47,7 +56,10 @@
     },
     "FROM_ID": {
       "description": "The unique identifier of the zone for forward haul pipeline segments and compression services or the service point for backhaul pipeline segments.",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 6,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
@@ -75,7 +87,10 @@
     },
     "SEGMENT_ID": {
       "description": "The unique identifier of the pipeline segment or compression service.",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
@@ -102,7 +117,10 @@
     },
     "TO_ID": {
       "description": "The unique identifier of the zone for forward haul pipeline segments and compression services or the service point for backhaul pipeline segments.",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 8,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
@@ -120,21 +138,16 @@
     "VERSION_DATETIME": {
       "description": "The version timestamp of the record",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 12,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
     }
   },
-  "required": [
-    "FACILITY_ID",
-    "SEGMENT_ID",
-    "FROM_ID",
-    "TO_ID",
-    "EFFECTIVEDATE",
-    "VERSION_DATETIME",
-    "CONNECTION_TYPE"
-  ],
+  "required": [],
   "title": "GSH_PIPELINE_SEGMENTS, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -209,16 +222,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    13,
-    11,
-    1,
-    6,
-    3,
-    8,
-    12
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

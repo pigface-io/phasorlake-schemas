@@ -2,7 +2,6 @@
 name = "DISPATCHCONSTRAINT"
 package = "DISPATCH"
 report_pairs = [["DISPATCH", "CONSTRAINT"]]
-primary_key = ["SETTLEMENTDATE", "RUNNO", "CONSTRAINTID", "DISPATCHINTERVAL", "INTERVENTION"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"

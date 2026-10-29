@@ -2,7 +2,6 @@
 name = "RESIDUE_CON_FUNDS"
 package = "IRAUCTION"
 report_pairs = [["IRAUCTION", "RESIDUE_CON_FUNDS"]]
-primary_key = ["CONTRACTID", "INTERCONNECTORID", "FROMREGIONID"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

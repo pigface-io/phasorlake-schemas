@@ -41,19 +41,19 @@
         {
           "id": 1,
           "name": "PUBLISH_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "DAY",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -147,11 +147,7 @@
           "type": "decimal(12, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

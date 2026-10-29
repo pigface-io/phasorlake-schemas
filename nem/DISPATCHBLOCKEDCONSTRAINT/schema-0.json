@@ -5,32 +5,37 @@
   "properties": {
     "CONSTRAINTID": {
       "description": "Generic Constraint identifier (synonymous with GenConID)",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     },
     "RUNNO": {
       "description": "Dispatch run no; always 1",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "SETTLEMENTDATE": {
       "description": "Dispatch Interval",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "RUNNO",
-    "CONSTRAINTID"
-  ],
+  "required": [],
   "title": "DISPATCHBLOCKEDCONSTRAINT, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -42,7 +47,7 @@
     [
       2,
       "RUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
@@ -50,12 +55,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

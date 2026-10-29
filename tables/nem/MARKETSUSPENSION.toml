@@ -2,6 +2,5 @@
 name = "MARKETSUSPENSION"
 package = "HISTORICAL TABLES"
 report_pairs = [["FORCE_MAJEURE", "MARKETSUSPENSION"]]
-primary_key = ["SUSPENSIONID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

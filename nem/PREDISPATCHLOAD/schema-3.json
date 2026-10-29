@@ -46,7 +46,10 @@
     "DATETIME": {
       "description": "Period date and time",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 31,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -73,7 +76,10 @@
     },
     "DUID": {
       "description": "Dispatchable unit identifier for fast start",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -640,10 +646,7 @@
       "x-model-type": "NUMERIC(15,5)"
     }
   },
-  "required": [
-    "DUID",
-    "DATETIME"
-  ],
+  "required": [],
   "title": "PREDISPATCHLOAD, Iceberg schema 3",
   "type": "object",
   "x-fields": [
@@ -968,11 +971,7 @@
       "decimal(15, 5)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    3,
-    31
-  ],
+  "x-format": 5,
   "x-schema-id": 3,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

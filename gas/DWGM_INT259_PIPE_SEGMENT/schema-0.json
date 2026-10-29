@@ -70,10 +70,13 @@
       "x-iceberg-type": "decimal(7, 4)"
     },
     "LINEPACK_ZONE_ID": {
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
       "x-header": "linepack_zone_id",
-      "x-iceberg-type": "long"
+      "x-iceberg-type": "decimal(2, 0)"
     },
     "MAX_PRESSURE": {
       "type": [
@@ -112,22 +115,31 @@
       "x-iceberg-type": "decimal(4, 0)"
     },
     "NODE_DESTINATION_ID": {
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 6,
       "x-header": "node_destination_id",
-      "x-iceberg-type": "long"
+      "x-iceberg-type": "decimal(2, 0)"
     },
     "NODE_ORIGIN_ID": {
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 7,
       "x-header": "node_origin_id",
-      "x-iceberg-type": "long"
+      "x-iceberg-type": "decimal(2, 0)"
     },
     "PIPE_SEGMENT_ID": {
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
       "x-header": "pipe_segment_id",
-      "x-iceberg-type": "long"
+      "x-iceberg-type": "decimal(2, 0)"
     },
     "PIPE_SEGMENT_NAME": {
       "type": [
@@ -176,19 +188,14 @@
       "x-iceberg-type": "date"
     }
   },
-  "required": [
-    "PIPE_SEGMENT_ID",
-    "LINEPACK_ZONE_ID",
-    "NODE_DESTINATION_ID",
-    "NODE_ORIGIN_ID"
-  ],
+  "required": [],
   "title": "DWGM_INT259_PIPE_SEGMENT, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "PIPE_SEGMENT_ID",
-      "long"
+      "decimal(2, 0)"
     ],
     [
       2,
@@ -198,7 +205,7 @@
     [
       3,
       "LINEPACK_ZONE_ID",
-      "long"
+      "decimal(2, 0)"
     ],
     [
       4,
@@ -213,12 +220,12 @@
     [
       6,
       "NODE_DESTINATION_ID",
-      "long"
+      "decimal(2, 0)"
     ],
     [
       7,
       "NODE_ORIGIN_ID",
-      "long"
+      "decimal(2, 0)"
     ],
     [
       8,
@@ -286,13 +293,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    3,
-    6,
-    7
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

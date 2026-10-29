@@ -1,7 +1,6 @@
 # The declaration of PD7DAY_CASESOLUTION: kept by hand.
 name = "PD7DAY_CASESOLUTION"
 report_pairs = [["PD7DAY", "CASESOLUTION"]]
-primary_key = []
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

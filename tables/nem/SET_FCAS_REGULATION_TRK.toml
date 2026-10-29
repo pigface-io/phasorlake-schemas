@@ -2,14 +2,6 @@
 name = "SET_FCAS_REGULATION_TRK"
 package = "SETTLEMENT_DATA"
 report_pairs = [["SETTLEMENTS", "SET_FCAS_REGULATION_TRK"]]
-primary_key = ["SETTLEMENTDATE", "VERSIONNO", "INTERVAL_DATETIME", "CONSTRAINTID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-# SETTLEMENTDATE labels the trading day the rows are for (04:00 to 04:00 the next day), written at midnight.
-[temporal]
-entity = ["INTERVAL_DATETIME", "CONSTRAINTID"]
-order = ["VERSIONNO", "LASTCHANGED"]
-cutoff = "LASTCHANGED"
-valid = { kind = "day", column = "SETTLEMENTDATE" }

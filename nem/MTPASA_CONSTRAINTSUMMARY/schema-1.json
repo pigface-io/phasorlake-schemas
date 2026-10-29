@@ -5,7 +5,10 @@
   "properties": {
     "AGGREGATION_PERIOD": {
       "description": "Period data is aggregated over. Values are PEAK, SHOULDER, OFFPEAK. PEAK = 14:00-19:59, SHOULDER = 07:00-13:59 and 20:00-21:59, OFFPEAK = 22:00-06:59",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 7,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -22,7 +25,10 @@
     },
     "CONSTRAINTID": {
       "description": "The unique identifier for the constraint. Only binding or violating constraints are reported",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 6,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -30,14 +36,20 @@
     "DAY": {
       "description": "Day this result is for",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 5,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "DEMAND_POE_TYPE": {
       "description": "Demand POE type used. Value is POE10",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -66,7 +78,10 @@
     },
     "RUNTYPE": {
       "description": "Type of run. Always RELIABILITY",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -74,16 +89,22 @@
     "RUN_DATETIME": {
       "description": "Date processing of the run begins.",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "RUN_NO": {
       "description": "Unique run id.",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(4, 0)",
       "x-model-type": "NUMERIC(4)"
     },
     "VERSIONNO": {
@@ -97,15 +118,7 @@
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "RUN_DATETIME",
-    "RUN_NO",
-    "RUNTYPE",
-    "DEMAND_POE_TYPE",
-    "DAY",
-    "CONSTRAINTID",
-    "AGGREGATION_PERIOD"
-  ],
+  "required": [],
   "title": "MTPASA_CONSTRAINTSUMMARY, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -117,7 +130,7 @@
     [
       2,
       "RUN_NO",
-      "long"
+      "decimal(4, 0)"
     ],
     [
       3,
@@ -165,16 +178,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

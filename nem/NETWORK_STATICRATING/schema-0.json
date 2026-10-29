@@ -5,21 +5,30 @@
   "properties": {
     "APPLICATIONID": {
       "description": "The applicationid which defines the application timeframes of this rating.",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 5,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     },
     "EQUIPMENTID": {
       "description": "A unique identifier for this type of equipment at this substation",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(30)"
     },
     "EQUIPMENTTYPE": {
       "description": "The type of equipment. Valid values are:\nLINE = Line\nTRANS = Transformer\nCB = Circuit breaker\nISOL = Isolator\nCAP = Capacitor\nREAC = Reactor\nUNIT = Unit",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -37,7 +46,10 @@
     },
     "RATINGLEVEL": {
       "description": "The rating level of the value used, one of:\nNORM = Continuous rating value. Applied under pre-contingent conditions.\nEMER = Continuous rating value. Applied under pre-contingent conditions\nLDSH = Load Shedding",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -54,7 +66,10 @@
     },
     "SUBSTATIONID": {
       "description": "The substation the equipment is located at",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(30)"
@@ -62,7 +77,10 @@
     "VALIDFROM": {
       "description": "The date that this record is applies from (inclusive)",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 6,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -79,14 +97,7 @@
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "SUBSTATIONID",
-    "EQUIPMENTTYPE",
-    "EQUIPMENTID",
-    "RATINGLEVEL",
-    "APPLICATIONID",
-    "VALIDFROM"
-  ],
+  "required": [],
   "title": "NETWORK_STATICRATING, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -136,15 +147,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

@@ -2,6 +2,5 @@
 name = "PARTICIPANTCLASS"
 package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "PARTICIPANTCLASS"]]
-primary_key = ["PARTICIPANTCLASSID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

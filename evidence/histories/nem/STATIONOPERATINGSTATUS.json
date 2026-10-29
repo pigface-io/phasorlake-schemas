@@ -41,20 +41,20 @@
         {
           "id": 1,
           "name": "EFFECTIVEDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "STATIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 4,
@@ -81,11 +81,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

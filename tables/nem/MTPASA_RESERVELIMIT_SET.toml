@@ -2,6 +2,5 @@
 name = "MTPASA_RESERVELIMIT_SET"
 package = "RESERVE_DATA"
 report_pairs = [["MTPASA", "RESERVELIMIT_SET"]]
-primary_key = ["EFFECTIVEDATE", "VERSION_DATETIME"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

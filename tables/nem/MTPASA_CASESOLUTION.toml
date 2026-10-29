@@ -1,7 +1,6 @@
 # The declaration of MTPASA_CASESOLUTION: kept by hand.
 name = "MTPASA_CASESOLUTION"
 report_pairs = [["MTPASA", "CASESOLUTION"]]
-primary_key = []
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

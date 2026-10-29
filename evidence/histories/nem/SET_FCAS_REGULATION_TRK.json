@@ -4824,25 +4824,25 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -4876,12 +4876,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -4890,25 +4885,25 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -4954,12 +4949,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -4968,25 +4958,25 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -5032,12 +5022,7 @@
           "type": "decimal(18, 8)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     },
@@ -5046,25 +5031,25 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -5194,12 +5179,7 @@
           "type": "decimal(18, 8)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 3,
       "type": "struct"
     },
@@ -5208,25 +5188,25 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -5356,12 +5336,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 4,
       "type": "struct"
     }

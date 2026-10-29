@@ -27,23 +27,26 @@
     "RUN_DATETIME": {
       "description": "Date processing of the run begins.",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "RUN_NO": {
       "description": "Unique run id.",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(4, 0)",
       "x-model-type": "NUMERIC(4)"
     }
   },
-  "required": [
-    "RUN_DATETIME",
-    "RUN_NO"
-  ],
+  "required": [],
   "title": "MTPASA_CASERESULT, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -55,7 +58,7 @@
     [
       2,
       "RUN_NO",
-      "long"
+      "decimal(4, 0)"
     ],
     [
       3,
@@ -68,11 +71,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

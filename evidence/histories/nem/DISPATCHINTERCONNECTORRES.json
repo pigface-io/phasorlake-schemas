@@ -118,32 +118,32 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "RUNNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
           "name": "INTERCONNECTORID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "DISPATCHINTERVAL",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "double"
         },
         {
           "id": 5,
           "name": "INTERVENTION",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(2, 0)"
         },
         {
           "id": 6,
@@ -224,13 +224,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -239,32 +233,32 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "RUNNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
           "name": "INTERCONNECTORID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "DISPATCHINTERVAL",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "double"
         },
         {
           "id": 5,
           "name": "INTERVENTION",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(2, 0)"
         },
         {
           "id": 6,
@@ -369,13 +363,7 @@
           "type": "decimal(1, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

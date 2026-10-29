@@ -106,14 +106,20 @@
     },
     "PERIODID": {
       "description": "Settlements Trading Interval.",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "double",
       "x-model-type": "NUMERIC(22,10)"
     },
     "REGIONID": {
       "description": "Region Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -121,25 +127,26 @@
     "SETTLEMENTDATE": {
       "description": "Calendar Settlement Date",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "VERSIONNO": {
       "description": "Settlement run no",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "double",
       "x-model-type": "NUMERIC(22,10)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "VERSIONNO",
-    "PERIODID",
-    "REGIONID"
-  ],
+  "required": [],
   "title": "SETGENDATAREGION, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -151,12 +158,12 @@
     [
       2,
       "VERSIONNO",
-      "long"
+      "double"
     ],
     [
       3,
       "PERIODID",
-      "long"
+      "double"
     ],
     [
       4,
@@ -214,13 +221,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

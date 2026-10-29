@@ -9,27 +9,9 @@ use crate::fold::history_path;
 const SCADA: &str = r#"name = "DISPATCH_UNIT_SCADA"
 package = "DISPATCH"
 report_pairs = [["DISPATCH", "UNIT_SCADA"]]
-primary_key = ["SETTLEMENTDATE", "DUID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-"#;
-
-/// The same table with its roles set by hand: an order the history has no
-/// column for, which only a person would write.
-const SCADA_HAND: &str = r#"name = "DISPATCH_UNIT_SCADA"
-package = "DISPATCH"
-report_pairs = [["DISPATCH", "UNIT_SCADA"]]
-primary_key = ["SETTLEMENTDATE", "DUID"]
-time_column = "SETTLEMENTDATE"
-load_mode = "append"
-visibility = "PUBLIC"
-
-[temporal]
-entity = ["DUID"]
-valid = { kind = "interval_end", column = "SETTLEMENTDATE" }
-order = ["LASTCHANGED"]
-cutoff = "LASTCHANGED"
 "#;
 
 /// Release 5.6 has the table and SCADAVALUE; 5.7, shipped later, has the
@@ -172,19 +154,18 @@ fn the_metadata_describes_the_table_and_holds_its_history() {
         "the latest release with the table"
     );
     assert_eq!(p["phasor.package"], "DISPATCH");
-    assert_eq!(p["phasor.key"], r#"["SETTLEMENTDATE","DUID"]"#);
     assert_eq!(p["phasor.reports"], r#"[["DISPATCH","UNIT_SCADA"]]"#);
     assert_eq!(p["phasor.time"], "SETTLEMENTDATE");
     assert_eq!(p["phasor.load"], "append");
     assert_eq!(p["phasor.visibility"], "PUBLIC");
-    // No [temporal] block: the roles are derived from the key and the
-    // current schema, which has no LASTCHANGED.
-    assert_eq!(p["phasor.temporal.valid.kind"], "interval_end");
-    assert_eq!(p["phasor.temporal.valid.column"], "SETTLEMENTDATE");
-    assert_eq!(p["phasor.temporal.entity"], r#"["DUID"]"#);
-    assert_eq!(p["phasor.temporal.order"], "[]");
-    assert!(p.get("phasor.temporal.cutoff").is_none());
-    assert_eq!(p["phasor.temporal.origin"], "derived");
+    // A table's key and roles are a reader's: none is published.
+    let props = p.as_object().unwrap();
+    assert!(
+        !props
+            .keys()
+            .any(|k| k == "phasor.key" || k.starts_with("phasor.temporal")),
+        "{props:?}"
+    );
     // Only 5.6 has SCADAVALUE: the latest release with the column.
     assert_eq!(
         p["phasor.model-types"],
@@ -315,7 +296,10 @@ fn a_schema_document_is_named_by_its_id_and_its_fields_never_change() {
         json!({"name": "DISPATCH_UNIT_SCADA", "$ref": "metadata/v1.metadata.json"})
     );
     assert_eq!(d["x-schema-id"], 0);
-    assert_eq!(d["x-identifier-field-ids"], json!([1, 2]));
+    assert!(
+        d.get("x-identifier-field-ids").is_none(),
+        "a key is a reader's"
+    );
     assert_eq!(d["x-fields"][2], json!([3, "SCADAVALUE", "decimal(16, 6)"]));
     assert_eq!(d["required"], json!(["SETTLEMENTDATE", "DUID"]));
     assert_eq!(d["additionalProperties"], false);
@@ -618,8 +602,8 @@ fn what_cannot_be_read_or_written_is_named() {
     )
     .unwrap();
 
-    // Declarations and releases that do not read, and a declaration whose
-    // temporal roles the published form does not name.
+    // Declarations and releases that do not read, and a declaration that
+    // names a key, which is a reader's to say.
     std::fs::write(root.join("tables/nem/BAD.toml"), "x").unwrap();
     assert!(
         Export::load(root, DEFAULT_BASE_URL)
@@ -627,35 +611,18 @@ fn what_cannot_be_read_or_written_is_named() {
             .to_string()
             .contains("BAD.toml")
     );
-    let bad = SCADA_HAND
+    let bad = SCADA
         .replace("DISPATCH_UNIT_SCADA", "BAD")
         .replace("UNIT_SCADA", "BAD");
     std::fs::write(
         root.join("tables/nem/BAD.toml"),
-        bad.replace("cutoff = ", "horizon = "),
+        format!("{bad}primary_key = [\"DUID\"]\n"),
     )
     .unwrap();
     let err = Export::load(root, DEFAULT_BASE_URL)
         .unwrap_err()
         .to_string();
-    assert!(
-        err.starts_with("the declaration of BAD cannot be published: its temporal roles are not the published ones: "),
-        "{err}"
-    );
-    // A block is hand by its presence: one that claims to be derived is
-    // refused, so no table says one thing and holds another.
-    std::fs::write(
-        root.join("tables/nem/BAD.toml"),
-        bad.replace("[temporal]\n", "[temporal]\norigin = \"derived\"\n"),
-    )
-    .unwrap();
-    let err = Export::load(root, DEFAULT_BASE_URL)
-        .unwrap_err()
-        .to_string();
-    assert!(
-        err.contains("a [temporal] block is kept by hand, but it says origin = \"derived\""),
-        "{err}"
-    );
+    assert!(err.contains("unknown field `primary_key`"), "{err}");
     std::fs::remove_file(root.join("tables/nem/BAD.toml")).unwrap();
     std::fs::write(root.join("evidence/models/nem/5.8.toml"), "x").unwrap();
     assert!(
@@ -782,14 +749,6 @@ fn import_check(dir: &Path) -> Result<usize, String> {
                 ));
             }
         }
-        // A declared key names fields.
-        if let Some(d) = &p.declaration {
-            for k in &d.primary_key {
-                if !fields.values().any(|f| f.0 == *k) {
-                    return Err(format!("{at}: key column {k:?} is in no schema"));
-                }
-            }
-        }
         // Each snapshot's manifest list is under the table, listed, and
         // empty.
         for sn in &m.snapshots {
@@ -822,7 +781,7 @@ fn another_market_is_published_beside_the_nem_with_its_words_and_headers() {
     };
     put(
         "tables/gas/GBB_ACTUAL_FLOW_STORAGE.toml",
-        "name = \"GBB_ACTUAL_FLOW_STORAGE\"\nreport_pairs = [[\"GBB\", \"ACTUAL_FLOW_STORAGE\"]]\nprimary_key = [\"GASDATE\"]\ntime_column = \"GASDATE\"\nload_mode = \"append\"\nvisibility = \"PUBLIC\"\nmodel = [\"GAS_DAILY_FLOW_ACTUAL\"]\n\n[temporal]\norigin = \"hand\"\nentity = []\nvalid = { kind = \"instant\", column = \"GASDATE\" }\norder = []\n",
+        "name = \"GBB_ACTUAL_FLOW_STORAGE\"\nreport_pairs = [[\"GBB\", \"ACTUAL_FLOW_STORAGE\"]]\ntime_column = \"GASDATE\"\nload_mode = \"append\"\nvisibility = \"PUBLIC\"\nmodel = [\"GAS_DAILY_FLOW_ACTUAL\"]\n",
     );
     put(
         "evidence/models/gas/2.2.toml",
@@ -952,7 +911,7 @@ fn the_consumer_check_refuses_what_the_index_refuses() {
         ),
         (
             Box::new(|t| t["properties"]["phasor.format"] = json!("2")),
-            "not format 4",
+            "not format 5",
         ),
         (
             Box::new(|t| t["format-version"] = json!(2)),
@@ -973,10 +932,6 @@ fn the_consumer_check_refuses_what_the_index_refuses() {
                 t["schemas"].as_array_mut().unwrap().push(s);
             }),
             "schema-7.json is not in the manifest",
-        ),
-        (
-            Box::new(|t| t["properties"]["phasor.key"] = json!("[\"NOPE\"]")),
-            "is in no schema",
         ),
         (
             Box::new(|t| t["properties"]["phasor.declared"] = json!("yes")),
@@ -1123,35 +1078,6 @@ max = ["2026/09/01"]
     )
 }
 
-#[test]
-fn a_temporal_block_is_the_roles_a_person_set() {
-    let dir = exported();
-    let root = dir.path();
-    crate::files::write_atomic(
-        &root.join("tables/nem/DISPATCH_UNIT_SCADA.toml"),
-        SCADA_HAND.as_bytes(),
-    )
-    .unwrap();
-    export(root);
-    let p = read(root, TABLE)["properties"].clone();
-    assert_eq!(p["phasor.temporal.origin"], "hand");
-    assert_eq!(p["phasor.temporal.order"], r#"["LASTCHANGED"]"#);
-    assert_eq!(p["phasor.temporal.cutoff"], "LASTCHANGED");
-    // A block may say it is hand; it is the one word it may say.
-    crate::files::write_atomic(
-        &root.join("tables/nem/DISPATCH_UNIT_SCADA.toml"),
-        SCADA_HAND
-            .replace("[temporal]\n", "[temporal]\norigin = \"hand\"\n")
-            .as_bytes(),
-    )
-    .unwrap();
-    export(root);
-    assert_eq!(
-        read(root, TABLE)["properties"]["phasor.temporal.origin"],
-        "hand"
-    );
-}
-
 /// A market whose histories were censused but whose declarations do not
 /// exist yet exports every table undeclared.
 #[test]
@@ -1165,4 +1091,12 @@ fn a_market_with_histories_but_no_declarations_exports_undeclared() {
         .unwrap();
     let m: serde_json::Value = serde_json::from_slice(&r.files["manifest.json"]).unwrap();
     assert_eq!(m["markets"]["nem"]["listed"][0]["declared"], json!(false));
+}
+
+#[test]
+fn a_declaration_is_published_with_its_load_mode_and_no_key() {
+    let mut d = crate::catalog::tests::decl("X", ("X", "Y"), None);
+    assert_eq!(declaration(&d).load_mode, "append");
+    d.load_mode = LoadMode::Snapshot;
+    assert_eq!(declaration(&d).load_mode, "snapshot");
 }

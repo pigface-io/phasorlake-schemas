@@ -56,8 +56,8 @@
         {
           "id": 2,
           "name": "FACILITYID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(6, 0)"
         },
         {
           "id": 3,
@@ -74,8 +74,8 @@
         {
           "id": 5,
           "name": "COMPANYID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 6,
@@ -96,10 +96,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        2,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

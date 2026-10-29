@@ -1,17 +1,7 @@
 # The declaration of GBB_CONTACTS: first drafted from the census and the data model, kept by hand.
 name = "GBB_CONTACTS"
 report_pairs = [["GBB", "CONTACTS"]]
-primary_key = ["PERSONID", "COMPANYID"]
 time_column = "LASTUPDATED"
 load_mode = "snapshot"
 visibility = "PUBLIC"
 model = ["GAS_CONTACT", "GAS_CONTACT_DETAIL", "GAS_PARTICIPANT_CONTACT"]
-
-[temporal]
-cutoff = "LASTUPDATED"
-entity = ["PERSONID", "COMPANYID"]
-order = ["LASTUPDATED"]
-origin = "hand"
-
-[temporal.valid]
-kind = "timeless"

@@ -1,7 +1,6 @@
 # The declaration of FPP_P5_FWD_EST_RESIDUALRATE: kept by hand.
 name = "FPP_P5_FWD_EST_RESIDUALRATE"
 report_pairs = [["FPP", "P5_FWD_EST_RESIDUALRATE"]]
-primary_key = []
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

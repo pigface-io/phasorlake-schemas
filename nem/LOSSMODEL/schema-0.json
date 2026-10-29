@@ -6,14 +6,20 @@
     "EFFECTIVEDATE": {
       "description": "Calendar date data set is effective",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "INTERCONNECTORID": {
       "description": "Interconnector identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -41,9 +47,12 @@
     },
     "LOSSSEGMENT": {
       "description": "Segment Identifier (1 to 80 at present)",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 5,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(6, 0)",
       "x-model-type": "NUMERIC(6,0)"
     },
     "MWBREAKPOINT": {
@@ -68,18 +77,16 @@
     },
     "VERSIONNO": {
       "description": "Version number within effective date",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "EFFECTIVEDATE",
-    "VERSIONNO",
-    "INTERCONNECTORID",
-    "LOSSSEGMENT"
-  ],
+  "required": [],
   "title": "LOSSMODEL, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -91,7 +98,7 @@
     [
       2,
       "VERSIONNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
@@ -106,7 +113,7 @@
     [
       5,
       "LOSSSEGMENT",
-      "long"
+      "decimal(6, 0)"
     ],
     [
       6,
@@ -124,13 +131,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    5
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

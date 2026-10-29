@@ -1,17 +1,6 @@
 # The declaration of DWGM_INT256_MCE_FACTOR: first drafted from the census and the data model, kept by hand.
 name = "DWGM_INT256_MCE_FACTOR"
 report_pairs = [["DWGM", "INT256_MCE_FACTOR_1"]]
-primary_key = ["GENERAL_INFORMATION_ID"]
 time_column = "COMMENCEMENT_DATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "CURRENT_DATE"
-entity = ["GENERAL_INFORMATION_ID"]
-order = ["CURRENT_DATE"]
-origin = "hand"
-
-[temporal.valid]
-column = "COMMENCEMENT_DATE"
-kind = "instant"

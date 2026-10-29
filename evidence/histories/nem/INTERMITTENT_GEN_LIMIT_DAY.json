@@ -985,19 +985,19 @@
         {
           "id": 1,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1025,11 +1025,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -1038,19 +1034,19 @@
         {
           "id": 2,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 1,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1078,11 +1074,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

@@ -27,14 +27,20 @@
     },
     "BIDTYPE": {
       "description": "Bid type Identifier - the ancillary service to which the bid applies",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
     },
     "DUID": {
       "description": "Dispatchable unit identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -53,17 +59,16 @@
     "SETTLEMENTDATE": {
       "description": "Date and time of the dispatch interval (e.g. five minute dispatch interval ending 28/09/2000 16:35)",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "DUID",
-    "BIDTYPE"
-  ],
+  "required": [],
   "title": "DISPATCHOFFERTRK, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -98,12 +103,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

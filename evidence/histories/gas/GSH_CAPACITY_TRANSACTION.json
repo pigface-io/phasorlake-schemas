@@ -40,13 +40,13 @@
         {
           "id": 1,
           "name": "TRANSACTION_ID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "VERSION_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -182,10 +182,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

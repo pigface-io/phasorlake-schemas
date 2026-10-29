@@ -16,7 +16,10 @@
     "GAS_DATE": {
       "description": "The gas date that the Wallumbilla benchmark price applies to",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
@@ -44,24 +47,26 @@
     },
     "PRODUCT_LOCATION": {
       "description": "The product location that the benchmark price applies to. Can be one of the following: WALLUMBILLA, RBP, SWQP, QGP.",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR2(80)"
     },
     "PRODUCT_TYPE": {
       "description": "The type of the product that the Wallumbilla benchmark price is calculated for",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR2(80)"
     }
   },
-  "required": [
-    "GAS_DATE",
-    "PRODUCT_LOCATION",
-    "PRODUCT_TYPE"
-  ],
+  "required": [],
   "title": "GSH_BENCHMARK_PRICE, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -96,12 +101,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

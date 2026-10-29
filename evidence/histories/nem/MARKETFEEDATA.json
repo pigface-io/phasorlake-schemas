@@ -41,19 +41,19 @@
         {
           "id": 1,
           "name": "MARKETFEEID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "MARKETFEEVERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
           "name": "EFFECTIVEDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -69,11 +69,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

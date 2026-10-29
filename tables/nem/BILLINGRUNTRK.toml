@@ -2,7 +2,6 @@
 name = "BILLINGRUNTRK"
 package = "BILLING_RUN"
 report_pairs = [["BILLING", "RUNTRK"]]
-primary_key = ["CONTRACTYEAR", "WEEKNO", "BILLRUNNO"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

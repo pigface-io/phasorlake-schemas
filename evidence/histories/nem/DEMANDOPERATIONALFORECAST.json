@@ -915,13 +915,13 @@
         {
           "id": 1,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -955,10 +955,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -967,13 +964,13 @@
         {
           "id": 2,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 1,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1007,10 +1004,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

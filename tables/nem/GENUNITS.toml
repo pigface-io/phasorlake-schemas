@@ -2,7 +2,6 @@
 name = "GENUNITS"
 package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "GENUNITS"]]
-primary_key = ["GENSETID"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

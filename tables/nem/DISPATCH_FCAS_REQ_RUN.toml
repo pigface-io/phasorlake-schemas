@@ -1,7 +1,6 @@
 # The declaration of DISPATCH_FCAS_REQ_RUN: kept by hand.
 name = "DISPATCH_FCAS_REQ_RUN"
 report_pairs = [["DISPATCH", "FCAS_REQ_RUN"]]
-primary_key = []
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

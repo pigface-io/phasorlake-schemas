@@ -46,8 +46,8 @@
         {
           "id": 2,
           "name": "PARTICIPANT_ID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(4, 0)"
         },
         {
           "id": 3,
@@ -154,14 +154,11 @@
         {
           "id": 20,
           "name": "MARKET_ID",
-          "required": true,
+          "required": false,
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        20,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

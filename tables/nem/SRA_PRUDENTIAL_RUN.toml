@@ -2,7 +2,6 @@
 name = "SRA_PRUDENTIAL_RUN"
 package = "IRAUCTION"
 report_pairs = [["IRAUCTION", "SRA_PRUDENTIAL_RUN"]]
-primary_key = ["PRUDENTIAL_DATE", "PRUDENTIAL_RUNNO"]
 time_column = "PRUDENTIAL_DATE"
 load_mode = "append"
 visibility = "PUBLIC"

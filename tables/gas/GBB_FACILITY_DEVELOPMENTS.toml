@@ -1,17 +1,7 @@
 # The declaration of GBB_FACILITY_DEVELOPMENTS: first drafted from the census and the data model, kept by hand.
 name = "GBB_FACILITY_DEVELOPMENTS"
 report_pairs = [["GBB", "FACILITY_DEVELOPMENTS"]]
-primary_key = ["DEVFACILITYID", "RELATEDFACILITYID"]
 time_column = "EFFECTIVEDATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
 model = ["GAS_DEVFACILITY", "GAS_DEVFACILITY_DETAIL", "GAS_DEVFACILITY_FACILITY"]
-
-[temporal]
-entity = ["DEVFACILITYID", "RELATEDFACILITYID"]
-order = []
-origin = "hand"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "instant"

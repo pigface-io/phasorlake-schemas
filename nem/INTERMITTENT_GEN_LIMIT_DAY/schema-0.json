@@ -25,7 +25,10 @@
     },
     "DUID": {
       "description": "Unique Identifier of Dispatchable Unit",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -44,7 +47,10 @@
     "OFFERDATETIME": {
       "description": "Date and Time when this unit availability submission was loaded",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -62,17 +68,16 @@
     "TRADINGDATE": {
       "description": "Trading Day for which this unit availability submission applies",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "TRADINGDATE",
-    "DUID",
-    "OFFERDATETIME"
-  ],
+  "required": [],
   "title": "INTERMITTENT_GEN_LIMIT_DAY, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -112,12 +117,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

@@ -27,7 +27,10 @@
     "RUN_DATETIME": {
       "description": "Unique Timestamp Identifier for this study",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -183,9 +186,7 @@
       "x-model-type": "NUMERIC(15,5)"
     }
   },
-  "required": [
-    "RUN_DATETIME"
-  ],
+  "required": [],
   "title": "P5MIN_CASESOLUTION, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -280,10 +281,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

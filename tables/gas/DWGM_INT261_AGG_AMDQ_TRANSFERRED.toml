@@ -1,14 +1,5 @@
 # The declaration of DWGM_INT261_AGG_AMDQ_TRANSFERRED: first drafted from the census and the data model, kept by hand.
 name = "DWGM_INT261_AGG_AMDQ_TRANSFERRED"
 report_pairs = [["DWGM", "INT261_AGG_AMDQ_TRANSFERRED_1"]]
-primary_key = []
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-entity = []
-order = ["CURRENT_DATE"]
-origin = "hand"
-
-[temporal.valid]
-kind = "timeless"

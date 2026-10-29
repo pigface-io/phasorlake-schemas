@@ -2,7 +2,6 @@
 name = "BILLING_DIRECTION_RECON_OTHER"
 package = "BILLING_RUN"
 report_pairs = [["BILLING", "BILLING_DIRECTION_RECON_OTHER"]]
-primary_key = ["CONTRACTYEAR", "WEEKNO", "BILLRUNNO", "DIRECTION_ID", "REGIONID"]
 time_column = "DIRECTION_START_DATE"
 load_mode = "append"
 visibility = "PUBLIC"

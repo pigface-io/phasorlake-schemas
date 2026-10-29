@@ -41,37 +41,37 @@
         {
           "id": 1,
           "name": "SUBSTATIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "EQUIPMENTTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "EQUIPMENTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "RATINGLEVEL",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "APPLICATIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 6,
           "name": "VALIDFROM",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -93,14 +93,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

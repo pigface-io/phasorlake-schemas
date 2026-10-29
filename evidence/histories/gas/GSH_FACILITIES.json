@@ -40,7 +40,7 @@
         {
           "id": 1,
           "name": "FACILITY_ID",
-          "required": true,
+          "required": false,
           "type": "long"
         },
         {
@@ -76,13 +76,13 @@
         {
           "id": 7,
           "name": "EFFECTIVEDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 8,
           "name": "VERSION_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -92,11 +92,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        7,
-        1,
-        8
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

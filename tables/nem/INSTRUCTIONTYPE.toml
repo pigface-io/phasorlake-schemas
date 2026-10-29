@@ -2,6 +2,5 @@
 name = "INSTRUCTIONTYPE"
 package = "GD_INSTRUCT"
 report_pairs = [["GD_INSTRUCT", "INSTRUCTIONTYPE"]]
-primary_key = ["INSTRUCTIONTYPEID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

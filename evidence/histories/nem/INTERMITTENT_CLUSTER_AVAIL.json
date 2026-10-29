@@ -915,32 +915,32 @@
         {
           "id": 1,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "CLUSTERID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 6,
@@ -955,13 +955,7 @@
           "type": "decimal(5, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -970,32 +964,32 @@
         {
           "id": 2,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 1,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "CLUSTERID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 6,
@@ -1010,13 +1004,7 @@
           "type": "decimal(5, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

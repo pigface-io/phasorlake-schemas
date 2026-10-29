@@ -42,50 +42,50 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "RUN_NO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(4, 0)"
         },
         {
           "id": 3,
           "name": "RUNTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "DEMAND_POE_TYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "AGGREGATION_PERIOD",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 6,
           "name": "PERIOD_ENDING",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 7,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 8,
           "name": "USE_ITERATION_ID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(5, 0)"
         },
         {
           "id": 9,
@@ -106,16 +106,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

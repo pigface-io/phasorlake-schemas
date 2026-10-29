@@ -10,7 +10,6 @@ name = "DEMANDOPERATIONALACTUAL_AREA"
 package = "DEMAND_FORECASTS"
 report_pairs = [["OPERATIONAL_DEMAND", "ACTUAL"]]
 with_columns = ["AREAID"]
-primary_key = ["INTERVAL_DATETIME", "AREAID"]
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

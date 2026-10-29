@@ -2,7 +2,6 @@
 name = "MCC_CASESOLUTION"
 package = "MCC_DISPATCH"
 report_pairs = [["MCC", "CASESOLUTION"]]
-primary_key = ["RUN_DATETIME"]
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

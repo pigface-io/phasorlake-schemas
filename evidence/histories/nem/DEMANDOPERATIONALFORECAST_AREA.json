@@ -40,13 +40,13 @@
         {
           "id": 1,
           "name": "AREAID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -80,10 +80,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        2,
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

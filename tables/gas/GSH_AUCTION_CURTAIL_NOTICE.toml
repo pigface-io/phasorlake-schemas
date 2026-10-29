@@ -1,17 +1,6 @@
 # The declaration of GSH_AUCTION_CURTAIL_NOTICE: first drafted from the census and the data model, kept by hand.
 name = "GSH_AUCTION_CURTAIL_NOTICE"
 report_pairs = [["GSH", "AUCTION_CURTAILMENT_NOTICE"]]
-primary_key = ["AUCTION_SERVICE", "EFFECTIVE_DATE_TIME", "FACILITY_ID", "GAS_DATE", "NOTICE_ID"]
 time_column = "EFFECTIVE_DATE_TIME"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["AUCTION_SERVICE", "FACILITY_ID", "NOTICE_ID", "GAS_DATE"]
-order = ["LASTCHANGED"]
-origin = "hand"
-
-[temporal.valid]
-column = "EFFECTIVE_DATE_TIME"
-kind = "instant"

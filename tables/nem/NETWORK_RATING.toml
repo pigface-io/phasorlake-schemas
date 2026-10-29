@@ -2,7 +2,6 @@
 name = "NETWORK_RATING"
 package = "NETWORK"
 report_pairs = [["NETWORK", "RATING"]]
-primary_key = ["SPD_ID", "VALIDFROM"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

@@ -55,7 +55,10 @@
     },
     "EMS_ID": {
       "description": "The unique identifier for reference within AEMO –matches equipment names between NOS and EMS",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(60)"
@@ -93,7 +96,10 @@
     "RUN_DATETIME": {
       "description": "MVAr Interval – a timestamp of when instructions issued",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -121,17 +127,16 @@
     "VERSION_DATETIME": {
       "description": "Datetime the file was published by VDS - Versions differ from Run_DateTime only for Supplemental runs",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 11,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "RUN_DATETIME",
-    "EMS_ID",
-    "VERSION_DATETIME"
-  ],
+  "required": [],
   "title": "VOLTAGE_INSTRUCTION, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -201,12 +206,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    11
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

@@ -2,7 +2,6 @@
 name = "VOLTAGE_INSTRUCTION_TRK"
 package = "VOLTAGE_INSTRUCTIONS"
 report_pairs = [["VOLTAGE_INSTRUCTION", "TRACK"]]
-primary_key = ["RUN_DATETIME", "VERSION_DATETIME"]
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

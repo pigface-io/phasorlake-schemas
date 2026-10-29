@@ -69,7 +69,7 @@
         {
           "id": 2,
           "name": "HUB_IDENTIFIER",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -81,8 +81,8 @@
         {
           "id": 4,
           "name": "COMPANY_IDENTIFIER",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 5,
@@ -187,10 +187,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        2,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

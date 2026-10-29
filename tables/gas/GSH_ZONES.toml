@@ -1,17 +1,6 @@
 # The declaration of GSH_ZONES: first drafted from the census and the data model, kept by hand.
 name = "GSH_ZONES"
 report_pairs = [["GSH", "ZONES"]]
-primary_key = ["EFFECTIVEDATE", "VERSION_DATETIME", "ZONE_ID"]
 time_column = "EFFECTIVEDATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["ZONE_ID"]
-order = ["VERSION_DATETIME", "LASTCHANGED"]
-origin = "hand"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "instant"

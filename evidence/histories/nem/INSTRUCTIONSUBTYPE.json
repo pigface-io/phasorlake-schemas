@@ -41,13 +41,13 @@
         {
           "id": 1,
           "name": "INSTRUCTIONTYPEID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "INSTRUCTIONSUBTYPEID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -63,10 +63,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

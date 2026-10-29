@@ -78,19 +78,19 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -120,16 +120,11 @@
         {
           "id": 8,
           "name": "RUNTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        8
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -138,19 +133,19 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -180,7 +175,7 @@
         {
           "id": 8,
           "name": "RUNTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -190,12 +185,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        8
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

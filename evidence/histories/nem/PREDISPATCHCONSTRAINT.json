@@ -1119,7 +1119,7 @@
         {
           "id": 3,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1161,7 +1161,7 @@
         {
           "id": 10,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1183,10 +1183,7 @@
           "type": "double"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        10
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -1207,7 +1204,7 @@
         {
           "id": 3,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1249,7 +1246,7 @@
         {
           "id": 10,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1277,10 +1274,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        10
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -1301,7 +1295,7 @@
         {
           "id": 3,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1343,7 +1337,7 @@
         {
           "id": 10,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1371,10 +1365,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        10
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     }

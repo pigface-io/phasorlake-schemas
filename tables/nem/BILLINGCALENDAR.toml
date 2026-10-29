@@ -2,6 +2,5 @@
 name = "BILLINGCALENDAR"
 package = "BILLING_CONFIG"
 report_pairs = [["BILLING_CONFIG", "BILLINGCALENDAR"]]
-primary_key = ["CONTRACTYEAR", "WEEKNO"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

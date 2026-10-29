@@ -5,7 +5,10 @@
   "properties": {
     "DUID": {
       "description": "Dispatchable unit identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -33,16 +36,16 @@
     "SETTLEMENTDATE": {
       "description": "Market date time starting at 04:05",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "DUID"
-  ],
+  "required": [],
   "title": "DISPATCH_LOCAL_PRICE, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -67,11 +70,7 @@
       "decimal(1, 0)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

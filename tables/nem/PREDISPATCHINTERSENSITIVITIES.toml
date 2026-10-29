@@ -1,7 +1,6 @@
 # The declaration of PREDISPATCHINTERSENSITIVITIES: kept by hand.
 name = "PREDISPATCHINTERSENSITIVITIES"
 report_pairs = [["PREDISPATCH", "INTERCONNECTR_SENS"]]
-primary_key = ["INTERCONNECTORID", "DATETIME"]
 time_column = "DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

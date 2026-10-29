@@ -21472,19 +21472,19 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -21530,11 +21530,7 @@
           "type": "double"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -21543,19 +21539,19 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -21607,11 +21603,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -21620,7 +21612,7 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -21632,13 +21624,13 @@
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -21690,11 +21682,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     },
@@ -21703,7 +21691,7 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -21715,13 +21703,13 @@
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -21773,11 +21761,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 3,
       "type": "struct"
     },
@@ -21786,19 +21770,19 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "CONSTRAINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -21856,11 +21840,7 @@
           "type": "decimal(2, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 4,
       "type": "struct"
     }

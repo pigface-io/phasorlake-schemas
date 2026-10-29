@@ -58,7 +58,10 @@
     "RUN_DATETIME": {
       "description": "MVAr Interval - a timestamp of when instructions issued",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -97,16 +100,16 @@
     "VERSION_DATETIME": {
       "description": "Datetime the file was published by VDS - Versions differ from Run_DateTime only for Supplemental runs",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "RUN_DATETIME",
-    "VERSION_DATETIME"
-  ],
+  "required": [],
   "title": "VOLTAGE_INSTRUCTION_TRK, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -161,11 +164,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

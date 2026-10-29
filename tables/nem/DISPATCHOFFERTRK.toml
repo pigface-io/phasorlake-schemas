@@ -2,7 +2,6 @@
 name = "DISPATCHOFFERTRK"
 package = "DISPATCH"
 report_pairs = [["DISPATCH", "OFFERTRK"]]
-primary_key = ["SETTLEMENTDATE", "DUID", "BIDTYPE"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"

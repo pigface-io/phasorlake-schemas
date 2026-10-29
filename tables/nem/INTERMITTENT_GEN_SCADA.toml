@@ -1,7 +1,6 @@
 # The declaration of INTERMITTENT_GEN_SCADA: kept by hand.
 name = "INTERMITTENT_GEN_SCADA"
 report_pairs = [["DEMAND", "INTERMITTENT_GEN_SCADA"]]
-primary_key = []
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

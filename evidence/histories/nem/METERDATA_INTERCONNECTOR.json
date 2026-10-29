@@ -40,26 +40,26 @@
         {
           "id": 1,
           "name": "CASE_ID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(15, 0)"
         },
         {
           "id": 2,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "INTERCONNECTORID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 5,
@@ -80,12 +80,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

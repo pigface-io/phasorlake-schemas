@@ -2,7 +2,6 @@
 name = "DEMANDOPERATIONALFORECAST"
 package = "DEMAND_FORECASTS"
 report_pairs = [["OPERATIONAL_DEMAND", "FORECAST"]]
-primary_key = ["INTERVAL_DATETIME", "REGIONID"]
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

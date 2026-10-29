@@ -5,7 +5,10 @@
   "properties": {
     "CONNECTIONPOINTID": {
       "description": "Connection Point ID",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -13,7 +16,10 @@
     "EFFECTIVEDATE": {
       "description": "Effective date of record",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -61,17 +67,16 @@
     },
     "VERSIONNO": {
       "description": "Version no of record for given effective date",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "double",
       "x-model-type": "NUMERIC(22,0)"
     }
   },
-  "required": [
-    "EFFECTIVEDATE",
-    "VERSIONNO",
-    "CONNECTIONPOINTID"
-  ],
+  "required": [],
   "title": "TRANSMISSIONLOSSFACTOR, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -88,7 +93,7 @@
     [
       3,
       "VERSIONNO",
-      "long"
+      "double"
     ],
     [
       4,
@@ -111,12 +116,7 @@
       "decimal(18, 8)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    2,
-    3,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

@@ -47,8 +47,8 @@
         {
           "id": 2,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
@@ -95,14 +95,11 @@
         {
           "id": 10,
           "name": "AUCTIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        2,
-        10
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

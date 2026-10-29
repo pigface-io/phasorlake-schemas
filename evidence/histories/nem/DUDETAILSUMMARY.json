@@ -223,13 +223,13 @@
         {
           "id": 1,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "START_DATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -311,10 +311,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -323,13 +320,13 @@
         {
           "id": 1,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "START_DATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -441,10 +438,7 @@
           "type": "decimal(1, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -453,13 +447,13 @@
         {
           "id": 1,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "START_DATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -577,10 +571,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     },
@@ -589,13 +580,13 @@
         {
           "id": 1,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "START_DATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -761,10 +752,7 @@
           "type": "decimal(18, 8)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 3,
       "type": "struct"
     }

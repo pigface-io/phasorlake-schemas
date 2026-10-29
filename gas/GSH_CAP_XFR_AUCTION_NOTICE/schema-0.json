@@ -78,7 +78,10 @@
     },
     "NOTICE_ID": {
       "description": "The unique identifier of the notice.",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
@@ -94,9 +97,7 @@
       "x-model-type": "VARCHAR2 (50)"
     }
   },
-  "required": [
-    "NOTICE_ID"
-  ],
+  "required": [],
   "title": "GSH_CAP_XFR_AUCTION_NOTICE, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -146,10 +147,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

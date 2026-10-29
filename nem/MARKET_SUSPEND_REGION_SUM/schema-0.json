@@ -49,23 +49,26 @@
     },
     "REGIONID": {
       "description": "Region(s) covered by the Suspension event",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     },
     "SUSPENSION_ID": {
       "description": "Unique identifier for this suspension event",
-      "type": "number",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "decimal(13, 1)",
       "x-model-type": "VARCHAR(20)"
     }
   },
-  "required": [
-    "SUSPENSION_ID",
-    "REGIONID"
-  ],
+  "required": [],
   "title": "MARKET_SUSPEND_REGION_SUM, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -100,11 +103,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

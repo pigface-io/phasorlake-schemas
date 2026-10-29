@@ -31,10 +31,13 @@
       "x-iceberg-type": "string"
     },
     "COMPANY_IDENTIFIER": {
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 4,
       "x-header": "company_identifier",
-      "x-iceberg-type": "long"
+      "x-iceberg-type": "decimal(3, 0)"
     },
     "COMPANY_NAME": {
       "type": [
@@ -65,7 +68,10 @@
       "x-iceberg-type": "date"
     },
     "HUB_IDENTIFIER": {
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-header": "hub_identifier",
       "x-iceberg-type": "string"
@@ -190,10 +196,7 @@
       "x-iceberg-type": "string"
     }
   },
-  "required": [
-    "HUB_IDENTIFIER",
-    "COMPANY_IDENTIFIER"
-  ],
+  "required": [],
   "title": "STTM_INT670_REGISTERED_PARTICIPANTS, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -215,7 +218,7 @@
     [
       4,
       "COMPANY_IDENTIFIER",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       5,
@@ -303,11 +306,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    2,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

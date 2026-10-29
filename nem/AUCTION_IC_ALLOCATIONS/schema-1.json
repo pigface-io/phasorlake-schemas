@@ -46,21 +46,30 @@
     },
     "CONTRACTYEAR": {
       "description": "SRA Contracted Year",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(4, 0)",
       "x-model-type": "NUMERIC(4,0)"
     },
     "FROMREGIONID": {
       "description": "Nominated source region for Interconnector",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 5,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
     },
     "INTERCONNECTORID": {
       "description": "Contracted Interconnector Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -98,43 +107,43 @@
     },
     "QUARTER": {
       "description": "SRA Contracted Quarter",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(1, 0)",
       "x-model-type": "NUMERIC(1,0)"
     },
     "VERSIONNO": {
       "description": "Version of data for other key data - a higher version for same key data takes precedence",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "CONTRACTYEAR",
-    "QUARTER",
-    "VERSIONNO",
-    "INTERCONNECTORID",
-    "FROMREGIONID"
-  ],
+  "required": [],
   "title": "AUCTION_IC_ALLOCATIONS, Iceberg schema 1",
   "type": "object",
   "x-fields": [
     [
       1,
       "CONTRACTYEAR",
-      "long"
+      "decimal(4, 0)"
     ],
     [
       2,
       "QUARTER",
-      "long"
+      "decimal(1, 0)"
     ],
     [
       3,
       "VERSIONNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       4,
@@ -182,14 +191,7 @@
       "decimal(18, 8)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

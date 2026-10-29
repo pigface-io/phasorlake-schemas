@@ -5,10 +5,13 @@
   "properties": {
     "CONNECTIONPOINTID": {
       "description": "Unique connection point identifier.",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 4,
       "x-header": "ConnectionPointId",
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(7, 0)",
       "x-model-type": "NUMBER(10,0)"
     },
     "CONNECTIONPOINTNAME": {
@@ -56,10 +59,13 @@
     },
     "FACILITYID": {
       "description": "Unique Facility Identifier",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
       "x-header": "FacilityId",
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(6, 0)",
       "x-model-type": "NUMBER(10,0)"
     },
     "FACILITYNAME": {
@@ -103,10 +109,13 @@
     },
     "LOCATIONID": {
       "description": "Unique Location Identifier",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 13,
       "x-header": "LocationId",
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(6, 0)",
       "x-model-type": "NUMBER(10,0)"
     },
     "LOCATIONNAME": {
@@ -120,10 +129,13 @@
     },
     "NODEID": {
       "description": "Unique Node Identifier",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 9,
       "x-header": "NodeId",
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(5, 0)",
       "x-model-type": "NUMBER(10,0)"
     },
     "OPERATINGSTATE": {
@@ -137,10 +149,13 @@
     },
     "STATEID": {
       "description": "Unique StateIdentifier",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 10,
       "x-header": "StateId",
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(1, 0)",
       "x-model-type": "NUMBER(10,0)"
     },
     "STATENAME": {
@@ -153,13 +168,7 @@
       "x-iceberg-type": "string"
     }
   },
-  "required": [
-    "FACILITYID",
-    "CONNECTIONPOINTID",
-    "NODEID",
-    "STATEID",
-    "LOCATIONID"
-  ],
+  "required": [],
   "title": "GBB_NODES_AND_CONNECTION_POINTS, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -171,7 +180,7 @@
     [
       2,
       "FACILITYID",
-      "long"
+      "decimal(6, 0)"
     ],
     [
       3,
@@ -186,7 +195,7 @@
     [
       4,
       "CONNECTIONPOINTID",
-      "long"
+      "decimal(7, 0)"
     ],
     [
       5,
@@ -211,12 +220,12 @@
     [
       9,
       "NODEID",
-      "long"
+      "decimal(5, 0)"
     ],
     [
       10,
       "STATEID",
-      "long"
+      "decimal(1, 0)"
     ],
     [
       11,
@@ -231,7 +240,7 @@
     [
       13,
       "LOCATIONID",
-      "long"
+      "decimal(6, 0)"
     ],
     [
       16,
@@ -244,14 +253,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    2,
-    4,
-    9,
-    10,
-    13
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

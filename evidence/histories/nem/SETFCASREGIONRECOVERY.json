@@ -2121,32 +2121,32 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 6,
@@ -2173,13 +2173,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -2188,32 +2182,32 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 6,
@@ -2270,13 +2264,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -2285,32 +2273,32 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 6,
@@ -2367,13 +2355,7 @@
           "type": "decimal(18, 8)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     }

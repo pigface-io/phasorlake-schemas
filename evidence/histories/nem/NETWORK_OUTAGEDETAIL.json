@@ -41,31 +41,31 @@
         {
           "id": 1,
           "name": "OUTAGEID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(15, 0)"
         },
         {
           "id": 2,
           "name": "SUBSTATIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "EQUIPMENTTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "EQUIPMENTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "STARTTIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -153,13 +153,7 @@
           "type": "decimal(15, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

@@ -1,7 +1,6 @@
 # The declaration of AGGREGATE_DISPATCH_GROUP: kept by hand.
 name = "AGGREGATE_DISPATCH_GROUP"
 report_pairs = [["PARTICIPANT_REGISTRATION", "AGGREGATE_DISPATCH_GROUP"]]
-primary_key = []
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

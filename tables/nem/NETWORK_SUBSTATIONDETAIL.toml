@@ -2,7 +2,6 @@
 name = "NETWORK_SUBSTATIONDETAIL"
 package = "NETWORK"
 report_pairs = [["NETWORK", "SUBSTATIONDETAIL"]]
-primary_key = ["SUBSTATIONID", "VALIDFROM"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

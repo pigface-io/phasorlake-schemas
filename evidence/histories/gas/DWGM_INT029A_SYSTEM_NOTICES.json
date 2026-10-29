@@ -50,8 +50,8 @@
         {
           "id": 1,
           "name": "SYSTEM_WIDE_NOTICE_ID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(5, 0)"
         },
         {
           "id": 2,
@@ -96,9 +96,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

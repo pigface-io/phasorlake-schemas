@@ -36,23 +36,26 @@
     },
     "SPD_ID": {
       "description": "ID defining data source",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(21)"
     },
     "SPD_TYPE": {
       "description": "ID describing type of data source",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(1)"
     }
   },
-  "required": [
-    "SPD_ID",
-    "SPD_TYPE"
-  ],
+  "required": [],
   "title": "EMSMASTER, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -82,11 +85,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

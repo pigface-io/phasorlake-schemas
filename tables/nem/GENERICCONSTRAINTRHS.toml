@@ -2,7 +2,6 @@
 name = "GENERICCONSTRAINTRHS"
 package = "GENERIC_CONSTRAINT"
 report_pairs = [["GCRHS", ""], ["GCRHS", "NULL"]]
-primary_key = ["GENCONID", "EFFECTIVEDATE", "VERSIONNO", "SCOPE", "TERMID"]
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"

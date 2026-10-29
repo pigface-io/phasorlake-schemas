@@ -2,7 +2,6 @@
 name = "STPASA_CASESOLUTION"
 package = "STPASA_SOLUTION"
 report_pairs = [["STPASA", "CASESOLUTION"]]
-primary_key = ["RUN_DATETIME"]
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

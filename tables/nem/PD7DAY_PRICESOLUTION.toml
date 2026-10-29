@@ -1,7 +1,6 @@
 # The declaration of PD7DAY_PRICESOLUTION: kept by hand.
 name = "PD7DAY_PRICESOLUTION"
 report_pairs = [["PD7DAY", "PRICESOLUTION"]]
-primary_key = []
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

@@ -40,19 +40,19 @@
         {
           "id": 1,
           "name": "SUSPENSION_ID",
-          "required": true,
+          "required": false,
           "type": "decimal(13, 1)"
         },
         {
           "id": 2,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "START_INTERVAL",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -74,11 +74,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

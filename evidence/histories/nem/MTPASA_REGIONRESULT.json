@@ -137,37 +137,37 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "RUN_NO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(4, 0)"
         },
         {
           "id": 3,
           "name": "RUNTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "DEMAND_POE_TYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "DAY",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 6,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -321,14 +321,7 @@
           "type": "decimal(12, 2)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -337,37 +330,37 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "RUN_NO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(4, 0)"
         },
         {
           "id": 3,
           "name": "RUNTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "DEMAND_POE_TYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "DAY",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 6,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -551,14 +544,7 @@
           "type": "decimal(12, 2)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

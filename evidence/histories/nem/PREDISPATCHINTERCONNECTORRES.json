@@ -803,7 +803,7 @@
         {
           "id": 3,
           "name": "INTERCONNECTORID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -857,7 +857,7 @@
         {
           "id": 12,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -903,10 +903,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        12
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -927,7 +924,7 @@
         {
           "id": 3,
           "name": "INTERCONNECTORID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -981,7 +978,7 @@
         {
           "id": 12,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1051,10 +1048,7 @@
           "type": "decimal(1, 0)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        12
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

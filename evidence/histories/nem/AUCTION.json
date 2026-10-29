@@ -41,7 +41,7 @@
         {
           "id": 1,
           "name": "AUCTIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -93,9 +93,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

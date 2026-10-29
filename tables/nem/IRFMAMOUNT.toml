@@ -2,6 +2,5 @@
 name = "IRFMAMOUNT"
 package = "FORCE_MAJEURE"
 report_pairs = [["FORCE_MAJEURE", "IRFMAMOUNT"]]
-primary_key = ["IRFMID", "VERSIONNO", "PERIODID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

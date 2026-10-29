@@ -1,7 +1,6 @@
 # The declaration of P5MIN_FCAS_REQ_RUN: kept by hand.
 name = "P5MIN_FCAS_REQ_RUN"
 report_pairs = [["P5MIN", "FCAS_REQ_RUN"]]
-primary_key = []
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

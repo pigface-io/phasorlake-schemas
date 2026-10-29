@@ -53,7 +53,10 @@
     },
     "MARKETFEEID": {
       "description": "Identifier for Market Fee",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -99,9 +102,7 @@
       "x-model-type": "VARCHAR(20)"
     }
   },
-  "required": [
-    "MARKETFEEID"
-  ],
+  "required": [],
   "title": "MARKETFEE, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -156,10 +157,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

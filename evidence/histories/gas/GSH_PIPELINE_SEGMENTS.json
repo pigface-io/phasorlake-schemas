@@ -40,7 +40,7 @@
         {
           "id": 1,
           "name": "FACILITY_ID",
-          "required": true,
+          "required": false,
           "type": "long"
         },
         {
@@ -52,7 +52,7 @@
         {
           "id": 3,
           "name": "SEGMENT_ID",
-          "required": true,
+          "required": false,
           "type": "long"
         },
         {
@@ -70,7 +70,7 @@
         {
           "id": 6,
           "name": "FROM_ID",
-          "required": true,
+          "required": false,
           "type": "long"
         },
         {
@@ -82,7 +82,7 @@
         {
           "id": 8,
           "name": "TO_ID",
-          "required": true,
+          "required": false,
           "type": "long"
         },
         {
@@ -100,19 +100,19 @@
         {
           "id": 11,
           "name": "EFFECTIVEDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 12,
           "name": "VERSION_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 13,
           "name": "CONNECTION_TYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -122,15 +122,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        13,
-        11,
-        1,
-        6,
-        3,
-        8,
-        12
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

@@ -2,7 +2,6 @@
 name = "PREDISPATCH_FCAS_REQ"
 package = "PRE_DISPATCH"
 report_pairs = [["PREDISPATCH", "REGIONFCASREQUIREMENT"]]
-primary_key = ["GENCONID", "REGIONID", "BIDTYPE", "DATETIME"]
 time_column = "DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

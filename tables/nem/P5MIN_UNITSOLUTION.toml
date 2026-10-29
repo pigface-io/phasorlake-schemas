@@ -1,7 +1,6 @@
 # The declaration of P5MIN_UNITSOLUTION: kept by hand.
 name = "P5MIN_UNITSOLUTION"
 report_pairs = [["P5MIN", "UNITSOLUTION"]]
-primary_key = ["RUN_DATETIME", "INTERVAL_DATETIME", "DUID"]
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

@@ -1,17 +1,6 @@
 # The declaration of GSH_SERVICE_POINTS: first drafted from the census and the data model, kept by hand.
 name = "GSH_SERVICE_POINTS"
 report_pairs = [["GSH", "SERVICE_POINTS"]]
-primary_key = ["AUCTION_PRODUCT_TYPE", "EFFECTIVEDATE", "FACILITY_ID", "SERVICE_POINT_ID", "SERVICE_POINT_TYPE", "VERSION_DATETIME"]
 time_column = "EFFECTIVEDATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["AUCTION_PRODUCT_TYPE", "FACILITY_ID", "SERVICE_POINT_ID", "SERVICE_POINT_TYPE"]
-order = ["VERSION_DATETIME", "LASTCHANGED"]
-origin = "hand"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "instant"

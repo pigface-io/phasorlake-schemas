@@ -40,20 +40,17 @@
         {
           "id": 1,
           "name": "PRUDENTIAL_DATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "PRUDENTIAL_RUNNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(8, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

@@ -5,9 +5,12 @@
   "properties": {
     "DISPATCHINTERVAL": {
       "description": "Dispatch period identifier, from 001 to 288 in format YYYYMMDDPPP.",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 4,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "double",
       "x-model-type": "NUMERIC(22,0)"
     },
     "EXPORTGENCONID": {
@@ -72,16 +75,22 @@
     },
     "INTERCONNECTORID": {
       "description": "Interconnector identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
     },
     "INTERVENTION": {
       "description": "Intervention case or not",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 5,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(2, 0)",
       "x-model-type": "NUMERIC(2,0)"
     },
     "LASTCHANGED": {
@@ -147,15 +156,21 @@
     },
     "RUNNO": {
       "description": "Dispatch run no; always 1",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "SETTLEMENTDATE": {
       "description": "Market date starting at 04:05",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -171,13 +186,7 @@
       "x-model-type": "NUMERIC(15,5)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "RUNNO",
-    "INTERCONNECTORID",
-    "DISPATCHINTERVAL",
-    "INTERVENTION"
-  ],
+  "required": [],
   "title": "DISPATCHINTERCONNECTORRES, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -189,7 +198,7 @@
     [
       2,
       "RUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
@@ -199,12 +208,12 @@
     [
       4,
       "DISPATCHINTERVAL",
-      "long"
+      "double"
     ],
     [
       5,
       "INTERVENTION",
-      "long"
+      "decimal(2, 0)"
     ],
     [
       6,
@@ -272,14 +281,7 @@
       "decimal(15, 5)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

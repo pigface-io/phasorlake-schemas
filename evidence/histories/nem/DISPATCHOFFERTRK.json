@@ -42,19 +42,19 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -76,11 +76,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

@@ -1,7 +1,6 @@
 # The declaration of MARKETNOTICEDATA: kept by hand.
 name = "MARKETNOTICEDATA"
 report_pairs = [["MARKET_NOTICE", "MARKETNOTICEDATA"]]
-primary_key = ["NOTICEID"]
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"

@@ -40,10 +40,13 @@
       "x-iceberg-type": "string"
     },
     "COMPANY_ID": {
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
       "x-header": "company_id",
-      "x-iceberg-type": "long"
+      "x-iceberg-type": "decimal(3, 0)"
     },
     "COMPANY_NAME": {
       "type": [
@@ -173,16 +176,14 @@
       "x-iceberg-type": "string"
     }
   },
-  "required": [
-    "COMPANY_ID"
-  ],
+  "required": [],
   "title": "DWGM_INT125_DETAILS_OF_ORGANISATIONS, Iceberg schema 1",
   "type": "object",
   "x-fields": [
     [
       1,
       "COMPANY_ID",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       2,
@@ -275,10 +276,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

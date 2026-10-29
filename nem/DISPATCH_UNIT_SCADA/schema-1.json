@@ -5,7 +5,10 @@
   "properties": {
     "DUID": {
       "description": "Dispatchable Unit Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -34,16 +37,16 @@
     "SETTLEMENTDATE": {
       "description": "Date Time of the Dispatch Interval",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "DUID"
-  ],
+  "required": [],
   "title": "DISPATCH_UNIT_SCADA, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -68,11 +71,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

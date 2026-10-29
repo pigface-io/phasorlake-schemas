@@ -86,7 +86,10 @@
     "DATETIME": {
       "description": "Period expressed as Date/Time",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 63,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -1074,7 +1077,10 @@
     },
     "REGIONID": {
       "description": "Unique region identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -1250,10 +1256,7 @@
       "x-model-type": "NUMERIC(15,5)"
     }
   },
-  "required": [
-    "REGIONID",
-    "DATETIME"
-  ],
+  "required": [],
   "title": "PREDISPATCHREGIONSUM, Iceberg schema 4",
   "type": "object",
   "x-fields": [
@@ -1883,11 +1886,7 @@
       "decimal(15, 6)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    3,
-    63
-  ],
+  "x-format": 5,
   "x-schema-id": 4,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

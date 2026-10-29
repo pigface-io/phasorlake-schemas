@@ -85,7 +85,10 @@
     },
     "DUID": {
       "description": "Dispatchable unit identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -122,9 +125,12 @@
     },
     "INTERVENTION": {
       "description": "Intervention flag if intervention run",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 6,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(2, 0)",
       "x-model-type": "NUMERIC(2,0)"
     },
     "LASTCHANGED": {
@@ -569,9 +575,12 @@
     },
     "RUNNO": {
       "description": "Dispatch run no; always 1",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "SEMIDISPATCHCAP": {
@@ -587,7 +596,10 @@
     "SETTLEMENTDATE": {
       "description": "Market date and time starting at 04:05",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -673,12 +685,7 @@
       "x-model-type": "NUMERIC(15,5)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "RUNNO",
-    "DUID",
-    "INTERVENTION"
-  ],
+  "required": [],
   "title": "DISPATCHLOAD, Iceberg schema 3",
   "type": "object",
   "x-fields": [
@@ -690,7 +697,7 @@
     [
       2,
       "RUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
@@ -710,7 +717,7 @@
     [
       6,
       "INTERVENTION",
-      "long"
+      "decimal(2, 0)"
     ],
     [
       7,
@@ -1023,13 +1030,7 @@
       "decimal(15, 5)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    6
-  ],
+  "x-format": 5,
   "x-schema-id": 3,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

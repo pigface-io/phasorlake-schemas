@@ -2,6 +2,5 @@
 name = "ANCILLARY_RECOVERY_SPLIT"
 package = "SETTLEMENT_CONFIG"
 report_pairs = [["SETTLEMENT_CONFIG", "ANCILLARY_RECOVERY_SPLIT"]]
-primary_key = ["EFFECTIVEDATE", "VERSIONNO", "SERVICE", "PAYMENTTYPE"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

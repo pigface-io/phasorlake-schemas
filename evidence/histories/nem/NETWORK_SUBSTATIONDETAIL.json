@@ -41,13 +41,13 @@
         {
           "id": 1,
           "name": "SUBSTATIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "VALIDFROM",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -81,10 +81,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

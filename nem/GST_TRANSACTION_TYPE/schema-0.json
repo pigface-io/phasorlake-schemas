@@ -44,15 +44,16 @@
     },
     "TRANSACTION_TYPE": {
       "description": "The transaction type",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(30)"
     }
   },
-  "required": [
-    "TRANSACTION_TYPE"
-  ],
+  "required": [],
   "title": "GST_TRANSACTION_TYPE, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -82,10 +83,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

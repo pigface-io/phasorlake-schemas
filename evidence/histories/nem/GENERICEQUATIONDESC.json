@@ -70,7 +70,7 @@
         {
           "id": 1,
           "name": "EQUATIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -122,9 +122,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

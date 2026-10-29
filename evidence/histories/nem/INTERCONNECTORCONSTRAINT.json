@@ -53,19 +53,19 @@
         {
           "id": 3,
           "name": "EFFECTIVEDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 5,
           "name": "INTERCONNECTORID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -171,11 +171,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

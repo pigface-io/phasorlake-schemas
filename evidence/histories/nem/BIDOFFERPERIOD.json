@@ -215,32 +215,32 @@
         {
           "id": 1,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 5,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 6,
@@ -357,13 +357,7 @@
           "type": "decimal(8, 3)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -372,32 +366,32 @@
         {
           "id": 1,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 5,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 6,
@@ -520,13 +514,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -535,32 +523,32 @@
         {
           "id": 1,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 5,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 6,
@@ -695,13 +683,7 @@
           "type": "decimal(3, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     },
@@ -710,25 +692,25 @@
         {
           "id": 1,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -740,8 +722,8 @@
         {
           "id": 5,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 6,
@@ -870,13 +852,7 @@
           "type": "decimal(3, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 3,
       "type": "struct"
     },
@@ -885,25 +861,25 @@
         {
           "id": 1,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -915,8 +891,8 @@
         {
           "id": 5,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 6,
@@ -1051,13 +1027,7 @@
           "type": "decimal(8, 3)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 4,
       "type": "struct"
     }

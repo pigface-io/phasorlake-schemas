@@ -91,17 +91,23 @@
       "x-model-type": "VARCHAR2(400)"
     },
     "FIELDID": {
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
       "x-header": "FieldId",
-      "x-iceberg-type": "long"
+      "x-iceberg-type": "decimal(6, 0)"
     },
     "FIELDINTERESTID": {
       "description": "A unique AEMO defined Field Interest Identifier",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
       "x-header": "FieldInterestId",
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(6, 0)",
       "x-model-type": "NUMBER(20,0)"
     },
     "FIELDNAME": {
@@ -331,17 +337,14 @@
       "x-model-type": "DATE"
     }
   },
-  "required": [
-    "FIELDID",
-    "FIELDINTERESTID"
-  ],
+  "required": [],
   "title": "GBB_RESERVES_AND_RESOURCES, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "FIELDID",
-      "long"
+      "decimal(6, 0)"
     ],
     [
       2,
@@ -351,7 +354,7 @@
     [
       3,
       "FIELDINTERESTID",
-      "long"
+      "decimal(6, 0)"
     ],
     [
       4,
@@ -494,11 +497,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

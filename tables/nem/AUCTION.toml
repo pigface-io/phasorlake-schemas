@@ -2,7 +2,6 @@
 name = "AUCTION"
 package = "IRAUCTION"
 report_pairs = [["IRAUCTION_CONFIG", "AUCTION"]]
-primary_key = ["AUCTIONID"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

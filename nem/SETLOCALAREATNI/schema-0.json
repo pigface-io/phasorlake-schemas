@@ -16,7 +16,10 @@
     },
     "LOCALAREAID": {
       "description": "Unique identifier for the local area",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(30)"
@@ -24,32 +27,36 @@
     "SETTLEMENTDATE": {
       "description": "Settlement date of the settlement run",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "SETTLEMENTRUNNO": {
       "description": "Settlement run number of the settlement run",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "TNI": {
       "description": "Unique identifier for a TNI constituent to the local area as at the settlement run",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(30)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "SETTLEMENTRUNNO",
-    "LOCALAREAID",
-    "TNI"
-  ],
+  "required": [],
   "title": "SETLOCALAREATNI, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -61,7 +68,7 @@
     [
       2,
       "SETTLEMENTRUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
@@ -79,13 +86,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

@@ -1,7 +1,6 @@
 # The declaration of PDPASA_INTERCONNECTORSOLN: kept by hand.
 name = "PDPASA_INTERCONNECTORSOLN"
 report_pairs = [["PDPASA", "INTERCONNECTORSOLN"]]
-primary_key = []
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

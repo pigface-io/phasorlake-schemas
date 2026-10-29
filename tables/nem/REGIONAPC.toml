@@ -2,6 +2,5 @@
 name = "REGIONAPC"
 package = "FORCE_MAJEURE"
 report_pairs = [["AP", "REGIONAPC"]]
-primary_key = ["REGIONID", "EFFECTIVEDATE", "VERSIONNO"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

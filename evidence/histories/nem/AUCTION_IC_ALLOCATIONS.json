@@ -77,31 +77,31 @@
         {
           "id": 1,
           "name": "CONTRACTYEAR",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(4, 0)"
         },
         {
           "id": 2,
           "name": "QUARTER",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(1, 0)"
         },
         {
           "id": 3,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 4,
           "name": "INTERCONNECTORID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "FROMREGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -141,13 +141,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -156,31 +150,31 @@
         {
           "id": 1,
           "name": "CONTRACTYEAR",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(4, 0)"
         },
         {
           "id": 2,
           "name": "QUARTER",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(1, 0)"
         },
         {
           "id": 3,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 4,
           "name": "INTERCONNECTORID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "FROMREGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -226,13 +220,7 @@
           "type": "decimal(18, 8)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

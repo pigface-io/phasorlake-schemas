@@ -26,7 +26,10 @@
     },
     "LINKID": {
       "description": "Identifier for each of the two MNSP Interconnector Links. Each link pertains to the direction from and to.",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 5,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -44,14 +47,20 @@
     "OFFERDATE": {
       "description": "Time this bid was processed and loaded",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(3)"
     },
     "PARTICIPANTID": {
       "description": "Participant Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -219,26 +228,26 @@
     "SETTLEMENTDATE": {
       "description": "Market Date from which bid is active",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "VERSIONNO": {
       "description": "Version of data for other key data - a higher version for same key data will take precedence",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "OFFERDATE",
-    "VERSIONNO",
-    "PARTICIPANTID",
-    "LINKID"
-  ],
+  "required": [],
   "title": "MNSP_DAYOFFER, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -255,7 +264,7 @@
     [
       3,
       "VERSIONNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       4,
@@ -363,14 +372,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

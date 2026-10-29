@@ -2,7 +2,6 @@
 name = "AUCTION_TRANCHE"
 package = "IRAUCTION"
 report_pairs = [["IRAUCTION_CONFIG", "AUCTION_TRANCHE"]]
-primary_key = ["CONTRACTYEAR", "QUARTER", "VERSIONNO", "TRANCHE"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

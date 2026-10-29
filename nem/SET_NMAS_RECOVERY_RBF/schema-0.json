@@ -5,7 +5,10 @@
   "properties": {
     "CONTRACTID": {
       "description": "The NMAS/ISF Contract Id",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 5,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -23,7 +26,10 @@
     },
     "PAYMENTTYPE": {
       "description": "The type of payment being recovered. Valid values are:\n- AVAILABILITY\n- ENABLEMENT\n- COMPENSATION",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 6,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -40,9 +46,12 @@
     },
     "PERIODID": {
       "description": "Settlements Trading Interval.",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "RBF": {
@@ -67,14 +76,20 @@
     },
     "REGIONID": {
       "description": "The region from where the amount is recovered",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 7,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
     },
     "SERVICE": {
       "description": "The type of NSCAS service incl ISF Services. Current value values are:\n- REACTIVE\n- LOADSHED\n- RESTART\n- INERTIA, SYSTEM STRENGTH, TYPE1, TYPE2",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -82,28 +97,26 @@
     "SETTLEMENTDATE": {
       "description": "Settlement Date",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "VERSIONNO": {
       "description": "Settlement run number",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "VERSIONNO",
-    "PERIODID",
-    "SERVICE",
-    "CONTRACTID",
-    "PAYMENTTYPE",
-    "REGIONID"
-  ],
+  "required": [],
   "title": "SET_NMAS_RECOVERY_RBF, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -115,12 +128,12 @@
     [
       2,
       "VERSIONNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
       "PERIODID",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       4,
@@ -163,16 +176,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

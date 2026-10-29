@@ -5,14 +5,20 @@
   "properties": {
     "CLUSTERID": {
       "description": "Unique Cluster Identifier for this cluster within the DUID",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     },
     "DUID": {
       "description": "Unique Identifier of Dispatchable Unit",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -20,7 +26,10 @@
     "OFFERDATETIME": {
       "description": "Date and Time when this cluster availability submission was loaded",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -28,18 +37,16 @@
     "TRADINGDATE": {
       "description": "Trading Day for which this cluster availability submission applies",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "DUID",
-    "TRADINGDATE",
-    "OFFERDATETIME",
-    "CLUSTERID"
-  ],
+  "required": [],
   "title": "INTERMITTENT_CLUSTER_AVAIL_DAY, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -64,13 +71,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

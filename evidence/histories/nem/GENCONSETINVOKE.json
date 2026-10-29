@@ -75,8 +75,8 @@
         {
           "id": 1,
           "name": "INVOCATION_ID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(9, 0)"
         },
         {
           "id": 2,
@@ -157,9 +157,7 @@
           "type": "decimal(1, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -246,13 +244,11 @@
         {
           "id": 1,
           "name": "INVOCATION_ID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(9, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

@@ -1,7 +1,6 @@
 # The declaration of ADG_DETAIL: kept by hand.
 name = "ADG_DETAIL"
 report_pairs = [["PARTICIPANT_REGISTRATION", "ADG_DETAIL"]]
-primary_key = []
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"

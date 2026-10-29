@@ -116,7 +116,10 @@
     },
     "BIDTYPE": {
       "description": "Bid Type Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -133,7 +136,10 @@
     },
     "DUID": {
       "description": "Dispatchable Unit identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -191,7 +197,10 @@
     "INTERVAL_DATETIME": {
       "description": "Date and Time of the dispatch interval to which the offer applied",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 28,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -291,7 +300,10 @@
     "SETTLEMENTDATE": {
       "description": "Market date for which the bid applied",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -307,12 +319,7 @@
       "x-model-type": "NUMERIC(22,0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "DUID",
-    "BIDTYPE",
-    "INTERVAL_DATETIME"
-  ],
+  "required": [],
   "title": "BIDPEROFFER_D, Iceberg schema 3",
   "type": "object",
   "x-fields": [
@@ -472,13 +479,7 @@
       "decimal(8, 3)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    28
-  ],
+  "x-format": 5,
   "x-schema-id": 3,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

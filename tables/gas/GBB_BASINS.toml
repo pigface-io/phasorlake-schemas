@@ -1,15 +1,6 @@
 # The declaration of GBB_BASINS: first drafted from the census and the data model, kept by hand.
 name = "GBB_BASINS"
 report_pairs = [["GBB", "BASINS"]]
-primary_key = ["BASINID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"
 model = ["GAS_BASIN"]
-
-[temporal]
-entity = ["BASINID"]
-order = []
-origin = "hand"
-
-[temporal.valid]
-kind = "timeless"

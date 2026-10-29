@@ -142,7 +142,7 @@
         {
           "id": 3,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -274,7 +274,7 @@
         {
           "id": 25,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -326,10 +326,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        25
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -350,7 +347,7 @@
         {
           "id": 3,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -482,7 +479,7 @@
         {
           "id": 25,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -558,10 +555,7 @@
           "type": "decimal(10, 5)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        25
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -582,7 +576,7 @@
         {
           "id": 3,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -714,7 +708,7 @@
         {
           "id": 25,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -778,10 +772,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        25
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     }

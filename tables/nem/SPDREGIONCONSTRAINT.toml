@@ -2,7 +2,6 @@
 name = "SPDREGIONCONSTRAINT"
 package = "GENERIC_CONSTRAINT"
 report_pairs = [["SPDRC", "NULL"]]
-primary_key = ["REGIONID", "EFFECTIVEDATE", "VERSIONNO", "GENCONID", "BIDTYPE"]
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"

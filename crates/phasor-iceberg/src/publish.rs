@@ -60,8 +60,10 @@ use crate::table::metadata::{Snapshot, TableMetadata};
 /// keys and their meaning. Raised when a reader of this format would
 /// misread a table: 4 since a table may take only the blocks of its pairs
 /// that hold certain columns (`phasor.with-columns`), which a reader of
-/// 3 would route to the wrong table.
-pub const FORMAT: u32 = 4;
+/// 3 would route to the wrong table; 5 since a declaration carries no key
+/// and no temporal roles (`phasor.key`, `phasor.temporal.*`), which are a
+/// reader's to decide: a reader of 4 would find them missing.
+pub const FORMAT: u32 = 5;
 
 /// A table's declaration, as `tables/{TABLE}.toml` holds it.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -77,8 +79,6 @@ pub struct Declaration {
     /// a pair carries two, as an area's beside a region's).
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub with_columns: Vec<String>,
-    /// Its key, in order; empty for none.
-    pub primary_key: Vec<String>,
     /// The column a block's time span is of.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub time_column: Option<String>,
@@ -86,43 +86,6 @@ pub struct Declaration {
     pub load_mode: String,
     /// Who may see it, as AEMO's control files say.
     pub visibility: String,
-    /// Its temporal roles.
-    pub temporal: Temporal,
-}
-
-/// A table's temporal roles.
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct Temporal {
-    /// When a row is valid.
-    pub valid: Valid,
-    /// The columns that name the thing a row is about.
-    pub entity: Vec<String>,
-    /// The columns that order restatements of it.
-    pub order: Vec<String>,
-    /// The column after which a row no longer changes.
-    #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub cutoff: Option<String>,
-    /// Where the roles came from.
-    pub origin: String,
-}
-
-/// When a row is valid.
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct Valid {
-    /// `interval_end` (the time ends the period the row covers),
-    /// `instant` (the time labels the row), `day` (the time is a trading
-    /// day's label, at midnight), `from` (the row is in force from the
-    /// time), `timeless` (no column says when).
-    pub kind: String,
-    /// The column, when there is one.
-    #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub column: Option<String>,
-    /// `from` only: the column that ends a version before the next one
-    /// starts (`END_DATE`); AEMO's "no end" dates (2999, 9999) are open.
-    #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub until: Option<String>,
 }
 
 /// A table as published: its history, its declaration when it has one,
@@ -209,17 +172,9 @@ const K_DECLARED: &str = "phasor.declared";
 const K_PACKAGE: &str = "phasor.package";
 const K_REPORTS: &str = "phasor.reports";
 const K_WITH_COLUMNS: &str = "phasor.with-columns";
-const K_KEY: &str = "phasor.key";
 const K_TIME: &str = "phasor.time";
 const K_LOAD: &str = "phasor.load";
 const K_VISIBILITY: &str = "phasor.visibility";
-const K_VALID_KIND: &str = "phasor.temporal.valid.kind";
-const K_VALID_COLUMN: &str = "phasor.temporal.valid.column";
-const K_VALID_UNTIL: &str = "phasor.temporal.valid.until";
-const K_ENTITY: &str = "phasor.temporal.entity";
-const K_ORDER: &str = "phasor.temporal.order";
-const K_CUTOFF: &str = "phasor.temporal.cutoff";
-const K_ORIGIN: &str = "phasor.temporal.origin";
 const K_COMMENT: &str = "comment";
 const K_MODEL_TYPES: &str = "phasor.model-types";
 const K_BREAKS: &str = "phasor.breaks";
@@ -348,25 +303,11 @@ fn properties(p: &Published) -> BTreeMap<String, String> {
         if !d.with_columns.is_empty() {
             put(K_WITH_COLUMNS, json(&d.with_columns));
         }
-        put(K_KEY, json(&d.primary_key));
         if let Some(t) = &d.time_column {
             put(K_TIME, t.clone());
         }
         put(K_LOAD, d.load_mode.clone());
         put(K_VISIBILITY, d.visibility.clone());
-        put(K_VALID_KIND, d.temporal.valid.kind.clone());
-        if let Some(c) = &d.temporal.valid.column {
-            put(K_VALID_COLUMN, c.clone());
-        }
-        if let Some(c) = &d.temporal.valid.until {
-            put(K_VALID_UNTIL, c.clone());
-        }
-        put(K_ENTITY, json(&d.temporal.entity));
-        put(K_ORDER, json(&d.temporal.order));
-        if let Some(c) = &d.temporal.cutoff {
-            put(K_CUTOFF, c.clone());
-        }
-        put(K_ORIGIN, d.temporal.origin.clone());
     }
     if let Some(c) = &p.description {
         put(K_COMMENT, c.clone());
@@ -532,21 +473,9 @@ fn declaration_of(p: &Props<'_>) -> Result<Declaration, PublishError> {
         package: p.owned(K_PACKAGE),
         report_pairs: p.need_json(K_REPORTS)?,
         with_columns: p.json(K_WITH_COLUMNS)?.unwrap_or_default(),
-        primary_key: p.need_json(K_KEY)?,
         time_column: p.owned(K_TIME),
         load_mode: p.need(K_LOAD)?.to_owned(),
         visibility: p.need(K_VISIBILITY)?.to_owned(),
-        temporal: Temporal {
-            valid: Valid {
-                kind: p.need(K_VALID_KIND)?.to_owned(),
-                column: p.owned(K_VALID_COLUMN),
-                until: p.owned(K_VALID_UNTIL),
-            },
-            entity: p.need_json(K_ENTITY)?,
-            order: p.need_json(K_ORDER)?,
-            cutoff: p.owned(K_CUTOFF),
-            origin: p.need(K_ORIGIN)?.to_owned(),
-        },
     })
 }
 
@@ -679,21 +608,9 @@ mod tests {
                 package: Some("DISPATCH".into()),
                 report_pairs: vec![["DISPATCH".into(), "UNIT_SCADA".into()]],
                 with_columns: vec![],
-                primary_key: vec!["SETTLEMENTDATE".into()],
                 time_column: Some("SETTLEMENTDATE".into()),
                 load_mode: "append".into(),
                 visibility: "PUBLIC".into(),
-                temporal: Temporal {
-                    valid: Valid {
-                        kind: "interval_end".into(),
-                        column: Some("SETTLEMENTDATE".into()),
-                        until: None,
-                    },
-                    entity: vec![],
-                    order: vec!["LASTCHANGED".into()],
-                    cutoff: Some("LASTCHANGED".into()),
-                    origin: "derived".into(),
-                },
             }),
             description: Some("Unit SCADA".into()),
             docs: BTreeMap::from([(1, "Interval end".to_owned()), (3, "A flag".to_owned())]),
@@ -703,20 +620,9 @@ mod tests {
     }
 
     #[test]
-    fn a_version_end_column_is_a_property_and_reads_back() {
-        let mut p = published();
-        let d = p.declaration.as_mut().unwrap();
-        d.temporal.valid = Valid {
-            kind: "from".into(),
-            column: Some("SETTLEMENTDATE".into()),
-            until: Some("END_DATE".into()),
-        };
-        let t = to_metadata(&p, "file:///t", "u").unwrap();
-        assert_eq!(t.metadata.properties[K_VALID_UNTIL], "END_DATE");
-        assert_eq!(from_metadata(&t.metadata).unwrap(), p);
+    fn a_tables_kind_of_rows_is_a_property_and_reads_back() {
         // Without one, the key is absent, as every table before had it.
         let plain = to_metadata(&published(), "file:///t", "u").unwrap();
-        assert!(!plain.metadata.properties.contains_key(K_VALID_UNTIL));
         assert!(!plain.metadata.properties.contains_key(K_WITH_COLUMNS));
         // A table of one kind of a pair's rows says which, and reads back.
         let mut area = published();
@@ -798,11 +704,17 @@ mod tests {
         assert!(!s.contains_key("phasor.to.time"));
         // The declaration and documentation are properties; the docs are
         // on every schema's copy of a field.
-        assert_eq!(m.properties[K_FORMAT], "4");
+        assert_eq!(m.properties[K_FORMAT], "5");
         assert_eq!(m.properties[K_DECLARED], "true");
-        assert_eq!(m.properties[K_KEY], r#"["SETTLEMENTDATE"]"#);
         assert_eq!(m.properties[K_REPORTS], r#"[["DISPATCH","UNIT_SCADA"]]"#);
-        assert_eq!(m.properties[K_ENTITY], "[]");
+        // A table's key and roles are a reader's: none is published.
+        assert!(
+            !m.properties
+                .keys()
+                .any(|k| k == "phasor.key" || k.starts_with("phasor.temporal")),
+            "{:?}",
+            m.properties
+        );
         assert_eq!(m.properties[K_COMMENT], "Unit SCADA");
         assert_eq!(m.properties[K_MODEL_TYPES], r#"{"1":"TIMESTAMP(0)"}"#);
         assert!(m.properties[K_BREAKS].starts_with(r#"[{"column":"X""#));
@@ -863,8 +775,6 @@ mod tests {
         let mut d = published().declaration.unwrap();
         d.package = None;
         d.time_column = None;
-        d.temporal.valid.column = None;
-        d.temporal.cutoff = None;
         let q = Published {
             declaration: Some(d),
             ..p
@@ -981,15 +891,15 @@ mod tests {
         );
         assert_eq!(
             err(&with(K_FORMAT, "2")),
-            "in the table's properties, phasor.format is \"2\", which is not format 4"
+            "in the table's properties, phasor.format is \"2\", which is not format 5"
         );
         assert_eq!(
             err(&with(K_DECLARED, "maybe")),
             "in the table's properties, phasor.declared is \"maybe\", which is not true or false"
         );
         assert!(err(&without(K_LOAD)).contains("lacks phasor.load"));
-        assert!(err(&without(K_KEY)).contains("lacks phasor.key"));
-        assert!(err(&with(K_KEY, "[1]")).contains("JSON of the shape this key takes"));
+        assert!(err(&without(K_REPORTS)).contains("lacks phasor.reports"));
+        assert!(err(&with(K_REPORTS, "[1]")).contains("JSON of the shape this key takes"));
         assert!(err(&with(K_BREAKS, "{}")).contains("phasor.breaks"));
         assert!(err(&with(K_MODEL_TYPES, "[]")).contains("phasor.model-types"));
         assert!(err(&with(K_HEADERS, "[]")).contains("phasor.headers"));

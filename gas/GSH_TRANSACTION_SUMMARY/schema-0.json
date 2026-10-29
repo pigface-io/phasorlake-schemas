@@ -16,7 +16,10 @@
     "CURRENTDATE": {
       "description": "The current gas date",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
@@ -24,7 +27,10 @@
     "FROM_GAS_DATE": {
       "description": "The start gas day for the order delivery period",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
@@ -72,14 +78,20 @@
     },
     "PRODUCT_LOCATION": {
       "description": "Product location for the Gas Supply Hub market",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR2(80)"
     },
     "PRODUCT_TYPE": {
       "description": "The product delivery period for the Gas Supply Hub market",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR2(80)"
@@ -107,7 +119,10 @@
     "TO_GAS_DATE": {
       "description": "The end gas day for the order delivery period",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 5,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
@@ -123,13 +138,7 @@
       "x-model-type": "NUMBER(18,8)"
     }
   },
-  "required": [
-    "CURRENTDATE",
-    "PRODUCT_LOCATION",
-    "PRODUCT_TYPE",
-    "FROM_GAS_DATE",
-    "TO_GAS_DATE"
-  ],
+  "required": [],
   "title": "GSH_TRANSACTION_SUMMARY, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -199,14 +208,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    4,
-    2,
-    3,
-    5
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

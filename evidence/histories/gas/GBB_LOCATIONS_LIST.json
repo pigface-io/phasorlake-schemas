@@ -54,8 +54,8 @@
         {
           "id": 2,
           "name": "LOCATIONID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(6, 0)"
         },
         {
           "id": 3,
@@ -82,9 +82,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

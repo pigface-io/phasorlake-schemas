@@ -2,7 +2,6 @@
 name = "MTPASA_INTERCONNECTORRESULT"
 package = "MTPASA"
 report_pairs = [["MTPASA", "INTERCONNECTORRESULT"]]
-primary_key = ["RUN_DATETIME", "RUN_NO", "RUNTYPE", "DEMAND_POE_TYPE", "DAY", "INTERCONNECTORID"]
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

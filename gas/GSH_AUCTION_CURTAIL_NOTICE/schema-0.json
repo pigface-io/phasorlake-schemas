@@ -5,7 +5,10 @@
   "properties": {
     "AUCTION_SERVICE": {
       "description": "The auction service impacted by curtailment",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR2(20)"
@@ -33,14 +36,20 @@
     "EFFECTIVE_DATE_TIME": {
       "description": "The date and time the curtailment is effective from.",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 8,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
     },
     "FACILITY_ID": {
       "description": "The unique facility identifier as defined in the Transportation Facility Register.",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
@@ -58,7 +67,10 @@
     "GAS_DATE": {
       "description": "The gas date for which the auction service is curtailed.",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 9,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
@@ -86,19 +98,16 @@
     },
     "NOTICE_ID": {
       "description": "The unique identifier of the notice.",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
     }
   },
-  "required": [
-    "NOTICE_ID",
-    "FACILITY_ID",
-    "AUCTION_SERVICE",
-    "EFFECTIVE_DATE_TIME",
-    "GAS_DATE"
-  ],
+  "required": [],
   "title": "GSH_AUCTION_CURTAIL_NOTICE, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -153,14 +162,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    4,
-    8,
-    2,
-    9,
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

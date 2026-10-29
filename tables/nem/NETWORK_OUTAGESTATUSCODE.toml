@@ -2,7 +2,6 @@
 name = "NETWORK_OUTAGESTATUSCODE"
 package = "NETWORK"
 report_pairs = [["NETWORK", "OUTAGESTATUSCODE"]]
-primary_key = ["OUTAGESTATUSCODE"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

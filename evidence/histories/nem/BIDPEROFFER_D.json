@@ -1236,19 +1236,19 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1398,16 +1398,11 @@
         {
           "id": 28,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        28
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -1416,19 +1411,19 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1578,7 +1573,7 @@
         {
           "id": 28,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1588,12 +1583,7 @@
           "type": "decimal(6, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        28
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -1602,19 +1592,19 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1626,7 +1616,7 @@
         {
           "id": 28,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1786,12 +1776,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        28
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     },
@@ -1800,19 +1785,19 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1962,7 +1947,7 @@
         {
           "id": 28,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1984,12 +1969,7 @@
           "type": "decimal(8, 3)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        28
-      ],
+      "identifier-field-ids": [],
       "schema-id": 3,
       "type": "struct"
     },
@@ -1998,19 +1978,19 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -2022,7 +2002,7 @@
         {
           "id": 28,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -2188,12 +2168,7 @@
           "type": "decimal(8, 3)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        28
-      ],
+      "identifier-field-ids": [],
       "schema-id": 4,
       "type": "struct"
     }

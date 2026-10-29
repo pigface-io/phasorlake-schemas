@@ -136,9 +136,12 @@
     },
     "PERIODID": {
       "description": "Period number where 1 represents the trading interval ending at 00:05 AEST",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 4,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "PRICE_STATUS": {
@@ -253,7 +256,10 @@
     },
     "REGIONID": {
       "description": "Region Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -280,26 +286,27 @@
     },
     "RUNNO": {
       "description": "Run No",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "SETTLEMENTDATE": {
       "description": "Date that this data applies to",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "RUNNO",
-    "REGIONID",
-    "PERIODID"
-  ],
+  "required": [],
   "title": "TRADINGPRICE, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -311,7 +318,7 @@
     [
       2,
       "RUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
@@ -321,7 +328,7 @@
     [
       4,
       "PERIODID",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       5,
@@ -454,13 +461,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

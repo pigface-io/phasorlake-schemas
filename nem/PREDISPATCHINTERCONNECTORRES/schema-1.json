@@ -6,7 +6,10 @@
     "DATETIME": {
       "description": "Period date and time",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 12,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -73,7 +76,10 @@
     },
     "INTERCONNECTORID": {
       "description": "Interconnector identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -230,10 +236,7 @@
       "x-model-type": "NUMERIC(15,5)"
     }
   },
-  "required": [
-    "INTERCONNECTORID",
-    "DATETIME"
-  ],
+  "required": [],
   "title": "PREDISPATCHINTERCONNECTORRES, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -353,11 +356,7 @@
       "decimal(1, 0)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    3,
-    12
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

@@ -41,14 +41,14 @@
         {
           "id": 1,
           "name": "CONTRACTYEAR",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(4, 0)"
         },
         {
           "id": 2,
           "name": "WEEKNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
@@ -59,13 +59,13 @@
         {
           "id": 4,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 5,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -87,12 +87,7 @@
           "type": "decimal(18, 16)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

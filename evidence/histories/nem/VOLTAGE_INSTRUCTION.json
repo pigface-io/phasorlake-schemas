@@ -40,13 +40,13 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "EMS_ID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -100,7 +100,7 @@
         {
           "id": 11,
           "name": "VERSION_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -116,11 +116,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        11
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

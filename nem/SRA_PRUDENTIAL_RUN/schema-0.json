@@ -6,23 +6,26 @@
     "PRUDENTIAL_DATE": {
       "description": "The prudential date of the run.",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "PRUDENTIAL_RUNNO": {
       "description": "The prudential run number for the run",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(8, 0)",
       "x-model-type": "NUMERIC(8)"
     }
   },
-  "required": [
-    "PRUDENTIAL_DATE",
-    "PRUDENTIAL_RUNNO"
-  ],
+  "required": [],
   "title": "SRA_PRUDENTIAL_RUN, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -34,14 +37,10 @@
     [
       2,
       "PRUDENTIAL_RUNNO",
-      "long"
+      "decimal(8, 0)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

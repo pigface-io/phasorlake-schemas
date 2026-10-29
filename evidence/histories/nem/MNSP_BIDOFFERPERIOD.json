@@ -879,26 +879,26 @@
         {
           "id": 1,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "LINKID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 5,
@@ -985,12 +985,7 @@
           "type": "decimal(8, 3)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -999,26 +994,26 @@
         {
           "id": 3,
           "name": "LINKID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 1,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 5,
@@ -1105,12 +1100,7 @@
           "type": "decimal(8, 3)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -1119,26 +1109,26 @@
         {
           "id": 3,
           "name": "LINKID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 1,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 4,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 5,
@@ -1231,12 +1221,7 @@
           "type": "decimal(8, 3)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     },
@@ -1245,26 +1230,26 @@
         {
           "id": 1,
           "name": "TRADINGDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "LINKID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "PERIODID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 5,
@@ -1357,12 +1342,7 @@
           "type": "decimal(8, 3)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 3,
       "type": "struct"
     }

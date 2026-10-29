@@ -13,7 +13,10 @@
     },
     "CONSTRAINTID": {
       "description": "Generic constraint identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -21,7 +24,10 @@
     "DATETIME": {
       "description": "Period date and time",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 10,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -139,10 +145,7 @@
       "x-model-type": "NUMERIC(15,5)"
     }
   },
-  "required": [
-    "CONSTRAINTID",
-    "DATETIME"
-  ],
+  "required": [],
   "title": "PREDISPATCHCONSTRAINT, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -217,11 +220,7 @@
       "decimal(15, 5)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    3,
-    10
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

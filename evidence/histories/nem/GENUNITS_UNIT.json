@@ -40,25 +40,25 @@
         {
           "id": 1,
           "name": "GENSETID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 2,
           "name": "EFFECTIVEDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(6, 0)"
         },
         {
           "id": 4,
           "name": "UNIT_GROUPING_LABEL",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -116,12 +116,7 @@
           "type": "decimal(8, 3)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

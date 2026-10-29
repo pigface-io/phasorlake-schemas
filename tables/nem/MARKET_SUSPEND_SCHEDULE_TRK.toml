@@ -2,7 +2,6 @@
 name = "MARKET_SUSPEND_SCHEDULE_TRK"
 package = "FORCE_MAJEURE"
 report_pairs = [["FORCE_MAJEURE", "MARKET_SUSPEND_SCHEDULE_TRK"]]
-primary_key = ["EFFECTIVEDATE"]
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"

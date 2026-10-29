@@ -6,7 +6,10 @@
     "INTERVAL_DATETIME": {
       "description": "The forecast half-hour interval (time ending)",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -44,24 +47,26 @@
     },
     "REGIONID": {
       "description": "Region identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     },
     "TYPE": {
       "description": "One of DAILY, MEASUREMENT or SATELLITE. DAILY- best quality estimated actuals, available day after. MEASUREMENT- best quality estimated actuals on day, delayed by 1 half hour. SATELLITE- estimated actuals using satellite imagery, delayed by 1 half hour.",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 5,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     }
   },
-  "required": [
-    "INTERVAL_DATETIME",
-    "REGIONID",
-    "TYPE"
-  ],
+  "required": [],
   "title": "ROOFTOP_PV_ACTUAL, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -96,12 +101,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    5
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

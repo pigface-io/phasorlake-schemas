@@ -8407,7 +8407,7 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -8437,8 +8437,8 @@
         {
           "id": 6,
           "name": "EXPOSTRUNNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 7,
@@ -8447,10 +8447,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        6
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -8459,7 +8456,7 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -8489,8 +8486,8 @@
         {
           "id": 6,
           "name": "EXPOSTRUNNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 7,
@@ -8505,10 +8502,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        6
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -8517,7 +8511,7 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -8547,8 +8541,8 @@
         {
           "id": 6,
           "name": "EXPOSTRUNNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 7,
@@ -8569,10 +8563,7 @@
           "type": "decimal(3, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        6
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     },
@@ -8581,7 +8572,7 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -8611,8 +8602,8 @@
         {
           "id": 6,
           "name": "EXPOSTRUNNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 7,
@@ -8627,10 +8618,7 @@
           "type": "decimal(3, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        6
-      ],
+      "identifier-field-ids": [],
       "schema-id": 3,
       "type": "struct"
     },
@@ -8639,7 +8627,7 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -8669,8 +8657,8 @@
         {
           "id": 6,
           "name": "EXPOSTRUNNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 7,
@@ -8697,10 +8685,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        6
-      ],
+      "identifier-field-ids": [],
       "schema-id": 4,
       "type": "struct"
     },
@@ -8709,7 +8694,7 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -8739,8 +8724,8 @@
         {
           "id": 6,
           "name": "EXPOSTRUNNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 7,
@@ -8773,10 +8758,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        6
-      ],
+      "identifier-field-ids": [],
       "schema-id": 5,
       "type": "struct"
     }

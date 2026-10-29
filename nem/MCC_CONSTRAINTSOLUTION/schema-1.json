@@ -5,7 +5,10 @@
   "properties": {
     "CONSTRAINTID": {
       "description": "Generic Constraint identifier (synonymous with GenConID)",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -41,16 +44,16 @@
     "RUN_DATETIME": {
       "description": "5-minute Dispatch Run identifier",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "RUN_DATETIME",
-    "CONSTRAINTID"
-  ],
+  "required": [],
   "title": "MCC_CONSTRAINTSOLUTION, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -80,11 +83,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

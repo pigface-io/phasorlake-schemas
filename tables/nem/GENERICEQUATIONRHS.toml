@@ -2,7 +2,6 @@
 name = "GENERICEQUATIONRHS"
 package = "GENERIC_CONSTRAINT"
 report_pairs = [["GEQRHS", ""], ["GEQRHS", "NULL"]]
-primary_key = ["EQUATIONID", "EFFECTIVEDATE", "VERSIONNO", "TERMID"]
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"

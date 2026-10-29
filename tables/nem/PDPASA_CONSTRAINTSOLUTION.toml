@@ -1,7 +1,6 @@
 # The declaration of PDPASA_CONSTRAINTSOLUTION: kept by hand.
 name = "PDPASA_CONSTRAINTSOLUTION"
 report_pairs = [["PDPASA", "CONSTRAINTSOLUTION"]]
-primary_key = []
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

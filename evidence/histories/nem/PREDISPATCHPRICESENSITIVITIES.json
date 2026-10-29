@@ -858,7 +858,7 @@
         {
           "id": 3,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1050,7 +1050,7 @@
         {
           "id": 35,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1150,10 +1150,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        35
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -1174,7 +1171,7 @@
         {
           "id": 3,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -1360,7 +1357,7 @@
         {
           "id": 35,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1466,10 +1463,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        35
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

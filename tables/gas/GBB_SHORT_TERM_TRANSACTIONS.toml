@@ -1,17 +1,7 @@
 # The declaration of GBB_SHORT_TERM_TRANSACTIONS: first drafted from the census and the data model, kept by hand.
 name = "GBB_SHORT_TERM_TRANSACTIONS"
 report_pairs = [["GBB", "SHORT_TERM_TRANSACTIONS_NSW"], ["GBB", "SHORT_TERM_TRANSACTIONS_NT"], ["GBB", "SHORT_TERM_TRANSACTIONS_QLD"], ["GBB", "SHORT_TERM_TRANSACTIONS_SA"], ["GBB", "SHORT_TERM_TRANSACTIONS_TAS"], ["GBB", "SHORT_TERM_TRANSACTIONS_VIC"]]
-primary_key = []
 time_column = "SUPPLYPERIODSTART"
 load_mode = "append"
 visibility = "PUBLIC"
 model = ["GAS_SHORT_TERM_TRANS"]
-
-[temporal]
-entity = ["PERIODID", "STATE"]
-order = []
-origin = "hand"
-
-[temporal.valid]
-column = "SUPPLYPERIODSTART"
-kind = "instant"

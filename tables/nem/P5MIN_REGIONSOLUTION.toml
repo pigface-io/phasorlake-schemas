@@ -2,7 +2,6 @@
 name = "P5MIN_REGIONSOLUTION"
 package = "P5MIN"
 report_pairs = [["P5MIN", "REGIONSOLUTION"]]
-primary_key = ["RUN_DATETIME", "INTERVAL_DATETIME", "REGIONID"]
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

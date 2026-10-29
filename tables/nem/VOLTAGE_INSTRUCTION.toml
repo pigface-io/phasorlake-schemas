@@ -2,7 +2,6 @@
 name = "VOLTAGE_INSTRUCTION"
 package = "VOLTAGE_INSTRUCTIONS"
 report_pairs = [["VOLTAGE_INSTRUCTION", "INSTRUCTION"]]
-primary_key = ["RUN_DATETIME", "EMS_ID", "VERSION_DATETIME"]
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

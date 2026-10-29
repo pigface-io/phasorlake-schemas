@@ -15,7 +15,10 @@
     },
     "CONSTRAINTID": {
       "description": "Generic Constraint ID",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -33,7 +36,10 @@
     "INTERVAL_DATETIME": {
       "description": "Dispatch Interval Date Time",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -82,7 +88,10 @@
     "SETTLEMENTDATE": {
       "description": "Settlement Date",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -99,18 +108,16 @@
     },
     "VERSIONNO": {
       "description": "Settlement Run No",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "VERSIONNO",
-    "INTERVAL_DATETIME",
-    "CONSTRAINTID"
-  ],
+  "required": [],
   "title": "SET_FCAS_REGULATION_TRK, Iceberg schema 2",
   "type": "object",
   "x-fields": [
@@ -122,7 +129,7 @@
     [
       2,
       "VERSIONNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
@@ -170,13 +177,7 @@
       "decimal(18, 8)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 2,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

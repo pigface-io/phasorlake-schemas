@@ -2,7 +2,6 @@
 name = "P5MIN_INTERCONNECTORSOLN"
 package = "P5MIN"
 report_pairs = [["P5MIN", "INTERCONNECTORSOLN"]]
-primary_key = ["RUN_DATETIME", "INTERCONNECTORID", "INTERVAL_DATETIME"]
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

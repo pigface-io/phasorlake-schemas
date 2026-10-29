@@ -2,7 +2,6 @@
 name = "RESIDUE_CONTRACTS"
 package = "IRAUCTION"
 report_pairs = [["IRAUCTION", "RESIDUE_CONTRACTS"]]
-primary_key = ["CONTRACTYEAR", "QUARTER", "TRANCHE"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

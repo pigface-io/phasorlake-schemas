@@ -1054,37 +1054,37 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 3,
           "name": "ORIGIN",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "FORECAST_PRIORITY",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(10, 0)"
         },
         {
           "id": 5,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 6,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -1112,14 +1112,7 @@
           "type": "decimal(18, 8)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        5,
-        6,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -1128,38 +1121,38 @@
         {
           "id": 1,
           "name": "RUN_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "OFFERDATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 6,
           "name": "INTERVAL_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "ORIGIN",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 4,
           "name": "FORECAST_PRIORITY",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(10, 0)"
         },
         {
           "id": 7,
@@ -1186,14 +1179,7 @@
           "type": "decimal(18, 8)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        5,
-        6,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

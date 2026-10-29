@@ -2,6 +2,5 @@
 name = "MNSP_INTERCONNECTOR"
 package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "MNSP_INTERCONNECTOR"]]
-primary_key = ["LINKID", "EFFECTIVEDATE", "VERSIONNO"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

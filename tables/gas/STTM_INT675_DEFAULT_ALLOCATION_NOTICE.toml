@@ -1,17 +1,6 @@
 # The declaration of STTM_INT675_DEFAULT_ALLOCATION_NOTICE: first drafted from the census and the data model, kept by hand.
 name = "STTM_INT675_DEFAULT_ALLOCATION_NOTICE"
 report_pairs = [["STTM", "INT675_DEFAULT_ALLOCATION_NOTICE_RPT_1"]]
-primary_key = []
 time_column = "GAS_DATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "REPORT_DATETIME"
-entity = ["NOTICE_IDENTIFIER", "HUB_IDENTIFIER", "FACILITY_IDENTIFIER"]
-order = ["REPORT_DATETIME"]
-origin = "hand"
-
-[temporal.valid]
-column = "GAS_DATE"
-kind = "instant"

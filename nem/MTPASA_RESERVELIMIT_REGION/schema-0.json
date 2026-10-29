@@ -16,7 +16,10 @@
     "EFFECTIVEDATE": {
       "description": "Trade date when the set of reserve requirements become effective",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -34,14 +37,20 @@
     },
     "REGIONID": {
       "description": "Region ID - identifier of a NEM region included in this requirement",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     },
     "RESERVELIMITID": {
       "description": "MT PASA Reserve requirement identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -49,18 +58,16 @@
     "VERSION_DATETIME": {
       "description": "Timestamp when the set of reserve requirements become effective",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "EFFECTIVEDATE",
-    "VERSION_DATETIME",
-    "RESERVELIMITID",
-    "REGIONID"
-  ],
+  "required": [],
   "title": "MTPASA_RESERVELIMIT_REGION, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -95,13 +102,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

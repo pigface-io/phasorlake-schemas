@@ -26,10 +26,13 @@
     },
     "LOCATIONID": {
       "description": "Unique Node Location Identifier",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
       "x-header": "LocationId",
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(6, 0)",
       "x-model-type": "NUMBER(10,0)"
     },
     "LOCATIONNAME": {
@@ -64,9 +67,7 @@
       "x-iceberg-type": "string"
     }
   },
-  "required": [
-    "LOCATIONID"
-  ],
+  "required": [],
   "title": "GBB_LOCATIONS_LIST, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -78,7 +79,7 @@
     [
       2,
       "LOCATIONID",
-      "long"
+      "decimal(6, 0)"
     ],
     [
       3,
@@ -101,10 +102,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

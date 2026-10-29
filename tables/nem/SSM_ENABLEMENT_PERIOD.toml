@@ -1,7 +1,6 @@
 # The declaration of SSM_ENABLEMENT_PERIOD: kept by hand.
 name = "SSM_ENABLEMENT_PERIOD"
 report_pairs = [["SSM", "ENABLEMENT_PERIOD"]]
-primary_key = []
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

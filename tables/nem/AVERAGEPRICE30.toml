@@ -2,7 +2,6 @@
 name = "AVERAGEPRICE30"
 package = "TRADING_DATA"
 report_pairs = [["TRADING", "AVERAGEPRICE30"]]
-primary_key = ["PERIODDATE", "REGIONID"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

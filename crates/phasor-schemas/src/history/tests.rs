@@ -51,13 +51,7 @@ const P: Col<'static> = ("RRP", Kind::Decimal, 3, 2, 0);
 const X: Col<'static> = ("RAISE1SECRRP", Kind::Decimal, 2, 2, 3);
 
 fn decl() -> Declarations {
-    Declarations {
-        keys: BTreeMap::from([(
-            "DISPATCHPRICE".into(),
-            vec!["SETTLEMENTDATE".into(), "REGIONID".into()],
-        )]),
-        ..Declarations::default()
-    }
+    Declarations::default()
 }
 
 fn month(m: &str) -> YearMonth {
@@ -150,9 +144,13 @@ fn a_column_list_that_comes_back_keeps_its_schema_and_ids() {
     assert_eq!(h.runs[0].changes, [Change::First]);
     assert_eq!(h.runs[1].changes, [Change::Schema]);
     assert!(h.breaking.is_empty());
-    // The key: both columns, both required; RAISE1SECRRP held nulls.
-    assert_eq!(h.schemas[0].identifier_field_ids, [1, 2]);
-    assert!(!h.schemas[1].by_name("RAISE1SECRRP").unwrap().required);
+    // No key, so no identifier field, and every field optional.
+    assert!(h.schemas.iter().all(|s| s.identifier_field_ids.is_empty()));
+    assert!(
+        h.schemas
+            .iter()
+            .all(|s| s.fields.iter().all(|f| !f.required))
+    );
     assert_eq!((h.table.as_str(), h.format_version), ("DISPATCHPRICE", 3));
 }
 
@@ -198,24 +196,6 @@ fn a_column_null_at_first_takes_the_type_its_values_have_later() {
     assert_eq!(schemas_of(&h), [0]);
     let f = h.schemas[0].by_name("LASTCHANGED").unwrap();
     assert_eq!((f.id, f.ty), (3, IcebergType::Timestamptz));
-}
-
-#[test]
-fn a_key_column_that_takes_a_null_leaves_the_key() {
-    let null_region = ("REGIONID", Kind::Text, 0, 0, 2);
-    let h = months(&[
-        ("2024-01", 1, "dvd", &[T, R, P]),
-        ("2024-02", 1, "dvd", &[T, null_region, P]),
-        ("2024-03", 1, "dvd", &[T, R, P]),
-    ]);
-    assert_eq!(
-        h.runs[1].updates,
-        [
-            Update::MakeOptional { field_id: 2 },
-            Update::SetIdentifierFields { field_ids: vec![1] }
-        ]
-    );
-    assert_eq!(schemas_of(&h), [0, 1], "once optional, always optional");
 }
 
 #[test]
@@ -353,17 +333,17 @@ fn the_widest_declaration_of_a_lineage_sets_its_type() {
     assert_eq!(first["RRP"], (15, 5));
     assert_eq!(d.numeric("NONE", month("2024-01")), None);
     // A whole number the model declares whole, never seen: a long.
-    let whole = declared(TypeClass::Unknown, Some((10, 0)), false);
+    let whole = declared(TypeClass::Unknown, Some((10, 0)));
     assert_eq!(choose(Evidence::default(), whole).ty, IcebergType::Long);
-    assert_eq!(declared(TypeClass::Integer, None, false).fallback, None);
-    let huge = declared(TypeClass::Number, Some((40, 2)), false);
+    assert_eq!(declared(TypeClass::Integer, None).fallback, None);
+    let huge = declared(TypeClass::Number, Some((40, 2)));
     assert!(huge.fallback.is_none());
     // Declared whole, then with a fraction: no longer whole.
     let w = widest(
-        declared(TypeClass::Integer, None, true),
-        declared(TypeClass::Number, None, false),
+        declared(TypeClass::Integer, None),
+        declared(TypeClass::Number, None),
     );
-    assert!(!w.whole && w.fractional && w.key);
+    assert!(!w.whole && w.fractional);
     assert!(ends(Kind::Integer, Kind::Text) && ends(Kind::Date, Kind::Decimal));
     assert!(!ends(Kind::Text, Kind::Integer) && !ends(Kind::Empty, Kind::Text));
     assert!(!ends(Kind::Integer, Kind::Empty) && !ends(Kind::Integer, Kind::Decimal));
@@ -647,32 +627,6 @@ fn a_lineage_before_a_published_one_takes_a_new_id() {
     );
 }
 
-/// A key column null in a month before the published ones is its own
-/// optional field there: the published field stays required.
-#[test]
-fn a_key_column_null_in_a_backfill_is_its_own_field() {
-    let later: [Month<'_>; 2] = [
-        ("2024-03", 1, "dvd", &[T, R, P]),
-        ("2024-04", 1, "dvd", &[T, R, P]),
-    ];
-    let published = months(&later);
-    assert!(published.schemas[0].by_name("REGIONID").unwrap().required);
-    let nulled = [T, ("REGIONID", Kind::Text, 0, 0, 1), P];
-    let mut all = vec![("2024-02", 1, "dvd", &nulled[..])];
-    all.extend_from_slice(&later);
-    let now = fold_with(&all, &decl(), Some(&published)).unwrap();
-    assert_eq!(check(&published, &now), []);
-    assert_eq!(now.schemas[0], published.schemas[0]);
-    let region = now.schemas[1].by_name("REGIONID").unwrap();
-    assert_eq!((region.id, region.required), (4, false));
-    assert_eq!(now.schemas[1].identifier_field_ids, [1]);
-    assert_eq!(schemas_of(&now), [1, 0]);
-    assert_eq!(
-        (now.breaking[0].old_field_id, now.breaking[0].new_field_id),
-        (4, 2)
-    );
-}
-
 /// Report files found later inside a published run, in a month between
 /// its files: the same values join the run; values the field cannot hold
 /// split it around a new field, and every published file keeps its
@@ -951,15 +905,14 @@ fn an_override_types_the_column_and_must_hold_its_values() {
 
 #[test]
 fn every_block_resolves_to_its_runs_fields() {
-    // A key column that takes a null later in the month makes a schema
-    // with the same names and fields: the block before still resolves to
-    // fields it reads the same with.
+    // A column that takes a null later in the month changes nothing: every
+    // field is optional, so both blocks are one schema and one run.
     let nulled: Col<'static> = ("REGIONID", Kind::Text, 0, 0, 1);
     let h = months(&[
         ("2024-06", 1, "dvd", &[T, R, P]),
         ("2024-06", 1, "dvd", &[T, nulled, P]),
     ]);
-    assert_eq!(schemas_of(&h), [0, 1]);
+    assert_eq!(schemas_of(&h), [0]);
     // A column that turns to text within the month is a new field under
     // the same names: the block before it would be read with that field.
     let text: Col<'static> = ("RRP", Kind::Text, 0, 0, 0);

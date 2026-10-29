@@ -6,15 +6,16 @@
     "RUN_DATETIME": {
       "description": "5-minute Dispatch Run identifier",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "RUN_DATETIME"
-  ],
+  "required": [],
   "title": "MCC_CASESOLUTION, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -24,10 +25,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

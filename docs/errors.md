@@ -116,7 +116,6 @@ Every error and warning phasor-schemas reports carries one of these codes. Codes
 | code | raised in |
 |---|---|
 | `history.breaks_published` | `crates/phasor-schemas/src/diagnose.rs` |
-| `history.key_missing` | `crates/phasor-schemas/src/diagnose.rs` |
 | `history.override_too_narrow` | `crates/phasor-schemas/src/diagnose.rs` |
 | `history.published_unreadable` | `crates/phasor-schemas/src/diagnose.rs` |
 | `history.rename_overlap` | `crates/phasor-schemas/src/diagnose.rs` |
@@ -146,7 +145,6 @@ Every error and warning phasor-schemas reports carries one of these codes. Codes
 
 | code | raised in |
 |---|---|
-| `export.declaration_invalid` | `crates/phasor-schemas/src/diagnose.rs` |
 | `export.history_unreadable` | `crates/phasor-schemas/src/diagnose.rs` |
 | `export.io` | `crates/phasor-schemas/src/diagnose.rs` |
 

@@ -68,7 +68,10 @@
     "TRADE_DATE": {
       "description": "Date and time the trade is executed",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
@@ -92,9 +95,7 @@
       "x-iceberg-type": "string"
     }
   },
-  "required": [
-    "TRADE_DATE"
-  ],
+  "required": [],
   "title": "GAS_GSH_TRADES, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -144,10 +145,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

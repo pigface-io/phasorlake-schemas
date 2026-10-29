@@ -1,7 +1,6 @@
 # The declaration of PD7DAY_INTERCONNECTORSOLUTION: kept by hand.
 name = "PD7DAY_INTERCONNECTORSOLUTION"
 report_pairs = [["PD7DAY", "INTERCONNECTORSOLUTION"]]
-primary_key = []
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

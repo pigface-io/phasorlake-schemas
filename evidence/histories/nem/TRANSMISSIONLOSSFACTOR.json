@@ -83,19 +83,19 @@
         {
           "id": 2,
           "name": "EFFECTIVEDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "double"
         },
         {
           "id": 4,
           "name": "CONNECTIONPOINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -111,11 +111,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -130,19 +126,19 @@
         {
           "id": 2,
           "name": "EFFECTIVEDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 3,
           "name": "VERSIONNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "double"
         },
         {
           "id": 4,
           "name": "CONNECTIONPOINTID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -164,11 +160,7 @@
           "type": "decimal(18, 8)"
         }
       ],
-      "identifier-field-ids": [
-        2,
-        3,
-        4
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

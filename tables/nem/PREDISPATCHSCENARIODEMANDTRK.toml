@@ -2,6 +2,5 @@
 name = "PREDISPATCHSCENARIODEMANDTRK"
 package = "PRE_DISPATCH"
 report_pairs = [["PREDISPATCH", "SCENARIO_DEMAND_TRK"]]
-primary_key = ["EFFECTIVEDATE", "VERSIONNO"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

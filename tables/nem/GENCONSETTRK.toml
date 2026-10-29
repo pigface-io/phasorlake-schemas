@@ -2,7 +2,6 @@
 name = "GENCONSETTRK"
 package = "GENERIC_CONSTRAINT"
 report_pairs = [["GENCONSETTRK", ""], ["GENCONSETTRK", "NULL"]]
-primary_key = ["GENCONSETID", "EFFECTIVEDATE", "VERSIONNO"]
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"

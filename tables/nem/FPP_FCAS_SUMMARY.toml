@@ -1,7 +1,6 @@
 # The declaration of FPP_FCAS_SUMMARY: kept by hand.
 name = "FPP_FCAS_SUMMARY"
 report_pairs = [["FPP", "FCAS_SUMMARY"]]
-primary_key = []
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

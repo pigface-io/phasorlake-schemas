@@ -5,7 +5,10 @@
   "properties": {
     "CONSTRAINTID": {
       "description": "Constraint identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -33,33 +36,37 @@
     },
     "RUNNO": {
       "description": "Dispatch run no",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "SETTLEMENTDATE": {
       "description": "End date and time of the dispatch interval",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "VERSIONNO": {
       "description": "Version Number",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 6,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "RUNNO",
-    "CONSTRAINTID",
-    "VERSIONNO"
-  ],
+  "required": [],
   "title": "CONSTRAINTRELAXATION_OCD, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -71,7 +78,7 @@
     [
       2,
       "RUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
@@ -86,7 +93,7 @@
     [
       6,
       "VERSIONNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       5,
@@ -94,13 +101,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    6
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

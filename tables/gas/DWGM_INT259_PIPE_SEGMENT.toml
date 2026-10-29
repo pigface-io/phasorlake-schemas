@@ -1,17 +1,6 @@
 # The declaration of DWGM_INT259_PIPE_SEGMENT: first drafted from the census and the data model, kept by hand.
 name = "DWGM_INT259_PIPE_SEGMENT"
 report_pairs = [["DWGM", "INT259_PIPE_SEGMENT_1"]]
-primary_key = ["PIPE_SEGMENT_ID", "LINEPACK_ZONE_ID", "NODE_DESTINATION_ID", "NODE_ORIGIN_ID"]
 time_column = "COMMENCEMENT_DATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "CURRENT_DATE"
-entity = ["PIPE_SEGMENT_ID", "LINEPACK_ZONE_ID", "NODE_DESTINATION_ID", "NODE_ORIGIN_ID"]
-order = ["CURRENT_DATE"]
-origin = "hand"
-
-[temporal.valid]
-column = "COMMENCEMENT_DATE"
-kind = "instant"

@@ -117,8 +117,7 @@ pub struct Choice {
     pub observed: bool,
 }
 
-/// What AEMO declares of a column (its control file, its data model), and
-/// whether it is in the table's key.
+/// What AEMO declares of a column: its control file, its data model.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
 pub struct Declared {
     /// Declared whole: the model's `NUMERIC(p,0)`, or a control file's
@@ -133,8 +132,6 @@ pub struct Declared {
     pub scale: Option<u8>,
     /// The type a column never seen with a value keeps.
     pub fallback: Option<IcebergType>,
-    /// Part of the table's key: Iceberg refuses a float there.
-    pub key: bool,
 }
 
 /// The most digits a decimal stored as a 64-bit integer holds.
@@ -148,8 +145,7 @@ const FLOAT_PRINTED: u8 = 16;
 /// The column's type from all of its evidence and its declaration, chosen
 /// once for the life of the column:
 ///
-/// - numbers declared whole, or in the key, that held only whole numbers:
-///   `long`;
+/// - numbers declared whole that held only whole numbers: `long`;
 /// - floats printed in full (more digits after the point than declared,
 ///   16 or more significant): `double`;
 /// - other numbers: `decimal(P, S)` with S the larger of the declared and
@@ -178,17 +174,14 @@ pub fn choose(e: Evidence, d: Declared) -> Choice {
                 observed: false,
             };
         }
-        Kind::Integer if (d.whole || d.key) && e.int_digits <= LONG_DIGITS => IcebergType::Long,
-        Kind::Decimal
-            if e.sig_digits >= FLOAT_PRINTED && d.scale.is_none_or(|s| e.scale > s) && !d.key =>
-        {
+        Kind::Integer if d.whole && e.int_digits <= LONG_DIGITS => IcebergType::Long,
+        Kind::Decimal if e.sig_digits >= FLOAT_PRINTED && d.scale.is_none_or(|s| e.scale > s) => {
             IcebergType::Double
         }
         Kind::Integer | Kind::Decimal if digits <= INT64_DIGITS => IcebergType::Decimal {
             precision: digits.max(1),
             scale,
         },
-        Kind::Integer | Kind::Decimal if d.key => IcebergType::String,
         Kind::Integer | Kind::Decimal => IcebergType::Double,
         Kind::Date => IcebergType::Date,
         Kind::Timestamp => IcebergType::Timestamptz,
@@ -268,19 +261,12 @@ mod tests {
     }
 
     #[test]
-    fn whole_numbers_are_long_only_where_declared_whole_or_keyed() {
+    fn whole_numbers_are_long_only_where_declared_whole() {
         let whole = ev(Kind::Integer, 3, 0);
         let c = |d: Declared| choose(whole, d).ty;
         assert_eq!(
             c(Declared {
                 whole: true,
-                ..Declared::default()
-            }),
-            IcebergType::Long
-        );
-        assert_eq!(
-            c(Declared {
-                key: true,
                 ..Declared::default()
             }),
             IcebergType::Long
@@ -307,17 +293,6 @@ mod tests {
             )
             .ty,
             IcebergType::Double
-        );
-        assert_eq!(
-            choose(
-                huge,
-                Declared {
-                    key: true,
-                    ..Declared::default()
-                }
-            )
-            .ty,
-            IcebergType::String
         );
     }
 
@@ -353,11 +328,6 @@ mod tests {
         };
         assert_eq!(choose(float, six).ty, IcebergType::Double);
         assert_eq!(choose(float, Declared::default()).ty, IcebergType::Double);
-        // In a key it may not be a float: past 18 digits it is text.
-        assert_eq!(
-            choose(float, Declared { key: true, ..six }).ty,
-            IcebergType::String
-        );
         // Too many digits for a 64-bit decimal, and not a printed float.
         let long_dec = Evidence {
             kind: Kind::Decimal,
@@ -462,21 +432,12 @@ mod tests {
                     scale: s,
                     sig_digits: i + s,
                 };
-                for key in [false, true] {
-                    let decl = Declared {
-                        whole: true,
-                        key,
-                        ..Declared::default()
-                    };
-                    for decl in [
-                        decl,
-                        Declared {
-                            key,
-                            ..Declared::default()
-                        },
-                    ] {
-                        assert!(holds(choose(e, decl).ty, e), "{e:?} {decl:?}");
-                    }
+                let whole = Declared {
+                    whole: true,
+                    ..Declared::default()
+                };
+                for decl in [whole, Declared::default()] {
+                    assert!(holds(choose(e, decl).ty, e), "{e:?} {decl:?}");
                 }
             }
         }

@@ -55,14 +55,14 @@
         {
           "id": 2,
           "name": "FIELDINTERESTID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(6, 0)"
         },
         {
           "id": 3,
           "name": "COMPANYID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 4,
@@ -89,10 +89,7 @@
           "type": "date"
         }
       ],
-      "identifier-field-ids": [
-        2,
-        3
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

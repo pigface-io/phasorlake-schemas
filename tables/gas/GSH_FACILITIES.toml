@@ -1,17 +1,6 @@
 # The declaration of GSH_FACILITIES: first drafted from the census and the data model, kept by hand.
 name = "GSH_FACILITIES"
 report_pairs = [["GSH", "FACILITIES"]]
-primary_key = ["EFFECTIVEDATE", "FACILITY_ID", "VERSION_DATETIME"]
 time_column = "EFFECTIVEDATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["FACILITY_ID"]
-order = ["VERSION_DATETIME", "LASTCHANGED"]
-origin = "hand"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "instant"

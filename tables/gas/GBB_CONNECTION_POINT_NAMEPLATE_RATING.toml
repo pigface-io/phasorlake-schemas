@@ -1,18 +1,7 @@
 # The declaration of GBB_CONNECTION_POINT_NAMEPLATE_RATING: first drafted from the census and the data model, kept by hand.
 name = "GBB_CONNECTION_POINT_NAMEPLATE_RATING"
 report_pairs = [["GBB", "CONNECTION_POINT_NAMEPLATE_RATING_FUTURE"]]
-primary_key = []
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"
 model = ["GAS_CONNECTIONPOINT_CAPACITY", "GAS_FACILITY"]
-
-[temporal]
-cutoff = "LASTUPDATED"
-entity = ["CONNECTIONPOINTID", "FACILITYID", "OPERATORID", "OWNERID"]
-order = ["LASTUPDATED"]
-origin = "hand"
-
-[temporal.valid]
-column = "EFFECTIVEDATE"
-kind = "instant"

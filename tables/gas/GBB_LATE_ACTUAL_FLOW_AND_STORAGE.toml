@@ -1,17 +1,7 @@
 # The declaration of GBB_LATE_ACTUAL_FLOW_AND_STORAGE: first drafted from the census and the data model, kept by hand.
 name = "GBB_LATE_ACTUAL_FLOW_AND_STORAGE"
 report_pairs = [["GBB", "LATE_ACTUAL_FLOW_AND_STORAGE"]]
-primary_key = []
 time_column = "GASDATE"
 load_mode = "append"
 visibility = "PUBLIC"
 model = ["GAS_DAILY_FLOW_ACTUAL", "GAS_DAILY_STORAGE_ACTUAL", "GAS_FACILITY"]
-
-[temporal]
-entity = ["FACILITYID", "CONNECTIONPOINTID"]
-order = []
-origin = "hand"
-
-[temporal.valid]
-column = "GASDATE"
-kind = "instant"

@@ -1,14 +1,5 @@
 # The declaration of DWGM_INT135_UPLIFT_CAP: first drafted from the census and the data model, kept by hand.
 name = "DWGM_INT135_UPLIFT_CAP"
 report_pairs = [["DWGM", "INT135_UPLIFT_CAP"], ["DWGM", "INT135_UPLIFT_CAP_1"]]
-primary_key = []
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-entity = []
-order = ["CURRENT_DATETIME"]
-origin = "hand"
-
-[temporal.valid]
-kind = "timeless"

@@ -1,17 +1,7 @@
 # The declaration of GBB_PIPELINE_NIL_QUALITY_SUBMISSION: first drafted from the census and the data model, kept by hand.
 name = "GBB_PIPELINE_NIL_QUALITY_SUBMISSION"
 report_pairs = [["GBB", "PIPELINE_NIL_QUALITY_SUBMISSION"]]
-primary_key = []
 time_column = "GASDATE"
 load_mode = "append"
 visibility = "PUBLIC"
 model = ["GAS_DAILY_FLOW_ACTUAL"]
-
-[temporal]
-entity = ["FACILITYID", "CONNECTIONPOINTID"]
-order = []
-origin = "hand"
-
-[temporal.valid]
-column = "GASDATE"
-kind = "instant"

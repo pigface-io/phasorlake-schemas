@@ -5,7 +5,10 @@
   "properties": {
     "DUID": {
       "description": "Dispatchable unit identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -13,7 +16,10 @@
     "INTERVAL_DATETIME": {
       "description": "The unique identifier for the interval within this study",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -50,17 +56,16 @@
     "RUN_DATETIME": {
       "description": "Unique Timestamp Identifier for this study",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "RUN_DATETIME",
-    "DUID",
-    "INTERVAL_DATETIME"
-  ],
+  "required": [],
   "title": "P5MIN_LOCAL_PRICE, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -95,12 +100,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

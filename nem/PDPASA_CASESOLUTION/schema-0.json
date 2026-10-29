@@ -187,15 +187,16 @@
     "RUN_DATETIME": {
       "description": "Case identifier by the time the case was run",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "RUN_DATETIME"
-  ],
+  "required": [],
   "title": "PDPASA_CASESOLUTION, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -295,10 +296,7 @@
       "decimal(3, 0)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

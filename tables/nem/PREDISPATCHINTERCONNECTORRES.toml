@@ -2,7 +2,6 @@
 name = "PREDISPATCHINTERCONNECTORRES"
 package = "PRE_DISPATCH"
 report_pairs = [["PREDISPATCH", "INTERCONNECTOR_SOLN"]]
-primary_key = ["INTERCONNECTORID", "DATETIME"]
 time_column = "DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

@@ -16,7 +16,10 @@
     },
     "BIDTYPE": {
       "description": "Bid Type Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -33,7 +36,10 @@
     },
     "DUID": {
       "description": "Dispatchable unit identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -223,7 +229,10 @@
     "SETTLEMENTDATE": {
       "description": "Market date for which the bid applied",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -279,11 +288,7 @@
       "x-model-type": "NUMERIC(22,0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "DUID",
-    "BIDTYPE"
-  ],
+  "required": [],
   "title": "BIDDAYOFFER_D, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -428,12 +433,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

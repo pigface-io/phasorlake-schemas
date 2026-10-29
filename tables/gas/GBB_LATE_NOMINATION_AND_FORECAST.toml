@@ -1,17 +1,7 @@
 # The declaration of GBB_LATE_NOMINATION_AND_FORECAST: first drafted from the census and the data model, kept by hand.
 name = "GBB_LATE_NOMINATION_AND_FORECAST"
 report_pairs = [["GBB", "LATE_NOMINATION_AND_FORECAST"]]
-primary_key = []
 time_column = "GASDATE"
 load_mode = "append"
 visibility = "PUBLIC"
 model = ["GAS_NOMINATIONS_FORECAST_AGG", "GAS_FACILITY"]
-
-[temporal]
-entity = ["FACILITYID", "CONNECTIONPOINTID"]
-order = []
-origin = "hand"
-
-[temporal.valid]
-column = "GASDATE"
-kind = "instant"

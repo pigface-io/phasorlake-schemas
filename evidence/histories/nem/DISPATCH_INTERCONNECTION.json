@@ -41,31 +41,31 @@
         {
           "id": 1,
           "name": "SETTLEMENTDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 2,
           "name": "RUNNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
           "name": "INTERVENTION",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(2, 0)"
         },
         {
           "id": 4,
           "name": "FROM_REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 5,
           "name": "TO_REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -111,13 +111,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

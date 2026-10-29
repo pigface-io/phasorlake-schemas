@@ -1,7 +1,6 @@
 # The declaration of FPP_RCR: kept by hand.
 name = "FPP_RCR"
 report_pairs = [["FPP", "FPP_RCR"]]
-primary_key = []
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

@@ -2,7 +2,6 @@
 name = "GENUNITS_UNIT"
 package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "GENUNITS_UNIT"]]
-primary_key = ["GENSETID", "EFFECTIVEDATE", "VERSIONNO", "UNIT_GROUPING_LABEL"]
 time_column = "EFFECTIVEDATE"
 load_mode = "append"
 visibility = "PUBLIC"

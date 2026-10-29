@@ -56,8 +56,8 @@
         {
           "id": 1,
           "name": "DEVFACILITYID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(6, 0)"
         },
         {
           "id": 2,
@@ -138,9 +138,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

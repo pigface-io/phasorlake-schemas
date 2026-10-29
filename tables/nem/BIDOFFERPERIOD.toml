@@ -2,14 +2,6 @@
 name = "BIDOFFERPERIOD"
 package = "BIDS"
 report_pairs = [["BIDS", "BIDOFFERPERIOD"]]
-primary_key = ["DUID", "BIDTYPE", "TRADINGDATE", "OFFERDATETIME", "PERIODID"]
 time_column = "TRADINGDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-# TRADINGDATE labels the trading day the rows are for (04:00 to 04:00 the next day), written at midnight.
-[temporal]
-entity = ["DUID", "BIDTYPE", "PERIODID"]
-order = ["OFFERDATETIME"]
-cutoff = "OFFERDATETIME"
-valid = { kind = "day", column = "TRADINGDATE" }

@@ -2147,7 +2147,7 @@
         {
           "id": 3,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -2315,7 +2315,7 @@
         {
           "id": 31,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -2439,10 +2439,7 @@
           "type": "decimal(3, 0)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        31
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -2463,7 +2460,7 @@
         {
           "id": 3,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -2631,7 +2628,7 @@
         {
           "id": 31,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -2803,10 +2800,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        31
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -2827,7 +2821,7 @@
         {
           "id": 3,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -2995,7 +2989,7 @@
         {
           "id": 31,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -3185,10 +3179,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        31
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     },
@@ -3209,7 +3200,7 @@
         {
           "id": 3,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -3377,7 +3368,7 @@
         {
           "id": 31,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -3579,10 +3570,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        31
-      ],
+      "identifier-field-ids": [],
       "schema-id": 3,
       "type": "struct"
     },
@@ -3603,7 +3591,7 @@
         {
           "id": 3,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -3771,7 +3759,7 @@
         {
           "id": 31,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -3955,10 +3943,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        31
-      ],
+      "identifier-field-ids": [],
       "schema-id": 4,
       "type": "struct"
     },
@@ -3979,7 +3964,7 @@
         {
           "id": 3,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -4147,7 +4132,7 @@
         {
           "id": 31,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -4355,10 +4340,7 @@
           "type": "long"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        31
-      ],
+      "identifier-field-ids": [],
       "schema-id": 5,
       "type": "struct"
     },
@@ -4379,7 +4361,7 @@
         {
           "id": 3,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -4547,7 +4529,7 @@
         {
           "id": 31,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -4743,10 +4725,7 @@
           "type": "long"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        31
-      ],
+      "identifier-field-ids": [],
       "schema-id": 6,
       "type": "struct"
     },
@@ -4767,7 +4746,7 @@
         {
           "id": 3,
           "name": "DUID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -4935,7 +4914,7 @@
         {
           "id": 31,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -5125,10 +5104,7 @@
           "type": "long"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        31
-      ],
+      "identifier-field-ids": [],
       "schema-id": 7,
       "type": "struct"
     }

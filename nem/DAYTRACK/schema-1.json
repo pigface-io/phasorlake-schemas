@@ -25,9 +25,12 @@
     },
     "EXPOSTRUNNO": {
       "description": "Settlement Run No",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 6,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "EXPOSTRUNSTATUS": {
@@ -72,16 +75,16 @@
     "SETTLEMENTDATE": {
       "description": "Calendar Settlement Date",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "EXPOSTRUNNO"
-  ],
+  "required": [],
   "title": "DAYTRACK, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -113,7 +116,7 @@
     [
       6,
       "EXPOSTRUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       7,
@@ -126,11 +129,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    6
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

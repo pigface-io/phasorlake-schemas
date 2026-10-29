@@ -2,6 +2,5 @@
 name = "GST_TRANSACTION_TYPE"
 package = "BILLING_CONFIG"
 report_pairs = [["BILLING_CONFIG", "GST_TRANSACTION_TYPE"]]
-primary_key = ["TRANSACTION_TYPE"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

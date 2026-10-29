@@ -2,7 +2,6 @@
 name = "CONSTRAINTRELAXATION_OCD"
 package = "DISPATCH"
 report_pairs = [["PRICELOAD", "CONSTRAINTRELAXATION"]]
-primary_key = ["SETTLEMENTDATE", "RUNNO", "CONSTRAINTID", "VERSIONNO"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"

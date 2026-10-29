@@ -1,7 +1,6 @@
 # The declaration of FPP_USAGE: kept by hand.
 name = "FPP_USAGE"
 report_pairs = [["FPP", "FPP_USAGE"]]
-primary_key = []
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

@@ -6,14 +6,20 @@
     "EFFECTIVEDATE": {
       "description": "The effective date of the interest rate change",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "INTEREST_ACCT_ID": {
       "description": "The interest account ID for calculating the interest payment",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -31,17 +37,16 @@
     "VERSION_DATETIME": {
       "description": "Date Time this record was added",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "INTEREST_ACCT_ID",
-    "EFFECTIVEDATE",
-    "VERSION_DATETIME"
-  ],
+  "required": [],
   "title": "SECDEPOSIT_INTEREST_RATE, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -66,12 +71,7 @@
       "decimal(18, 8)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

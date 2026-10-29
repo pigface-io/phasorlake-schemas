@@ -146,7 +146,10 @@
     "INTERVAL_DATETIME": {
       "description": "End date time of the interval",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -254,7 +257,10 @@
     },
     "REGIONID": {
       "description": "Region identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -281,7 +287,10 @@
     },
     "RUNTYPE": {
       "description": "Type of run. Values are OUTAGE_LRC and LOR. Note that the PDPASA OUTAGE_LRC Run Type is discontinued from 31 July 2025, with only the LOR Run Type reported.",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 23,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -289,7 +298,10 @@
     "RUN_DATETIME": {
       "description": "Unique Timestamp Identifier for this run, identified by the first half hour ended interval of the run.",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -445,12 +457,7 @@
       "x-model-type": "NUMERIC(12,2)"
     }
   },
-  "required": [
-    "RUN_DATETIME",
-    "INTERVAL_DATETIME",
-    "REGIONID",
-    "RUNTYPE"
-  ],
+  "required": [],
   "title": "PDPASA_REGIONSOLUTION, Iceberg schema 4",
   "type": "object",
   "x-fields": [
@@ -680,13 +687,7 @@
       "decimal(12, 2)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    23
-  ],
+  "x-format": 5,
   "x-schema-id": 4,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

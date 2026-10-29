@@ -115,7 +115,10 @@
     },
     "LINKID": {
       "description": "Identifier for each of the two MNSP Interconnector Links. Each link pertains to the direction from and to.",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -133,7 +136,10 @@
     "OFFERDATETIME": {
       "description": "Time this bid was processed and loaded",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(3)"
@@ -150,9 +156,12 @@
     },
     "PERIODID": {
       "description": "Period ID, 1 to 288",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 4,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "RAMPUPRATE": {
@@ -178,18 +187,16 @@
     "TRADINGDATE": {
       "description": "The trading date this bid is for",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "TRADINGDATE",
-    "OFFERDATETIME",
-    "LINKID",
-    "PERIODID"
-  ],
+  "required": [],
   "title": "MNSP_BIDOFFERPERIOD, Iceberg schema 3",
   "type": "object",
   "x-fields": [
@@ -211,7 +218,7 @@
     [
       4,
       "PERIODID",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       5,
@@ -289,13 +296,7 @@
       "decimal(8, 3)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 3,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

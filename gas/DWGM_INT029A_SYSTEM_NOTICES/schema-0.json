@@ -61,10 +61,13 @@
       "x-iceberg-type": "string"
     },
     "SYSTEM_WIDE_NOTICE_ID": {
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
       "x-header": "system_wide_notice_id",
-      "x-iceberg-type": "long"
+      "x-iceberg-type": "decimal(5, 0)"
     },
     "URL_PATH": {
       "type": [
@@ -76,16 +79,14 @@
       "x-iceberg-type": "string"
     }
   },
-  "required": [
-    "SYSTEM_WIDE_NOTICE_ID"
-  ],
+  "required": [],
   "title": "DWGM_INT029A_SYSTEM_NOTICES, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "SYSTEM_WIDE_NOTICE_ID",
-      "long"
+      "decimal(5, 0)"
     ],
     [
       2,
@@ -123,10 +124,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

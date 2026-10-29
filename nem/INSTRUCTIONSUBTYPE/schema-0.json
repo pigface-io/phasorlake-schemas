@@ -15,14 +15,20 @@
     },
     "INSTRUCTIONSUBTYPEID": {
       "description": "Subtype for each dispatch instruction type, for example governor off.",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
     },
     "INSTRUCTIONTYPEID": {
       "description": "Instruction type",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -39,10 +45,7 @@
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "INSTRUCTIONTYPEID",
-    "INSTRUCTIONSUBTYPEID"
-  ],
+  "required": [],
   "title": "INSTRUCTIONSUBTYPE, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -67,11 +70,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

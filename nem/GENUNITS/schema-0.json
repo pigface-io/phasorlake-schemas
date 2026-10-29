@@ -65,7 +65,10 @@
     },
     "GENSETID": {
       "description": "Physical Unit identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -192,9 +195,7 @@
       "x-model-type": "NUMERIC(6,0)"
     }
   },
-  "required": [
-    "GENSETID"
-  ],
+  "required": [],
   "title": "GENUNITS, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -294,10 +295,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

@@ -1,6 +1,5 @@
 # The declaration of BILLSMELTERRATE: kept by hand.
 name = "BILLSMELTERRATE"
 report_pairs = [["BILLING_CONFIG", "BILLSMELTERRATE"]]
-primary_key = ["EFFECTIVEDATE", "VERSIONNO", "CONTRACTYEAR"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

@@ -2,7 +2,6 @@
 name = "DISPATCH_INTERCONNECTION"
 package = "DISPATCH"
 report_pairs = [["DISPATCH", "INTERCONNECTION"]]
-primary_key = ["SETTLEMENTDATE", "RUNNO", "INTERVENTION", "FROM_REGIONID", "TO_REGIONID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"

@@ -6,14 +6,20 @@
     "EFFECTIVEDATE": {
       "description": "The effective date of the notional point.",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 6,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
     },
     "FACILITY_ID": {
       "description": "Unique Facility ID for this market",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
@@ -41,14 +47,20 @@
     },
     "PHYSICAL_POINT_NAME": {
       "description": "The descriptive name of the physical point associated with the notional point.",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR2(100)"
     },
     "SERVICE_POINT_ID": {
       "description": "The unique identifier of the service point.",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
@@ -66,19 +78,16 @@
     "VERSION_DATETIME": {
       "description": "The version timestamp of the record",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 7,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
     }
   },
-  "required": [
-    "FACILITY_ID",
-    "SERVICE_POINT_ID",
-    "PHYSICAL_POINT_NAME",
-    "EFFECTIVEDATE",
-    "VERSION_DATETIME"
-  ],
+  "required": [],
   "title": "GSH_NOTIONAL_POINTS, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -123,14 +132,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    6,
-    1,
-    4,
-    2,
-    7
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

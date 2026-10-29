@@ -2,7 +2,6 @@
 name = "MTPASA_REGIONITERATION"
 package = "MTPASA"
 report_pairs = [["MTPASA", "REGIONITERATION"]]
-primary_key = ["RUN_DATETIME", "RUN_NO", "RUNTYPE", "DEMAND_POE_TYPE", "AGGREGATION_PERIOD", "PERIOD_ENDING", "REGIONID", "USE_ITERATION_ID"]
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

@@ -5,7 +5,10 @@
   "properties": {
     "DUID": {
       "description": "Tracks to INTERMITTENT_DS_RUN.DUID",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -44,16 +47,16 @@
     "SETTLEMENTDATE": {
       "description": "DateTime of the Dispatch run (dispatch interval ending)",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "DUID"
-  ],
+  "required": [],
   "title": "INTERMITTENT_FORECAST_TRK, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -83,11 +86,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

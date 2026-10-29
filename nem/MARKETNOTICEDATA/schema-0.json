@@ -37,9 +37,12 @@
     },
     "NOTICEID": {
       "description": "Notice Identifier",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(10, 0)",
       "x-model-type": "NUMERIC(10,0)"
     },
     "NOTICETYPE": {
@@ -73,16 +76,14 @@
       "x-model-type": "VARCHAR(25)"
     }
   },
-  "required": [
-    "NOTICEID"
-  ],
+  "required": [],
   "title": "MARKETNOTICEDATA, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "NOTICEID",
-      "long"
+      "decimal(10, 0)"
     ],
     [
       2,
@@ -115,10 +116,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

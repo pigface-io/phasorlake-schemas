@@ -67,7 +67,10 @@
     },
     "REGIONID": {
       "description": "Region Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -85,24 +88,26 @@
     "STARTDATE": {
       "description": "Starting date of override",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "STARTPERIOD": {
       "description": "Starting period of override",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "REGIONID",
-    "STARTDATE",
-    "STARTPERIOD"
-  ],
+  "required": [],
   "title": "OVERRIDERRP, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -119,7 +124,7 @@
     [
       3,
       "STARTPERIOD",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       4,
@@ -157,12 +162,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

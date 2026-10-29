@@ -15,7 +15,10 @@
     },
     "INTERCONNECTORID": {
       "description": "Unique Id of this interconnector",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -62,9 +65,7 @@
       "x-model-type": "VARCHAR(10)"
     }
   },
-  "required": [
-    "INTERCONNECTORID"
-  ],
+  "required": [],
   "title": "INTERCONNECTOR, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -99,10 +100,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

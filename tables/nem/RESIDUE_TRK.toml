@@ -2,7 +2,6 @@
 name = "RESIDUE_TRK"
 package = "IRAUCTION"
 report_pairs = [["IRAUCTION", "RESIDUE_TRK"]]
-primary_key = ["VERSIONNO", "AUCTIONID"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

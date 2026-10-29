@@ -63,20 +63,20 @@
         {
           "id": 3,
           "name": "FACILITYID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(6, 0)"
         },
         {
           "id": 4,
           "name": "NODEID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(5, 0)"
         },
         {
           "id": 5,
           "name": "CONNECTIONPOINTID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(7, 0)"
         },
         {
           "id": 6,
@@ -103,11 +103,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        3,
-        4,
-        5
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

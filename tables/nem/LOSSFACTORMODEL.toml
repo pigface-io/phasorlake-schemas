@@ -2,6 +2,5 @@
 name = "LOSSFACTORMODEL"
 package = "MARKET_CONFIG"
 report_pairs = [["MARKET_CONFIG", "LOSSFACTORMODEL"]]
-primary_key = ["EFFECTIVEDATE", "VERSIONNO", "INTERCONNECTORID", "REGIONID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

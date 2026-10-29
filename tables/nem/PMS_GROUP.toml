@@ -1,7 +1,6 @@
 # The declaration of PMS_GROUP: kept by hand.
 name = "PMS_GROUP"
 report_pairs = [["PARTICIPANT_REGISTRATION", "PMS_GROUP"]]
-primary_key = []
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

@@ -5,16 +5,22 @@
   "properties": {
     "CONSTRAINTID": {
       "description": "ConstraintID/GenconID",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     },
     "INTERVENTION": {
       "description": "Intervention 0/1",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(2, 0)",
       "x-model-type": "NUMERIC(2)"
     },
     "LASTCHANGED": {
@@ -50,24 +56,33 @@
     },
     "RUNNO": {
       "description": "Dispatch run no; always 1",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3)"
     },
     "SETTLEMENTDATE": {
       "description": "Dispatch interval that the prices were loaded to",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "VERSIONNO": {
       "description": "VersionNo",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 5,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3)"
     },
     "VIOLATIONDEGREE": {
@@ -81,13 +96,7 @@
       "x-model-type": "NUMERIC(15,5)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "RUNNO",
-    "INTERVENTION",
-    "CONSTRAINTID",
-    "VERSIONNO"
-  ],
+  "required": [],
   "title": "DISPATCH_CONSTRAINT_FCAS_OCD, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -99,12 +108,12 @@
     [
       2,
       "RUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
       "INTERVENTION",
-      "long"
+      "decimal(2, 0)"
     ],
     [
       4,
@@ -114,7 +123,7 @@
     [
       5,
       "VERSIONNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       6,
@@ -137,14 +146,7 @@
       "decimal(15, 5)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

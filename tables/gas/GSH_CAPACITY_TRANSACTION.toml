@@ -1,17 +1,6 @@
 # The declaration of GSH_CAPACITY_TRANSACTION: first drafted from the census and the data model, kept by hand.
 name = "GSH_CAPACITY_TRANSACTION"
 report_pairs = [["GSH", "CAPACITY_TRANSACTION"]]
-primary_key = ["TRANSACTION_ID", "VERSION_DATETIME"]
 time_column = "VERSION_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["TRANSACTION_ID"]
-order = ["LASTCHANGED"]
-origin = "hand"
-
-[temporal.valid]
-column = "VERSION_DATETIME"
-kind = "instant"

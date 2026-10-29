@@ -2,7 +2,6 @@
 name = "DISPATCH_CONSTRAINT_FCAS_OCD"
 package = "DISPATCH"
 report_pairs = [["PRICELOAD", "CONSTRAINT_FCAS_OCD"]]
-primary_key = ["SETTLEMENTDATE", "RUNNO", "INTERVENTION", "CONSTRAINTID", "VERSIONNO"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"

@@ -62,8 +62,8 @@
         {
           "id": 1,
           "name": "PIPE_SEGMENT_ID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(2, 0)"
         },
         {
           "id": 2,
@@ -74,8 +74,8 @@
         {
           "id": 3,
           "name": "LINEPACK_ZONE_ID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(2, 0)"
         },
         {
           "id": 4,
@@ -92,14 +92,14 @@
         {
           "id": 6,
           "name": "NODE_DESTINATION_ID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(2, 0)"
         },
         {
           "id": 7,
           "name": "NODE_ORIGIN_ID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(2, 0)"
         },
         {
           "id": 8,
@@ -180,12 +180,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        3,
-        6,
-        7
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

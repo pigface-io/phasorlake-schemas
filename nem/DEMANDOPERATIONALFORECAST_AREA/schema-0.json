@@ -4,13 +4,19 @@
   "additionalProperties": false,
   "properties": {
     "AREAID": {
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string"
     },
     "INTERVAL_DATETIME": {
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz"
     },
@@ -57,10 +63,7 @@
       "x-iceberg-type": "decimal(7, 2)"
     }
   },
-  "required": [
-    "AREAID",
-    "INTERVAL_DATETIME"
-  ],
+  "required": [],
   "title": "DEMANDOPERATIONALFORECAST_AREA, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -100,11 +103,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    2,
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

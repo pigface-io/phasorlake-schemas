@@ -2,7 +2,6 @@
 name = "TRADINGINTERCONNECT"
 package = "TRADING_DATA"
 report_pairs = [["TRADING", "INTERCONNECTORRES"]]
-primary_key = ["SETTLEMENTDATE", "RUNNO", "INTERCONNECTORID", "PERIODID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"

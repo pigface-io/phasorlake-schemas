@@ -65,7 +65,10 @@
     },
     "INTERCONNECTORID": {
       "description": "Interconnector identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -73,7 +76,10 @@
     "INTERVAL_DATETIME": {
       "description": "The unique identifier for the interval within this study",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -152,7 +158,10 @@
     "RUN_DATETIME": {
       "description": "Unique Timestamp Identifier for this study",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -168,11 +177,7 @@
       "x-model-type": "NUMERIC(15,5)"
     }
   },
-  "required": [
-    "RUN_DATETIME",
-    "INTERCONNECTORID",
-    "INTERVAL_DATETIME"
-  ],
+  "required": [],
   "title": "P5MIN_INTERCONNECTORSOLN, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -262,12 +267,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

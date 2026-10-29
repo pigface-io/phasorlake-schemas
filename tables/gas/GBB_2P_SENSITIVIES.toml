@@ -1,14 +1,5 @@
 # The declaration of GBB_2P_SENSITIVIES: first drafted from the census and the data model, kept by hand.
 name = "GBB_2P_SENSITIVIES"
 report_pairs = [["GBB", "2P_SENSITIVIES"]]
-primary_key = []
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-entity = ["PERIODID"]
-order = []
-origin = "hand"
-
-[temporal.valid]
-kind = "timeless"

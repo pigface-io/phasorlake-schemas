@@ -2,7 +2,6 @@
 name = "BILLING_NMAS_TST_RECVRY_RBF"
 package = "BILLING_RUN"
 report_pairs = [["BILLING", "NMAS_TST_RECVRY_RBF"]]
-primary_key = ["CONTRACTYEAR", "WEEKNO", "BILLRUNNO", "SERVICE", "CONTRACTID", "REGIONID"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

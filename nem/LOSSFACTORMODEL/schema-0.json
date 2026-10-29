@@ -16,14 +16,20 @@
     "EFFECTIVEDATE": {
       "description": "Calendar date data set is effective",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "INTERCONNECTORID": {
       "description": "The unique identifier for the interconnector.",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -41,25 +47,26 @@
     },
     "REGIONID": {
       "description": "The unique region identifier for a connection point of the interconnector",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
     },
     "VERSIONNO": {
       "description": "Version number within effective date of the status proposed",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "EFFECTIVEDATE",
-    "VERSIONNO",
-    "INTERCONNECTORID",
-    "REGIONID"
-  ],
+  "required": [],
   "title": "LOSSFACTORMODEL, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -71,7 +78,7 @@
     [
       2,
       "VERSIONNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
@@ -94,13 +101,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

@@ -1,17 +1,6 @@
 # The declaration of STTM_INT670_REGISTERED_PARTICIPANTS: first drafted from the census and the data model, kept by hand.
 name = "STTM_INT670_REGISTERED_PARTICIPANTS"
 report_pairs = [["STTM", "INT670_REGISTERED_PARTICIPANTS_RPT_1"]]
-primary_key = ["HUB_IDENTIFIER", "COMPANY_IDENTIFIER", "STATE_ID"]
 time_column = "GAS_DATE"
 load_mode = "snapshot"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "REPORT_DATETIME"
-entity = ["HUB_IDENTIFIER", "COMPANY_IDENTIFIER", "STATE_ID"]
-order = ["REPORT_DATETIME"]
-origin = "hand"
-
-[temporal.valid]
-column = "GAS_DATE"
-kind = "instant"

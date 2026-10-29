@@ -5,9 +5,12 @@
   "properties": {
     "APEVENTID": {
       "description": "Unique identifier for this administered pricing event",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "double",
       "x-model-type": "NUMERIC(22,0)"
     },
     "EFFECTIVEFROMINTERVAL": {
@@ -96,16 +99,14 @@
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "APEVENTID"
-  ],
+  "required": [],
   "title": "APEVENT, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "APEVENTID",
-      "long"
+      "double"
     ],
     [
       2,
@@ -148,10 +149,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

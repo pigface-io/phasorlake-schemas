@@ -66,7 +66,10 @@
     },
     "SPD_ID": {
       "description": "ID defining this data source for use in constraints",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(21)"
@@ -84,7 +87,10 @@
     "VALIDFROM": {
       "description": "The date that this record is applies from (inclusive)",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -101,10 +107,7 @@
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "SPD_ID",
-    "VALIDFROM"
-  ],
+  "required": [],
   "title": "NETWORK_RATING, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -159,11 +162,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

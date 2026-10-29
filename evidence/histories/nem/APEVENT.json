@@ -41,8 +41,8 @@
         {
           "id": 1,
           "name": "APEVENTID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "double"
         },
         {
           "id": 2,
@@ -93,9 +93,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

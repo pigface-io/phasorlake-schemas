@@ -2,7 +2,6 @@
 name = "MARKET_SUSPEND_REGIME_SUM"
 package = "FORCE_MAJEURE"
 report_pairs = [["FORCE_MAJEURE", "MARKET_SUSPEND_REGIME_SUM"]]
-primary_key = ["SUSPENSION_ID", "REGIONID", "START_INTERVAL"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

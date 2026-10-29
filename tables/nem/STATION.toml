@@ -2,6 +2,5 @@
 name = "STATION"
 package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "STATION"]]
-primary_key = ["STATIONID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

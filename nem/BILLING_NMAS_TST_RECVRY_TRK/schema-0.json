@@ -5,98 +5,101 @@
   "properties": {
     "BILLRUNNO": {
       "description": "The current Billing RunNo for the week",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "CONTRACTYEAR": {
       "description": "AEMO Contract Year number starting in week containing 1 January",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(4, 0)",
       "x-model-type": "NUMERIC(4,0)"
     },
     "RECOVERY_BILLRUNNO": {
       "description": "Billing RunNo for energy data used in recovery calculation",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 6,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "RECOVERY_CONTRACTYEAR": {
       "description": "AEMO Contract Year for energy data used in recovery calculation",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 4,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(4, 0)",
       "x-model-type": "NUMERIC(4,0)"
     },
     "RECOVERY_WEEKNO": {
       "description": "Week no for energy data used in recovery calculation",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 5,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "WEEKNO": {
       "description": "Week no within the contract year. Week no 1 is the week containing 1 January",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "CONTRACTYEAR",
-    "WEEKNO",
-    "BILLRUNNO",
-    "RECOVERY_CONTRACTYEAR",
-    "RECOVERY_WEEKNO",
-    "RECOVERY_BILLRUNNO"
-  ],
+  "required": [],
   "title": "BILLING_NMAS_TST_RECVRY_TRK, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "CONTRACTYEAR",
-      "long"
+      "decimal(4, 0)"
     ],
     [
       2,
       "WEEKNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
       "BILLRUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       4,
       "RECOVERY_CONTRACTYEAR",
-      "long"
+      "decimal(4, 0)"
     ],
     [
       5,
       "RECOVERY_WEEKNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       6,
       "RECOVERY_BILLRUNNO",
-      "long"
+      "decimal(3, 0)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

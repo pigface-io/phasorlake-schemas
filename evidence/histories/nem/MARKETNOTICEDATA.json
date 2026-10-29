@@ -40,8 +40,8 @@
         {
           "id": 1,
           "name": "NOTICEID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(10, 0)"
         },
         {
           "id": 2,
@@ -80,9 +80,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

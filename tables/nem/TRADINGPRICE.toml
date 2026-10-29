@@ -2,7 +2,6 @@
 name = "TRADINGPRICE"
 package = "TRADING_DATA"
 report_pairs = [["TRADING", "PRICE"]]
-primary_key = ["SETTLEMENTDATE", "RUNNO", "REGIONID", "PERIODID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"

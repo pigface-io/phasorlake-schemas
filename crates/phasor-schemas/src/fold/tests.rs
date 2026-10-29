@@ -172,7 +172,7 @@ fn every_census_folds_into_one_file_per_table() {
     // Typed by the release: NUMERIC(16,6).
     let f = h.schemas[0].by_name("SCADAVALUE").unwrap();
     assert_eq!(f.ty, phasor_iceberg::IcebergType::decimal(16, 6).unwrap());
-    assert_eq!(h.schemas[0].identifier_field_ids, [1]);
+    assert!(h.schemas[0].identifier_field_ids.is_empty());
     // Two census months and two report runs, in one run: report files
     // carry no SHA-256.
     let run = &h.runs[0];
@@ -432,14 +432,11 @@ fn another_market_folds_in_its_own_clock_with_its_headers() {
     .unwrap();
     let cat = Catalog::new(vec![(
         "GBB_ACTUAL_FLOW_STORAGE.toml".into(),
-        TableDecl {
-            primary_key: vec!["GASDATE".into()],
-            ..decl(
-                "GBB_ACTUAL_FLOW_STORAGE",
-                ("GBB", "ACTUAL_FLOW_STORAGE"),
-                Some("GASDATE"),
-            )
-        },
+        decl(
+            "GBB_ACTUAL_FLOW_STORAGE",
+            ("GBB", "ACTUAL_FLOW_STORAGE"),
+            Some("GASDATE"),
+        ),
     )])
     .unwrap();
     let folded = fold(root, Market::Gas, &cat, false, None).unwrap();
@@ -550,69 +547,6 @@ fn market_times() {
     assert_eq!(nem("2024/08/01X"), None);
 }
 
-#[test]
-fn a_valid_column_seen_only_at_midnight_is_noted_unless_declared_a_day() {
-    let dir = tempfile::tempdir().unwrap();
-    let root = dir.path();
-    let mut b = scada_block("2026-08", 3);
-    b.first = Some("2026/08/01".into());
-    b.last = Some("2026/08/31".into());
-    b.midnight = Some(true);
-    let files = BTreeMap::from([(
-        "SCADA_2026-08.CSV".to_owned(),
-        FileRecord {
-            source: "x.zip".into(),
-            sha256: "ab".into(),
-            size: 9,
-            kind: "dvd".into(),
-            bad_rows: 0,
-            footer_mismatches: 0,
-            block: vec![b],
-        },
-    )]);
-    let path = census_path(root, Market::Nem, "2026-08".parse().unwrap());
-    crate::files::write_atomic(&path, toml::to_string(&files).unwrap().as_bytes()).unwrap();
-
-    // Derived roles call SETTLEMENTDATE an interval end: a note.
-    let f = fold(root, Market::Nem, &scada(), true, None).unwrap();
-    assert_eq!(f.notes.len(), 1, "{:?}", f.notes);
-    assert!(
-        f.notes[0].starts_with(
-            "DISPATCH_UNIT_SCADA: every recorded value of SETTLEMENTDATE is at midnight"
-        ) && f.notes[0].contains("valid = { kind = \"day\", column = \"SETTLEMENTDATE\" }")
-            && f.notes[0].ends_with("tables/nem/DISPATCH_UNIT_SCADA.toml"),
-        "{}",
-        f.notes[0]
-    );
-    // A hand block that calls it a day: nothing to say.
-    let mut d = crate::catalog::tests::decl(
-        "DISPATCH_UNIT_SCADA",
-        ("DISPATCH", "UNIT_SCADA"),
-        Some("SETTLEMENTDATE"),
-    );
-    d.temporal = Some(
-        toml::from_str(
-            "entity = []\norder = []\nvalid = { kind = \"day\", column = \"SETTLEMENTDATE\" }",
-        )
-        .unwrap(),
-    );
-    let cat = Catalog::new(vec![("DISPATCH_UNIT_SCADA.toml".into(), d)]).unwrap();
-    assert!(
-        fold(root, Market::Nem, &cat, true, None)
-            .unwrap()
-            .notes
-            .is_empty()
-    );
-    // A table no declaration names has no roles to hold it to.
-    let none = Catalog::new(vec![]).unwrap();
-    assert!(
-        fold(root, Market::Nem, &none, true, None)
-            .unwrap()
-            .notes
-            .is_empty()
-    );
-}
-
 /// Records a month's census of one file per block, each block of
 /// `report` with `columns` (three, typed as SCADA's are).
 fn census_of(root: &Path, month: &str, report: (&str, &str), blocks: &[[&str; 3]]) {
@@ -642,11 +576,9 @@ fn census_of(root: &Path, month: &str, report: (&str, &str), blocks: &[[&str; 3]
     crate::files::write_atomic(&path, toml::to_string(&files).unwrap().as_bytes()).unwrap();
 }
 
-/// A declaration of `name` for `pair` keyed on `key`, taking only blocks
-/// with `with`.
-fn keyed(name: &str, pair: (&str, &str), key: &[&str], with: &[&str]) -> (PathBuf, TableDecl) {
+/// A declaration of `name` for `pair`, taking only blocks with `with`.
+fn taking(name: &str, pair: (&str, &str), with: &[&str]) -> (PathBuf, TableDecl) {
     let d = TableDecl {
-        primary_key: key.iter().map(|c| (*c).to_owned()).collect(),
         with_columns: with.iter().map(|c| (*c).to_owned()).collect(),
         ..decl(name, pair, Some("SETTLEMENTDATE"))
     };
@@ -654,7 +586,7 @@ fn keyed(name: &str, pair: (&str, &str), key: &[&str], with: &[&str]) -> (PathBu
 }
 
 #[test]
-fn a_pair_of_two_kinds_folds_into_two_tables_and_a_key_left_out_fails() {
+fn a_pair_of_two_kinds_folds_into_two_tables() {
     let dir = tempfile::tempdir().unwrap();
     let root = dir.path();
     let pair = ("ROOFTOP", "ACTUAL");
@@ -667,19 +599,9 @@ fn a_pair_of_two_kinds_folds_into_two_tables_and_a_key_left_out_fails() {
             ["SETTLEMENTDATE", "AREAID", "POWER"],
         ],
     );
-    let region = keyed(
-        "ROOFTOP_PV_ACTUAL",
-        pair,
-        &["SETTLEMENTDATE", "REGIONID"],
-        &[],
-    );
-    let area = keyed(
-        "ROOFTOP_PV_ACTUAL_AREA",
-        pair,
-        &["SETTLEMENTDATE", "AREAID"],
-        &["AREAID"],
-    );
-    let both = Catalog::new(vec![region.clone(), area]).unwrap();
+    let region = taking("ROOFTOP_PV_ACTUAL", pair, &[]);
+    let area = taking("ROOFTOP_PV_ACTUAL_AREA", pair, &["AREAID"]);
+    let both = Catalog::new(vec![region, area]).unwrap();
     let folded = fold(root, Market::Nem, &both, false, None).unwrap();
     assert_eq!((folded.tables, folded.schemas), (2, 2));
     let h: History = serde_json::from_slice(
@@ -687,14 +609,7 @@ fn a_pair_of_two_kinds_folds_into_two_tables_and_a_key_left_out_fails() {
     )
     .unwrap();
     assert!(h.schemas[0].by_name("AREAID").is_some());
-    // With one table for both kinds, the area's schema has no REGIONID.
-    let one = Catalog::new(vec![region]).unwrap();
-    let e = fold(root, Market::Nem, &one, true, None).unwrap_err();
-    assert!(
-        matches!(&e, FoldError::KeyMissing { column, .. } if column == "REGIONID"),
-        "{e}"
-    );
-    assert!(e.to_string().contains("another kind of row"), "{e}");
+    assert!(h.schemas[0].by_name("REGIONID").is_none());
 }
 
 #[test]
@@ -714,7 +629,7 @@ fn a_renamed_column_is_one_field_and_an_undecided_one_fails() {
         pair,
         &[["SETTLEMENTDATE", "DUID", "SPELLED"]],
     );
-    let (path, plain) = keyed("MTPASA_REGIONRESULT", pair, &["SETTLEMENTDATE"], &[]);
+    let (path, plain) = taking("MTPASA_REGIONRESULT", pair, &[]);
     let with = |d: TableDecl| Catalog::new(vec![(path.clone(), d)]).unwrap();
     // Nothing says: the fold names the pair.
     let e = fold(root, Market::Nem, &with(plain.clone()), true, None).unwrap_err();
@@ -810,12 +725,7 @@ fn where_aemos_loader_puts_a_runs_blocks_elsewhere_is_a_note() {
         "version = \"5.7\"\n[[load]]\nreport = [\"ROOFTOP\", \"ACTUAL\"]\nversion = 1\ntable = \"ROOFTOP_PV_ACTUAL\"\ntransaction = \"INSERT\"\n\n[[load]]\nreport = [\"ROOFTOP\", \"ACTUAL\"]\nversion = 2\ntable = \"ROOFTOP_PV_ACTUAL\"\ntransaction = \"INSERT\"\n",
     )
     .unwrap();
-    let area = keyed(
-        "ROOFTOP_PV_ACTUAL_AREA",
-        pair,
-        &["SETTLEMENTDATE", "AREAID"],
-        &["AREAID"],
-    );
+    let area = taking("ROOFTOP_PV_ACTUAL_AREA", pair, &["AREAID"]);
     let folded = fold(
         root,
         Market::Nem,
@@ -849,18 +759,12 @@ fn where_aemos_loader_puts_a_runs_blocks_elsewhere_is_a_note() {
     )
     .unwrap();
     std::fs::write(loads.join("README.md"), "not a release").unwrap();
-    let forecast = keyed(
+    let forecast = taking(
         "ROOFTOP_PV_FORECAST_AREA",
         ("ROOFTOP", "FORECAST"),
-        &["SETTLEMENTDATE", "AREAID"],
         &["AREAID"],
     );
-    let area = keyed(
-        "ROOFTOP_PV_ACTUAL_AREA",
-        pair,
-        &["SETTLEMENTDATE", "AREAID"],
-        &["AREAID"],
-    );
+    let area = taking("ROOFTOP_PV_ACTUAL_AREA", pair, &["AREAID"]);
     let both = Catalog::new(vec![area, forecast]).unwrap();
     let folded = fold(root, Market::Nem, &both, true, None).unwrap();
     let said: Vec<&String> = folded

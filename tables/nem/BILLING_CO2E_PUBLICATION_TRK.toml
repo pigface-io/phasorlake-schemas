@@ -2,7 +2,6 @@
 name = "BILLING_CO2E_PUBLICATION_TRK"
 package = "BILLING_RUN"
 report_pairs = [["BILLING", "BILLING_CO2E_PUBLICATION_TRK"]]
-primary_key = ["CONTRACTYEAR", "WEEKNO"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

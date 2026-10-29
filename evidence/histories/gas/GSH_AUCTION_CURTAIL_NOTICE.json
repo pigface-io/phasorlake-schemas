@@ -40,13 +40,13 @@
         {
           "id": 1,
           "name": "NOTICE_ID",
-          "required": true,
+          "required": false,
           "type": "long"
         },
         {
           "id": 2,
           "name": "FACILITY_ID",
-          "required": true,
+          "required": false,
           "type": "long"
         },
         {
@@ -58,7 +58,7 @@
         {
           "id": 4,
           "name": "AUCTION_SERVICE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -82,13 +82,13 @@
         {
           "id": 8,
           "name": "EFFECTIVE_DATE_TIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 9,
           "name": "GAS_DATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -98,13 +98,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        4,
-        8,
-        2,
-        9,
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

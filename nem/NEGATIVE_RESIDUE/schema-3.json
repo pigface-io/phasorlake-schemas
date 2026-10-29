@@ -25,7 +25,10 @@
     },
     "DIRECTIONAL_INTERCONNECTORID": {
       "description": "Negative residue related direction interconnector id",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(30)"
@@ -115,7 +118,10 @@
     "NRM_DATETIME": {
       "description": "The time that residue information is processed",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -153,17 +159,16 @@
     "SETTLEMENTDATE": {
       "description": "Dispatch Interval",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "NRM_DATETIME",
-    "DIRECTIONAL_INTERCONNECTORID"
-  ],
+  "required": [],
   "title": "NEGATIVE_RESIDUE, Iceberg schema 3",
   "type": "object",
   "x-fields": [
@@ -248,12 +253,7 @@
       "decimal(1, 0)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 3,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

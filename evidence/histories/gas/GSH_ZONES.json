@@ -40,7 +40,7 @@
         {
           "id": 1,
           "name": "ZONE_ID",
-          "required": true,
+          "required": false,
           "type": "long"
         },
         {
@@ -70,13 +70,13 @@
         {
           "id": 6,
           "name": "EFFECTIVEDATE",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
           "id": 7,
           "name": "VERSION_DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -86,11 +86,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        6,
-        7,
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

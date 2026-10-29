@@ -15,7 +15,10 @@
     },
     "FACILITY_ID": {
       "description": "The unique identifier of the parent facility.",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
@@ -33,7 +36,10 @@
     "GAS_DATE": {
       "description": "The effective gas date of the rejected nomination quantity.",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 7,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
@@ -61,7 +67,10 @@
     },
     "SERVICE_POINT_ID": {
       "description": "The unique identifier of the service point.",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
@@ -87,11 +96,7 @@
       "x-model-type": "VARCHAR2(100)"
     }
   },
-  "required": [
-    "FACILITY_ID",
-    "SERVICE_POINT_ID",
-    "GAS_DATE"
-  ],
+  "required": [],
   "title": "GSH_ZONE_CURTAILMENT, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -141,12 +146,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    7,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

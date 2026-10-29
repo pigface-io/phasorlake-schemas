@@ -15,9 +15,12 @@
     },
     "CONTRACTYEAR": {
       "description": "Billing contract year",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(4, 0)",
       "x-model-type": "NUMERIC(4)"
     },
     "LASTCHANGED": {
@@ -33,28 +36,28 @@
     },
     "WEEKNO": {
       "description": "Billing week no",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3)"
     }
   },
-  "required": [
-    "CONTRACTYEAR",
-    "WEEKNO"
-  ],
+  "required": [],
   "title": "BILLING_CO2E_PUBLICATION_TRK, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "CONTRACTYEAR",
-      "long"
+      "decimal(4, 0)"
     ],
     [
       2,
       "WEEKNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
@@ -67,11 +70,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

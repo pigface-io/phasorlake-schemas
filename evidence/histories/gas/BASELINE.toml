@@ -1,2 +1,2 @@
-version = 4
-reason = "Every property and summary key is under phasor., the project's new name; tables otherwise unchanged."
+version = 5
+reason = "A table's key and temporal roles are a reader's: no declaration names them and no table publishes them (no phasor.key, phasor.temporal.* or identifier fields; format 5); every field is optional and typed by its evidence and AEMO's model alone."

@@ -1,17 +1,7 @@
 # The declaration of GBB_NT_LNG_FLOW: first drafted from the census and the data model, kept by hand.
 name = "GBB_NT_LNG_FLOW"
 report_pairs = [["GBB", "NT_LNG_FLOW"]]
-primary_key = []
 time_column = "GAS_DATE"
 load_mode = "append"
 visibility = "PUBLIC"
 model = ["GAS_DAILY_FLOW_ACTUAL"]
-
-[temporal]
-entity = []
-order = []
-origin = "hand"
-
-[temporal.valid]
-column = "GAS_DATE"
-kind = "instant"

@@ -1,17 +1,7 @@
 # The declaration of GBB_FORECAST_UTILISATION: first drafted from the census and the data model, kept by hand.
 name = "GBB_FORECAST_UTILISATION"
 report_pairs = [["GBB", "FORECAST_UTILISATION"]]
-primary_key = []
 time_column = "FORECAST_DATE"
 load_mode = "append"
 visibility = "PUBLIC"
 model = ["GAS_NOMINATIONS_FORECAST_AGG", "GAS_NAMEPLATE_RATING"]
-
-[temporal]
-entity = ["FACILITYID", "RECEIPTLOCATIONID", "DELIVERYLOCATIONID"]
-order = []
-origin = "hand"
-
-[temporal.valid]
-column = "FORECAST_DATE"
-kind = "instant"

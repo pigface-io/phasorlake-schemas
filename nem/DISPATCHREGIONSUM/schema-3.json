@@ -145,9 +145,12 @@
     },
     "DISPATCHINTERVAL": {
       "description": "Dispatch period identifier, from 001 to 288 in format YYYYMMDDPPP.",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 4,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "double",
       "x-model-type": "NUMERIC(22,0)"
     },
     "EXCESSGENERATION": {
@@ -172,9 +175,12 @@
     },
     "INTERVENTION": {
       "description": "Manual Intervention flag",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 5,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(2, 0)",
       "x-model-type": "NUMERIC(2,0)"
     },
     "LASTCHANGED": {
@@ -1060,16 +1066,22 @@
     },
     "REGIONID": {
       "description": "Region Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
     },
     "RUNNO": {
       "description": "Dispatch run no; always 1",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "SEMISCHEDULE_CLEAREDMW": {
@@ -1095,7 +1107,10 @@
     "SETTLEMENTDATE": {
       "description": "Market date and time starting at 04:05",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -1241,13 +1256,7 @@
       "x-model-type": "NUMERIC(15,5)"
     }
   },
-  "required": [
-    "SETTLEMENTDATE",
-    "RUNNO",
-    "REGIONID",
-    "DISPATCHINTERVAL",
-    "INTERVENTION"
-  ],
+  "required": [],
   "title": "DISPATCHREGIONSUM, Iceberg schema 3",
   "type": "object",
   "x-fields": [
@@ -1259,7 +1268,7 @@
     [
       2,
       "RUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
@@ -1269,12 +1278,12 @@
     [
       4,
       "DISPATCHINTERVAL",
-      "long"
+      "double"
     ],
     [
       5,
       "INTERVENTION",
-      "long"
+      "decimal(2, 0)"
     ],
     [
       6,
@@ -1877,14 +1886,7 @@
       "decimal(15, 6)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ],
+  "x-format": 5,
   "x-schema-id": 3,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

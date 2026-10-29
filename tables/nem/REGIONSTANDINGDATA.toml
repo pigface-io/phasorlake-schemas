@@ -2,6 +2,5 @@
 name = "REGIONSTANDINGDATA"
 package = "MARKET_CONFIG"
 report_pairs = [["MARKET_CONFIG", "REGIONSTANDINGDATA"]]
-primary_key = ["EFFECTIVEDATE", "VERSIONNO", "REGIONID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

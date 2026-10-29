@@ -1,7 +1,6 @@
 # The declaration of FPP_RUN: kept by hand.
 name = "FPP_RUN"
 report_pairs = [["FPP", "FPP_RUN"]]
-primary_key = []
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

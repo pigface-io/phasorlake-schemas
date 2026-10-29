@@ -2,7 +2,6 @@
 name = "DISPATCHPRICE"
 package = "DISPATCH"
 report_pairs = [["DISPATCH", "PRICE"]]
-primary_key = ["SETTLEMENTDATE", "RUNNO", "REGIONID", "DISPATCHINTERVAL", "INTERVENTION"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"

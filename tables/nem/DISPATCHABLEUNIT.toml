@@ -2,6 +2,5 @@
 name = "DISPATCHABLEUNIT"
 package = "PARTICIPANT_REGISTRATION"
 report_pairs = [["PARTICIPANT_REGISTRATION", "DISPATCHABLEUNIT"]]
-primary_key = ["DUID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

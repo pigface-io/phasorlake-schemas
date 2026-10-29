@@ -6,7 +6,10 @@
     "AUCTION_DATE": {
       "description": "The date of the auction run. Disregard the time component as this is not applicable.",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
@@ -33,7 +36,10 @@
     },
     "FACILITY_ID": {
       "description": "The unique identifier of the facility.",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
@@ -51,7 +57,10 @@
     "GAS_DATE": {
       "description": "The gas date that the auction quantities and prices are valid for. Disregard the time component as this is not applicable.",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
@@ -79,7 +88,10 @@
     },
     "LIMIT_ID": {
       "description": "The unique identifier of the auction limit.",
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "x-field-id": 5,
       "x-iceberg-type": "long",
       "x-model-type": "NUMBER(8,0)"
@@ -115,12 +127,7 @@
       "x-model-type": "NUMBER(12,4)"
     }
   },
-  "required": [
-    "AUCTION_DATE",
-    "GAS_DATE",
-    "FACILITY_ID",
-    "LIMIT_ID"
-  ],
+  "required": [],
   "title": "GSH_AUCTION_PRICE_VOLUME, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -185,13 +192,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    3,
-    2,
-    5
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

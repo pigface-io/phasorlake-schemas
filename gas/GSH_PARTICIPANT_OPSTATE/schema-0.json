@@ -17,7 +17,10 @@
     "EFFECTIVEDATE": {
       "description": "The Effective date of the Participant Operating State",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
@@ -35,16 +38,22 @@
     },
     "MARKET_ID": {
       "description": "Unique Market ID",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR2(20)"
     },
     "PARTICIPANT_ID": {
       "description": "Unique Participant ID for this market",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(4, 0)",
       "x-model-type": "VARCHAR2(20)"
     },
     "STATUS": {
@@ -60,18 +69,16 @@
     "VERSION_DATETIME": {
       "description": "Versioning with EffectiveDate",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "DATE"
     }
   },
-  "required": [
-    "MARKET_ID",
-    "PARTICIPANT_ID",
-    "EFFECTIVEDATE",
-    "VERSION_DATETIME"
-  ],
+  "required": [],
   "title": "GSH_PARTICIPANT_OPSTATE, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -83,7 +90,7 @@
     [
       2,
       "PARTICIPANT_ID",
-      "long"
+      "decimal(4, 0)"
     ],
     [
       3,
@@ -111,13 +118,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    3,
-    1,
-    2,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

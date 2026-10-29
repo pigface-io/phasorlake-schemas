@@ -15,10 +15,13 @@
       "x-model-type": "VARCHAR2(30)"
     },
     "BASINID": {
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 14,
       "x-header": "BasinId",
-      "x-iceberg-type": "long"
+      "x-iceberg-type": "decimal(5, 0)"
     },
     "BASINNAME": {
       "type": [
@@ -31,10 +34,13 @@
     },
     "COMPANYID": {
       "description": "The company ID of the responsible field owner",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
       "x-header": "CompanyId",
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMBER(10,0)"
     },
     "COMPANYNAME": {
@@ -69,10 +75,13 @@
     },
     "FIELDINTERESTID": {
       "description": "A unique AEMO defined Field Interest Identifier",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
       "x-header": "FieldInterestId",
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(6, 0)",
       "x-model-type": "NUMBER(20,0)"
     },
     "FIELDNAME": {
@@ -181,18 +190,14 @@
       "x-model-type": "DATE"
     }
   },
-  "required": [
-    "FIELDINTERESTID",
-    "COMPANYID",
-    "BASINID"
-  ],
+  "required": [],
   "title": "GBB_FIELD_INTEREST_INFORMATION, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "FIELDINTERESTID",
-      "long"
+      "decimal(6, 0)"
     ],
     [
       2,
@@ -202,7 +207,7 @@
     [
       3,
       "COMPANYID",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       4,
@@ -257,7 +262,7 @@
     [
       14,
       "BASINID",
-      "long"
+      "decimal(5, 0)"
     ],
     [
       15,
@@ -280,12 +285,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    3,
-    14
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

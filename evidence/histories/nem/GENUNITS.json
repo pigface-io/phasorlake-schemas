@@ -85,7 +85,7 @@
         {
           "id": 1,
           "name": "GENSETID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -197,9 +197,7 @@
           "type": "string"
         }
       ],
-      "identifier-field-ids": [
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -208,7 +206,7 @@
         {
           "id": 1,
           "name": "GENSETID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -338,9 +336,7 @@
           "type": "decimal(15, 5)"
         }
       ],
-      "identifier-field-ids": [
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     }

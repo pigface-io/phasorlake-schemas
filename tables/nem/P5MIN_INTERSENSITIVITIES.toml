@@ -1,7 +1,6 @@
 # The declaration of P5MIN_INTERSENSITIVITIES: kept by hand.
 name = "P5MIN_INTERSENSITIVITIES"
 report_pairs = [["P5MIN", "INTERSENSITIVITIES"]]
-primary_key = []
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

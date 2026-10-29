@@ -6,7 +6,10 @@
     "INTERVAL_DATETIME": {
       "description": "Date time interval for operational demand value",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -44,7 +47,10 @@
     },
     "REGIONID": {
       "description": "Region identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -60,10 +66,7 @@
       "x-model-type": "NUMERIC(10)"
     }
   },
-  "required": [
-    "INTERVAL_DATETIME",
-    "REGIONID"
-  ],
+  "required": [],
   "title": "DEMANDOPERATIONALACTUAL, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -98,11 +101,7 @@
       "decimal(10, 0)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

@@ -74,7 +74,6 @@ pub fn document(
         "x-format": FORMAT,
         "x-table": {"name": table, "$ref": METADATA},
         "x-schema-id": schema.schema_id,
-        "x-identifier-field-ids": schema.identifier_field_ids,
         "x-fields": schema
             .fields
             .iter()

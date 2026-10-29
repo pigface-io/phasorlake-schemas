@@ -2,6 +2,5 @@
 name = "MARKETNOTICETYPE"
 package = "MARKET_NOTICE"
 report_pairs = [["MARKET_NOTICE", "MARKETNOTICETYPE"]]
-primary_key = ["TYPEID"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

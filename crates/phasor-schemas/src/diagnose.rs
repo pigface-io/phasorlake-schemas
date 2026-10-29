@@ -171,15 +171,6 @@ impl Diagnose for FoldError {
                 Diagnostic::error("history.published_unreadable", HISTORY, msg)
                     .with_file(path.clone())
             }
-            Self::KeyMissing {
-                table,
-                column,
-                file,
-                ..
-            } => Diagnostic::error("history.key_missing", HISTORY, msg)
-                .with_table(table.clone())
-                .with_column(column.clone())
-                .with_file(file.clone()),
             Self::RenameUndecided { .. } => {
                 Diagnostic::error("history.rename_undecided", HISTORY, msg)
             }
@@ -282,10 +273,6 @@ impl Diagnose for ExportError {
             Self::Census(e) => e.diagnostic(),
             Self::History { path, .. } => {
                 Diagnostic::error("export.history_unreadable", EXPORT, msg).with_file(path.clone())
-            }
-            Self::Declaration { table, .. } => {
-                Diagnostic::error("export.declaration_invalid", EXPORT, msg)
-                    .with_table(table.clone())
             }
             Self::Publish { table, source } => source.diagnostic().with_table(table.clone()),
             Self::Io { path, source } => Diagnostic::error("export.io", EXPORT, msg)
@@ -521,12 +508,6 @@ mod tests {
                 path: "p".into(),
                 message: "m".into(),
             },
-            FoldError::KeyMissing {
-                table: "T".into(),
-                column: "K".into(),
-                schema_id: 2,
-                file: "f".into(),
-            },
             FoldError::RenameUndecided {
                 undecided: Vec::new(),
             },
@@ -542,7 +523,6 @@ mod tests {
                 "models.zip_unreadable",
                 "history.breaks_published",
                 "history.published_unreadable",
-                "history.key_missing",
                 "history.rename_undecided",
                 "history.write_failed"
             ]
@@ -625,10 +605,6 @@ mod tests {
                 path: "p".into(),
                 message: "m".into(),
             },
-            ExportError::Declaration {
-                table: "T".into(),
-                message: "m".into(),
-            },
             ExportError::Publish {
                 table: "T".into(),
                 source: PublishError::UnknownSchema(1),
@@ -646,7 +622,6 @@ mod tests {
                 "census.empty_dir",
                 "census.empty_dir",
                 "export.history_unreadable",
-                "export.declaration_invalid",
                 "store.iceberg_metadata",
                 "export.io"
             ]

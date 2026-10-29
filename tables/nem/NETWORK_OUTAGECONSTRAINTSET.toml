@@ -2,7 +2,6 @@
 name = "NETWORK_OUTAGECONSTRAINTSET"
 package = "NETWORK"
 report_pairs = [["NETWORK", "OUTAGECONSTRAINTSET"]]
-primary_key = ["OUTAGEID", "GENCONSETID"]
 time_column = "STARTINTERVAL"
 load_mode = "append"
 visibility = "PUBLIC"

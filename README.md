@@ -17,7 +17,7 @@ derives them is here, so anyone can check the result or improve it.
 
 | Path                  | What it holds                                                                                                                                |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tables/{market}/`    | One hand-kept declaration per table of a market (`nem`, `wem`, `gas`): its report pairs, key, time column, load mode, visibility, any column typed by hand, and its temporal roles only when a person set them (`[temporal]`); otherwise the export derives them from the key and the columns. |
+| `tables/{market}/`    | One hand-kept declaration per table of a market (`nem`, `wem`, `gas`): its report pairs, time column, load mode, visibility and any column typed by hand. What one row of a table is (its key) and how its restatements are ordered (its temporal roles) are a reader's decisions, and not this repository's. |
 | `sources/`             | Every file the evidence was taken from, per month: its URL, SHA-256, size and the time the server says it was published.                       |
 | `evidence/census/`    | For every block of every file AEMO published: its header, row count, data span and a profile of each column's values, with each month's control files. No row is copied. |
 | `evidence/models/`    | The data-model create scripts the monthly archives ship: each release's tables, columns, types and comments.                                 |
@@ -157,10 +157,10 @@ id, `current-schema-id`), the metadata carries, as strings:
 
 | Where                       | Key                                                                                   | What it holds                                                                                                                                                      |
 | --------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `properties`                | `phasor.format`, `phasor.table`                                                     | The layout's generation (4) and the table's name.                                                                                                                  |
+| `properties`                | `phasor.format`, `phasor.table`                                                     | The layout's generation (5) and the table's name.                                                                                                                  |
 | `properties`                | `phasor.market`, `phasor.offset`                                                    | The market (`wem`, `gas`) and its clock (`+08:00`, `+10:00`), for a table that is not the NEM's; a NEM table carries neither, and reads at `+10:00`.                 |
 | `properties`                | `phasor.headers`, `phasor.model`                                                    | The header a file wrote for a column named from it (`{field id: "Load Forecast (MW)"}`), and the data-model tables whose words describe a table not named in the model (a JSON array); only when there are any. |
-| `properties`                | `phasor.declared`                                                                    | Whether `tables/{market}/` declares the table. When `true`: `phasor.package`, `phasor.reports` (`[[type, subtype], …]`), `phasor.with-columns` (the columns a block of those pairs must hold to be this table's, when a pair carries two kinds of row; absent for every block), `phasor.key`, `phasor.time`, `phasor.load`, `phasor.visibility`, `phasor.temporal.valid.kind`, `phasor.temporal.valid.column`, `phasor.temporal.valid.until` (a `from` table's end column, when it has one), `phasor.temporal.entity`, `phasor.temporal.order`, `phasor.temporal.cutoff`, `phasor.temporal.origin`. Every list is a JSON array. |
+| `properties`                | `phasor.declared`                                                                    | Whether `tables/{market}/` declares the table. When `true`: `phasor.package`, `phasor.reports` (`[[type, subtype], …]`), `phasor.with-columns` (the columns a block of those pairs must hold to be this table's, when a pair carries two kinds of row; absent for every block), `phasor.time`, `phasor.load`, `phasor.visibility`. Every list is a JSON array. No key or temporal roles are published, and no schema has identifier fields: every field is optional. |
 | `properties`                | `comment`, `phasor.model-types`                                                      | What the table holds and each column's type (`{field id: "NUMERIC(16,6)"}`) in the latest data-model release that has them; each column's words are its field's `doc`. |
 | `properties`                | `phasor.breaks`                                                                      | The columns whose values left their field's type: `[{column, old-field-id, old-type, new-field-id, new-type, at: {file, sha256, release, data-time}}]`.             |
 | each snapshot's `summary`   | `phasor.report-type`, `phasor.report-subtype`, `phasor.version`, `phasor.kinds`  | The run's report pair, AEMO version and the kinds of file it came in. For a file without MMS rows the report type is its feed (`GBB`, `STTM`, `DWGM`, `WEM`, `WEMDE`), the subtype the file's stem (`ACTUAL_FLOW_STORAGE`, `INT651_EX_ANTE_MARKET_PRICE_RPT_1`, `REFERENCE_TRADING_PRICE_REFERENCE_TRADING_PRICES`) and the version its `_vN`, else 1. |
@@ -267,8 +267,8 @@ two kinds:
 - **Two kinds of row under one pair**: a second table with
   `with_columns = ["AREAID"]` takes the pair's blocks that hold those
   columns, as the `*_AREA` tables take AEMO's area reports from the
-  regional tables. The fold fails when a schema of a declared table lacks
-  a column of its key, naming the file: that is how such a pair shows.
+  regional tables. A reader's key that holds for one kind of row and not
+  the other is how such a pair shows.
 - **A rename**: a `[[rename]]` (`from`, `to`, `evidence`) makes a column
   AEMO renamed one field under both names, Iceberg's rename (the run
   records `rename`). Two names one block holds are refused as a rename.

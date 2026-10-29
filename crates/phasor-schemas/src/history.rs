@@ -30,10 +30,10 @@
 //!   would turn more digits after the point into a new field (Iceberg
 //!   cannot widen a scale); nulls fit any type, and a column's values are
 //!   all known when the census is folded.
-//! - **A key column is required** until a file holds a row without it, and
-//!   optional from then on.
-//! - **Schemas are interned:** one with the same columns, order and key as
-//!   an earlier one is that one, with its id.
+//! - **Every field is optional:** what one row is, and so which columns
+//!   may not be null, is a reader's to say.
+//! - **Schemas are interned:** one with the same columns and order as an
+//!   earlier one is that one, with its id.
 //!
 //! Consecutive observations with the same schema, report version and
 //! report pair fold into a run, with the kinds of file it came in (the
@@ -66,8 +66,8 @@
 //!   Three cases are not kept, and are stated here: the evidence of a file
 //!   already published is taken as unchanged (a re-census that changes it
 //!   is a new field, named by the check only when the file began a run);
-//!   a key column null in a backfill before a published required field is
-//!   its own, optional, field; and two blocks of one file with the same
+//!   a column null in a backfill before a published required field is its
+//!   own, optional, field; and two blocks of one file with the same
 //!   report pair and version are covered from the first to the last,
 //!   unless each marks a run of its own, told apart by its data time.
 //! - **An override** (`[[override]]` in the table's declaration) is the
@@ -94,13 +94,11 @@ use crate::shape::TypeClass;
 /// precision and scale by column name.
 pub type Numeric = BTreeMap<String, (u8, u8)>;
 
-/// What is declared beyond the control files: each table's key and
-/// overrides, and the numeric columns of every data-model release by the
+/// What is declared beyond the control files: each table's overrides
+/// and renames, and the numeric columns of every data-model release by the
 /// month it appeared.
 #[derive(Debug, Clone, Default)]
 pub struct Declarations {
-    /// Key columns by table.
-    pub keys: BTreeMap<String, Vec<String>>,
     /// Columns typed by hand, by table.
     pub overrides: BTreeMap<String, BTreeMap<String, IcebergType>>,
     /// Renamed columns by table: each new name to the name it had.
@@ -188,8 +186,9 @@ pub enum HistoryError {
 /// Fails at the first observation that [`History::resolve`] gives a schema
 /// with other fields than the one the fold gave it (`schemas`, one per
 /// observation): the lake reads a block with the schema it resolves to. A
-/// schema that differs only in which fields are required (a key column
-/// that took a null later in the month) reads the block the same.
+/// schema that differs only in which fields are required (a published
+/// required field that took a null later in the month) reads the block the
+/// same.
 fn unresolved(h: &History, obs: &[Obs], schemas: &[u32]) -> Result<(), HistoryError> {
     let ids = |s: Option<u32>| {
         s.and_then(|s| h.schema(s))
@@ -362,7 +361,6 @@ impl Observations {
             obs.sort_by(|a, b| a.key.cmp(&b.key));
             let no_renames = BTreeMap::new();
             let rules = Rules {
-                key: d.keys.get(&table).map_or(&[][..], Vec::as_slice),
                 overrides: d.overrides.get(&table).unwrap_or(&none),
                 renames: d.renames.get(&table).unwrap_or(&no_renames),
                 published: published.get(&table),
@@ -463,7 +461,7 @@ fn instant(text: Option<&str>) -> Option<i64> {
     Some(days * 86_400 + h * 3600 + mi * 60 + s - offset)
 }
 
-fn declared(ctl: TypeClass, numeric: Option<(u8, u8)>, key: bool) -> Declared {
+fn declared(ctl: TypeClass, numeric: Option<(u8, u8)>) -> Declared {
     let (precision, scale) = numeric.map_or((None, None), |(p, s)| (Some(p), Some(s)));
     Declared {
         whole: scale == Some(0) || ctl == TypeClass::Integer,
@@ -471,7 +469,6 @@ fn declared(ctl: TypeClass, numeric: Option<(u8, u8)>, key: bool) -> Declared {
         precision,
         scale,
         fallback: fallback(precision, scale),
-        key,
     }
 }
 
@@ -495,7 +492,6 @@ fn widest(a: Declared, b: Declared) -> Declared {
         precision,
         scale,
         fallback: fallback(precision, scale).or(b.fallback).or(a.fallback),
-        key: a.key || b.key,
     }
 }
 
@@ -507,7 +503,6 @@ fn ends(old: Kind, new: Kind) -> bool {
 
 /// What sets a table's types beyond the rule.
 struct Rules<'a> {
-    key: &'a [String],
     overrides: &'a BTreeMap<String, IcebergType>,
     /// Each new name of a renamed column to the name it had.
     renames: &'a BTreeMap<String, String>,
@@ -658,7 +653,6 @@ fn fold_table(
     d: &Declarations,
     obs: &[Obs],
 ) -> Result<(History, Vec<u32>), HistoryError> {
-    let key = rules.key;
     let covered = coverage(rules.published, obs);
     // Each column's observations, and where its values turn to text: a
     // renamed column's under the name it had, so both names are one field.
@@ -678,11 +672,7 @@ fn fold_table(
     for (i, o) in obs.iter().enumerate() {
         let numeric = d.numeric(table, o.month);
         for (j, name) in o.columns.iter().enumerate() {
-            let declared = declared(
-                o.ctl[j],
-                numeric.and_then(|n| n.get(name)).copied(),
-                key.contains(name),
-            );
+            let declared = declared(o.ctl[j], numeric.and_then(|n| n.get(name)).copied());
             let c = columns.entry(rules.lineage(name)).or_default();
             let seen = o.evidence[j];
             if ends(c.kind, seen.kind) && !rules.overrides.contains_key(name) {
@@ -794,7 +784,7 @@ fn fold_table(
                 c.field = Some(next);
             }
             let Lineage { id, ty, .. } = c.field.expect("a lineage was started");
-            let req = required.entry(id).or_insert_with(|| key.contains(name));
+            let req = required.entry(id).or_insert(false);
             *req &= o.nulls[j] == 0;
             fields.push(Field {
                 id,
@@ -804,18 +794,11 @@ fn fold_table(
                 doc: None,
             });
         }
-        // Iceberg's identifier fields are required; a key column that took
-        // a null leaves the key until the schema says otherwise.
-        let identifier_field_ids = key
-            .iter()
-            .filter_map(|c| fields.iter().find(|f| &f.name == c && f.required))
-            .map(|f| f.id)
-            .collect();
         let schema = Schema {
             schema_id: 0,
             last_column_id: fields.iter().map(|f| f.id).max().unwrap_or(0),
             fields,
-            identifier_field_ids,
+            identifier_field_ids: Vec::new(),
         };
         let id = match out.schemas.iter().find(|s| s.same_as(&schema)) {
             Some(s) => s.schema_id,

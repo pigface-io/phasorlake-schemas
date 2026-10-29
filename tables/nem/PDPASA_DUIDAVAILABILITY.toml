@@ -1,7 +1,6 @@
 # The declaration of PDPASA_DUIDAVAILABILITY: kept by hand.
 name = "PDPASA_DUIDAVAILABILITY"
 report_pairs = [["PDPASA", "DUIDAVAILABILITY"]]
-primary_key = []
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

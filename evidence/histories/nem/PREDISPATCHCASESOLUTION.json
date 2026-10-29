@@ -42,14 +42,14 @@
         {
           "id": 1,
           "name": "PREDISPATCHSEQNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(10, 0)"
         },
         {
           "id": 2,
           "name": "RUNNO",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(3, 0)"
         },
         {
           "id": 3,
@@ -160,10 +160,7 @@
           "type": "decimal(2, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

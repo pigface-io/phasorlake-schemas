@@ -1,14 +1,5 @@
 # The declaration of DWGM_INT112C_SSC: first drafted from the census and the data model, kept by hand.
 name = "DWGM_INT112C_SSC"
 report_pairs = [["DWGM", "INT112C_SSC_1"]]
-primary_key = []
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-entity = ["SSC_ID"]
-order = ["CURRENT_DATE"]
-origin = "hand"
-
-[temporal.valid]
-kind = "timeless"

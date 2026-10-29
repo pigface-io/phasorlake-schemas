@@ -35,16 +35,22 @@
     },
     "BILLRUNNO": {
       "description": "Sequential run number",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "CONTRACTYEAR": {
       "description": "Year of the run",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(4, 0)",
       "x-model-type": "NUMERIC(4,0)"
     },
     "LASTCHANGED": {
@@ -152,34 +158,33 @@
     },
     "WEEKNO": {
       "description": "Week number of the run",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     }
   },
-  "required": [
-    "CONTRACTYEAR",
-    "WEEKNO",
-    "BILLRUNNO"
-  ],
+  "required": [],
   "title": "BILLINGRUNTRK, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "CONTRACTYEAR",
-      "long"
+      "decimal(4, 0)"
     ],
     [
       2,
       "WEEKNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
       "BILLRUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       4,
@@ -247,12 +252,7 @@
       "decimal(15, 8)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

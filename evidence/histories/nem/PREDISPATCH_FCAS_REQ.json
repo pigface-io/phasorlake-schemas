@@ -65,19 +65,19 @@
         {
           "id": 5,
           "name": "GENCONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 6,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
           "id": 7,
           "name": "BIDTYPE",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -101,7 +101,7 @@
         {
           "id": 11,
           "name": "DATETIME",
-          "required": true,
+          "required": false,
           "type": "timestamptz"
         },
         {
@@ -147,12 +147,7 @@
           "type": "decimal(18, 8)"
         }
       ],
-      "identifier-field-ids": [
-        5,
-        6,
-        7,
-        11
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }

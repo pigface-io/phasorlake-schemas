@@ -2,7 +2,6 @@
 name = "AUCTION_CALENDAR"
 package = "IRAUCTION"
 report_pairs = [["IRAUCTION_CONFIG", "AUCTION_CALENDAR"]]
-primary_key = ["CONTRACTYEAR", "QUARTER"]
 time_column = "LASTCHANGED"
 load_mode = "append"
 visibility = "PUBLIC"

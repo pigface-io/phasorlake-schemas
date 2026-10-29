@@ -119,13 +119,13 @@
         {
           "id": 1,
           "name": "APEVENTID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "double"
         },
         {
           "id": 2,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -189,10 +189,7 @@
           "type": "decimal(1, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     },
@@ -201,13 +198,13 @@
         {
           "id": 1,
           "name": "APEVENTID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "double"
         },
         {
           "id": 2,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -283,10 +280,7 @@
           "type": "decimal(1, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 1,
       "type": "struct"
     },
@@ -295,13 +289,13 @@
         {
           "id": 1,
           "name": "APEVENTID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "double"
         },
         {
           "id": 2,
           "name": "REGIONID",
-          "required": true,
+          "required": false,
           "type": "string"
         },
         {
@@ -377,10 +371,7 @@
           "type": "decimal(3, 0)"
         }
       ],
-      "identifier-field-ids": [
-        1,
-        2
-      ],
+      "identifier-field-ids": [],
       "schema-id": 2,
       "type": "struct"
     }

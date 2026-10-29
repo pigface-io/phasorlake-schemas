@@ -1,17 +1,6 @@
 # The declaration of GSH_HISTORICAL_SUMMARY: first drafted from the census and the data model, kept by hand.
 name = "GSH_HISTORICAL_SUMMARY"
 report_pairs = [["GSH", "HISTORICAL_SUMMARY"]]
-primary_key = ["GAS_DATE", "PRODUCT_LOCATION"]
 time_column = "GAS_DATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-cutoff = "LASTCHANGED"
-entity = ["PRODUCT_LOCATION"]
-order = ["LASTCHANGED"]
-origin = "hand"
-
-[temporal.valid]
-column = "GAS_DATE"
-kind = "instant"

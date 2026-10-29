@@ -134,7 +134,10 @@
     },
     "MARKET_ID": {
       "description": "The market in which the company is a participant, for example GSH, DAA, ALL.",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 20,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR2(20)"
@@ -171,9 +174,12 @@
     },
     "PARTICIPANT_ID": {
       "description": "The unique identifier of the participant",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(4, 0)",
       "x-model-type": "VARCHAR2(20)"
     },
     "PHONE_NUMBER": {
@@ -197,10 +203,7 @@
       "x-model-type": "VARCHAR2(80)"
     }
   },
-  "required": [
-    "PARTICIPANT_ID",
-    "MARKET_ID"
-  ],
+  "required": [],
   "title": "GSH_PARTICIPANTS, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -212,7 +215,7 @@
     [
       2,
       "PARTICIPANT_ID",
-      "long"
+      "decimal(4, 0)"
     ],
     [
       3,
@@ -305,11 +308,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    20,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

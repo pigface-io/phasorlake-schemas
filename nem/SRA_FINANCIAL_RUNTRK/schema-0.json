@@ -68,48 +68,53 @@
     },
     "SRA_QUARTER": {
       "description": "Relevant Quarter of the Tranche",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3)"
     },
     "SRA_RUNNO": {
       "description": "SRA Run Number",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 3,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3)"
     },
     "SRA_YEAR": {
       "description": "Year of the Tranche",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(4, 0)",
       "x-model-type": "NUMERIC(4)"
     }
   },
-  "required": [
-    "SRA_YEAR",
-    "SRA_QUARTER",
-    "SRA_RUNNO"
-  ],
+  "required": [],
   "title": "SRA_FINANCIAL_RUNTRK, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "SRA_YEAR",
-      "long"
+      "decimal(4, 0)"
     ],
     [
       2,
       "SRA_QUARTER",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       3,
       "SRA_RUNNO",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       4,
@@ -142,12 +147,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

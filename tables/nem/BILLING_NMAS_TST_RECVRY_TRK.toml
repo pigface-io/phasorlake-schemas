@@ -2,6 +2,5 @@
 name = "BILLING_NMAS_TST_RECVRY_TRK"
 package = "BILLING_RUN"
 report_pairs = [["BILLING", "NMAS_TST_RECVRY_TRK"]]
-primary_key = ["CONTRACTYEAR", "WEEKNO", "BILLRUNNO", "RECOVERY_CONTRACTYEAR", "RECOVERY_WEEKNO", "RECOVERY_BILLRUNNO"]
 load_mode = "append"
 visibility = "PUBLIC"

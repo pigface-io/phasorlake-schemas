@@ -4,10 +4,13 @@
   "additionalProperties": false,
   "properties": {
     "COMPANYID": {
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 5,
       "x-header": "CompanyId",
-      "x-iceberg-type": "long"
+      "x-iceberg-type": "decimal(3, 0)"
     },
     "EFFECTIVEDATE": {
       "description": "Gas date that corresponding record takes effect",
@@ -23,10 +26,13 @@
     },
     "FACILITYID": {
       "description": "A unique AEMO defined Facility Identifier",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 2,
       "x-header": "FacilityId",
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(6, 0)",
       "x-model-type": "NUMBER(20,0)"
     },
     "FACILITYNAME": {
@@ -78,10 +84,7 @@
       "x-model-type": "VARCHAR2(200)"
     }
   },
-  "required": [
-    "FACILITYID",
-    "COMPANYID"
-  ],
+  "required": [],
   "title": "GBB_SHIPPERS_LIST, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -93,7 +96,7 @@
     [
       2,
       "FACILITYID",
-      "long"
+      "decimal(6, 0)"
     ],
     [
       3,
@@ -108,7 +111,7 @@
     [
       5,
       "COMPANYID",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       6,
@@ -126,11 +129,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    2,
-    5
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

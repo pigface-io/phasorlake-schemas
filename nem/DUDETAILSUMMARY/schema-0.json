@@ -35,7 +35,10 @@
     },
     "DUID": {
       "description": "Dispatchable Unit Identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -125,7 +128,10 @@
     "START_DATE": {
       "description": "Start date for effective record",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
@@ -151,10 +157,7 @@
       "x-model-type": "NUMERIC(15,5)"
     }
   },
-  "required": [
-    "DUID",
-    "START_DATE"
-  ],
+  "required": [],
   "title": "DUDETAILSUMMARY, Iceberg schema 0",
   "type": "object",
   "x-fields": [
@@ -234,11 +237,7 @@
       "string"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

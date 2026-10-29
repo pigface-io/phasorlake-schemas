@@ -2,7 +2,6 @@
 name = "INTERMITTENT_FORECAST_TRK"
 package = "DISPATCH"
 report_pairs = [["DISPATCH", "INTERMITTENT_FORECAST_TRK"]]
-primary_key = ["SETTLEMENTDATE", "DUID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"

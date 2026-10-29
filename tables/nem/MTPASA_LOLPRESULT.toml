@@ -2,7 +2,6 @@
 name = "MTPASA_LOLPRESULT"
 package = "MTPASA"
 report_pairs = [["MTPASA", "LOLPRESULT"]]
-primary_key = ["RUN_DATETIME", "RUN_NO", "RUNTYPE", "DAY", "REGIONID"]
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

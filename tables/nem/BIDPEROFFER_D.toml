@@ -2,17 +2,9 @@
 name = "BIDPEROFFER_D"
 package = "BIDS"
 report_pairs = [["BID", "BIDPEROFFER_D"]]
-primary_key = ["SETTLEMENTDATE", "DUID", "BIDTYPE", "INTERVAL_DATETIME"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-# SETTLEMENTDATE labels the trading day the rows are for (04:00 to 04:00 the next day), written at midnight.
-[temporal]
-entity = ["DUID", "BIDTYPE", "INTERVAL_DATETIME"]
-order = ["OFFERDATE", "VERSIONNO", "LASTCHANGED"]
-cutoff = "LASTCHANGED"
-valid = { kind = "day", column = "SETTLEMENTDATE" }
 
 [[distinct]]
 columns = ["MR_CAPACITY", "RECALL_PERIOD"]

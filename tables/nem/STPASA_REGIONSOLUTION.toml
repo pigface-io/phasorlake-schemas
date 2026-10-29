@@ -2,7 +2,6 @@
 name = "STPASA_REGIONSOLUTION"
 package = "STPASA_SOLUTION"
 report_pairs = [["STPASA", "REGIONSOLUTION"]]
-primary_key = ["RUN_DATETIME", "INTERVAL_DATETIME", "REGIONID", "RUNTYPE"]
 time_column = "INTERVAL_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

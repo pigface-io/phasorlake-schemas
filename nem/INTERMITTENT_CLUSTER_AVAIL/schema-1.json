@@ -5,14 +5,20 @@
   "properties": {
     "CLUSTERID": {
       "description": "Unique Cluster Identifier for this cluster within the DUID",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 4,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
     },
     "DUID": {
       "description": "Unique Identifier of Dispatchable Unit",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -40,34 +46,37 @@
     "OFFERDATETIME": {
       "description": "Date and Time when this cluster availability submission was loaded",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     },
     "PERIODID": {
       "description": "Trading interval number (1…48) within this TRADINGDATE for which ELEMENTS_UNAVAILABLE applies",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 5,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(3, 0)",
       "x-model-type": "NUMERIC(3,0)"
     },
     "TRADINGDATE": {
       "description": "The trading day to which the availability submission applies",
       "format": "date-time",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 1,
       "x-iceberg-type": "timestamptz",
       "x-model-type": "TIMESTAMP(0)"
     }
   },
-  "required": [
-    "DUID",
-    "TRADINGDATE",
-    "OFFERDATETIME",
-    "CLUSTERID",
-    "PERIODID"
-  ],
+  "required": [],
   "title": "INTERMITTENT_CLUSTER_AVAIL, Iceberg schema 1",
   "type": "object",
   "x-fields": [
@@ -94,7 +103,7 @@
     [
       5,
       "PERIODID",
-      "long"
+      "decimal(3, 0)"
     ],
     [
       6,
@@ -107,14 +116,7 @@
       "decimal(5, 0)"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ],
+  "x-format": 5,
   "x-schema-id": 1,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

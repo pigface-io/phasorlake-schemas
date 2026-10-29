@@ -5,8 +5,8 @@
 //! ```
 //!
 //! A declaration says which report pairs a table is published under, its
-//! key and time column, its temporal roles when a person set them, how it is
-//! loaded, its visibility, and any column whose type is set by hand
+//! time column, how it is loaded, its visibility, and any column whose type
+//! is set by hand
 //! (`[[override]]`, applied by the fold). The census asks it for the table
 //! of a report pair and for that table's time column; a pair no table
 //! declares is recorded under `{TYPE}_{SUBTYPE}` (`{TYPE}` when the
@@ -137,8 +137,6 @@ pub struct TableDecl {
     /// block goes to the most specific table whose columns it holds.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub with_columns: Vec<String>,
-    /// Its key, in order; empty for none.
-    pub primary_key: Vec<String>,
     /// The column a block's time span is of.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub time_column: Option<String>,
@@ -146,11 +144,6 @@ pub struct TableDecl {
     pub load_mode: LoadMode,
     /// Who may see it, as AEMO's control files say (`PUBLIC`).
     pub visibility: String,
-    /// Its temporal roles (`valid`, `entity`, `order`, `cutoff`) when a
-    /// person set them, as written; absent, the publisher derives them
-    /// from the key and the columns ([`phasor_iceberg::derive()`]).
-    #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub temporal: Option<toml::Table>,
     /// Columns typed by hand.
     #[serde(default, rename = "override", skip_serializing_if = "Vec::is_empty")]
     pub overrides: Vec<Override>,
@@ -404,11 +397,9 @@ pub(crate) mod tests {
             package: None,
             report_pairs: vec![[pair.0.into(), pair.1.into()]],
             with_columns: Vec::new(),
-            primary_key: vec!["SETTLEMENTDATE".into()],
             time_column: time.map(str::to_owned),
             load_mode: LoadMode::Append,
             visibility: "PUBLIC".into(),
-            temporal: None,
             overrides: Vec::new(),
             renames: Vec::new(),
             distinct: Vec::new(),
@@ -433,16 +424,9 @@ pub(crate) mod tests {
     const SCADA: &str = r#"
 name = "DISPATCH_UNIT_SCADA"
 report_pairs = [["DISPATCH", "UNIT_SCADA"]]
-primary_key = ["SETTLEMENTDATE", "DUID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"
-
-[temporal]
-entity = ["DUID"]
-valid = { kind = "interval_end", column = "SETTLEMENTDATE" }
-order = ["LASTCHANGED"]
-cutoff = "LASTCHANGED"
 
 [[override]]
 column = "SCADAVALUE"
@@ -462,13 +446,9 @@ reason = "Six places are what AEMO measures."
         assert_eq!(c.tables().len(), 2);
         let t = c.declared_by_pair("DISPATCH", "UNIT_SCADA", NONE).unwrap();
         assert_eq!(t.time_column.as_deref(), Some("SETTLEMENTDATE"));
-        assert_eq!(t.primary_key, ["SETTLEMENTDATE", "DUID"]);
-        let roles = t.temporal.as_ref().unwrap();
-        assert_eq!(roles["cutoff"].as_str(), Some("LASTCHANGED"));
-        assert!(
-            c.table("DISPATCHPRICE").unwrap().temporal.is_none(),
-            "no block: the publisher derives the roles"
-        );
+        // A key or roles are a reader's, not a declaration's.
+        let keyed = format!("{SCADA}\nprimary_key = [\"DUID\"]\n");
+        assert!(toml::from_str::<TableDecl>(&keyed).is_err());
         assert_eq!(
             t.overrides[0].iceberg_type(),
             IcebergType::decimal(16, 6),

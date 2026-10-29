@@ -2,6 +2,5 @@
 name = "MARKET_PRICE_THRESHOLDS"
 package = "MARKET_CONFIG"
 report_pairs = [["MARKET_CONFIG", "MARKET_PRICE_THRESHOLDS"]]
-primary_key = ["EFFECTIVEDATE", "VERSIONNO"]
 load_mode = "snapshot"
 visibility = "PUBLIC"

@@ -2,7 +2,6 @@
 name = "PREDISPATCH_MNSPBIDTRK"
 package = "PRE_DISPATCH"
 report_pairs = [["PREDISPATCH", "MNSPBIDTRK"]]
-primary_key = ["PREDISPATCHSEQNO", "LINKID", "PERIODID"]
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"

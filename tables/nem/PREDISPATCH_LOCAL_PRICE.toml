@@ -2,7 +2,6 @@
 name = "PREDISPATCH_LOCAL_PRICE"
 package = "PRE_DISPATCH"
 report_pairs = [["PREDISPATCH", "LOCAL_PRICE"]]
-primary_key = ["DATETIME", "DUID"]
 time_column = "DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

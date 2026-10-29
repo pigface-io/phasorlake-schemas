@@ -2,7 +2,6 @@
 name = "PREDISPATCHREGIONSUM"
 package = "PRE_DISPATCH"
 report_pairs = [["PREDISPATCH", "REGION_SOLUTION"]]
-primary_key = ["REGIONID", "DATETIME"]
 time_column = "DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

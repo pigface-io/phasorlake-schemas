@@ -27,7 +27,10 @@
     },
     "BIDTYPE": {
       "description": "Bid type Identifier - the ancillary service to which the bid applies",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 3,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(20)"
@@ -45,7 +48,10 @@
     },
     "DUID": {
       "description": "Dispatchable Unit identifier",
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "x-field-id": 2,
       "x-iceberg-type": "string",
       "x-model-type": "VARCHAR(10)"
@@ -63,32 +69,33 @@
     },
     "PERIODID": {
       "description": "PERIODID is just a period count, starting from 1 for each predispatch run. Use DATETIME to determine half hour period.",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 4,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(10, 0)",
       "x-model-type": "VARCHAR(20)"
     },
     "PREDISPATCHSEQNO": {
       "description": "Unique identifier of predispatch run in the form YYYYMMDDPP with 01 at 04:30",
-      "type": "integer",
+      "type": [
+        "number",
+        "null"
+      ],
       "x-field-id": 1,
-      "x-iceberg-type": "long",
+      "x-iceberg-type": "decimal(10, 0)",
       "x-model-type": "VARCHAR(20)"
     }
   },
-  "required": [
-    "PREDISPATCHSEQNO",
-    "DUID",
-    "BIDTYPE",
-    "PERIODID"
-  ],
+  "required": [],
   "title": "PREDISPATCHOFFERTRK, Iceberg schema 0",
   "type": "object",
   "x-fields": [
     [
       1,
       "PREDISPATCHSEQNO",
-      "long"
+      "decimal(10, 0)"
     ],
     [
       2,
@@ -103,7 +110,7 @@
     [
       4,
       "PERIODID",
-      "long"
+      "decimal(10, 0)"
     ],
     [
       5,
@@ -126,13 +133,7 @@
       "timestamptz"
     ]
   ],
-  "x-format": 4,
-  "x-identifier-field-ids": [
-    1,
-    2,
-    3,
-    4
-  ],
+  "x-format": 5,
   "x-schema-id": 0,
   "x-table": {
     "$ref": "metadata/v1.metadata.json",

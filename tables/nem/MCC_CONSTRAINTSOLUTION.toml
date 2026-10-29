@@ -2,7 +2,6 @@
 name = "MCC_CONSTRAINTSOLUTION"
 package = "MCC_DISPATCH"
 report_pairs = [["MCC", "CONSTRAINTSOLUTION"]]
-primary_key = ["RUN_DATETIME", "CONSTRAINTID"]
 time_column = "RUN_DATETIME"
 load_mode = "append"
 visibility = "PUBLIC"

@@ -1,7 +1,6 @@
 # The declaration of SET_ENERGY_REGION_SUMMARY: kept by hand.
 name = "SET_ENERGY_REGION_SUMMARY"
 report_pairs = [["SETTLEMENTS", "ENERGY_REGION_SUMMARY"]]
-primary_key = []
 time_column = "SETTLEMENTDATE"
 load_mode = "append"
 visibility = "PUBLIC"

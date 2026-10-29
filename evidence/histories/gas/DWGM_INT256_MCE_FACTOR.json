@@ -55,8 +55,8 @@
         {
           "id": 1,
           "name": "GENERAL_INFORMATION_ID",
-          "required": true,
-          "type": "long"
+          "required": false,
+          "type": "decimal(1, 0)"
         },
         {
           "id": 2,
@@ -131,9 +131,7 @@
           "type": "timestamptz"
         }
       ],
-      "identifier-field-ids": [
-        1
-      ],
+      "identifier-field-ids": [],
       "schema-id": 0,
       "type": "struct"
     }
