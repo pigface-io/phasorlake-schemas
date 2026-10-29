@@ -4,6 +4,7 @@
 //! `coverage-floor:` line. The message-style allowlist only shrinks: an
 //! entry the base's list did not have fails.
 
+use std::ffi::OsString;
 use std::path::Path;
 use std::process::Command;
 
@@ -15,12 +16,17 @@ use anyhow::{Context, Result};
 pub fn git(root: &Path) -> Command {
     let mut cmd = Command::new("git");
     cmd.current_dir(root);
-    for (key, _) in std::env::vars_os() {
+    clear_git_vars(&mut cmd, std::env::vars_os().map(|(key, _)| key));
+    cmd
+}
+
+/// Removes from `cmd` each of `keys` that begins `GIT_`.
+fn clear_git_vars(cmd: &mut Command, keys: impl IntoIterator<Item = OsString>) {
+    for key in keys {
         if key.to_string_lossy().starts_with("GIT_") {
             cmd.env_remove(key);
         }
     }
-    cmd
 }
 
 fn git_show(root: &Path, base: &str, path: &str) -> Result<Option<String>> {
@@ -165,6 +171,27 @@ pub fn run(root: &Path, base: &str) -> Result<bool> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn a_git_command_drops_only_the_variables_a_hook_sets() {
+        let mut cmd = Command::new("git");
+        clear_git_vars(
+            &mut cmd,
+            ["GIT_DIR", "PATH", "GIT_INDEX_FILE"].map(OsString::from),
+        );
+        let mut envs: Vec<_> = cmd
+            .get_envs()
+            .map(|(k, v)| (k.to_string_lossy().into_owned(), v.is_none()))
+            .collect();
+        envs.sort();
+        assert_eq!(
+            envs,
+            [
+                ("GIT_DIR".to_owned(), true),
+                ("GIT_INDEX_FILE".to_owned(), true)
+            ]
+        );
+    }
 
     #[test]
     fn detects_loosening_and_drops() {
