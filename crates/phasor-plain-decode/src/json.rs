@@ -8,7 +8,9 @@
 //!
 //! Every array of objects under `data` is a block named by its path; each
 //! element is a row. The scalars beside the arrays (`tradingDay`) and
-//! beside `data` (`transactionId`) are columns of every row. A nested
+//! beside `data` (`transactionId`) are columns of every row. A day AEMO
+//! publishes again comes as an array of such documents at the top level,
+//! each read as one. A nested
 //! object's keys join with `_`; an array of objects one level down is a
 //! child block, named `{array}.{sub}`, whose rows carry the parent row's
 //! scalars with the child's keys prefixed by the child's name; anything
@@ -75,14 +77,41 @@ pub fn scan<R: Read, S: PlainSink>(
     opts: &PlainOptions<'_>,
 ) -> Result<JsonStats, JsonError<S::Fatal>> {
     let doc: Value = serde_json::from_reader(BufReader::new(reader))?;
-    let Value::Object(top) = doc else {
-        return Err(JsonError::Shape("the top level is not an object"));
+    let documents = match doc {
+        Value::Object(top) => vec![top],
+        Value::Array(items) if !items.is_empty() => items
+            .into_iter()
+            .map(|v| match v {
+                Value::Object(top) => Ok(top),
+                _ => Err(JsonError::Shape(
+                    "an element of the top-level array is not an object",
+                )),
+            })
+            .collect::<Result<Vec<Map>, _>>()?,
+        _ => return Err(JsonError::Shape("the top level is not an object")),
     };
+    let mut stats = JsonStats::default();
+    for top in documents {
+        let s = scan_document(&top, sink, opts)?;
+        stats.blocks += s.blocks;
+        stats.rows += s.rows;
+        stats.rewritten += s.rewritten;
+    }
+    Ok(stats)
+}
+
+/// Reads one document, `top`, and delivers each block and its rows to
+/// `sink`.
+fn scan_document<S: PlainSink>(
+    top: &Map,
+    sink: &mut S,
+    opts: &PlainOptions<'_>,
+) -> Result<JsonStats, JsonError<S::Fatal>> {
     let Some(Value::Object(data)) = top.get("data") else {
         return Err(JsonError::Shape("`data` is missing or not an object"));
     };
     let mut context = Flat::new();
-    for (k, v) in &top {
+    for (k, v) in top {
         if k != "data" && !matches!(v, Value::Object(_) | Value::Array(_)) {
             put_scalar(&mut context, k, k, v);
         }
@@ -401,6 +430,31 @@ mod tests {
             ]
         );
         assert_eq!(c.rows[3][5], "[{\"x\":1}]");
+    }
+
+    #[test]
+    fn an_array_of_documents_is_read_as_each_in_turn() {
+        let again = format!(
+            "[{RTP}, {}]",
+            RTP.replace("2026-10-21", "2026-10-22")
+                .replace("8b1c", "9c2d")
+        );
+        let (c, r) = run(&again, "+08:00");
+        let stats = r.unwrap();
+        assert_eq!((stats.blocks, stats.rows, stats.rewritten), (2, 4, 8));
+        let names: Vec<_> = c.blocks.iter().map(|(a, _)| a.clone().unwrap()).collect();
+        assert_eq!(names, ["referenceTradingPrices", "referenceTradingPrices"]);
+        assert_eq!(c.rows[0][5], "8b1c");
+        assert_eq!(c.rows[2][5], "9c2d");
+        assert_eq!(c.rows[3][4], "2026/10/22 08:30:00");
+        let (_, r) = run(&format!("[{RTP}, 1]"), "+08:00");
+        assert!(matches!(
+            r,
+            Err(JsonError::Shape(
+                "an element of the top-level array is not an object"
+            ))
+        ));
+        assert!(matches!(run("[]", "+08:00").1, Err(JsonError::Shape(_))));
     }
 
     #[test]
