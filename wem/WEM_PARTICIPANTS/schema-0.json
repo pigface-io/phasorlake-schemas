@@ -1,0 +1,299 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/wem/WEM_PARTICIPANTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ADDRESS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Address",
+      "x-iceberg-type": "string"
+    },
+    "AEMO": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-iceberg-type": "string"
+    },
+    "ANCILLARY_SERVICE_PROVIDER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-header": "Ancillary Service Provider",
+      "x-iceberg-type": "string"
+    },
+    "CITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "City",
+      "x-iceberg-type": "string"
+    },
+    "CONTACT_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "Contact Name",
+      "x-iceberg-type": "string"
+    },
+    "CONTACT_POSITION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "Contact Position",
+      "x-iceberg-type": "string"
+    },
+    "COUNTRY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "Country",
+      "x-iceberg-type": "string"
+    },
+    "EXTRACTED_AT": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-header": "Extracted At",
+      "x-iceberg-type": "timestamptz"
+    },
+    "FAX": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "Fax",
+      "x-iceberg-type": "string"
+    },
+    "MARKET_CUSTOMER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "Market Customer",
+      "x-iceberg-type": "string"
+    },
+    "MARKET_GENERATOR": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "Market Generator",
+      "x-iceberg-type": "string"
+    },
+    "NETWORK_OPERATOR": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "Network Operator",
+      "x-iceberg-type": "string"
+    },
+    "PARTICIPANT_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Participant Code",
+      "x-iceberg-type": "string"
+    },
+    "PARTICIPANT_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "Participant Name",
+      "x-iceberg-type": "string"
+    },
+    "PHONE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "Phone",
+      "x-iceberg-type": "string"
+    },
+    "POSTCODE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Postcode",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "REGISTERED_FROM": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "Registered From",
+      "x-iceberg-type": "timestamptz"
+    },
+    "STATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "State",
+      "x-iceberg-type": "string"
+    },
+    "SYSTEM_MANAGEMENT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "System Management",
+      "x-iceberg-type": "string"
+    },
+    "SYSTEM_OPERATOR": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "System Operator",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "WEM_PARTICIPANTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PARTICIPANT_CODE",
+      "string"
+    ],
+    [
+      2,
+      "PARTICIPANT_NAME",
+      "string"
+    ],
+    [
+      3,
+      "ADDRESS",
+      "string"
+    ],
+    [
+      4,
+      "CITY",
+      "string"
+    ],
+    [
+      5,
+      "STATE",
+      "string"
+    ],
+    [
+      6,
+      "POSTCODE",
+      "decimal(4, 0)"
+    ],
+    [
+      7,
+      "COUNTRY",
+      "string"
+    ],
+    [
+      8,
+      "PHONE",
+      "string"
+    ],
+    [
+      9,
+      "FAX",
+      "string"
+    ],
+    [
+      10,
+      "CONTACT_NAME",
+      "string"
+    ],
+    [
+      11,
+      "CONTACT_POSITION",
+      "string"
+    ],
+    [
+      12,
+      "REGISTERED_FROM",
+      "timestamptz"
+    ],
+    [
+      13,
+      "MARKET_CUSTOMER",
+      "string"
+    ],
+    [
+      14,
+      "MARKET_GENERATOR",
+      "string"
+    ],
+    [
+      15,
+      "AEMO",
+      "string"
+    ],
+    [
+      16,
+      "NETWORK_OPERATOR",
+      "string"
+    ],
+    [
+      17,
+      "SYSTEM_MANAGEMENT",
+      "string"
+    ],
+    [
+      18,
+      "SYSTEM_OPERATOR",
+      "string"
+    ],
+    [
+      19,
+      "ANCILLARY_SERVICE_PROVIDER",
+      "string"
+    ],
+    [
+      20,
+      "EXTRACTED_AT",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "WEM_PARTICIPANTS"
+  }
+}

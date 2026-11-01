@@ -1,0 +1,254 @@
+{
+  "breaking": [],
+  "current-schema-id": 2,
+  "format-version": 3,
+  "headers": {
+    "1": "Capacity Year",
+    "2": "Price Type",
+    "3": "Price ($)",
+    "4": "Capacity Credits (MW)",
+    "5": "Trans Floor ($)",
+    "6": "Trans Ceiling ($)",
+    "7": "Extracted At"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": null,
+        "file": "reserve-capacity-prices-2024.csv",
+        "release": "2023-10",
+        "sha256": "4b7e020aab9a2e8624fbc3a6e3f86783bf2df07560f3dc9c9fcec96af85a57ad"
+      },
+      "kinds": [
+        "datafiles"
+      ],
+      "overlaps": false,
+      "report": [
+        "WEM",
+        "RESERVE_CAPACITY_PRICES"
+      ],
+      "rows": 11,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "reserve-capacity-prices-2025.csv",
+        "release": "2024-10",
+        "sha256": "0d8f7ba77fa12cf273f67ad26ead02cf63bc3f9ad8a777cb44114b44cac89114"
+      },
+      "updates": [],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 2,
+      "from": {
+        "data-time": "2024-10-24T16:45:00+08:00",
+        "file": "reserve-capacity-prices-2026.csv",
+        "release": "2024-10",
+        "sha256": "242358e4d8c91d195db755f13b8fa2baadaa5e9e16a146dd2657c4c998267efe"
+      },
+      "kinds": [
+        "datafiles"
+      ],
+      "overlaps": false,
+      "report": [
+        "WEM",
+        "RESERVE_CAPACITY_PRICES"
+      ],
+      "rows": 18,
+      "schema-id": 1,
+      "to": {
+        "data-time": "2025-10-21T13:00:00+08:00",
+        "file": "reserve-capacity-prices-2027.csv",
+        "release": "2025-10",
+        "sha256": "dbbd28deacd8e90d8883dee0c02ee23f82717819bfa9a6a7add7a8f1fdfb60c4"
+      },
+      "updates": [
+        {
+          "action": "add",
+          "field-id": 7
+        }
+      ],
+      "version": 1
+    },
+    {
+      "changes": [
+        "schema"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2026-10-20T15:30:00+08:00",
+        "file": "reserve-capacity-prices-2028.csv",
+        "release": "2026-10",
+        "sha256": "a80e363358ac41a39ea257f51849fd6fe0be7385a0bfa90e3f4b6ab89ade9cea"
+      },
+      "kinds": [
+        "datafiles"
+      ],
+      "overlaps": false,
+      "report": [
+        "WEM",
+        "RESERVE_CAPACITY_PRICES"
+      ],
+      "rows": 12,
+      "schema-id": 2,
+      "to": {
+        "data-time": "2026-10-20T15:30:00+08:00",
+        "file": "reserve-capacity-prices-2028.csv",
+        "release": "2026-10",
+        "sha256": "a80e363358ac41a39ea257f51849fd6fe0be7385a0bfa90e3f4b6ab89ade9cea"
+      },
+      "updates": [
+        {
+          "action": "delete",
+          "field-id": 4
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CAPACITY_YEAR",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 2,
+          "name": "PRICE_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "PRICE",
+          "required": false,
+          "type": "decimal(10, 4)"
+        },
+        {
+          "id": 4,
+          "name": "CAPACITY_CREDITS_MW",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 5,
+          "name": "TRANS_FLOOR",
+          "required": false,
+          "type": "decimal(8, 2)"
+        },
+        {
+          "id": 6,
+          "name": "TRANS_CEILING",
+          "required": false,
+          "type": "decimal(9, 3)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CAPACITY_YEAR",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 2,
+          "name": "PRICE_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "PRICE",
+          "required": false,
+          "type": "decimal(10, 4)"
+        },
+        {
+          "id": 4,
+          "name": "CAPACITY_CREDITS_MW",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 5,
+          "name": "TRANS_FLOOR",
+          "required": false,
+          "type": "decimal(8, 2)"
+        },
+        {
+          "id": 6,
+          "name": "TRANS_CEILING",
+          "required": false,
+          "type": "decimal(9, 3)"
+        },
+        {
+          "id": 7,
+          "name": "EXTRACTED_AT",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 1,
+      "type": "struct"
+    },
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CAPACITY_YEAR",
+          "required": false,
+          "type": "decimal(4, 0)"
+        },
+        {
+          "id": 2,
+          "name": "PRICE_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "PRICE",
+          "required": false,
+          "type": "decimal(10, 4)"
+        },
+        {
+          "id": 5,
+          "name": "TRANS_FLOOR",
+          "required": false,
+          "type": "decimal(8, 2)"
+        },
+        {
+          "id": 6,
+          "name": "TRANS_CEILING",
+          "required": false,
+          "type": "decimal(9, 3)"
+        },
+        {
+          "id": 7,
+          "name": "EXTRACTED_AT",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 2,
+      "type": "struct"
+    }
+  ],
+  "table": "WEM_RESERVE_CAPACITY_PRICES"
+}

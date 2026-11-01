@@ -1,0 +1,6 @@
+# The declaration of WEM_DISTRIBUTED_PV_5MIN: first drafted from the census of data.wa.aemo.com.au, kept by hand.
+name = "WEM_DISTRIBUTED_PV_5MIN"
+report_pairs = [["WEM", "ESTIMATED_DPV_CSV"]]
+time_column = "TIMESTAMP"
+load_mode = "append"
+visibility = "PUBLIC"

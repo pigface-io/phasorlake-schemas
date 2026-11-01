@@ -1,0 +1,105 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "Trading Date",
+    "2": "Interval Number",
+    "3": "Trading Interval",
+    "4": "Participant Code",
+    "5": "Bid or Offer",
+    "6": "Price ($/MWh)",
+    "7": "Quantity (MWh)",
+    "8": "Extracted At"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2026-08-01T08:00:00+08:00",
+        "file": "stem-bids-and-offers-2026-08.csv",
+        "release": "2026-08",
+        "sha256": "03fa9e263e39f309dca18a99af75015724d11e5f3c94cf85c726a4dd152bc94f"
+      },
+      "kinds": [
+        "datafiles"
+      ],
+      "overlaps": false,
+      "report": [
+        "WEM",
+        "STEM_BIDS_AND_OFFERS"
+      ],
+      "rows": 397610,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-26T07:30:00+08:00",
+        "file": "stem-bids-and-offers-2026-10.csv",
+        "release": "2026-10",
+        "sha256": "4d7ef634ab7332ea312a00b5176f5065cd213a1129e53c3e7044d097ac7a5c20"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADING_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "INTERVAL_NUMBER",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 3,
+          "name": "TRADING_INTERVAL",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "PARTICIPANT_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "BID_OR_OFFER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "PRICE_MWH",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 7,
+          "name": "QUANTITY_MWH",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 8,
+          "name": "EXTRACTED_AT",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "WEM_STEM_BIDS_AND_OFFERS"
+}

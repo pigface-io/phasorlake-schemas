@@ -1,0 +1,147 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/wem/WEM_STEM_SUMMARY/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BID_QUANTITY_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Bid Quantity (MWh)",
+      "x-iceberg-type": "decimal(7, 3)"
+    },
+    "CLEARING_PRICE_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "Clearing Price ($/MWh)",
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "CLEARING_QUANTITY_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "Clearing Quantity (MWh)",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "EXTRACTED_AT": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "Extracted At",
+      "x-iceberg-type": "timestamptz"
+    },
+    "INTERVAL_NUMBER": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "Interval Number",
+      "x-iceberg-type": "decimal(2, 0)"
+    },
+    "OFFER_QUANTITY_MWH": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Offer Quantity (MWh)",
+      "x-iceberg-type": "decimal(7, 3)"
+    },
+    "TRADING_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Trading Date",
+      "x-iceberg-type": "date"
+    },
+    "TRADING_INTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Trading Interval",
+      "x-iceberg-type": "timestamptz"
+    },
+    "TRADING_SUSPENDED": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "Trading Suspended",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "WEM_STEM_SUMMARY, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRADING_DATE",
+      "date"
+    ],
+    [
+      2,
+      "INTERVAL_NUMBER",
+      "decimal(2, 0)"
+    ],
+    [
+      3,
+      "TRADING_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      4,
+      "TRADING_SUSPENDED",
+      "string"
+    ],
+    [
+      5,
+      "OFFER_QUANTITY_MWH",
+      "decimal(7, 3)"
+    ],
+    [
+      6,
+      "BID_QUANTITY_MWH",
+      "decimal(7, 3)"
+    ],
+    [
+      7,
+      "CLEARING_QUANTITY_MWH",
+      "decimal(6, 3)"
+    ],
+    [
+      8,
+      "CLEARING_PRICE_MWH",
+      "decimal(6, 2)"
+    ],
+    [
+      9,
+      "EXTRACTED_AT",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "WEM_STEM_SUMMARY"
+  }
+}

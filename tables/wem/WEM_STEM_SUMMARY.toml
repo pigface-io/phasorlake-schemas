@@ -1,0 +1,6 @@
+# The declaration of WEM_STEM_SUMMARY: first drafted from the census of data.wa.aemo.com.au, kept by hand.
+name = "WEM_STEM_SUMMARY"
+report_pairs = [["WEM", "STEM_SUMMARY"]]
+time_column = "TRADING_INTERVAL"
+load_mode = "append"
+visibility = "PUBLIC"

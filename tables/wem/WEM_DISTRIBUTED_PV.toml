@@ -1,0 +1,6 @@
+# The declaration of WEM_DISTRIBUTED_PV: first drafted from the census of data.wa.aemo.com.au, kept by hand.
+name = "WEM_DISTRIBUTED_PV"
+report_pairs = [["WEM", "DISTRIBUTED_PV"]]
+time_column = "TRADING_INTERVAL"
+load_mode = "append"
+visibility = "PUBLIC"

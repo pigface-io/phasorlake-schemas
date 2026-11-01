@@ -1,0 +1,6 @@
+# The declaration of WEM_RESERVE_CAPACITY_PRICES: first drafted from the census of data.wa.aemo.com.au, kept by hand.
+name = "WEM_RESERVE_CAPACITY_PRICES"
+report_pairs = [["WEM", "RESERVE_CAPACITY_PRICES"]]
+time_column = "EXTRACTED_AT"
+load_mode = "snapshot"
+visibility = "PUBLIC"

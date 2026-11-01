@@ -1,0 +1,290 @@
+{
+  "headers": [
+    {
+      "columns": [
+        "TRADING_DATE",
+        "INTERVAL_NUMBER",
+        "TRADING_INTERVAL",
+        "ESTIMATED_DPV_GENERATION_MW",
+        "EXTRACTED_AT"
+      ],
+      "report": [
+        "WEM",
+        "DISTRIBUTED_PV"
+      ],
+      "schemas": [
+        {
+          "first-release": "2022-08",
+          "last-release": "2026-06",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "WEM_DISTRIBUTED_PV",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TIMESTAMP",
+        "ESTIMATED_DPV_GENERATION_MW",
+        "EXTRACTED_AT"
+      ],
+      "report": [
+        "WEM",
+        "ESTIMATED_DPV_CSV"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-06",
+          "last-release": "2026-06",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "WEM_DISTRIBUTED_PV_5MIN",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PARTICIPANT_CODE",
+        "PARTICIPANT_NAME",
+        "FACILITY_CODE",
+        "FACILITY_TYPE",
+        "BALANCING_STATUS",
+        "CAPACITY_CREDITS_MW",
+        "MAXIMUM_CAPACITY_MW",
+        "REGISTERED_FROM",
+        "EXTRACTED_AT"
+      ],
+      "report": [
+        "WEM",
+        "FACILITIES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2023-09",
+          "last-release": "2023-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "WEM_FACILITIES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "DISPATCH_INTERVAL",
+        "ENERGY_CLEARING_PRICE",
+        "CONTINGENCY_RAISE_CLEARING_PRICE",
+        "CONTINGENCY_LOWER_CLEARING_PRICE",
+        "REGULATION_RAISE_CLEARING_PRICE",
+        "REGULATION_LOWER_CLEARING_PRICE",
+        "ROCOF_CLEARING_PRICE",
+        "FAILURE_REASON",
+        "EXTRACTED_AT"
+      ],
+      "report": [
+        "WEM",
+        "MARKET_CLEARING_PRICES_CSV"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-06",
+          "last-release": "2026-06",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "WEM_MARKET_CLEARING_PRICES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PARTICIPANT_CODE",
+        "PARTICIPANT_NAME",
+        "ADDRESS",
+        "CITY",
+        "STATE",
+        "POSTCODE",
+        "COUNTRY",
+        "PHONE",
+        "FAX",
+        "CONTACT_NAME",
+        "CONTACT_POSITION",
+        "REGISTERED_FROM",
+        "MARKET_CUSTOMER",
+        "MARKET_GENERATOR",
+        "AEMO",
+        "NETWORK_OPERATOR",
+        "SYSTEM_MANAGEMENT",
+        "SYSTEM_OPERATOR",
+        "ANCILLARY_SERVICE_PROVIDER",
+        "EXTRACTED_AT"
+      ],
+      "report": [
+        "WEM",
+        "PARTICIPANTS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2023-09",
+          "last-release": "2023-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "WEM_PARTICIPANTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "CAPACITY_YEAR",
+        "PRICE_TYPE",
+        "PRICE",
+        "CAPACITY_CREDITS_MW",
+        "TRANS_FLOOR",
+        "TRANS_CEILING"
+      ],
+      "report": [
+        "WEM",
+        "RESERVE_CAPACITY_PRICES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2023-10",
+          "last-release": "2024-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "WEM_RESERVE_CAPACITY_PRICES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "CAPACITY_YEAR",
+        "PRICE_TYPE",
+        "PRICE",
+        "CAPACITY_CREDITS_MW",
+        "TRANS_FLOOR",
+        "TRANS_CEILING",
+        "EXTRACTED_AT"
+      ],
+      "report": [
+        "WEM",
+        "RESERVE_CAPACITY_PRICES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2024-10",
+          "last-release": "2025-10",
+          "runs": 1,
+          "schema-id": 1
+        }
+      ],
+      "table": "WEM_RESERVE_CAPACITY_PRICES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "CAPACITY_YEAR",
+        "PRICE_TYPE",
+        "PRICE",
+        "TRANS_FLOOR",
+        "TRANS_CEILING",
+        "EXTRACTED_AT"
+      ],
+      "report": [
+        "WEM",
+        "RESERVE_CAPACITY_PRICES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-10",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 2
+        }
+      ],
+      "table": "WEM_RESERVE_CAPACITY_PRICES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRADING_DATE",
+        "INTERVAL_NUMBER",
+        "TRADING_INTERVAL",
+        "PARTICIPANT_CODE",
+        "BID_OR_OFFER",
+        "PRICE_MWH",
+        "QUANTITY_MWH",
+        "EXTRACTED_AT"
+      ],
+      "report": [
+        "WEM",
+        "STEM_BIDS_AND_OFFERS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "WEM_STEM_BIDS_AND_OFFERS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRADING_DATE",
+        "INTERVAL_NUMBER",
+        "TRADING_INTERVAL",
+        "TRADING_SUSPENDED",
+        "OFFER_QUANTITY_MWH",
+        "BID_QUANTITY_MWH",
+        "CLEARING_QUANTITY_MWH",
+        "CLEARING_PRICE_MWH",
+        "EXTRACTED_AT"
+      ],
+      "report": [
+        "WEM",
+        "STEM_SUMMARY"
+      ],
+      "schemas": [
+        {
+          "first-release": "2024-12",
+          "last-release": "2026-11",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "WEM_STEM_SUMMARY",
+      "version": 1
+    },
+    {
+      "columns": [
+        "IS_PUBLISHED",
+        "REFERENCE_TRADING_PRICE",
+        "TRADING_DAY",
+        "TRADING_INTERVAL",
+        "TRANSACTION_ID"
+      ],
+      "report": [
+        "WEMDE",
+        "REFERENCE_TRADING_PRICE_REFERENCE_TRADING_PRICES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-08",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "WEMDE_REFERENCE_TRADING_PRICE",
+      "version": 1
+    }
+  ],
+  "x-format": 5
+}

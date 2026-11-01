@@ -1,0 +1,102 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/wem/WEM_RESERVE_CAPACITY_PRICES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CAPACITY_CREDITS_MW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "Capacity Credits (MW)",
+      "x-iceberg-type": "decimal(7, 3)"
+    },
+    "CAPACITY_YEAR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Capacity Year",
+      "x-iceberg-type": "decimal(4, 0)"
+    },
+    "PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Price ($)",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "PRICE_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "Price Type",
+      "x-iceberg-type": "string"
+    },
+    "TRANS_CEILING": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Trans Ceiling ($)",
+      "x-iceberg-type": "decimal(9, 3)"
+    },
+    "TRANS_FLOOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Trans Floor ($)",
+      "x-iceberg-type": "decimal(8, 2)"
+    }
+  },
+  "required": [],
+  "title": "WEM_RESERVE_CAPACITY_PRICES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CAPACITY_YEAR",
+      "decimal(4, 0)"
+    ],
+    [
+      2,
+      "PRICE_TYPE",
+      "string"
+    ],
+    [
+      3,
+      "PRICE",
+      "decimal(10, 4)"
+    ],
+    [
+      4,
+      "CAPACITY_CREDITS_MW",
+      "decimal(7, 3)"
+    ],
+    [
+      5,
+      "TRANS_FLOOR",
+      "decimal(8, 2)"
+    ],
+    [
+      6,
+      "TRANS_CEILING",
+      "decimal(9, 3)"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "WEM_RESERVE_CAPACITY_PRICES"
+  }
+}

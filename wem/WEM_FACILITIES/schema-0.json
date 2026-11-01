@@ -1,0 +1,146 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/wem/WEM_FACILITIES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BALANCING_STATUS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Balancing Status",
+      "x-iceberg-type": "string"
+    },
+    "CAPACITY_CREDITS_MW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Capacity Credits (MW)",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "EXTRACTED_AT": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "Extracted At",
+      "x-iceberg-type": "timestamptz"
+    },
+    "FACILITY_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Facility Code",
+      "x-iceberg-type": "string"
+    },
+    "FACILITY_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "Facility Type",
+      "x-iceberg-type": "string"
+    },
+    "MAXIMUM_CAPACITY_MW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "Maximum Capacity (MW)",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "PARTICIPANT_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Participant Code",
+      "x-iceberg-type": "string"
+    },
+    "PARTICIPANT_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "Participant Name",
+      "x-iceberg-type": "string"
+    },
+    "REGISTERED_FROM": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "Registered From",
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "WEM_FACILITIES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PARTICIPANT_CODE",
+      "string"
+    ],
+    [
+      2,
+      "PARTICIPANT_NAME",
+      "string"
+    ],
+    [
+      3,
+      "FACILITY_CODE",
+      "string"
+    ],
+    [
+      4,
+      "FACILITY_TYPE",
+      "string"
+    ],
+    [
+      5,
+      "BALANCING_STATUS",
+      "string"
+    ],
+    [
+      6,
+      "CAPACITY_CREDITS_MW",
+      "decimal(6, 3)"
+    ],
+    [
+      7,
+      "MAXIMUM_CAPACITY_MW",
+      "decimal(6, 3)"
+    ],
+    [
+      8,
+      "REGISTERED_FROM",
+      "timestamptz"
+    ],
+    [
+      9,
+      "EXTRACTED_AT",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "WEM_FACILITIES"
+  }
+}

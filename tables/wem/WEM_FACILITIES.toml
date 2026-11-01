@@ -1,0 +1,6 @@
+# The declaration of WEM_FACILITIES: first drafted from the census of data.wa.aemo.com.au, kept by hand.
+name = "WEM_FACILITIES"
+report_pairs = [["WEM", "FACILITIES"]]
+time_column = "EXTRACTED_AT"
+load_mode = "snapshot"
+visibility = "PUBLIC"

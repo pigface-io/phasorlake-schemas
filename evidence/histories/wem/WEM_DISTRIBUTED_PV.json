@@ -1,0 +1,84 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "Trading Date",
+    "2": "Interval Number",
+    "3": "Trading Interval",
+    "4": "Estimated DPV Generation (MW)",
+    "5": "Extracted At"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 7,
+      "from": {
+        "data-time": "2020-11-04T06:00:00+08:00",
+        "file": "distributed-pv-2020.csv",
+        "release": "2022-08",
+        "sha256": "3d675cdd310049fd389443e3d24ba2156fc86fadd04d8eb1ba36c2078f8c6460"
+      },
+      "kinds": [
+        "datafiles"
+      ],
+      "overlaps": false,
+      "report": [
+        "WEM",
+        "DISTRIBUTED_PV"
+      ],
+      "rows": 98836,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-06-25T07:30:00+08:00",
+        "file": "distributed-pv-2026.csv",
+        "release": "2026-06",
+        "sha256": "227751990a223968d4bb73200993a4f57399d7f74b49f37de2347f24adb90b31"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADING_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "INTERVAL_NUMBER",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 3,
+          "name": "TRADING_INTERVAL",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "ESTIMATED_DPV_GENERATION_MW",
+          "required": false,
+          "type": "decimal(14, 10)"
+        },
+        {
+          "id": 5,
+          "name": "EXTRACTED_AT",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "WEM_DISTRIBUTED_PV"
+}

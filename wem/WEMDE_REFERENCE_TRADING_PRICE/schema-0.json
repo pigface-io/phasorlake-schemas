@@ -1,0 +1,90 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/wem/WEMDE_REFERENCE_TRADING_PRICE/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "IS_PUBLISHED": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "isPublished",
+      "x-iceberg-type": "boolean"
+    },
+    "REFERENCE_TRADING_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "referenceTradingPrice",
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "TRADING_DAY": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "tradingDay",
+      "x-iceberg-type": "date"
+    },
+    "TRADING_INTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "tradingInterval",
+      "x-iceberg-type": "timestamptz"
+    },
+    "TRANSACTION_ID": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "transactionId",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "WEMDE_REFERENCE_TRADING_PRICE, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "IS_PUBLISHED",
+      "boolean"
+    ],
+    [
+      2,
+      "REFERENCE_TRADING_PRICE",
+      "decimal(5, 2)"
+    ],
+    [
+      3,
+      "TRADING_DAY",
+      "date"
+    ],
+    [
+      4,
+      "TRADING_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      5,
+      "TRANSACTION_ID",
+      "string"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "WEMDE_REFERENCE_TRADING_PRICE"
+  }
+}

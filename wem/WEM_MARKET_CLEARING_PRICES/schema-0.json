@@ -1,0 +1,146 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/wem/WEM_MARKET_CLEARING_PRICES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CONTINGENCY_LOWER_CLEARING_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "Contingency Lower Clearing Price",
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "CONTINGENCY_RAISE_CLEARING_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Contingency Raise Clearing Price",
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "DISPATCH_INTERVAL": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Dispatch Interval",
+      "x-iceberg-type": "timestamptz"
+    },
+    "ENERGY_CLEARING_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "Energy Clearing Price",
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "EXTRACTED_AT": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "Extracted At",
+      "x-iceberg-type": "timestamptz"
+    },
+    "FAILURE_REASON": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "Failure Reason",
+      "x-iceberg-type": "string"
+    },
+    "REGULATION_LOWER_CLEARING_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Regulation Lower Clearing Price",
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "REGULATION_RAISE_CLEARING_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Regulation Raise Clearing Price",
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "ROCOF_CLEARING_PRICE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "RoCoF Clearing Price",
+      "x-iceberg-type": "decimal(2, 2)"
+    }
+  },
+  "required": [],
+  "title": "WEM_MARKET_CLEARING_PRICES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "DISPATCH_INTERVAL",
+      "timestamptz"
+    ],
+    [
+      2,
+      "ENERGY_CLEARING_PRICE",
+      "decimal(6, 2)"
+    ],
+    [
+      3,
+      "CONTINGENCY_RAISE_CLEARING_PRICE",
+      "decimal(6, 2)"
+    ],
+    [
+      4,
+      "CONTINGENCY_LOWER_CLEARING_PRICE",
+      "decimal(6, 2)"
+    ],
+    [
+      5,
+      "REGULATION_RAISE_CLEARING_PRICE",
+      "decimal(6, 2)"
+    ],
+    [
+      6,
+      "REGULATION_LOWER_CLEARING_PRICE",
+      "decimal(6, 2)"
+    ],
+    [
+      7,
+      "ROCOF_CLEARING_PRICE",
+      "decimal(2, 2)"
+    ],
+    [
+      8,
+      "FAILURE_REASON",
+      "string"
+    ],
+    [
+      9,
+      "EXTRACTED_AT",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "WEM_MARKET_CLEARING_PRICES"
+  }
+}

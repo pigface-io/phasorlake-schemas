@@ -1,0 +1,6 @@
+# The declaration of WEMDE_REFERENCE_TRADING_PRICE: first drafted from the census of data.wa.aemo.com.au, kept by hand.
+name = "WEMDE_REFERENCE_TRADING_PRICE"
+report_pairs = [["WEMDE", "REFERENCE_TRADING_PRICE_REFERENCE_TRADING_PRICES"]]
+time_column = "TRADING_INTERVAL"
+load_mode = "append"
+visibility = "PUBLIC"

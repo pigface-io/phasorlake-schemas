@@ -1,0 +1,6 @@
+# The declaration of WEM_MARKET_CLEARING_PRICES: first drafted from the census of data.wa.aemo.com.au, kept by hand.
+name = "WEM_MARKET_CLEARING_PRICES"
+report_pairs = [["WEM", "MARKET_CLEARING_PRICES_CSV"]]
+time_column = "DISPATCH_INTERVAL"
+load_mode = "append"
+visibility = "PUBLIC"

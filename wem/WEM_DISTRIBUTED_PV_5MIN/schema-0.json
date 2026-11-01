@@ -1,0 +1,62 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/wem/WEM_DISTRIBUTED_PV_5MIN/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ESTIMATED_DPV_GENERATION_MW": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "Estimated DPV Generation(MW)",
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "EXTRACTED_AT": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Extracted At",
+      "x-iceberg-type": "timestamptz"
+    },
+    "TIMESTAMP": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Timestamp",
+      "x-iceberg-type": "timestamptz"
+    }
+  },
+  "required": [],
+  "title": "WEM_DISTRIBUTED_PV_5MIN, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TIMESTAMP",
+      "timestamptz"
+    ],
+    [
+      2,
+      "ESTIMATED_DPV_GENERATION_MW",
+      "decimal(6, 2)"
+    ],
+    [
+      3,
+      "EXTRACTED_AT",
+      "timestamptz"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "WEM_DISTRIBUTED_PV_5MIN"
+  }
+}

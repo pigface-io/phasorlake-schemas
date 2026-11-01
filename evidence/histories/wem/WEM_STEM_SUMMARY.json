@@ -1,0 +1,112 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "Trading Date",
+    "2": "Interval Number",
+    "3": "Trading Interval",
+    "4": "Trading Suspended",
+    "5": "Offer Quantity (MWh)",
+    "6": "Bid Quantity (MWh)",
+    "7": "Clearing Quantity (MWh)",
+    "8": "Clearing Price ($/MWh)",
+    "9": "Extracted At"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2024-01-01T08:00:00+08:00",
+        "file": "stem-summary-2024.csv",
+        "release": "2024-12",
+        "sha256": "d32b6cac7546b3de1ef140f80ca64840d418b54ad0a5c6337c4feeafa46b9f3f"
+      },
+      "kinds": [
+        "datafiles"
+      ],
+      "overlaps": false,
+      "report": [
+        "WEM",
+        "STEM_SUMMARY"
+      ],
+      "rows": 49776,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-03T07:30:00+08:00",
+        "file": "stem-summary-2026.csv@20261101T113022Z",
+        "release": "2026-11",
+        "sha256": "ec57e56d172f866023c4570af0426ed9c94a15e492c8150169e120e2687365ad"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADING_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "INTERVAL_NUMBER",
+          "required": false,
+          "type": "decimal(2, 0)"
+        },
+        {
+          "id": 3,
+          "name": "TRADING_INTERVAL",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "TRADING_SUSPENDED",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "OFFER_QUANTITY_MWH",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 6,
+          "name": "BID_QUANTITY_MWH",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 7,
+          "name": "CLEARING_QUANTITY_MWH",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 8,
+          "name": "CLEARING_PRICE_MWH",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 9,
+          "name": "EXTRACTED_AT",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "WEM_STEM_SUMMARY"
+}

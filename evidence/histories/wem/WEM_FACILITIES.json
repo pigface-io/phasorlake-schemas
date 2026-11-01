@@ -1,0 +1,112 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "Participant Code",
+    "2": "Participant Name",
+    "3": "Facility Code",
+    "4": "Facility Type",
+    "5": "Balancing Status",
+    "6": "Capacity Credits (MW)",
+    "7": "Maximum Capacity (MW)",
+    "8": "Registered From",
+    "9": "Extracted At"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2023-09-28T06:30:00+08:00",
+        "file": "facilities.csv",
+        "release": "2023-09",
+        "sha256": "0e5cd87b1589f7506b37a5aeeed2e97e8933d77fdef3098ea294694b087c85c8"
+      },
+      "kinds": [
+        "datafiles"
+      ],
+      "overlaps": false,
+      "report": [
+        "WEM",
+        "FACILITIES"
+      ],
+      "rows": 114,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2023-09-28T06:30:00+08:00",
+        "file": "facilities.csv",
+        "release": "2023-09",
+        "sha256": "0e5cd87b1589f7506b37a5aeeed2e97e8933d77fdef3098ea294694b087c85c8"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "PARTICIPANT_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "PARTICIPANT_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "FACILITY_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "FACILITY_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "BALANCING_STATUS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "CAPACITY_CREDITS_MW",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 7,
+          "name": "MAXIMUM_CAPACITY_MW",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 8,
+          "name": "REGISTERED_FROM",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 9,
+          "name": "EXTRACTED_AT",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "WEM_FACILITIES"
+}

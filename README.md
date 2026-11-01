@@ -3,10 +3,12 @@
 Every table of the market data AEMO publishes, as an
 [Apache Iceberg](https://iceberg.apache.org/) v3 table: its fields with ids
 that never change meaning, its schemas, and the runs of AEMO files written
-under each. Two markets are published: the National Electricity Market
-(`nem/`, from nemweb's MMSDM archive and report folders) and the east-coast
+under each. Three markets are published: the National Electricity Market
+(`nem/`, from nemweb's MMSDM archive and report folders), the east-coast
 gas markets (`gas/`: the Gas Bulletin Board, the Gas Supply Hub, the Short
-Term Trading Market and the Declared Wholesale Gas Market).
+Term Trading Market and the Declared Wholesale Gas Market) and the Wholesale
+Electricity Market (`wem/`, Western Australia: the datafiles and WEMDE
+documents of `data.wa.aemo.com.au`, read at `+08:00`).
 
 The schemas are derived from what AEMO's files hold, file by file, checked
 against AEMO's control files and data models, and the code that derives
@@ -146,7 +148,7 @@ origin/main` (nothing published changed meaning) and `just replay`;
 ## Licences
 
 The code under `crates/` is Apache-2.0 (`LICENSE`). The files under
-`evidence/`, `sources/`, `nem/`, `gas/` and `testdata/`, and
+`evidence/`, `sources/`, `nem/`, `wem/`, `gas/` and `testdata/`, and
 `manifest.json`, are derived from information AEMO publishes and are
 attributed to AEMO; they are not covered by that licence. See
 `LICENCE-DATA.md` and `NOTICE`. This repository is not produced or

@@ -1,0 +1,70 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "Timestamp",
+    "2": "Estimated DPV Generation(MW)",
+    "3": "Extracted At"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 4,
+      "from": {
+        "data-time": "2023-10-01T08:00:00+08:00",
+        "file": "distributed-pv-new-2023.csv",
+        "release": "2026-06",
+        "sha256": "cea18cf62e21cf3f55fab18ad24dc16e1a1f1df7aa6b24483a039e67ac4c3720"
+      },
+      "kinds": [
+        "datafiles"
+      ],
+      "overlaps": false,
+      "report": [
+        "WEM",
+        "ESTIMATED_DPV_CSV"
+      ],
+      "rows": 324575,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-01T07:55:00+08:00",
+        "file": "distributed-pv-new-2026.csv",
+        "release": "2026-06",
+        "sha256": "0166e8b1adf09e80cf495c7b70cd5daf70789cf95fcd868cb1fa316b7247543c"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TIMESTAMP",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "ESTIMATED_DPV_GENERATION_MW",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 3,
+          "name": "EXTRACTED_AT",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "WEM_DISTRIBUTED_PV_5MIN"
+}

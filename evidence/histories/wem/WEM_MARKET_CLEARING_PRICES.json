@@ -1,0 +1,112 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "Dispatch Interval",
+    "2": "Energy Clearing Price",
+    "3": "Contingency Raise Clearing Price",
+    "4": "Contingency Lower Clearing Price",
+    "5": "Regulation Raise Clearing Price",
+    "6": "Regulation Lower Clearing Price",
+    "7": "RoCoF Clearing Price",
+    "8": "Failure Reason",
+    "9": "Extracted At"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 3,
+      "from": {
+        "data-time": "2024-01-01T08:00:00+08:00",
+        "file": "MarketClearingPrices-2024.csv",
+        "release": "2026-06",
+        "sha256": "956ee53d9bc4c0db07fcdf207c48bdd00c843d34154effdc0bf3e590432749a1"
+      },
+      "kinds": [
+        "datafiles"
+      ],
+      "overlaps": false,
+      "report": [
+        "WEM",
+        "MARKET_CLEARING_PRICES_CSV"
+      ],
+      "rows": 298066,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-01T07:55:00+08:00",
+        "file": "MarketClearingPrices-2026.csv",
+        "release": "2026-06",
+        "sha256": "3d99658ce86fed4212e66e65971e5593a894d38b3fdece0d948427abc009e339"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "DISPATCH_INTERVAL",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 2,
+          "name": "ENERGY_CLEARING_PRICE",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 3,
+          "name": "CONTINGENCY_RAISE_CLEARING_PRICE",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 4,
+          "name": "CONTINGENCY_LOWER_CLEARING_PRICE",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 5,
+          "name": "REGULATION_RAISE_CLEARING_PRICE",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 6,
+          "name": "REGULATION_LOWER_CLEARING_PRICE",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 7,
+          "name": "ROCOF_CLEARING_PRICE",
+          "required": false,
+          "type": "decimal(2, 2)"
+        },
+        {
+          "id": 8,
+          "name": "FAILURE_REASON",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "EXTRACTED_AT",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "WEM_MARKET_CLEARING_PRICES"
+}
