@@ -1,0 +1,168 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "TradingDate",
+    "10": "Island",
+    "11": "LoadMegawatts",
+    "12": "InitialMegawatts",
+    "13": "GenerationMegawatts",
+    "14": "LocationFactor",
+    "15": "DollarsPerMegawattHour",
+    "16": "IsDeadFlag",
+    "17": "IsDisconnectedFlag",
+    "2": "TradingPeriodNumber",
+    "3": "IntervalDateTime",
+    "4": "RunDateTime",
+    "5": "CaseTypeCode",
+    "6": "CaseID",
+    "7": "PointOfConnectionCode",
+    "8": "UnitCode",
+    "9": "PlantName"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 2248,
+      "from": {
+        "data-time": "2020-09-10T00:00:00+12:00",
+        "file": "20200910_DispatchNodalPricesAndVolumes.csv",
+        "release": "2020-09",
+        "sha256": "db59bccf7e865d91f7d9041936a90325532ac16651a79011bdbd9fdd58486f46"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "DISPATCH_NODAL_PRICES_AND_VOLUMES"
+      ],
+      "rows": 148208517,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-05T00:00:00+12:00",
+        "file": "20261105_DispatchNodalPricesAndVolumes.csv",
+        "release": "2026-11",
+        "sha256": "fa4bb044ecb1d9f0e4b6513c9fc018bd4b9e76caded4820c48ed272bc4816bf8"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADINGDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "TRADINGPERIODNUMBER",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "INTERVALDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "RUNDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "CASETYPECODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "CASEID",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "POINTOFCONNECTIONCODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "UNITCODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "PLANTNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "ISLAND",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "LOADMEGAWATTS",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 12,
+          "name": "INITIALMEGAWATTS",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 13,
+          "name": "GENERATIONMEGAWATTS",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 14,
+          "name": "LOCATIONFACTOR",
+          "required": false,
+          "type": "decimal(10, 4)"
+        },
+        {
+          "id": 15,
+          "name": "DOLLARSPERMEGAWATTHOUR",
+          "required": false,
+          "type": "decimal(10, 4)"
+        },
+        {
+          "id": 16,
+          "name": "ISDEADFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "ISDISCONNECTEDFLAG",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_DISPATCH_NODAL_PRICES_AND_VOLUMES"
+}

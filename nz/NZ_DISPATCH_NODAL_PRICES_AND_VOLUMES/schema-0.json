@@ -1,0 +1,259 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_DISPATCH_NODAL_PRICES_AND_VOLUMES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CASEID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "CaseID",
+      "x-iceberg-type": "long"
+    },
+    "CASETYPECODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "CaseTypeCode",
+      "x-iceberg-type": "string"
+    },
+    "DOLLARSPERMEGAWATTHOUR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "DollarsPerMegawattHour",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "GENERATIONMEGAWATTS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "GenerationMegawatts",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "INITIALMEGAWATTS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "InitialMegawatts",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "INTERVALDATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "IntervalDateTime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "ISDEADFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "IsDeadFlag",
+      "x-iceberg-type": "string"
+    },
+    "ISDISCONNECTEDFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "IsDisconnectedFlag",
+      "x-iceberg-type": "string"
+    },
+    "ISLAND": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "Island",
+      "x-iceberg-type": "string"
+    },
+    "LOADMEGAWATTS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "LoadMegawatts",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "LOCATIONFACTOR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "LocationFactor",
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "PLANTNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "PlantName",
+      "x-iceberg-type": "string"
+    },
+    "POINTOFCONNECTIONCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "PointOfConnectionCode",
+      "x-iceberg-type": "string"
+    },
+    "RUNDATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "RunDateTime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "TRADINGDATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "TradingDate",
+      "x-iceberg-type": "date"
+    },
+    "TRADINGPERIODNUMBER": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "TradingPeriodNumber",
+      "x-iceberg-type": "long"
+    },
+    "UNITCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "UnitCode",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "NZ_DISPATCH_NODAL_PRICES_AND_VOLUMES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRADINGDATE",
+      "date"
+    ],
+    [
+      2,
+      "TRADINGPERIODNUMBER",
+      "long"
+    ],
+    [
+      3,
+      "INTERVALDATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "RUNDATETIME",
+      "timestamptz"
+    ],
+    [
+      5,
+      "CASETYPECODE",
+      "string"
+    ],
+    [
+      6,
+      "CASEID",
+      "long"
+    ],
+    [
+      7,
+      "POINTOFCONNECTIONCODE",
+      "string"
+    ],
+    [
+      8,
+      "UNITCODE",
+      "string"
+    ],
+    [
+      9,
+      "PLANTNAME",
+      "string"
+    ],
+    [
+      10,
+      "ISLAND",
+      "string"
+    ],
+    [
+      11,
+      "LOADMEGAWATTS",
+      "decimal(6, 3)"
+    ],
+    [
+      12,
+      "INITIALMEGAWATTS",
+      "decimal(6, 3)"
+    ],
+    [
+      13,
+      "GENERATIONMEGAWATTS",
+      "decimal(6, 3)"
+    ],
+    [
+      14,
+      "LOCATIONFACTOR",
+      "decimal(10, 4)"
+    ],
+    [
+      15,
+      "DOLLARSPERMEGAWATTHOUR",
+      "decimal(10, 4)"
+    ],
+    [
+      16,
+      "ISDEADFLAG",
+      "string"
+    ],
+    [
+      17,
+      "ISDISCONNECTEDFLAG",
+      "string"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_DISPATCH_NODAL_PRICES_AND_VOLUMES"
+  }
+}

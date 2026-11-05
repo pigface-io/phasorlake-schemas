@@ -1,0 +1,231 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_CLEARED_OFFERS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "CASEID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "CaseID",
+      "x-iceberg-type": "long"
+    },
+    "CASETYPECODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "CaseTypeCode",
+      "x-iceberg-type": "string"
+    },
+    "CLEAREDFIRMEGAWATTS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "ClearedFIRMegawatts",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "CLEAREDGENERATIONMEGAWATTS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "ClearedGenerationMegawatts",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "CLEAREDSIRMEGAWATTS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "ClearedSIRMegawatts",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "INTERVALDATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "IntervalDateTime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "ISLAND": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "Island",
+      "x-iceberg-type": "string"
+    },
+    "PARTICIPANTCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "ParticipantCode",
+      "x-iceberg-type": "string"
+    },
+    "PLANTNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "PlantName",
+      "x-iceberg-type": "string"
+    },
+    "POINTOFCONNECTIONCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "PointOfConnectionCode",
+      "x-iceberg-type": "string"
+    },
+    "PRODUCTCLASS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "ProductClass",
+      "x-iceberg-type": "string"
+    },
+    "RUNDATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "RunDateTime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "TRADINGDATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "TradingDate",
+      "x-iceberg-type": "date"
+    },
+    "TRADINGPERIODNUMBER": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "TradingPeriodNumber",
+      "x-iceberg-type": "long"
+    },
+    "UNITCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "UnitCode",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "NZ_CLEARED_OFFERS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRADINGDATE",
+      "date"
+    ],
+    [
+      2,
+      "TRADINGPERIODNUMBER",
+      "long"
+    ],
+    [
+      3,
+      "INTERVALDATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "RUNDATETIME",
+      "timestamptz"
+    ],
+    [
+      5,
+      "CASETYPECODE",
+      "string"
+    ],
+    [
+      6,
+      "CASEID",
+      "long"
+    ],
+    [
+      7,
+      "PRODUCTCLASS",
+      "string"
+    ],
+    [
+      8,
+      "POINTOFCONNECTIONCODE",
+      "string"
+    ],
+    [
+      9,
+      "UNITCODE",
+      "string"
+    ],
+    [
+      10,
+      "PLANTNAME",
+      "string"
+    ],
+    [
+      11,
+      "ISLAND",
+      "string"
+    ],
+    [
+      12,
+      "PARTICIPANTCODE",
+      "string"
+    ],
+    [
+      13,
+      "CLEAREDGENERATIONMEGAWATTS",
+      "decimal(6, 3)"
+    ],
+    [
+      14,
+      "CLEAREDFIRMEGAWATTS",
+      "decimal(6, 3)"
+    ],
+    [
+      15,
+      "CLEAREDSIRMEGAWATTS",
+      "decimal(6, 3)"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_CLEARED_OFFERS"
+  }
+}

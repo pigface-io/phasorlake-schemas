@@ -1,0 +1,154 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "TradingDate",
+    "10": "PlantName",
+    "11": "Island",
+    "12": "ParticipantCode",
+    "13": "ClearedGenerationMegawatts",
+    "14": "ClearedFIRMegawatts",
+    "15": "ClearedSIRMegawatts",
+    "2": "TradingPeriodNumber",
+    "3": "IntervalDateTime",
+    "4": "RunDateTime",
+    "5": "CaseTypeCode",
+    "6": "CaseID",
+    "7": "ProductClass",
+    "8": "PointOfConnectionCode",
+    "9": "UnitCode"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1680,
+      "from": {
+        "data-time": "2022-04-01T00:00:00+12:00",
+        "file": "20220401_ClearedOffers.csv",
+        "release": "2022-04",
+        "sha256": "355b9e5713534479567829cf33b80b6f0bb7d4907c99a414313ab8b36c2c99b2"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "CLEARED_OFFERS"
+      ],
+      "rows": 35331252,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-05T00:00:00+12:00",
+        "file": "20261105_ClearedOffers.csv",
+        "release": "2026-11",
+        "sha256": "995a00782db4858a1ea008312b0b34a045900ae39dc8cda054582c196f287350"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADINGDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "TRADINGPERIODNUMBER",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "INTERVALDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "RUNDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 5,
+          "name": "CASETYPECODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "CASEID",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "PRODUCTCLASS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "POINTOFCONNECTIONCODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "UNITCODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "PLANTNAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "ISLAND",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "PARTICIPANTCODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "CLEAREDGENERATIONMEGAWATTS",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 14,
+          "name": "CLEAREDFIRMEGAWATTS",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 15,
+          "name": "CLEAREDSIRMEGAWATTS",
+          "required": false,
+          "type": "decimal(6, 3)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_CLEARED_OFFERS"
+}

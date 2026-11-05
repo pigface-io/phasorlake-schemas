@@ -3,6 +3,124 @@
     {
       "columns": [
         "TRADINGDATE",
+        "TRADINGPERIODNUMBER",
+        "INTERVALDATETIME",
+        "RUNDATETIME",
+        "CASETYPECODE",
+        "CASEID",
+        "PRODUCTCLASS",
+        "POINTOFCONNECTIONCODE",
+        "UNITCODE",
+        "PLANTNAME",
+        "ISLAND",
+        "PARTICIPANTCODE",
+        "CLEAREDGENERATIONMEGAWATTS",
+        "CLEAREDFIRMEGAWATTS",
+        "CLEAREDSIRMEGAWATTS"
+      ],
+      "report": [
+        "EMI",
+        "CLEARED_OFFERS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2022-04",
+          "last-release": "2026-11",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_CLEARED_OFFERS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRADINGDATE",
+        "TRADINGPERIOD",
+        "PUBLISHDATETIME",
+        "POINTOFCONNECTION",
+        "ISLAND",
+        "ISPROXYPRICEFLAG",
+        "DOLLARSPERMEGAWATTHOUR"
+      ],
+      "report": [
+        "EMI",
+        "DISPATCH_ENERGY_PRICES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2022-11",
+          "last-release": "2026-11",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_DISPATCH_ENERGY_PRICES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRADINGDATE",
+        "TRADINGPERIODNUMBER",
+        "INTERVALDATETIME",
+        "RUNDATETIME",
+        "CASETYPECODE",
+        "CASEID",
+        "POINTOFCONNECTIONCODE",
+        "UNITCODE",
+        "PLANTNAME",
+        "ISLAND",
+        "LOADMEGAWATTS",
+        "INITIALMEGAWATTS",
+        "GENERATIONMEGAWATTS",
+        "LOCATIONFACTOR",
+        "DOLLARSPERMEGAWATTHOUR",
+        "ISDEADFLAG",
+        "ISDISCONNECTEDFLAG"
+      ],
+      "report": [
+        "EMI",
+        "DISPATCH_NODAL_PRICES_AND_VOLUMES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2020-09",
+          "last-release": "2026-11",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_DISPATCH_NODAL_PRICES_AND_VOLUMES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRADINGDATE",
+        "TRADINGPERIOD",
+        "PUBLISHDATETIME",
+        "POINTOFCONNECTION",
+        "ISLAND",
+        "FIRDOLLARSPERMEGAWATTHOUR",
+        "SIRDOLLARSPERMEGAWATTHOUR"
+      ],
+      "report": [
+        "EMI",
+        "DISPATCH_RESERVE_PRICES"
+      ],
+      "schemas": [
+        {
+          "first-release": "2022-11",
+          "last-release": "2026-11",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_DISPATCH_RESERVE_PRICES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRADINGDATE",
         "TRADINGPERIOD",
         "POINTOFCONNECTION",
         "DOLLARSPERMEGAWATTHOUR"

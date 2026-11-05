@@ -1,0 +1,98 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "TradingDate",
+    "2": "TradingPeriod",
+    "3": "PublishDateTime",
+    "4": "PointOfConnection",
+    "5": "Island",
+    "6": "IsProxyPriceFlag",
+    "7": "DollarsPerMegawattHour"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1444,
+      "from": {
+        "data-time": "2022-11-01T00:00:00+12:00",
+        "file": "20221101_DispatchEnergyPrices.csv",
+        "release": "2022-11",
+        "sha256": "be99d9ec892f529b01538d1303e6971530b177d992f0d828debdb402a21eee8b"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "DISPATCH_ENERGY_PRICES"
+      ],
+      "rows": 99043710,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-05T00:00:00+12:00",
+        "file": "20261105_DispatchEnergyPrices.csv",
+        "release": "2026-11",
+        "sha256": "118b2c245c3f6e129f82bc33df7f232efb5cbc84335e5a581a82fc974b1c1f25"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADINGDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "TRADINGPERIOD",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "PUBLISHDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "POINTOFCONNECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "ISLAND",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "ISPROXYPRICEFLAG",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "DOLLARSPERMEGAWATTHOUR",
+          "required": false,
+          "type": "decimal(7, 2)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_DISPATCH_ENERGY_PRICES"
+}

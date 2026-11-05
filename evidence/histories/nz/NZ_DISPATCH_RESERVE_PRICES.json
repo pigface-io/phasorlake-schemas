@@ -1,0 +1,98 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "TradingDate",
+    "2": "TradingPeriod",
+    "3": "PublishDateTime",
+    "4": "PointOfConnection",
+    "5": "Island",
+    "6": "FIRDollarsPerMegawattHour",
+    "7": "SIRDollarsPerMegawattHour"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1444,
+      "from": {
+        "data-time": "2022-11-01T00:00:00+12:00",
+        "file": "20221101_DispatchReservePrices.csv",
+        "release": "2022-11",
+        "sha256": "53cf6a187549d854ce164471d36c459e1425c9f51ca9d5e9ffdaa042d70b8888"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "DISPATCH_RESERVE_PRICES"
+      ],
+      "rows": 819228,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-05T00:00:00+12:00",
+        "file": "20261105_DispatchReservePrices.csv",
+        "release": "2026-11",
+        "sha256": "3942fd987db915a24cdfa39707b2826105ba45402081800e8c7a7832707e56e1"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADINGDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "TRADINGPERIOD",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "PUBLISHDATETIME",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 4,
+          "name": "POINTOFCONNECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "ISLAND",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FIRDOLLARSPERMEGAWATTHOUR",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 7,
+          "name": "SIRDOLLARSPERMEGAWATTHOUR",
+          "required": false,
+          "type": "decimal(6, 2)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_DISPATCH_RESERVE_PRICES"
+}

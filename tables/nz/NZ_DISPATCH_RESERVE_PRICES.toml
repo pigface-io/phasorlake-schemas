@@ -1,0 +1,22 @@
+# The declaration of NZ_DISPATCH_RESERVE_PRICES: first drafted from the census
+# of emidatasets.blob.core.windows.net, kept by hand. The five-minute dispatch
+# price of fast (FIR) and sustained (SIR) instantaneous reserve in each island
+# (the reserve nodes HAY2201 and BEN2201) under real-time pricing (from
+# 2022-11-01), one file a day under a year folder. PUBLISHDATETIME is written
+# with its own offset and read into the market's clock.
+name = "NZ_DISPATCH_RESERVE_PRICES"
+report_pairs = [["EMI", "DISPATCH_RESERVE_PRICES"]]
+time_column = "TRADINGDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[[override]]
+column = "TRADINGPERIOD"
+type = "long"
+reason = "a period number, 1 to 48 (46 or 50 on the days daylight saving changes); the census sees whole numbers and would choose decimal(2, 0)"
+
+[[derive]]
+column = "INTERVAL_START_UTC_US"
+rule = "nz_trading_period_start"
+from = ["TRADINGDATE", "TRADINGPERIOD"]
+reason = "the instant the trading period starts: period n is the n-th half hour from local midnight of the trading date, through New Zealand daylight saving"

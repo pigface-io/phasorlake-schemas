@@ -1,0 +1,27 @@
+# The declaration of NZ_CLEARED_OFFERS: first drafted from the census of
+# emidatasets.blob.core.windows.net, kept by hand. The energy and reserve each
+# dispatch run cleared from every unit's offers (from 2022-04-01), one file a
+# day under a year folder. INTERVALDATETIME is the five-minute interval the
+# run is for and RUNDATETIME when it ran, both written with their own offset
+# and read into the market's clock; CASEID and CASETYPECODE name the run.
+name = "NZ_CLEARED_OFFERS"
+report_pairs = [["EMI", "CLEARED_OFFERS"]]
+time_column = "TRADINGDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[[override]]
+column = "TRADINGPERIODNUMBER"
+type = "long"
+reason = "a period number, 1 to 48 (46 or 50 on the days daylight saving changes); the census sees whole numbers and would choose decimal(2, 0)"
+
+[[override]]
+column = "CASEID"
+type = "long"
+reason = "the dispatch run's case number, an identifier, never a quantity; the census sees whole numbers and would choose a decimal"
+
+[[derive]]
+column = "INTERVAL_START_UTC_US"
+rule = "nz_trading_period_start"
+from = ["TRADINGDATE", "TRADINGPERIODNUMBER"]
+reason = "the instant the trading period starts: period n is the n-th half hour from local midnight of the trading date, through New Zealand daylight saving"

@@ -1,0 +1,118 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_DISPATCH_ENERGY_PRICES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DOLLARSPERMEGAWATTHOUR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "DollarsPerMegawattHour",
+      "x-iceberg-type": "decimal(7, 2)"
+    },
+    "ISLAND": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Island",
+      "x-iceberg-type": "string"
+    },
+    "ISPROXYPRICEFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "IsProxyPriceFlag",
+      "x-iceberg-type": "string"
+    },
+    "POINTOFCONNECTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "PointOfConnection",
+      "x-iceberg-type": "string"
+    },
+    "PUBLISHDATETIME": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "PublishDateTime",
+      "x-iceberg-type": "timestamptz"
+    },
+    "TRADINGDATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "TradingDate",
+      "x-iceberg-type": "date"
+    },
+    "TRADINGPERIOD": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "TradingPeriod",
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [],
+  "title": "NZ_DISPATCH_ENERGY_PRICES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRADINGDATE",
+      "date"
+    ],
+    [
+      2,
+      "TRADINGPERIOD",
+      "long"
+    ],
+    [
+      3,
+      "PUBLISHDATETIME",
+      "timestamptz"
+    ],
+    [
+      4,
+      "POINTOFCONNECTION",
+      "string"
+    ],
+    [
+      5,
+      "ISLAND",
+      "string"
+    ],
+    [
+      6,
+      "ISPROXYPRICEFLAG",
+      "string"
+    ],
+    [
+      7,
+      "DOLLARSPERMEGAWATTHOUR",
+      "decimal(7, 2)"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_DISPATCH_ENERGY_PRICES"
+  }
+}

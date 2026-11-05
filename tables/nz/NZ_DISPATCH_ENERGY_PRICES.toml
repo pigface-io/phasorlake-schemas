@@ -1,0 +1,24 @@
+# The declaration of NZ_DISPATCH_ENERGY_PRICES: first drafted from the census of
+# emidatasets.blob.core.windows.net, kept by hand. The five-minute dispatch
+# energy price at every point of connection under real-time pricing (from
+# 2022-11-01), as the Electricity Authority publishes it the next day, one file
+# a day under a year folder. PUBLISHDATETIME is the instant the price was
+# published, written with its own offset (+12:00 or +13:00) and read into the
+# market's clock; a day carries about 266 publish times, not 288 (an open
+# question for the Authority: ingested as published).
+name = "NZ_DISPATCH_ENERGY_PRICES"
+report_pairs = [["EMI", "DISPATCH_ENERGY_PRICES"]]
+time_column = "TRADINGDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[[override]]
+column = "TRADINGPERIOD"
+type = "long"
+reason = "a period number, 1 to 48 (46 or 50 on the days daylight saving changes); the census sees whole numbers and would choose decimal(2, 0)"
+
+[[derive]]
+column = "INTERVAL_START_UTC_US"
+rule = "nz_trading_period_start"
+from = ["TRADINGDATE", "TRADINGPERIOD"]
+reason = "the instant the trading period starts: period n is the n-th half hour from local midnight of the trading date, through New Zealand daylight saving"
