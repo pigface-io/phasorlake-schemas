@@ -1,0 +1,50 @@
+{
+  "headers": [
+    {
+      "columns": [
+        "TRADINGDATE",
+        "TRADINGPERIOD",
+        "POINTOFCONNECTION",
+        "DOLLARSPERMEGAWATTHOUR"
+      ],
+      "report": [
+        "EMI",
+        "FINAL_ENERGY_PRICES"
+      ],
+      "schemas": [
+        {
+          "first-release": "1996-10",
+          "last-release": "2026-11",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_FINAL_ENERGY_PRICES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRADINGDATE",
+        "TRADINGPERIOD",
+        "ISLAND",
+        "FIRDOLLARSPERMEGAWATTHOUR",
+        "SIRDOLLARSPERMEGAWATTHOUR"
+      ],
+      "report": [
+        "EMI",
+        "FINAL_RESERVE_PRICES"
+      ],
+      "schemas": [
+        {
+          "first-release": "1996-10",
+          "last-release": "2026-11",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_FINAL_RESERVE_PRICES",
+      "version": 1
+    }
+  ],
+  "x-format": 5
+}

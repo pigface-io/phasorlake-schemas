@@ -1,0 +1,89 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_FINAL_RESERVE_PRICES/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "FIRDOLLARSPERMEGAWATTHOUR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "FIRDollarsPerMegawattHour",
+      "x-iceberg-type": "decimal(7, 3)"
+    },
+    "ISLAND": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Island",
+      "x-iceberg-type": "string"
+    },
+    "SIRDOLLARSPERMEGAWATTHOUR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "SIRDollarsPerMegawattHour",
+      "x-iceberg-type": "decimal(8, 3)"
+    },
+    "TRADINGDATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "TradingDate",
+      "x-iceberg-type": "date"
+    },
+    "TRADINGPERIOD": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "TradingPeriod",
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [],
+  "title": "NZ_FINAL_RESERVE_PRICES, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRADINGDATE",
+      "date"
+    ],
+    [
+      2,
+      "TRADINGPERIOD",
+      "long"
+    ],
+    [
+      3,
+      "ISLAND",
+      "string"
+    ],
+    [
+      4,
+      "FIRDOLLARSPERMEGAWATTHOUR",
+      "decimal(7, 3)"
+    ],
+    [
+      5,
+      "SIRDOLLARSPERMEGAWATTHOUR",
+      "decimal(8, 3)"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_FINAL_RESERVE_PRICES"
+  }
+}

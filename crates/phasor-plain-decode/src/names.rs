@@ -147,18 +147,22 @@ fn strip_date_tail(s: &str) -> &str {
 }
 
 /// An EMI stem: the day or month in front (`20261103_`, `202610_`) and an
-/// interim mark behind (`_I`) off, camel case to upper snake. The daily
-/// file, its interim and the month's file of one dataset name one block
-/// (`20261103_FinalEnergyPrices`, `20261103_FinalEnergyPrices_I` and
-/// `202610_FinalEnergyPrices` are all `FINAL_ENERGY_PRICES`); the folder
-/// never names it, since a dataset's files sit under year folders and
-/// `ByMonth/`.
+/// interim mark behind (`_I` on a day's file, `_incomplete` on a month's)
+/// off, camel case to upper snake. The daily file, its interim and the
+/// month's file of one dataset name one block (`20261103_FinalEnergyPrices`,
+/// `20261103_FinalEnergyPrices_I`, `202610_FinalEnergyPrices` and
+/// `202610_FinalEnergyPrices_incomplete` are all `FINAL_ENERGY_PRICES`);
+/// the folder never names it, since a dataset's files sit under year
+/// folders and `ByMonth/`.
 fn emi_name(stem: &str) -> Option<String> {
     let body = match (name_cadence(stem), stem.split_once('_')) {
         (Some(_), Some((_, rest))) => rest,
         _ => stem,
     };
-    let body = body.strip_suffix("_I").unwrap_or(body);
+    let body = body
+        .strip_suffix("_I")
+        .or_else(|| body.strip_suffix("_incomplete"))
+        .unwrap_or(body);
     let name = camel_to_upper_snake(body);
     (!name.is_empty()).then_some(name)
 }
@@ -564,6 +568,12 @@ mod tests {
         );
         assert_eq!(
             name(&format!("{root}/ByMonth/202610_FinalEnergyPrices.csv")),
+            "FINAL_ENERGY_PRICES"
+        );
+        assert_eq!(
+            name(&format!(
+                "{root}/ByMonth/202512_FinalEnergyPrices_incomplete.csv"
+            )),
             "FINAL_ENERGY_PRICES"
         );
         assert_eq!(

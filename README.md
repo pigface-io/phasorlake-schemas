@@ -96,11 +96,14 @@ phasor-schemas sql DISPATCHPRICE --files files.json --from 2024-08-01 --to 2024-
 The `nz/` tables are the Electricity Authority's datasets as its blob
 store publishes them: plain CSV, a file a day or a month, the file's name
 naming the table (`20261103_FinalEnergyPrices.csv`, its interim
-`20261103_FinalEnergyPrices_I.csv` and the month's
-`202610_FinalEnergyPrices.csv` are one table, `FINAL_ENERGY_PRICES`).
-A row is keyed as published, by `TRADING_DATE` (a `date`) and
-`TRADING_PERIOD` (1 to 48; 46 on the day daylight saving starts, 50 on the
-day it ends: the n-th half hour of elapsed time from local midnight).
+`20261103_FinalEnergyPrices_I.csv`, the month's `202610_FinalEnergyPrices.csv`
+and a month still open, `202512_FinalEnergyPrices_incomplete.csv`, are one
+table, `FINAL_ENERGY_PRICES`). Columns are the headers upper-cased, as
+AEMO's are (`TradingDate` is `TRADINGDATE`; the metered files' `Trading_date`
+is `TRADING_DATE`). A row is keyed as published, by the trading date (a
+`date`) and the trading period (1 to 48; 46 on the day daylight saving
+starts, 50 on the day it ends: the n-th half hour of elapsed time from
+local midnight).
 An instant the files write with its own offset (`+13:00` in daylight time)
 is read into the market's clock, NZST `+12:00`, so every `timestamptz` is
 the exact instant displayed in standard time, as AEMO's are. Beside each

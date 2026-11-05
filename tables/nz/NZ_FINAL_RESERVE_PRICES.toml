@@ -1,0 +1,22 @@
+# The declaration of NZ_FINAL_RESERVE_PRICES: first drafted from the census of
+# emidatasets.blob.core.windows.net, kept by hand. The final half-hourly price
+# of fast (FIR) and sustained (SIR) instantaneous reserve in each island, as
+# the Electricity Authority publishes it: one file a day (an interim `_I` file
+# first, replaced by the final), and one a month under ByMonth/ back to
+# October 1996. Prices are in New Zealand dollars per megawatt hour.
+name = "NZ_FINAL_RESERVE_PRICES"
+report_pairs = [["EMI", "FINAL_RESERVE_PRICES"]]
+time_column = "TRADINGDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[[override]]
+column = "TRADINGPERIOD"
+type = "long"
+reason = "a period number, 1 to 48 (46 or 50 on the days daylight saving changes); the census sees whole numbers and would choose decimal(2, 0)"
+
+[[derive]]
+column = "INTERVAL_START_UTC_US"
+rule = "nz_trading_period_start"
+from = ["TRADINGDATE", "TRADINGPERIOD"]
+reason = "the instant the half hour starts: period n is the n-th half hour from local midnight of the trading date, through New Zealand daylight saving"

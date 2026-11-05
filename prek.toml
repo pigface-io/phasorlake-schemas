@@ -17,17 +17,17 @@ hooks = [
     # AEMO's files are kept byte for byte.
     # The manifest lists under the market directories are Avro: bytes, not text.
     { id = "trailing-whitespace", exclude = '^(testdata/|evidence/ctl/)|\.avro$' },
-    { id = "end-of-file-fixer", exclude = '^(testdata/|evidence/ctl/|(nem|wem|gas)/.*/metadata/version-hint\.text$)|\.avro$' },
+    { id = "end-of-file-fixer", exclude = '^(testdata/|evidence/ctl/|(nem|wem|gas|nz)/.*/metadata/version-hint\.text$)|\.avro$' },
     { id = "check-yaml" },
     { id = "check-toml" },
     { id = "check-json" },
     { id = "check-merge-conflict" },
     # The evidence is text that git compresses well: a census month and a
     # data-model release are larger than code ever is.
-    { id = "check-added-large-files", args = ["--maxkb=200"], exclude = '^(evidence/(census|models|histories)/|(nem|wem|gas)/)' },
+    { id = "check-added-large-files", args = ["--maxkb=200"], exclude = '^(evidence/(census|models|histories)/|(nem|wem|gas|nz)/)' },
     # A history and its table metadata grow with a table's runs: the
     # five-minute predispatch tables have hundreds.
-    { id = "check-added-large-files", args = ["--maxkb=1024"], files = '^(evidence/histories/|(nem|wem|gas)/)' },
+    { id = "check-added-large-files", args = ["--maxkb=1024"], files = '^(evidence/histories/|(nem|wem|gas|nz)/)' },
     { id = "detect-private-key" },
 ]
 
@@ -146,7 +146,7 @@ name = "export: the market directories keep what origin/main published"
 language = "system"
 entry = "just compat"
 stages = ["pre-push"]
-files = '^(nem|wem|gas)/'
+files = '^(nem|wem|gas|nz)/'
 pass_filenames = false
 
 # ── Shell ────────────────────────────────────────────────────────────────────

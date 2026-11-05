@@ -1,0 +1,84 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "TradingDate",
+    "2": "TradingPeriod",
+    "3": "Island",
+    "4": "FIRDollarsPerMegawattHour",
+    "5": "SIRDollarsPerMegawattHour"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 729,
+      "from": {
+        "data-time": "1996-10-01T00:00:00+12:00",
+        "file": "199610_FinalReservePrices.csv",
+        "release": "1996-10",
+        "sha256": "9b0e7edfca13898654a5cb39716f56c30f3f0cf58790045b72a8e30943eb8547"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "FINAL_RESERVE_PRICES"
+      ],
+      "rows": 1090076,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-04T00:00:00+12:00",
+        "file": "20261104_FinalReservePrices_I.csv",
+        "release": "2026-11",
+        "sha256": "b3dd713e58f84bb70d8254922d30e324f7add6ce55c48a201f52c675d5686951"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADINGDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "TRADINGPERIOD",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "ISLAND",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "FIRDOLLARSPERMEGAWATTHOUR",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 5,
+          "name": "SIRDOLLARSPERMEGAWATTHOUR",
+          "required": false,
+          "type": "decimal(8, 3)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_FINAL_RESERVE_PRICES"
+}
