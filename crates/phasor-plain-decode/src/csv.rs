@@ -21,8 +21,8 @@ use crate::names::column_name;
 /// What a scan takes.
 #[derive(Debug, Clone, Copy)]
 pub struct PlainOptions<'a> {
-    /// The market's offset, as `+10:00`: the one an RFC 3339 instant may
-    /// carry and still be rewritten.
+    /// The market's offset, as `+10:00`: the clock an RFC 3339 instant in
+    /// another offset is shifted into.
     pub offset: &'a str,
     /// Longest record accepted (a quoted field may span lines); longer is a
     /// corrupt file.

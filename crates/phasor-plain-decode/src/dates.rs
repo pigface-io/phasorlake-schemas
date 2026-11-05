@@ -10,9 +10,12 @@
 //!
 //! Every form is day-first where it is ambiguous: AEMO is Australian, and
 //! the position of the four-digit year tells `DD/MM/YYYY` from
-//! `YYYY/MM/DD`. An RFC 3339 instant is rewritten only when its offset is
-//! the market's; another offset is left as text, so a foreign clock becomes
-//! visible instead of silently shifted.
+//! `YYYY/MM/DD`. An RFC 3339 instant with an offset is the same instant
+//! whatever the offset: one in another clock (New Zealand's files write
+//! `+13:00` in daylight time) is shifted into the market's, so a column
+//! holds one clock and the instant is kept exactly.
+
+use phasor_provenance::civil::{civil_from_days, days_from_civil};
 
 /// The parts of a date, before validation.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -99,8 +102,41 @@ fn parse<'a>(v: &'a [u8], offset: &str) -> Option<Parts<'a>> {
         day_month_name(v)?
     };
     let (mut parts, rest) = p;
-    parts.time = time_of(rest, offset)?;
-    valid(parts).then_some(parts)
+    let (time, zone) = time_of(rest)?;
+    parts.time = time;
+    if !valid(parts) {
+        return None;
+    }
+    let market = zone_secs(offset.as_bytes()).unwrap_or(0);
+    match zone {
+        Some(z) if z != market => Some(shifted(parts, market - z)),
+        _ => Some(parts),
+    }
+}
+
+/// `p`, an instant, moved `delta` seconds along its clock: the same
+/// instant read in another offset. The fraction of a second is kept.
+fn shifted(p: Parts<'_>, delta: i32) -> Parts<'_> {
+    let t = p.time.expect("a zone comes with a time");
+    let days = days_from_civil(i32::from(p.year), u32::from(p.month), u32::from(p.day));
+    let secs = days * 86_400
+        + i64::from(t.hour) * 3_600
+        + i64::from(t.minute) * 60
+        + i64::from(t.second)
+        + i64::from(delta);
+    let (year, month, day) = civil_from_days(secs.div_euclid(86_400));
+    let s = secs.rem_euclid(86_400);
+    Parts {
+        year: year.try_into().unwrap_or(u16::MAX),
+        month: month.try_into().unwrap_or(u8::MAX),
+        day: day.try_into().unwrap_or(u8::MAX),
+        time: Some(Time {
+            hour: (s / 3_600) as u8,
+            minute: (s % 3_600 / 60) as u8,
+            second: (s % 60) as u8,
+            fraction: t.fraction,
+        }),
+    }
 }
 
 /// `v` without a leading day name (`Thursday 5 Aug 2021`), as the GBB's
@@ -201,11 +237,12 @@ fn parts<'a>(year: u32, month: u32, day: u32) -> Parts<'a> {
 }
 
 /// The time of day after a date: nothing, ` H:MM`, ` HH:MM:SS`,
-/// ` HH:MM:SS.f`, `THH:MM:SS[.f]` with an optional zone that must be the
-/// market's. `None` when the tail is none of these.
-fn time_of<'a>(rest: &'a [u8], offset: &str) -> Option<Option<Time<'a>>> {
+/// ` HH:MM:SS.f`, `THH:MM:SS[.f]` with an optional zone (`Z`, `±HH:MM`),
+/// given as seconds east of UTC. `None` when the tail is none of these.
+#[allow(clippy::type_complexity)]
+fn time_of(rest: &[u8]) -> Option<(Option<Time<'_>>, Option<i32>)> {
     let Some((&lead, tail)) = rest.split_first() else {
-        return Some(None);
+        return Some((None, None));
     };
     if lead != b' ' && lead != b'T' {
         return None;
@@ -214,9 +251,11 @@ fn time_of<'a>(rest: &'a [u8], offset: &str) -> Option<Option<Time<'a>>> {
     if lead == b' ' && !zone.is_empty() {
         return None;
     }
-    if !zone.is_empty() && !zone_is(zone, offset) {
-        return None;
-    }
+    let zone = if zone.is_empty() {
+        None
+    } else {
+        Some(zone_secs(zone)?)
+    };
     let mut it = clock.split(|b| *b == b':');
     let hour = it
         .next()
@@ -240,12 +279,13 @@ fn time_of<'a>(rest: &'a [u8], offset: &str) -> Option<Option<Time<'a>>> {
     if it.next().is_some() {
         return None;
     }
-    Some(Some(Time {
+    let time = Time {
         hour: hour.try_into().unwrap_or(u8::MAX),
         minute: minute.try_into().unwrap_or(u8::MAX),
         second: second.try_into().unwrap_or(u8::MAX),
         fraction,
-    }))
+    };
+    Some((Some(time), zone))
 }
 
 /// A trailing `Z`, `+HH:MM` or `-HH:MM`, split off the clock.
@@ -262,10 +302,25 @@ fn split_zone(tail: &[u8]) -> (&[u8], &[u8]) {
     (tail, b"")
 }
 
-fn zone_is(zone: &[u8], offset: &str) -> bool {
-    match zone {
-        b"Z" => offset == "+00:00",
-        z => z == offset.as_bytes(),
+/// A zone as seconds east of UTC: `Z` is 0, `+10:00` is 36 000, `-03:30`
+/// is -12 600. `None` for anything else.
+fn zone_secs(zone: &[u8]) -> Option<i32> {
+    if zone == b"Z" {
+        return Some(0);
+    }
+    let [sign, h1, h2, b':', m1, m2] = zone else {
+        return None;
+    };
+    let hours = digits(&[*h1, *h2])?;
+    let minutes = digits(&[*m1, *m2])?;
+    if hours > 23 || minutes > 59 {
+        return None;
+    }
+    let secs = (hours * 3_600 + minutes * 60) as i32;
+    match sign {
+        b'+' => Some(secs),
+        b'-' => Some(-secs),
+        _ => None,
     }
 }
 
@@ -335,13 +390,50 @@ mod tests {
     }
 
     #[test]
-    fn a_foreign_offset_stays_text() {
-        assert!(mms("2026-10-21T08:00:00+08:00").is_none());
-        assert!(mms("2026-10-21T08:00:00Z").is_none());
+    fn another_offset_is_the_same_instant_in_the_markets_clock() {
+        assert_eq!(
+            mms("2026-10-21T08:00:00+08:00").unwrap(),
+            "2026/10/21 10:00:00"
+        );
+        assert_eq!(mms("2026-10-21T08:00:00Z").unwrap(), "2026/10/21 18:00:00");
+        // Across midnight, a month and a year, the fraction kept.
+        assert_eq!(
+            mms("2026-12-31T23:30:00.250Z").unwrap(),
+            "2027/01/01 09:30:00.250"
+        );
+        assert_eq!(
+            mms("2026-03-01T05:00:00+20:00").unwrap(),
+            "2026/02/28 19:00:00"
+        );
+        assert_eq!(
+            mms("2026-10-21T08:00:00-03:30").unwrap(),
+            "2026/10/21 21:30:00"
+        );
+        // New Zealand's daylight time into NZST, as its dispatch files need.
         let mut out = Vec::new();
+        assert!(to_mms(b"2026-01-04T23:59:22.000+13:00", "+12:00", &mut out));
+        assert_eq!(out, b"2026/01/04 22:59:22.000");
+        assert!(to_mms(b"2026-01-05T00:20:00+13:00", "+12:00", &mut out));
+        assert_eq!(out, b"2026/01/04 23:20:00");
+        assert!(to_mms(b"2026-07-01T10:00:00+12:00", "+12:00", &mut out));
+        assert_eq!(out, b"2026/07/01 10:00:00");
         assert!(to_mms(b"2026-10-21T08:00:00Z", "+00:00", &mut out));
         assert_eq!(out, b"2026/10/21 08:00:00");
+        assert!(is_date(b"2026-10-21T08:00:00+08:00", "+10:00"));
+        // A zone after a space, or one that is not a zone, is no date.
         assert!(!to_mms(b"2026-10-21 08:00:00+10:00", "+10:00", &mut out));
+        for v in [
+            "2026-10-21T08:00:00+1x:00",
+            "2026-10-21T08:00:00+24:00",
+            "2026-10-21T08:00:00+10:60",
+            "2026-10-21T08:00:00*10:00",
+            "2026-10-21T08:00:00+10:0",
+        ] {
+            assert!(mms(v).is_none(), "{v}");
+        }
+        // A market offset that is not one shifts nothing.
+        assert!(to_mms(b"2026-10-21T08:00:00Z", "x", &mut out));
+        assert_eq!(out, b"2026/10/21 08:00:00");
     }
 
     #[test]

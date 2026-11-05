@@ -357,9 +357,9 @@ mod tests {
     }
 
     #[test]
-    fn a_foreign_offset_is_kept_as_written() {
+    fn an_instant_in_another_offset_is_read_into_the_markets_clock() {
         let (c, _) = run(RTP, "+10:00");
-        assert_eq!(c.rows[0][4], "2026-10-21T08:00:00+08:00");
+        assert_eq!(c.rows[0][4], "2026/10/21 10:00:00");
     }
 
     #[test]
