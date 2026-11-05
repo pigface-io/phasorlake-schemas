@@ -87,10 +87,47 @@ pub struct Feed {
     pub ignore: &'static [&'static str],
     /// The market's offset from UTC, in seconds.
     pub offset_secs: i32,
-    /// Blocks whose header names dates (a column per forecast day, so the
-    /// header changes every day): read with those columns unpivoted into
-    /// the two named, the date and the value.
-    pub unpivot: &'static [(&'static str, (&'static str, &'static str))],
+    /// Blocks whose header holds a column per date or per period: read
+    /// with those columns unpivoted into two, as each says.
+    pub unpivot: &'static [(&'static str, Unpivot)],
+}
+
+/// How a block's wide header is read as rows.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Unpivot {
+    /// Header fields that are dates (a column per forecast day, so the
+    /// header changes every day) are not columns: each row is one row per
+    /// such field, with the date in `date` and the field's value in
+    /// `value`.
+    Dated {
+        /// The date column.
+        date: &'static str,
+        /// The value column.
+        value: &'static str,
+    },
+    /// Header fields `{prefix}1`, `{prefix}2`, ... (a column per trading
+    /// period) are not columns: each row is one row per such field up to
+    /// the last one the row fills, with the number in `number` and the
+    /// field's value in `value`. A day of 46 periods fills 46 of 50.
+    Numbered {
+        /// The fields' common prefix.
+        prefix: &'static str,
+        /// The number column.
+        number: &'static str,
+        /// The value column.
+        value: &'static str,
+    },
+}
+
+impl Unpivot {
+    /// The two columns the unpivoted fields become: the key, then the
+    /// value.
+    pub fn columns(self) -> (&'static str, &'static str) {
+        match self {
+            Self::Dated { date, value } => (date, value),
+            Self::Numbered { number, value, .. } => (number, value),
+        }
+    }
 }
 
 impl Feed {
@@ -153,13 +190,13 @@ impl Feed {
         self.ignore.iter().any(|f| f.eq_ignore_ascii_case(folder))
     }
 
-    /// The date and value columns the block `name`'s dated header columns
-    /// unpivot into, when it is such a block.
-    pub fn unpivot_of(&self, name: &str) -> Option<(&'static str, &'static str)> {
+    /// How the block `name`'s wide header unpivots, when it is such a
+    /// block.
+    pub fn unpivot_of(&self, name: &str) -> Option<Unpivot> {
         self.unpivot
             .iter()
             .find(|(n, _)| *n == name)
-            .map(|(_, into)| *into)
+            .map(|(_, how)| *how)
     }
 }
 
@@ -240,7 +277,13 @@ pub const FEEDS: &[Feed] = &[
         time_columns: &[],
         ignore: &[],
         offset_secs: AEST,
-        unpivot: &[("FORECAST_UTILISATION", ("FORECAST_DATE", "QUANTITY"))],
+        unpivot: &[(
+            "FORECAST_UTILISATION",
+            Unpivot::Dated {
+                date: "FORECAST_DATE",
+                value: "QUANTITY",
+            },
+        )],
     },
     Feed {
         market: "gas",
@@ -341,9 +384,26 @@ pub const FEEDS: &[Feed] = &[
         time_columns: &[],
         ignore: EMI_IGNORED,
         offset_secs: NZST,
-        unpivot: &[],
+        unpivot: &[
+            ("GENERATION_MD", TRADING_PERIODS),
+            ("GRID_EXPORT", TRADING_PERIODS),
+            ("GRID_IMPORT", TRADING_PERIODS),
+            ("HVDC_FLOWS", TRADING_PERIODS),
+            ("UNIT_LEVEL_GENERATION", TRADING_PERIODS),
+            ("EMBEDDED_GENERATION", TRADING_PERIODS),
+        ],
     },
 ];
+
+/// The EMI's metered files: a column per trading period, `TP1` to `TP50`,
+/// read as a row per period. The blocks named above are those whose
+/// files the census has seen; another wide metered table joins the list
+/// when it is seen.
+const TRADING_PERIODS: Unpivot = Unpivot::Numbered {
+    prefix: "TP",
+    number: "TRADING_PERIOD",
+    value: "QUANTITY",
+};
 
 /// The feed with this id.
 pub fn feed(id: &str) -> Option<&'static Feed> {
@@ -491,17 +551,27 @@ mod tests {
     }
 
     #[test]
-    fn dated_headers_unpivot_where_a_feed_says() {
+    fn wide_headers_unpivot_where_a_feed_says() {
         let gbb = feed("gbb").unwrap();
+        let dated = gbb.unpivot_of("FORECAST_UTILISATION").unwrap();
         assert_eq!(
-            gbb.unpivot_of("FORECAST_UTILISATION"),
-            Some(("FORECAST_DATE", "QUANTITY"))
+            dated,
+            Unpivot::Dated {
+                date: "FORECAST_DATE",
+                value: "QUANTITY"
+            }
         );
+        assert_eq!(dated.columns(), ("FORECAST_DATE", "QUANTITY"));
         assert_eq!(gbb.unpivot_of("ACTUAL_FLOW_STORAGE"), None);
         assert_eq!(
             feed("sttm").unwrap().unpivot_of("FORECAST_UTILISATION"),
             None
         );
+        let emi = feed("emi").unwrap();
+        let periods = emi.unpivot_of("GENERATION_MD").unwrap();
+        assert_eq!(periods, TRADING_PERIODS);
+        assert_eq!(periods.columns(), ("TRADING_PERIOD", "QUANTITY"));
+        assert_eq!(emi.unpivot_of("FINAL_ENERGY_PRICES"), None);
     }
 
     #[test]

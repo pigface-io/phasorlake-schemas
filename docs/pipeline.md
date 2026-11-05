@@ -47,7 +47,9 @@ CSVs under `Reports/{GBB,STTM,VicGas}`). A folder's census is
   `true` and `false` as booleans.
 - A block whose header names a column per forecast day (the GBB's
   `ForecastUtilisation`) is read with those columns unpivoted into a date
-  and a value, so its shape does not change daily.
+  and a value, so its shape does not change daily; one with a column per
+  trading period (the EMI's metered files, `TP1` to `TP50`) as a row per
+  period the day has, the period's number and the value.
 - A file's first bytes say what it is: a `C` row is read as MMS rows
   whatever the folder, and markup named `.csv` counts among the files that
   are not reports.

@@ -16,6 +16,7 @@ use phasor_decode::fields::Splitter;
 pub use phasor_decode::{Flow, Pos, Row};
 
 use crate::dates;
+use crate::feeds::Unpivot;
 use crate::names::column_name;
 
 /// What a scan takes.
@@ -30,10 +31,11 @@ pub struct PlainOptions<'a> {
     /// Bad rows tolerated before the file fails.
     pub max_bad_rows: u64,
     /// When given, header fields that are dates (`Thursday 5 Aug 2021`)
-    /// are not columns: each row is read as one row per such field, the
-    /// other fields repeated, with the date in the first column named and
-    /// the field's value in the second.
-    pub unpivot: Option<(&'a str, &'a str)>,
+    /// or numbered (`TP1`..`TP50`) are not columns: each row is read as
+    /// one row per such field, the other fields repeated, with the date or
+    /// number in the first column named and the field's value in the
+    /// second ([`Unpivot`]).
+    pub unpivot: Option<Unpivot>,
 }
 
 impl Default for PlainOptions<'static> {
@@ -47,31 +49,64 @@ impl Default for PlainOptions<'static> {
     }
 }
 
-/// How a header's dated fields are read, when they are.
-struct Unpivot {
-    /// The fields that are not dates, in order.
+/// How a header's wide fields are read as rows, when they are.
+struct Pivot {
+    /// The fields that stay columns, in order.
     fixed: Vec<usize>,
-    /// Each dated field and its date in the MMS form.
-    dated: Vec<(usize, Vec<u8>)>,
+    /// Each field that becomes a row, and its key: the date in the MMS
+    /// form, or the number as written.
+    keys: Vec<(usize, Vec<u8>)>,
+    /// Whether a row's trailing empty keyed fields are rows at all: a
+    /// dated header's are (a forecast not made), a numbered one's are not
+    /// (periods the day does not have).
+    trailing_empty: bool,
 }
 
-impl Unpivot {
-    /// The unpivot of `raw`, when any field is a date.
-    fn of(raw: &[String], offset: &str) -> Option<Self> {
+impl Pivot {
+    /// The pivot of `raw` as `how` says, when any field is such a key.
+    fn of(raw: &[String], offset: &str, how: Unpivot) -> Option<Self> {
         let mut fixed = Vec::new();
-        let mut dated = Vec::new();
+        let mut keys = Vec::new();
         let mut buf = Vec::new();
         for (j, field) in raw.iter().enumerate() {
             let v = field.as_bytes();
-            if dates::to_mms(v, offset, &mut buf) {
-                dated.push((j, buf.clone()));
-            } else if dates::is_date(v, offset) {
-                dated.push((j, v.to_vec()));
-            } else {
-                fixed.push(j);
+            let key = match how {
+                Unpivot::Dated { .. } => {
+                    if dates::to_mms(v, offset, &mut buf) {
+                        Some(buf.clone())
+                    } else {
+                        dates::is_date(v, offset).then(|| v.to_vec())
+                    }
+                }
+                Unpivot::Numbered { prefix, .. } => field
+                    .trim()
+                    .strip_prefix(prefix)
+                    .filter(|n| !n.is_empty() && n.bytes().all(|b| b.is_ascii_digit()))
+                    .map(|n| n.as_bytes().to_vec()),
+            };
+            match key {
+                Some(k) => keys.push((j, k)),
+                None => fixed.push(j),
             }
         }
-        (!dated.is_empty()).then_some(Self { fixed, dated })
+        (!keys.is_empty()).then_some(Self {
+            fixed,
+            keys,
+            trailing_empty: matches!(how, Unpivot::Dated { .. }),
+        })
+    }
+
+    /// The keyed fields of `row` that are rows: all of them, or those up
+    /// to the last one the row fills.
+    fn rows_of(&self, row: &Row<'_>) -> &[(usize, Vec<u8>)] {
+        if self.trailing_empty {
+            return &self.keys;
+        }
+        let filled = self
+            .keys
+            .iter()
+            .rposition(|(j, _)| row.get(*j).is_some_and(|v| !v.is_empty()));
+        filled.map_or(&[], |last| &self.keys[..=last])
     }
 }
 
@@ -305,7 +340,7 @@ pub fn scan<R: Read, S: PlainSink>(
     let mut header: Option<Header> = None;
     let mut first_bad: Option<(u64, PlainRowError)> = None;
     let mut first = true;
-    let mut unpivot: Option<(Unpivot, (&str, &str))> = None;
+    let mut unpivot: Option<Pivot> = None;
     let mut source_width = 0usize;
     loop {
         let pos = Pos {
@@ -352,20 +387,23 @@ pub fn scan<R: Read, S: PlainSink>(
                 text: text.to_owned(),
             };
             source_width = fields.len();
-            unpivot = Unpivot::of(&fields, opts.offset).zip(opts.unpivot);
-            let h = match &unpivot {
-                Some((u, (date, value))) => {
+            unpivot = opts
+                .unpivot
+                .and_then(|how| Pivot::of(&fields, opts.offset, how));
+            let h = match (&unpivot, opts.unpivot) {
+                (Some(u), Some(how)) => {
+                    let (key, value) = how.columns();
                     let names = u
                         .fixed
                         .iter()
                         .map(|&j| fields[j].as_str())
-                        .chain([*date, *value]);
+                        .chain([key, value]);
                     Header::from_raw(names).map_err(|column| {
                         let text = u.fixed.get(column).map_or("", |&j| fields[j].as_str());
                         bad(column, text)
                     })?
                 }
-                None => Header::from_raw(fields.iter().map(String::as_str))
+                _ => Header::from_raw(fields.iter().map(String::as_str))
                     .map_err(|column| bad(column, &fields[column]))?,
             };
             sink.header(None, &h, pos).map_err(PlainError::Sink)?;
@@ -400,20 +438,20 @@ pub fn scan<R: Read, S: PlainSink>(
                 continue;
             }
         }
-        let Some((u, _)) = &unpivot else {
+        let Some(u) = &unpivot else {
             let (rebuilt, rewritten) = rows.build(row.iter(), n, opts.offset);
             stats.rewritten += rewritten;
             sink.row(&rebuilt, pos).map_err(PlainError::Sink)?;
             stats.rows += 1;
             continue;
         };
-        // One row per dated field: the fixed fields, the date, the value.
-        for (j, date) in &u.dated {
+        // One row per keyed field: the fixed fields, the key, the value.
+        for (j, key) in u.rows_of(&row) {
             let fields = u
                 .fixed
                 .iter()
                 .map(|&k| row.get(k).unwrap_or_default())
-                .chain([date.as_slice(), row.get(*j).unwrap_or_default()]);
+                .chain([key.as_slice(), row.get(*j).unwrap_or_default()]);
             let (rebuilt, rewritten) = rows.build(fields, n, opts.offset);
             stats.rewritten += rewritten;
             sink.row(&rebuilt, pos).map_err(PlainError::Sink)?;
@@ -736,10 +774,12 @@ pub(crate) mod tests {
             .filter(|n| n.ends_with(".csv"))
             .collect();
         names.sort();
-        assert_eq!(names.len(), 6);
+        assert_eq!(names.len(), 9);
         for name in names {
             let offset = if name.starts_with("wem") {
                 "+08:00"
+            } else if name.starts_with("nz") {
+                "+12:00"
             } else {
                 "+10:00"
             };
@@ -771,7 +811,10 @@ pub(crate) mod tests {
     fn dated_header_fields_unpivot_into_a_date_and_a_value() {
         let text = b"State,Units,\"Thursday 5 Aug 2021\",\"Friday 6 Aug 2021\"\nNSW,TJ/day,-436.388,-286.616\nQLD,TJ/day,1.5,\nVIC,TJ/day,1,2,3\n";
         let opts = PlainOptions {
-            unpivot: Some(("FORECAST_DATE", "QUANTITY")),
+            unpivot: Some(Unpivot::Dated {
+                date: "FORECAST_DATE",
+                value: "QUANTITY",
+            }),
             max_bad_rows: 1,
             ..PlainOptions::default()
         };
@@ -813,6 +856,71 @@ pub(crate) mod tests {
         let (c, r) = run(b"a,2021/08/05\nx,7\n", &opts);
         r.unwrap();
         assert_eq!(c.rows, [["x", "2021/08/05", "7"]]);
+    }
+
+    #[test]
+    fn numbered_header_fields_unpivot_into_the_periods_a_day_has() {
+        let opts = PlainOptions {
+            offset: "+12:00",
+            unpivot: Some(Unpivot::Numbered {
+                prefix: "TP",
+                number: "TRADING_PERIOD",
+                value: "QUANTITY",
+            }),
+            ..PlainOptions::default()
+        };
+        // A full day, a short day with a gap inside it, an empty day.
+        let text = b"Site,Trading_Date,TP1,TP2,TP3,TP4\nA,2026-09-01,1,2,3,4\nB,2026-09-27,5,,7,\nC,2026-09-28,,,,\n";
+        let (c, r) = run(text, &opts);
+        let stats = r.unwrap();
+        assert_eq!(
+            c.blocks[0].1.names,
+            ["SITE", "TRADING_DATE", "TRADING_PERIOD", "QUANTITY"]
+        );
+        assert_eq!(
+            c.rows,
+            [
+                ["A", "2026/09/01", "1", "1"],
+                ["A", "2026/09/01", "2", "2"],
+                ["A", "2026/09/01", "3", "3"],
+                ["A", "2026/09/01", "4", "4"],
+                ["B", "2026/09/27", "1", "5"],
+                ["B", "2026/09/27", "2", ""],
+                ["B", "2026/09/27", "3", "7"],
+            ]
+        );
+        assert_eq!(stats.rows, 7);
+        // A header with no numbered field reads as it is; a prefix alone,
+        // or a prefix and letters, is a column.
+        let (c, r) = run(b"Site,TP,TPx,TP 1\nA,1,2,3\n", &opts);
+        r.unwrap();
+        assert_eq!(c.blocks[0].1.names, ["SITE", "TP", "TPX", "TP_1"]);
+        assert_eq!(c.rows, [["A", "1", "2", "3"]]);
+        // The generation fixture: two days of 48 periods, the last two
+        // columns empty.
+        let bytes = std::fs::read(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/testdata/nz_generation_md_202609.csv"
+        ))
+        .unwrap();
+        let (c, r) = run(&bytes, &opts);
+        assert_eq!(r.unwrap().rows, 96);
+        assert_eq!(
+            c.rows[0][..9],
+            [
+                "ARA",
+                "ARA2201",
+                "MRPL",
+                "aratiatia",
+                "Hydro",
+                "Hydro",
+                "2026/09/01",
+                "1",
+                "12320"
+            ]
+        );
+        assert_eq!(c.rows[47][7..], ["48", "11750"]);
+        assert_eq!(c.rows[48][6..], ["2026/09/02", "1", "11780"]);
     }
 
     #[test]
