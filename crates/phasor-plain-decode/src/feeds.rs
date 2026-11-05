@@ -33,6 +33,18 @@ pub enum Release {
     StampMonth,
 }
 
+/// How a feed's host lists a folder.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Listing {
+    /// An IIS directory page: a `<pre>` of names, sizes and times (AEMO's
+    /// hosts).
+    Iis,
+    /// Azure Blob Storage: `?restype=container&comp=list&prefix=...&delimiter=/`,
+    /// an XML page of blobs and prefixes, 5,000 a page (the Electricity
+    /// Authority's `emidatasets` account).
+    AzureBlob,
+}
+
 /// How a later file of the same block relates to the one before it.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Dedupe {
@@ -47,16 +59,18 @@ pub enum Dedupe {
 /// One feed.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Feed {
-    /// The market: `nem`, `wem` or `gas`.
+    /// The market: `nem`, `wem`, `gas` or `nz`.
     pub market: &'static str,
     /// The feed's id within the market: `reports`, `gsh`, `gbb`, `sttm`,
-    /// `dwgm`, `datafiles`, `wemde`, `market-data`.
+    /// `dwgm`, `datafiles`, `wemde`, `market-data`, `emi`.
     pub id: &'static str,
     /// The host the feed is published on.
     pub host: &'static str,
     /// The folders under the host, each a root the census and the mirror
     /// walk.
     pub roots: &'static [&'static str],
+    /// How the host lists a folder.
+    pub listing: Listing,
     /// How its files are read.
     pub decoder: Decoder,
     /// The report type of every block a plain file carries; empty for an
@@ -80,10 +94,12 @@ pub struct Feed {
 }
 
 impl Feed {
-    /// The market's offset as `+10:00`.
+    /// The market's offset as `+10:00`: one of the three clocks a feed is
+    /// published in.
     pub fn offset_text(&self) -> &'static str {
         match self.offset_secs {
-            28_800 => "+08:00",
+            AWST => "+08:00",
+            NZST => "+12:00",
             _ => "+10:00",
         }
     }
@@ -149,8 +165,22 @@ impl Feed {
 
 const NEMWEB: &str = "www.nemweb.com.au";
 const WA: &str = "data.wa.aemo.com.au";
+/// The Electricity Authority's blob account; its `publicdata` container
+/// is the first path segment.
+const EMI: &str = "emidatasets.blob.core.windows.net";
 const AEST: i32 = 10 * 3600;
 const AWST: i32 = 8 * 3600;
+const NZST: i32 = 12 * 3600;
+
+/// The folders under the EMI roots the `emi` feed leaves alone: solver
+/// inputs and case files (not tables), the frozen pre-real-time-pricing
+/// archive, and the zipped forecast schedules.
+pub const EMI_IGNORED: &[&str] = &[
+    "GDX",
+    "CaseFiles",
+    "Pre1November2022Archive",
+    "ForecastPrices",
+];
 
 /// The gas folders under nemweb's report roots, which the NEM reports feed
 /// leaves to the gas feeds.
@@ -172,6 +202,7 @@ pub const FEEDS: &[Feed] = &[
         id: "reports",
         host: NEMWEB,
         roots: &["Reports/ARCHIVE", "Reports/CURRENT"],
+        listing: Listing::Iis,
         decoder: Decoder::Mms,
         family: "",
         release: Release::NameMonth,
@@ -186,6 +217,7 @@ pub const FEEDS: &[Feed] = &[
         id: "gsh",
         host: NEMWEB,
         roots: &["Reports/ARCHIVE/GSH", "Reports/CURRENT/GSH"],
+        listing: Listing::Iis,
         decoder: Decoder::Mms,
         family: "",
         release: Release::NameMonth,
@@ -200,6 +232,7 @@ pub const FEEDS: &[Feed] = &[
         id: "gbb",
         host: NEMWEB,
         roots: &["Reports/CURRENT/GBB"],
+        listing: Listing::Iis,
         decoder: Decoder::Csv,
         family: "GBB",
         release: Release::StampMonth,
@@ -214,6 +247,7 @@ pub const FEEDS: &[Feed] = &[
         id: "sttm",
         host: NEMWEB,
         roots: &["Reports/CURRENT/STTM"],
+        listing: Listing::Iis,
         decoder: Decoder::Csv,
         family: "STTM",
         release: Release::StampMonth,
@@ -228,6 +262,7 @@ pub const FEEDS: &[Feed] = &[
         id: "dwgm",
         host: NEMWEB,
         roots: &["Reports/CURRENT/VicGas"],
+        listing: Listing::Iis,
         decoder: Decoder::Csv,
         family: "DWGM",
         release: Release::StampMonth,
@@ -242,6 +277,7 @@ pub const FEEDS: &[Feed] = &[
         id: "datafiles",
         host: WA,
         roots: &["public/public-data/datafiles"],
+        listing: Listing::Iis,
         decoder: Decoder::Csv,
         family: "WEM",
         release: Release::NameMonth,
@@ -256,6 +292,7 @@ pub const FEEDS: &[Feed] = &[
         id: "wemde",
         host: WA,
         roots: &["public/market-data/wemde"],
+        listing: Listing::Iis,
         decoder: Decoder::Json,
         family: "WEMDE",
         release: Release::NameMonth,
@@ -270,6 +307,7 @@ pub const FEEDS: &[Feed] = &[
         id: "market-data",
         host: WA,
         roots: &["public/market-data"],
+        listing: Listing::Iis,
         decoder: Decoder::Json,
         family: "WEMMD",
         release: Release::NameMonth,
@@ -277,6 +315,32 @@ pub const FEEDS: &[Feed] = &[
         time_columns: &[],
         ignore: &["wemde", "current"],
         offset_secs: AWST,
+        unpivot: &[],
+    },
+    // New Zealand: the Electricity Authority's datasets, plain CSV on blob
+    // storage, a file a day or a month, the file's name naming the table.
+    // Interim, final and corrected files are distinct files; which row is
+    // current is a reader's question, so nothing is deduplicated.
+    Feed {
+        market: "nz",
+        id: "emi",
+        host: EMI,
+        roots: &[
+            "publicdata/Datasets/Wholesale/DispatchAndPricing",
+            "publicdata/Datasets/Wholesale/BidsAndOffers",
+            "publicdata/Datasets/Wholesale/Generation",
+            "publicdata/Datasets/Wholesale/Metered_data",
+            "publicdata/Datasets/Wholesale/MappingsAndGeospatial",
+            "publicdata/Datasets/Retail",
+        ],
+        listing: Listing::AzureBlob,
+        decoder: Decoder::Csv,
+        family: "EMI",
+        release: Release::NameMonth,
+        dedupe: Dedupe::None,
+        time_columns: &[],
+        ignore: EMI_IGNORED,
+        offset_secs: NZST,
         unpivot: &[],
     },
 ];
@@ -304,12 +368,26 @@ mod tests {
         assert!(
             FEEDS
                 .iter()
-                .all(|f| matches!(f.market, "nem" | "wem" | "gas"))
+                .all(|f| matches!(f.market, "nem" | "wem" | "gas" | "nz"))
         );
         assert_eq!(feeds_of("gas").count(), 4);
         assert_eq!(feeds_of("wem").count(), 3);
         assert_eq!(feeds_of("nem").count(), 1);
+        assert_eq!(feeds_of("nz").count(), 1);
         assert!(feed("x").is_none());
+        // AEMO's hosts list IIS pages; the Electricity Authority's blob
+        // store lists blobs.
+        for f in FEEDS {
+            assert_eq!(
+                f.listing == Listing::AzureBlob,
+                f.market == "nz",
+                "{}",
+                f.id
+            );
+        }
+        let emi = feed("emi").unwrap();
+        assert!(emi.ignores("gdx") && emi.ignores("CaseFiles") && !emi.ignores("ByMonth"));
+        assert_eq!(emi.local_roots().len(), emi.roots.len());
     }
 
     #[test]
@@ -323,6 +401,12 @@ mod tests {
     fn offsets() {
         assert_eq!(feed("gbb").unwrap().offset_text(), "+10:00");
         assert_eq!(feed("wemde").unwrap().offset_text(), "+08:00");
+        assert_eq!(feed("emi").unwrap().offset_text(), "+12:00");
+        // Every feed's text is its seconds: no clock is silently another's.
+        for f in FEEDS {
+            let hours: i32 = f.offset_text()[1..3].parse().unwrap();
+            assert_eq!(hours * 3600, f.offset_secs, "{}", f.id);
+        }
     }
 
     #[test]

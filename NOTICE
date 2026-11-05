@@ -4,6 +4,8 @@ Copyright 2026 g0itb4
 The code under crates/ is licensed under the Apache License, Version 2.0;
 see LICENSE.
 
-The files under evidence/, sources/, nem/ and testdata/, and manifest.json,
-are derived from data published by the Australian Energy Market Operator
-(AEMO) and are not covered by that licence; see LICENCE-DATA.md.
+The files under evidence/, sources/, nem/, wem/, gas/ and testdata/, and
+manifest.json, are derived from data published by the Australian Energy
+Market Operator (AEMO), and those under evidence/census/nz/, sources/nz/
+and nz/ from data published by the Electricity Authority of New Zealand
+(CC BY 4.0); none are covered by that licence. See LICENCE-DATA.md.

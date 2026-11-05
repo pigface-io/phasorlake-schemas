@@ -66,6 +66,11 @@ pub fn block_name(feed: &Feed, path: &str) -> Option<BlockName> {
                 version,
             })
         }
+        Decoder::Csv if feed.market == "nz" => Some(BlockName {
+            family,
+            name: emi_name(stem)?,
+            version: 1,
+        }),
         Decoder::Csv => {
             // WEM datafiles: the dataset folder names the block.
             let folder = parent_folder(unversioned, feed)?;
@@ -139,6 +144,70 @@ fn strip_date_tail(s: &str) -> &str {
             return s;
         }
     }
+}
+
+/// An EMI stem: the day or month in front (`20261103_`, `202610_`) and an
+/// interim mark behind (`_I`) off, camel case to upper snake. The daily
+/// file, its interim and the month's file of one dataset name one block
+/// (`20261103_FinalEnergyPrices`, `20261103_FinalEnergyPrices_I` and
+/// `202610_FinalEnergyPrices` are all `FINAL_ENERGY_PRICES`); the folder
+/// never names it, since a dataset's files sit under year folders and
+/// `ByMonth/`.
+fn emi_name(stem: &str) -> Option<String> {
+    let body = match (name_cadence(stem), stem.split_once('_')) {
+        (Some(_), Some((_, rest))) => rest,
+        _ => stem,
+    };
+    let body = body.strip_suffix("_I").unwrap_or(body);
+    let name = camel_to_upper_snake(body);
+    (!name.is_empty()).then_some(name)
+}
+
+/// How often a feed publishes a file, as its name says.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum Cadence {
+    /// A file a day: `YYYYMMDD_` in front.
+    Day,
+    /// A file a month: `YYYYMM_` in front.
+    Month,
+}
+
+/// The leading digits of a file's name and what follows them, when the
+/// name starts with digits and an underscore.
+fn leading_digits(name: &str) -> Option<&str> {
+    let file = name.rsplit('/').next().unwrap_or(name);
+    let (digits, _) = file.split_once('_')?;
+    (!digits.is_empty() && digits.bytes().all(|b| b.is_ascii_digit())).then_some(digits)
+}
+
+/// The cadence a file's name says: `20261103_FinalEnergyPrices.csv` is
+/// a day's, `202610_FinalEnergyPrices.csv` a month's, when the digits
+/// are a real day or month; `None` for any other name.
+#[must_use]
+pub fn name_cadence(name: &str) -> Option<Cadence> {
+    let digits = leading_digits(name)?;
+    match digits.len() {
+        8 => name_day(name).map(|_| Cadence::Day),
+        6 => name_month(digits).map(|_| Cadence::Month),
+        _ => None,
+    }
+}
+
+/// The day a file's name gives in front, `YYYYMMDD_`, as (year, month,
+/// day), when it is a real day of 1990 to 2099.
+#[must_use]
+pub fn name_day(name: &str) -> Option<(i32, u32, u32)> {
+    let digits = leading_digits(name)?;
+    if digits.len() != 8 {
+        return None;
+    }
+    let year: i32 = digits[..4].parse().ok()?;
+    let month: u32 = digits[4..6].parse().ok()?;
+    let day: u32 = digits[6..8].parse().ok()?;
+    let real = (1990..2100).contains(&year)
+        && (1..=12).contains(&month)
+        && (1..=phasor_provenance::civil::days_in_month(year, month)).contains(&day);
+    real.then_some((year, month, day))
 }
 
 /// An STTM or DWGM stem: `int651_v1_ex_ante_market_price_rpt_1` is
@@ -478,6 +547,80 @@ mod tests {
         assert_eq!(block("sttm", "intx.csv"), None);
         assert_eq!(block("sttm", "int.csv"), None);
         assert_eq!(block("sttm", "int1_v99999.csv"), None);
+    }
+
+    #[test]
+    fn emi_files_take_their_stem_without_the_date_or_the_interim_mark() {
+        let b = |p: &str| block("emi", p).unwrap();
+        let name = |p: &str| b(p).1;
+        let root = "publicdata/Datasets/Wholesale/DispatchAndPricing/FinalEnergyPrices";
+        assert_eq!(
+            b(&format!("{root}/20261103_FinalEnergyPrices.csv")),
+            ("EMI".to_owned(), "FINAL_ENERGY_PRICES".to_owned(), 1)
+        );
+        assert_eq!(
+            name(&format!("{root}/20261103_FinalEnergyPrices_I.csv")),
+            "FINAL_ENERGY_PRICES"
+        );
+        assert_eq!(
+            name(&format!("{root}/ByMonth/202610_FinalEnergyPrices.csv")),
+            "FINAL_ENERGY_PRICES"
+        );
+        assert_eq!(
+            name("DispatchEnergyPrices/2026/20260105_DispatchEnergyPrices.csv"),
+            "DISPATCH_ENERGY_PRICES"
+        );
+        assert_eq!(
+            name("NodalPricesAndVolumes/2026/20260105_DispatchNodalPricesAndVolumes.csv"),
+            "DISPATCH_NODAL_PRICES_AND_VOLUMES"
+        );
+        assert_eq!(name("202507_Generation_MD.csv"), "GENERATION_MD");
+        assert_eq!(name("202507_HVDC_flows.csv"), "HVDC_FLOWS");
+        assert_eq!(
+            name("202507_Unit_level_generation.csv"),
+            "UNIT_LEVEL_GENERATION"
+        );
+        assert_eq!(name("20261101_Offers.csv@20261103T181500Z"), "OFFERS");
+        // A name with no date in front stands as it is; one that is a date
+        // alone names nothing.
+        assert_eq!(
+            name("NetworkSupplyPointsTable.csv"),
+            "NETWORK_SUPPLY_POINTS_TABLE"
+        );
+        assert_eq!(name("2026_Something.csv"), "2026_SOMETHING");
+        assert_eq!(block("emi", "20261103_.csv"), None);
+        assert_eq!(block("emi", "_I.csv"), None);
+    }
+
+    #[test]
+    fn a_name_says_its_day_or_month() {
+        assert_eq!(
+            name_day("20261103_FinalEnergyPrices.csv"),
+            Some((2026, 11, 3))
+        );
+        assert_eq!(
+            name_day("a/b/20240229_X.csv"),
+            Some((2024, 2, 29)),
+            "a leap day"
+        );
+        assert_eq!(name_day("20230229_X.csv"), None);
+        assert_eq!(name_day("20261301_X.csv"), None);
+        assert_eq!(name_day("18001103_X.csv"), None);
+        assert_eq!(name_day("202611_X.csv"), None);
+        assert_eq!(name_day("x_20261103.csv"), None);
+        assert_eq!(name_day("20261103.csv"), None);
+        assert_eq!(name_day("_X.csv"), None);
+        assert_eq!(
+            name_cadence("20261103_FinalEnergyPrices.csv"),
+            Some(Cadence::Day)
+        );
+        assert_eq!(
+            name_cadence("ByMonth/202610_FinalEnergyPrices.csv"),
+            Some(Cadence::Month)
+        );
+        assert_eq!(name_cadence("202613_X.csv"), None);
+        assert_eq!(name_cadence("2026_X.csv"), None);
+        assert_eq!(name_cadence("NetworkSupplyPointsTable.csv"), None);
     }
 
     #[test]

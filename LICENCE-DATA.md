@@ -21,3 +21,14 @@ Energy Market Operator (AEMO) on nemweb.com.au:
 (https://aemo.com.au/privacy-and-legal-notices/copyright-permissions),
 which allow use of published information provided AEMO is attributed. This
 repository is not produced or endorsed by AEMO.
+
+## New Zealand
+
+The files under `evidence/census/nz/`, `sources/nz/`, `nz/` and the
+`nz_*` files under `testdata/` are derived in the same way from the
+datasets the Electricity Authority of New Zealand publishes on its EMI
+blob store (`emidatasets.blob.core.windows.net/publicdata`), licensed
+under Creative Commons Attribution 4.0 International
+(https://creativecommons.org/licenses/by/4.0/): "www.emi.ea.govt.nz
+provided by the Electricity Authority (New Zealand)". This repository is
+not produced or endorsed by the Electricity Authority.

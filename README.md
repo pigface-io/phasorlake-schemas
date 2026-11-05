@@ -3,18 +3,21 @@
 Every table of the market data AEMO publishes, as an
 [Apache Iceberg](https://iceberg.apache.org/) v3 table: its fields with ids
 that never change meaning, its schemas, and the runs of AEMO files written
-under each. Three markets are published: the National Electricity Market
+under each. Four markets are published: the National Electricity Market
 (`nem/`, from nemweb's MMSDM archive and report folders), the east-coast
 gas markets (`gas/`: the Gas Bulletin Board, the Gas Supply Hub, the Short
-Term Trading Market and the Declared Wholesale Gas Market) and the Wholesale
+Term Trading Market and the Declared Wholesale Gas Market), the Wholesale
 Electricity Market (`wem/`, Western Australia: the datafiles and WEMDE
-documents of `data.wa.aemo.com.au`, read at `+08:00`).
+documents of `data.wa.aemo.com.au`, read at `+08:00`) and New Zealand's
+wholesale electricity market (`nz/`: the Electricity Authority's datasets
+on its `emidatasets` blob store, read at `+12:00`; see "New Zealand"
+below).
 
-The schemas are derived from what AEMO's files hold, file by file, checked
-against AEMO's control files and data models, and the code that derives
-them is here, so anyone can check the result or improve it. No key or
-temporal roles are published: which rows are one fact, and which
-restatement is the latest, are a reader's decisions.
+The schemas are derived from what the published files hold, file by file,
+checked against AEMO's control files and data models where there are any,
+and the code that derives them is here, so anyone can check the result or
+improve it. No key or temporal roles are published: which rows are one
+fact, and which restatement is the latest, are a reader's decisions.
 
 ## Layout
 
@@ -87,6 +90,27 @@ one schema by field id.
 phasor-schemas sql DISPATCHPRICE --files files.json --from 2024-08-01 --to 2024-09-01
 ```
 
+## New Zealand
+
+The `nz/` tables are the Electricity Authority's datasets as its blob
+store publishes them: plain CSV, a file a day or a month, the file's name
+naming the table (`20261103_FinalEnergyPrices.csv`, its interim
+`20261103_FinalEnergyPrices_I.csv` and the month's
+`202610_FinalEnergyPrices.csv` are one table, `FINAL_ENERGY_PRICES`).
+A row is keyed as published, by `TRADING_DATE` (a `date`) and
+`TRADING_PERIOD` (1 to 48; 46 on the day daylight saving starts, 50 on the
+day it ends: the n-th half hour of elapsed time from local midnight).
+An instant the files write with its own offset (`+13:00` in daylight time)
+is read into the market's clock, NZST `+12:00`, so every `timestamptz` is
+the exact instant displayed in standard time, as AEMO's are. Beside each
+timestamp column the table carries `{COLUMN}_UTC_US`, the same instant as
+a `long` of microseconds since 1970 UTC, and a table keyed by trading
+period carries `INTERVAL_START_UTC_US`, the start of its half hour through
+daylight saving; the lake computes both from the row (`phasor.derived`
+names them and their rule), so no reader needs the daylight-saving rule.
+The wide metered files (`TP1`..`TP50` columns) are read as one row per
+period, `TRADING_PERIOD` and `QUANTITY`.
+
 ## Provenance columns
 
 A lake file holds four columns after its table's. Each time is its own
@@ -150,6 +174,8 @@ origin/main` (nothing published changed meaning) and `just replay`;
 The code under `crates/` is Apache-2.0 (`LICENSE`). The files under
 `evidence/`, `sources/`, `nem/`, `wem/`, `gas/` and `testdata/`, and
 `manifest.json`, are derived from information AEMO publishes and are
-attributed to AEMO; they are not covered by that licence. See
-`LICENCE-DATA.md` and `NOTICE`. This repository is not produced or
-endorsed by AEMO.
+attributed to AEMO; those under `nz/`, `evidence/census/nz/` and
+`sources/nz/` from the Electricity Authority of New Zealand's datasets
+(CC BY 4.0); none are covered by that licence. See `LICENCE-DATA.md` and
+`NOTICE`. This repository is not produced or endorsed by AEMO or the
+Electricity Authority.

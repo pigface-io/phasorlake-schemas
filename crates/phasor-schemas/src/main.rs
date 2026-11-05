@@ -527,9 +527,9 @@ fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
                     .map_err(|e| fail(&e))?;
                     (r, "the data model report".to_owned())
                 }
-                Market::Wem => {
+                Market::Wem | Market::Nz => {
                     eprintln!(
-                        "error: the WEM publishes no data model; declare its tables by hand under tables/wem/"
+                        "error: the {market} publishes no data model; declare its tables by hand under tables/{market}/"
                     );
                     return Ok(ExitCode::FAILURE);
                 }

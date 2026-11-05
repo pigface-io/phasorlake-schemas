@@ -45,12 +45,15 @@ const LISTINGS: &[Listing] = &[
 ];
 
 /// The clock a host's listings show times in: AWST (+08:00) for AEMO's
-/// WA host, AEST (+10:00) for nemweb and any other.
+/// WA host, UTC for the Electricity Authority's blob store (HTTP dates),
+/// AEST (+10:00) for nemweb and any other.
 #[must_use]
 pub fn listing_offset(url: &str) -> i32 {
     let (host, _) = parts(url);
     if host.eq_ignore_ascii_case("data.wa.aemo.com.au") {
         crate::stamp::AWST
+    } else if host.eq_ignore_ascii_case("emidatasets.blob.core.windows.net") {
+        crate::stamp::UTC
     } else {
         crate::stamp::AEST
     }
@@ -338,6 +341,12 @@ mod tests {
             AWST
         );
         assert_eq!(listing_offset("u"), AEST);
+        assert_eq!(
+            listing_offset(
+                "https://emidatasets.blob.core.windows.net/publicdata/Datasets/Wholesale/x.csv"
+            ),
+            crate::stamp::UTC
+        );
     }
 
     #[test]

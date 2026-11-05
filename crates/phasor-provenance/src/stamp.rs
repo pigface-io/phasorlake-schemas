@@ -27,6 +27,9 @@ pub const AEST: i32 = 10 * 3600;
 /// clock and AEMO's WA host.
 pub const AWST: i32 = 8 * 3600;
 
+/// UTC itself: the clock of a blob store's listings, which give HTTP dates.
+pub const UTC: i32 = 0;
+
 const MONTHS: [&str; 12] = [
     "january",
     "february",

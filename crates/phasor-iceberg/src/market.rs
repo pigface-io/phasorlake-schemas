@@ -1,11 +1,12 @@
-//! The markets AEMO publishes: each with its own clock.
+//! The markets published: AEMO's three and New Zealand's, each with its
+//! own clock.
 
 use std::fmt;
 
 use serde::{Deserialize, Serialize};
 
 /// A market whose tables are published: the directory its tables sit in
-/// (`nem/`, `wem/`, `gas/`) and the clock its files' times are in.
+/// (`nem/`, `wem/`, `gas/`, `nz/`) and the clock its files' times are in.
 #[derive(
     Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, Default, Serialize, Deserialize,
 )]
@@ -18,11 +19,16 @@ pub enum Market {
     Wem,
     /// AEMO's east-coast gas markets (GBB, GSH, STTM, DWGM): +10:00.
     Gas,
+    /// New Zealand's wholesale electricity market, as the Electricity
+    /// Authority publishes it: New Zealand Standard Time, +12:00. Its
+    /// files key a row by trading date and trading period, and carry
+    /// instants with their own offset (+12:00 or +13:00 in daylight time).
+    Nz,
 }
 
 impl Market {
     /// Every market, in publication order.
-    pub const ALL: [Self; 3] = [Self::Nem, Self::Wem, Self::Gas];
+    pub const ALL: [Self; 4] = [Self::Nem, Self::Wem, Self::Gas, Self::Nz];
 
     /// The market's id: its directory under the published root.
     pub const fn id(self) -> &'static str {
@@ -30,15 +36,18 @@ impl Market {
             Self::Nem => "nem",
             Self::Wem => "wem",
             Self::Gas => "gas",
+            Self::Nz => "nz",
         }
     }
 
-    /// The market's offset from UTC, in seconds. AEMO publishes in
-    /// standard time, never daylight time.
+    /// The market's offset from UTC, in seconds: the standard time its
+    /// tables' timestamps are displayed in. AEMO publishes in standard
+    /// time, never daylight time; New Zealand's files are read into NZST.
     pub const fn offset_secs(self) -> i32 {
         match self {
             Self::Nem | Self::Gas => 10 * 3600,
             Self::Wem => 8 * 3600,
+            Self::Nz => 12 * 3600,
         }
     }
 
@@ -47,7 +56,16 @@ impl Market {
         match self {
             Self::Nem | Self::Gas => "+10:00",
             Self::Wem => "+08:00",
+            Self::Nz => "+12:00",
         }
+    }
+
+    /// Whether every timestamp column of the market's tables has a sibling
+    /// `{COLUMN}_UTC_US`, the same instant as microseconds since 1970 UTC
+    /// (a `long`). New Zealand's tables do from the start; AEMO's gain
+    /// theirs in a release of their own.
+    pub const fn derives_utc_siblings(self) -> bool {
+        matches!(self, Self::Nz)
     }
 
     /// The market with this id.
@@ -60,7 +78,7 @@ impl std::str::FromStr for Market {
     type Err = String;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        Self::parse(s).ok_or_else(|| format!("{s:?} is not a market: nem, wem or gas"))
+        Self::parse(s).ok_or_else(|| format!("{s:?} is not a market: nem, wem, gas or nz"))
     }
 }
 
@@ -96,5 +114,14 @@ mod tests {
         assert!("x".parse::<Market>().unwrap_err().contains("not a market"));
         assert_eq!(Market::default(), Market::Nem);
         assert_eq!(Market::Wem.offset_secs(), 28_800);
+        assert_eq!(Market::Nz.offset_secs(), 43_200);
+        assert_eq!("nz".parse::<Market>(), Ok(Market::Nz));
+        assert_eq!(
+            Market::ALL
+                .iter()
+                .filter(|m| m.derives_utc_siblings())
+                .collect::<Vec<_>>(),
+            [&Market::Nz]
+        );
     }
 }
