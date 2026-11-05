@@ -59,6 +59,7 @@ Beyond what Iceberg holds, the metadata carries, as strings:
 | `properties` | `phasor.format`, `phasor.table` | The layout's generation (5) and the table's name |
 | `properties` | `phasor.market`, `phasor.offset` | The market and its clock, for a table that is not the NEM's (a NEM table reads at `+10:00`) |
 | `properties` | `phasor.declared` | Whether `tables/` declares it; when it does, `phasor.package`, `phasor.reports`, `phasor.with-columns`, `phasor.time`, `phasor.load`, `phasor.visibility` |
+| `properties` | `phasor.derived` | The columns a lake computes from each row beside the table's own, each with its rule and source columns: the `_UTC_US` sibling of every timestamp column of a market that has them (New Zealand's), and what the declaration's `[[derive]]` adds (see "New Zealand") |
 | `properties` | `comment`, `phasor.model-types`, `phasor.model`, `phasor.headers` | The data model's words and types for the table and its columns, and the header a column was named from |
 | `properties` | `phasor.breaks` | Columns whose values left their field's type: the old and new field, and the file it happened in |
 | snapshot `summary` | `phasor.report-type`, `phasor.report-subtype`, `phasor.version`, `phasor.kinds` | The run's report pair, AEMO version and the kinds of file it came in |
@@ -161,6 +162,10 @@ A table's types come from its evidence by a rule, so a change is one of:
   reports from the regional ones.
 - **A rename**: `[[rename]]` (`from`, `to`, `evidence`) makes a renamed
   column one field; columns that only look renamed are `[[distinct]]`.
+- **A derived column**: `[[derive]]` (`column`, ending `_UTC_US`; `rule`,
+  `utc_us` or `nz_trading_period_start`; `from`, the source columns;
+  `reason`) names a column the lake computes from each row, published
+  under `phasor.derived`, never in the schema.
 - **A rule change**: a change under `crates/`, with a test showing the case.
 
 Run `just fold` and `just export`, and commit the evidence, histories and

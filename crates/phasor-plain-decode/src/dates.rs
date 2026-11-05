@@ -316,12 +316,9 @@ fn zone_secs(zone: &[u8]) -> Option<i32> {
     if hours > 23 || minutes > 59 {
         return None;
     }
+    // The zone was split off at a `+` or `-`, so the sign is one of them.
     let secs = (hours * 3_600 + minutes * 60) as i32;
-    match sign {
-        b'+' => Some(secs),
-        b'-' => Some(-secs),
-        _ => None,
-    }
+    Some(if *sign == b'-' { -secs } else { secs })
 }
 
 fn valid(p: Parts<'_>) -> bool {

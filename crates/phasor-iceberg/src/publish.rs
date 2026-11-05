@@ -50,6 +50,7 @@ use std::str::FromStr;
 
 use serde::{Deserialize, Serialize};
 
+use crate::IcebergType;
 use crate::history::{Break, History, Mark, Run, derive};
 use crate::market::Market;
 use crate::schema::Schema;
@@ -86,6 +87,53 @@ pub struct Declaration {
     pub load_mode: String,
     /// Who may see it, as AEMO's control files say.
     pub visibility: String,
+    /// The columns a lake computes from each row beside the table's own:
+    /// an instant as microseconds since 1970 UTC, after the columns it is
+    /// read from. Never in the published schema, as the provenance columns
+    /// are not: the writer adds them.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub derived: Vec<Derived>,
+}
+
+/// How a derived column is computed from the row.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum DeriveRule {
+    /// The instant of one timestamp column, as microseconds since 1970
+    /// UTC: the same instant whatever clock the column is displayed in.
+    UtcUs,
+    /// The start of a New Zealand trading period: local midnight of the
+    /// trading date (NZST or NZDT, as the date has it) plus the periods
+    /// before it, half an hour each; from a date column and a period
+    /// column, in that order.
+    NzTradingPeriodStart,
+}
+
+/// One derived column.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Derived {
+    /// Its name: `{COLUMN}_UTC_US`, or `INTERVAL_START_UTC_US`.
+    pub column: String,
+    /// How it is computed.
+    pub rule: DeriveRule,
+    /// The columns it is computed from, in the rule's order.
+    pub from: Vec<String>,
+}
+
+/// The `_UTC_US` sibling of every timestamp column `h` ever held, in
+/// field order: what a market whose tables carry them
+/// ([`Market::derives_utc_siblings`]) derives beyond its declarations.
+pub fn utc_siblings(h: &History) -> Vec<Derived> {
+    h.fields()
+        .into_iter()
+        .filter(|f| f.ty == IcebergType::Timestamptz)
+        .map(|f| Derived {
+            column: format!("{}_UTC_US", f.name),
+            rule: DeriveRule::UtcUs,
+            from: vec![f.name.clone()],
+        })
+        .collect()
 }
 
 /// A table as published: its history, its declaration when it has one,
@@ -182,6 +230,7 @@ const K_MARKET: &str = "phasor.market";
 const K_OFFSET: &str = "phasor.offset";
 const K_HEADERS: &str = "phasor.headers";
 const K_MODEL: &str = "phasor.model";
+const K_DERIVED: &str = "phasor.derived";
 
 const S_ROWS: &str = "phasor.rows";
 const S_TOTAL_ROWS: &str = "phasor.total-rows";
@@ -308,6 +357,9 @@ fn properties(p: &Published) -> BTreeMap<String, String> {
         }
         put(K_LOAD, d.load_mode.clone());
         put(K_VISIBILITY, d.visibility.clone());
+        if !d.derived.is_empty() {
+            put(K_DERIVED, json(&d.derived));
+        }
     }
     if let Some(c) = &p.description {
         put(K_COMMENT, c.clone());
@@ -476,6 +528,7 @@ fn declaration_of(p: &Props<'_>) -> Result<Declaration, PublishError> {
         time_column: p.owned(K_TIME),
         load_mode: p.need(K_LOAD)?.to_owned(),
         visibility: p.need(K_VISIBILITY)?.to_owned(),
+        derived: p.json(K_DERIVED)?.unwrap_or_default(),
     })
 }
 
@@ -611,12 +664,50 @@ mod tests {
                 time_column: Some("SETTLEMENTDATE".into()),
                 load_mode: "append".into(),
                 visibility: "PUBLIC".into(),
+                derived: Vec::new(),
             }),
             description: Some("Unit SCADA".into()),
             docs: BTreeMap::from([(1, "Interval end".to_owned()), (3, "A flag".to_owned())]),
             model_types: BTreeMap::from([(1, "TIMESTAMP(0)".to_owned())]),
             model: Vec::new(),
         }
+    }
+
+    #[test]
+    fn the_derived_columns_are_a_property_and_read_back() {
+        // Without any, the key is absent, as every table before had it.
+        let plain = to_metadata(&published(), "file:///t", "u").unwrap();
+        assert!(!plain.metadata.properties.contains_key(K_DERIVED));
+        // A New Zealand table: the siblings of its timestamp columns and a
+        // declared rule, in the metadata and back.
+        let mut nz = published();
+        nz.market = Market::Nz;
+        let mut siblings = utc_siblings(&nz.history);
+        assert_eq!(siblings.len(), 1);
+        assert_eq!(
+            siblings[0],
+            Derived {
+                column: "SETTLEMENTDATE_UTC_US".into(),
+                rule: DeriveRule::UtcUs,
+                from: vec!["SETTLEMENTDATE".into()],
+            }
+        );
+        siblings.push(Derived {
+            column: "INTERVAL_START_UTC_US".into(),
+            rule: DeriveRule::NzTradingPeriodStart,
+            from: vec!["TRADING_DATE".into(), "TRADING_PERIOD".into()],
+        });
+        nz.declaration.as_mut().unwrap().derived = siblings;
+        let t = to_metadata(&nz, "file:///t", "u").unwrap();
+        assert_eq!(
+            t.metadata.properties[K_DERIVED],
+            r#"[{"column":"SETTLEMENTDATE_UTC_US","rule":"utc_us","from":["SETTLEMENTDATE"]},{"column":"INTERVAL_START_UTC_US","rule":"nz_trading_period_start","from":["TRADING_DATE","TRADING_PERIOD"]}]"#
+        );
+        assert_eq!(from_metadata(&t.metadata).unwrap(), nz);
+        assert_eq!(
+            declaration_of_properties(&t.metadata.properties).unwrap(),
+            nz.declaration
+        );
     }
 
     #[test]

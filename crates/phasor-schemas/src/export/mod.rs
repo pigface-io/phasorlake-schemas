@@ -29,7 +29,9 @@
 use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 
-use phasor_iceberg::publish::{Declaration, PublishError, Published, Table, to_metadata};
+use phasor_iceberg::publish::{
+    Declaration, PublishError, Published, Table, to_metadata, utc_siblings,
+};
 use phasor_iceberg::{History, from_metadata};
 use serde_json::{Value, json};
 
@@ -40,6 +42,7 @@ use crate::models::{Model, ModelError, ModelTable, by_first_seen, read_models};
 use crate::reports::read_folder;
 use phasor_iceberg::Market;
 use phasor_plain_decode::feeds::feeds_of;
+use phasor_plain_decode::names::{Cadence, name_cadence};
 
 pub mod schema;
 mod write;
@@ -164,11 +167,18 @@ pub fn read_histories(
 
 /// A table's declaration in its published form: what phasor reads its
 /// files by. Its key and temporal roles are a reader's, and not published.
-fn declaration(d: &TableDecl) -> Declaration {
+/// Its derived columns are the `_UTC_US` sibling of every timestamp column
+/// its history holds, where the market has them, then those it declares.
+fn declaration(d: &TableDecl, history: Option<&History>, market: Market) -> Declaration {
     let load_mode = match d.load_mode {
         LoadMode::Append => "append",
         LoadMode::Snapshot => "snapshot",
     };
+    let mut derived = match history {
+        Some(h) if market.derives_utc_siblings() => utc_siblings(h),
+        _ => Vec::new(),
+    };
+    derived.extend(d.derived());
     Declaration {
         package: d.package.clone(),
         report_pairs: d.report_pairs.clone(),
@@ -176,6 +186,7 @@ fn declaration(d: &TableDecl) -> Declaration {
         time_column: d.time_column.clone(),
         load_mode: load_mode.to_owned(),
         visibility: d.visibility.clone(),
+        derived,
     }
 }
 
@@ -231,7 +242,10 @@ impl MarketExport {
             let declarations = catalog
                 .tables()
                 .iter()
-                .map(|d| (d.name.clone(), declaration(d)))
+                .map(|d| {
+                    let published = declaration(d, histories_read.get(&d.name), market);
+                    (d.name.clone(), published)
+                })
                 .collect();
             let models_of = catalog
                 .tables()
@@ -558,7 +572,19 @@ fn folders(root: &Path, market: Market) -> Result<Vec<Value>, ExportError> {
                 } else {
                     rel.clone()
                 };
-                out.push(json!({
+                // The cadence the folder's files say by name, when every
+                // block's says the same one: a reader planning an interval
+                // takes whole months from a monthly folder and days from a
+                // daily one. A folder whose names say none has no key.
+                let mut says = census.blocks.iter().map(|t| name_cadence(&t.first_csv));
+                let cadence = match says.next().flatten() {
+                    Some(first) if says.all(|c| c == Some(first)) => Some(match first {
+                        Cadence::Day => "day",
+                        Cadence::Month => "month",
+                    }),
+                    _ => None,
+                };
+                let mut entry = json!({
                     "feed": feed.id,
                     "root": feed_root,
                     "folder": folder,
@@ -575,7 +601,11 @@ fn folders(root: &Path, market: Market) -> Result<Vec<Value>, ExportError> {
                             })
                         })
                         .collect::<Vec<_>>(),
-                }));
+                });
+                if let Some(c) = cadence {
+                    entry["cadence"] = json!(c);
+                }
+                out.push(entry);
             }
         }
     }

@@ -844,6 +844,32 @@ fn another_market_is_published_beside_the_nem_with_its_words_and_headers() {
             block("FORECAST_UTILISATION", 1, "2026-08")
         ),
     );
+    // A folder whose files' names all say a day (as the EMI's do) has a
+    // cadence; one whose names disagree, or say none, has no key.
+    let dated =
+        |first_csv: &str, name: &str| block(name, 1, "2026-10").replace("GasBB.csv", first_csv);
+    put(
+        "evidence/census/gas/gbb/Daily.toml",
+        &format!(
+            "{}{}{}",
+            FOLDER_HEAD,
+            dated("20261103_Daily.csv", "DAILY"),
+            dated("20261104_Daily.csv", "DAILY_TOO")
+        ),
+    );
+    put(
+        "evidence/census/gas/gbb/Mixed.toml",
+        &format!(
+            "{}{}{}",
+            FOLDER_HEAD,
+            dated("20261103_Daily.csv", "DAILY"),
+            dated("202610_Monthly.csv", "MONTHLY")
+        ),
+    );
+    put(
+        "evidence/census/gas/gbb/Monthly.toml",
+        &format!("{}{}", FOLDER_HEAD, dated("202610_Monthly.csv", "MONTHLY")),
+    );
     export(root);
     let f = read(root, "gas/folders.json");
     assert_eq!(f["x-format"], phasor_iceberg::publish::FORMAT);
@@ -853,11 +879,26 @@ fn another_market_is_published_beside_the_nem_with_its_words_and_headers() {
             {"feed": "gbb", "root": "Reports/GBB", "folder": "GBB", "listings": [],
              "blocks": [{"report": ["GBB", "ACTUAL_FLOW_STORAGE"], "version": 1,
                          "first-release": "2026-08", "last-release": "2026-10", "months": 3}]},
+            {"feed": "gbb", "root": "Reports/GBB", "folder": "Daily", "listings": [],
+             "cadence": "day",
+             "blocks": [{"report": ["GBB", "DAILY"], "version": 1,
+                         "first-release": "2026-10", "last-release": "2026-10", "months": 1},
+                        {"report": ["GBB", "DAILY_TOO"], "version": 1,
+                         "first-release": "2026-10", "last-release": "2026-10", "months": 1}]},
             {"feed": "gbb", "root": "Reports/GBB", "folder": "ForecastUtilisation",
              "listings": ["CURRENT", "ARCHIVE"],
              "blocks": [{"report": ["GBB", "FORECAST_UTILISATION"], "version": 1,
                          "first-release": "2026-08", "last-release": "2026-08", "months": 1},
                         {"report": ["GBB", "FORECAST_UTILISATION"], "version": 2,
+                         "first-release": "2026-10", "last-release": "2026-10", "months": 1}]},
+            {"feed": "gbb", "root": "Reports/GBB", "folder": "Mixed", "listings": [],
+             "blocks": [{"report": ["GBB", "DAILY"], "version": 1,
+                         "first-release": "2026-10", "last-release": "2026-10", "months": 1},
+                        {"report": ["GBB", "MONTHLY"], "version": 1,
+                         "first-release": "2026-10", "last-release": "2026-10", "months": 1}]},
+            {"feed": "gbb", "root": "Reports/GBB", "folder": "Monthly", "listings": [],
+             "cadence": "month",
+             "blocks": [{"report": ["GBB", "MONTHLY"], "version": 1,
                          "first-release": "2026-10", "last-release": "2026-10", "months": 1}]},
         ])
     );
@@ -1096,7 +1137,52 @@ fn a_market_with_histories_but_no_declarations_exports_undeclared() {
 #[test]
 fn a_declaration_is_published_with_its_load_mode_and_no_key() {
     let mut d = crate::catalog::tests::decl("X", ("X", "Y"), None);
-    assert_eq!(declaration(&d).load_mode, "append");
+    assert_eq!(declaration(&d, None, Market::Nem).load_mode, "append");
     d.load_mode = LoadMode::Snapshot;
-    assert_eq!(declaration(&d).load_mode, "snapshot");
+    assert_eq!(declaration(&d, None, Market::Nem).load_mode, "snapshot");
+}
+
+#[test]
+fn a_declaration_carries_the_derived_columns_of_its_market_and_its_own() {
+    use phasor_iceberg::{DeriveRule, Field, IcebergType, Schema};
+    let mut d = crate::catalog::tests::decl("X", ("EMI", "X"), Some("TRADING_DATE"));
+    d.derives.push(crate::catalog::Derive {
+        column: "INTERVAL_START_UTC_US".into(),
+        rule: DeriveRule::NzTradingPeriodStart,
+        from: vec!["TRADING_DATE".into(), "TRADING_PERIOD".into()],
+        reason: "the half hour's start".into(),
+    });
+    let field = |id, name: &str, ty| Field {
+        id,
+        name: name.into(),
+        ty,
+        required: false,
+        doc: None,
+    };
+    let h = History {
+        table: "X".into(),
+        format_version: 3,
+        current_schema_id: 0,
+        schemas: vec![Schema {
+            schema_id: 0,
+            last_column_id: 3,
+            fields: vec![
+                field(1, "TRADING_DATE", IcebergType::Date),
+                field(2, "PUBLISH_DATE_TIME", IcebergType::Timestamptz),
+                field(3, "PRICE", IcebergType::Double),
+            ],
+            identifier_field_ids: Vec::new(),
+        }],
+        runs: Vec::new(),
+        breaking: Vec::new(),
+        headers: Default::default(),
+    };
+    // New Zealand: the timestamp's sibling first, then the declared rule.
+    let nz = declaration(&d, Some(&h), Market::Nz);
+    let names: Vec<&str> = nz.derived.iter().map(|x| x.column.as_str()).collect();
+    assert_eq!(names, ["PUBLISH_DATE_TIME_UTC_US", "INTERVAL_START_UTC_US"]);
+    assert_eq!(nz.derived[0].rule, DeriveRule::UtcUs);
+    // An AEMO market: only what it declares; no history, the same.
+    assert_eq!(declaration(&d, Some(&h), Market::Nem).derived.len(), 1);
+    assert_eq!(declaration(&d, None, Market::Nz).derived.len(), 1);
 }

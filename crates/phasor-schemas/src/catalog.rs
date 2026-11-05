@@ -17,6 +17,7 @@ use std::path::{Path, PathBuf};
 
 use phasor_iceberg::IcebergType;
 use phasor_iceberg::Market;
+use phasor_iceberg::publish::{DeriveRule, Derived};
 use serde::{Deserialize, Serialize};
 
 /// Why the declarations cannot be read or written.
@@ -158,6 +159,44 @@ pub struct TableDecl {
     /// published file that is a view of model tables).
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub model: Vec<String>,
+    /// Columns a lake computes from each row, beyond the `_UTC_US`
+    /// sibling every timestamp column of a market gets by itself.
+    #[serde(default, rename = "derive", skip_serializing_if = "Vec::is_empty")]
+    pub derives: Vec<Derive>,
+}
+
+/// A column computed from the row: an instant as microseconds since 1970
+/// UTC, from the columns named.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Derive {
+    /// The column: it ends in `_UTC_US`.
+    pub column: String,
+    /// How it is computed.
+    pub rule: DeriveRule,
+    /// The columns it is computed from, in the rule's order.
+    pub from: Vec<String>,
+    /// Why.
+    pub reason: String,
+}
+
+impl Derive {
+    /// The columns a rule takes.
+    fn arity(rule: DeriveRule) -> usize {
+        match rule {
+            DeriveRule::UtcUs => 1,
+            DeriveRule::NzTradingPeriodStart => 2,
+        }
+    }
+
+    /// As published.
+    fn published(&self) -> Derived {
+        Derived {
+            column: self.column.clone(),
+            rule: self.rule,
+            from: self.from.clone(),
+        }
+    }
 }
 
 impl TableDecl {
@@ -204,7 +243,29 @@ impl TableDecl {
                 ));
             }
         }
+        let mut derived = Vec::new();
+        for d in &self.derives {
+            if !d.column.ends_with("_UTC_US") || derived.contains(&&d.column) {
+                return Some(format!(
+                    "the derived column {} must end in _UTC_US and may appear once",
+                    d.column
+                ));
+            }
+            if d.from.len() != Derive::arity(d.rule) || d.reason.trim().is_empty() {
+                return Some(format!(
+                    "the derived column {} needs {} source column(s) for its rule and a reason",
+                    d.column,
+                    Derive::arity(d.rule)
+                ));
+            }
+            derived.push(&d.column);
+        }
         None
+    }
+
+    /// The columns it declares derived, as published.
+    pub fn derived(&self) -> Vec<Derived> {
+        self.derives.iter().map(Derive::published).collect()
     }
 
     /// The declaration as its file holds it.
@@ -404,7 +465,51 @@ pub(crate) mod tests {
             renames: Vec::new(),
             distinct: Vec::new(),
             model: Vec::new(),
+            derives: Vec::new(),
         }
+    }
+
+    #[test]
+    fn a_derived_column_names_its_rule_its_sources_and_its_reason() {
+        let d = tempfile::tempdir().unwrap();
+        let write = |text: &str| {
+            std::fs::write(d.path().join("T.toml"), text).unwrap();
+            Catalog::read(d.path())
+        };
+        let head = "name = \"T\"\nreport_pairs = [[\"EMI\", \"T\"]]\ntime_column = \"TRADING_DATE\"\nload_mode = \"append\"\nvisibility = \"PUBLIC\"\n";
+        let derive = |column: &str, rule: &str, from: &str, reason: &str| {
+            format!(
+                "{head}[[derive]]\ncolumn = \"{column}\"\nrule = \"{rule}\"\nfrom = [{from}]\nreason = \"{reason}\"\n"
+            )
+        };
+        let good = derive(
+            "INTERVAL_START_UTC_US",
+            "nz_trading_period_start",
+            "\"TRADING_DATE\", \"TRADING_PERIOD\"",
+            "the start of the half hour",
+        );
+        let c = write(&good).unwrap();
+        let published = c.tables()[0].derived();
+        assert_eq!(published.len(), 1);
+        assert_eq!(published[0].rule, DeriveRule::NzTradingPeriodStart);
+        assert_eq!(published[0].from, ["TRADING_DATE", "TRADING_PERIOD"]);
+        assert!(c.tables()[0].to_toml().contains("[[derive]]"));
+        let err = |text: &str| write(text).unwrap_err().to_string();
+        let e = err(&derive("INTERVAL_START", "utc_us", "\"X\"", "r"));
+        assert!(e.contains("must end in _UTC_US"), "{e}");
+        let e = err(&derive("X_UTC_US", "utc_us", "\"X\", \"Y\"", "r"));
+        assert!(e.contains("needs 1 source column(s)"), "{e}");
+        let e = err(&derive(
+            "X_UTC_US",
+            "nz_trading_period_start",
+            "\"X\", \"Y\"",
+            " ",
+        ));
+        assert!(e.contains("needs 2 source column(s)"), "{e}");
+        let e = err(&format!("{good}{}", &good[head.len()..]));
+        assert!(e.contains("may appear once"), "{e}");
+        let e = err(&derive("X_UTC_US", "local_midnight", "\"X\"", "r"));
+        assert!(e.contains("unknown variant"), "{e}");
     }
 
     /// The catalog of one table: DISPATCH_UNIT_SCADA, timed by

@@ -34,8 +34,8 @@ pub use history::History;
 pub use market::Market;
 pub use plan::{Column, DataFile, PlanError, Read, Target, casts_to, duckdb_sql, plan};
 pub use publish::{
-    Declaration, PublishError, Published, breaks_of_properties, declaration_of_properties,
-    from_metadata, to_metadata,
+    Declaration, DeriveRule, Derived, PublishError, Published, breaks_of_properties,
+    declaration_of_properties, from_metadata, to_metadata, utc_siblings,
 };
 pub use schema::{Field, Schema};
 pub use types::IcebergType;
