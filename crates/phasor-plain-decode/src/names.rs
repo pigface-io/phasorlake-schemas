@@ -590,6 +590,11 @@ mod tests {
             name("202507_Unit_level_generation.csv"),
             "UNIT_LEVEL_GENERATION"
         );
+        assert_eq!(name("202609_Reactive_power.csv"), "REACTIVE_POWER");
+        assert_eq!(
+            name("202609_Grid_export_to_Tiwai.csv"),
+            "GRID_EXPORT_TO_TIWAI"
+        );
         assert_eq!(name("20261101_Offers.csv@20261103T181500Z"), "OFFERS");
         // A name with no date in front stands as it is; one that is a date
         // alone names nothing.

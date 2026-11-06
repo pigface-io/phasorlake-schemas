@@ -262,16 +262,17 @@ fn month_rows((root, market): (&Path, Market), host: &Path, month: YearMonth) ->
 fn folder_rows(
     (root, market): (&Path, Market),
     archive: &Path,
-    (feed, feed_root, rel): (&Feed, &str, &str),
+    (feed, rel): (&Feed, &str),
 ) -> Listed {
     let host = host_dir(archive, feed.host);
+    let census = read_folder(root, market, (feed, rel))?.unwrap_or_default();
+    let feed_root = crate::fold::folder_root(feed, &census);
     let folder = if rel.is_empty() {
-        feed_root.to_owned()
+        feed_root
     } else {
         format!("{feed_root}/{rel}")
     };
     let label = |name: &str| format!("{folder}/{name}");
-    let census = read_folder(root, market, (feed, rel))?.unwrap_or_default();
     let mut named: Vec<(&str, &str)> = Vec::new();
     for t in &census.blocks {
         named.push((&t.first_file, &t.first_sha256));
@@ -319,13 +320,12 @@ pub fn collect(
     let mut done = crate::pool::map(jobs, &months, |_, &m| month_rows((root, market), &host, m));
     let mut folders = Vec::new();
     for feed in feeds_of(market.id()) {
-        let feed_root = feed.local_roots().into_iter().next().unwrap_or_default();
         for rel in recorded_folders(root, market, feed)? {
-            folders.push((feed, feed_root.clone(), rel));
+            folders.push((feed, rel));
         }
     }
-    done.extend(crate::pool::map(jobs, &folders, |_, (f, r, rel)| {
-        folder_rows((root, market), archive, (f, r.as_str(), rel.as_str()))
+    done.extend(crate::pool::map(jobs, &folders, |_, (f, rel)| {
+        folder_rows((root, market), archive, (f, rel.as_str()))
     }));
     for r in done {
         let (rows, bad) = r?;

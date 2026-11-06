@@ -1,0 +1,143 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_GENERATION_MD/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "FUEL_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Fuel_Code",
+      "x-iceberg-type": "string"
+    },
+    "GEN_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "Gen_Code",
+      "x-iceberg-type": "string"
+    },
+    "NWK_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Nwk_Code",
+      "x-iceberg-type": "string"
+    },
+    "POC_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "POC_Code",
+      "x-iceberg-type": "string"
+    },
+    "QUANTITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "double"
+    },
+    "SITE_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Site_Code",
+      "x-iceberg-type": "string"
+    },
+    "TECH_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Tech_Code",
+      "x-iceberg-type": "string"
+    },
+    "TRADING_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "Trading_date",
+      "x-iceberg-type": "date"
+    },
+    "TRADING_PERIOD": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [],
+  "title": "NZ_GENERATION_MD, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "SITE_CODE",
+      "string"
+    ],
+    [
+      2,
+      "POC_CODE",
+      "string"
+    ],
+    [
+      3,
+      "NWK_CODE",
+      "string"
+    ],
+    [
+      4,
+      "GEN_CODE",
+      "string"
+    ],
+    [
+      5,
+      "FUEL_CODE",
+      "string"
+    ],
+    [
+      6,
+      "TECH_CODE",
+      "string"
+    ],
+    [
+      7,
+      "TRADING_DATE",
+      "date"
+    ],
+    [
+      8,
+      "TRADING_PERIOD",
+      "long"
+    ],
+    [
+      9,
+      "QUANTITY",
+      "double"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_GENERATION_MD"
+  }
+}

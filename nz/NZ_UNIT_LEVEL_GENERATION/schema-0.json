@@ -1,0 +1,142 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_UNIT_LEVEL_GENERATION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "FLOW_DIRECTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Flow_Direction",
+      "x-iceberg-type": "string"
+    },
+    "GEN_MEASURE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "Gen_Measure",
+      "x-iceberg-type": "string"
+    },
+    "GEN_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Gen_Type",
+      "x-iceberg-type": "string"
+    },
+    "PARTICIPANT_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Participant_Code",
+      "x-iceberg-type": "string"
+    },
+    "POC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "QUANTITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "TRADING_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "Trading_date",
+      "x-iceberg-type": "date"
+    },
+    "TRADING_PERIOD": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "long"
+    },
+    "UNIT_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "Unit_Code",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "NZ_UNIT_LEVEL_GENERATION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "POC",
+      "string"
+    ],
+    [
+      2,
+      "UNIT_CODE",
+      "string"
+    ],
+    [
+      3,
+      "PARTICIPANT_CODE",
+      "string"
+    ],
+    [
+      4,
+      "GEN_MEASURE",
+      "string"
+    ],
+    [
+      5,
+      "FLOW_DIRECTION",
+      "string"
+    ],
+    [
+      6,
+      "GEN_TYPE",
+      "string"
+    ],
+    [
+      7,
+      "TRADING_DATE",
+      "date"
+    ],
+    [
+      8,
+      "TRADING_PERIOD",
+      "long"
+    ],
+    [
+      9,
+      "QUANTITY",
+      "decimal(10, 4)"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_UNIT_LEVEL_GENERATION"
+  }
+}

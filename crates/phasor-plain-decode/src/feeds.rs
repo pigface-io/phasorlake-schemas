@@ -90,6 +90,9 @@ pub struct Feed {
     /// Blocks whose header holds a column per date or per period: read
     /// with those columns unpivoted into two, as each says.
     pub unpivot: &'static [(&'static str, Unpivot)],
+    /// The feed's spellings of a missing value, read as empty (`NULL` in
+    /// the EMI's files of 2015); none for a feed that leaves a cell empty.
+    pub nulls: &'static [&'static str],
 }
 
 /// How a block's wide header is read as rows.
@@ -248,6 +251,7 @@ pub const FEEDS: &[Feed] = &[
         ignore: GAS_FOLDERS,
         offset_secs: AEST,
         unpivot: &[],
+        nulls: &[],
     },
     Feed {
         market: "gas",
@@ -263,6 +267,7 @@ pub const FEEDS: &[Feed] = &[
         ignore: &[],
         offset_secs: AEST,
         unpivot: &[],
+        nulls: &[],
     },
     Feed {
         market: "gas",
@@ -284,6 +289,7 @@ pub const FEEDS: &[Feed] = &[
                 value: "QUANTITY",
             },
         )],
+        nulls: &[],
     },
     Feed {
         market: "gas",
@@ -299,6 +305,7 @@ pub const FEEDS: &[Feed] = &[
         ignore: &["MOS Estimates", "Contingency_Gas"],
         offset_secs: AEST,
         unpivot: &[],
+        nulls: &[],
     },
     Feed {
         market: "gas",
@@ -314,6 +321,7 @@ pub const FEEDS: &[Feed] = &[
         ignore: &[],
         offset_secs: AEST,
         unpivot: &[],
+        nulls: &[],
     },
     Feed {
         market: "wem",
@@ -329,6 +337,7 @@ pub const FEEDS: &[Feed] = &[
         ignore: &["temp"],
         offset_secs: AWST,
         unpivot: &[],
+        nulls: &[],
     },
     Feed {
         market: "wem",
@@ -344,6 +353,7 @@ pub const FEEDS: &[Feed] = &[
         ignore: &["current"],
         offset_secs: AWST,
         unpivot: &[],
+        nulls: &[],
     },
     Feed {
         market: "wem",
@@ -359,6 +369,7 @@ pub const FEEDS: &[Feed] = &[
         ignore: &["wemde", "current"],
         offset_secs: AWST,
         unpivot: &[],
+        nulls: &[],
     },
     // New Zealand: the Electricity Authority's datasets, plain CSV on blob
     // storage, a file a day or a month, the file's name naming the table.
@@ -391,14 +402,16 @@ pub const FEEDS: &[Feed] = &[
             ("HVDC_FLOWS", TRADING_PERIODS),
             ("UNIT_LEVEL_GENERATION", TRADING_PERIODS),
             ("EMBEDDED_GENERATION", TRADING_PERIODS),
+            ("REACTIVE_POWER", TRADING_PERIODS),
+            ("GRID_EXPORT_TO_TIWAI", TRADING_PERIODS),
         ],
+        nulls: &["NULL"],
     },
 ];
 
 /// The EMI's metered files: a column per trading period, `TP1` to `TP50`,
-/// read as a row per period. The blocks named above are those whose
-/// files the census has seen; another wide metered table joins the list
-/// when it is seen.
+/// read as a row per period: the generation, metered and reactive-power
+/// tables of Generation/ and Metered_data/.
 const TRADING_PERIODS: Unpivot = Unpivot::Numbered {
     prefix: "TP",
     number: "TRADING_PERIOD",

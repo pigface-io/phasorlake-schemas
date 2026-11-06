@@ -1,0 +1,25 @@
+# The declaration of NZ_UNIT_LEVEL_GENERATION: first drafted from the census
+# of emidatasets.blob.core.windows.net, kept by hand. Each generating unit's
+# metered half-hourly output at its point of connection, by participant,
+# measure, flow direction and type, from the industry reconciliation data: one
+# file a month from January 2000, a row a unit and trading day with a column a
+# trading period, read here as a row a period (QUANTITY, in GEN_MEASURE,
+# kilowatt hours). Files:
+# Datasets/Wholesale/Metered_data/Unit_level_generation_IR/. Free to reuse
+# under CC BY 4.0, attributed to the Electricity Authority.
+name = "NZ_UNIT_LEVEL_GENERATION"
+report_pairs = [["EMI", "UNIT_LEVEL_GENERATION"]]
+time_column = "TRADING_DATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[[override]]
+column = "TRADING_PERIOD"
+type = "long"
+reason = "a period number, 1 to 48 (46 or 50 on the days daylight saving changes), read from the TP1..TP50 column heads; the census sees whole numbers and would choose decimal(2, 0)"
+
+[[derive]]
+column = "INTERVAL_START_UTC_US"
+rule = "nz_trading_period_start"
+from = ["TRADING_DATE", "TRADING_PERIOD"]
+reason = "the instant the half hour starts: period n is the n-th half hour from local midnight of the trading date, through New Zealand daylight saving"

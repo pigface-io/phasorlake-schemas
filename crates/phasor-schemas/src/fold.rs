@@ -247,9 +247,9 @@ pub fn observe(
         }
     }
     for feed in feeds_of(market.id()) {
-        let feed_root = feed.local_roots().into_iter().next().unwrap_or_default();
         for rel in recorded_folders(root, market, feed)? {
             let census = read_folder(root, market, (feed, &rel))?.unwrap_or_default();
+            let feed_root = folder_root(feed, &census);
             // A folder's files are not hashed one by one: a run's marks
             // name its first and last file, with theirs.
             let file = FileRecord {
@@ -286,6 +286,16 @@ pub fn observe(
         }
     }
     Ok(obs)
+}
+
+/// The root a recorded folder sits under: the one its census names, or
+/// the feed's first for a record from before the root was kept.
+pub fn folder_root(feed: &Feed, census: &crate::reports::FolderCensus) -> String {
+    if census.root.is_empty() {
+        feed.local_roots().into_iter().next().unwrap_or_default()
+    } else {
+        census.root.clone()
+    }
 }
 
 /// What is declared beyond the control files: each declared table's key

@@ -120,6 +120,32 @@
     },
     {
       "columns": [
+        "POC",
+        "NWK_CODE",
+        "PARTICIPANT_CODE",
+        "LOSS_CODE",
+        "FLOW_DIRECTION",
+        "TRADING_DATE",
+        "TRADING_PERIOD",
+        "QUANTITY"
+      ],
+      "report": [
+        "EMI",
+        "EMBEDDED_GENERATION"
+      ],
+      "schemas": [
+        {
+          "first-release": "1998-10",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_EMBEDDED_GENERATION",
+      "version": 1
+    },
+    {
+      "columns": [
         "TRADINGDATE",
         "TRADINGPERIOD",
         "POINTOFCONNECTION",
@@ -161,6 +187,200 @@
         }
       ],
       "table": "NZ_FINAL_RESERVE_PRICES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "SITE_CODE",
+        "POC_CODE",
+        "NWK_CODE",
+        "GEN_CODE",
+        "FUEL_CODE",
+        "TECH_CODE",
+        "TRADING_DATE",
+        "TRADING_PERIOD",
+        "QUANTITY"
+      ],
+      "report": [
+        "EMI",
+        "GENERATION_MD"
+      ],
+      "schemas": [
+        {
+          "first-release": "1997-08",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_GENERATION_MD",
+      "version": 1
+    },
+    {
+      "columns": [
+        "POC",
+        "NWK_CODE",
+        "GENERATION_TYPE",
+        "TRADER",
+        "UNIT_MEASURE",
+        "FLOW_DIRECTION",
+        "STATUS",
+        "TRADING_DATE",
+        "TRADING_PERIOD",
+        "QUANTITY"
+      ],
+      "report": [
+        "EMI",
+        "GRID_EXPORT"
+      ],
+      "schemas": [
+        {
+          "first-release": "1996-10",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_GRID_EXPORT",
+      "version": 1
+    },
+    {
+      "columns": [
+        "POC",
+        "NWK_CODE",
+        "GENERATION_TYPE",
+        "TRADER",
+        "UNIT_MEASURE",
+        "FLOW_DIRECTION",
+        "STATUS",
+        "TRADING_DATE",
+        "TRADING_PERIOD",
+        "QUANTITY"
+      ],
+      "report": [
+        "EMI",
+        "GRID_EXPORT_TO_TIWAI"
+      ],
+      "schemas": [
+        {
+          "first-release": "1996-10",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_GRID_EXPORT_TO_TIWAI",
+      "version": 1
+    },
+    {
+      "columns": [
+        "POC",
+        "NWK_CODE",
+        "GENERATION_TYPE",
+        "TRADER",
+        "UNIT_MEASURE",
+        "FLOW_DIRECTION",
+        "STATUS",
+        "TRADING_DATE",
+        "TRADING_PERIOD",
+        "QUANTITY"
+      ],
+      "report": [
+        "EMI",
+        "GRID_IMPORT"
+      ],
+      "schemas": [
+        {
+          "first-release": "2000-10",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_GRID_IMPORT",
+      "version": 1
+    },
+    {
+      "columns": [
+        "POC",
+        "NWK_CODE",
+        "GENERATION_TYPE",
+        "TRADER",
+        "UNIT_MEASURE",
+        "FLOW_DIRECTION",
+        "STATUS",
+        "TRADING_DATE",
+        "TRADING_PERIOD",
+        "QUANTITY"
+      ],
+      "report": [
+        "EMI",
+        "HVDC_FLOWS"
+      ],
+      "schemas": [
+        {
+          "first-release": "1996-10",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_HVDC_FLOWS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "POC",
+        "NWK_CODE",
+        "GENERATION_TYPE",
+        "TRADER",
+        "UNIT_MEASURE",
+        "FLOW_DIRECTION",
+        "STATUS",
+        "TRADING_DATE",
+        "TRADING_PERIOD",
+        "QUANTITY"
+      ],
+      "report": [
+        "EMI",
+        "REACTIVE_POWER"
+      ],
+      "schemas": [
+        {
+          "first-release": "1997-01",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_REACTIVE_POWER",
+      "version": 1
+    },
+    {
+      "columns": [
+        "POC",
+        "UNIT_CODE",
+        "PARTICIPANT_CODE",
+        "GEN_MEASURE",
+        "FLOW_DIRECTION",
+        "GEN_TYPE",
+        "TRADING_DATE",
+        "TRADING_PERIOD",
+        "QUANTITY"
+      ],
+      "report": [
+        "EMI",
+        "UNIT_LEVEL_GENERATION"
+      ],
+      "schemas": [
+        {
+          "first-release": "2000-01",
+          "last-release": "2026-10",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_UNIT_LEVEL_GENERATION",
       "version": 1
     }
   ],

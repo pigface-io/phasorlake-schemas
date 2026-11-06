@@ -1,0 +1,102 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "2": "NWK_Code",
+    "3": "Participant_Code",
+    "4": "Loss_Code",
+    "5": "Flow_Direction",
+    "6": "Trading_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 336,
+      "from": {
+        "data-time": "1998-10-01T00:00:00+12:00",
+        "file": "199810_Embedded_generation.csv",
+        "release": "1998-10",
+        "sha256": "a31c9d4cc02ddf70ab79c6ca61d4cd4afaee610dc5c166f69c2fb94a57bf67d0"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "EMBEDDED_GENERATION"
+      ],
+      "rows": 44518973,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-30T00:00:00+12:00",
+        "file": "202609_Embedded_generation.csv",
+        "release": "2026-09",
+        "sha256": "e8e7a9aedb03577e5c174c2ad30dcb6e10321dec8005a09658e540b7e3c14bb5"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "POC",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "NWK_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "PARTICIPANT_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "LOSS_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FLOW_DIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "TRADING_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 7,
+          "name": "TRADING_PERIOD",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 8,
+          "name": "QUANTITY",
+          "required": false,
+          "type": "decimal(10, 4)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_EMBEDDED_GENERATION"
+}

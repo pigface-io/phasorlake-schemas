@@ -540,8 +540,6 @@ fn folders(root: &Path, market: Market) -> Result<Vec<Value>, ExportError> {
     let mut out = Vec::new();
     for feed in feeds_of(market.id()) {
         {
-            let feed_root = feed.local_roots().into_iter().next().unwrap_or_default();
-            let feed_root = feed_root.as_str();
             // The root's own census (`_root`, an empty name) first, then
             // its sub-folders by name.
             let mut rels = recorded_folders(root, market, feed)?;
@@ -549,6 +547,8 @@ fn folders(root: &Path, market: Market) -> Result<Vec<Value>, ExportError> {
             for rel in rels {
                 // Listed, so recorded: an empty census if it has gone since.
                 let census = read_folder(root, market, (feed, &rel))?.unwrap_or_default();
+                let feed_root = crate::fold::folder_root(feed, &census);
+                let feed_root = feed_root.as_str();
                 let mut blocks: BTreeMap<Key, (String, String, u64)> = BTreeMap::new();
                 for t in &census.blocks {
                     let key = (

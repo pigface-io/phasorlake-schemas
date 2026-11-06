@@ -159,6 +159,11 @@ pub struct FolderCensus {
     /// their sidecars say; none for a host that lists a folder once.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub listings: Vec<String>,
+    /// The feed's root the folder sits under, as the archive keeps it
+    /// (`publicdata/Datasets/Wholesale/Metered_data`); empty in a record
+    /// from before it was kept, which is read as the feed's first root.
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub root: String,
 }
 
 #[allow(clippy::trivially_copy_pass_by_ref)]
@@ -858,12 +863,14 @@ pub fn census_folder(
 ) -> FolderCensus {
     let feed = at.feed;
     let mut g = Gather::default();
+    g.census.root = at.root.to_owned();
     let mut scan_buf = Vec::new();
     // A row that does not fit its header is counted, as the MMS scanner
     // counts a D row it refuses; the file is still read.
     let opts = PlainOptions {
         offset: feed.offset_text(),
         max_bad_rows: u64::MAX,
+        nulls: feed.nulls,
         ..PlainOptions::default()
     };
     let from = if feed.decoder == Decoder::Mms { 4 } else { 0 };

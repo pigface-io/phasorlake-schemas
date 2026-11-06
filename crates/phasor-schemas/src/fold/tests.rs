@@ -785,3 +785,15 @@ fn where_aemos_loader_puts_a_runs_blocks_elsewhere_is_a_note() {
     std::fs::write(&loads, "a file").unwrap();
     assert!(fold(root, Market::Nem, &both, true, None).is_err());
 }
+
+#[test]
+fn a_recorded_folder_sits_under_the_root_its_census_names_or_the_feeds_first() {
+    let feed = crate::reports::nem_reports();
+    let mut census = crate::reports::FolderCensus::default();
+    assert_eq!(folder_root(feed, &census), feed.local_roots()[0]);
+    census.root = "publicdata/Datasets/Wholesale/Metered_data".into();
+    assert_eq!(
+        folder_root(feed, &census),
+        "publicdata/Datasets/Wholesale/Metered_data"
+    );
+}

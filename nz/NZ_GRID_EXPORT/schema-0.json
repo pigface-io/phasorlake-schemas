@@ -1,0 +1,156 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_GRID_EXPORT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "FLOW_DIRECTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Flow_Direction",
+      "x-iceberg-type": "string"
+    },
+    "GENERATION_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Generation_Type",
+      "x-iceberg-type": "string"
+    },
+    "NWK_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "NWK_Code",
+      "x-iceberg-type": "string"
+    },
+    "POC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "QUANTITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "STATUS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "Status",
+      "x-iceberg-type": "string"
+    },
+    "TRADER": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "Trader",
+      "x-iceberg-type": "string"
+    },
+    "TRADING_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "Trading_Date",
+      "x-iceberg-type": "date"
+    },
+    "TRADING_PERIOD": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-iceberg-type": "long"
+    },
+    "UNIT_MEASURE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Unit_Measure",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "NZ_GRID_EXPORT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "POC",
+      "string"
+    ],
+    [
+      2,
+      "NWK_CODE",
+      "string"
+    ],
+    [
+      3,
+      "GENERATION_TYPE",
+      "string"
+    ],
+    [
+      4,
+      "TRADER",
+      "string"
+    ],
+    [
+      5,
+      "UNIT_MEASURE",
+      "string"
+    ],
+    [
+      6,
+      "FLOW_DIRECTION",
+      "string"
+    ],
+    [
+      7,
+      "STATUS",
+      "string"
+    ],
+    [
+      8,
+      "TRADING_DATE",
+      "date"
+    ],
+    [
+      9,
+      "TRADING_PERIOD",
+      "long"
+    ],
+    [
+      10,
+      "QUANTITY",
+      "decimal(10, 4)"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_GRID_EXPORT"
+  }
+}

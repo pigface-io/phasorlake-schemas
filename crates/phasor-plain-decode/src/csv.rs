@@ -36,6 +36,9 @@ pub struct PlainOptions<'a> {
     /// number in the first column named and the field's value in the
     /// second ([`Unpivot`]).
     pub unpivot: Option<Unpivot>,
+    /// The feed's spellings of a missing value (`NULL`): a field that is
+    /// one of them, spaces aside, is read as empty.
+    pub nulls: &'a [&'a str],
 }
 
 impl Default for PlainOptions<'static> {
@@ -45,8 +48,30 @@ impl Default for PlainOptions<'static> {
             max_record_bytes: 64 << 20,
             max_bad_rows: 0,
             unpivot: None,
+            nulls: &[],
         }
     }
+}
+
+/// Each field of `record` that is one of `tokens`, spaces aside, made
+/// empty. Fields are taken between commas, so a quoted field holding a
+/// comma is seen in parts; a part that is a token alone is as good as
+/// missing anyway.
+fn blank_nulls(record: &mut Vec<u8>, tokens: &[&str]) {
+    let hit = |f: &[u8]| tokens.iter().any(|t| t.as_bytes() == f.trim_ascii());
+    if !record.split(|b| *b == b',').any(hit) {
+        return;
+    }
+    let mut out = Vec::with_capacity(record.len());
+    for (i, f) in record.split(|b| *b == b',').enumerate() {
+        if i > 0 {
+            out.push(b',');
+        }
+        if !hit(f) {
+            out.extend_from_slice(f);
+        }
+    }
+    *record = out;
 }
 
 /// How a header's wide fields are read as rows, when they are.
@@ -361,6 +386,14 @@ pub fn scan<R: Read, S: PlainSink>(
         }
         stats.bytes += read as u64;
         stats.lines += lines;
+        // A NUL byte is never part of a value: a cell of them alone is an
+        // empty cell (the EMI's 2015 generation files end rows with them).
+        if record.contains(&0) {
+            record.retain(|b| *b != 0);
+        }
+        if !opts.nulls.is_empty() {
+            blank_nulls(&mut record, opts.nulls);
+        }
         let mut line = record.as_slice();
         while let Some((&last, rest)) = line.split_last()
             && matches!(last, b'\n' | b'\r')
@@ -921,6 +954,42 @@ pub(crate) mod tests {
         );
         assert_eq!(c.rows[47][7..], ["48", "11750"]);
         assert_eq!(c.rows[48][6..], ["2026/09/02", "1", "11780"]);
+    }
+
+    /// A cell of NUL bytes alone is empty (the EMI's 2015 generation files
+    /// end rows with them, so a day has its periods and no more), and so
+    /// is a cell spelt as one of the feed's null tokens.
+    #[test]
+    fn nul_bytes_and_the_feeds_null_tokens_read_as_empty_cells() {
+        let opts = PlainOptions {
+            offset: "+12:00",
+            unpivot: Some(Unpivot::Numbered {
+                prefix: "TP",
+                number: "TRADING_PERIOD",
+                value: "QUANTITY",
+            }),
+            nulls: &["NULL"],
+            ..PlainOptions::default()
+        };
+        let text = b"Site,Trading_Date,TP1,TP2,TP3,TP4\nA,2026-09-01,1,2,\0,\0\nB,2026-09-27,NULL, NULL ,7,NULL\n";
+        let (c, r) = run(text, &opts);
+        assert_eq!(r.unwrap().rows, 5);
+        assert_eq!(
+            c.rows,
+            [
+                ["A", "2026/09/01", "1", "1"],
+                ["A", "2026/09/01", "2", "2"],
+                ["B", "2026/09/27", "1", ""],
+                ["B", "2026/09/27", "2", ""],
+                ["B", "2026/09/27", "3", "7"],
+            ]
+        );
+        // Without tokens the word is a value; a token inside a value is not.
+        let plain = PlainOptions { nulls: &[], ..opts };
+        let (c, _) = run(b"Site,Trading_Date,TP1\nB,2026-09-27,NULL\n", &plain);
+        assert_eq!(c.rows, [["B", "2026/09/27", "1", "NULL"]]);
+        let (c, _) = run(b"Site,Trading_Date,TP1\nNULLS,2026-09-27,1\n", &opts);
+        assert_eq!(c.rows, [["NULLS", "2026/09/27", "1", "1"]]);
     }
 
     #[test]

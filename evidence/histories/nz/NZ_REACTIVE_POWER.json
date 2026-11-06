@@ -1,0 +1,116 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "2": "NWK_Code",
+    "3": "Generation_Type",
+    "4": "Trader",
+    "5": "Unit_Measure",
+    "6": "Flow_Direction",
+    "7": "Status",
+    "8": "Trading_Date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 357,
+      "from": {
+        "data-time": "1997-01-01T00:00:00+12:00",
+        "file": "199701_Reactive_power.csv",
+        "release": "1997-01",
+        "sha256": "ab4a35078e2ffde763e54834031cb74939a385a0dc33c11be57beec334292342"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "REACTIVE_POWER"
+      ],
+      "rows": 99690648,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-30T00:00:00+12:00",
+        "file": "202609_Reactive_power.csv",
+        "release": "2026-09",
+        "sha256": "818516e87703e971e80bbab3f95038d0783f29bc0e0ed84f9c3ef14e1eebfdb6"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "POC",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "NWK_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "GENERATION_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "TRADER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "UNIT_MEASURE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FLOW_DIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "STATUS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "TRADING_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 9,
+          "name": "TRADING_PERIOD",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 10,
+          "name": "QUANTITY",
+          "required": false,
+          "type": "decimal(10, 4)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_REACTIVE_POWER"
+}

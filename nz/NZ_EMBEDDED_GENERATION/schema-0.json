@@ -1,0 +1,128 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_EMBEDDED_GENERATION/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "FLOW_DIRECTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Flow_Direction",
+      "x-iceberg-type": "string"
+    },
+    "LOSS_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "Loss_Code",
+      "x-iceberg-type": "string"
+    },
+    "NWK_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "NWK_Code",
+      "x-iceberg-type": "string"
+    },
+    "PARTICIPANT_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Participant_Code",
+      "x-iceberg-type": "string"
+    },
+    "POC": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-iceberg-type": "string"
+    },
+    "QUANTITY": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-iceberg-type": "decimal(10, 4)"
+    },
+    "TRADING_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Trading_date",
+      "x-iceberg-type": "date"
+    },
+    "TRADING_PERIOD": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [],
+  "title": "NZ_EMBEDDED_GENERATION, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "POC",
+      "string"
+    ],
+    [
+      2,
+      "NWK_CODE",
+      "string"
+    ],
+    [
+      3,
+      "PARTICIPANT_CODE",
+      "string"
+    ],
+    [
+      4,
+      "LOSS_CODE",
+      "string"
+    ],
+    [
+      5,
+      "FLOW_DIRECTION",
+      "string"
+    ],
+    [
+      6,
+      "TRADING_DATE",
+      "date"
+    ],
+    [
+      7,
+      "TRADING_PERIOD",
+      "long"
+    ],
+    [
+      8,
+      "QUANTITY",
+      "decimal(10, 4)"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_EMBEDDED_GENERATION"
+  }
+}

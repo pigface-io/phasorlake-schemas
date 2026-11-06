@@ -1,0 +1,116 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "2": "NWK_Code",
+    "3": "Generation_Type",
+    "4": "Trader",
+    "5": "Unit_Measure",
+    "6": "Flow_Direction",
+    "7": "Status",
+    "8": "Trading_Date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 360,
+      "from": {
+        "data-time": "1996-10-01T00:00:00+12:00",
+        "file": "199610_Grid_export.csv",
+        "release": "1996-10",
+        "sha256": "11b24f706d7faac1f4d7d4cd43225ad007eb3f9696ff5e2f9ddb18301f79bff2"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "GRID_EXPORT"
+      ],
+      "rows": 119724872,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-30T00:00:00+12:00",
+        "file": "202609_Grid_export.csv",
+        "release": "2026-09",
+        "sha256": "5a1af14bf2ee786ff5c6c63d3ee30000419f6d98e667cc035d2993798605db62"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "POC",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "NWK_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "GENERATION_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "TRADER",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "UNIT_MEASURE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "FLOW_DIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "STATUS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "TRADING_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 9,
+          "name": "TRADING_PERIOD",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 10,
+          "name": "QUANTITY",
+          "required": false,
+          "type": "decimal(10, 4)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_GRID_EXPORT"
+}

@@ -1,0 +1,109 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "2": "Unit_Code",
+    "3": "Participant_Code",
+    "4": "Gen_Measure",
+    "5": "Flow_Direction",
+    "6": "Gen_Type",
+    "7": "Trading_date"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 322,
+      "from": {
+        "data-time": "2000-01-01T00:00:00+12:00",
+        "file": "200001_Unit_level_generation.csv",
+        "release": "2000-01",
+        "sha256": "6ca33a07e0eed023c112b75ac0792d228704b320404ae29a01940d5800e2d064"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "UNIT_LEVEL_GENERATION"
+      ],
+      "rows": 26943008,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-10-31T00:00:00+12:00",
+        "file": "202610_Unit_level_generation.csv",
+        "release": "2026-10",
+        "sha256": "efc2d8e54d3c25498a464bb858d874feb1f9ab7b05cf1df8fc6e9491eb105d17"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "POC",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 2,
+          "name": "UNIT_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "PARTICIPANT_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "GEN_MEASURE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FLOW_DIRECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "GEN_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "TRADING_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 8,
+          "name": "TRADING_PERIOD",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 9,
+          "name": "QUANTITY",
+          "required": false,
+          "type": "decimal(10, 4)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_UNIT_LEVEL_GENERATION"
+}
