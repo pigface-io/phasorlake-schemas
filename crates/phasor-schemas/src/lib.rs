@@ -34,6 +34,19 @@
 //! - [`shape`] gives a block's report pair and columns a content-addressed
 //!   [`shape::ShapeId`], the same id phasor gives it.
 
+/// Opens a zone of `zonetrace` until the end of the block, with the
+/// feature `zones`; nothing without it.
+#[allow(unused_macros)]
+macro_rules! zone {
+    ($z:ident) => {
+        #[cfg(feature = "zones")]
+        let _zone = zonetrace::enter(&crate::zones::$z);
+    };
+}
+
+#[cfg(feature = "zones")]
+pub mod zones;
+
 pub mod catalog;
 pub mod census;
 pub mod compat;

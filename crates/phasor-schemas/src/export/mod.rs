@@ -311,6 +311,7 @@ impl Export {
     /// of every market under `root`; the documents will live under
     /// `base_url`.
     pub fn load(root: &Path, base_url: &str) -> Result<Self, ExportError> {
+        zone!(EXPORT_LOAD);
         let mut markets = BTreeMap::new();
         for market in Market::ALL {
             if let Some(m) = MarketExport::load(root, market)? {
@@ -380,6 +381,7 @@ impl Export {
 
     /// Renders every file.
     pub fn render(&self) -> Result<Rendered, ExportError> {
+        zone!(EXPORT_RENDER);
         let mut out = Rendered::default();
         let mut markets = serde_json::Map::new();
         for (market, e) in &self.markets {

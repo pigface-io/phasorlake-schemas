@@ -76,7 +76,11 @@ pub fn scan<R: Read, S: PlainSink>(
     sink: &mut S,
     opts: &PlainOptions<'_>,
 ) -> Result<JsonStats, JsonError<S::Fatal>> {
-    let doc: Value = serde_json::from_reader(BufReader::new(reader))?;
+    zone!(WEMDE_SCAN);
+    let doc: Value = {
+        zone!(WEMDE_PARSE);
+        serde_json::from_reader(BufReader::new(reader))?
+    };
     let documents = match doc {
         Value::Object(top) => vec![top],
         Value::Array(items) if !items.is_empty() => items

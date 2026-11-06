@@ -23,6 +23,19 @@
 //!
 //! Pure: no I/O beyond the reader handed in, no registry, no lake.
 
+/// Opens a zone of `zonetrace` until the end of the block, with the
+/// feature `zones`; nothing without it.
+#[allow(unused_macros)]
+macro_rules! zone {
+    ($z:ident) => {
+        #[cfg(feature = "zones")]
+        let _zone = zonetrace::enter(&crate::zones::$z);
+    };
+}
+
+#[cfg(feature = "zones")]
+pub mod zones;
+
 pub mod csv;
 pub mod dates;
 pub mod diagnose;

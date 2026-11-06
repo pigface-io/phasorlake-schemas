@@ -28,8 +28,8 @@ fmt-check:
 
 # clippy with warnings as errors, and the docs with broken links as errors
 lint:
-    cargo clippy --workspace --all-targets --locked --features phasor-diag/log -- -D warnings
-    RUSTDOCFLAGS="-D warnings" cargo doc --workspace --no-deps --locked --quiet --features phasor-diag/log
+    cargo clippy --workspace --all-targets --locked --features phasor-diag/log,phasor-schemas/zones -- -D warnings
+    RUSTDOCFLAGS="-D warnings" cargo doc --workspace --no-deps --locked --quiet --features phasor-diag/log,phasor-schemas/zones
 
 # every dependency between the workspace's crates is one layers.json declares
 layers:

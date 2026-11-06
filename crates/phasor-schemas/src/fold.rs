@@ -583,22 +583,38 @@ pub fn fold(
     check: bool,
     rebaseline: Option<&str>,
 ) -> Result<Folded, FoldError> {
-    let obs = observe(root, market, catalog)?;
+    let obs = {
+        zone!(FOLD_OBSERVE);
+        observe(root, market, catalog)?
+    };
     let floor = match rebaseline {
         Some(_) => BTreeMap::new(),
-        None => published(root, market)?,
+        None => {
+            zone!(FOLD_PUBLISHED);
+            published(root, market)?
+        }
     };
-    let tables = obs.finish(&declarations(root, market, catalog)?, &floor)?;
+    let tables = {
+        zone!(FOLD_FINISH);
+        obs.finish(&declarations(root, market, catalog)?, &floor)?
+    };
     let mut folded = Folded {
         tables: tables.len(),
         ..Folded::default()
     };
-    renames_decided(catalog, &tables, &mut folded.notes)?;
-    loads_agree(
-        &crate::models::read_all_loads(root, market)?,
-        &tables,
-        &mut folded.notes,
-    );
+    {
+        zone!(FOLD_RENAMES);
+        renames_decided(catalog, &tables, &mut folded.notes)?;
+    }
+    {
+        zone!(FOLD_LOADS);
+        loads_agree(
+            &crate::models::read_all_loads(root, market)?,
+            &tables,
+            &mut folded.notes,
+        );
+    }
+    zone!(FOLD_WRITE);
     if let Some(reason) = rebaseline {
         let next = Baseline {
             version: Baseline::read(root, market)?.version + 1,

@@ -36,6 +36,7 @@ impl std::fmt::Display for Stale {
 /// file renamed into place, and removes every other file under the
 /// markets' directories and the directories it leaves empty.
 pub fn write(root: &Path, r: &Rendered) -> Result<Written, ExportError> {
+    zone!(EXPORT_WRITE);
     let mut done = Written::default();
     for (rel, bytes) in &r.files {
         let path = root.join(rel);
@@ -62,6 +63,7 @@ pub fn write(root: &Path, r: &Rendered) -> Result<Written, ExportError> {
 /// `missing` or with other bytes (`differs`), or under a market's
 /// directory and not rendered (`extra`). Writes nothing.
 pub fn check(root: &Path, r: &Rendered) -> Result<Vec<Stale>, ExportError> {
+    zone!(EXPORT_CHECK);
     let mut stale = Vec::new();
     for (rel, bytes) in &r.files {
         let path = root.join(rel);

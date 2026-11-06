@@ -37,8 +37,57 @@ use phasor_schemas::month::YearMonth;
     about = "The census of AEMO's MMS archive."
 )]
 struct Cli {
+    /// Where the run's time went, as zonetrace's call tree, at exit: on
+    /// stderr, or into FILE. Needs a build with the feature `zones`.
+    #[arg(
+        long,
+        global = true,
+        env = "PHASOR_ZONES",
+        value_name = "FILE",
+        num_args = 0..=1,
+        default_missing_value = "-"
+    )]
+    zones: Option<PathBuf>,
     #[command(subcommand)]
     cmd: Cmd,
+}
+
+/// The zone a command runs in, with the feature `zones`.
+#[cfg(feature = "zones")]
+fn root_zone(cmd: &Cmd) -> Option<&'static zonetrace::Zone> {
+    use phasor_schemas::zones;
+    match cmd {
+        Cmd::Census { .. } => Some(&zones::ROOT_CENSUS),
+        Cmd::Reports { .. } => Some(&zones::ROOT_REPORTS),
+        Cmd::Fold { .. } => Some(&zones::ROOT_FOLD),
+        Cmd::Export { .. } => Some(&zones::ROOT_EXPORT),
+        Cmd::Sources { .. } => Some(&zones::ROOT_SOURCES),
+        Cmd::Models { .. } => Some(&zones::ROOT_MODELS),
+        _ => None,
+    }
+}
+
+/// The report of the run's zones, where `--zones` asked for it: on stderr
+/// for `-` (or `1`, `true`, nothing), else into the file named.
+fn zones_report(sink: Option<&Path>) {
+    let Some(sink) = sink else { return };
+    #[cfg(feature = "zones")]
+    {
+        let text = zonetrace::take_all().text(zonetrace::overhead());
+        let to_stderr = matches!(sink.to_str(), Some("-" | "1" | "true" | ""));
+        if to_stderr {
+            eprint!("{text}");
+        } else if let Err(e) = std::fs::write(sink, text) {
+            eprintln!("zones: {} could not be written: {e}", sink.display());
+        }
+    }
+    #[cfg(not(feature = "zones"))]
+    {
+        let _ = sink;
+        eprintln!(
+            "zones: this binary was built without the feature zones; build with --features zones"
+        );
+    }
 }
 
 #[derive(Subcommand)]
@@ -355,12 +404,18 @@ fn catalog(root: &Path, market: Market) -> Result<Catalog, ExitCode> {
 }
 
 fn main() -> ExitCode {
-    match run(Cli::parse().cmd) {
+    let cli = Cli::parse();
+    let zones = cli.zones.clone();
+    let code = match run(cli.cmd) {
         Ok(code) | Err(code) => code,
-    }
+    };
+    zones_report(zones.as_deref());
+    code
 }
 
 fn run(cmd: Cmd) -> Result<ExitCode, ExitCode> {
+    #[cfg(feature = "zones")]
+    let _root = root_zone(&cmd).map(zonetrace::enter);
     match cmd {
         Cmd::Fetch {
             month,

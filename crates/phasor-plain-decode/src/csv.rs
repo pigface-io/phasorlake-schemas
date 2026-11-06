@@ -357,6 +357,7 @@ pub fn scan<R: Read, S: PlainSink>(
     sink: &mut S,
     opts: &PlainOptions<'_>,
 ) -> Result<PlainStats, PlainError<S::Fatal>> {
+    zone!(PLAIN_SCAN);
     let mut rd = BufReader::with_capacity(BUF, reader);
     let mut record = Vec::new();
     let mut rows = Rows::new();

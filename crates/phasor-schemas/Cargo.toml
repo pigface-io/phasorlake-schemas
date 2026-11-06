@@ -34,3 +34,14 @@ toml.workspace = true
 ureq.workspace = true
 xxhash-rust.workspace = true
 zip.workspace = true
+zonetrace = { workspace = true, optional = true }
+
+[features]
+# Times a run in zones of zonetrace, the readers' zones included; the
+# binary then takes `--zones [FILE]`.
+zones = [
+    "dep:zonetrace",
+    "phasor-zip/zones",
+    "phasor-mms-decode/zones",
+    "phasor-plain-decode/zones",
+]

@@ -19,3 +19,8 @@ thiserror.workspace = true
 phasor-decode.workspace = true
 phasor-provenance.workspace = true
 xxhash-rust.workspace = true
+zonetrace = { workspace = true, optional = true }
+
+[features]
+# Times the reads in zones of zonetrace.
+zones = ["dep:zonetrace"]

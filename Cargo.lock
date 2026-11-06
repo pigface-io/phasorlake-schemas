@@ -447,6 +447,7 @@ dependencies = [
  "serde_json",
  "thiserror",
  "xxhash-rust",
+ "zonetrace",
 ]
 
 [[package]]
@@ -485,6 +486,7 @@ dependencies = [
  "ureq",
  "xxhash-rust",
  "zip",
+ "zonetrace",
 ]
 
 [[package]]
@@ -982,6 +984,6 @@ checksum = "29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b"
 
 [[package]]
 name = "zonetrace"
-version = "0.1.1"
+version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b543c8600885a34fca8e929217ab38f54c7139a53d405a8381fc647c0132a162"
+checksum = "242778d4fbe0e3035b8b85d21fadd23ae615c06eb0005f56988ae5465f8ede28"

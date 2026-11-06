@@ -35,8 +35,12 @@ pub fn map<T: Sync, R: Send>(
                     loop {
                         let i = next.fetch_add(1, Ordering::Relaxed);
                         let Some(item) = items.get(i) else { break };
+                        zone!(POOL_TASK);
                         out.push((i, f(w, item)));
                     }
+                    // The thread's zones into the process's report before it ends.
+                    #[cfg(feature = "zones")]
+                    zonetrace::flush();
                     out
                 })
             })

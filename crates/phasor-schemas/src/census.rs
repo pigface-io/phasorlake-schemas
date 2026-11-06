@@ -865,6 +865,7 @@ pub fn census_month(
     // each, then taken in in the files' order: the same census as one
     // thread reading them in turn.
     let read = crate::pool::map(jobs, &market, |w, path| {
+        zone!(CENSUS_MONTH_FILE);
         let mut r = Reading::default();
         let spool = tmp.join(format!("thread-{w}"));
         let _ = std::fs::create_dir_all(&spool);

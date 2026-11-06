@@ -37,6 +37,7 @@ pub fn sniff(head: &[u8]) -> Format {
 /// Reads up to [`HEAD`] bytes from `reader` and returns them with a reader
 /// that yields them again before the rest, so the file is read whole.
 pub fn peek<R: Read>(mut reader: R) -> io::Result<(Vec<u8>, impl Read)> {
+    zone!(SNIFF_PEEK);
     let mut head = vec![0; HEAD];
     let mut got = 0;
     while got < HEAD {

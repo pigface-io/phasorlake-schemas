@@ -861,6 +861,7 @@ pub fn census_folder(
     journal: Option<&Path>,
     tmp: &Path,
 ) -> FolderCensus {
+    zone!(CENSUS_FOLDER);
     let feed = at.feed;
     let mut g = Gather::default();
     g.census.root = at.root.to_owned();
@@ -893,6 +894,7 @@ pub fn census_folder(
     let mut read: HashMap<usize, (Option<String>, String)> = HashMap::new();
     let folder = at.folder();
     for (i, path) in files.iter().enumerate() {
+        zone!(CENSUS_FILE);
         let name = base(&path.to_string_lossy()).to_owned();
         let (file, _) = version_of(&name);
         // The mirror's sidecars are records of the files, not files; a
@@ -923,6 +925,7 @@ pub fn census_folder(
         let mut prints = hashed.then(Vec::new);
         let mut one_entry =
             |entry: &str, r: &mut dyn std::io::Read, g: &mut Gather| -> Result<(), String> {
+                zone!(CENSUS_ENTRY);
                 let loose = entry == name;
                 let full = if loose {
                     rel_path.clone()
@@ -941,6 +944,7 @@ pub fn census_folder(
                 let blocks = {
                     // `None`: not a report at all (markup named `.csv`).
                     let mut decode = |r: &mut dyn Read| -> Result<Option<Vec<RawBlock>>, String> {
+                        zone!(CENSUS_DECODE);
                         let mut mms = |r: &mut dyn Read| {
                             let (blocks, stats) =
                                 read_blocks_with(r, &mut scan_buf, differ.as_mut())
@@ -1048,6 +1052,7 @@ pub fn census_folder(
                     _ if loose => name.clone(),
                     _ => format!("{name}!{entry}"),
                 };
+                zone!(CENSUS_BLOCK_SHAPE);
                 for raw in blocks {
                     let b = block_shape(catalog, c, None, raw);
                     g.add(month, &csv, path, b);
@@ -1152,6 +1157,7 @@ pub fn census_folder(
     // A run's first and last files are hashed, for the marks that name
     // them; the files between are counted, not hashed.
     let hash = |p: &Path| {
+        zone!(CENSUS_HASH);
         std::fs::File::open(p)
             .and_then(crate::files::sha256_of)
             .map(|(sha, _)| sha)
@@ -1313,7 +1319,10 @@ pub fn census_reports(
         let at = Where { feed, root, rel };
         let journal = mirror.map(|m| journal_of(m, feed.host, &at.folder()));
         let census = census_folder(catalog, &mut c, at, files, journal.as_deref(), &spool);
-        record_folder(repo, market, (feed, rel), &census)?;
+        {
+            zone!(CENSUS_RECORD);
+            record_folder(repo, market, (feed, rel), &census)?;
+        }
         Ok(Taken {
             folder: at.folder(),
             census,
