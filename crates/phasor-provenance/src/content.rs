@@ -110,17 +110,20 @@ impl Content {
     }
 
     /// The content of everything `reader` gives, read once in 1 MiB
-    /// pieces so a file of any size takes the same memory. Blocking.
+    /// pieces so a file of any size takes the same memory; an interrupted
+    /// read is read again. Blocking.
     pub fn of_reader(mut reader: impl std::io::Read) -> std::io::Result<Self> {
         use sha2::Digest as _;
         let (mut sha, mut crc) = (sha2::Sha256::new(), crc32fast::Hasher::new());
         let mut buf = vec![0u8; 1 << 20];
         let mut size = 0u64;
         loop {
-            let n = reader.read(&mut buf)?;
-            if n == 0 {
-                break;
-            }
+            let n = match reader.read(&mut buf) {
+                Ok(0) => break,
+                Ok(n) => n,
+                Err(e) if e.kind() == std::io::ErrorKind::Interrupted => continue,
+                Err(e) => return Err(e),
+            };
             sha.update(&buf[..n]);
             crc.update(&buf[..n]);
             size += n as u64;
@@ -202,6 +205,30 @@ mod tests {
             }
         }
         assert!(Content::of_reader(Broken).is_err());
+        // An interruption is read past; any other failure is the result.
+        struct Flaky(usize, &'static [u8]);
+        impl std::io::Read for Flaky {
+            fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+                self.0 += 1;
+                match self.0 {
+                    1 => Err(std::io::Error::from(std::io::ErrorKind::Interrupted)),
+                    2 => {
+                        let n = self.1.len().min(buf.len());
+                        buf[..n].copy_from_slice(&self.1[..n]);
+                        self.1 = &self.1[n..];
+                        Ok(n)
+                    }
+                    3 => Ok(0),
+                    _ => Err(std::io::Error::other("gone")),
+                }
+            }
+        }
+        let c = Content::of_reader(Flaky(0, b"abc")).unwrap();
+        assert_eq!((c.size, c.sha256), (3, Sha256::of(b"abc")));
+        assert_eq!(
+            Content::of_reader(Flaky(3, b"")).unwrap_err().to_string(),
+            "gone"
+        );
     }
 
     #[test]

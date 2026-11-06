@@ -33,9 +33,8 @@ fn part_of(path: &Path) -> std::io::Result<PathBuf> {
 /// the parent directories; synced to disk first when `durability` says so.
 pub fn write_atomic(path: &Path, bytes: &[u8], durability: Durability) -> std::io::Result<()> {
     let part = part_of(path)?;
-    if let Some(parent) = path.parent().filter(|p| !p.as_os_str().is_empty()) {
-        std::fs::create_dir_all(parent)?;
-    }
+    let parent = path.parent().filter(|p| !p.as_os_str().is_empty());
+    parent.map_or(Ok(()), std::fs::create_dir_all)?;
     let write = (|| -> std::io::Result<()> {
         let mut f = std::fs::File::create(&part)?;
         f.write_all(bytes)?;
