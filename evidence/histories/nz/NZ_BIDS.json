@@ -1,0 +1,140 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "TradingDate",
+    "10": "DispatchableYesNo",
+    "11": "Tranche",
+    "12": "Megawatts",
+    "13": "DollarsPerMegawattHour",
+    "2": "TradingPeriod",
+    "3": "ParticipantCode",
+    "4": "PointOfConnection",
+    "5": "Unit",
+    "6": "UTCSubmissionDate",
+    "7": "UTCSubmissionTime",
+    "8": "SubmissionOrder",
+    "9": "IsLatestYesNo"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 5056,
+      "from": {
+        "data-time": "2013-01-01T00:00:00+12:00",
+        "file": "20130101_Bids.csv",
+        "release": "2013-01",
+        "sha256": "619f55b5134151d01e88bd54d5697a6b9198be5d8c840636b27be053691ae7bc"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "BIDS"
+      ],
+      "rows": 151894048,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-05T00:00:00+12:00",
+        "file": "20261105_Bids.csv",
+        "release": "2026-11",
+        "sha256": "01f084f2361491a8ed03a120ca8b31b232bddf4c41473d5fac1ec57876d0ad26"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADINGDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "TRADINGPERIOD",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "PARTICIPANTCODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "POINTOFCONNECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "UNIT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "UTCSUBMISSIONDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 7,
+          "name": "UTCSUBMISSIONTIME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "SUBMISSIONORDER",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 9,
+          "name": "ISLATESTYESNO",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "DISPATCHABLEYESNO",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "TRANCHE",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 12,
+          "name": "MEGAWATTS",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 13,
+          "name": "DOLLARSPERMEGAWATTHOUR",
+          "required": false,
+          "type": "decimal(8, 2)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_BIDS"
+}

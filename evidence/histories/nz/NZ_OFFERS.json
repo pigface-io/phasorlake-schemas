@@ -1,0 +1,196 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "TradingDate",
+    "10": "UTCSubmissionDate",
+    "11": "UTCSubmissionTime",
+    "12": "SubmissionOrder",
+    "13": "IsLatestYesNo",
+    "14": "Tranche",
+    "15": "MaximumRampUpMegawattsPerHour",
+    "16": "MaximumRampDownMegawattsPerHour",
+    "17": "PartiallyLoadedSpinningReservePercent",
+    "18": "MaximumOutputMegawatts",
+    "19": "ForecastOfGenerationPotentialMegawatts",
+    "2": "TradingPeriod",
+    "20": "Megawatts",
+    "21": "DollarsPerMegawattHour",
+    "3": "ParticipantCode",
+    "4": "PointOfConnection",
+    "5": "Unit",
+    "6": "ProductType",
+    "7": "ProductClass",
+    "8": "ReserveType",
+    "9": "ProductDescription"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 5056,
+      "from": {
+        "data-time": "2013-01-01T00:00:00+12:00",
+        "file": "20130101_Offers.csv",
+        "release": "2013-01",
+        "sha256": "045899241522241d506237a78087dd3d304261029009ec6870df6e08dd47d9fd"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "OFFERS"
+      ],
+      "rows": 1451847867,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-05T00:00:00+12:00",
+        "file": "20261105_Offers.csv",
+        "release": "2026-11",
+        "sha256": "5ffd06345003dd10f03afee01fa75c17ea4e2a704e3f34708d959ea1c4f91d12"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "TRADINGDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "TRADINGPERIOD",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "PARTICIPANTCODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "POINTOFCONNECTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "UNIT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "PRODUCTTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "PRODUCTCLASS",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "RESERVETYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "PRODUCTDESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "UTCSUBMISSIONDATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 11,
+          "name": "UTCSUBMISSIONTIME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "SUBMISSIONORDER",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 13,
+          "name": "ISLATESTYESNO",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 14,
+          "name": "TRANCHE",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 15,
+          "name": "MAXIMUMRAMPUPMEGAWATTSPERHOUR",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 16,
+          "name": "MAXIMUMRAMPDOWNMEGAWATTSPERHOUR",
+          "required": false,
+          "type": "decimal(7, 3)"
+        },
+        {
+          "id": 17,
+          "name": "PARTIALLYLOADEDSPINNINGRESERVEPERCENT",
+          "required": false,
+          "type": "decimal(6, 2)"
+        },
+        {
+          "id": 18,
+          "name": "MAXIMUMOUTPUTMEGAWATTS",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 19,
+          "name": "FORECASTOFGENERATIONPOTENTIALMEGAWATTS",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 20,
+          "name": "MEGAWATTS",
+          "required": false,
+          "type": "decimal(6, 3)"
+        },
+        {
+          "id": 21,
+          "name": "DOLLARSPERMEGAWATTHOUR",
+          "required": false,
+          "type": "decimal(8, 2)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_OFFERS"
+}

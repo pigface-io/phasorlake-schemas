@@ -30,6 +30,37 @@
     {
       "columns": [
         "TRADINGDATE",
+        "TRADINGPERIOD",
+        "PARTICIPANTCODE",
+        "POINTOFCONNECTION",
+        "UNIT",
+        "UTCSUBMISSIONDATE",
+        "UTCSUBMISSIONTIME",
+        "SUBMISSIONORDER",
+        "ISLATESTYESNO",
+        "DISPATCHABLEYESNO",
+        "TRANCHE",
+        "MEGAWATTS",
+        "DOLLARSPERMEGAWATTHOUR"
+      ],
+      "report": [
+        "EMI",
+        "BIDS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2013-01",
+          "last-release": "2026-11",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_BIDS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRADINGDATE",
         "TRADINGPERIODNUMBER",
         "INTERVALDATETIME",
         "RUNDATETIME",
@@ -586,6 +617,45 @@
         }
       ],
       "table": "NZ_NETWORK_SUPPLY_POINTS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "TRADINGDATE",
+        "TRADINGPERIOD",
+        "PARTICIPANTCODE",
+        "POINTOFCONNECTION",
+        "UNIT",
+        "PRODUCTTYPE",
+        "PRODUCTCLASS",
+        "RESERVETYPE",
+        "PRODUCTDESCRIPTION",
+        "UTCSUBMISSIONDATE",
+        "UTCSUBMISSIONTIME",
+        "SUBMISSIONORDER",
+        "ISLATESTYESNO",
+        "TRANCHE",
+        "MAXIMUMRAMPUPMEGAWATTSPERHOUR",
+        "MAXIMUMRAMPDOWNMEGAWATTSPERHOUR",
+        "PARTIALLYLOADEDSPINNINGRESERVEPERCENT",
+        "MAXIMUMOUTPUTMEGAWATTS",
+        "FORECASTOFGENERATIONPOTENTIALMEGAWATTS",
+        "MEGAWATTS",
+        "DOLLARSPERMEGAWATTHOUR"
+      ],
+      "report": [
+        "EMI",
+        "OFFERS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2013-01",
+          "last-release": "2026-11",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_OFFERS",
       "version": 1
     },
     {

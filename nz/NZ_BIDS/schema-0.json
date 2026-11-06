@@ -1,0 +1,202 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_BIDS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DISPATCHABLEYESNO": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "DispatchableYesNo",
+      "x-iceberg-type": "string"
+    },
+    "DOLLARSPERMEGAWATTHOUR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "DollarsPerMegawattHour",
+      "x-iceberg-type": "decimal(8, 2)"
+    },
+    "ISLATESTYESNO": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "IsLatestYesNo",
+      "x-iceberg-type": "string"
+    },
+    "MEGAWATTS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "Megawatts",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "PARTICIPANTCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "ParticipantCode",
+      "x-iceberg-type": "string"
+    },
+    "POINTOFCONNECTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "PointOfConnection",
+      "x-iceberg-type": "string"
+    },
+    "SUBMISSIONORDER": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "SubmissionOrder",
+      "x-iceberg-type": "long"
+    },
+    "TRADINGDATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "TradingDate",
+      "x-iceberg-type": "date"
+    },
+    "TRADINGPERIOD": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "TradingPeriod",
+      "x-iceberg-type": "long"
+    },
+    "TRANCHE": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "Tranche",
+      "x-iceberg-type": "long"
+    },
+    "UNIT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Unit",
+      "x-iceberg-type": "string"
+    },
+    "UTCSUBMISSIONDATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "UTCSubmissionDate",
+      "x-iceberg-type": "date"
+    },
+    "UTCSUBMISSIONTIME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "UTCSubmissionTime",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "NZ_BIDS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRADINGDATE",
+      "date"
+    ],
+    [
+      2,
+      "TRADINGPERIOD",
+      "long"
+    ],
+    [
+      3,
+      "PARTICIPANTCODE",
+      "string"
+    ],
+    [
+      4,
+      "POINTOFCONNECTION",
+      "string"
+    ],
+    [
+      5,
+      "UNIT",
+      "string"
+    ],
+    [
+      6,
+      "UTCSUBMISSIONDATE",
+      "date"
+    ],
+    [
+      7,
+      "UTCSUBMISSIONTIME",
+      "string"
+    ],
+    [
+      8,
+      "SUBMISSIONORDER",
+      "long"
+    ],
+    [
+      9,
+      "ISLATESTYESNO",
+      "string"
+    ],
+    [
+      10,
+      "DISPATCHABLEYESNO",
+      "string"
+    ],
+    [
+      11,
+      "TRANCHE",
+      "long"
+    ],
+    [
+      12,
+      "MEGAWATTS",
+      "decimal(6, 3)"
+    ],
+    [
+      13,
+      "DOLLARSPERMEGAWATTHOUR",
+      "decimal(8, 2)"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_BIDS"
+  }
+}

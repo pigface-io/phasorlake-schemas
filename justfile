@@ -79,7 +79,7 @@ census month dir market="nem":
 
 # record every folder of a market's feeds under evidence/census/{market}/, from the host directory of a mirror archive
 reports host market="nem" feed="" mmsdm="" mirror="":
-    cargo run -q -p phasor-schemas -- reports --dir {{ host }} --market {{ market }} {{ if feed == "" { "" } else { "--feed " + feed } }} {{ if mmsdm == "" { "" } else { "--mmsdm " + mmsdm } }} {{ if mirror == "" { "" } else { "--mirror " + mirror } }}
+    cargo run -q --release -p phasor-schemas -- reports --dir {{ host }} --market {{ market }} {{ if feed == "" { "" } else { "--feed " + feed } }} {{ if mmsdm == "" { "" } else { "--mmsdm " + mmsdm } }} {{ if mirror == "" { "" } else { "--mirror " + mirror } }}
 
 # list every file each census read in sources/{market}/, from a mirror archive's sidecars
 sources archive market="nem":

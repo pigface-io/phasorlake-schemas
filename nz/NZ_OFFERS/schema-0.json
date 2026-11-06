@@ -1,0 +1,314 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_OFFERS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DOLLARSPERMEGAWATTHOUR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-header": "DollarsPerMegawattHour",
+      "x-iceberg-type": "decimal(8, 2)"
+    },
+    "FORECASTOFGENERATIONPOTENTIALMEGAWATTS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-header": "ForecastOfGenerationPotentialMegawatts",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "ISLATESTYESNO": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "IsLatestYesNo",
+      "x-iceberg-type": "string"
+    },
+    "MAXIMUMOUTPUTMEGAWATTS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "MaximumOutputMegawatts",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "MAXIMUMRAMPDOWNMEGAWATTSPERHOUR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "MaximumRampDownMegawattsPerHour",
+      "x-iceberg-type": "decimal(7, 3)"
+    },
+    "MAXIMUMRAMPUPMEGAWATTSPERHOUR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "MaximumRampUpMegawattsPerHour",
+      "x-iceberg-type": "decimal(7, 3)"
+    },
+    "MEGAWATTS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-header": "Megawatts",
+      "x-iceberg-type": "decimal(6, 3)"
+    },
+    "PARTIALLYLOADEDSPINNINGRESERVEPERCENT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "PartiallyLoadedSpinningReservePercent",
+      "x-iceberg-type": "decimal(6, 2)"
+    },
+    "PARTICIPANTCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "ParticipantCode",
+      "x-iceberg-type": "string"
+    },
+    "POINTOFCONNECTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "PointOfConnection",
+      "x-iceberg-type": "string"
+    },
+    "PRODUCTCLASS": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "ProductClass",
+      "x-iceberg-type": "string"
+    },
+    "PRODUCTDESCRIPTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "ProductDescription",
+      "x-iceberg-type": "string"
+    },
+    "PRODUCTTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "ProductType",
+      "x-iceberg-type": "string"
+    },
+    "RESERVETYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "ReserveType",
+      "x-iceberg-type": "string"
+    },
+    "SUBMISSIONORDER": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "SubmissionOrder",
+      "x-iceberg-type": "long"
+    },
+    "TRADINGDATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "TradingDate",
+      "x-iceberg-type": "date"
+    },
+    "TRADINGPERIOD": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "TradingPeriod",
+      "x-iceberg-type": "long"
+    },
+    "TRANCHE": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "Tranche",
+      "x-iceberg-type": "long"
+    },
+    "UNIT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Unit",
+      "x-iceberg-type": "string"
+    },
+    "UTCSUBMISSIONDATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "UTCSubmissionDate",
+      "x-iceberg-type": "date"
+    },
+    "UTCSUBMISSIONTIME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "UTCSubmissionTime",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "NZ_OFFERS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "TRADINGDATE",
+      "date"
+    ],
+    [
+      2,
+      "TRADINGPERIOD",
+      "long"
+    ],
+    [
+      3,
+      "PARTICIPANTCODE",
+      "string"
+    ],
+    [
+      4,
+      "POINTOFCONNECTION",
+      "string"
+    ],
+    [
+      5,
+      "UNIT",
+      "string"
+    ],
+    [
+      6,
+      "PRODUCTTYPE",
+      "string"
+    ],
+    [
+      7,
+      "PRODUCTCLASS",
+      "string"
+    ],
+    [
+      8,
+      "RESERVETYPE",
+      "string"
+    ],
+    [
+      9,
+      "PRODUCTDESCRIPTION",
+      "string"
+    ],
+    [
+      10,
+      "UTCSUBMISSIONDATE",
+      "date"
+    ],
+    [
+      11,
+      "UTCSUBMISSIONTIME",
+      "string"
+    ],
+    [
+      12,
+      "SUBMISSIONORDER",
+      "long"
+    ],
+    [
+      13,
+      "ISLATESTYESNO",
+      "string"
+    ],
+    [
+      14,
+      "TRANCHE",
+      "long"
+    ],
+    [
+      15,
+      "MAXIMUMRAMPUPMEGAWATTSPERHOUR",
+      "decimal(7, 3)"
+    ],
+    [
+      16,
+      "MAXIMUMRAMPDOWNMEGAWATTSPERHOUR",
+      "decimal(7, 3)"
+    ],
+    [
+      17,
+      "PARTIALLYLOADEDSPINNINGRESERVEPERCENT",
+      "decimal(6, 2)"
+    ],
+    [
+      18,
+      "MAXIMUMOUTPUTMEGAWATTS",
+      "decimal(6, 3)"
+    ],
+    [
+      19,
+      "FORECASTOFGENERATIONPOTENTIALMEGAWATTS",
+      "decimal(6, 3)"
+    ],
+    [
+      20,
+      "MEGAWATTS",
+      "decimal(6, 3)"
+    ],
+    [
+      21,
+      "DOLLARSPERMEGAWATTHOUR",
+      "decimal(8, 2)"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_OFFERS"
+  }
+}

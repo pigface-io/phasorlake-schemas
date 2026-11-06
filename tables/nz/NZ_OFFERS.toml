@@ -1,0 +1,33 @@
+# The declaration of NZ_OFFERS: first drafted from the census of
+# emidatasets.blob.core.windows.net, kept by hand. Every offer submitted for
+# every trading period, each revision a row (SUBMISSIONORDER counts them,
+# ISLATESTYESNO marks the one that stood), per unit, product and tranche, one
+# file a day under a year folder from 2013; a day's file is published about
+# two days after the trading day. UTCSUBMISSIONDATE and UTCSUBMISSIONTIME are
+# as reported, in UTC.
+name = "NZ_OFFERS"
+report_pairs = [["EMI", "OFFERS"]]
+time_column = "TRADINGDATE"
+load_mode = "append"
+visibility = "PUBLIC"
+
+[[override]]
+column = "TRADINGPERIOD"
+type = "long"
+reason = "a period number, 1 to 48 (46 or 50 on the days daylight saving changes); the census sees whole numbers and would choose decimal(2, 0)"
+
+[[override]]
+column = "SUBMISSIONORDER"
+type = "long"
+reason = "the ordinal of the revision among a unit's offers for the period, an identifier, never a quantity; the census sees whole numbers and would choose a decimal"
+
+[[override]]
+column = "TRANCHE"
+type = "long"
+reason = "the tranche number of the offer, 1 to 5, an identifier, never a quantity; the census sees whole numbers and would choose a decimal"
+
+[[derive]]
+column = "INTERVAL_START_UTC_US"
+rule = "nz_trading_period_start"
+from = ["TRADINGDATE", "TRADINGPERIOD"]
+reason = "the instant the trading period starts: period n is the n-th half hour from local midnight of the trading date, through New Zealand daylight saving"
