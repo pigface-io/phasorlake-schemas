@@ -1182,7 +1182,8 @@ fn a_declaration_carries_the_derived_columns_of_its_market_and_its_own() {
     let names: Vec<&str> = nz.derived.iter().map(|x| x.column.as_str()).collect();
     assert_eq!(names, ["PUBLISH_DATE_TIME_UTC_US", "INTERVAL_START_UTC_US"]);
     assert_eq!(nz.derived[0].rule, DeriveRule::UtcUs);
-    // An AEMO market: only what it declares; no history, the same.
-    assert_eq!(declaration(&d, Some(&h), Market::Nem).derived.len(), 1);
+    // An AEMO market the same since every market derives the siblings; with
+    // no history, only what the declaration itself names.
+    assert_eq!(declaration(&d, Some(&h), Market::Nem).derived.len(), 2);
     assert_eq!(declaration(&d, None, Market::Nz).derived.len(), 1);
 }

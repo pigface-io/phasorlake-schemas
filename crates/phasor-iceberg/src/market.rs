@@ -62,10 +62,12 @@ impl Market {
 
     /// Whether every timestamp column of the market's tables has a sibling
     /// `{COLUMN}_UTC_US`, the same instant as microseconds since 1970 UTC
-    /// (a `long`). New Zealand's tables do from the start; AEMO's gain
-    /// theirs in a release of their own.
+    /// (a `long`). Every market's do: New Zealand's from the start, AEMO's
+    /// since the release that followed (their files are read again for it).
     pub const fn derives_utc_siblings(self) -> bool {
-        matches!(self, Self::Nz)
+        match self {
+            Self::Nem | Self::Wem | Self::Gas | Self::Nz => true,
+        }
     }
 
     /// The market with this id.
@@ -116,12 +118,6 @@ mod tests {
         assert_eq!(Market::Wem.offset_secs(), 28_800);
         assert_eq!(Market::Nz.offset_secs(), 43_200);
         assert_eq!("nz".parse::<Market>(), Ok(Market::Nz));
-        assert_eq!(
-            Market::ALL
-                .iter()
-                .filter(|m| m.derives_utc_siblings())
-                .collect::<Vec<_>>(),
-            [&Market::Nz]
-        );
+        assert!(Market::ALL.iter().all(|m| m.derives_utc_siblings()));
     }
 }
