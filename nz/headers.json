@@ -2,6 +2,33 @@
   "headers": [
     {
       "columns": [
+        "MONTHEND",
+        "NETWORKREPORTINGREGIONCODE",
+        "NETWORKREPORTINGREGION",
+        "LOADTYPE",
+        "FIXEDDOLLARPERDAYINCLGST",
+        "VARIABLEDOLLARPERKWHINCLGST",
+        "MONTHLYNETWORKMEANKWH",
+        "TOTALMONTHLYBILLDOLLARSINCLGST",
+        "NETWORKMONTHLYCHARGEDOLLARSINCLGST"
+      ],
+      "report": [
+        "EMI",
+        "AVERAGE_POWER_USE_AND_COSTS"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-05",
+          "last-release": "2026-05",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_AVERAGE_POWER_USE_AND_COSTS",
+      "version": 1
+    },
+    {
+      "columns": [
         "TRADINGDATE",
         "TRADINGPERIODNUMBER",
         "INTERVALDATETIME",
@@ -31,6 +58,39 @@
         }
       ],
       "table": "NZ_CLEARED_OFFERS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "PLANTNAME",
+        "POINTOFCONNECTIONCODE",
+        "UNITCODE",
+        "TECHNOLOGYCODE",
+        "TECHNOLOGY",
+        "FUELCODE",
+        "FUEL",
+        "PEAKINGPLANTFLAG",
+        "PLANTOPERATORCODE",
+        "PLANTOPERATOR",
+        "DATECOMMISSIONED",
+        "DATEDECOMMISSIONED",
+        "NAMEPLATEMEGAWATTS",
+        "EFFECTIVESTARTDATE",
+        "EFFECTIVEENDDATE"
+      ],
+      "report": [
+        "EMI",
+        "DISPATCHED_GENERATION_PLANT"
+      ],
+      "schemas": [
+        {
+          "first-release": "2025-09",
+          "last-release": "2026-07",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_DISPATCHED_GENERATION_PLANT",
       "version": 1
     },
     {
@@ -116,6 +176,32 @@
         }
       ],
       "table": "NZ_DISPATCH_RESERVE_PRICES",
+      "version": 1
+    },
+    {
+      "columns": [
+        "REGION_ID",
+        "NETWORK_REPORTING_REGION",
+        "NSP",
+        "PARENT_NSP",
+        "DISTRIBUTOR_PRICE_CATEGORY_CODE",
+        "EFFECTIVE_DATE",
+        "ICPS_RESIDENTIAL",
+        "ICPS_NON_RESIDENTIAL"
+      ],
+      "report": [
+        "EMI",
+        "DISTRIBUTION_PRICE_CATEGORY_CODES_BY_NSP"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-11",
+          "last-release": "2026-11",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_DISTRIBUTION_PRICE_CATEGORY_CODES_BY_NSP",
       "version": 1
     },
     {
@@ -326,6 +412,180 @@
         }
       ],
       "table": "NZ_HVDC_FLOWS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "REGION_ID",
+        "NETWORK_REPORTING_REGION",
+        "METERING_EQUIPMENT_PROVIDER_CODE",
+        "TRADER_CODE",
+        "ICPS_TOTAL",
+        "ICPS_RES",
+        "ICPS_IND",
+        "ICPS_COM"
+      ],
+      "report": [
+        "EMI",
+        "MARKET_SHARE_BY_ME_PAND_TRADER"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_MARKET_SHARE_BY_MEP_AND_TRADER",
+      "version": 1
+    },
+    {
+      "columns": [
+        "MONTH_ENDED",
+        "REGION",
+        "PARTICIPANT_CODE",
+        "ENTITY_NAME",
+        "ICP_COUNT",
+        "ICP_SHARE"
+      ],
+      "report": [
+        "EMI",
+        "MARKET_SHARE_TRENDS_BY_NETWORK_REPORTING_REGION"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_MARKET_SHARE_TRENDS_BY_NETWORK_REPORTING_REGION",
+      "version": 1
+    },
+    {
+      "columns": [
+        "MONTH_ENDED",
+        "REGION",
+        "PARTICIPANT_CODE",
+        "ENTITY_NAME",
+        "ICP_COUNT",
+        "ICP_SHARE"
+      ],
+      "report": [
+        "EMI",
+        "MARKET_SHARE_TRENDS_BY_ROOT_NSP"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_MARKET_SHARE_TRENDS_BY_ROOT_NSP",
+      "version": 1
+    },
+    {
+      "columns": [
+        "REGION_ID",
+        "NETWORK_REPORTING_REGION",
+        "NSP",
+        "ICP_COUNT",
+        "RESIDENTIAL",
+        "DISTRIBUTOR_PRICE_CATEGORY_CODE",
+        "REGISTER_S_ENERGY_FLOW_DIRECTION_REGISTER_CONTENT_CODE_PERIOD_OF_AVAILABILITY"
+      ],
+      "report": [
+        "EMI",
+        "METERING_CONFIGURATIONS_INCL_DISTRIBUTION_PRICE_CAT_CODE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_METERING_CONFIGURATIONS",
+      "version": 1
+    },
+    {
+      "columns": [
+        "REGION_ID",
+        "NETWORK_REPORTING_REGION",
+        "ROOT_NSP",
+        "ANZSIC_L1",
+        "ANZSIC_L1_DESCRIPTION",
+        "ICP_COUNT_TOTAL",
+        "UNM",
+        "CAT1",
+        "CAT2",
+        "CAT3",
+        "CAT4",
+        "CAT5"
+      ],
+      "report": [
+        "EMI",
+        "METER_CATEGORY_BY_LEVEL1ANZSIC"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-09",
+          "last-release": "2026-09",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_METER_CATEGORY_BY_LEVEL1_ANZSIC",
+      "version": 1
+    },
+    {
+      "columns": [
+        "CURRENT_FLAG",
+        "NSP",
+        "NSP_REPLACED_BY",
+        "POC_CODE",
+        "NETWORK_PARTICIPANT",
+        "EMBEDDED_UNDER_POC_CODE",
+        "EMBEDDED_UNDER_NETWORK_PARTICIPANT",
+        "RECONCILIATION_TYPE",
+        "X_FLOW",
+        "I_FLOW",
+        "DESCRIPTION",
+        "NZTM_EASTING",
+        "NZTM_NORTHING",
+        "NETWORK_REPORTING_REGION_ID",
+        "NETWORK_REPORTING_REGION",
+        "ZONE",
+        "ISLAND",
+        "START_DATE",
+        "START_TP",
+        "END_DATE",
+        "END_TP",
+        "SB_ICP",
+        "BALANCING_CODE",
+        "MEP",
+        "RESPONSIBLE_PARTICIPANT",
+        "CERTIFICATION_EXPIRY",
+        "METERING_INFORMATION_EXEMPTION_EXPIRY_DATE"
+      ],
+      "report": [
+        "EMI",
+        "NETWORK_SUPPLY_POINTS_TABLE"
+      ],
+      "schemas": [
+        {
+          "first-release": "2026-01",
+          "last-release": "2026-11",
+          "runs": 1,
+          "schema-id": 0
+        }
+      ],
+      "table": "NZ_NETWORK_SUPPLY_POINTS",
       "version": 1
     },
     {

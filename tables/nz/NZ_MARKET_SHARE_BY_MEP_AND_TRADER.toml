@@ -1,0 +1,37 @@
+# The declaration of NZ_MARKET_SHARE_BY_MEP_AND_TRADER: first drafted from the
+# census of emidatasets.blob.core.windows.net, kept by hand. ICPs by network
+# reporting region, metering equipment provider and trader, in total and by
+# residential, industrial and commercial segment, as a snapshot a file, dated
+# by the month it describes; each file is the whole table as of its date. The
+# block is named as the file is (MarketShareByMEPandTrader), read as ME_PAND.
+# Files: Datasets/Retail/MarketStructure/ICPandMeteringDetails/. Free to reuse
+# under CC BY 4.0, attributed to the Electricity Authority.
+name = "NZ_MARKET_SHARE_BY_MEP_AND_TRADER"
+report_pairs = [["EMI", "MARKET_SHARE_BY_ME_PAND_TRADER"]]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[[override]]
+column = "REGION_ID"
+type = "long"
+reason = "the network reporting region's identifier, never a quantity; the census sees whole numbers and would choose a decimal"
+
+[[override]]
+column = "ICPS_TOTAL"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"
+
+[[override]]
+column = "ICPS_RES"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"
+
+[[override]]
+column = "ICPS_IND"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"
+
+[[override]]
+column = "ICPS_COM"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"

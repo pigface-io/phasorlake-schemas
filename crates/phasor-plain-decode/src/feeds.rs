@@ -405,7 +405,7 @@ pub const FEEDS: &[Feed] = &[
             ("REACTIVE_POWER", TRADING_PERIODS),
             ("GRID_EXPORT_TO_TIWAI", TRADING_PERIODS),
         ],
-        nulls: &["NULL"],
+        nulls: &["NULL", "null"],
     },
 ];
 

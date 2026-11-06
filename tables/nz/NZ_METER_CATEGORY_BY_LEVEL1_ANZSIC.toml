@@ -1,0 +1,52 @@
+# The declaration of NZ_METER_CATEGORY_BY_LEVEL1_ANZSIC: first drafted from
+# the census of emidatasets.blob.core.windows.net, kept by hand. ICPs by
+# network reporting region, root NSP and level-1 ANZSIC industry class, in
+# total and by meter category (unmetered and categories 1 to 5), as a snapshot
+# a file, dated by the month it describes; each file is the whole table as of
+# its date. Files: Datasets/Retail/MarketStructure/ICPandMeteringDetails/.
+# Free to reuse under CC BY 4.0, attributed to the Electricity Authority.
+name = "NZ_METER_CATEGORY_BY_LEVEL1_ANZSIC"
+report_pairs = [["EMI", "METER_CATEGORY_BY_LEVEL1ANZSIC"]]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[[override]]
+column = "REGION_ID"
+type = "long"
+reason = "the network reporting region's identifier, never a quantity; the census sees whole numbers and would choose a decimal"
+
+
+[[override]]
+column = "ICP_COUNT_TOTAL"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"
+
+[[override]]
+column = "UNM"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"
+
+[[override]]
+column = "CAT1"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"
+
+[[override]]
+column = "CAT2"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"
+
+[[override]]
+column = "CAT3"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"
+
+[[override]]
+column = "CAT4"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"
+
+[[override]]
+column = "CAT5"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"

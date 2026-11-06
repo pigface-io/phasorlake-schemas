@@ -98,6 +98,8 @@ fn parse<'a>(v: &'a [u8], offset: &str) -> Option<Parts<'a>> {
         dmy(v, b'/')?
     } else if v.len() >= 10 && v[2] == b'-' && v[5] == b'-' {
         dmy(v, b'-')?
+    } else if let Some(p) = dmy_short(v, b'/') {
+        p
     } else {
         day_month_name(v)?
     };
@@ -193,6 +195,26 @@ fn dmy(v: &[u8], sep: u8) -> Option<(Parts<'_>, &[u8])> {
     let month = digits(&v[3..5])?;
     let year = digits(&v[6..10])?;
     Some((parts(year, month, day), &v[10..]))
+}
+
+/// `D/M/YYYY` with a day or a month of one digit (`1/01/1962`, as the EMI
+/// writes a plant's commissioning date), and whatever follows; the
+/// fixed-width form is read before this one.
+fn dmy_short(v: &[u8], sep: u8) -> Option<(Parts<'_>, &[u8])> {
+    let a = v
+        .iter()
+        .position(|b| *b == sep)
+        .filter(|a| (1..=2).contains(a))?;
+    let b = v[a + 1..]
+        .iter()
+        .position(|b| *b == sep)
+        .filter(|b| (1..=2).contains(b))?
+        + a
+        + 1;
+    let day = digits(&v[..a])?;
+    let month = digits(&v[a + 1..b])?;
+    let year = digits(v.get(b + 1..b + 5)?)?;
+    Some((parts(year, month, day), &v[b + 5..]))
 }
 
 /// `D Mon YYYY` or `DD Mon YYYY` and whatever follows.
@@ -353,6 +375,12 @@ mod tests {
         assert_eq!(mms("29/09/2018").unwrap(), "2018/09/29");
         assert_eq!(mms("01/01/2024 07:55:00").unwrap(), "2024/01/01 07:55:00");
         assert_eq!(mms("17-03-2023").unwrap(), "2023/03/17");
+        // A day or month of one digit, as the EMI writes a plant's dates.
+        assert_eq!(mms("1/01/1962").unwrap(), "1962/01/01");
+        assert_eq!(mms("1/1/1962").unwrap(), "1962/01/01");
+        assert_eq!(mms("12/3/2020 07:55").unwrap(), "2020/03/12 07:55:00");
+        assert!(mms("1/01/62").is_none());
+        assert!(mms("123/01/1962").is_none());
         assert_eq!(mms("02 Oct 2026").unwrap(), "2026/10/02");
         assert_eq!(mms("2 Oct 2026").unwrap(), "2026/10/02");
         assert_eq!(mms("01 Oct 2026 11:31:18").unwrap(), "2026/10/01 11:31:18");

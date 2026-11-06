@@ -1,0 +1,115 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_METERING_CONFIGURATIONS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DISTRIBUTOR_PRICE_CATEGORY_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Distributor price category code",
+      "x-iceberg-type": "string"
+    },
+    "ICP_COUNT": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "ICP count",
+      "x-iceberg-type": "long"
+    },
+    "NETWORK_REPORTING_REGION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "Network reporting region",
+      "x-iceberg-type": "string"
+    },
+    "NSP": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-iceberg-type": "string"
+    },
+    "REGION_ID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Region ID",
+      "x-iceberg-type": "long"
+    },
+    "REGISTER_S_ENERGY_FLOW_DIRECTION_REGISTER_CONTENT_CODE_PERIOD_OF_AVAILABILITY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "Register(s) (Energy flow direction - register content code - period of availability)",
+      "x-iceberg-type": "string"
+    },
+    "RESIDENTIAL": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Residential",
+      "x-iceberg-type": "long"
+    }
+  },
+  "required": [],
+  "title": "NZ_METERING_CONFIGURATIONS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "REGION_ID",
+      "long"
+    ],
+    [
+      2,
+      "NETWORK_REPORTING_REGION",
+      "string"
+    ],
+    [
+      3,
+      "NSP",
+      "string"
+    ],
+    [
+      4,
+      "ICP_COUNT",
+      "long"
+    ],
+    [
+      5,
+      "RESIDENTIAL",
+      "long"
+    ],
+    [
+      6,
+      "DISTRIBUTOR_PRICE_CATEGORY_CODE",
+      "string"
+    ],
+    [
+      7,
+      "REGISTER_S_ENERGY_FLOW_DIRECTION_REGISTER_CONTENT_CODE_PERIOD_OF_AVAILABILITY",
+      "string"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_METERING_CONFIGURATIONS"
+  }
+}

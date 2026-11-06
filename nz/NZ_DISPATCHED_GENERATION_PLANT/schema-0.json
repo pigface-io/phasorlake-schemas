@@ -1,0 +1,230 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_DISPATCHED_GENERATION_PLANT/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "DATECOMMISSIONED": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "DateCommissioned",
+      "x-iceberg-type": "date"
+    },
+    "DATEDECOMMISSIONED": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "DateDecommissioned",
+      "x-iceberg-type": "date"
+    },
+    "EFFECTIVEENDDATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "EffectiveEndDate",
+      "x-iceberg-type": "string"
+    },
+    "EFFECTIVESTARTDATE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "EffectiveStartDate",
+      "x-iceberg-type": "string"
+    },
+    "FUEL": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "Fuel",
+      "x-iceberg-type": "string"
+    },
+    "FUELCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "FuelCode",
+      "x-iceberg-type": "string"
+    },
+    "NAMEPLATEMEGAWATTS": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "NameplateMegawatts",
+      "x-iceberg-type": "decimal(4, 1)"
+    },
+    "PEAKINGPLANTFLAG": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "PeakingPlantFlag",
+      "x-iceberg-type": "string"
+    },
+    "PLANTNAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "PlantName",
+      "x-iceberg-type": "string"
+    },
+    "PLANTOPERATOR": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "PlantOperator",
+      "x-iceberg-type": "string"
+    },
+    "PLANTOPERATORCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "PlantOperatorCode",
+      "x-iceberg-type": "string"
+    },
+    "POINTOFCONNECTIONCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "PointOfConnectionCode",
+      "x-iceberg-type": "string"
+    },
+    "TECHNOLOGY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Technology",
+      "x-iceberg-type": "string"
+    },
+    "TECHNOLOGYCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "TechnologyCode",
+      "x-iceberg-type": "string"
+    },
+    "UNITCODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "UnitCode",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "NZ_DISPATCHED_GENERATION_PLANT, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "PLANTNAME",
+      "string"
+    ],
+    [
+      2,
+      "POINTOFCONNECTIONCODE",
+      "string"
+    ],
+    [
+      3,
+      "UNITCODE",
+      "string"
+    ],
+    [
+      4,
+      "TECHNOLOGYCODE",
+      "string"
+    ],
+    [
+      5,
+      "TECHNOLOGY",
+      "string"
+    ],
+    [
+      6,
+      "FUELCODE",
+      "string"
+    ],
+    [
+      7,
+      "FUEL",
+      "string"
+    ],
+    [
+      8,
+      "PEAKINGPLANTFLAG",
+      "string"
+    ],
+    [
+      9,
+      "PLANTOPERATORCODE",
+      "string"
+    ],
+    [
+      10,
+      "PLANTOPERATOR",
+      "string"
+    ],
+    [
+      11,
+      "DATECOMMISSIONED",
+      "date"
+    ],
+    [
+      12,
+      "DATEDECOMMISSIONED",
+      "date"
+    ],
+    [
+      13,
+      "NAMEPLATEMEGAWATTS",
+      "decimal(4, 1)"
+    ],
+    [
+      14,
+      "EFFECTIVESTARTDATE",
+      "string"
+    ],
+    [
+      15,
+      "EFFECTIVEENDDATE",
+      "string"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_DISPATCHED_GENERATION_PLANT"
+  }
+}

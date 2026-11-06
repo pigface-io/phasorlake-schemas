@@ -1,0 +1,27 @@
+# The declaration of NZ_METERING_CONFIGURATIONS: first drafted from the census
+# of emidatasets.blob.core.windows.net, kept by hand. ICPs by network
+# reporting region, NSP, residential flag, distributor price category code and
+# metering register configuration (energy flow direction, register content
+# code and period of availability, as one text column), as a snapshot a file,
+# dated by the month it describes; each file is the whole table as of its
+# date. Files: Datasets/Retail/MarketStructure/ICPandMeteringDetails/. Free to
+# reuse under CC BY 4.0, attributed to the Electricity Authority.
+name = "NZ_METERING_CONFIGURATIONS"
+report_pairs = [["EMI", "METERING_CONFIGURATIONS_INCL_DISTRIBUTION_PRICE_CAT_CODE"]]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[[override]]
+column = "REGION_ID"
+type = "long"
+reason = "the network reporting region's identifier, never a quantity; the census sees whole numbers and would choose a decimal"
+
+[[override]]
+column = "ICP_COUNT"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"
+
+[[override]]
+column = "RESIDENTIAL"
+type = "long"
+reason = "a flag, 0 or 1; the census sees whole numbers and would choose decimal(1, 0)"

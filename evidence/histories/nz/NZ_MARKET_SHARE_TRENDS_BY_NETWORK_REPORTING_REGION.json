@@ -1,0 +1,91 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "Month ended",
+    "2": "Region",
+    "3": "Participant code",
+    "4": "Entity name",
+    "5": "ICP count",
+    "6": "ICP share (%)"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2003-12-31T00:00:00+12:00",
+        "file": "20260930_MarketShareTrendsByNetworkReportingRegion.csv",
+        "release": "2026-09",
+        "sha256": "395ace00e1ee1b836076085d478842bdec3189887ff6f1b69c97a720d7032cff"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "MARKET_SHARE_TRENDS_BY_NETWORK_REPORTING_REGION"
+      ],
+      "rows": 146008,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-09-30T00:00:00+12:00",
+        "file": "20260930_MarketShareTrendsByNetworkReportingRegion.csv",
+        "release": "2026-09",
+        "sha256": "395ace00e1ee1b836076085d478842bdec3189887ff6f1b69c97a720d7032cff"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "MONTH_ENDED",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "REGION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "PARTICIPANT_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "ENTITY_NAME",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "ICP_COUNT",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 6,
+          "name": "ICP_SHARE",
+          "required": false,
+          "type": "decimal(4, 2)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_MARKET_SHARE_TRENDS_BY_NETWORK_REPORTING_REGION"
+}

@@ -1,0 +1,15 @@
+# The declaration of NZ_DISPATCHED_GENERATION_PLANT: first drafted from the
+# census of emidatasets.blob.core.windows.net, kept by hand. The Electricity
+# Authority's list of dispatched generating plant: each plant's point of
+# connection, unit, technology and fuel codes, peaking flag, operator, dates
+# commissioned and decommissioned, nameplate megawatts and the span the row is
+# effective for, as a snapshot a file, issued a few times a year; each file is
+# the whole list as of its date. DateCommissioned is written as a day without
+# padding and stays text; the effective dates are instants with an explicit
+# zone, read into the market's clock. Files:
+# Datasets/Wholesale/Generation/GenerationFleet/Existing/. Free to reuse under
+# CC BY 4.0, attributed to the Electricity Authority.
+name = "NZ_DISPATCHED_GENERATION_PLANT"
+report_pairs = [["EMI", "DISPATCHED_GENERATION_PLANT"]]
+load_mode = "snapshot"
+visibility = "PUBLIC"

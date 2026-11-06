@@ -1,0 +1,105 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "Region ID",
+    "2": "Network reporting region",
+    "3": "Metering equipment provider code",
+    "4": "Trader code",
+    "5": "ICPs (Total)",
+    "6": "ICPs (Res)",
+    "7": "ICPs (Ind)",
+    "8": "ICPs (Com)"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": null,
+        "file": "20260930_MarketShareByMEPandTrader.csv",
+        "release": "2026-09",
+        "sha256": "59ffc82ee2ba2935858098b5f2889a1877dbaf21f00592e873f57a77ff5c31bf"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "MARKET_SHARE_BY_ME_PAND_TRADER"
+      ],
+      "rows": 3123,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "20260930_MarketShareByMEPandTrader.csv",
+        "release": "2026-09",
+        "sha256": "59ffc82ee2ba2935858098b5f2889a1877dbaf21f00592e873f57a77ff5c31bf"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "REGION_ID",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "NETWORK_REPORTING_REGION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "METERING_EQUIPMENT_PROVIDER_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "TRADER_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "ICPS_TOTAL",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 6,
+          "name": "ICPS_RES",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "ICPS_IND",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 8,
+          "name": "ICPS_COM",
+          "required": false,
+          "type": "long"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_MARKET_SHARE_BY_MEP_AND_TRADER"
+}

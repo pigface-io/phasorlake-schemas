@@ -1,0 +1,104 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "Region ID",
+    "2": "Network reporting region",
+    "4": "Parent NSP",
+    "5": "Distributor price category code",
+    "6": "Effective date",
+    "7": "ICPs (Residential)",
+    "8": "ICPs (Non Residential)"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "1999-04-01T00:00:00+12:00",
+        "file": "20261105_DistributionPriceCategoryCodesByNSP.csv",
+        "release": "2026-11",
+        "sha256": "a73d00a99c7904e588e7ec4ca4494bf742023ee51140f70e7f1b616d21aa39fb"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "DISTRIBUTION_PRICE_CATEGORY_CODES_BY_NSP"
+      ],
+      "rows": 3695,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-11-01T00:00:00+12:00",
+        "file": "20261105_DistributionPriceCategoryCodesByNSP.csv",
+        "release": "2026-11",
+        "sha256": "a73d00a99c7904e588e7ec4ca4494bf742023ee51140f70e7f1b616d21aa39fb"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "REGION_ID",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "NETWORK_REPORTING_REGION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "NSP",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "PARENT_NSP",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "DISTRIBUTOR_PRICE_CATEGORY_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "EFFECTIVE_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 7,
+          "name": "ICPS_RESIDENTIAL",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 8,
+          "name": "ICPS_NON_RESIDENTIAL",
+          "required": false,
+          "type": "long"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_DISTRIBUTION_PRICE_CATEGORY_CODES_BY_NSP"
+}

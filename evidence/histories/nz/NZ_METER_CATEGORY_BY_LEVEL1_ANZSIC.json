@@ -1,0 +1,132 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "Region ID",
+    "10": "Cat3",
+    "11": "Cat4",
+    "12": "Cat5",
+    "2": "Network reporting region",
+    "3": "Root NSP",
+    "4": "ANZSIC L1",
+    "5": "ANZSIC L1 Description",
+    "6": "ICP count (total)",
+    "8": "Cat1",
+    "9": "Cat2"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": null,
+        "file": "20260930_MeterCategoryByLevel1ANZSIC.csv",
+        "release": "2026-09",
+        "sha256": "a0cc446a83db41a414362b460c7be6ca7f24b8d47acd3d918f9e69016d603e46"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "METER_CATEGORY_BY_LEVEL1ANZSIC"
+      ],
+      "rows": 2962,
+      "schema-id": 0,
+      "to": {
+        "data-time": null,
+        "file": "20260930_MeterCategoryByLevel1ANZSIC.csv",
+        "release": "2026-09",
+        "sha256": "a0cc446a83db41a414362b460c7be6ca7f24b8d47acd3d918f9e69016d603e46"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "REGION_ID",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "NETWORK_REPORTING_REGION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "ROOT_NSP",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "ANZSIC_L1",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "ANZSIC_L1_DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "ICP_COUNT_TOTAL",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "UNM",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 8,
+          "name": "CAT1",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 9,
+          "name": "CAT2",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 10,
+          "name": "CAT3",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 11,
+          "name": "CAT4",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 12,
+          "name": "CAT5",
+          "required": false,
+          "type": "long"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_METER_CATEGORY_BY_LEVEL1_ANZSIC"
+}

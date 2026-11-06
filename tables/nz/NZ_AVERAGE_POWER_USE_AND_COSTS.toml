@@ -1,0 +1,23 @@
+# The declaration of NZ_AVERAGE_POWER_USE_AND_COSTS: first drafted from the
+# census of emidatasets.blob.core.windows.net, kept by hand. Average
+# residential power use and costs by network reporting region and load type
+# (low and standard user) for each month end: the fixed daily and variable
+# charges including GST, the network's mean monthly kilowatt hours, and the
+# total and network parts of the monthly bill, as a snapshot a file, dated by
+# the month it describes; each file is the whole table as of its date. Files:
+# Datasets/Retail/RegionalPowerPrices/. Free to reuse under CC BY 4.0,
+# attributed to the Electricity Authority.
+name = "NZ_AVERAGE_POWER_USE_AND_COSTS"
+report_pairs = [["EMI", "AVERAGE_POWER_USE_AND_COSTS"]]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[[override]]
+column = "NETWORKREPORTINGREGIONCODE"
+type = "long"
+reason = "the network reporting region's identifier, never a quantity; the census sees whole numbers and would choose a decimal"
+
+[[override]]
+column = "MONTHLYNETWORKMEANKWH"
+type = "long"
+reason = "whole kilowatt hours a month; the census sees whole numbers and would choose a decimal of its digits"

@@ -1,0 +1,130 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_MARKET_SHARE_BY_MEP_AND_TRADER/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ICPS_COM": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "ICPs (Com)",
+      "x-iceberg-type": "long"
+    },
+    "ICPS_IND": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "ICPs (Ind)",
+      "x-iceberg-type": "long"
+    },
+    "ICPS_RES": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "ICPs (Res)",
+      "x-iceberg-type": "long"
+    },
+    "ICPS_TOTAL": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "ICPs (Total)",
+      "x-iceberg-type": "long"
+    },
+    "METERING_EQUIPMENT_PROVIDER_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Metering equipment provider code",
+      "x-iceberg-type": "string"
+    },
+    "NETWORK_REPORTING_REGION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "Network reporting region",
+      "x-iceberg-type": "string"
+    },
+    "REGION_ID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Region ID",
+      "x-iceberg-type": "long"
+    },
+    "TRADER_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "Trader code",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "NZ_MARKET_SHARE_BY_MEP_AND_TRADER, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "REGION_ID",
+      "long"
+    ],
+    [
+      2,
+      "NETWORK_REPORTING_REGION",
+      "string"
+    ],
+    [
+      3,
+      "METERING_EQUIPMENT_PROVIDER_CODE",
+      "string"
+    ],
+    [
+      4,
+      "TRADER_CODE",
+      "string"
+    ],
+    [
+      5,
+      "ICPS_TOTAL",
+      "long"
+    ],
+    [
+      6,
+      "ICPS_RES",
+      "long"
+    ],
+    [
+      7,
+      "ICPS_IND",
+      "long"
+    ],
+    [
+      8,
+      "ICPS_COM",
+      "long"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_MARKET_SHARE_BY_MEP_AND_TRADER"
+  }
+}

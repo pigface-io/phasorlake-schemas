@@ -1,0 +1,27 @@
+# The declaration of NZ_DISTRIBUTION_PRICE_CATEGORY_CODES_BY_NSP: first
+# drafted from the census of emidatasets.blob.core.windows.net, kept by hand.
+# Each distributor price category code in use at each NSP, with its parent
+# NSP, the date it took effect and the residential and non-residential ICPs on
+# it, as a snapshot a file, dated by the month it describes; each file is the
+# whole table as of its date. Files:
+# Datasets/Retail/MarketStructure/DistributionPriceCategoryCodes/. Free to
+# reuse under CC BY 4.0, attributed to the Electricity Authority.
+name = "NZ_DISTRIBUTION_PRICE_CATEGORY_CODES_BY_NSP"
+report_pairs = [["EMI", "DISTRIBUTION_PRICE_CATEGORY_CODES_BY_NSP"]]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[[override]]
+column = "REGION_ID"
+type = "long"
+reason = "the network reporting region's identifier, never a quantity; the census sees whole numbers and would choose a decimal"
+
+[[override]]
+column = "ICPS_RESIDENTIAL"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"
+
+[[override]]
+column = "ICPS_NON_RESIDENTIAL"
+type = "long"
+reason = "a count of installation control points (ICPs), whole; the census would choose a decimal of its digits"

@@ -1,0 +1,55 @@
+# The declaration of NZ_NETWORK_SUPPLY_POINTS: first drafted from the census
+# of emidatasets.blob.core.windows.net, kept by hand. The Electricity
+# Authority's network supply points table: every point of connection and
+# network participant pairing (NSP) of the reconciliation system, with its
+# embedding, flow directions, description, NZTM position, network reporting
+# region, zone and island, the trading period it starts and ends in, balancing
+# code and metering parties, as a snapshot a file, one most days; each file is
+# the whole table as of its date, and a row's dates say when the NSP itself
+# applied. Files:
+# Datasets/Wholesale/MappingsAndGeospatial/NetworkSupplyPointsTable/. Free to
+# reuse under CC BY 4.0, attributed to the Electricity Authority.
+name = "NZ_NETWORK_SUPPLY_POINTS"
+report_pairs = [["EMI", "NETWORK_SUPPLY_POINTS_TABLE"]]
+load_mode = "snapshot"
+visibility = "PUBLIC"
+
+[[override]]
+column = "CURRENT_FLAG"
+type = "long"
+reason = "a flag, 0 or 1; the census sees whole numbers and would choose decimal(1, 0)"
+
+[[override]]
+column = "X_FLOW"
+type = "long"
+reason = "a flag, 0 or 1; the census sees whole numbers and would choose decimal(1, 0)"
+
+[[override]]
+column = "I_FLOW"
+type = "long"
+reason = "a flag, 0 or 1; the census sees whole numbers and would choose decimal(1, 0)"
+
+[[override]]
+column = "START_TP"
+type = "long"
+reason = "a trading period number, 1 to 50; the census sees whole numbers and would choose decimal(2, 0)"
+
+[[override]]
+column = "END_TP"
+type = "long"
+reason = "a trading period number, 1 to 50; the census sees whole numbers and would choose decimal(2, 0)"
+
+[[override]]
+column = "NETWORK_REPORTING_REGION_ID"
+type = "long"
+reason = "an identifier of a region, never a quantity; the census sees whole numbers and would choose a decimal"
+
+[[override]]
+column = "NZTM_EASTING"
+type = "long"
+reason = "a New Zealand Transverse Mercator coordinate in whole metres; the census sees whole numbers and would choose decimal(7, 0)"
+
+[[override]]
+column = "NZTM_NORTHING"
+type = "long"
+reason = "a New Zealand Transverse Mercator coordinate in whole metres; the census sees whole numbers and would choose decimal(7, 0)"

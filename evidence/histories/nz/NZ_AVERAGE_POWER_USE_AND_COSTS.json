@@ -1,0 +1,112 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "MonthEnd",
+    "2": "NetworkReportingRegionCode",
+    "3": "NetworkReportingRegion",
+    "4": "LoadType",
+    "5": "FixedDollarPerDayInclGST",
+    "6": "VariableDollarPerkWhInclGST",
+    "7": "MonthlyNetworkMeankWh",
+    "8": "TotalMonthlyBillDollarsInclGST",
+    "9": "NetworkMonthlyChargeDollarsInclGST"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 1,
+      "from": {
+        "data-time": "2025-01-31T00:00:00+12:00",
+        "file": "20260531_AveragePowerUseAndCosts.csv",
+        "release": "2026-05",
+        "sha256": "30c6382a91d3d08bd5e43a9d5407c2e09af0d80aa6977c65e8cde2ba7fee62ac"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "AVERAGE_POWER_USE_AND_COSTS"
+      ],
+      "rows": 1326,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2026-05-31T00:00:00+12:00",
+        "file": "20260531_AveragePowerUseAndCosts.csv",
+        "release": "2026-05",
+        "sha256": "30c6382a91d3d08bd5e43a9d5407c2e09af0d80aa6977c65e8cde2ba7fee62ac"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "MONTHEND",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 2,
+          "name": "NETWORKREPORTINGREGIONCODE",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 3,
+          "name": "NETWORKREPORTINGREGION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "LOADTYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "FIXEDDOLLARPERDAYINCLGST",
+          "required": false,
+          "type": "decimal(5, 4)"
+        },
+        {
+          "id": 6,
+          "name": "VARIABLEDOLLARPERKWHINCLGST",
+          "required": false,
+          "type": "decimal(4, 4)"
+        },
+        {
+          "id": 7,
+          "name": "MONTHLYNETWORKMEANKWH",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 8,
+          "name": "TOTALMONTHLYBILLDOLLARSINCLGST",
+          "required": false,
+          "type": "decimal(5, 2)"
+        },
+        {
+          "id": 9,
+          "name": "NETWORKMONTHLYCHARGEDOLLARSINCLGST",
+          "required": false,
+          "type": "decimal(5, 2)"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_AVERAGE_POWER_USE_AND_COSTS"
+}

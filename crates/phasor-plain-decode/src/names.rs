@@ -592,6 +592,14 @@ mod tests {
         );
         assert_eq!(name("202609_Reactive_power.csv"), "REACTIVE_POWER");
         assert_eq!(
+            name("20261104_NetworkSupplyPointsTable.csv"),
+            "NETWORK_SUPPLY_POINTS_TABLE"
+        );
+        assert_eq!(
+            name("20260702_DispatchedGenerationPlant.csv"),
+            "DISPATCHED_GENERATION_PLANT"
+        );
+        assert_eq!(
             name("202609_Grid_export_to_Tiwai.csv"),
             "GRID_EXPORT_TO_TIWAI"
         );

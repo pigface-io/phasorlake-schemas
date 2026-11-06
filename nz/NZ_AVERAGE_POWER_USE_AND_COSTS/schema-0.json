@@ -1,0 +1,145 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_AVERAGE_POWER_USE_AND_COSTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "FIXEDDOLLARPERDAYINCLGST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "FixedDollarPerDayInclGST",
+      "x-iceberg-type": "decimal(5, 4)"
+    },
+    "LOADTYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "LoadType",
+      "x-iceberg-type": "string"
+    },
+    "MONTHEND": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "MonthEnd",
+      "x-iceberg-type": "date"
+    },
+    "MONTHLYNETWORKMEANKWH": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "MonthlyNetworkMeankWh",
+      "x-iceberg-type": "long"
+    },
+    "NETWORKMONTHLYCHARGEDOLLARSINCLGST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "NetworkMonthlyChargeDollarsInclGST",
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "NETWORKREPORTINGREGION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "NetworkReportingRegion",
+      "x-iceberg-type": "string"
+    },
+    "NETWORKREPORTINGREGIONCODE": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "NetworkReportingRegionCode",
+      "x-iceberg-type": "long"
+    },
+    "TOTALMONTHLYBILLDOLLARSINCLGST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "TotalMonthlyBillDollarsInclGST",
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "VARIABLEDOLLARPERKWHINCLGST": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "VariableDollarPerkWhInclGST",
+      "x-iceberg-type": "decimal(4, 4)"
+    }
+  },
+  "required": [],
+  "title": "NZ_AVERAGE_POWER_USE_AND_COSTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "MONTHEND",
+      "date"
+    ],
+    [
+      2,
+      "NETWORKREPORTINGREGIONCODE",
+      "long"
+    ],
+    [
+      3,
+      "NETWORKREPORTINGREGION",
+      "string"
+    ],
+    [
+      4,
+      "LOADTYPE",
+      "string"
+    ],
+    [
+      5,
+      "FIXEDDOLLARPERDAYINCLGST",
+      "decimal(5, 4)"
+    ],
+    [
+      6,
+      "VARIABLEDOLLARPERKWHINCLGST",
+      "decimal(4, 4)"
+    ],
+    [
+      7,
+      "MONTHLYNETWORKMEANKWH",
+      "long"
+    ],
+    [
+      8,
+      "TOTALMONTHLYBILLDOLLARSINCLGST",
+      "decimal(5, 2)"
+    ],
+    [
+      9,
+      "NETWORKMONTHLYCHARGEDOLLARSINCLGST",
+      "decimal(5, 2)"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_AVERAGE_POWER_USE_AND_COSTS"
+  }
+}

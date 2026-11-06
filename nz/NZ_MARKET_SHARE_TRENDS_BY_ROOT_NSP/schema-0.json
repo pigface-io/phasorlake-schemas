@@ -1,0 +1,103 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_MARKET_SHARE_TRENDS_BY_ROOT_NSP/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ENTITY_NAME": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "Entity name",
+      "x-iceberg-type": "string"
+    },
+    "ICP_COUNT": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "ICP count",
+      "x-iceberg-type": "long"
+    },
+    "ICP_SHARE": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "ICP share (%)",
+      "x-iceberg-type": "decimal(5, 2)"
+    },
+    "MONTH_ENDED": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Month ended",
+      "x-iceberg-type": "date"
+    },
+    "PARTICIPANT_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "Participant code",
+      "x-iceberg-type": "string"
+    },
+    "REGION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-header": "Region",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "NZ_MARKET_SHARE_TRENDS_BY_ROOT_NSP, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "MONTH_ENDED",
+      "date"
+    ],
+    [
+      2,
+      "REGION",
+      "string"
+    ],
+    [
+      3,
+      "PARTICIPANT_CODE",
+      "string"
+    ],
+    [
+      4,
+      "ENTITY_NAME",
+      "string"
+    ],
+    [
+      5,
+      "ICP_COUNT",
+      "long"
+    ],
+    [
+      6,
+      "ICP_SHARE",
+      "decimal(5, 2)"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_MARKET_SHARE_TRENDS_BY_ROOT_NSP"
+  }
+}

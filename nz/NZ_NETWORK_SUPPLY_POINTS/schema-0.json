@@ -1,0 +1,398 @@
+{
+  "$id": "https://raw.githubusercontent.com/pigface-io/phasorlake-schemas/main/nz/NZ_NETWORK_SUPPLY_POINTS/schema-0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "BALANCING_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 23,
+      "x-header": "Balancing code",
+      "x-iceberg-type": "string"
+    },
+    "CERTIFICATION_EXPIRY": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 26,
+      "x-header": "Certification expiry",
+      "x-iceberg-type": "date"
+    },
+    "CURRENT_FLAG": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 1,
+      "x-header": "Current flag",
+      "x-iceberg-type": "long"
+    },
+    "DESCRIPTION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 11,
+      "x-header": "Description",
+      "x-iceberg-type": "string"
+    },
+    "EMBEDDED_UNDER_NETWORK_PARTICIPANT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 7,
+      "x-header": "Embedded under network participant",
+      "x-iceberg-type": "string"
+    },
+    "EMBEDDED_UNDER_POC_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 6,
+      "x-header": "Embedded under POC code",
+      "x-iceberg-type": "string"
+    },
+    "END_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 20,
+      "x-header": "End date",
+      "x-iceberg-type": "date"
+    },
+    "END_TP": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 21,
+      "x-header": "End TP",
+      "x-iceberg-type": "long"
+    },
+    "ISLAND": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 17,
+      "x-header": "Island",
+      "x-iceberg-type": "string"
+    },
+    "I_FLOW": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 10,
+      "x-header": "I flow",
+      "x-iceberg-type": "long"
+    },
+    "MEP": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 24,
+      "x-iceberg-type": "string"
+    },
+    "METERING_INFORMATION_EXEMPTION_EXPIRY_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 27,
+      "x-header": "Metering information exemption expiry date",
+      "x-iceberg-type": "date"
+    },
+    "NETWORK_PARTICIPANT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 5,
+      "x-header": "Network participant",
+      "x-iceberg-type": "string"
+    },
+    "NETWORK_REPORTING_REGION": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 15,
+      "x-header": "Network reporting region",
+      "x-iceberg-type": "string"
+    },
+    "NETWORK_REPORTING_REGION_ID": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 14,
+      "x-header": "Network reporting region ID",
+      "x-iceberg-type": "long"
+    },
+    "NSP": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 2,
+      "x-iceberg-type": "string"
+    },
+    "NSP_REPLACED_BY": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 3,
+      "x-header": "NSP replaced by",
+      "x-iceberg-type": "string"
+    },
+    "NZTM_EASTING": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 12,
+      "x-header": "NZTM easting",
+      "x-iceberg-type": "long"
+    },
+    "NZTM_NORTHING": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 13,
+      "x-header": "NZTM northing",
+      "x-iceberg-type": "long"
+    },
+    "POC_CODE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 4,
+      "x-header": "POC code",
+      "x-iceberg-type": "string"
+    },
+    "RECONCILIATION_TYPE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 8,
+      "x-header": "Reconciliation type",
+      "x-iceberg-type": "string"
+    },
+    "RESPONSIBLE_PARTICIPANT": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 25,
+      "x-header": "Responsible participant",
+      "x-iceberg-type": "string"
+    },
+    "SB_ICP": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 22,
+      "x-header": "SB ICP",
+      "x-iceberg-type": "string"
+    },
+    "START_DATE": {
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 18,
+      "x-header": "Start date",
+      "x-iceberg-type": "date"
+    },
+    "START_TP": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 19,
+      "x-header": "Start TP",
+      "x-iceberg-type": "long"
+    },
+    "X_FLOW": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-field-id": 9,
+      "x-header": "X flow",
+      "x-iceberg-type": "long"
+    },
+    "ZONE": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-field-id": 16,
+      "x-header": "Zone",
+      "x-iceberg-type": "string"
+    }
+  },
+  "required": [],
+  "title": "NZ_NETWORK_SUPPLY_POINTS, Iceberg schema 0",
+  "type": "object",
+  "x-fields": [
+    [
+      1,
+      "CURRENT_FLAG",
+      "long"
+    ],
+    [
+      2,
+      "NSP",
+      "string"
+    ],
+    [
+      3,
+      "NSP_REPLACED_BY",
+      "string"
+    ],
+    [
+      4,
+      "POC_CODE",
+      "string"
+    ],
+    [
+      5,
+      "NETWORK_PARTICIPANT",
+      "string"
+    ],
+    [
+      6,
+      "EMBEDDED_UNDER_POC_CODE",
+      "string"
+    ],
+    [
+      7,
+      "EMBEDDED_UNDER_NETWORK_PARTICIPANT",
+      "string"
+    ],
+    [
+      8,
+      "RECONCILIATION_TYPE",
+      "string"
+    ],
+    [
+      9,
+      "X_FLOW",
+      "long"
+    ],
+    [
+      10,
+      "I_FLOW",
+      "long"
+    ],
+    [
+      11,
+      "DESCRIPTION",
+      "string"
+    ],
+    [
+      12,
+      "NZTM_EASTING",
+      "long"
+    ],
+    [
+      13,
+      "NZTM_NORTHING",
+      "long"
+    ],
+    [
+      14,
+      "NETWORK_REPORTING_REGION_ID",
+      "long"
+    ],
+    [
+      15,
+      "NETWORK_REPORTING_REGION",
+      "string"
+    ],
+    [
+      16,
+      "ZONE",
+      "string"
+    ],
+    [
+      17,
+      "ISLAND",
+      "string"
+    ],
+    [
+      18,
+      "START_DATE",
+      "date"
+    ],
+    [
+      19,
+      "START_TP",
+      "long"
+    ],
+    [
+      20,
+      "END_DATE",
+      "date"
+    ],
+    [
+      21,
+      "END_TP",
+      "long"
+    ],
+    [
+      22,
+      "SB_ICP",
+      "string"
+    ],
+    [
+      23,
+      "BALANCING_CODE",
+      "string"
+    ],
+    [
+      24,
+      "MEP",
+      "string"
+    ],
+    [
+      25,
+      "RESPONSIBLE_PARTICIPANT",
+      "string"
+    ],
+    [
+      26,
+      "CERTIFICATION_EXPIRY",
+      "date"
+    ],
+    [
+      27,
+      "METERING_INFORMATION_EXEMPTION_EXPIRY_DATE",
+      "date"
+    ]
+  ],
+  "x-format": 5,
+  "x-schema-id": 0,
+  "x-table": {
+    "$ref": "metadata/v1.metadata.json",
+    "name": "NZ_NETWORK_SUPPLY_POINTS"
+  }
+}

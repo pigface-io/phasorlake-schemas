@@ -1,0 +1,236 @@
+{
+  "breaking": [],
+  "current-schema-id": 0,
+  "format-version": 3,
+  "headers": {
+    "1": "Current flag",
+    "10": "I flow",
+    "11": "Description",
+    "12": "NZTM easting",
+    "13": "NZTM northing",
+    "14": "Network reporting region ID",
+    "15": "Network reporting region",
+    "16": "Zone",
+    "17": "Island",
+    "18": "Start date",
+    "19": "Start TP",
+    "20": "End date",
+    "21": "End TP",
+    "22": "SB ICP",
+    "23": "Balancing code",
+    "25": "Responsible participant",
+    "26": "Certification expiry",
+    "27": "Metering information exemption expiry date",
+    "3": "NSP replaced by",
+    "4": "POC code",
+    "5": "Network participant",
+    "6": "Embedded under POC code",
+    "7": "Embedded under network participant",
+    "8": "Reconciliation type",
+    "9": "X flow"
+  },
+  "runs": [
+    {
+      "changes": [
+        "first"
+      ],
+      "files": 177,
+      "from": {
+        "data-time": "1999-04-01T00:00:00+12:00",
+        "file": "20260106_NetworkSupplyPointsTable.csv",
+        "release": "2026-01",
+        "sha256": "6cfc1ffb7cb2de26e448757e378507037e23c119701cebf597377fa4fd048aa0"
+      },
+      "kinds": [
+        "emi"
+      ],
+      "overlaps": false,
+      "report": [
+        "EMI",
+        "NETWORK_SUPPLY_POINTS_TABLE"
+      ],
+      "rows": 455453,
+      "schema-id": 0,
+      "to": {
+        "data-time": "2027-04-01T00:00:00+12:00",
+        "file": "20261104_NetworkSupplyPointsTable.csv",
+        "release": "2026-11",
+        "sha256": "4a71c0ae6f54d6491b5ac4dbdb175fc570b567841826734f6f4432d6f2bdaec0"
+      },
+      "updates": [],
+      "version": 1
+    }
+  ],
+  "schemas": [
+    {
+      "fields": [
+        {
+          "id": 1,
+          "name": "CURRENT_FLAG",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "NSP",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "NSP_REPLACED_BY",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "POC_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "NETWORK_PARTICIPANT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 6,
+          "name": "EMBEDDED_UNDER_POC_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 7,
+          "name": "EMBEDDED_UNDER_NETWORK_PARTICIPANT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "RECONCILIATION_TYPE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "X_FLOW",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 10,
+          "name": "I_FLOW",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 11,
+          "name": "DESCRIPTION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 12,
+          "name": "NZTM_EASTING",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 13,
+          "name": "NZTM_NORTHING",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 14,
+          "name": "NETWORK_REPORTING_REGION_ID",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 15,
+          "name": "NETWORK_REPORTING_REGION",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 16,
+          "name": "ZONE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 17,
+          "name": "ISLAND",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 18,
+          "name": "START_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 19,
+          "name": "START_TP",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 20,
+          "name": "END_DATE",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 21,
+          "name": "END_TP",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 22,
+          "name": "SB_ICP",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 23,
+          "name": "BALANCING_CODE",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 24,
+          "name": "MEP",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 25,
+          "name": "RESPONSIBLE_PARTICIPANT",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 26,
+          "name": "CERTIFICATION_EXPIRY",
+          "required": false,
+          "type": "date"
+        },
+        {
+          "id": 27,
+          "name": "METERING_INFORMATION_EXEMPTION_EXPIRY_DATE",
+          "required": false,
+          "type": "date"
+        }
+      ],
+      "identifier-field-ids": [],
+      "schema-id": 0,
+      "type": "struct"
+    }
+  ],
+  "table": "NZ_NETWORK_SUPPLY_POINTS"
+}
