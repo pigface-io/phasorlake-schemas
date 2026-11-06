@@ -38,13 +38,15 @@ use phasor_schemas::month::YearMonth;
 )]
 struct Cli {
     /// Where the run's time went, as zonetrace's call tree, at exit: on
-    /// stderr, or into FILE. Needs a build with the feature `zones`.
+    /// stderr, or into FILE (`--zones=FILE`). Needs a build with the
+    /// feature `zones`.
     #[arg(
         long,
         global = true,
         env = "PHASOR_ZONES",
         value_name = "FILE",
         num_args = 0..=1,
+        require_equals = true,
         default_missing_value = "-"
     )]
     zones: Option<PathBuf>,
