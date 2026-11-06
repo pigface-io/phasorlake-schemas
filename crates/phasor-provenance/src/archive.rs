@@ -226,19 +226,14 @@ impl Archive {
     }
 
     fn write_as(path: &Path, provenance: &Provenance, sync: bool) -> Result<(), Error> {
-        use std::io::Write as _;
         let record = beside(path, RECORD);
-        let tmp = beside(&record, ".tmp");
-        let mut f = std::fs::File::create(&tmp).map_err(io(&tmp))?;
-        f.write_all(provenance.to_json().as_bytes())
-            .map_err(io(&tmp))?;
-        if sync {
-            rustix::fs::fsync(&f)
-                .map_err(std::io::Error::from)
-                .map_err(io(&tmp))?;
-        }
-        drop(f);
-        std::fs::rename(&tmp, &record).map_err(io(&record))?;
+        let durability = if sync {
+            crate::fs::Durability::Synced
+        } else {
+            crate::fs::Durability::Unsynced
+        };
+        crate::fs::write_atomic(&record, provenance.to_json().as_bytes(), durability)
+            .map_err(io(&record))?;
         let old = beside(path, OLD_RECORD);
         if std::fs::read(&old)
             .ok()

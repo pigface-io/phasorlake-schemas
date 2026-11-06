@@ -17,11 +17,13 @@ pub mod archive;
 pub mod civil;
 pub mod content;
 pub mod diagnose;
+pub mod fs;
 pub mod layout;
 pub mod provenance;
 pub mod stamp;
 
 pub use archive::{Archive, Held};
 pub use content::{Content, Sha256};
+pub use fs::{Durability, write_atomic};
 pub use provenance::{Address, Listed, Provenance, Served, Span, Via};
 pub use stamp::Stamp;

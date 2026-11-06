@@ -152,7 +152,9 @@ fn what_does_not_read_is_an_error() {
         Archive::read(&dir.path().join("B")),
         Err(Error::Io { .. })
     ));
-    // Nowhere to write.
+    // Nowhere to write: a file where the directories should go (missing
+    // directories are made).
+    std::fs::write(dir.path().join("no"), b"").unwrap();
     let gone = dir.path().join("no/such/C");
     let e = Archive::write(&gone, &provenance(URL, b"x")).unwrap_err();
     assert!(matches!(e, Error::Io { .. }), "{e}");
