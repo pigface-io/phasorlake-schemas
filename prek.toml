@@ -16,8 +16,8 @@ repo = "builtin"
 hooks = [
     # AEMO's files are kept byte for byte.
     # The manifest lists under the market directories are Avro: bytes, not text.
-    { id = "trailing-whitespace", exclude = '^(testdata/|evidence/ctl/)|\.avro$' },
-    { id = "end-of-file-fixer", exclude = '^(testdata/|evidence/ctl/|(nem|wem|gas|nz)/.*/metadata/version-hint\.text$)|\.avro$' },
+    { id = "trailing-whitespace", exclude = '^(testdata/|crates/phasor-listing/testdata/|evidence/ctl/)|\.avro$' },
+    { id = "end-of-file-fixer", exclude = '^(testdata/|crates/phasor-listing/testdata/|evidence/ctl/|(nem|wem|gas|nz)/.*/metadata/version-hint\.text$)|\.avro$' },
     { id = "check-yaml" },
     { id = "check-toml" },
     { id = "check-json" },

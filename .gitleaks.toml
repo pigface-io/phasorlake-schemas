@@ -12,3 +12,7 @@ paths = ['''(^|/)Cargo\.lock$''']
 [[allowlists]]
 description = "AEMO's published files and the records of them: hashes of public files are not keys"
 paths = ['''^(evidence|sources|nem|testdata)/''', '''^manifest\.json$''']
+
+[[allowlists]]
+description = "The listing crate's fixtures are nemweb's and the WA host's pages as served; nemweb's carry its own public Application Insights key"
+paths = ['''^crates/phasor-listing/testdata/''']
