@@ -30,7 +30,7 @@ fact, and which restatement is the latest, are a reader's decisions.
 | `tables/{market}/` | One hand-kept declaration per table: report pairs, time column, load mode, columns typed by hand |
 | `evidence/` | The census of every block of every file (no row copied), the data models, loader configurations and each table's folded history |
 | `sources/` | Every file the evidence was taken from: URL, SHA-256, size, publication time |
-| `crates/` | The code: `phasor-iceberg` (the contract), the decoders, `phasor-provenance`, `phasor-zip`, `phasor-diag`, `phasor-gates` and the `phasor-schemas` tool |
+| `crates/` | The code: `phasor-iceberg` (the contract), the decoders, `phasor-provenance`, `phasor-listing`, `phasor-zip`, `phasor-diag`, `phasor-gates` and the `phasor-schemas` tool |
 
 ## Reading a table
 

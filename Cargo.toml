@@ -22,6 +22,9 @@
 #                what an archived file is and every place AEMO served it:
 #                the record beside each file, the one time type, the
 #                archive and the rule that names a file's local path.
+#   phasor-listing  an IIS directory listing read two ways: every link
+#                with what its line says (lenient), or every folder and
+#                file else an error naming the line (strict). Pure.
 #   phasor-zip      walking a zip, zips inside zips included, entries whose
 #                local header lies read from the central directory. Pure.
 #   phasor-gates    the repository gates every phasor repository runs from
@@ -37,6 +40,7 @@ members = [
     "crates/phasor-diag",
     "crates/phasor-gates",
     "crates/phasor-iceberg",
+    "crates/phasor-listing",
     "crates/phasor-mms-decode",
     "crates/phasor-plain-decode",
     "crates/phasor-provenance",
@@ -83,6 +87,7 @@ phasor-diag = { path = "crates/phasor-diag" }
 phasor-gates = { path = "crates/phasor-gates" }
 phasor-iceberg = { path = "crates/phasor-iceberg" }
 phasor-mms-decode = { path = "crates/phasor-mms-decode" }
+phasor-listing = { path = "crates/phasor-listing" }
 phasor-plain-decode = { path = "crates/phasor-plain-decode" }
 phasor-provenance = { path = "crates/phasor-provenance" }
 phasor-zip = { path = "crates/phasor-zip" }

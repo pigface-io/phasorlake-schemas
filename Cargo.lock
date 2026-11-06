@@ -423,6 +423,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "phasor-listing"
+version = "0.2.0"
+dependencies = [
+ "memchr",
+ "phasor-provenance",
+ "thiserror",
+]
+
+[[package]]
 name = "phasor-mms-decode"
 version = "0.2.0"
 dependencies = [

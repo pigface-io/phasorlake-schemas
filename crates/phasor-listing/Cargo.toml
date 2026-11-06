@@ -1,0 +1,17 @@
+[package]
+name = "phasor-listing"
+description = "Reads an IIS directory listing, the page nemweb and AEMO's WA host serve for a folder, two ways: leniently, every link with what its line says, for a kit that lists what to fetch; strictly, refusing any line that is not a folder or a file, for a mirror that must notice the format change."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+phasor-provenance.workspace = true
+memchr.workspace = true
+thiserror.workspace = true
