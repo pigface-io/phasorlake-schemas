@@ -8,8 +8,6 @@ use zonetrace::Zone;
 
 /// One header-row CSV scanned into rows.
 pub static PLAIN_SCAN: Zone = Zone::new(1240, "plain.scan");
-/// The header row read and its columns named.
-pub static PLAIN_HEADER: Zone = Zone::new(1242, "plain.header");
 /// One WEMDE document scanned into blocks.
 pub static WEMDE_SCAN: Zone = Zone::new(1243, "wemde.scan");
 /// The document parsed as JSON.
