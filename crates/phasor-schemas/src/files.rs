@@ -2,37 +2,23 @@
 
 use std::cell::RefCell;
 use std::fs::File;
-use std::io::{Read, Seek, SeekFrom, Write as _};
+use std::io::{Read, Seek, SeekFrom};
 use std::path::Path;
 use std::rc::Rc;
 
 use sha2::Digest as _;
 
-/// Writes `bytes` to `path` through a temporary file beside it, renamed
-/// into place: a reader sees the old file or the new one, never part of
-/// either. Missing directories are made.
+/// Writes `bytes` to `path` whole or not at all ([`phasor_provenance::fs`]),
+/// unsynced: the evidence and the exports are in git, and a run that is
+/// cut short is run again.
 pub fn write_atomic(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
-    let dir = path.parent().unwrap_or_else(|| Path::new("."));
-    std::fs::create_dir_all(dir)?;
-    let mut tmp = tempfile::NamedTempFile::new_in(dir)?;
-    tmp.write_all(bytes)?;
-    tmp.persist(path).map_err(|e| e.error)?;
-    Ok(())
+    phasor_provenance::write_atomic(path, bytes, phasor_provenance::Durability::Unsynced)
 }
 
 /// The SHA-256 of a stream, lower-case hex, and its length in bytes.
-pub fn sha256_of(mut r: impl Read) -> std::io::Result<(String, u64)> {
-    let mut h = sha2::Sha256::new();
-    let mut buf = vec![0u8; 8 << 20];
-    let mut len = 0u64;
-    loop {
-        let n = r.read(&mut buf)?;
-        if n == 0 {
-            return Ok((hex(&h.finalize()), len));
-        }
-        h.update(&buf[..n]);
-        len += n as u64;
-    }
+pub fn sha256_of(r: impl Read) -> std::io::Result<(String, u64)> {
+    let content = phasor_provenance::Content::of_reader(r)?;
+    Ok((content.sha256.hex(), content.size))
 }
 
 /// How much of a file has been hashed, in order from its start.

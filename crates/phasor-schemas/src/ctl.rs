@@ -23,8 +23,7 @@ use crate::shape::TypeClass;
 /// SHA-256 of a control file's bytes, lower-case hex: the name the evidence
 /// keeps the file under.
 pub fn sha256(bytes: &[u8]) -> String {
-    use sha2::Digest as _;
-    crate::files::hex(&sha2::Sha256::digest(bytes))
+    phasor_provenance::Sha256::of(bytes).hex()
 }
 
 /// A SQL*Loader column datatype.

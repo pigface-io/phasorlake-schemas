@@ -80,25 +80,15 @@ struct Listed {
     max_us: Option<i64>,
 }
 
-/// Days from 1970-01-01 to a civil date (proleptic Gregorian).
+/// Days from 1970-01-01 to a civil date (proleptic Gregorian), in the
+/// `i64` this module counts in; the arithmetic is [`phasor_provenance::civil`]'s.
 pub(crate) fn days_from_civil(y: i64, m: i64, d: i64) -> i64 {
-    let y = if m <= 2 { y - 1 } else { y };
-    let era = y.div_euclid(400);
-    let yoe = y - era * 400;
-    let mp = (m + 9) % 12;
-    let doy = (153 * mp + 2) / 5 + d - 1;
-    let doe = yoe * 365 + yoe / 4 - yoe / 100 + doy;
-    era * 146_097 + doe - 719_468
+    phasor_provenance::civil::days_from_civil(y as i32, m as u32, d as u32)
 }
 
 /// The days of month `m` of year `y`.
 pub(crate) fn days_in_month(y: i64, m: i64) -> i64 {
-    match m {
-        2 if (y % 4 == 0 && y % 100 != 0) || y % 400 == 0 => 29,
-        2 => 28,
-        4 | 6 | 9 | 11 => 30,
-        _ => 31,
-    }
+    i64::from(phasor_provenance::civil::days_in_month(y as i32, m as u32))
 }
 
 /// A time as microseconds since 1970 (UTC): RFC 3339 (`T` or a space
