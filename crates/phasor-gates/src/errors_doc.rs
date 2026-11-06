@@ -43,7 +43,8 @@ pub const PHASOR_CATEGORIES: [&str; 15] = [
 
 /// Every shipped `.rs` file under `root`'s `crates/`, relative path and
 /// text, in path order: not `xtask`, `tests` or `benches`, not a crate's
-/// `zones.rs` (whose dotted zone names are not codes), and each cut at its
+/// `zones.rs` (whose dotted zone names are not codes) or `tests.rs` (a test
+/// module in a file of its own), and each cut at its
 /// first `#[cfg(test)]`, since test modules invent codes and messages.
 #[must_use]
 pub fn shipped_sources(root: &Path) -> Vec<(String, String)> {
@@ -63,7 +64,8 @@ pub fn shipped_sources(root: &Path) -> Vec<(String, String)> {
                 continue;
             }
             if p.extension().is_none_or(|e| e != "rs")
-                || p.file_name().is_some_and(|n| n == "zones.rs")
+                || p.file_name()
+                    .is_some_and(|n| n == "zones.rs" || n == "tests.rs")
                 || p.components().any(|c| {
                     c.as_os_str() == "xtask"
                         || c.as_os_str() == "tests"
@@ -304,10 +306,16 @@ mod tests {
             "let x = \"csv.in_tests\";",
         )
         .unwrap();
-        // A crate's zones are named with dots too, and are not codes.
+        // A crate's zones are named with dots too, and are not codes; a
+        // test module in a file of its own invents codes like any test.
         std::fs::write(
             src.join("zones.rs"),
             "pub static Z: Zone = Zone::new(1, \"csv.zone_name\");",
+        )
+        .unwrap();
+        std::fs::write(
+            src.join("tests.rs"),
+            "let d = Diagnostic::error(\"csv.module_test_only\", c, m);",
         )
         .unwrap();
         assert!(!run(root, &SPEC, false, true).unwrap());
@@ -316,7 +324,7 @@ mod tests {
         assert!(doc.contains("`csv.bad`") && doc.contains("`crates/a/src/lib.rs`"));
         assert!(doc.contains("`net.inherited`") && doc.contains("`a dependency`"));
         assert!(!doc.contains("csv.test_only") && !doc.contains("csv.in_tests"));
-        assert!(!doc.contains("csv.zone_name"));
+        assert!(!doc.contains("csv.zone_name") && !doc.contains("csv.module_test_only"));
         assert!(run(root, &SPEC, false, true).unwrap());
         assert!(run(root, &SPEC, false, false).unwrap());
         std::fs::write(src.join("more.rs"), "code: \"schema.old\",").unwrap();
